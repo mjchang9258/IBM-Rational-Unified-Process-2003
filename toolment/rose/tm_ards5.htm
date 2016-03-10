@@ -1,0 +1,353 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<HTML>
+ <HEAD>
+  <title>Tool Mentor:&nbsp;Reverse-Engineering Code Using Rational Rose</title>
+ <LINK REL="StyleSheet" HREF="../../rop.css" TYPE="text/css">
+</HEAD>
+ <BODY>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<H2 CLASS="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Reverse-Engineering Code Using Rational Rose</rpw><A NAME="Top" msnavigation></A></H2>
+
+<H3>Purpose</H3>
+
+<p>This tool mentor describes Rational Rose's ability to reverse-engineer various
+types of elements into a Rose model, including elements as varied as language source and
+binary code, Type Libraries, Web-based elements,&nbsp; XML DTDs, and database
+schemas.
+</p>
+
+      
+<P> Related Rational Unified Process information: </P>
+<ul>
+  <li><a href="../../process/activity/ac_incds.htm">Activity: Incorporate Existing 
+    Design Elements</a>, refer to the section titled &quot;Reverse-engineer components 
+    and databases&quot;</li>
+</ul>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_iddes.htm">Identify Design Elements</a></li>
+</ul>
+<br>
+   
+</p>
+
+<H3>Overview</H3>
+
+<p>Reverse engineering is the process of examining an existing resource, recovering 
+  information about its design, then using that information to generate or update 
+  a model representing the project's logical structure. It enables you to reuse 
+  elements common to more than one model or system. It also enables you to iteratively 
+  develop (round trip) a system through analysis and design in Rational Rose, 
+  generating source code from the model, developing the source, then reverse engineering 
+  the source back into a Rose model.</p>
+<p>The following Rational Rose add-ins provide reverse engineering features: </p>
+
+<ul>
+  <li><a href="#Visual C++">Visual C++</a>
+  <li><a href="#Visual Basic">Visual Basic</a></li>
+  <li><a href="#Type Library Importer">Type Library Importer</a></li>
+  <li><a href="#ANSII C++">ANSII C++</a></li>
+  <li><a href="#Rose J (Java)">Rose J (Java)</a></li>
+  <li><a href="#CORBA">CORBA</a></li>
+  <li><a href="#XML DTD">XML DTD</a></li>
+  <li><a href="#Web Modeler">Web Modeler</a></li>
+  <li><a href="#Data Modeler">Data Modeler</a></li>
+</ul>
+
+<h3><a name="Visual C++">Visual C++ </a> <a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Rational Rose Visual C++ enables you to reverse-engineer Visual C++ source code. Its features include:&nbsp;
+<ul>
+  <li>
+
+Full reverse engineering of common Visual C++ language constructs such as
+relationships, typedefs, enums, message/object/COM maps, constructors, and
+    destructors&nbsp;</li>
+  <li>
+Dialog-based support for reverse engineering code for Visual C++
+elements</li>
+  <li>Autosynchronization mode for automatically updating code or model when
+either is changed</li>
+  <li>Integration with Microsoft's Visual Studio, including IDL files</li>
+  <li>Support for Visual C++ template classes and user-specified code patterns</li>
+</ul>
+
+<h3>&nbsp;<a name="Visual Basic">Visual Basic </a><a href="#Top"> <img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Being tightly integrated with the Microsoft Visual Basic 6.0
+environment, the Rational Rose Visual Basic Language Support Add-in
+enables you to update and subsequently evolve a Rose model from changes in the
+Visual Basic source code. The extensible and customizable dialog-based tools guide you
+smoothly through the process of updating the model when the source
+code is changed. </p>
+
+<p>Features include:</p>
+
+<ul>
+  <li>Update of model elements from changes in the corresponding
+source code projects</li>
+  <li>Synchronization mode for updating model elements when
+source code is deleted</li>
+  <li>Import of type libraries in the model&nbsp;</li>
+  <li>Ability to automate and extend round-trip engineering by
+using the Rose Visual Studio RTE Extensibility</li>
+</ul>
+<h3><a name="Type Library Importer">Type Library Importer</a> <a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Type Library Importer in Rational Rose enables you to
+import a type library of a COM component (.dll, .exe, .ocx, .olb, and
+.tlb files) into a Rose model. The type library is represented as a
+component and as a logical package in the model. The logical package contains the type library items that are
+defined by the type information of the imported COM component, such as
+coclasses,
+interfaces, dispinterfaces, and so forth. Each item is represented by a class.&nbsp; </p>
+
+<p>By importing type libraries into a model, you can show how
+classes in the model use, implement, or depend upon classes and
+interfaces in other COM components, regardless of their implementation
+language. Features of the Type Library Importer include:</p>
+
+<ul>
+  <li>Dialog-based support for control of the Type Library
+Importer</li>
+  <li>Quick Import mode to import class placeholders and Full
+import mode to import classes with all operations and properties</li>
+  <li>Presentation of type libraries in the Object Browser or
+    the OLE/COM Viewer in Visual Studio</li>
+  <li>Ability to extend and customize type library import by
+running the Type Library Importer from a script or a program using the Rose
+    Visual Studio RTE Extensibility</li>
+</ul>
+<p><IMG SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16">&nbsp;
+The way you use a type library varies from one programming language to another.
+For more information, see the online help for Rational Rose and the documentation for the
+language add-in you're using.</p>
+
+<h3>&nbsp;<a name="ANSII C++">ANSII C++ </a> <a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The Rational Rose ANSII C++ add-in enables you to reverse-engineer source code into a Rose model.  ANSI C++ supports both reverse engineering into an empty model, where new model elements are created, and reverse engineering into an existing model, where model elements are changed to correspond to the code.
+It provides:&nbsp;
+<ul>
+  <li>Support for Model evolution from analysis to design</li>
+  <li>Support for C++ language without being restricted to a single vendor’s C++ compiler</li>
+  <li>Round trip engineering that synchronizes models and generated C++ code across multiple iterations</li>
+  <li>Changes made to the code are carried back to the model during reverse engineering</li>
+  <li>Design, modeling, and visualization of all C++ constructs including classes, templates, namespaces, inheritance, and class members functions</li>
+  <li>Support for large frameworks</li>
+</ul>
+
+<h3><a name="Rose J (Java)">Rose J (Java)</a> <a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Rational Rose J enables you to reverse-engineer existing Java elements into a
+Rose model. These elements include:</p>
+<ul>
+  <li>Source files (.java files)</li>
+  <li>Bytecode files (.class files)</li>
+  <li>Java archive files (.zip, .cab, .jar, and .war files)</li>
+  <li>Java Enterprise JavaBeans</li>
+  <li>Java Servlets</li>
+</ul>
+<p>Rational Rose J also supports integration with IBM's VisualAge for Java.</p>
+ <h3><a name="CORBA">CORBA</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Rational Rose CORBA
+enables you to reverse engineer any CORBA-compliant IDL code into a Rose model.
+Each reverse-engineered .idl file
+becomes a component, and is placed in the component view of the model.</p>
+<p>When you reverse
+engineer previously forward-engineered IDL code (that is, code that was
+generated from CORBA model elements), your original model elements remain
+unchanged, except that new information or changes you entered into the IDL code
+are carried back into the model. The exceptions to this rule are the special
+cases of Rational Rose constructs that are used for one-time forward engineering only.</p>
+
+<h3>&nbsp;<a name="XML DTD">XML DTD</a> <a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Rational Rose XML DTD (eXtensible Markup Language Document Type Definition)
+reverse engineers an XML DTD (.dtd file) to create a Rose class diagram showing
+the structure, elements, and relationships in the DTD. You can add and remove
+XML DTD elements, and change relationships between the elements in the class
+diagram created by the reverse engineering process. After you use the Rose XML
+DTD syntax checker to validate the XML, you can generate a new DTD from the Rose
+class diagram.</p>
+<p>Rational Rose XML DTD provides stereotyped classes you can use to model and generate
+an XML DTD.</p>
+<h3><a name="Web Modeler">Web Modeler</a> <a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+ <p>Rational Rose Web Modeler parses Active Server Page (ASP), Java Server Page
+ (JSP), and HTML files in your Web application creating a web application model
+ using stereotype classes that represent client pages, server pages, and HTML
+ forms. You can modify the Web application model and generate .asp, .jsp, .html,
+ and .htm files from Web Modeler.</p>
+
+<h3><a name="Data Modeler">Data Modeler</a> <a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p> Rational Rose Data Modeler features allow the database designer and the software developer
+to communicate requirements using the same tool. As a database designer or developer, you can use Rose Data Modeler to model and design
+a database by reverse engineering an existing database schema or DDL script.
+
+<p>Using the Rational Rose Data Modeler Reverse Engineering Wizard, you can engineer a DDL script or database schema for
+an ANSI&nbsp; SQL 92 standard database or the following DBMSes:</p>
+
+<ul>
+  <li>DB2 DBMS versions MVS and UDB</li>
+  <li>Oracle DBMS&nbsp;</li>
+  <li>SQL Server DBMS&nbsp;</li>
+  <li>Sybase Adaptive Server&nbsp;</li>
+</ul>
+
+<p>The Reverse Engineering Wizard reads the database schema or DDL file and creates a data model diagram that includes the names of all quoted identifier entities. Depending on the DBMS, Rose Data Modeler Reverse Engineering Wizard
+models tables,&nbsp; relationships between tables, stored procedures, indexes, and triggers in the data model diagram. </p>
+
+<p>In the data model diagram, you can add tables, define relationships, indexes, and
+domains, and apply third normal form to the elements, then transform the data model to an object model or forward engineer the data model to generate a DDL script or database schema.&nbsp; </p>
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

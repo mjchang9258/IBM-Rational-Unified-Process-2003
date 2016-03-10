@@ -1,0 +1,424 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Execute Developer Tests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Execute Developer Tests</rpw>
+   <a name="XE_unit_test__performing"></a><a name="XE_test__developer_testing__performing_unit_tests"></a></h2>
+
+<div align="center">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To verify the specification of a unit.</li>
+      <li>To verify the internal structure of a unit.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#GettingStarted">Getting Started</a></li>
+      <li><a href="#Execute Unit Test">Execute Unit Tests</a></li>
+      <li><a href="#Evaluate Execution of Test">Evaluate the Execution of Test</a></li>
+      <li><a href="#Verify Test Results">Verify Test Results</a></li>
+      <li><a href="#Recover From Halted Tests">Recover from Halted Tests</a></li>
+    </ul>
+    </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_dvltst.htm">Developer Test</a></li>
+<li><a href="../artifact/ar_comp.htm">Implementation Element</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_tstlog.htm">Test Log</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_implm.htm">Implementer</a>&nbsp;</td>
+    </tr>
+	<!-- Activity Tool Mentors -->
+    <tr> 
+       
+      <td colspan="2"><b>Tool Mentors:</b>&nbsp;<ul>
+<li><a href="../../toolment/robot/tm_extst.htm">Executing Test Suites Using Rational Robot</a></li>
+<li><a href="../../toolment/purify_plus/tm_prfpls_exctstste.htm">Executing Test Suites Using the Rational PurifyPlus Tools (Windows and UNIX)</a></li>
+<li><a href="../../toolment/rqa/tm_rqa_implautoct.htm">Implementing an Automated Component Test using Rational QualityArchitect</a></li>
+<li><a href="../../toolment/test_realtime/tm_rtrtexe.htm">Executing Developer Tests Using Rational Test RealTime</a></li>
+</ul>
+ 
+        
+      </td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+      <td colspan="2"><b>More Information:&nbsp;</b> 
+        
+	  </td>
+    </tr>
+</table>
+<br>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_impl.htm">Implementation</a>
+<ul>
+<li><a href="../workflow/implemen/wfs_implc.htm">Implement Components</a></li>
+<li><a href="../workflow/implemen/wfs_inss.htm">Integrate Each Subsystem</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+
+<h3><a name="GettingStarted">Getting Started</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">To prepare for implementing the test.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<p>Implementation and modification of components takes place in the context of 
+  configuration management on the project. Implementers are provided with a private 
+  development workspace (see <a href="ac_crpws.htm">Activity: Create Development 
+  Workspace</a>) in which they do their work, as directed by <a href="../artifact/ar_wkord.htm">Artifact: 
+  Work Order</a>s. In this workspace, source elements are created and placed under 
+  configuration management, or they are modified through the usual check out, 
+  edit, build, unit test, and check in cycle (see <a href="ac_ckino.htm">Activity: 
+  Make Changes</a>). Following the completion of some set of components, as defined 
+  by one or more Work Orders and required for an upcoming build, the implementer 
+  will deliver (see <a href="ac_prmci.htm">Activity: Deliver Changes</a>) the 
+  associated new and modified components to the subsystem integration workspace, 
+  for integration with the work of other implementers. Finally, at a convenient 
+  point, the implementer can update, or re-baseline, the private development workspace 
+  so it's consistent with the subsystem integration workspace (see <a href="ac_upwks.htm">Activity: 
+  Update Workspace</a>).</p>
+
+<p><b>Unit</b> means not only a class in an object-oriented language, but also 
+  free subprograms, such as functions in C++.</p>
+<p>For testing each unit (implemented class), perform the following steps:</p>
+
+
+<h3><a name="Execute Unit Test">Execute Unit Test</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To execute the test procedures, or test scripts if testing is automated.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>To execute unit test, the following steps should be followed:</p>
+<ol>
+  <li>Set up the test environment to ensure that all the needed elements, such
+    as hardware, software, tools, data, and so on, have been implemented and are in the
+    test environment.</li>
+  <li>Initialize the test environment to ensure all components are in the
+    correct initial state for the start of testing.</li>
+  <li>Execute the test procedures.</li>
+</ol>
+<blockquote>
+  <p><i><b>Note</b></i>: Executing the test procedures will vary depending on whether
+  testing is automated or manual, and whether test components are needed as either drivers or stubs.&nbsp;</p>
+</blockquote>
+<blockquote>
+  <ul>
+    <li>Automated testing: The test scripts created during the
+      Implement Test step are executed.</li>
+    <li>Manual execution: The structured test procedures
+      developed during the Structure Test Procedure activity are used to
+      manually execute the test.</li>
+  </ul>
+</blockquote>
+
+<h3><a name="Evaluate Execution of Test">Evaluate Execution of Test</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To determine whether the tests completed successfully and as desired.<br>
+      To determine if corrective action is required.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The execution of testing ends or terminates in one of two conditions:
+<ul>
+  <li>Normal: all test procedures (or scripts) execute as intended.</li>
+</ul>
+<blockquote>
+  <p>If testing terminates normally, then continue with the step <a href="#Verify Test Results"> 
+    Verify Test Results</a>.</p>
+</blockquote>
+<ul>
+  <li>Abnormal or premature: the test procedures, or scripts, did not execute
+    completely or as intended. When testing ends abnormally, the test results
+    may be unreliable. The cause of termination must be identified,
+    corrected, and the tests re-executed before additional test activities are
+    performed.</li>
+</ul>
+<p>If testing terminates abnormally, continue with the step <a href="#Recover From Halted Tests">Recover 
+  from Halted Tests</a>.</p>
+
+<h3><a name="Verify Test Results">Verify Test Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To determine if the test results are reliable.<br>
+      To identify appropriate corrective action if the test results indicate flaws in the test effort or artifacts.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>When testing is complete, review the test results to ensure the test results 
+  are reliable and reported failures, warnings, or unexpected results were not 
+  caused by external influences (to the target-of-test), such as improper setup 
+  or data.</p>
+<p>If the reported failures are due to errors identified in the test artifacts 
+  or due to problems with the test environment, take the appropriate corrective 
+  action to <a href="#Recover From Halted Tests">recover from halted tests</a> 
+  and then execute the testing again.</p>
+<p>If the test results indicate the failures are genuinely due to the target-of-test, 
+  then this activity is essentially complete and typically either the <a href="ac_subcr.htm">Activity: 
+  Submit Change Request</a> or the <a href="ac_anlrntbhv.htm">Activity: Analyze Runtime Behavior</a> 
+  should now be performed.</p>
+
+<h3><a name="Recover From Halted Tests">Recover From Halted Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To determine the appropriate corrective action to recover from a halted test.<br>
+	  To correct the problem, recover, and execute the tests again.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>There are two major types of halted tests:
+<ul>
+  <li>Fatal errors&#151the system fails; for example, network failures, hardware crashes,
+    and the like.</li>
+  <li>Test Script Command Failures&#151specific to automated testing, this is when
+    a test script cannot execute a command or a line of
+    code.</li>
+</ul>
+<p>Both types of abnormal termination to testing may exhibit the same symptoms:
+<ul>
+  <li>Unexpected actions, windows, or events occur while the test script is
+    executing.</li>
+  <li>Test environment appears unresponsive or in an undesirable state, such as
+    hung or crashed.</li>
+</ul>
+<p>To recover from halted tests, perform these steps:
+<ol>
+  <li>Determine the actual cause of the problem.</li>
+  <li>Correct the problem.</li>
+  <li>Set up the test environment again.</li>
+  <li>Initialize the test environment again.</li>
+  <li>Execute the tests again.</li>
+</ol>
+
+<p>See <a href="ac_tst_anltstflr.htm">Activity: Analyze Test Failure</a> 
+  for additional information.</p>
+
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

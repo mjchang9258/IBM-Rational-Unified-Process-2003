@@ -1,0 +1,296 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Workflow Detail:&nbsp;Manage Acceptance Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Workflow Detail:&nbsp;<rpw name="PresentationName">Manage Acceptance Test</rpw>
+</h2>
+
+<div align="center">
+  <table width="100%" cellpadding="4" border="0" bordercolor="#808080">
+   <tbody>
+    <tr> 
+      <td colspan="2" height="45"> 
+        <p>The purpose of this workflow detail is to ensure that the product is 
+          deemed acceptable to the customer prior to its general release.</p>
+        </td>
+    </tr>
+    <tr> 
+      <td width="10%" height="198" bgcolor="#CCCCCC"> 
+        <h5><br>Topics</h5>
+        <ul>
+          <li><a href="#Description">Description</a></li>
+          <li><a href="#RelatedInformation">Related Information</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Optionality">Optionality</a>&nbsp;</li>
+          <li><a href="#HowToStaff">How to Staff</a></li>
+          <li><a href="#WorkGuidelines">Work Guidelines</a></li>
+        </ul>
+      </td>
+      <td width="90%" height="198"> 
+        <p><a name="Overview"><map name="RPWMap0">
+
+ 
+    <area href="../../workers/wk_sysad.htm" shape="rect" coords="125,1,191,83">
+   
+
+    <area href="../../activity/ac_sudev.htm" shape="rect" coords="193,6,267,76">
+   
+
+    <area href="../../artifact/ar_supp.htm" shape="rect" coords="281,1,363,84">
+   
+
+    <area href="../../activity/ac_mgacc.htm" shape="rect" coords="84,196,157,265">
+   
+
+    <area href="../../workers/wk_depm.htm" shape="rect" coords="84,266,157,350">
+   
+
+    <area href="../../artifact/ar_dppls.htm" shape="rect" coords="1,103,62,172">
+   
+
+    <area href="../../artifact/ar_crqst.htm" shape="rect" coords="76,98,128,175">
+   
+
+    <area href="../../artifact/ar_tstenv.htm" shape="rect" coords="142,97,237,173">
+   
+
+    <area href="../../artifact/ar_acpl.htm" shape="rect" coords="0,178,62,253">
+   
+
+    <area href="../../artifact/ar_tstev.htm" shape="rect" coords="170,191,245,270">
+   
+
+    <area href="../../workers/wk_tstr.htm" shape="rect" coords="341,166,399,237">
+   
+
+    <area href="../../workers/wk_tstanl.htm" shape="rect" coords="257,217,323,289">
+   
+
+    <area href="../../activity/ac_tst_dtrtstrsl.htm" shape="rect" coords="257,154,323,217">
+   
+
+    <area href="../../activity/ac_tst_exctstste.htm" shape="rect" coords="341,102,399,165">
+   
+
+    <area href="../../workers/wk_sthld.htm" shape="rect" coords="0,256,62,342">
+   
+
+    <area href="../../artifact/ar_tstlog.htm" shape="rect" coords="326,262,383,334">
+   
+</map><img border="0" src="images/wfs_dep3.gif" width="405" height="353" usemap="#RPWMap0">
+</a>
+		</p>
+      </td>
+    </tr>
+   </tbody>
+  </table>
+<br>
+</div>
+
+<h4><a name="Description">Description</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>The Deployment Manager organizes the installation of the product on one or 
+  more Test Environment Configurations that represents an environment acceptable 
+  to the customer as specified in the Product Acceptance Plan. In some cases, 
+  this environment will actually be the production deployment environment itself.</p>
+	  
+<p>In some cases, the installation process itself may involve be subject to an 
+  acceptance test, as may any preceding hardware upgrades and configurations.</p>
+	  
+<p>Once installed, the Tester typically runs through a preselected set of tests&#151;usually 
+  based on a selected subset of the existing Test Suites&#151;and determines the 
+  Test Results. The Deployment Manager and other stakeholders review the Test 
+  Results for anomalies. If there are &quot;show stoppers&quot;, the Deployment 
+  Manager raises Change Requests that require immediate attention and resolution, 
+  and may delay or postpone subsequent plans for deployment to a wider user base.</p>
+  
+<h4><a name="RelatedInformation">Related Information</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>This section provides links to additional information related to this workflow detail.</p>
+
+  
+<h4><a name="Timing">Timing</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>This work is generally performed in Construction and Transition, typically 
+  starting later into construction. In some exceptional cases, acceptance testing 
+  may be useful in Elaboration iterations. Within an iteration, it is typically 
+  conducted later in the iteration on a more mature software build.</p>
+
+<h4><a name="Optionality">Optionality</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>In most cases, software will either be acceptance tested in some or beta tested 
+  by target end-users. Note however that where acceptance testing is performed, 
+  the formality of that testing will differ to suit the project context.</p>
+
+<h4><a name="HowToStaff">How to Staff</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>A Deployment Manager needs to be someone who is aware of the operational needs 
+  of the end user and capable of enabling a valid assessment of the product in 
+  a suitable environment. Pulling together all the many items, events and resources 
+  required for a successful acceptance test requires exceptional planning an organization 
+  skills.</p>
+
+<h4><a name="WorkGuidelines">Work Guidelines</a> 
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>See the <a href="#RelatedInformation">Related Information</a> section for additional 
+  guidance that will help you in performing this work.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

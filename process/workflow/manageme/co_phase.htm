@@ -1,0 +1,454 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Iteration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Iteration</rpw><a name="Top"></a><a name="XE_project_lifecycle__introduction_to"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Why iterate">Why Iterate?</a></li>
+  <li><a href="#What is an iteration">What is an Iteration?</a></li>
+  <li><a href="#Iteration and phases">Iteration and Phases</a></li>
+  <li>Iteration pattern: <a href="#Incremental">Incremental Lifecycle</a></li>
+  <li>Iteration pattern: <a href="#Evolutionary">Evolutionary Lifecycle</a></li>
+  <li>Iteration pattern: <a href="#Incremental Delivery">Incremental Delivery
+    Lifecycle</a></li>
+  <li>Iteration pattern: <a href="#&quot;Grand Design&quot;">&quot;Grand
+    Design&quot; Lifecycle</a></li>
+  <li>Iteration pattern: <a href="#Hybrid Strategies">Hybrid Strategies</a></li>
+</ul>
+<h3><a name="Why iterate">Why Iterate?</a></h3>
+<p>Traditionally, projects have been organized to go through each discipline in
+sequence, once and only once. This leads to the <b>waterfall</b>
+lifecycle:</p>
+<p align="center"><img src="images/waterfall.gif" width="368" height="86"></p>
+<p>This often results in an integration 'pile-up' late in implementation when,
+for the first time, the product is built and testing begins. Problems which have
+remained hidden throughout Analysis, Design and Implementation come boiling to
+the surface, and the project grinds to a halt as a lengthy bug-fix cycle begins.</p>
+<p>A more flexible (and less risky) way to proceed is to go several times
+through the various development disciplines, building a better understanding of
+the requirements, engineering a robust architecture, ramping up the development
+organization, and eventually delivering a series of implementations that are
+gradually more complete. This is called an <b>iterative</b> lifecycle.
+Each pass through the sequence of process disciplines is called an <b>iteration</b>.</p>
+<p align="center"><img src="images/iterative.gif" width="431" height="211"></p>
+<p>Therefore, from a development perspective the software lifecycle is a succession
+of <b>iterations</b>, through which the software develops
+incrementally. Each iteration concludes with the <b>release</b> of an
+executable product. This product may be a subset of the complete vision, but
+useful from some engineering or user perspective. Each release is accompanied by
+supporting artifacts: release description, user documentation, plans, and so on,
+and updated models of the system.</p>
+<p>The main consequence of this iterative approach is that the <a href="../../artifact/ovu_arts.htm">sets
+of artifacts</a>, described earlier, grow and mature over time, as shown in the
+following diagram.</p>
+<p align="center"><map name="FPMap0">
+<area href="../../artifact/ars_depl.htm" shape="rect" coords="378, 31, 394, 123">
+<area href="../../artifact/ars_impl.htm" shape="rect" coords="358, 29, 376, 125">
+<area href="../../artifact/ars_dsg.htm" shape="rect" coords="238, 131, 253, 226">
+<area href="../../artifact/ars_req.htm" shape="rect" coords="220, 132, 236, 227">
+
+
+<area href="../../artifact/ars_bm.htm" shape="rect" coords="200, 130, 219, 229">
+
+<area href="../../artifact/ars_depl.htm" shape="rect" coords="89, 132, 107, 226">
+<area href="../../artifact/ars_impl.htm" shape="rect" coords="53, 132, 71, 225">
+<area href="../../artifact/ars_dsg.htm" shape="rect" coords="35, 132, 53, 225">
+<area href="../../artifact/ars_req.htm" shape="rect" coords="18, 132, 35, 226">
+
+
+<area href="../../artifact/ars_bm.htm" shape="rect" coords="2, 132, 18, 225">
+
+<area href="../../artifact/ars_depl.htm" shape="rect" coords="182, 247, 358, 258">
+<area href="../../artifact/ars_impl.htm" shape="rect" coords="0, 285, 177, 296">
+<area href="../../artifact/ars_dsg.htm" shape="rect" coords="0, 270, 176, 285">
+<area href="../../artifact/ars_req.htm" shape="rect" coords="0, 259, 176, 273">
+
+
+<area href="../../artifact/ars_depl.htm" shape="rect" coords="288, 13, 306, 106">
+
+<area href="../../artifact/ars_impl.htm" shape="rect" coords="252, 13, 269, 106">
+<area href="../../artifact/ars_dsg.htm" shape="rect" coords="235, 12, 252, 105">
+<area href="../../artifact/ars_req.htm" shape="rect" coords="216, 12, 236, 105">
+<area href="../../artifact/ars_depl.htm" shape="rect" coords="89, 12, 107, 103">
+<area href="../../artifact/ars_impl.htm" shape="rect" coords="52, 13, 73, 104">
+<area href="../../artifact/ars_dsg.htm" shape="rect" coords="35, 11, 53, 103">
+<area href="../../artifact/ars_req.htm" shape="rect" coords="18, 11, 36, 105">
+
+
+<area href="../../artifact/ars_bm.htm" shape="rect" coords="196, 12, 216, 107">
+
+
+<area href="../../artifact/ars_bm.htm" shape="rect" coords="1, 12, 19, 106">
+
+
+<area href="../../artifact/ars_test.htm" shape="rect" coords="73, 14, 90, 104">
+<area href="../../artifact/ars_test.htm" shape="rect" coords="271, 11, 287, 106">
+<area href="../../artifact/ars_test.htm" shape="rect" coords="72, 135, 88, 225">
+<area href="../../artifact/ars_test.htm" shape="rect" coords="270, 131, 286, 228">
+<area href="../../artifact/ars_test.htm" shape="rect" coords="1, 296, 177, 305">
+<area href="../../artifact/ars_mgmt.htm" shape="rect" coords="106, 14, 123, 104">
+<area href="../../artifact/ars_mgmt.htm" shape="rect" coords="307, 13, 322, 108">
+<area href="../../artifact/ars_mgmt.htm" shape="rect" coords="108, 133, 125, 226">
+<area href="../../artifact/ars_mgmt.htm" shape="rect" coords="307, 134, 325, 232">
+<area href="../../artifact/ars_impl.htm" shape="rect" coords="254, 133, 272, 228">
+<area href="../../artifact/ars_depl.htm" shape="rect" coords="288, 131, 306, 231">
+<area href="../../artifact/ars_mgmt.htm" shape="rect" coords="183, 258, 358, 272">
+<area href="../../artifact/ars_ccm.htm" shape="rect" coords="183, 272, 358, 295">
+<area href="../../artifact/ars_env.htm" shape="rect" coords="185, 295, 358, 305">
+<area href="../../artifact/ars_ccm.htm" shape="rect" coords="125, 11, 142, 104">
+<area href="../../artifact/ars_ccm.htm" shape="rect" coords="122, 134, 142, 225">
+<area href="../../artifact/ars_ccm.htm" shape="rect" coords="324, 12, 340, 109">
+<area href="../../artifact/ars_ccm.htm" shape="rect" coords="325, 132, 341, 230">
+<area href="../../artifact/ars_env.htm" shape="rect" coords="141, 13, 161, 105">
+<area href="../../artifact/ars_env.htm" shape="rect" coords="341, 14, 358, 108">
+<area href="../../artifact/ars_env.htm" shape="rect" coords="142, 132, 162, 225">
+<area href="../../artifact/ars_env.htm" shape="rect" coords="341, 132, 358, 230">
+<area href="../../itrwkfls/iwf_iii.htm" shape="rect" coords="52, 0, 106, 12">
+<area href="../../itrwkfls/iwf_iie.htm" shape="rect" coords="249, 0, 312, 11">
+<area href="../../itrwkfls/iwf_lic.htm" shape="rect" coords="49, 120, 116, 132">
+<area href="../../itrwkfls/iwf_lit.htm" shape="rect" coords="251, 117, 309, 131"></map>
+<img src="../../../manuals/intro/images/infoset.gif" alt border="0" usemap="#FPMap0" width="359" height="306"></p>
+<p class="picturetext">Information set evolution over the development phases.</p>
+<h3><a name="What is an iteration">What is an Iteration?</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An iteration encompasses the development activities that lead to a product <b>release</b>&#151a stable, executable versions of product, together with any other peripheral
+elements necessary to use this release. So a development iteration is in some
+sense one complete pass through all the disciplines: Requirements, Analysis &amp;
+Design, Implementation, and Test, at
+least. It is like a small waterfall project in itself. Note that evaluation
+criteria are established when each iteration is planned. The release will have
+planned capability which is demonstrable. The duration of an iteration will vary
+depending on the size and nature of the project, but it is likely that <b>multiple</b>
+<a href="../../artifact/ar_build.htm">builds</a> will be constructed in <b>each</b>
+iteration, as specified in the <a href="../../artifact/ar_intbp.htm">Integration
+Build Plan</a> for the iteration. This is a consequence of the continuous
+integration approach recommended in the Rational Unified Process (RUP): as unit-tested
+components become available, they are integrated, then a build is produced and
+subjected to integration testing. In this way, the capability of the integrated
+software grows as the iteration proceeds, towards the goals set when the
+iteration was planned. It could be argued that each build itself represents a
+mini-iteration, the difference is in the planning required and the formality of
+the assessment performed. It may be appropriate and convenient in some projects
+to construct builds on a daily basis, but these would not represent iterations
+as the RUP defines them&#151except perhaps for a very small,
+single person project. Even for small multi-person projects (for example,
+involving five people building 10,000 lines of code), it would be very difficult
+to achieve an iteration duration of less than a week.
+ For an explanation of why,
+see <a href="../../modguide/md_prpln.htm">Guidelines: Software Development Plan</a>.</p>
+<h4>Release</h4>
+<p>A release can be internal or external. An internal release is used only by
+the development organization, as part of a milestone, or for a demonstration to
+users or customers. An external release (or delivery) is delivered to end users.
+A release is not necessarily a complete product, but can just be one step along
+the way, with its usefulness measured only from an engineering perspective.
+Releases act as a forcing function that drives the development team to get
+closure at regular intervals, avoiding the &quot;90% done, 90% remaining&quot;
+syndrome.</p>
+<p>Iterations and releases allow a better usage over time of the various
+specialties in the team: designers, testers, writers, and so forth. Regular releases let
+you break down the integration and test issues and spread them across the
+development cycle. These issues have often been the downfall of large projects
+because all problems were discovered at once during the single massive
+integration step, which occurred very late in the cycle, and where a single
+problem halts the whole team.</p>
+<p>At each iteration, artifacts are updated. It is said that this is a bit like
+&quot;growing&quot; software. Instead of developing artifacts one after another,
+in a pipeline fashion, they are evolving across the cycle, although at different
+rates.</p>
+<h4>Minor milestone</h4>
+<p>Each iteration is concluded by a minor milestone, where the result of the
+iteration is assessed relative to the objective success criteria of that
+particular iteration.</p>
+<h3><a name="XE_iteration__and_phases"></a><a name="Iteration and phases">Iteration
+and Phases</a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p align="center"><img border="0" src="../../../manuals/intro/images/im_prar6.gif" width="382" height="128"></p>
+<p class="picturetext">Each iteration within a phase results in an executable
+release of the system.</p>
+<p>Each phase in the RUP can be further broken down into
+iterations. An iteration is a complete development loop resulting in a release
+(internal or external) of an executable product, a subset of the final product
+under development, which grows incrementally from iteration to iteration to
+become the final system.</p>
+<h3>Iteration pattern: <a name="XE_incremental_lifecycle"></a><a name="XE_lifecycle_patterns__incremental_lifecycle"></a><a name="Incremental">Incremental
+</a>Lifecycle <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>&quot;The incremental strategy determines user needs, and defines the system
+requirements, and then performs the rest of the development in a sequence of
+builds. The first build incorporates parts of the planned capabilities, the next
+build adds more capabilities, and so on until the system is complete.&quot; [<a href="../../referenc.htm#DOD94">DOD94</a>]</p>
+<p>The following iterations are characteristic:
+<ul>
+  <li>a short Inception iteration to establish scope and vision, and to define
+    the business case</li>
+  <li>a single Elaboration iteration, during which requirements are defined, and
+    the architecture established</li>
+  <li>several Construction iterations during which the use cases are realized
+    and the architecture fleshed-out</li>
+  <li>several Transition iterations to migrate the product into the user
+    community</li>
+</ul>
+<p align="center"><img src="images/co_lfcl1.gif" width="321" height="122"></p>
+<p>This strategy is appropriate when:
+<ul>
+  <li>The problem domain is familiar.</li>
+  <li>Risks are well-understood.</li>
+  <li>The project team is experienced.</li>
+</ul>
+<h3>Iteration pattern: <a name="XE_evolutionary_lifecycle"></a><a name="XE_lifecycle_patterns__evolutionary_lifecycle"></a><a name="Evolutionary">Evolutionary</a>
+Lifecycle <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>&quot;The evolutionary strategy differs from the incremental in acknowledging
+that user needs are not fully understood, and all requirements cannot be defined
+up front, they are refined in each successive build.&quot; [<a href="../../referenc.htm#DOD94">DOD94</a>]</p>
+<p>The following iterations are characteristic:
+<ul>
+  <li>a short Inception iteration to establish scope and vision, and to define
+    the business case</li>
+  <li>several Elaboration iterations, during which requirements are refined at
+    each iteration</li>
+  <li>a single Construction iteration, during which the use cases are realized
+    and the architecture is expanded upon</li>
+  <li>several Transition iterations to migrate the product into the user
+    community</li>
+</ul>
+<p align="center"><img border="0" src="images/co_lfcl2.gif" width="322" height="132"></p>
+<p>This strategy is appropriate when:
+<ul>
+  <li>The problem domain is new or unfamiliar.</li>
+  <li>The team is inexperienced.</li>
+</ul>
+<h3>Iteration pattern: <a name="XE_incremental_delivery_lifecycle"></a><a name="XE_lifecycle_patterns__incremental_delivery_lifecycle"></a><a name="Incremental Delivery">Incremental
+Delivery</a> Lifecycle <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Some authors have also phased deliveries of incremental functionality to the
+customer [<a href="../../referenc.htm#GIL88">GIL88</a>]. This may be required
+where there are tight time-to-market pressures, where delivery of certain key
+features early can yield significant business benefits.</p>
+<p>In terms of the phase-iteration approach, the transition phase begins early
+on and has the most iterations. This strategy requires a very stable
+architecture, which is hard to achieve in an initial development cycle, for an
+&quot;unprecedented&quot; system.</p>
+<p>The following iterations are characteristic:
+<ul>
+  <li>a short Inception iteration to establish scope and vision, and to define
+    the business case</li>
+  <li>a single Elaboration iteration, during which a stable architecture is
+    baselined</li>
+  <li>a single Construction iteration, during which the use cases are realized
+    and the architecture fleshed-out</li>
+  <li>several Transition iterations to migrate the product into the user
+    community</li>
+</ul>
+<p align="center"><img border="0" src="images/co_lfcl3.gif" width="318" height="131"></p>
+<p>This strategy is appropriate when:
+<ul>
+  <li>The problem domain is familiar:
+    <ul>
+      <li>the architecture and requirements can be stabilized early in the
+        development cycle</li>
+      <li>there is a low degree of novelty in the problem</li>
+    </ul>
+  </li>
+  <li>The team is experienced.</li>
+  <li>Incremental releases of functionality have high value to the customer.</li>
+</ul>
+<h3>Iteration pattern: <a name="XE_grand_design_lifecycle"></a><a name="XE_lifecycle_patterns__&quot;grand_design&quot;_lifecycle"></a><a name="&quot;Grand Design&quot;">&quot;Grand
+Design&quot;</a> Lifecycle <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The traditional waterfall approach can be seen as a degenerated case in which
+there is only one iteration in the construction phase. It is called &quot;grand
+design&quot; in [<a href="../../referenc.htm#DOD94">DOD94</a>]. In practice, it
+is hard to avoid additional iterations in the transition phase.</p>
+<p>The following iterations are characteristic:
+<ul>
+  <li>a short Inception iteration to establish scope and vision, and to define
+    the business case</li>
+  <li>a single very long Construction iteration, during which the use cases are
+    realized and the architecture fleshed-out</li>
+  <li>several Transition iterations to migrate the product into the user
+    community</li>
+</ul>
+<p align="center"><img border="0" src="images/co_lfcl4.gif" width="319" height="119"></p>
+<p>This strategy is appropriate when:
+<ul>
+  <li>a small increment of well-defined functionality is being added to a very
+    stable product</li>
+  <li>the new functionality is well-defined and well-understood</li>
+  <li>The team is experienced, both in the problem domain and with the existing
+    product</li>
+</ul>
+<h3>Iteration pattern: <a name="XE_lifecycle_patterns__hybrid_strategies"></a><a name="Hybrid Strategies">Hybrid
+Strategies</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In practice few projects strictly follow one strategy. You often end up with
+a <b>hybrid, </b>some evolution at the beginning, some incremental
+building, and multiple deliveries. Among the advantages of the phase-iteration
+model is that it lets you accommodate a hybrid approach, simply by increasing
+the length and number of iterations in particular phases:
+<ul>
+  <li>For complex or unfamiliar problem domains, where there is a high degree of
+    exploration: increase the number of iterations in the elaboration phase and
+    its length.</li>
+  <li>For more complex development problems, where there is complexity
+    translating the design into code: increase the number of iterations in the
+    construction phase and its length.</li>
+  <li>To deliver software in a series of incremental releases: increase the
+    number of iterations in the transition phase and its length.</li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

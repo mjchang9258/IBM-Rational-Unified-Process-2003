@@ -1,0 +1,397 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Prepare Templates for the Project</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Prepare Templates for the Project</rpw>
+ <a name="XE_preparing_templates__activity_description"></a></h2>
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To harvest existing or develop new templates for use by the project. 
+          </li>
+          <li>To prepare the templates for project use by partially instantiating 
+            them with project-specific information.</li>
+          <li>To make the existing templates accessible to the project members 
+            when needed. </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> <a href="../workers/wk_prcen.htm">Process Engineer</a>&nbsp; </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Frequency:&nbsp;</b>The initial collection of templates 
+        is done during the inception phase, as part of tailoring the process for 
+        the project. The activity is performed again whenever there is a need 
+        for a new or changed template&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#IdentifyNeeds">Identify Templates for the Project</a></li>
+          <li><a href="#PrepareTemplates">Prepare Templates for Project Use</a></li>
+          <li><a href="#MaintainTemplates">Maintain Templates</a></li>
+        </ul>
+      </td>
+    </tr>  
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_prjspctmp.htm">Project-Specific Templates</a></li>
+<li><a href="../artifact/ar_tools.htm">Tools</a></li>
+</ul>
+&nbsp;
+      </td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_prjspctmp.htm">Project-Specific Templates</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+        <ul>
+<li><a href="../../toolment/reqpro/tm_adtpl.htm">Adding Templates to Your Rational RequisitePro Project</a></li>
+<li><a href="../../toolment/builder/tm_configure_process.htm">Configure Process Using RUP Builder</a></li>
+<li><a href="../../toolment/rpw/tm_packaging_assets.htm">Packaging Project-specific Assets into Thin Plug-ins with RUP Organizer</a></li>
+</ul>
+&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>More Information:&nbsp;</b>
+	    
+        <ul>
+          <li><a href="../templates.htm">Templates</a></li>
+        </ul>
+	  </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b>
+        <ul>
+<li><a href="../workflow/ovu_env.htm">Environment</a>
+<ul>
+<li><a href="../workflow/environm/wfs_env2.htm">Prepare Environment for an Iteration</a></li>
+<li><a href="../workflow/environm/wfs_env1.htm">Prepare Environment for Project</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<p>The development case defines which document artifacts and reports that should 
+  be used together with information on how to customize them to the project needs. 
+  A project should consider preparing templates for all document artifacts and 
+  reports that the project needs.</p>
+<h3><a name="IdentifyNeeds">Identify Templates for the Project</a><a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left"> 
+  <table width="95%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080">
+    <tbody valign="center"> 
+    <tr valign="top"> 
+      <td width="5%"><b>Purpose:</b></td>
+      <td width="95%">To identify which templates are needed by the project, based 
+        on the deliverables specified in the development case.</td>
+    </tr>
+    </tbody> 
+  </table>
+  <br>
+</div>
+<p> The <a href="../artifact/ar_devcs.htm">Artifact: Development Case</a> defines 
+  which artifacts to produce and the formality level required for individual artifacts. 
+  This serves as an important input to identifying the set of templates needed 
+  and their format. Preparing templates is considered part of tailoring the process 
+  for the project, and the process engineer will spend a fair amount of time with 
+  the project manager deciding which templates to make available to the teams. 
+</p>
+<p>Project-specific templates serve several purposes, including :</p>
+<ul>
+  <li>To ensure that artifacts are produced consistently and follow the defined 
+    conventions and styles.</li>
+  <li>To describe certain standards required for the project adherence.</li>
+  <li>To get a jump-start on producing artifacts.</li>
+</ul>
+<p>Below is a list of some of the artifact types you should consider collecting 
+  templates for :</p>
+<ul>
+  <li>Documents</li>
+  <li>Reports</li>
+  <li>Plans</li>
+  <li>Models</li>
+  <li>Source Code</li>
+</ul>
+<p></p>
+<h3><a name="PrepareTemplates">Prepare the Templates for Project Use </a><a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080">
+  <tbody valign="center"> 
+  <tr valign="top"> 
+    <td width="5%"><b>Purpose:</b></td>
+    <td width="95%">To make the identified templates ready to use by the project.</td>
+  </tr>
+  </tbody> 
+</table>
+<p><b>Sub-topics:</b></p>
+
+<ul>
+  <li><a href="#PrepareObtainExisting">Obtain Existing Templates</a></li>
+  <li><a href="#PrepareDevelopNew">Develop New Templates</a></li>
+  <li><a href="#PrepareTailor">Tailor the Templates for Project Use</a></li>
+  <li><a href="#PrepareMakeAccessible">Make the Templates Accessible</a></li>
+</ul>
+<h4><a name="PrepareObtainExisting"></a>Obtain Existing Templates<a href="#PrepareTemplates"><img src="../../images/top.gif" alt="To Prepare Templates for project use" border="0" width="26" height="20"></a></h4>
+<p>Templates may be available from different sources. Some development organizations 
+  keep templates in their asset repositories for cross-project reuse. Some projects 
+  will make use of the ones shipped with the RUP product. In other cases, satisfactory 
+  templates might not be available, so the project should consider developing 
+  its own.</p>
+<p>Templates that ship with the RUP are packaged into two plug-ins that can be 
+  included in any RUP configuration built using the RUP Builder tool, and thus 
+  be accessible to the project members via the published RUP Website. The RUP 
+  templates contained in your configuration are listed on <a href="../templates.htm">Overview: 
+  Templates</a> page and referenced from the description page of the artifact 
+  in question.</p>
+<p>Note: A project does not require templates for all of it's artifact types. 
+  In some cases, a relevant example provides equal or better value. Some documentation 
+  jobs are best done using tool automation. Document generation tools, such as 
+  Rational SoDA&#153;, provides lots of ready-made report templates to use for 
+  generating reports from project artifacts.</p>
+<h4><a name="PrepareDevelopNew"></a>Develop New Templates<a href="#PrepareTemplates"><img src="../../images/top.gif" alt="To Prepare Templates for project use" border="0" width="26" height="20"></a></h4>
+<p>The project management might decide to develop new templates as part of the 
+  project if one or more of the identified templates is not available or deemed 
+  not applicable to the project. This work should be accounted for in project 
+  planning, assigned to a team member and followed up as you would for the development 
+  of any project artifact. These activities are often performed on a just-in-time 
+  basis, or they might even be a result of transforming a produced artifact into 
+  a template. </p>
+<p>The project manager should consider promoting any new or modified templates 
+  as candidate assets for future projects. This is usually done as part of project 
+  assessment work and is often a collaboration with the organization's process 
+  improvement team.</p>
+<h4><a name="PrepareMakeAccessible"></a>Customize the Templates for Project Use 
+  <a href="#PrepareTemplates"><img src="../../images/top.gif" alt="To Prepare Templates for project use" border="0" width="26" height="20"></a></h4>
+<p>Preparing templates for a project includes customizing them to fit the context 
+  of the project, and the style of the development process. Some of the traditional 
+  templates that ship with the RUP might be too formal for some types of projects, 
+  but not formal enough for others. Customizing the collected templates ranges 
+  from just inserting the project meta-data, such as company name, project code, 
+  and logo, to removing or adding complete sections. Most of the RUP templates 
+  have some process guidance in them, to provide in-document assistance for the 
+  production of the artifact. This text is meant to be erased as the artifact 
+  evolves. Projects that want all process guidance to be an integral part of the 
+  RUP Website, can remove this in-document guidance from the templates as part 
+  of their customization task.</p>
+<h4><a name="PrepareTailor"></a>Make the Templates Accessible<a href="#PrepareTemplates"><img src="../../images/top.gif" alt="To Prepare Templates for project use" border="0" width="26" height="20"></a></h4>
+<p>There are different ways of making templates available to the project members. 
+  The most efficient way is to make them part of the workspace of the tool you 
+  use for the production of the artifact, for example, if you use Rational Rose&#153; 
+  for designing the system, then it is desirable that your model template appears 
+  as a selection when you select to create a new model file. Different applications 
+  have different ways of handling this integration. Refer to the on-line help 
+  of the application for further details. Regardless of whether its possible to 
+  achieve this level of integration, it is valuable to make the templates part 
+  of your project-specific process Website to allow the team members to browse 
+  and inspect the templates.</p>
+<p>The RUP templates are packaged as RUP plug-ins, and can be included in your 
+  RUP configuration by selecting one or more of these plug-ins in the RUP Builder 
+  tool. </p>
+<p>You can also make your own templates available using the plug-in technology. 
+  See <a href="../workflow/environm/co_polpr.htm#ThinPlugins">Concept: RUP Tailoring</a> 
+  and the <a href="../../toolment/rpw/tm_packaging_assets.htm">Tool Mentor: Packaging 
+  Project-specific Assets into Thin Plug-ins with RUP Organizer</a> for further 
+  information.</p>
+<h3><a name="MaintainTemplates">Maintain Templates</a><a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080">
+  <tbody valign="center"> 
+  <tr valign="top"> 
+    <td width="5%"><b>Purpose:</b></td>
+    <td width="95%">To improve the templates based on the consumers experience 
+      of use.</td>
+  </tr>
+  </tbody> 
+</table>
+<p>In any reuse focussed organization, it is critical to the process improvement 
+  effort that projects provide feedback on their use of assets. Remember that 
+  most good practices generally become good because they've been used a number 
+  of times before and have had time to be fine-tuned and improved.</p>
+<p>As the templates are instantiated and the artifacts evolve, the project members 
+  are likely to identify improvement areas for the templates. A project might 
+  choose to modify the template or raise a change request for it to be handled 
+  outside the project, depending on the complexity of the required change. Most 
+  projects will benefit from updating the templates as needed, and promoting the 
+  improved template to the organization's process group as part of the process 
+  improvement effort.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

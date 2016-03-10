@@ -1,0 +1,582 @@
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">Software Architecture Document (Informal)</rpw>
+-- RPW META DATA END -->
+<html>
+
+<head>
+<meta name=Generator content="Microsoft Office HTML Filter 2.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>Software Architecture Document</title>
+<style>
+<!--
+ 
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+h1
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;}
+h2
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;}
+h3
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;
+	font-weight:normal;
+	font-style:italic;}
+h4
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;
+	font-weight:normal;}
+h5
+	{
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;}
+h6
+	{
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{
+	margin-top:12.0pt;
+	margin-right:.5in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{
+	margin-top:0in;
+	margin-right:.5in;
+	margin-bottom:0in;
+	margin-left:.3in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.6in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:30.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:40.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:50.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:80.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:45.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-45.0pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:2.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	border:none;
+	padding:0in;
+	font-size:8.0pt;
+	font-family:Helvetica;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+span.MsoFootnoteReference
+	{
+	vertical-align:super;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:18.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:blue;
+	font-style:italic;
+	text-decoration:underline;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:18.0pt;
+	font-family:Arial;
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:blue;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	background:navy;
+	font-size:10.0pt;
+	font-family:Tahoma;}
+p.Paragraph2, li.Paragraph2, div.Paragraph2
+	{
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:black;}
+p.Bullet1, li.Bullet1, div.Bullet1
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.3in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.Bullet2, li.Bullet2, div.Bullet2
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:navy;}
+p.Tabletext, li.Tabletext, div.Tabletext
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MainTitle, li.MainTitle, div.MainTitle
+	{
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.Paragraph1, li.Paragraph1, div.Paragraph1
+	{
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.Paragraph3, li.Paragraph3, div.Paragraph3
+	{
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:76.5pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.Paragraph4, li.Paragraph4, div.Paragraph4
+	{
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:112.5pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.Body, li.Body, div.Body
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Book Antiqua";}
+p.Bullet, li.Bullet, div.Bullet
+	{
+	margin-top:6.0pt;
+	margin-right:.25in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:0in;
+	font-size:10.0pt;
+	font-family:"Book Antiqua";}
+p.InfoBlue, li.InfoBlue, div.InfoBlue
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Times;
+	color:blue;
+	font-style:italic;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoTitle>&lt;Project
+Name&gt;</p>
+
+<p class=MsoTitle>Software
+Architecture Document</p>
+
+<h1><a name="_Toc456598586"></a><a name="_Toc492766840">1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Introduction</a></h1>
+
+<p class=InfoBlue>[The introduction of the <b>Software Architecture
+Document</b> provides an overview of the entire <b>Software
+Architecture Document</b>. It includes the purpose, scope, definitions,
+acronyms, abbreviations, references, and overview of the <b>Software
+Architecture Document</b>.]</p>
+
+<h1><a name="_Toc492766846">2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Architectural Representation</a> </h1>
+
+<p class=InfoBlue>[This section describes what software architecture is for the
+current system, and how it is represented. Of the <b>Use-Case</b>, <b>Logical</b>,
+<b>Process</b>, <b>Deployment</b>, and <b>Implementation
+Views</b>, it enumerates the views that are necessary, and for each view,
+explains what types of model elements it contains.]</p>
+
+<h1><a name="_Toc492766847">3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Architectural Goals and Constraints</a> </h1>
+
+<p class=InfoBlue>[This section describes the software requirements and
+objectives that have some significant impact on the architecture; for example,
+safety, security, privacy, use of an off-the-shelf product, portability,
+distribution, and reuse. It also captures the special constraints that may
+apply: design and implementation strategy, development tools, team structure,
+schedule, legacy code, and so on.]</p>
+
+<h1><a name="_Toc492766848">4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Use-Case View</a> </h1>
+
+  <p class=InfoBlue>[This section lists use cases or scenarios from the use-case 
+    model if they represent some significant, central functionality of the final 
+    system, or if they have a large architectural coverage—they exercise many 
+    architectural elements or if they stress or illustrate a specific, delicate 
+    point of the architecture.]</p>
+
+<h1><a name="_Toc492766850">5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Logical View</a> </h1>
+
+<p class=InfoBlue>[This section describes the architecturally significant parts
+of the design model, such as its decomposition into subsystems and packages.
+And for each significant package, its decomposition into classes and class
+utilities. You should introduce architecturally significant classes and
+describe their responsibilities, as well as a few very important relationships,
+operations, and attributes.]</p>
+
+<h2><a name="_Toc492766851">5.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Overview</a></h2>
+
+<p class=InfoBlue>[This subsection describes the overall decomposition of the
+design model in terms of its package hierarchy and layers.]</p>
+
+<h2><a name="_Toc492766852">5.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Architecturally Significant Design Packages</a></h2>
+
+<p class=InfoBlue>[For each significant package, include a subsection with its
+name, its brief description, and a diagram with all significant classes and
+packages contained within the package. </p>
+
+  <p class=InfoBlue>For each significant class in the package, include its name, 
+    brief description, and, optionally, a description of some of its major responsibilities, 
+    operations, and attributes.]</p>
+  <h2><a name="_Toc492766849">5.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Use-Case Realizations</a></h2>
+  <p class=InfoBlue>[This section illustrates how the software actually works 
+    by giving a few selected use-case (or scenario) realizations, and explains 
+    how the various design model elements contribute to their functionality.]</p>
+  <h1><a name="_Toc492766853">6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Process View</a> </h1>
+
+<p class=InfoBlue>[This section describes the system's decomposition into
+lightweight processes (single threads of control) and heavyweight processes
+(groupings of lightweight processes). Organize the section by groups of
+processes that communicate or interact. Describe the main modes of
+communication between processes, such as message passing, interrupts, and
+rendezvous.]</p>
+
+<h1><a name="_Toc492766854">7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Deployment View</a> </h1>
+
+<p class=InfoBlue>[This section describes one or more physical network (hardware)
+configurations on which the software is deployed and run. It is a view of the
+Deployment Model. At a minimum for each configuration it should indicate the
+physical nodes (computers, CPUs) that execute the software and their
+interconnections (bus, LAN, point-to-point, and so on.) Also include a mapping
+of the processes of the <b>Process View</b> onto the physical nodes.]</p>
+
+<h1><a name="_Toc492766855">8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Implementation View</a> </h1>
+
+<p class=InfoBlue>[This section describes the overall structure of the
+implementation model, the decomposition of the software into layers and
+subsystems in the implementation model, and any architecturally significant
+components.]</p>
+
+<h2><a name="_Toc492766856">8.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Overview</a></h2>
+
+<p class=InfoBlue>[This subsection names and defines the various layers and
+their contents, the rules that govern the inclusion to a given layer, and the
+boundaries between layers. Include a component diagram that shows the relations
+between layers. ]</p>
+
+<h2><a name="_Toc492766857">8.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Layers</a></h2>
+
+<p class=InfoBlue>[For each layer, include a subsection with its name, an
+enumeration of the subsystems located in the layer, and a component diagram.]</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc492766858">9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Data View (optional)</a></h1>
+
+<p class=InfoBlue>[A description of the persistent data storage perspective of
+the system. This section is optional if there is little or no persistent data,
+or the translation between the Design Model and the Data Model is trivial.]</p>
+
+<h1><a name="_Toc492766859">10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Size and Performance</a> </h1>
+
+<p class=InfoBlue>[A description of the major dimensioning characteristics of
+the software that impact the architecture, as well as the target performance
+constraints.]</p>
+
+<h1><a name="_Toc492766860">11.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Quality</a> </h1>
+
+<p class=InfoBlue>[A description of how the software architecture contributes
+to all capabilities (other than functionality) of the system: extensibility,
+reliability, portability, and so on. If these characteristics have special
+significance, such as safety, security or privacy implications, they must be
+clearly delineated.]</p>
+
+</div>
+
+</body>
+
+</html>

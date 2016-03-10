@@ -1,0 +1,394 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Business Analysis Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business Analysis Model</rpw><a name="Top"></a><a name="XE_business_object_model__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#How to Name Business Workers and Business Entities">Naming Conventions</a></li>
+  <li><a href="#Business Objects in Relation to Business Use Cases">Business Objects 
+    in Relation to Business Use Cases</a></li>
+  <li><a href="#The Business Analysis Model and Information Systems">The Business 
+    Analysis Model and Information Systems</a></li>
+  <li><a href="#Information Systems as Business Actors">Information Systems as 
+    Business Actors</a></li>
+  <li><a href="#Information Systems Explicitly in the Business Analysis Model">Information 
+    Systems Explicitly in the Business Analysis Model</a></li>
+  <li><a href="#Characteristics of a Good Business Analysis Model">Characteristics 
+    of a Good Business Analysis Model</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A Business Analysis Model defines the business use cases from the business 
+  workers’ internal viewpoint. The model defines how people who work in the business, 
+  as well as the things they handle and use (&quot;the classes and objects of 
+  the business&quot;) must relate to one another, both statically and dynamically, 
+  to produce the expected results. It places emphasis on roles performed in the 
+  business area and their active responsibilities. Together, the objects of the 
+  model’s classes should be capable of performing all business use cases.&nbsp;</p>
+<p>The key elements of the Business Analysis Model are:</p>
+<ul>
+  <li><a href="md_orgun.htm">Business Systems</a> partition large business models 
+    into interdependent areas of responsibilities.</li>
+  <li><a href="md_bwk.htm">Business Workers</a> show the set of responsibilities 
+    a person may carry.&nbsp;</li>
+  <li><a href="md_bent.htm">Business Entities</a> represent deliverables, resources, 
+    and events that are used or produced.&nbsp;&nbsp;</li>
+  <li><a href="md_bevnt.htm">Business Events</a> represent important occurrences 
+    in the daily operation of the business. &nbsp;</li>
+  <li><a href="md_bucr.htm">Business Use-Case Realizations</a> show how business 
+    workers, business entities, and business events collaborate to perform a workflow. 
+    The Business Use-Case Realizations are documented with:</li>
+</ul>
+<blockquote>
+  <ul>
+    <li><a href="md_bactdbom.htm#ClassDiagrams">Class diagrams</a> that show participating
+      business workers and business entities.</li>
+    <li><a href="md_bactdbom.htm#ActivityDiagrams">Activity diagrams</a> in which swimlanes show 
+      responsibilities of business workers, and object flows show how business 
+      entities are used in the workflow.&nbsp;</li>
+    <li><a href="md_bactdbom.htm#SequenceDiagrams">Sequence diagrams</a> that depict the details of
+      the interaction among business workers, business actors, and how business
+      entities are accessed, during the performance of a business use
+      case.&nbsp;</li>
+  </ul>
+</blockquote>
+<p>The Business Analysis Model brings the notions of structure and behavior together. 
+  Business Use-Case Realizations map the descriptions of process (Business Use 
+  Cases), which specify desired behavior, to structural <b> </b> elements <b> 
+  </b>within the organization. (See the figure that appears after the bullets.)</p>
+<p>The following are some characteristics of the Business Analysis Model:</p>
+<ul>
+  <li>It is a bridging artifact that articulates business concerns in a way <span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">that is </span> similar to how software developers 
+    think, while still retaining a purely business content. It is a consolidation 
+    of what we know about the area of business concern expressed in terms of objects, 
+    attributes, and responsibilities.&nbsp;</li>
+  <li>It explores the essence of business area knowledge in a way that provides
+    a transition from thinking about business issues to thinking about software
+    applications.&nbsp;</li>
+  <li>It is a way of firming up requirements to be enabled or supported by
+    information system that will be built.&nbsp;</li>
+  <li>The process of agreeing to business object definitions, relationships between 
+    objects, and the names for the objects and relationships between objects, 
+    permits business area knowledge to be represented in a precise manner that 
+    can be understood and validated by business-area experts.</li>
+</ul>
+<p align="center"><img border="0" src="images/bam1.gif" width="630" height="473"></p>
+<h3><a name="XE_business_worker__naming_guidelines"></a><a name="XE_business_entity__naming_guidelines"></a><a name="How to Name Business Workers and Business Entities">Naming
+Conventions</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In general, Business Systems, Business Workers, Business Entities, and Business 
+  Events should have short, descriptive names that are unique and are not similar 
+  to other names. Sometimes it may be necessary to use more than one word to describe 
+  the purpose of the model element and ensure that it is unique and recognizable, 
+  especially when considering a broader context (which may become important in 
+  the future).</p>
+<p>A Business System provides a collection of related responsibilities with a 
+  specific purpose, and should be named in a way that reflects this purpose. It 
+  may be tempting to use generic names or catch phrases for names (such as Client 
+  Services), but make sure that the term is really applicable and descriptive. 
+  Generally, a gerund form of a verb is useful (such as Shipping, Invoicing, or 
+  Selling) as is a referral to the purpose of the Business System (such as Customer 
+  Management or Target Acquisition). See <a href="md_orgun.htm">Guidelines: Business 
+  System</a> for more information.</p>
+<p>Business Workers should be named in a way that expresses their responsibilities. 
+  Do not describe the function (in case of a human business worker), but the role 
+  played by the business worker in the use-case realization. This role is reflected 
+  by the purpose with which the business worker is involved in the business use-case 
+  realization. See <a href="md_bwk.htm">Guidelines: Business Worker</a> for more 
+  information.</p>
+<p>For example, imagine a process in which data is typed into a system by one 
+  business worker and held until a second business worker has verified or approved 
+  the data before processing (such as in loan applications at a bank). The business 
+  worker who inputs the data could be named Data Typist or Data Entry Clerk, whereas 
+  the second business worker could be named Verifier, Authorizer, or Releaser. 
+  Data Entry Clerk has the disadvantage of sounding human, while the last three 
+  may have to be further qualified at some stage (for example, Mortgage Authorizer 
+  if the bank is also going to start brokering insurance policies).</p>
+<p>Business Entities should be named in a way that reflects the information they 
+  represent. Business entities must always be defined in the Business Glossary, 
+  since there is usually much difference of opinion regarding definitions and 
+  relationships. Do not include the state or properties of the Business Entity 
+  in its name. Business Entity names should be singular, not plural. See <a href="md_bent.htm">Guidelines: 
+  Business Entity</a> for more information.</p>
+<p>Business Events should be named in a way that indicates the occurrence or state 
+  changed that it represents. Do not describe the trigger of the event or the 
+  reaction to the event in the name. The specification of the event is independent 
+  of its triggers. See <a href="md_bevnt.htm">Guidelines: Business Event</a> for 
+  more information.</p>
+<h3><a name="Business Objects in Relation to Business Use Cases">Business
+Objects in Relation to Business Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>As you study the business workers and business entities that participate in 
+  your business’ different use cases, you may find several that are so similar 
+  that they are really one class. Even when different business use cases do not 
+  have identical demands, the classes may be similar enough to be considered one 
+  and the same phenomenon. If this is the case, merge the similar classes into 
+  one. This results in a business worker or business entity that has sufficient 
+  relationships, attributes, and operations to meet all the demands of the different 
+  business use cases. The diagram at the end of the section titled &quot;Explanation&quot; 
+  shows how business workers and business entities participate in different business 
+  use-case realizations.</p>
+<p>Several business use cases may, therefore, have quite different demands on
+one and the same class. In the case of business workers, if you have employees
+capable of acting in the described set of roles, you will also have flexible
+employees who can work in several positions. This gives you a more flexible
+business.</p>
+<h3><a name="XE_information_systems__business-object_model¸_relationship_to"></a><a name="XE_business_object_model__information_systems¸_the_relationship_to"></a><a name="The Business Analysis Model and Information Systems">The
+Business Analysis Model and Information Systems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In the Business Analysis Model, Business Workers represent the roles that the 
+  employees will act, whereas Business Entities represent those things that the 
+  employees will handle. Using a Business Analysis Model, you define how the employees 
+  of the business need to interact to produce the desired results for the business 
+  actor. The System Use-Case Model and Design Model, on the other hand, specify 
+  the business’ information systems.</p>
+<p>Business modeling and software modeling address two different problem areas 
+  at two different abstraction levels. Therefore, the general rule is that the 
+  information systems must have no direct presence in the business models.</p>
+<p>On the other hand, the employees acting as business workers use information 
+  systems to communicate with each other, and with the actors, and to access information 
+  about business entities. Whenever there is a link, association, or attribute, 
+  there is also some potential information-system support.</p>
+<p>These two modeling contexts have the following relationships:
+<ul>
+  <li>An employee acting as a certain business worker corresponds to a system 
+    actor of the information system. He or she is probably best supported if the 
+    information systems are structured so that his or her entire work in a business 
+    use case is supported by one system use case.</li>
+  <li>Alternatively, if the business use case is large, long-lived, or combines 
+    work from several independent areas, an information-system use case can support 
+    one operation of the business worker instead.</li>
+  <li>The things the employees work with—modeled as business entities—often
+    have representations in the information systems. In the object model of an
+    information system, these business entities occur as entity classes.</li>
+  <li>Business events are often implemented as messages in service-oriented architecture 
+    software systems or as tasks in workflow automation systems.</li>
+  <li>Associations and aggregations between business entities often give rise 
+    to corresponding association and aggregations between entity classes in the 
+    Design Model.</li>
+  <li>Therefore, an information system use case accesses and manipulates entity 
+    classes in the design model that represent the business entities accessed 
+    by the supported business use case.</li>
+  <li>Finally, a business actor that directly uses a business’ information
+    system also becomes a system actor of the information system.</li>
+</ul>
+<p>These relations are essential when identifying requirements of the information 
+  systems that support the business.&nbsp;</p>
+<p>See the section on automated business workers in <a href="md_bmtse.htm">Guidelines: 
+  Going from Business Models to Systems</a>.&nbsp;</p>
+<h3>
+<b><a name="Information Systems as Business Actors">Information Systems as
+Business Actors</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Sometimes the employees of one business contact the employees of another business 
+  through the use of the other business’ information system. From the perspective 
+  of the modeled business, that information system is a business actor.</p>
+<h5>Example:</h5>
+<p class="example">A software developer tries to understand a problem in the product 
+  for which he is responsible. To understand if the problem originates from the 
+  programming tool he is using, he contacts the supplier’s World Wide Web server 
+  and studies the list of known problems in the current release of the programming 
+  tool. In this way, the business worker Software Developer interacts with the 
+  business actor Supplier WWW Server.</p>
+<h3>
+<b><a name="Information Systems Explicitly in the Business Analysis Model">Information
+Systems Explicitly in the Business Analysis Model</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The general rule is that information systems should not be explicitly modeled 
+  in the Business Analysis Model; they are merely tools in the hands of the business 
+  workers. We have one exception to this rule, which concerns information systems 
+  for businesses that are directly used by their customers. If this interaction 
+  forms a major part of the business services, it might be so commercially important 
+  that you might want to show it in the Business Analysis Model. Telephone banking 
+  services are good examples of this type of information system.</p>
+<p>From the business-modeling perspective, the following approach is suggested:
+<ul>
+  <li>Regard the information system as a fully automated business worker that
+    interacts with an actor.</li>
+  <li>If the information system relates to any of the other business workers or 
+    business entities, consider illustrating this relationship with a link or 
+    an association. Perhaps the system informs a business worker of its progress 
+    or uses information concerning a business entity.</li>
+  <li>Briefly describe the business worker, as well as a list of services that 
+    represents the information system in the Business Analysis Model.</li>
+  <li>Model all details and characteristics of the information system and its 
+    environment in an Information System Model.</li>
+  <li>Introduce a naming convention so that a fully automated business worker 
+    is easily identified among the business workers; for example, a prefix or 
+    a suffix, like &quot;automated &lt;business worker name&gt;&quot; or &quot;system: 
+    &lt;business worker name&gt;&quot;. You may even define a stereotype with 
+    a particular icon.</li>
+</ul>
+<h3><a name="XE_business_object_model__characteristics_of_a_good"></a><a name="Characteristics of a Good Business Analysis Model">Characteristics
+of a Good Business Analysis Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+Taken together, the business workers, business entities, and business events perform 
+all activities described in the business use cases—no more and no less. The Business 
+Analysis Model gives a good, comprehensive picture of the organization. 
+<p>
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

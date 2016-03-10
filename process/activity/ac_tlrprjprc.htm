@@ -1,0 +1,573 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Tailor the Process for the Project</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Tailor the Process for the Project</rpw>
+ <a name="XE_tailor_the_process__activity_description"></a></h2>
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To right-size the software development process according to the 
+            specific needs of the project</li>
+          <li>To provide a relevant and accessible process description for the 
+            members of the project</li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:</b>&nbsp; 
+	    <a href="../workers/wk_prcen.htm">Process Engineer</a></td>
+    </tr>
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:</b>&nbsp;The bulk of the work takes part at 
+        the onset of the project. May repeat as necessary in any iteration</td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Steps</b>
+        <ul>
+          <li><a href="#AnalyzeProject">Analyze the Project</a></li>
+          <li><a href="#DefineScope">Define the Scope of the Process</a></li>
+          <li><a href="#ExtendFramework">Extend the Process Framework (optional)</a></li>
+          <li><a href="#CreateConfiguration">Configure the Process</a></li>
+          <li><a href="#InstantiateProcess">Prepare the Process for the Project</a></li>
+          <li><a href="#IntroduceProcess">Introduce the Process to the Project 
+            Members</a></li>
+          <li><a href="#MaintainProcess">Maintain the Process</a></li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Input_Output Artifacts Begins -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:</b>&nbsp;
+	   <ul>
+<li><a href="../artifact/ar_deorv.htm">Development-Organization Assessment</a></li>
+<li><a href="../artifact/ar_dvlprc.htm">Development Process</a></li>
+</ul>
+
+	  </td>
+      <td width="50%"><b>Resulting Artifacts:</b>&nbsp; 
+        <ul>
+<li><a href="../artifact/ar_dvlprc.htm">Development Process</a></li>
+</ul>
+
+	  </td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:</b>&nbsp;
+	    <ul>
+<li><a href="../../toolment/builder/tm_configure_process.htm">Configure Process Using RUP Builder</a></li>
+<li><a href="../../toolment/builder/tm_edit_process_views.htm">Edit Process Views Using RUP Builder</a></li>
+<li><a href="../../toolment/rpw/tm_packaging_assets.htm">Packaging Project-specific Assets into Thin Plug-ins with RUP Organizer</a></li>
+<li><a href="../../toolment/builder/tm_publish_configuration.htm">Publish Process Configuration Using RUP Builder</a></li>
+</ul>
+
+	  </td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+      <td colspan="2"><b>More Information:</b>&nbsp;
+	    <ul>
+<li><a href="../workflow/environm/co_agile.htm">Concept: Agile Practices and RUP</a></li>
+<li><a href="../modguide/md_prodi.htm">Guideline: Process Discriminants</a></li>
+<li><a href="../modguide/md_tailr.htm">Guideline: Process Tailoring Practices</a></li>
+<li><a href="../workflow/environm/co_polpr.htm">Concept: RUP Tailoring</a></li>
+<li><a href="../../tour/rm_smprj.htm">Concept: Tailoring a Process for a Small Project</a></li>
+</ul>
+ 
+      </td>
+    </tr>
+  </tbody> 
+</table>
+<p></p>
+
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2" width="100%"><b>Workflow Details:</b>&nbsp;
+	    <ul>
+<li><a href="../workflow/ovu_env.htm">Environment</a>
+<ul>
+<li><a href="../workflow/environm/wfs_env1.htm">Prepare Environment for Project</a></li>
+</ul>
+</li>
+</ul>
+
+	  </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+      
+<h3><a name="AnalyzeProject">Analyze the Project</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left"> 
+  <table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+    <tbody valign="center"> 
+    <tr> 
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To get a feel for the problem at hand, and the resources 
+        available to the project. </td>
+    </tr>
+    </tbody> 
+  </table>
+  <p>It is crucial for the success of the project that the development process 
+    is <b>relevant</b> for the project at hand, and for the size and formality 
+    requirements of the project. Too much process tends to get in the way of creativity 
+    and efficiency. Too little process can lead to a chaotic environment, typically 
+    leading individual project members to make local decisions that may result 
+    in inefficient, inconsistent and unpredictable results.</p>
+  <p>Process ceremony varies a lot in different development organizations. Some 
+    are very process mature, and have dedicated process groups to look after the 
+    definition and improvements of the development process throughout the organization. 
+    Others are concerned with project-specific tailoring only. These projects 
+    will typically start with one of the predefined configurations that come with 
+    the RUP product, and from there instantiate the process for every project. 
+    The approach taken to tailor the process for the project, depends heavily 
+    on several factors, for instance :</p>
+</div>
+<ul>
+  <li> 
+    <div align="left">The development organization's process maturity.</div>
+  </li>
+  <li> 
+    <div align="left">The size of the project in terms of calendar time and number 
+      of development resources.</div>
+  </li>
+  <li>The project members previous exposure to similar processes.</li>
+  <li>The formality requirements of the project.</li>
+</ul>
+<p>See <a href="../modguide/md_prodi.htm">Guideline: Process Discriminants </a>for 
+  details.</p>
+
+<div align="left"> 
+  <p>An assessment of the development organization, if available, indicates which 
+    areas the development organization as a whole needs to focus on. An informed 
+    decision on which of the identified improvement areas should be targeted for 
+    the upcoming project needs to be made. This is further discussed in the next 
+    section<i> Define the Scope of the Process.</i> See also <a href="../artifact/ar_deorv.htm">Artifact: 
+    Development-Organization Assessment</a> for further details.</p>
+</div>
+<div align="left">
+  <h3><a name="DefineScope">Define the Scope of the Process</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+  <div align="left"> 
+    <table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+      <tbody valign="center"> 
+      <tr> 
+        <th width="5%">Purpose:&nbsp;</th>
+        <td width="95%">Define which process areas to cover in the project-specific 
+          process.</td>
+      </tr>
+      </tbody> 
+    </table>
+    <p>The results of analyzing the project resources and their experience with 
+      similar software development projects helps identify the scope of the tailoring 
+      effort. A project-specific process does not have to include all the disciplines 
+      in RUP, nor should it be necessary to cover all the roles defined in the 
+      RUP. Keep in mind that the RUP is a process framework suitable for a wide 
+      range of project types, and thus will be too much for one specific project 
+      to follow. Which areas you select to cover in the project's process, depends 
+      heavily upon the existing skill sets of the project members, and the nature 
+      of the project at hand. Below are some typical considerations to make when 
+      defining the scope of the tailoring effort.</p>
+    <ul>
+      <li>Areas where the project members already have a common way of working, 
+        where it is not necessary to introduce a new process and tools. For example, 
+        if they know how to test, it can be a good idea to not introduce the Test 
+        discipline of the RUP to limit the number of new factors. You can focus 
+        on introducing some parts of the RUP, to correct problems in their existing 
+        process.&nbsp; See <a href="../workflow/environm/co_iproj.htm#Improving Process and Tools">Concepts: 
+        Implementing a Process in a Project, section &quot;Improving Process and 
+        Tools&quot;</a>, for details.&nbsp;</li>
+      <li>Areas (disciplines) where the project must introduce new process and 
+        tools, because there is no existing way of working. In some cases there 
+        is no existing process and tools to fall back on, and it is necessary 
+        to introduce most of the RUP, together with supporting tools. See <a href="../workflow/environm/co_iproj.htm#Change Everything">Concepts: 
+        Implementing a Process in a Project, section &quot;Change Everything&quot;</a>, 
+        for details.&nbsp;</li>
+      <li>Problems in the existing process. Focus on improving areas in which 
+        the organization has had problems.</li>
+      <li>Which tools to use ? If the project has decided to use certain tools, 
+        the development process should normally cover the corresponding areas 
+        of the RUP.</li>
+      <li>The project's capacity to change. When looking at the organization's 
+        problems there is a tendency to try to fix everything at once, especially 
+        since many of these problems occur together. This is usually a fatal trap. 
+        Organizations just like individuals can accommodate change but only within 
+        a limited range. If the capacity to change is low, you have to go slower, 
+        and maybe just introduce one or two disciplines of the RUP in the first 
+        project.</li>
+      <li>Areas where the project's members lack knowledge, or are weak. Let the 
+        development process cover these areas. Make sure that it is easy to find 
+        the right information in the RUP.</li>
+    </ul>
+    <p> Identified improvement areas must not necessarily be introduced for the 
+      first time in the same project. Reduce the number of unknown factors and 
+      look at areas where the development organization has experienced the most 
+      pain in the past. We recommend that you implement the RUP iteratively, as 
+      described in the <a href="../workflow/environm/co_iproj.htm">Concepts: Implementing 
+      a Process in a Project</a>. Although there might be discovered needs for 
+      improvements within several disciplines, consider the option of introducing 
+      them iteratively over the course of several projects rather than aiming 
+      for a change-everything-at-once approach.</p>
+
+    <p>One example of such a tradeoff is to introduce Requirements with Use-cases 
+      and defer the introduction of a new CM process, if previous projects have 
+      struggled with unclear and/or insufficient requirements, or if major complaints 
+      have been made by end-users that the delivered product does not meet their 
+      needs.</p>
+    <p>The tradeoffs made should be documented to communicate the scoping decisions 
+      to external stakeholders. When creating the configuration in the RUP Builder 
+      product, these decisions can be documented as a description of the configuration 
+      and will surface in the published Website. 
+      You can also decide to document this in the project's Development Case under 
+      the section titled &quot;Scope&quot;.</p>
+  </div>
+</div>
+
+<h3><a name="ExtendFramework">Extend the Process Framework</a> (optional) <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center"> 
+  <tr valign="top"> 
+    <th width="5%">Purpose:&nbsp;</th>
+            
+      
+    <td width="95%">To add additional process know-how to the project-specific 
+      process, in areas where the coverage in the RUP process framework is deemed 
+      insufficient for the project.</td>
+    </tr>
+  </tbody>
+</table>
+        
+  
+<p>One of the strengths of the RUP process framework is that it is applicable 
+  to a wide range of projects and environments. But this may at the same time 
+  be perceived as a disadvantage too, because the process description tends to 
+  become a bit too generic. The RUP plug-in technology is designed to overcome 
+  some of these issues by allowing tool or technology vendors and individual companies 
+  to create more specific process descriptions through plug-ins. <a href="../rescenter.htm#RUPPluginExchange">The 
+  Rational Developer Network (RDN), RUP Plug-in Exchange</a> is a community where 
+  RUP users discuss and exchange process know-how. You will always find an an 
+  up-to-date list of available plug-ins for download.</p>
+<p>The <a href="../res_processworkbench.htm">Rational Process Workbench&#153; 
+  (RPW) product</a> enables the creation of RUP extensions using the RUP Plug-in 
+  technology. Following the recommendations for this technology, the RUP framework 
+  can be extended in two ways. You either create a structural plug-in to extend 
+  the RUP process model, or you create extensions that will provide a development 
+  organization's relevant reusable assets to the project through thin plug-ins. 
+</p>
+<p>Creating a RUP plug-in (structural) should be treated as a project in its own 
+  right, with separate plans, budget and control mechanisms. You should define 
+  a business case for it, based on return-on-investment analysis. The actual development 
+  of the plug-in will benefit from following the lifecycle and disciplines in 
+  the RUP. We recommend that you try out the main ideas behind the plug-in on 
+  a real project before you start the project to develop the plug-in.</p>
+<p>See <a href="../workflow/environm/co_polpr.htm#Extend">Guideline: RUP Tailoring, 
+  section Extend the RUP</a>, for more information.</p>
+ 
+<h3><a name="CreateConfiguration"></a><font color="#FF0000"></font>Configure the 
+  Process <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center"> 
+  <tr> 
+    <th width="5%" valign="top">Purpose:&nbsp;</th>
+    <td width="95%" valign="top">To right-size the process to support the exact 
+      needs of a project. </td>
+  </tr>
+  </tbody> 
+</table>
+<p>The RUP framework is built up of a set of process components and plug-ins, 
+  each component contains a set of related process elements. Creating a RUP configuring 
+  means selecting between a set of process components. Selecting the <b>right 
+  </b>set of components for a given project is not a trivial task. To be effective, 
+  the process needs to be relevant and right-sized along different dimensions, 
+  like project size (resources and calendar time), formality, technological platform, 
+  domain, just to mention a few. </p>
+<p>For more detailed information on configuring RUP, refer to </p>
+<ul>
+  <li><a href="../workflow/environm/co_polpr.htm#Configure">Concept: RUP Tailoring, 
+    section Create a RUP Configuration</a></li>
+   
+  <li><a href="../../toolment/builder/tm_configure_process.htm">Tool Mentor: Configure 
+    Process Using RUP Builder</a></li>
+   
+  <li><a href="../res_processworkbench.htm#PEP">The Process Engineering Process 
+    (PEP</a>) component of the Rational Process Workbench&#153; (RPW) product</li>
+</ul>
+<h3><a name="InstantiateProcess"></a>Prepare the Process for the Project <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center"> 
+  <tr valign="top"> 
+    <th width="5%">Purpose:&nbsp;</th>
+    <td width="95%">To define how the configured process is enacted in the project.</td>
+  </tr>
+  </tbody> 
+</table>
+<p>A process description configured for a project is often not at the level of 
+  details ready to be enacted. For example, the process defines a set of artifacts 
+  to use based on a selection of relevant process components (as described in 
+  the previous section <i>Create a RUP Configuration</i>), but it does not specify 
+  timing and formality requirements of the artifacts for this particular project. 
+  Prescriptive guidelines and partially instantiated artifact templates are also 
+  considered to be part of an instantiated project-specific process. The required 
+  effort to perform this step is highly dependent on the precision of the configured 
+  process. Any such deviation from the underlying process should be justified 
+  and documented as part of the project-specific process. </p>
+
+<p>The work of instantiating the configured is described in detail in the following 
+  activities, all performed by the Process Engineer : 
+<ul>
+  <li>See <a href="ac_devca.htm">Activity: Develop Development Case</a> for guidance 
+    on how to define lifecycle model and selection and tailoring of artifacts.</li>
+  <li>See <a href="ac_dvlprjspcgdl.htm">Activity: Prepare Guidelines for the Project 
+    </a>for guidance on harvesting and tailoring of project-specific guidelines.</li>
+  <li>See<a href="ac_depst.htm"> Activity: Prepare Templates for the Project</a> 
+    for guidance on harvesting and tailoring of project-specific templates.</li>
+</ul>
+
+<div align="left"> 
+  </div>
+  
+<h3><a name="IntroduceProcess">Introduce the Process to the Project Members</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+  
+<div align="left"> 
+  <table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+    <tbody valign="center"> 
+    <tr> 
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To make the project-specific process available to the project's 
+        members.</td>
+    </tr>
+    </tbody> 
+  </table>
+  <p>After the initial tailoring work is done, the resulting process needs to 
+    be published into a consumable format. The RUP Builder product provides a 
+    means to publish the configured process resulting in a RUP Website that contains 
+    only the selected process components and resources. 
+    See <a href="../../toolment/builder/tm_publish_configuration.htm">Tool Mentor: 
+    Publish Process Configuration Using RUP Builder</a> for tool specific guidance. 
+    The Process Engineer needs to work with the Project Manager to make the project-specific 
+    process public, and decide on how to educate the project members. This can 
+    vary from an informal 2 hour presentation to more formal training, depending 
+    on the size of the project and the project members' familiarity with similar 
+    development processes. Every significant update of the process during the 
+    project lifecycle, should be re-launched to the project, focusing on the changes. 
+  </p>
+  <p>The Website for the project-specific process can be published to a Web server 
+    on the organization's network, or installed on each individual team member's 
+    computer. If the project members are connected to the network most of the 
+    time, then deploying the RUP Website to a Web server is recommended to avoid 
+    any overhead associated with updates to the process during the project lifecycle.</p>
+   
+  <p>See <a href="ac_ladev.htm">Activity: Launch Development Process</a> for further 
+    information.</p>
+   
+  <h3><a name="MaintainProcess"></a>Maintain the Process <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+  <p>Although the bulk of the tailoring work is done in the early days of the 
+    project, it should be kept up-to-date continuously, as the project teams uncover 
+    obstacles and other issues in the process. Assessments made during the project 
+    are important input to improving the process. Minor adjustments are typically 
+    handled by the project, and updates to the project-specific process are made 
+    as part of preparing the development environment for the upcoming iteration. 
+     
+    These kind of process improvements will often lead to updates being made to 
+    artifacts, such as development case, project-specific guidelines and project-specific 
+    templates.  More complex issues are raised as change requests on the 
+    process. This is usually handled by a process group outside the boundaries 
+    of the project, that has the responsibility of the software development process 
+    on an organizational basis. </p>
+  <p>One of the major benefits of iterative development is that it allows the 
+    project teams to gradually improve the way they develop software. We recommend 
+    that every project include process engineering micro-cycles consisting of 
+    the following steps :</p>
+</div>
+<ul>
+  <li> 
+    <div align="left">Define process</div>
+  </li>
+  <li> 
+    <div align="left">Perform project work based on defined process</div>
+  </li>
+  <li> 
+    <div align="left">Assess your work</div>
+  </li>
+  <li>
+    <div align="left">Refine process</div>
+  </li>
+</ul>
+
+  
+<p>The Process Engineering Process within the <a href="../res_processworkbench.htm">Rational 
+  Process Workbench product</a> contains information on Process Improvement in 
+  an organizational setting.</p>
+<br>
+<br>
+  
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

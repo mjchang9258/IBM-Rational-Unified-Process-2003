@@ -1,0 +1,584 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Architectural Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Architectural Analysis</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr> 
+      <td colspan="2" height="68"><b>Purpose</b> 
+        <ul>
+          <li>To define a candidate architecture for the system based on experience 
+            gained from similar systems or in similar problem domains.</li>
+          <li>To define the architectural patterns, key mechanisms, and modeling 
+            conventions for the system.</li>
+        </ul>
+	</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Steps</b> 
+          <ul>
+            <li><a href="#Develop Architecture Overview">Develop Architecture 
+              Overview</a></li>
+            <li><a href="#Survey Available Assets">Survey Available Assets</a></li>
+            <li><a href="#Define the High-Level Organization of Subsystems">Define 
+              the High-Level Organization of Subsystems</a></li>
+            <li><a href="#Identify Key Concepts">Identify Key Abstractions</a></li>
+            <li><a href="#Identify Stereotypical Interactions">Identify Stereotypical 
+              Interactions</a> </li>
+            <li><a href="#Develop Deployment Overview">Develop Deployment Overview</a></li>
+            <li><a href="#Identify Analysis Mechanisms">Identify Analysis Mechanisms</a></li>
+            <li><a href="#Review the Results">Review the Results</a></li>
+          </ul>
+	</td>
+      </tr>
+      <tr> 
+        <td width="50%"><b>Input Artifacts:&nbsp;</b>
+		  <ul>
+<li><a href="../artifact/ar_archpoc.htm">Architectural Proof-of-Concept</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_gloss.htm">Glossary</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_refarch.htm">Reference Architecture</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+		</td>
+        <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+		  <ul>
+<li><a href="../artifact/ar_aclss.htm">Analysis Class</a></li>
+<li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+</ul>
+&nbsp;
+		</td>
+      </tr>
+      <tr> 
+        
+      <td colspan="2" height="11"> 
+        <p><b>Frequency:&nbsp; </b>Optionally occurs in inception. Should occur 
+          in the first elaboration iteration. Can recur in later iterations if 
+          substantial changes or additions to the software architecture need to 
+          be explored.</p>
+        </td>
+      </tr>
+      <!-- Activity Responsible Role -->
+      <tr> 
+        <td colspan="2"><b>Role:</b>&nbsp; <a href="../workers/wk_archt.htm">Software Architect</a>&nbsp;</td>
+      </tr>
+      <!-- Activity Tool Mentors -->
+      <tr> 
+        <td colspan="2"><b>Tool Mentors:</b>&nbsp; <ul>
+<li><a href="../../toolment/rose/tm_ucana.htm">Capturing the Results of Use-Case Analysis Using Rational Rose</a></li>
+<li><a href="../../toolment/soda/tm_ucmsv.htm">Creating a Use-Case Model Survey Using Rational SoDA</a></li>
+<li><a href="../../toolment/rose/tm_ucrea.htm">Creating Use-Case Realizations Using Rational Rose</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_arcan.htm">Performing Architectural Analysis Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_arcan.htm">Performing Architectural Analysis Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/rose/tm_webpubmod.htm">Publishing Web-based Rational Rose Models Using Web Publisher</a></li>
+</ul>
+ &nbsp;</td>
+      </tr>
+      <!-- Activity More Information -->
+	  <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/ana_desi/co_amech.htm">Concept: Analysis Mechanisms</a></li>
+<li><a href="../workflow/ana_desi/co_cncry.htm">Concept: Concurrency</a></li>
+<li><a href="../workflow/ana_desi/co_dpatt.htm">Concept: Distribution Patterns</a></li>
+<li><a href="../workflow/ana_desi/co_layer.htm">Concept: Layering</a></li>
+</ul>
+</td>
+    </tr>      
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+    <tbody valign="top"> 
+    <tr> 
+      <td colspan="2"><b>Workflow Details:</b>&nbsp; 
+        <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and1.htm">Define a Candidate Architecture</a></li>
+<li><a href="../workflow/ana_desi/wfs_archsyn.htm">Perform Architectural Synthesis</a></li>
+</ul>
+</li>
+</ul>
+ &nbsp;</td>
+    </tr>
+    </tbody> 
+  </table>
+  <!-- Linked to Workflow End -->
+<br>
+</div>
+<p><a name="XE_modeling_conventions__defining"></a>Architectural analysis focuses 
+  on defining a candidate architecture and constraining the architectural techniques 
+  to be used in the system. It relies on gathering experience gained in similar 
+  systems or problem domains to constrain and focus the architecture so that effort 
+  is not wasted in architectural rediscovery. In systems where there is already 
+  a well-defined architecture, architectural analysis might be omitted; architectural 
+  analysis is primarily beneficial when developing new and unprecedented systems.</p>
+<h3><a name="Develop Architecture Overview">Develop Architecture Overview</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+        <td width="5%"><b>Purpose</b>&nbsp;</td>
+        <td>To facilitate system envisioning by exploring and evaluating high-level architectural options.&nbsp;<br>
+            To convey an early understanding of the high-level structure of the intended system to the sponsor,
+            development teams, and other stakeholders.
+        </td>
+    </tr>
+</table>
+<br>
+</div>
+
+<p>The architecture overview is created early in the lifecycle of a project, possibly 
+  as early as the inception phase. It reflects early 
+  decisions and working assumptions on implementing the Vision, as well as decisions 
+  concerning the physical and logical architecture, and nonfunctional requirements 
+  of the system. It's produced by the software architect, often in collaboration 
+  with the project sponsor, and takes the form of an informal, rich picture storyboard 
+  or iconic graph. Conceptually, it illustrates the essential nature of the proposed 
+  solution, conveying the governing ideas and including the major building blocks. 
+  The level of formality of the architectural overview is project dependent. For 
+  example, in a large, high-ceremony project, it might be necessary to capture 
+  the architecture overview in the appropriate sections of the Software Architecture 
+  document, so it can be formally reviewed.</p>
+<p>At this point the architecture overview is a provisional first pass. Do not 
+  base commitments on the architecture overview diagram until an executable architectural 
+  prototype has validated the architecture, including design, implementation, 
+  and deployment concerns.</p>
+<p>Consider basing the architecture on a reference architecture, other <a href="../workflow/ana_desi/co_swarch.htm#Architectural Patterns">architectural 
+  patterns</a>, or other architectural assets.</p>
+<p>Consider whether or not you wish to refine and maintain the architecture overview 
+  diagram, to serve as a communication vehicle.</p>
+<p>Many systems are constrained to be developed and deployed in an existing environment 
+  of hardware and software; for these, the software architect will gather information 
+  about the current environment.</p>
+<p>For example, in an e-business system development the following information 
+  is pertinent:</p>
+<ul>
+  <li>existing network logical and physical design</li>
+  <li>existing databases and database design</li>
+  <li>existing Web environment (servers, firewalls, and so forth)</li>
+  <li>existing server environment (configuration, software versions, planned upgrades)</li>
+  <li>existing standards (network, naming, protocols, and so on)</li>
+</ul>
+
+
+<p>Such information can be captured either textually, or in a <a href="../artifact/ar_dplmdl.htm">Deployment 
+  Model</a>.</p>
+
+<h3><a name="Survey Available Assets">Survey Available Assets</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="middle">
+  <tr>
+    <td colspan="2" width="5%"><b>Purpose</b>&nbsp;</td>
+    <td colspan="2" width="95%">
+	   To identify assets that might be relevant to the project.<br>
+	   To analyze the fit and gap between assets and project requirements.<br>
+       To decide whether to base areas of the system on assets.<br>
+       To locate and list assets that are potentially reusable on the project.<br>
+       To perform a preliminary evaluation to ensure that necessary support is potentially available.
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>You need to understand the requirements of the environment for which assets 
+  are being considered, and the system scope and general functionality required. 
+  Search through organizational asset bases and industry literature to identify 
+  assets or similar projects. There are several types of assets to consider, such 
+  as (but not limited to) industry models, frameworks, classes, and experience. 
+  You'll need to assess whether available assets contribute to solving the key 
+  challenges of the current project and whether they are compatible with the project's 
+  constraints.</p>
+<p>You'll want to analyze the extent of the fit between asset and customer requirements, 
+  considering whether any of the requirements are negotiable (to enable use of 
+  the asset).</p>
+<p>Be certain you assess whether the asset could be modified or extended to satisfy 
+  requirements, and what the tradeoffs are in terms of cost, risk, and functionality 
+  from adopting the asset.</p>
+<p>Finally, you'll want to decide, in principle, whether to use one or more assets 
+  and document the rationale for this decision.</p>
+<h3><a name="XE_design_subsystem__defining_high-level_organization_of"></a><a name="Define the High-Level Organization of Subsystems">Define
+the High-Level Organization of Subsystems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr> 
+      <td colspan="2" width="5%"><b>Purpose</b> </td>
+	  <td colspan="2">
+        To create an initial structure for the Design Model.
+      </td>
+    </tr>
+</table>
+<br>
+</div>
+<p>When the focus is on performing the architectural synthesis during inception, 
+  this step is excluded from this activity.</p>
+<p>Normally the design model is organized in layers&#151a common <a href="../workflow/ana_desi/co_swarch.htm#Architectural Patterns">architectural 
+  pattern</a> for moderate to large-sized systems. The number of layers is not 
+  fixed, but varies from situation to situation.</p>
+<p>During architectural analysis, you usually focus on the two high-level layers; 
+  that is, the <b>application</b> and <b>business-specific</b> 
+  layers. This is what is meant by the <i>high-level organization of subsystems</i>. 
+  The other lower-level layers are considered in <a href="ac_incds.htm">Activity: 
+  Incorporate Existing Design Elements</a>. If you're using specific architectural 
+  patterns, the subsystems are defined around the architectural template for that 
+  pattern.</p>
+<p>For more on layering, see <a href="../modguide/md_layer.htm">Guidelines: Layering</a>.</p>
+<h3><a name="XE_key_concepts__identifying"></a><a name="Identify Key Concepts">Identify
+Key Abstractions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr> 
+      <td colspan="2" width="5%"><b>Purpose</b></td>
+	  <td>
+        To get prepared for analysis by identifying the key abstractions (representation of concepts identified during 
+		business modeling and requirement activities) that the system must handle.
+      </td>
+    </tr>
+</table>
+<br>
+</div>
+<p>When the focus is on performing the architectural synthesis, this step is done 
+  to the extent necessary to guide the software architect in selecting assets 
+  for the construction of the <a href="../artifact/ar_archpoc.htm">Artifact: Architectural 
+  Proof-of-Concept</a> and to support representative usage scenarios.</p>
+<p>Requirements and Business 
+  Modeling activities usually uncover key concepts that the system must 
+  be able to handle; these concepts manifest themselves as key design abstractions. 
+  Because of the work already done, there is no need to repeat the identification 
+  work again during <a href="ac_ucana.htm">Activity: Use Case Analysis</a>.</p>
+<p>You can take advantage of existing knowledge by identifying preliminary entity 
+  analysis classes to represent these key abstractions on the basis of general 
+  knowledge of the system, such as the Requirements, the <b>Glossary</b>, 
+  and, in particular, the <b>Domain Model</b> 
+  or the <b>Business Analysis Model</b>, if you have one. </p>
+<p>When you define the key abstractions, also define any relationships that exist 
+  between entity classes. Present the key abstractions in one or several class 
+  diagrams, and create a short description for each.&nbsp;Depending on the domain, 
+  and the novelty of the system, <a href="../glossary.htm#XE_analysis_pattern__definition_in_glossary"><b>analysis 
+  patterns</b></a> that capture many of the key abstractions required to model 
+  the system might already exist. Use of such patterns (which should already have 
+  been successfully employed in the domain) will considerably ease the intellectual 
+  burden of identifying the important concepts that must be represented. [<a href="../referenc.htm#FOW97a">FOW97a</a>] 
+  presents some analysis patterns that are immediately useful for modeling business 
+  systems, but might be applicable in other contexts. Another example is the Object 
+  Management Group (OMG), which also attempts to define interfaces and protocols 
+  for many domains through the work of its Domain Technology Committee and associated 
+  task forces. Inevitably, this work leads to identifying important abstractions 
+  in the domain.</p>
+<p>The analysis classes identified at this point will probably change and evolve 
+  during the course of the project. The purpose of this step is not to identify 
+  a set of classes that will survive throughout design, but to identify the key 
+  concepts the system must handle. Don't spend too much time describing entity 
+  classes in detail at this initial stage, because there is a risk that you'll 
+  identify classes and relationships not actually needed by the use cases. Remember 
+  that you will find more entity classes and relationships when looking at the 
+  use cases.</p>
+<h3><a name="Identify Stereotypical Interactions">Identify Stereotypical Interactions</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This step is included only when performing Architectural Analysis (this activity) 
+  as part of <a href="../workflow/ana_desi/wfs_archsyn.htm">Workflow Detail: Perform 
+  Architectural Synthesis</a> during inception.</p>
+<p>The purpose of this step is to identify those interactions, between key abstractions 
+  in the system, that characterize or are representative of significant kinds 
+  of activity in the system. These interactions are captured as Use-Case Realizations.</p>
+<h3><a name="Develop Deployment Overview">Develop Deployment Overview</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+   <tr> 
+     <td colspan="2" width="5%"><p align="left"><b>Purpose</b></td>
+     <td>
+	   To provide a basis for assessing the viability of implementing the system.<br>
+	   To gain an understanding of the geographical distribution and operational complexity of the system.<br>
+       To provide a basis for early effort and cost estimates.
+     </td>
+   </tr>
+</table>
+<br>
+</div>
+<p>Develop a high level overview of how the software is deployed. For example, 
+  determine if the system needs to accessed remotely, or has requirements that 
+  suggest distribution across multiple nodes. Some sources of information to consider 
+  are: </p>
+<ul>
+  <li>users (at locations), defined in User Profiles (in the Vision) and use cases 
+    (in the Use-Case Model)</li>
+   
+  <li>organization of business data (in the Business Analysis Model and Design Model)</li>
+   
+  <li>service level requirements (in the Supplementary Specifications)</li>
+  <li>constraints (in the Supplementary Specifications, such as requirements to 
+    interface with legacy systems)</li>
+</ul>
+<p>If a non-trivial distributed system is required, then a Deployment Model can 
+  be used to capture the relationship between nodes. This should include provisionally 
+  assigning components and data to nodes, and indicate how users access components 
+  that access data. Detailed specification of nodes and connections is deferred, 
+  except where they are important for estimating or assessing viability. Existing 
+  assets can be used, if appropriate assets are available. Although this is the 
+  first deployment model produced in the project, and it's produced quickly and 
+  at a high level, it might identify actual hardware and software products if 
+  they are known, or if it's important to make these selection decisions at this 
+  time.</p>
+<p>Validate that the deployment model supports users (especially users at remote 
+  locations if this is required) performing typical use cases while satisfying 
+  nonfunctional requirements and constraints. Validate that the nodes and connections 
+  are adequate to support the interactions between components on different nodes, 
+  and between components and their stored data.</p>
+<h3><a name="XE_analysis_mechanisms__identifying"></a><a name="Identify Analysis Mechanisms"><b>Identify 
+  Analysis Mechanisms</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+      <tr> 
+        <td colspan="2" width="5%"><b>Purpose</b></td>
+		<td>
+          To define the analysis mechanisms and services used by designers to give &quot;life&quot; to their objects.
+        </td>
+      </tr>
+</table>
+<br>
+</div>
+
+<p>When the focus is on performing the architectural synthesis during inception, 
+  this step is excluded from this activity.</p>
+<p>Analysis mechanisms can be identified top-down (a priori knowledge) or bottom-up 
+  (discovered as you go along). In the top-down mode, experience guides the software 
+  architect to know that certain problems are present in the domain and will require 
+  certain kinds of solutions. Examples of common architectural problems that might 
+  be expressed as mechanisms during analysis are: persistence, transaction management, 
+  fault management, messaging, and inference engines. The common aspect of all 
+  of these is that each is a general capability of a broad class of systems, and 
+  each provides functionality that interacts with or supports the basic application 
+  functionality. The analysis mechanisms support capabilities required in the 
+  basic functional requirements of the system, regardless of the platform it's 
+  deployed upon or the implementation language. Analysis mechanisms also can be 
+  designed and implemented in a number of different ways; generally there will 
+  be more than one design mechanism corresponding to each analysis mechanism, 
+  and perhaps more than one way of implementing each design mechanism.</p>
+<p>The bottom-up approach is where analysis mechanisms are ultimately born&#151they 
+  are created as the software architect sees, perhaps faintly at first, a common 
+  theme emerging from a set of solutions to various problems. There is a need 
+  to provide a way for elements in different threads to synchronize their clocks 
+  and there is a need for a common way of allocating resources. Analysis mechanisms, 
+  which simplify the language of analysis, emerge from these patterns.</p>
+<p>Identifying an analysis mechanism means you identify that a common, perhaps 
+  implicit (in that the requirements for the system imply it), subproblem exists, 
+  and you name it. Initially the name might be all that exists; for example,&nbsp;the 
+  software architect recognizes that the system will require a persistence mechanism.&nbsp;Ultimately, 
+  this mechanism will be implemented through the collaboration of a <i>society 
+  of classes</i> (see [<a href="../referenc.htm#BOO98">BOO98</a>]), some of which 
+  do not deliver application functionality directly, but exist only to support 
+  it. Very often these support classes are located in the middle or lower layers 
+  of a layered architecture, thereby providing a common support service to all 
+  application level classes.</p>
+<p>If the identified subproblem is common enough, perhaps a <a href="../glossary.htm#pattern"><b>pattern</b></a> 
+  exists from which the mechanism can be instantiated&#151by binding existing 
+  classes and implementing new ones as required by the pattern. An analysis mechanism 
+  produced this way will be abstract, and will require further refinement through 
+  design and implementation.</p>
+<p>For more information, see <a href="../workflow/ana_desi/co_amech.htm">Concepts: 
+  Analysis Mechanisms</a>.</p>
+<h3><a name="Review the Results">Review the Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr> 
+      <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">
+        To ensure that the results of architectural analysis are complete and consistent.
+      </td>
+    </tr>
+</table>
+<br>
+</div>
+
+<p>As Architectural Analysis concludes, review the architectural mechanisms, the 
+  subsystems, packages, and classes that have been identified to ensure they're 
+  complete and consistent. As the results of Architectural Analysis are preliminary 
+  and relatively informal, reviews should be informal as well.  
+  Scenarios or use cases can be used to validate the architectural choices 
+  made at several levels&#151from the business perspective down to the specific 
+  interactions that occur.</p>
+<p>See <a href="chklists/ck_sad.htm#Architectural Analysis Considerations">Checkpoints: 
+  Software Architecture Document - Architectural Analysis Considerations</a> for 
+  more information on assessing the results of this activity.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

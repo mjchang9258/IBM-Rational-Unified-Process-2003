@@ -1,0 +1,956 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Test Plan - Elaboration Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Test Plan 1.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+</font><p align="RIGHT"><font face="Arial" size="5">Test Plan</font></p><font face="Arial" size="4">
+<p align="RIGHT">Version 1.0</p>
+</font></b><p align="CENTER"><b><font face="Arial" size="4"></font></b><font size="2">&nbsp;</font></p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP">
+    <p align="CENTER"><b>Version</b></td>
+    <td width="39%" valign="TOP">
+    <p align="CENTER"><b>Description</b></td>
+    <td width="24%" valign="TOP">
+    <p align="CENTER"><b>Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 26, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial version</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<h5>Table of Contents</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Requirements for Test">Requirements for Test</a></li>
+  <li><a href="#Test Strategy">Test Strategy</a></li>
+  <li><a href="#Resources">Resources</a></li>
+  <li><a href="#Project Milestones">Project Milestones</a></li>
+  <li><a href="#Deliverables">Deliverables</a></li>
+  <li><a href="#Appendix A: Project Tasks">Appendix A: Project Tasks</a></li>
+</ul>
+<h3><a name="Introduction"></a>Introduction <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Purpose</h4>
+<p>This Test Plan document for the Collegiate Sports Paging System supports the
+following objectives:
+<ol>
+  <li>Identify existing project information and the software components that
+    should be tested</li>
+  <li>List the recommended Requirements for Test (high level)</li>
+  <li>Recommend and describe the testing strategies to be employed</li>
+  <li>Identify the required resources and provide an estimate of the test
+    efforts</li>
+  <li>List the deliverable elements of the test project</li>
+</ol>
+<h4>Background</h4>
+<p>The Collegiate Sports Paging System provides alphanumeric paging to
+subscribers when events occur within collegiate sports categories to which they
+subscribe. Subscribers can then connect to a personalized web site where they
+can view the stories for which they were paged, as well as other collegiate
+sports news.</p>
+<p>The system is comprised of 3 major subsystems contained on an Application Web
+Server and interacts with the existing WebNewsOnLine web site as well as paging
+gateways. The subsystems include:
+<ul>
+  <li><b>Content management</b> &#151; this subsystem accepts content, marks
+    categories, and displays headlines for subscribers. It also manages
+    advertising content that is targeted to specific groups of subscribers
+    (based on their subscription profiles).</li>
+  <li><b>Paging</b> &#151; this subsystem activates when new content is loaded onto
+    the system. It is responsible for determining who should be paged and
+    sending messages to the paging gateways.</li>
+  <li><b>Reporting</b> &#151; this subsystem tracks and reports on advertising
+    viewing.</li>
+</ul>
+<p>The system architecture can be depicted as follows:</p>
+      <p><img src="images/ex_tstplandiag1.gif" width="547" height="352"></p>
+<p>&nbsp;</p>
+<h4>Scope</h4>
+<p>The Collegiate Sports Paging System will be unit tested and system tested.
+Unit tests will address functional quality, while system testing will address
+issues of scalability and performance.</p>
+<p>The interaction of the subsystems will be tested as follows:
+<ol>
+  <ol>
+    <li>Content Management to Paging</li>
+    <li>Content Management to Reporting</li>
+  </ol>
+</ol>
+<p>The following systems interfaces will be tested:
+<ol>
+  <ol>
+    <li>Collegiate Sports Paging System to existing WebNewsOnLine Web Server</li>
+    <li>Collegiate Sports Paging System to paging gateways</li>
+  </ol>
+</ol>
+<p>The most critical testing will be that of load and performance testing. This
+will be addressed as follows:
+<ol>
+  <li>We will create a test scenario that will generate increasing numbers of
+    pages up to 200,000.</li>
+  <li>We will also create a test scenario that has new content arriving at the
+    system at the rate of one item every 20 seconds.</li>
+  <li>Lastly, we will simulate increasing concurrent subscriber loads up to
+    200,000.</li>
+</ol>
+<h4>Project Identification</h4>
+<p>The table below identifies the documentation and availability, used for
+developing the test plan:</p>
+
+<table border="1" cellspacing="1" cellpadding="7" width="675">
+  <tr>
+    <td width="131" valign="TOP" bgcolor="#ffff00"><font face="Arial" size="2"><b>Document<br>
+    (and version / date)</b></font></td>
+    <td width="86" valign="TOP" bgcolor="#ffff00"><font face="Arial" size="2"><b>Created
+    or Available</b></font></td>
+    <td width="90" valign="TOP" bgcolor="#ffff00"><font face="Arial" size="2"><b>Received
+    or Reviewed</b></font></td>
+    <td width="126" valign="TOP" bgcolor="#ffff00"><font face="Arial" size="2"><b>Author
+    or Resource</b></font></td>
+    <td width="152" valign="TOP" bgcolor="#ffff00"><font face="Arial" size="2"><b>Notes</b></font></td>
+  </tr>
+  <tr>
+    <td width="131" valign="TOP">Vision Document</td>
+    <td width="86" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="90" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="126" valign="TOP">Context Integration</td>
+    <td width="152" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="131" valign="TOP">Supplemental Specification</td>
+    <td width="86" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="90" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="126" valign="TOP">Context Integration</td>
+    <td width="152" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="131" valign="TOP">Use Case Reports</td>
+    <td width="86" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="90" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="126" valign="TOP">Context Integration</td>
+    <td width="152" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="131" valign="TOP">Project Plan</td>
+    <td width="86" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="90" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="126" valign="TOP">Context Integration</td>
+    <td width="152" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="131" valign="TOP">Design Specifications</td>
+    <td width="86" valign="TOP"><font face="Wingdings">o</font> Yes <font face="Wingdings">n</font>
+    No</td>
+    <td width="90" valign="TOP"><font face="Wingdings">o</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="126" valign="TOP">&nbsp;</td>
+    <td width="152" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="131" valign="TOP">Prototype</td>
+    <td width="86" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="90" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="126" valign="TOP">Context Integration</td>
+    <td width="152" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="131" valign="TOP">Project / Business Risk Assessment</td>
+    <td width="86" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="90" valign="TOP"><font face="Wingdings">n</font> Yes <font face="Wingdings">o</font>
+    No</td>
+    <td width="126" valign="TOP">Context Integration</td>
+    <td width="152" valign="TOP">&nbsp;</td>
+  </tr>
+</table>
+<h3><a name="Requirements for Test"></a>Requirements for Test <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>The listing below identifies those items (use cases, functional requirements,
+non-functional requirements) that have been identified as targets for testing.
+This list represents what will be tested.</p>
+<h4>Database Testing</h4>
+<ol>
+  <p>Verify that subscriber information can be entered and retrieved.</p>
+  <p>Verify that content and categories can be inserted and displayed.</p>
+  <p>Verify that advertiser profiles and account information can be entered and
+  displayed.</p>
+  <p>Verify that subscriber-specific usage information is tracked.</p>
+</ol>
+<h4>Functional Testing</h4>
+<ol>
+  <p>Verify that subscribers see the information for which they have requested
+  paging.</p>
+  <p>Verify that pages go to subscribers when content arrives.</p>
+  <p>Verify that automatic content insertion works.</p>
+  <p>Verify that editor approval causes non-automatic content to be inserted.</p>
+  <p>Verify that subscribers who have lapsed subscriptions do not receive pages.</p>
+  <p>Verify that content marked as archived is not re-displayed to subscribers.</p>
+  <p>Verify that obsolete content is deleted.</p>
+  <p>Verify that advertiser reports are accurate.</p>
+  <p>Verify that advertiser reports can be received in Microsoft&#174; Word&#174;, Microsoft&#174; Excel &#174;, or HTML.</p>
+</ol>
+<h4>Business Cycle Testing</h4>
+<ol>
+  <p>None.</p>
+</ol>
+<h4>User Interface Testing</h4>
+<ol>
+  <p>Navigate through all use cases, verifying that each UI panel can be easily
+  understood</p>
+  <p>Verify all online Help functions</p>
+  <p>Verify that all screens conform to the WebNewsOnLine standards.</p>
+</ol>
+<h4>Performance Profiling</h4>
+<ol>
+  <p>Verify response time of interface to Pager Gateway system.</p>
+  <p>Verify response time of interface from existing WebNewsOnLine web server.</p>
+  <p>Verify response time when connected using 56Kbps modem.</p>
+  <p>Verify response time when connected locally (on the same LAN).</p>
+</ol>
+<h4>Load Testing</h4>
+<ol>
+  <p>Verify system response with 200 concurrent subscribers.</p>
+  <p>Verify system response with 500 concurrent subscribers.</p>
+  <p>Verify system response with 1,000 concurrent subscribers.</p>
+  <p>Verify system response with 5,000 concurrent subscribers.</p>
+  <p>Verify system response with 10,000 concurrent subscribers.</p>
+  <p>Verify system response with 50,000 concurrent subscribers.</p>
+  <p>Verify system response with 100,000 concurrent subscribers.</p>
+  <p>Verify system response with 200,000 concurrent subscribers.</p>
+</ol>
+<h4>Stress Testing</h4>
+<ol>
+  <p>None.</p>
+</ol>
+<h4>Volume Testing</h4>
+<ol>
+  <p>Verify pages sent out within 5 minutes when single content element arrives.</p>
+  <p>Verify pages sent out within 5 minutes when content arrives every 20
+  seconds.</p>
+</ol>
+<h4>Security and Access Control Testing</h4>
+<ol>
+  <p>Verify that non-subscribers cannot access subscriber-only information.</p>
+  <p>Verify that non-editors can not approve content.</p>
+  <p>Verify that advertisers see only their own advertising content.</p>
+</ol>
+<h4>Failover/Recovery Testing</h4>
+<ol>
+  <p>None.</p>
+</ol>
+<h4>Configuration Testing</h4>
+<ol>
+  <p>Verify operation using Netscape V4.x browser.</p>
+  <p>Verify operation using Microsoft&#174; Internet Explorer&#174; V5.x</p>
+</ol>
+<h4>Installation Testing</h4>
+<ol>
+  <p>None.</p>
+</ol>
+<h3><a name="Test Strategy"></a>Test Strategy <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Testing Types</h4>
+<h5>Data and Database Integrity Testing</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="24%" valign="TOP">Test Objective:</td>
+    <td width="76%" valign="TOP">Ensure database access methods and processes
+    function properly and without data corruption.</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Technique:</td>
+    <td width="76%" valign="TOP">
+    <ul>
+      <li>Invoke each database access method and process, seeding each with
+        valid and invalid data (or requests for data).</li>
+      <li>Inspect the database to ensure the data has been populated as
+        intended, all database events occurred properly, or review the returned
+        data to ensure that the correct data was retrieved (for the correct
+        reasons)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Completion Criteria:</td>
+    <td width="76%" valign="TOP">All database access methods and processes
+    function as designed and without any data corruption.</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Special Considerations:</td>
+    <td width="76%" valign="TOP">
+    <ul>
+      <li>Processes should be invoked manually.</li>
+      <li>Small or minimally sized databases (limited number of records) should
+        be used to increase the visibility of any non-acceptable events.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<h5>Function Testing</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="24%" valign="TOP">Test Objective:</td>
+    <td width="76%" valign="TOP">Ensure proper target-of-test functionality,
+    including navigation, data entry, processing, and retrieval.</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Technique:</td>
+    <td width="76%" valign="TOP">Execute each use case, use case flow, or
+    function, using valid and invalid data, to verify the following:
+    <ul>
+      <li>The expected results occur when valid data is used.</li>
+              <li>The appropriate error and warning messages are displayed when 
+                invalid data is used.</li>
+      <li>Each business rule is properly applied.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Completion Criteria:</td>
+    <td width="76%" valign="TOP">
+    <ul>
+      <li>All planned tests have been executed.</li>
+      <li>All identified defects have been addressed.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Special Considerations:</td>
+    <td width="76%" valign="TOP">None.</td>
+  </tr>
+</table>
+<h5>User Interface Testing</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="24%" valign="TOP">Test Objective:</td>
+    <td width="76%" valign="TOP">Verify the following:
+    <ul>
+      <li>Navigation through the target-of-test properly reflects business
+        functions and requirements, including window to window, field to field,
+        and use of access methods (tab keys, mouse movements, accelerator keys)</li>
+      <li>Web objects and characteristics, such as menus, size, position, state,
+        and focus conform to standards.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Technique:</td>
+          <td width="76%" valign="TOP">Create or modify tests for each window 
+            to verify proper navigation and object states for each application 
+            window and objects.</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Completion Criteria:</td>
+    <td width="76%" valign="TOP">Each window successfully verified to remain
+    consistent with benchmark version or within acceptable standard</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Special Considerations:</td>
+    <td width="76%" valign="TOP">Not all properties for custom and third party
+    objects can be accessed.</td>
+  </tr>
+</table>
+<h5>Performance Profiling</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="24%" valign="TOP">Test Objective:</td>
+    <td width="76%" valign="TOP">Verify performance behaviors for designated
+    transactions or business functions under the following conditions:
+    <ul>
+      <li>normal anticipated workload</li>
+      <li>anticipated worse case workload</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Technique:</td>
+    <td width="76%" valign="TOP">Use Test Procedures developed for Function or
+    Business Cycle Testing.
+    <p>Modify data files (to increase the number of transactions) or the scripts
+    to increase the number of iterations each transaction occurs.</p>
+    <p>Scripts should be run on one machine (best case to benchmark single user,
+    single transaction) and be repeated with multiple clients (virtual or
+    actual, see special considerations below).</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Completion Criteria:</td>
+          <td width="76%" valign="TOP">Single Transaction or single user: Successful 
+            completion of the test scripts without any failures and within the 
+            expected or required time allocation (per transaction) 
+            <p>Multiple transactions or multiple users: Successful completion 
+              of the test scripts without any failures and within acceptable time 
+              allocation.
+          </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Special Considerations:</td>
+    <td width="76%" valign="TOP">Comprehensive performance testing includes
+    having a &quot;background&quot; workload on the server.
+    <p>There are several methods that can be used to perform this, including:
+    <ul>
+      <li>&quot;Drive transactions&quot; directly to the server, usually in the
+        form of SQL calls.</li>
+      <li>Create &quot;virtual&quot; user load to simulate many (usually several
+        hundred) clients. Remote Terminal Emulation tools are used to accomplish
+        this load. This technique can also be used to load the network with
+        &quot;traffic.&quot;</li>
+      <li>Use multiple physical clients, each running test scripts to place a
+        load on the system.</li>
+    </ul>
+    <p>Performance testing should be performed on a dedicated machine or at a
+    dedicated time. This permits full control and accurate measurement.</p>
+    <p>The databases used for Performance testing should be either actual size,
+    or scaled equally.</td>
+  </tr>
+</table>
+<h5>Load Testing</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="24%" valign="TOP">Test Objective:</td>
+    <td width="76%" valign="TOP">Verify performance behaviours time for
+    designated transactions or business cases under varying workload conditions.</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Technique:</td>
+    <td width="76%" valign="TOP">Use tests developed for Function or Business
+    Cycle Testing.
+    <p>Modify data files (to increase the number of transactions) or the tests
+    to increase the number of times each transaction occurs.</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Completion Criteria:</td>
+          <td width="76%" valign="TOP">Multiple transactions or multiple users: 
+            Successful completion of the tests without any failures and within 
+            acceptable time allocation.</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Special Considerations:</td>
+    <td width="76%" valign="TOP">Load testing should be performed on a dedicated
+    machine or at a dedicated time. This permits full control and accurate
+    measurement.
+    <p>The databases used for load testing should be either actual size, or
+    scaled equally.</td>
+  </tr>
+</table>
+<h5>Volume Testing</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="121" valign="TOP">Test Objective:</td>
+    <td width="426" valign="TOP">Verify that the target-of-test successfully
+    functions under the following high volume scenarios:
+    <ul>
+      <li>maximum (actual or physically capable) number of clients connected (or
+        simulated) all performing the same, worst case (performance) business
+        function for an extended period.</li>
+              <li>maximum database size has been reached (actual or scaled) and 
+                multiple queries and report transactions are executed simultaneously.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="121" valign="TOP">Technique:</td>
+    <td width="426" valign="TOP">Use tests developed for Performance Profiling
+    or Load Testing.
+            <p>Multiple clients should be used, either running the same tests 
+              or complementary tests, to produce the worst case transaction volume 
+              or mix (see stress test above) for an extended period.</p>
+            <p>Maximum database size is created (actual, scaled, or filled with 
+              representative data) and multiple clients used to run queries and 
+              report transactions simultaneously for extended periods.
+          </td>
+  </tr>
+  <tr>
+    <td width="121" valign="TOP">Completion Criteria:</td>
+          <td width="426" valign="TOP">All planned tests have been executed and 
+            specified system limits are reached or exceeded without the software 
+            or software failing.</td>
+  </tr>
+  <tr>
+    <td width="121" valign="TOP">Special Considerations:</td>
+    <td width="426" valign="TOP">What period of time would be considered an
+    acceptable time for high volume conditions (as noted above)?</td>
+  </tr>
+</table>
+<h5>Security and Access Control Testing</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="24%" valign="TOP">Test Objective:</td>
+          <td width="76%" valign="TOP">Application-level Security: Verify that 
+            an actor can access only those functions and data for which their 
+            user type is provided permissions. 
+            <p>System-level Security: Verify that only those actors with access 
+              to the system and applications are permitted to access them.
+          </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Technique:</td>
+          <td width="76%" valign="TOP">Application-level: Identify and list each 
+            actor type and the functions or data each type has permissions for. 
+            <p>Create tests for each actor type and verify each permission by creating
+    transactions specific to each user actor.</p>
+            <p>Modify user type and re-run tests for same users. In each case 
+              verify those additional functions and data are correctly available 
+              or denied.</p>
+    <p>System-level Access (see special considerations below)</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Completion Criteria:</td>
+          <td width="76%" valign="TOP">For each known actor type, the appropriate 
+            function and data are available, and all transactions function as 
+            expected and run in prior function tests</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Special Considerations:</td>
+          <td width="76%" valign="TOP">Access to the system must be reviewed or 
+            discussed with the appropriate network or systems administrator. This 
+            testing may not be required as it maybe a function of network or systems 
+            administration.</td>
+  </tr>
+</table>
+<h5>Configuration Testing</h5>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="583">
+  <tr>
+    <td width="24%" valign="TOP">Test Objective:</td>
+    <td width="76%" valign="TOP">
+    
+      
+                <p>Verify that the target-of-test functions properly on the required 
+                  hardware and software configurations.</p>
+     
+   
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Technique:</td>
+    <td width="76%" valign="TOP">
+    
+        <p>Use Function Test scripts</p>
+                <p>Open or close various non-target-of-test related software, 
+                  such as the Microsoft applications Excel&#174; and Word&#174;, either as 
+                  part of the test or prior to the start of the test.</p>
+        <p>Execute selected transactions to simulate actor’s interacting with
+        the target-of-test and the non-target-of-test software</p>
+        <p>Repeat the above process, minimizing the available conventional
+        memory on the client.</p>
+      
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Completion Criteria:</td>
+    <td width="76%" valign="TOP">
+  
+        <p>For each combination of the target-of-test and non-target-of-test
+        software, all transactions are successfully completed without failure.</p>
+      
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">Special Considerations:</td>
+    <td width="76%" valign="TOP">
+  
+        <p>What non-target-of-test software is needed, is available, accessible
+        on the desktop?</p>
+        <p>What applications are typically used?</p>
+                <p>What data are the applications running (that is, large spreadsheet 
+                  opened in Excel, 100 page document in Word)?</p>
+                <p>The entire systems, netware, network servers, databases, and 
+                  so forth should also be documented as part of this test.</p>
+     
+    </td>
+  </tr>
+</table>
+<h4>Tools</h4>
+<p>The following tools will be employed for this project:</p>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="366">
+  <tr>
+    <td width="41%" valign="TOP">&nbsp;</td>
+    <td width="43%" valign="TOP">
+    <p align="CENTER">Tool</td>
+    <td width="16%" valign="TOP">
+    <p align="CENTER">Version</td>
+  </tr>
+  <tr>
+    <td width="41%" valign="TOP">Defect Tracking</td>
+    <td width="43%" valign="TOP">
+    <p align="CENTER">Project HomePage</td>
+    <td width="16%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="41%" valign="TOP">Project Management</td>
+    <td width="43%" valign="TOP">
+    <p align="CENTER">Microsoft&#174; Project&#174;</td>
+    <td width="16%" valign="TOP">&nbsp;</td>
+  </tr>
+</table>
+<p><br>
+</p>
+<h3><a name="Resources"></a> Resources <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="22" height="16"></a></h3>
+<p>This section presents the recommended resources for the Collegiate Sports
+Paging System test effort, their main responsibilities, and their knowledge or
+skill set.</p>
+<h4>Workers</h4>
+<p>This table shows the staffing assumptions for the project.</p>
+
+<table border="1" cellspacing="1" cellpadding="7" width="564">
+  <tr>
+    <td valign="TOP" colspan="3" bgcolor="#ffff00">Human Resources</td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP" bgcolor="#ffff00">Worker</td>
+    <td width="22%" valign="TOP" bgcolor="#ffff00">Minimum Resources Recommended</td>
+          <td width="55%" valign="TOP" bgcolor="#ffff00">Specific Responsibilities 
+            and Comments</td>
+  </tr>
+  <tr>
+          <td width="23%" valign="TOP">Test Manager, <br>
+            Test Project Manager</td>
+    <td width="22%" valign="TOP">1 ( Collegiate Sports Paging System project
+    manager)</td>
+    <td width="55%" valign="TOP">Provides management oversight
+    <p>Responsibilities:
+    <ul>
+      <li>Provide technical direction</li>
+      <li>Acquire appropriate resources</li>
+      <li>Management reporting</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Test Designer</td>
+    <td width="22%" valign="TOP">1</td>
+    <td width="55%" valign="TOP">Identifies, prioritizes, and implements test
+    cases
+    <p>Responsibilities:
+    <ul>
+      <li>Generate test plan</li>
+      <li>Generate test model</li>
+      <li>Evaluate effectiveness of test effort</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP" height="2">Tester</td>
+    <td width="22%" valign="TOP" height="2">4 (provided by WebNewsOnLine)</td>
+    <td width="55%" valign="TOP" height="2">Executes the tests
+    <p>Responsibilities:
+    <ul>
+      <li>Execute tests</li>
+      <li>Log results</li>
+      <li>Recover from errors</li>
+      <li>Document change requests</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Test System Administrator</td>
+    <td width="22%" valign="TOP">1</td>
+    <td width="55%" valign="TOP">Ensures test environment and assets are managed
+    and maintained.
+    <p>Responsibilities:
+    <ul>
+      <li>Administer test management system</li>
+              <li>Install and manage worker access to test systems</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Database Administration / Database Manager</td>
+    <td width="22%" valign="TOP">1 (provided by WebNewsOnLine<font face="Arial" size="2">)</font></td>
+    <td width="55%" valign="TOP">Ensures test data (database) environment and
+    assets are managed and maintained.
+    <p>Responsibilities:
+    <ul>
+      <li>Administer test data (database)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Designer</td>
+    <td width="22%" valign="TOP">2</td>
+    <td width="55%" valign="TOP">Identifies and defines the operations,
+    attributes, and associations of the test classes
+    <p>Responsibilities:
+    <ul>
+      <li>Identifies and defines the test class(es)</li>
+      <li>Identifies and defines the test packages</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Implementer</td>
+    <td width="22%" valign="TOP">4</td>
+    <td width="55%" valign="TOP">Implements and unit tests the test classes and
+    test packages
+    <p>Responsibilities:
+    <ul>
+      <li>Creates the test classes and packages implemented in the test model.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<h4>System</h4>
+<p>The following table sets forth the system resources for the testing project.</p>
+      <p>The specific elements of the test system are not fully known at this 
+        time. It is recommended that the system simulate the production environment, 
+        scaling down the accesses and database sizes, if and where appropriate.</p>
+
+<table border="1" cellspacing="1" cellpadding="7" width="463">
+  <tr>
+    <td valign="TOP" colspan="2" bgcolor="#ffff00">System Resources</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP" bgcolor="#ffff00">Resource</td>
+          <td width="50%" valign="TOP" bgcolor="#ffff00">Name and Type</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Database Server</td>
+    <td width="50%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP"><font size="2" color="#ffffff">&#151;Network/Subnet</font></td>
+    <td width="50%" valign="TOP">TBD</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP"><font size="2" color="#ffffff">&#151;Server Name</font></td>
+    <td width="50%" valign="TOP">TBD</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP"><font size="2" color="#ffffff">&#151;Database Name</font></td>
+    <td width="50%" valign="TOP">TBD</td>
+  </tr>
+  <tr>
+          <td width="50%" valign="TOP">Client Test PCs</td>
+    <td width="50%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP"><font size="2" color="#ffffff">&#151;Include
+    special configuration<br>
+    &#151;requirements</font></td>
+    <td width="50%" valign="TOP">TBD</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Test Repository</td>
+    <td width="50%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP"><font size="2" color="#ffffff">&#151;Network/Subnet</font></td>
+    <td width="50%" valign="TOP">TBD</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP"><font size="2" color="#ffffff">&#151;Server Name</font></td>
+    <td width="50%" valign="TOP">TBD</td>
+  </tr>
+  <tr>
+          <td width="50%" valign="TOP">Test Development PCs</td>
+    <td width="50%" valign="TOP">TBD</td>
+  </tr>
+</table>
+<h3><a name="Project Milestones"></a>Project Milestones <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+
+<table border="1" cellspacing="1" cellpadding="7" width="613">
+  <tr>
+    <td width="6%" valign="TOP">&nbsp;</td>
+    <td width="32%" valign="TOP">Milestone Task</td>
+    <td width="17%" valign="TOP">&nbsp;</td>
+    <td width="9%" valign="TOP">Effort</td>
+    <td width="18%" valign="TOP">Start Date</td>
+    <td width="19%" valign="TOP">End Date</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="TOP">&nbsp;</td>
+    <td width="32%" valign="TOP">Plan Test</td>
+    <td width="17%" valign="TOP">&nbsp;</td>
+    <td width="9%" valign="TOP">&nbsp;</td>
+    <td width="18%" valign="TOP">&nbsp;</td>
+    <td width="19%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="TOP">&nbsp;</td>
+    <td width="32%" valign="TOP">Design Test</td>
+    <td width="17%" valign="TOP">&nbsp;</td>
+    <td width="9%" valign="TOP">&nbsp;</td>
+    <td width="18%" valign="TOP">&nbsp;</td>
+    <td width="19%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="TOP">&nbsp;</td>
+    <td width="32%" valign="TOP">Implement Test</td>
+    <td width="17%" valign="TOP">&nbsp;</td>
+    <td width="9%" valign="TOP">&nbsp;</td>
+    <td width="18%" valign="TOP">&nbsp;</td>
+    <td width="19%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="TOP">&nbsp;</td>
+    <td width="32%" valign="TOP">Execute Test</td>
+    <td width="17%" valign="TOP">&nbsp;</td>
+    <td width="9%" valign="TOP">&nbsp;</td>
+    <td width="18%" valign="TOP">&nbsp;</td>
+    <td width="19%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%" valign="TOP">&nbsp;</td>
+    <td width="32%" valign="TOP">Evaluate Test</td>
+    <td width="17%" valign="TOP">&nbsp;</td>
+    <td width="9%" valign="TOP">&nbsp;</td>
+    <td width="18%" valign="TOP">&nbsp;</td>
+    <td width="19%" valign="TOP">&nbsp;</td>
+  </tr>
+</table>
+<h3><a name="Deliverables"></a>Deliverables <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Test Model</h4>
+      <p>For each test executed, a test result form will be created. This will 
+        include the name or ID of the test, the use case or supplemental specification 
+        to which the test relates, the date of the test, the ID of the tester, 
+        required pre-test conditions, and results of the test.</p>
+<h4>Test Logs</h4>
+      <p>Microsoft Word will be used to record and report test results.</p>
+<h4>Defect Reports</h4>
+      <p>Defects will be recorded using the Project HomePage using the Web.</p>
+<h3><a name="Appendix A: Project Tasks"></a>Appendix A: Project Tasks <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+      <p>The following table lists the test related tasks.</p>
+
+<table border="1" cellspacing="2" bordercolor="#000000" cellpadding="7" width="441">
+  <tr>
+    <td valign="TOP">Plan Test</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Identify Requirements for Test</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Assess Risk</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Develop Test Strategy</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Identify Test Resources</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Create Schedule</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Generate Test Plan</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Design Test</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Workload Analysis</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Identify and Describe Test Cases</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Identify and Structure Test Procedures</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Review and Access Test Coverage</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Implement Test</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Record or Program Test Scripts</td>
+  </tr>
+  <tr>
+          <td valign="TOP">Identify Test-Specific Functionality in the Design 
+            and Implementation Model</td>
+  </tr>
+  <tr>
+          <td valign="TOP">Establish External Data Sets</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Execute Test</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Execute Test Procedures</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Evaluate Execution of Test</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Recover from Halted Test</td>
+  </tr>
+  <tr>
+          <td valign="TOP">Verify the Results</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Investigate Unexpected Results</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Log Defects</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Evaluate Test</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Evaluate Test-Case Coverage</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Evaluate Code Coverage</td>
+  </tr>
+  <tr>
+    <td valign="TOP">Analyze Defects</td>
+  </tr>
+  <tr>
+          <td valign="TOP">Determine if Test Completion Criteria and Success Criteria 
+            Have Been Achieved</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+&nbsp;<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

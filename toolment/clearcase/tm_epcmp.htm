@@ -1,0 +1,294 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Setting Up the Implementation Model Using Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Setting Up the Implementation Model Using Rational ClearCase</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to create a framework in the development environment for organizing and
+storing configuration item artifacts related to the implementation and delivery
+of the software product. The physical representation of subsystems in the
+development environment defines the &quot;product directory structure&quot; and is, in
+effect, the software Implementation Model. This tool mentor explains how to set
+up the Implementation Model directory.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_strim.htm">Structure the Implementation Model</a></li>
+<li><a href="../../process/activity/ac_wrcmp.htm">Write Configuration Management (CM) Plan</a></li>
+<li><a href="../../process/activity/ac_wspba.htm">Set Up Configuration Management (CM) Environment</a></li>
+</ul>
+<br>
+    
+</p>
+
+<h3>Overview</h3>
+Before beginning to use ClearCase, it's important to know whether you'll
+use ClearCase UCM, an out-of-the-box usage model, or base ClearCase,
+which provides a set of tools that can be used to construct other usage
+models.&nbsp;
+<p>This tool mentor is applicable to both ClearCase UCM and base ClearCase
+tasks, whereas all of the other ClearCase tool mentors presented in the RUP use the UCM model.
+<p>This tool mentor is applicable when running Microsoft Windows.
+<h4>Terminology</h4>
+<p>There are some differences between RUP terminology and&nbsp; that used by
+ClearCase. The following definitions of tool-specific terminology should help
+clarify the differences.</p>
+<ul>
+  <li><b>Activity</b>: A ClearCase activity maps closely to a RUP <a href="../../process/artifact/ar_wkord.htm">Work
+    Order</a>.&nbsp; It is not to be confused with the RUP concept of an <a href="../../process/glossary.htm">Activity</a>.</li>
+  <li><b>Configuration Management</b>: In the context of ClearCase, use of the term Configuration
+    Management refers to Version Control and Build Management. RUP uses the IEEE
+    and ISO definitions of <a href="../../process/glossary.htm">Configuration
+    Management</a> (CM), which also includes Change Management as part of CM.&nbsp;</li>
+  <li><b>Configuration and Change Management</b>: Both ClearCase and Rational
+    ClearQuest refer to Configuration and Change Management, which is synonymous
+    with the RUP definition of <a href="../../process/glossary.htm">Configuration
+    Management</a>.&nbsp; RUP uses these terms synonymously.</li>
+  <li><b>Project</b>: A ClearCase project maps to the RUP <a href="../../process/artifact/ar_repos.htm">Project
+    Repository</a>.</li>
+</ul>
+<h4>
+Tool Steps</h4>
+To set up the implementation model with Rational ClearCase:&nbsp;
+<ol>
+<li>
+<a href="#Create the Configuration Management (CM) repositories (ClearCase VOBs) that represent the subsystems defined by your architecture">Create the Configuration
+Management (CM) repositories (ClearCase VOBs) that represent the subsystems defined by your architecture</a></li>
+
+<li>
+<a href="#Import existing files and directories into the">Import existing
+files and directories into the repositories to create an initial set of
+development configuration items (ClearCase elements)</a></li>
+
+<li>
+<a href="#Create an Admin VOB to contain definitions of">(Optional)
+Create an administrative VOB to contain definitions of global type objects used in defining baselines in your
+subsystems</a></li>
+
+&nbsp;</ol>
+
+<h3>
+1.&nbsp;<a name="Create the Configuration Management (CM) repositories (ClearCase VOBs) that represent the subsystems defined by your architecture">Create
+the Configuration Management (CM) repositories (ClearCase VOBs) that represent the subsystems defined by your
+architecture</a>&nbsp;<a href="#Top"><img SRC="../../images/top.gif" BORDER=0 width="26" height="20"></a></h3>
+
+<p>Versioned Object Bases (VOBs) store versions of files, directories, and other
+objects. They serve as repositories for configuration management information.</p>
+<p>To start the VOB Creation Wizard:</p>
+<ol>
+  <li>On the <b>Windows</b> task bar, click <b>Start &gt; Programs &gt; Rational
+    ClearCase Administration &gt; Create VOB</b>.&nbsp;</li>
+  <li>The <b>VOB Creation Wizard</b>  starts. Follow the steps that are
+    presented to create a ClearCase VOB. Before beginning, it is helpful to know
+    VOB naming conventions used by your site or project, and where to place the
+    VOB storage.</li>
+</ol>
+<blockquote>
+    <p>Context-sensitive help is available at each step of the wizard.&nbsp;</p>
+</blockquote>
+  <ol start="3">
+    <li>In the remaining steps in the Wizard, do the following:</li>
+  </ol>
+  <blockquote>
+    <ul>
+      <li>Name the VOB and indicate whether it should be a UCM component or
+        Project VOB (PVOB).</li>
+      <li>Specify a VOB storage location.</li>
+      <li>Choose <b>Options</b>.</li>
+    </ul>
+  </blockquote>
+<p>
+<img SRC="../../images/HelpBook.gif" width="16" height="16">&nbsp; For details
+about creating VOBs, see the online help for the ClearCase VOB Creation
+Wizard.</p>
+<p><img SRC="../../images/book.gif" width="16" height="15">  For an overview
+of setting up VOBs, see the chapter "Setting Up ClearCase VOBs&quot; in the
+ClearCase manual <i>Administrator's Guide</i>.
+<h3>
+2.&nbsp;<a NAME="Import existing files and directories into the"></a>Import
+existing files and directories into the repositories to create an initial
+set of development configuration items&nbsp;(Rational ClearCase elements)&nbsp;<a href="#Top"><img SRC="../../images/top.gif" BORDER=0 width="26" height="20"></a></h3>
+Working within a ClearCase view produced for your project, create the desired
+directories within your VOBs and copy existing files into them.&nbsp;
+<ol>
+  <li> From
+ClearCase Explorer, select the directories and files you want to import.&nbsp;</li>
+  <li>Right-click to display a menu of commands and select <b>Add to Source Control</b>.
+    This creates a ClearCase element for each of the highlighted objects.</li>
+</ol>
+<p><img SRC="../../images/Book.gif" width="16" height="15">&nbsp; For
+information on importing large volumes of files, see the <b> clearimport</b> command in the
+ClearCase manual <i>Command Reference</i>.
+<h3>
+3. (Optional) &nbsp;<a NAME="Create an Admin VOB to contain definitions of"></a>Create
+an administrative VOB to contain definitions of global type objects used in
+defining baselines in your subsystems&nbsp;<a href="#Top"><img SRC="../../images/top.gif" BORDER=0 width="26" height="20"></a></h3>
+Optionally, you may want to create an Administrative VOB to contain definitions
+of global type objects.
+<p>To create an administrative VOB, start the VOB Creation Wizard previously
+described in <a href="#Create the Configuration Management (CM) repositories (ClearCase VOBs) that represent the subsystems defined by your architecture">procedure
+1</a> and follow the prompts.&nbsp;&nbsp;</p>
+<p><img SRC="../../images/Book.gif" width="16" height="15">&nbsp; For more
+information about working with administrative VOBs, see "Using Administrative VOBs and Global Types" in the
+ClearCase manual titled <i>Administrator's Guide</i>.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

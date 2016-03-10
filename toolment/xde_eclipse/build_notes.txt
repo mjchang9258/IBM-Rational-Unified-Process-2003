@@ -1,0 +1,15 @@
+The following listed files are also COPIED to the xde_vsnet directory.
+Copies are used because it is easier to maintain the small amount tagged text that distinguishes the two tools, than to maintain two complete different sets of source files.
+
+xde.htm
+tm_*.htm
+online_help_link.js
+model_structure_guidelines.htm
+images folder and contents
+
+In addition to copying the files, the titles must be changed (replaced IBM WSW with Microsoft VS.NET).
+The tags must also be changed so that when both tool mentors are selected, eclipse shows up in the eclipse directory and .net in the .net directory.
+This is done by removing the suffix "_remove" from "rup_tools_xde_vsnet_remove" and adding suffix "_remove" to "rup_tools_xde_eclipse"  when the files are copied to the xde_vsnet directory.
+
+Note that the file online_help_link_eclipse.js is not used.  If used to replace online_help _link.js, it changes the online help references into links into Eclipse online help - links which can be used to aid in testing.  (Note that for this to work, the javascript file must be edited to use the port number which is serving up the online help).
+online_help_link_relative_files.js serves a similar purpose, but in this case, the online help topics are assumed to be available via relative links.

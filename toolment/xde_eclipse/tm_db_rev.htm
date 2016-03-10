@@ -1,0 +1,318 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+ <HEAD>
+  <title>Tool Mentor:&nbsp;Reverse Engineering Databases Using Rational XDE Developer - Java Platform Edition</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+</HEAD>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Reverse Engineering Databases Using Rational XDE Developer - Java Platform Edition</rpw><a name="XE_Index_Entry_Category___New_Tool_Mentor"></a>
+</h2>
+
+
+<h3>Purpose</h3>
+
+<p>This tool mentor describes the use of reverse engineering in the Rational XDE&#153;
+  software tool to generate a Data Model from an existing database schema or DDL
+  script file. </p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_dbdes.htm">Database Design</a></li>
+</ul>
+<br>
+  
+</p>
+
+<h3>Overview</h3>
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#Reverse Engineering a Database">Reverse Engineer a Database</a></li>
+  <li><a href="#Transform">Transform Tables to Classes</a> &lt;optional&gt;</li>
+  <li><a href="#Manage Changes to Model and Database">Manage Changes to the Model
+    and the Database</a></li>
+</ul>
+
+
+<h3><a name="Reverse Engineering a Database">Reverse Engineer a
+Database</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>In Rational XDE, you can build a model of the physical database design through
+  reverse engineering of the database or a Data Definition Language (DDL) file.
+  Refer to
+  <script language=javascript>ReferenceHelpTopic("Building Data Models by Reverse Engineering","dm","dm_o_gen_dm_re");</script>
+in the Rational XDE online Help for an overview of how the reverse engineering process works.</p>
+
+<p>You initiate the reverse engineering process using the Rational XDE data modeling
+  <b>Reverse Engineering Wizard</b>.&nbsp;<b> </b> (See
+  <script language=javascript>ReferenceHelpTopic("Reverse Engineering DDLs or Databases","dm","dm_t_re_ddl_db");</script>
+  .) The Reverse Engineering Wizard reads the database schema or DDL and creates:</p>
+<ul>
+  <li>A package containing the tables, columns, constraints, relationships, stored
+    procedures, and views. <font color="#FF0000"> [Comment: This topic has been
+    removed. The topic that now contains these topics is Designing Data Models,
+    dm_o_bld_dm. if this doesn't work for you, then you can use the conceptual
+    topic for each of those data elements.]</font>See
+    <script language=javascript>ReferenceHelpTopic("Understanding Data Modeling Elements","dm","dm_o_understanding_dm");</script>
+    .</li>
+  <li>A package containing the domains. See
+    <script language=javascript>ReferenceHelpTopic("Domains","dm","dm_c_dom");</script>
+    .</li>
+  <li>A database containing a realization relationship for each table. See
+    <script language=javascript>ReferenceHelpTopic("Realize Relationships in Data Modeling","dm","dm_c_realization_dm");</script>
+    .</li>
+</ul>
+
+
+<p>To reverse engineer a database, Rational XDE must be able to establish a connection
+  to the database.&nbsp;(See
+  <script language=javascript>ReferenceHelpTopic("Connecting to Database Management Systems","dm","dm_o_connect_dbms");</script>
+  .)&nbsp; Note that the results of the reverse engineering process might vary
+  with each DBMS. </p>
+
+
+
+<p>Refer to the following topics in the Rational XDE online Help for further details
+  on reverse engineering databases for a specific DBMS:</p>
+
+
+
+<ul>
+  <li> <script language=javascript>ReferenceHelpTopic("Oracle Database Reverse Engineering","dm","dm_c_re_oracle_db");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("SQL Server Database Reverse Engineering","dm","dm_c_re_sqlsrv_db");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("Sybase Database Reverse Engineering","dm","dm_c_re_sybase_db");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("DB2 Database Reverse Engineering","dm","dm_c_re_db2_db");</script></li>
+
+</ul>
+
+<p>For more information on establishing database connections for a specific DBMS,
+  consult the following topics in the Rational XDE online Help:</p>
+
+<ul>
+  <li> <script language=javascript>ReferenceHelpTopic("Oracle Database Connections","dm","dm_c_oracle_db_connect");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("SQL Server Database Connections","dm","dm_c_sqlsrv_db_connect");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("Sybase Database Connections","dm","dm_c_sybase_db_connect");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("DB2 Database Connections","dm","dm_c_db2_db_connect");</script></li>
+
+</ul>
+
+
+<h3><a name="Transform">Transform Tables to Classes &lt;optional&gt;</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Once a database has been reverse engineered to create a model of the physical
+  database design, you can optionally decide to transform the tables into classes
+  that can become part of the logical database design in the Design Model or in
+  a separate Logical Data Model.&nbsp;<font color="#FF0000">[Comment: DM now
+supports a logical data model, there is a conceptual topic called Logical Data
+Model, dm_c_logical_dm, There is also an orientation topic, Building Logical
+Data Models, dm_o_bld_logical_dm]</font>&nbsp;&nbsp; You can transform one table or all the
+  tables contained in a package or realized by a database. (See<br>
+  <script language=javascript>ReferenceHelpTopic("Transforming Tables to Classes","dm","dm_t_transf_tbl_clss");</script>
+  .) The package must contain all of the participants in a relationship to transform
+  that relationship to the Logical Data Model.</p>
+<p>For additional details on designing and modeling a database, see <a href="tm_dbdes.htm">Tool
+  Mentor: Designing and Modeling Databases in Rational XDE</a>. </p>
+
+
+<p> Refer to the following topics in the Rational XDE online Help for further
+  details on the table-to-class transformation process:</p>
+
+<ul type="square">
+  <li><script language=javascript>ReferenceHelpTopic("Table to Class Transformation","dm","dm_c_tbl_clss_transf");</script></li>
+  <li><script language=javascript>ReferenceHelpTopic("Table to Class Transformation Mapping","dm","dm_r_tbl_transf_map");</script></li>
+  <li><script language=javascript>ReferenceHelpTopic("Transforming Tables and Classes","dm","dm_o_transf_tbl_clss_ejb");</script>  </li>
+</ul>
+
+
+<h3><a name="Manage Changes to Model and Database">Manage Changes to the Model and
+the Database</a> <a href="#Top">
+<img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>After a Data Model has been created through the reverse engineering process,
+  updates to the Data Model and database must be controlled and managed.&nbsp;Rational
+  XDE provides a Compare and Synchronize feature to assist the database designer
+  in managing change. (See
+  <script language=javascript>ReferenceHelpTopic("Comparing and Synchronizing in Data Modeling","dm","dm_o_gen_dm_cmpsync");</script>
+  and <a href="tm_db_manage.htm">Tool Mentor: Managing Databases in Rational XDE</a>.)
+  Use of the Compare and Synchronize feature is recommended over periodic reverse
+  engineering, since using the reverse engineering process multiple times on the
+  same model can cause duplicate tables and relationships in the Data Model. </p>
+
+
+<br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+
+</body>
+
+</html>

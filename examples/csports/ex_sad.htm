@@ -1,0 +1,326 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Software Architecture Document - Elaboration Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Software Architecture Document 1.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<p>&nbsp;</p>
+<p><b><font face="Arial" size="5">&nbsp;</font></b></p><b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Software Architecture Document</p>
+</font><p align="RIGHT"><font face="Arial" size="5"></font><font face="Arial" size="4">&nbsp;</font></p><font face="Arial" size="4">
+<p align="RIGHT">Version 1.0</p>
+</font></b><p align="CENTER"><b><font face="Arial" size="4"></font></b><font size="2">&nbsp;</font></p><p>
+<font size="2"></font><font face="Arial" size="5"><b>&nbsp;</b></font></p><font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP" height="26"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP" height="26">
+    <p align="CENTER">Version</td>
+    <td width="39%" valign="TOP" height="26">
+    <p align="CENTER">Description</td>
+    <td width="24%" valign="TOP" height="26">
+    <p align="CENTER">Author</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">November 30, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial Version</td>
+    <td width="24%" valign="TOP">&nbsp;</td>
+  </tr>
+</table>
+<h5>Table of Contents</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Architectural Representation">Architectural Representation</a></li>
+  <li><a href="#Architectural Goals and Constraints">Architectural Goals and
+    Constraints</a></li>
+  <li><a href="#Use-Case View">Use-Case View</a></li>
+  <li><a href="#Logical View">Logical View</a></li>
+  <li><a href="#Process View">Process View</a></li>
+  <li><a href="#Deployment View">Deployment View</a></li>
+  <li><a href="#Implementation View">Implementation View</a></li>
+  <li><a href="#Size and Performance">Size and Performance</a></li>
+  <li><a href="#Quality">Quality</a></li>
+</ul>
+<h3><a name="Introduction"></a>Introduction <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Purpose</h4>
+<p>This document provides a comprehensive architectural overview of the system,
+using a number of different architectural views to depict different aspects of
+the system. It is intended to capture and convey the significant architectural
+decisions which have been made on the system.</p>
+<h4>Scope</h4>
+<p>This Software Architecture Document applies to the Collegiate Sports Paging
+System which will be developed by Context Integration.</p>
+<h4>Definitions, Acronyms and Abbreviations</h4>
+<p>See <a href="ex_gloss2.htm">Glossary</a>.</p>
+<h4>References</h4>
+<ol>
+  <li><a href="ex_vision.htm">CSPS Vision 1.0</a></li>
+  <li><a href="ex_rqmgt.htm">CSPS Requirements Management Plan 1.0</a></li>
+  <li><a href="ex_itplan1.htm">CSPS Iteration Plan 1.0</a></li>
+ 
+  <li><a href="ex_suppspc1.htm">CSPS Supplementary Specification 1.0</a></li>
+  <li><a href="ex_uc_appstry1.htm">CSPS Use Case – Approve Story 1.0</a></li>
+  <li><a href="ex_uc_edprf1.htm">CSPS Use Case – Edit Profile 1.0</a></li>
+  <li><a href="ex_uc_pfee1.htm">CSPS Use Case – Pay Fee With Credit Card 1.0</a></li>
+  <li><a href="ex_uc_prtadrpt1.htm">CSPS Use Case – Print Advertiser Reports
+    1.0</a></li>
+  <li><a href="ex_uc_pstadcnt1.htm">CSPS Use Case – Provide Advertising
+    Content 1.0</a></li>
+  <li><a href="ex_uc_prvfdbk1.htm">CSPS Use Case – Provide Feedback 1.0</a></li>
+  <li><a href="ex_uc_rdcntnt1.htm">CSPS Use Case – Read Content on Website 1.0</a></li>
+  <li><a href="ex_uc_sndcntnt1.htm">CSPS Use Case – Send Content 1.0</a></li>
+  <li><a href="ex_uc_sndpg1.htm">CSPS Use Case – Send Page 1.0</a></li>
+  <li><a href="ex_uc_subsc1.htm">CSPS Use Case – Subscribe 1.0</a></li>
+</ol>
+<h3><a name="Architectural Representation"></a>Architectural Representation<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>This document presents the architectural as a series of views; use case view,
+process view, deployment view, and implementation view. These views are
+presented as Rational Rose Models and use the Unified Modeling Language (UML).</p>
+<h3><a name="Architectural Goals and Constraints"></a>Architectural Goals and
+Constraints<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>There are some key requirements and system constraints that have a
+significant bearing on the architecture. They are:
+<ul>
+  <li>The existing WebNewsOnLine website provides most of the content for
+    display. An interface to this system must be capable of handling large
+    traffic volumes.</li>
+  <li>The existing WebNewsOnLine legacy Finance System at will eventually be
+    used for billing advertisers (though this is a later release requirement).
+    As such, advertising usage information must be able to be sent to the
+    system.</li>
+  <li>All functions must be available through either of the two commercially
+    available web browsers.</li>
+  <li>Any and all credit card or other financial transactions must be
+    transmitted in a secured manner.</li>
+  <li>All performance and loading requirements, as stipulated in the Vision
+    Document [1] and the Supplementary Specification [7], must be taken into
+    consideration as the architecture is being developed.</li>
+</ul>
+<h3><a name="Use-Case View"></a>Use-Case View<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>A description of the use-case view of the software architecture. The Use Case
+View is important input to the selection of the set of scenarios and/or use
+cases that are the focus of an iteration. It describes the set of scenarios
+and/or use cases that represent some significant, central functionality. It also
+describes the set of scenarios and/or use cases that have a substantial
+architectural coverage (that exercise many architectural elements) or that
+stress or illustrate a specific, delicate point of the architecture.</p>
+<p>The use cases in this system are listed below. Use cases in <b>bold</b> are
+significant to the architecture. A description of these use cases can be found
+later&nbsp; in this section.
+<ul>
+  <b>
+  <li>Approve Story</li>
+  <li>Click on Banner Ad</li>
+  </b>
+  <li>Edit Profile</li>
+  <li>Modify Story</li>
+  <b>
+  <li>Pay Fee With Credit Card</li>
+  <li>Print Advertiser Reports</li>
+  </b>
+  <li>Provide Feedback</li>
+  <b>
+  <li>Read Content on Web Site</li>
+  </b>
+  <li>Read Public Content</li>
+  <li>Reject Story</li>
+  <b>
+  <li>Post Content</li>
+  <li>Send Page</li>
+  <li>Subscribe</li>
+  </b>
+</ul>
+<p>The following diagrams depict the use cases in the system.</p>
+      <p><img src="images/ex_sad1.jpg" width="377" height="349"></p>
+<p>Figure 1 - Potential Subscriber Use Cases</p>
+      <p><img src="images/ex_sad2.jpg" width="339" height="237"></p>
+<p>Figure 2 - Subscriber Use Cases</p>
+      <p><img src="images/ex_sad3.jpg" width="370" height="332"></p>
+<p>Figure 3 - Advertiser Use Cases</p>
+      <p><img src="images/ex_sad4.jpg" width="393" height="126"></p>
+<p>Figure 4 - Current System Use Cases</p>
+      <p><img src="images/ex_sad5.jpg" width="447" height="135"></p>
+<p>Figure 5 - Pager Gateway Use Cases</p>
+      <p><img src="images/ex_sad6.jpg" width="351" height="119"></p>
+<p>Figure 6 - Editor Use Cases</p>
+<h4>Significant Use Case Descriptions</h4>
+<ol>
+  <li>Approve Story</li>
+  <p>This Use Case takes place when an editor approves a story for inclusion in
+  the Collegiate Sports Paging System. Some stories will automatically propogate
+  from the existing WebNewsOnLine system, but some stories will require editor
+  intervention (either because their subject is not clear or the categories to
+  which the story belongs are not clear). This flow is also used to approve
+  advertising content being posted.</p>
+  <li>Edit Profile</li>
+  <p>This Use Case occurs when a subscriber wishes to change their profile
+  information or when a new subscriber wishes to enroll.</p>
+  <li>Pay Fee With Credit Card</li>
+  <p>This use case occurs when a new subscriber wants to pay their annual
+  subscription fee by specifying a credit card number and PIN. This may also
+  occur when an existing subscriber wants to renew.</p>
+  <li>Print Advertiser Reports</li>
+  <p>This use case occurs when an advertiser accesses the Collegiate Sports
+  Paging System to obtain reports of how their advertising content has been
+  viewed. Advertiser selects format (Microsoft&#174; Word&#174;, Microsoft&#174; Excel&#174;, or HTML) for the report.</p>
+  <li>Provide Feedback</li>
+  <p>This use case occurs when a system user (advertiser, subscriber, or
+  potential subscriber) wishes to comment on the service or the web site.</p>
+  <li>Post Advertising Content</li>
+  <p>This use case occurs when an advertiser wants to post advertising content
+  (banner ads) on the web site and specify which subscriber profiles should be
+  used for display.</p>
+  <li>Read Content on Web Site</li>
+  <p>This use case occurs when an active subscriber connects to the system to
+  view targeted information. Pages are dynamically built to show the user
+  headlines for which they have been paged, as well as general sports categories
+  to which they subscribe.</p>
+  <li>Send Content</li>
+  <p>This use case occurs when content is posted to the existing WebNewsOnLine
+  website. Some stories will be tagged for transmission to the Collegiate Sports
+  Paging System, and will be sent for possible paging and display.</p>
+  <li>Send Page</li>
+  <p>This use case occurs when new content is posted to the Collegiate Sports
+  Paging System. This includes finding subscribers to be notified, formatting
+  the page message, and sending the page via email.</p>
+  <li>Subscribe</li>
+  <p>This use case occurs when a potential subscriber wants to subscribe to the
+  service. It notifies the user of contract terms and, if accepted, invokes the
+  use case to edit a profile (specifying categories to which the user wants to
+  subscribe, pager information, credit card info, etc.).</p>
+</ol>
+<h3><a name="Logical View"></a>Logical View <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Overview</h4>
+<p>A description of the logical view of the architecture. Describes the most
+important classes, their organization in service packages and subsystems, and
+the organization of these subsystems into layers. Also describes the most
+important use-case realizations, for example, the dynamic aspects of the
+architecture. Class diagrams may be included to illustrate the relationships
+between architecturally significant classes, subsystems, packages and layers.</p>
+<p>The logical view of the Collegiate Sports Paging System is comprised of&nbsp;
+5 main packages:&nbsp;</p>
+<ul>
+  <li><b>Presentation</b>
+    <ul>
+      <li>contains classes for each of the forms that the actors use to
+        communicate with the System. Boundary classes exist to&nbsp; support
+        maintaining of profiles, posting of advertising, printing of advertising
+        reports, approving stories, providing feedback, subscribing, and paying
+        fees with credit cards</li>
+    </ul>
+  </li>
+  <li><b>Application</b>
+    <ul>
+      <li>contains classes for major processing functionality within the
+        system.&nbsp; Control classes exist to support advertising
+        administration, content management, profile management, subscription
+        processing, paying fees with credit cards, and providing feedback.</li>
+    </ul>
+  </li>
+  <li><b>Domain</b>
+    <ul>
+      <li>contains packages containing classes to support Content, Profile,
+        Subscription, and Support.</li>
+    </ul>
+  </li>
+  <li><b>Persistence</b>
+    <ul>
+      <li>contains classes to persist specific objects within the
+        system.&nbsp;&nbsp; At this point in the design, only Profiles are
+        persisted, though Content objects may be persisted at some future point
+        (a selection of a packaged content management system may obviate the
+        need for this).</li>
+    </ul>
+  </li>
+  <li><b>Services</b>
+    <ul>
+      <li>contains classes to provide system-level classes for maintenance
+        purposes - at this time, all maintenance is manual.</li>
+    </ul>
+  </li>
+</ul>
+      <p><img src="images/ex_sad7.jpg" width="477" height="375"></p>
+<h3>Logical View</h3>
+<p><img src="images/ex_sad10.jpg" width="589" height="805"></p>
+<h4>Presentation Package</h4>
+<p><img src="images/ex_sad11.jpg" width="515" height="598"></p>
+<h4>Application Package</h4>
+<p><img src="images/ex_sad12.jpg" width="117" height="409"></p>
+<h4>Domain Package</h4>
+<p><img src="images/ex_sad13.jpg" width="621" height="636"></p>
+<h4>Content Package</h4>
+<p><img src="images/ex_sad14.jpg" width="617" height="587"></p>
+<h4>Profile Package</h4>
+<p><img src="images/ex_sad16.jpg" width="166" height="188"></p>
+<p><img src="images/ex_sad15.jpg" width="617" height="587"></p>
+<h4>Subscribe Package</h4>
+<p><img src="images/ex_sad17.jpg" width="198" height="118"></p>
+<h4>Support Package</h4>
+<p>&nbsp;</p>
+<p><img src="images/ex_sad18.jpg" width="321" height="284"></p>
+<h4>Persistence Package</h4>
+<h3><a name="Process View"></a>Process View <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>This section describes the system's decomposition into lightweight processes
+(single threads of control) and heavyweight processes (groupings of lightweight
+processes). Organize the section by groups of processes that communicate or
+interact. Describe the main modes of communication between processes, such as
+message passing, interrupts, and rendezvous.</p>
+<p>At this point in the design, a single process is envisioned to provide
+server-level functions for the Collegiate Sports Paging System.&nbsp; Threads
+for application functions will be part of this process (application functions
+are listed in the previous section).&nbsp;&nbsp; The process diagram of the
+system can be viewed as follows:</p>
+<p><img src="images/ex_sad8.jpg" width="596" height="398"></p>
+<h3><a name="Deployment View"></a>Deployment View<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>This section describes one or more physical network (hardware) configurations
+on which the software is deployed and run. At a minimum for each configuration
+it should indicate the physical nodes (computers, CPUs) that execute the
+software, and their interconnections (bus, LAN, point-to-point, and so on.) Also
+include a mapping of the processes of the <b>Process View</b> onto the
+physical nodes.</p>
+<p>The CSPS Server is a UNIX server.&nbsp; The Client machine is any device
+capable of running a Web browser (most likely a PC, but not necessarily) and of
+connecting to the CSPS via the Internet.&nbsp; The Pager Gateway is an
+externally-maintained device provided by paging services.</p>
+<p><img src="images/ex_sad9.jpg" width="503" height="457"></p>
+<h3><a name="Implementation View"></a>Implementation View<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>All server software resides within a single layer.&nbsp; The browser client
+provides a secondary access layer.</p>
+<h3><a name="Size and Performance"></a>Size and Performance<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>The software as designed will support 200,000 concurrent users.&nbsp; Scaling
+beyond this level may be achieved by providing multiple levels of Pager Gateway,
+or by simply providing additional Pager Gateway systems within the same tier.</p>
+<h3><a name="Quality"></a>Quality<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>The software as described above supports the existing WebNewsOnLine graphical
+standards, interfaces with the existing WebNewsOnLine server, and provides a
+self-describing user interface.</p>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

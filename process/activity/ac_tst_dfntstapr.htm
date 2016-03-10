@@ -1,0 +1,631 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Define Test Approach</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Define Test Approach</rpw> <a name="XE_test__defining_an_approach"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To identify each specific technique that will be employed to enable 
+            the desired testing.</li>
+          <li>To outline the workings of each technique including the types of 
+            testing it supports.</li>
+          <li>To define a candidate architecture for the test automation system.</li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstds.htm">Test Designer</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b>This 
+        activity is typically conducted multiple times per iteration.&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#ExamineMotivatorsTestItems">Examine test motivators and 
+            target test items</a></li>
+          <li><a href="#ExamineSoftArchitecture">Examine the software architecture</a></li>
+          <li><a href="#ConsiderBreadthDepth">Consider the appropriate breadth 
+            and depth of the test approach</a></li>
+          <li><a href="#IdentifyExistingTechniques">Identify existing test techniques 
+            for reuse</a></li>
+          <li><a href="#IdentifyNewTechniques">Identify additional techniques</a></li>
+          <li><a href="#DefineTechniques">Define techniques</a></li>
+          <li><a href="#OutlineTestArchitecture">Outline the Test Automation Architecture</a></li>
+          <li><a href="#DefineTestAssetCM">Define the test asset configuration 
+            management strategy</a></li>
+          <li><a href="#SurveyReusableAssets">Survey availability of reusable 
+            assets</a></li>
+          <li><a href="#CaptureFindings">Capture your findings</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+<li><a href="../artifact/ar_srs.htm">Software Requirements Specification</a></li>
+<li><a href="../artifact/ar_tstatmarc.htm">Test Automation Architecture</a></li>
+<li><a href="../artifact/ar_tstenv.htm">Test Environment Configuration</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstenv.htm">Test Environment Configuration</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	    <ul>
+<li><a href="../../toolment/testmgr/tm_tstpln.htm">Creating a Test Plan Using Rational TestManager</a></li>
+<li><a href="../../toolment/testmgr/tm_tstmn.htm">Performing Test Activities Using Rational TestManager</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+      <td colspan="2"><b>More Information:&nbsp;</b>
+	    <ul>
+<li><a href="../reports/re_tstdsgspc.htm">Report: Test Design Specification</a></li>
+</ul>
+&nbsp;
+      </td>
+    </tr>
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_imptstast.htm">Improve Test Assets</a></li>
+<li><a href="../workflow/test/wfs_dfnevlmsn.htm">Define Evaluation Mission</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="ExamineMotivatorsTestItems">Examine test motivators and test items</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To consider the influence of the mission, test motivators 
+        and the test items on the approach for the forthcoming test effort.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the evaluation mission as context, examine the iteration Test Plan and 
+  study the test motivators that have been identified for the forthcoming test 
+  effort. It may be necessary to do further investigation at the Motivator source 
+  - usually the iteration plan provides a means of locating additional information.</p>
+<p>For each Motivator, consider what test approach and associated techniques might 
+  be required to address each Motivator. Also examine the iteration Test Plan 
+  and study the test items. Each targeted test item should be considered in relation 
+  to each Motivator, and the approach and techniques extended accordingly. If 
+  you cannot find a lot of detail about, or you are unfamiliar with the test items, 
+  it may be useful to discuss the targeted items with the development staff, usually 
+  by starting with the software architect or development team leads.</p>
+<p>Focus on identifying the minimal set of techniques necessary to satisfactorily 
+  address the evaluation mission and motivators. Look for opportunities where 
+  one technique can be used to address more than one aspect of the required testing. 
+  Note other potential techniques that seem interesting to explore, but be able 
+  to identify these as additional rather than essential.</p>
+
+
+<h3><a name="ExamineSoftArchitecture">Examine the software architecture</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To consider the influence of the software architecture 
+        on the test approach.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Study the Software Architecture to gain an understanding of it's key elements&#151;mechanisms, 
+  main views and so forth. Typically the Software Architecture Document provides 
+  good information focused at the right level of detail for use in considering 
+  a test approach. To clarify it's information, or in the absence of a document, 
+  it is useful to discuss the architecture with the development staff, usually 
+  by talking to the software architect directly, or one of the development team 
+  leads.</p>
+<p>Focus on identifying and discussing the key mechanisms, and gaining a good 
+  understanding of these aspects of the system. Each mechanism and key feature 
+  of the architecture will likely present challenges or constraints for the test 
+  effort. For example, a distributed architecture may necessitate organizing the 
+  test team into sub-teams, each team targeting an architectural tier.</p>
+<p> 
+  While a creative to the test implementation &amp; execution strategy can often 
+  be used to overcome these challenges, it may be necessary to have the development 
+  team modify the software to enable testing as discussed in <a href="ac_tst_dfntstelm.htm">Activity: 
+  Define Testability Elements</a>.</p>
+
+
+<h3><a name="ConsiderBreadthDepth">Consider the appropriate breadth and depth of the test approach</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To consider the completeness of the test approach both 
+        in terms of breadth and depth.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Considering all the details that are now known about the requirements on the 
+  test approach, it is beneficial to step back and consider the test approach 
+  from a higher-level perspective. What things does the test approach not address 
+  that it should? Are there any concerns that should be explored that don't appear 
+  in any of the documented information?</p>
+<p>Based on your experience, review the requirements for the test approach for 
+  appropriate breadth and depth for this stage in the project lifecycle. Consider 
+  additional requirements that will help to present a more complete approach.</p>
+
+
+<h3><a name="IdentifyExistingTechniques">Identify existing test techniques for reuse</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To reuse or adapt from existing proven test techniques, 
+        where appropriate.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>From your own experience, or other experience you have access to, identify 
+  existing techniques that will either meet the requirements of the test approach, 
+  or can be adapted to meet them.</p>
+
+<h3><a name="IdentifyNewTechniques">Identify additional techniques</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To identify the techniques required to provide a comprehensive 
+        and sufficient test approach.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>It's not terribly useful to think in terms of a &quot;complete&quot; test approach&#151;there 
+  are always additional techniques you might try if you only had limitless time 
+  and resource.</p>
+<p>However, it is important that the test approach is well-rounded and comprehensive 
+  enough to allow a useful evaluation of perceived quality to be made. This requires 
+  an approach that evaluates sufficient aspects of quality risk or dimensions 
+  of quality for the project team to assess perceived quality with a justified 
+  degree of confidence.</p>
+
+
+<h3><a name="DefineTechniques">Define techniques</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To outline the workings of each technique, including the 
+        objective of the testing it supports.&nbsp;</td>
+    </tr>
+  </tbody>
+
+</table>
+<br>
+</div>
+  
+<p>Outline the workings of each technique. Address the type of testing it supports, 
+  the objective and scope, implementation method, test oracles, assessment method 
+  and automation needs of the technique.</p>
+<p>In many cases you'll reuse technique from one project to the next. In this 
+  situation you can simply reference a common definition of the technique or copy 
+  the existing definition and revise as appropriate.</p>
+<p><b>For each existing or required technique:</b></p>
+<ul>
+  <li><a href="#DefineObjectives">Define objectives and scope</a>,</li>
+  <li><a href="#DescribeImplementation">Describe the implementation method</a>,</li>
+  <li><a href="#IdentifyEvaluationMethod">Identify suitable evaluation method</a>,</li>
+  <li><a href="#IdentifyAutomationUse">Identify applicable use of automation</a>,</li>
+  <li><a href="#IdentifyTools">Identify applicable tools</a></li>
+</ul>
+
+
+<h4><a name="DefineObjectives">Define objectives and scope</a>
+   <a href="#DefineTechniques"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Many techniques will support more than one type of testing, so give some thought 
+  to identifying which tests the technique will need to support. This helps to 
+  identify the scope of the effort required if the technique is being defined 
+  for the first time.</p>
+<p>Give thought to the underlying objective and value this technique represents.</p>
+
+
+<h4><a name="DescribeImplementation">Describe the implementation method</a>
+   <a href="#DefineTechniques"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Define how the technique will be implemented. It's not good enough to simply 
+  state &quot;We're doing system performance testing&quot;&#151;you need to give 
+  serious thought to how that can be achieved.</p>
+<p>Some techniques you would like to use will be uneconomic to pursue. By describing 
+  briefly how you will approach implementing this technique you'll be able to 
+  get a overall sense of the logistics involved and the practicalities of pursuing 
+  the technique further.</p>
+
+
+<h4><a name="IdentifyEvaluationMethod">Identify suitable evaluation method</a>
+   <a href="#DefineTechniques"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Determine how you will observe and evaluate the outcomes of each test implemented 
+  using this technique. Give thought to the different <a href="../glossary.htm#test_oracle" target="_blank"><i>Test 
+  Oracles</i></a> that are available for you to use&#151;is there a single oracle, 
+  or are their different ways that you can determine the outcome of each test?</p>
+
+
+<h4><a name="IdentifyAutomationUse">Identify applicable use of automation</a> 
+   <a href="#DefineTechniques"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Automation can play an important role in many test techniques. In some cases 
+  it will be less sophisticated, simply providing support for conducting manual 
+  tests.</p>
+<p>Give some thought to how the work involving the technique could be most efficiently 
+  implemented, maintained and managed. Be open minded&#151;think both broad and 
+  deep, considering as many options as possible.</p>
+
+
+<h4><a name="IdentifyTools">Identify applicable tools</a>
+   <a href="#DefineTechniques"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Identify the appropriate tools to use with this test technique. Use the work 
+  from the previous step that identified uses of automation.</p>
+<p>Remember to consider a broad range of tool categories; your list of candidate 
+  tools should include more than just test execution automation tools. In addition 
+  tools that automate test execution, consider tools that will enhance the productivity 
+  of the test team by reducing repetitive, laborious tasks, such as Test Data 
+  management, Test Results analysis, incident and Change Request reporting tools, 
+  etc.</p>
+
+
+<h3><a name="OutlineTestArchitecture">Outline the Test Automation Architecture</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To define a candidate architecture for the test automation 
+        system.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Based on experience gained from similar systems or in similar problem domains, 
+  begin to define a candidate architecture for the test automation system.</p>
+<p>We recommend you review the information at the following link to help you with 
+  this task: <a href="../workflow/ana_desi/wfs_and1.htm"><i>Workflow Detail: Define 
+  a Candidate Architecture</i></a>.</p>
+
+
+<h3><a name="DefineTestAssetCM">Define the test asset configuration management 
+  strategy</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To consider what requirements test will have for configuration 
+        management.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Like many other artifacts produced during a software development project, test 
+  assets are candidates for configuration management and version control.</p>
+<p>The specific requirements can range in complexity from the decision to use 
+  basic backup and recovery services enabled, to having full-support for parallel 
+  development of automated Test Scripts at multiple sites against different versions 
+  of an application.</p>
+<p>Give thought to your requirements for configuration management, and begin to 
+  outline probable logistic needs to realize those requirements.</p>
+
+
+<h3><a name="SurveyReusableAssets">Survey availability of reusable assets</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To reduce risk and effort by reusing existing proven assets.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Sometimes it makes sense to build assets from scratch, and sometimes it doesn't. 
+  Try to find a good balance between a complete &quot;roll-you-own&quot; philosophy 
+  and establishing a rigid and bureaucratic librarian policy on new artifact creation.</p>
+<p>There are times when one approach is better than the other, and you should 
+  be flexible enough to take advantage of the benefits that both approaches bring.</p>
+
+
+<h3><a name="CaptureFindings">Capture your findings</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To record the important information about the test approach.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Depending on a number of factors including team size and organization culture, 
+  there will be better and worse ways to record the decisions you've made about 
+  the test approach.</p>
+<p>You will typically have two audiences to consider: the management team will 
+  want to review this information to provide approval and be aware of logistics 
+  implications of the approach, and the test team will want to use the test approach 
+  as guidance for the work the undertake. Try to find an appropriate medium to 
+  suitably address both needs: perhaps using a project Intranet web-site.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

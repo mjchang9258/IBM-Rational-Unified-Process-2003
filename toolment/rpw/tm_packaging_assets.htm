@@ -1,0 +1,398 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Packaging Project-specific Assets into Thin Plug-ins with RUP Organizer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Packaging&nbsp;Project-specific&nbsp;Assets&nbsp;into&nbsp;Thin&nbsp;Plug-ins&nbsp;with&nbsp;RUP&nbsp;Organizer</rpw>
+</h2>
+
+
+<h3>Purpose</h3>
+<p>Projects produce a variety of reusable assets that could be applied to subsequent 
+  projects, making them more efficient and faster. Examples can range from organization-specific 
+  guidance on certain artifacts through example artifacts to full models articulating 
+  a key architecture. </p>
+<p>The RUP Organizer component of the Rational Process Workbench can be used to 
+  package these assets in such a way that they are directly attached to the activities, 
+  artifacts and roles that they are relevant to. In this way, future projects 
+  that create RUP Configurations will have explicit examples and guidance more 
+  directly pertinent to their needs available at their fingertips.</p>
+<p>The format for this collection of useful assets is referred to as a thin plug-in. 
+  This is the simplest and fastest type of plug-in to create, allowing minimal 
+  effort to provide benefit for the most people.</p>
+<p>This tool mentor relates to the following RUP information:<br>
+  <ul>
+<li><a href="../../process/activity/ac_tlrprjprc.htm">Tailor the Process for the Project</a></li>
+<li><a href="../../process/activity/ac_dvlprjspcgdl.htm">Prepare Guidelines for the Project</a></li>
+<li><a href="../../process/activity/ac_depst.htm">Prepare Templates for the Project</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h4>Overview</h4>
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#CollectResources">Collect available resources</a></li>
+  <li><a href="#CreateNewPlugin">Create a new thin plug-in</a></li>
+  <li><a href="#LinkProcessElements">Link your assets to process elements</a></li>
+  <li><a href="#ConvertFormat">Optional: Convert to a RUP-like format</a></li>
+  <li><a href="#ValidatePlugin">Validate Plug-in</a></li>
+  <li><a href="#ExportPlugin">Export Plug-in</a></li>
+  <li><a href="#MoreInfo">More Information</a></li>
+</ul>
+
+
+<h3><a name="CollectResources"></a>Collect available resources <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>First collect the assets you think you might want to share. Assets include:</p>
+<ul>
+  <li>Guidelines: additional text or diagrams that provide valuable assistance 
+    and clarity in creating a particular artifact, including standards, tailoring 
+    options and suggestions regarding formality.</li>
+  <li>Checkpoints: lists of questions to ask about an artifact to validate its 
+    level of maturity and quality.</li>
+  <li>Organizational or project standards: explicit requirements that must be 
+    met by an artifact due to external constraints, for example code standards.</li>
+  <li>Concept page: additional text or diagrams that address an idea or approach 
+    at a high-level to provide greater clarity and understanding of the intellectual 
+    or practical approach suggested, without explicit process statements. Usually 
+    fairly brief html documents that are closely related to a specific activity 
+    or workflow.</li>
+  <li>White papers: more extensive concept pages, frequently in Word or pdf format, 
+    that contain much broader and deeper process guidance.</li>
+  <li>Templates: documents or models with organizational structure, descriptive 
+    material but no content, ready for use by a project as the basis for an artifact 
+    or artifact set.</li>
+  <li>Examples: documents or models that have content as well as organizational 
+    structure that can either be used to provide greater understanding of the 
+    approach to creating an artifact from scratch, or as a pre-filled starting 
+    point for further elaboration.</li>
+</ul>
+<p>At this point there is no assumption about the format of this information. 
+  It could be emails, databases, documents, spreadsheets or html. Formatting it 
+  for effective use within a RUP configuration is another step in the process.</p>
+<p>It's very useful to collect these assets in a single file location, separated 
+  from material that will not be in the shared asset set. This enables better 
+  management of it, and is very useful for later use with RUP Organizer. We refer 
+  to a folder with content in it as a content library. RUP Organizer adds other 
+  key organizing material to it during creation of the thin plug-in.</p>
+<p>This step is done using the normal tools available to you: email, word processor 
+  and file explorers.</p>
+
+
+<h3><a name="CreateNewPlugin"></a>Create a new thin plug-in 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>First, a couple of quick definitions:</p>
+<ul>
+  <li>Process base: this is an existing Modeled Plug-in or the RUP base that your 
+    new Thin Plug-in will attach to. It contains the base layout that you can 
+    attach your process assets to.</li>
+  <li>Layout: this is a hierarchical view of the process definition contained 
+    in a plug-in or the RUP base. In a Thin Plug-in, you can attach files to the 
+    layout of your process base or create a new folder structure separately from 
+    it. This creates an architecturally correct and complementary overlay on top 
+    of the existing process that can be added or removed as you need it.</li>
+</ul>
+<p>The following steps in RUP Organizer will enable you to create a new thin plug-in 
+  for your content and point it at your content library.</p>
+<ul>
+  <li>Launch RUP Organizer from your Start menu (within Rational Software).<br>
+    A dialog box appears with a list of existing plug-ins and process bases and 
+    two choices: <i>Create new plug-in layout</i> and <i>Edit existing layout</i>.<br>
+  </li>
+  <li>Choose<font color="#FF0000"> </font><i>Create new plug-in </i>and click 
+    OK.<br>
+    A dialog box will appear asking for the name of your thin plug-in.<br>
+  </li>
+  <li>Enter a name for your plug-in.<br>
+    The system will ask you for the location of your content library.<br>
+  </li>
+  <li>Browse to the location of the content library you created above.<br>
+    The system will display a list of existing plug-ins and the RUP base to attach 
+    your plug-in to.<br>
+  </li>
+  <li>Select a process base for your plug-in. (Usually this will be the RUP base).<br>
+    The main RUP Organizer window will appear with a content explorer for your 
+    Thin Plug-in.</li>
+</ul>
+<h3><a name="LinkProcessElements"></a>Link your assets to process elements <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The RUP Organizer has two main panels: a Content Explorer and a Layouts panel. 
+  The Content Explorer is just like any other file explorer, with a folder structure 
+  in the leftmost panel and a file list in the central panel. The Layouts panel 
+  has a tree-control for the layouts of the process base and your Thin Plug-in.</p>
+<p>Clicking on your content library in the leftmost window will bring up the list 
+  of files in the central panel.</p>
+<p>To attach an existing process asset to a process element in the process base:</p>
+<ul>
+  <li>In the Layouts panel, navigate to the process element you would like to 
+    attach something to.</li>
+  <li>Select the process asset in the Content Explorer and drag it onto the process 
+    element.</li>
+</ul>
+<p>To create a new element in the layout, for example a new folder, right-click 
+  on the process element you would like to contain the folder and select Create 
+  Folder. Give it a name, and then you can add process assets to it.</p>
+<p>Process assets that apply to more than one process element can be dragged over 
+  all that they apply to. For example, a modeling standard covering both sequence 
+  diagrams and class diagrams can be dragged on top of both artifact elements 
+  and would show up in both places in a published RUP Configuration containing 
+  the Thin Plug-in.</p>
+<p>In general, you can attach different type of process assets to different kind 
+  of process elements. The list below suggests the typical asset-to-process-element 
+  attachment recomendations :</p>
+<ul>
+  <li>Guidelines: primarily to artifacts, secondarily to activities or roles.</li>
+  <li>Checkpoints: to artifacts or activities. </li>
+  <li>Organizational or project standards: to any applicable element type.</li>
+  <li>Concept page: first option is disciplines or workflow details, but artifacts, 
+    activities, and roles are candidates too.</li>
+  <li>White papers: if narrowly scoped, they can be attached to workflow details 
+    or even roles, but often these assets relates to whole disciplines.</li>
+  <li>Templates: to artifacts.</li>
+  <li>Examples: to artifacts. You might also create a folder of examples to provide 
+    a single coherent set of material that travels together, or you can attach 
+    examples to the tools that created them. For example, a Rational Rose model 
+    that you would like to use could be attached to the Rational Rose tool process 
+    element.</li>
+</ul>
+<h3><a name="ConvertFormat"></a>Optional: Convert to a RUP-like format <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>If you would like the content to appear in one the standard RUP formats, for 
+  example a guideline page, you can instantiate the content pages inside RUP Organizer 
+  and author these in your favorite html editor. First, a couple of new concepts:</p>
+<ul>
+  <li>Organizer Template: all of the standard page types you are used to seeing 
+    in published RUP websites have templates associated with them in RUP Organizer. 
+    These contain the headings, space for your text and embedded RPW Commands.</li>
+  <li>RPW Commands: an RPW command is a text string starting with &quot;!RPW&quot; 
+    that RUP Builder knows how to interpret when it publishes a RUP Website. RPW 
+    commands allow the dynamic generation of web-pages.</li>
+</ul>
+<p>The steps:</p>
+<ul>
+  <li>Select the process element in the layout for which you would like to create 
+    a new page.</li>
+  <li>Choose the File &gt; Content File &gt; <i>Filetype, </i>(where <i>Filetype 
+    </i>is one of the supported asset types, such as Guideline, Concept, or Whitepaper).</li>
+  <li>When the file dialog appears, browse to the location in your content library 
+    where you want to store the new file. </li>
+  <li>Give your file a useful name, including the .htm extension.</li>
+  <li>Enter a presentation name when prompted, this will be the page title in 
+    the resulting Website as well as the node name in the tree.<br>
+    RUP Organizer will display the file in the selected location in the content 
+    library browser.</li>
+  <li>Drag it onto the target process element in the base layout.</li>
+  <li>Open the process asset in the content library browser by right-clicking 
+    on the file entry and selecting Edit (or simply double click)<br>
+    RUP Organizer will launch your default html editor with the skeletal file 
+    you just created. <br>
+  </li>
+  <li>Copy the information into the new html file from source (for example a Word 
+    document), or type in the content from scratch if no source exists. Be sure 
+    to leave the RPW commands untouched, to enable RUP Builder to publish all 
+    information related to this content file.</li>
+  <li>Save your file.</li>
+</ul>
+<p>It is now saved in your Thin Plug-in content library and attached to the appropriate 
+  process element in the layout.</p>
+<h3><a name="ValidatePlugin"></a>Validate Plug-in <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>There are a few steps in validating your Thin Plug-in:</p>
+<ul>
+  <li>Confirm an individual html file is correct: right-click on the process element 
+    in the layout and select Preview. This will run the RPW Commands and display 
+    the html screen in a browser for you to review.</li>
+  <li>Check Files: This command (available from the tool bar or the File menu) 
+    will traverse the entire layout, ensuring that all file attachments are correct, 
+    that Presentation Names are correct, etc.</li>
+  <li>Publish a configuration including the Plug-in: this is done in RUP Builder 
+    after you have exported the plug-in. This will enable you to view the plug-in 
+    fully in the context of a published RUP configuration, and have others review 
+    it as well.</li>
+</ul>
+<h3><a name="ExportPlugin"></a>Export plug-in <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>To make your Plug-in available for project managers to include in their projects, 
+  you must export it from RUP Organizer. This is done with the Export Plug-in 
+  button on the toolbar. You will be prompted for a location for your plug-in.</p>
+<p>When you do this, RUP packages your layout, including overlays of the base 
+  process, and all of your content files into a single file with a .cfu extension. 
+  This is the Plug-in that can be imported into RUP Builder for inclusion in a 
+  RUP configuration.</p>
+
+<h3><a name="MoreInfo"></a>More Information <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Refer to the process description in the <a href="../../process/res_processworkbench.htm">Rational 
+  Process Workbench&#153; product</a> for a more complete information on how to 
+  develop Plug-ins to the RUP.</p>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"> </b> Refer 
+  to the top<font color="#FF0000">ic titled <i>Associating files with process 
+  elements **** (wild guess) </i> in RUP Organizer online He</font>lp for detailed 
+  information on how to use the drag &amp; drop feature of Organizer to easily 
+  link your resources to existing RUP process elements.&nbsp; <br>
+  <img src="../../images/book.gif"width="16" height="16"></p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

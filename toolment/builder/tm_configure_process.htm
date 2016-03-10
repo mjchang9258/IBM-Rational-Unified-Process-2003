@@ -1,0 +1,330 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Configure Process Using RUP Builder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Configure Process Using RUP Builder</rpw><a name="XE_Index_Entry_Category__???_New_Tool_Mentor"></a> 
+</h2>
+
+
+<h3>Purpose</h3>
+<p>RUP Builder allows project managers to select the subset of the RUP process
+and any available plug-ins that make sense for their project.&nbsp; This
+eliminates process clutter, and removes confusing links from the process
+web-site, so that project staff and the project manager can focus on the
+activities and artifacts that are relevant.</p>
+
+<p>The steps in this tool mentor assume that you've launched RUP Builder,
+selected a template or custom configuration, and have described it.&nbsp;
+Changes you make to plug-in and component selection are automatically updated in
+the process views section of RUP Builder.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tlrprjprc.htm">Tailor the Process for the Project</a></li>
+<li><a href="../../process/activity/ac_dvlprjspcgdl.htm">Prepare Guidelines for the Project</a></li>
+<li><a href="../../process/activity/ac_depst.htm">Prepare Templates for the Project</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h4>Overview</h4>
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#StepNumber1">Select Plug-ins</a></li>
+  <li><a href="#StepNumber2">Optional: Download Plug-ins from the RUP Plug-in
+    Exchange</a></li>
+  <li><a href="#StepNumber3">Review Process Components</a></li>
+  <li><a href="#StepNumber4">Save Your Process Configuration</a></li>
+  <li><a href="#MoreInfo">For More Information</a></li>
+</ul>
+
+
+<h3><a name="StepNumber1">Select Plug-ins</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>A RUP Plug-in is a collection of process elements that are packaged
+together.&nbsp; The elements extend the base RUP process by adding new elements
+or contributing to existing ones, or by suppressing elements that don't make
+sense in the context of that process.</p>
+<p>Plug-ins are shown in a hierarchical tree in the 'Process Plug-in Choices'
+sub-panel of 'Select Process' panel of RUP Builder.&nbsp; Plug-ins are usually
+dependent directly on the RUP base, but may be dependent on another
+plug-in.&nbsp; An example of the latter are the BEA and IBM WebSphere plug-ins,
+which are dependent on the RUP J2EE plug-in.</p>
+<p>Each of the template configurations that come with the RUP, or that your
+organization has created for you, will have a combination of plug-ins
+pre-selected for the type of project being undertaken.&nbsp; You may not need to
+do anything other than select the template.</p>
+<p>Choose plug-ins that extend the RUP in ways that directly benefit your
+project.&nbsp; For example, if you were developing in J2EE, you would select the
+J2EE plug-in, as it brings additional material specific to J2EE that will
+benefit your project team, and puts it in context of the tasks they will be
+required to perform.</p>
+<p>Similarly, if your project is co-located and informal, you would choose the
+Informal Resources instead of the Formal Resources plug-in.</p>
+<p>As you select a plug-in by clicking on the check box, it will appear in the
+'Selectable Process Components' sub-panel to the right of the plug-in selection
+panel.</p>
+
+
+<h3><a name="StepNumber2">Optional: Download Plug-ins from the RUP Plug-in
+Exchange</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>There are more plug-ins than the ones delivered with the installed version of
+RUP.&nbsp; Our internal staff, Alliance Members and other parties create new
+plug-ins regularly and share them on the RUP Plug-in Exchange on the Rational
+Developer Network (www.rational.net).</p>
+
+<p>To get more plug-ins, select the hyperlink to the RUP Plug-in Exchange in the
+thin box below the plug-in and component panels.&nbsp; This will launch the
+Rational Developer Network in a new browser window.&nbsp; You will be required
+to log-in to the Rational Developer Network. To register for RDN you will need
+your Rational account number, available from your Rational sales representative.</p>
+
+<p>The RUP Plug-in Exchange contains information on how to create new plug-ins,
+how to share plug-ins and, of course, RUP Plug-ins for your re-use.&nbsp; Review
+the plug-ins and follow the instructions to download a plug-in to your local
+disk.</p>
+
+<p>Once you have downloaded a plug-in to a local disk, select <u>R</u>epository
+-&gt; Load <u>P</u>lug-in.&nbsp; This will bring up a standard file browser
+window.&nbsp; Locate the plug-in you downloaded, select it and select OK.&nbsp;
+The plug-in will be loaded into your Builder repository, and will appear in the
+list of plug-ins in the 'Process Plug-in Choices' sub-panel.&nbsp; You can then
+select it as usual.</p>
+
+
+<h3><a name="StepNumber3">Review Process Components</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>The RUP is divided into about 60 selectable process components, with more
+process components in the plug-ins.&nbsp; These are tightly coupled groups of
+process elements that can be added or removed from the process
+configuration.&nbsp; Process components can contain other process components as
+well.&nbsp;&nbsp;</p>
+
+<p>Clicking on the check box associated with a process component selects or
+deselects it.&nbsp; Deselecting a process component that contains other process
+components deselects the children components as well.&nbsp;</p>
+
+<p>You can expand or collapse the component tree by clicking on the + or -
+symbols on the components.&nbsp; Expanding a component allows you to see the
+headings of the process elements contained within that component.&nbsp; Some
+process elements contain sub-levels of process elements as well, so you can
+drill down to the details of what you are working one.</p>
+
+<p>The template configuration that you chose when you launched RUP Builder has
+already made many of the process component selections for you.&nbsp; If your
+organization created template configurations specific to the types of project
+you are running, you may not need to do any further selection.</p>
+
+<p>It is likely that you will need to make further refinements to the
+choices.&nbsp; The easiest method to do this is to have the Classic RUP
+configuration that is installed on your workstation open.&nbsp; To find out
+exactly what a process element is, search for it in the RUP.&nbsp; This will
+enable you to make an informed choice about whether to select the process
+component or not.</p>
+
+<p>Remember that you are expected to do this on a regular basis throughout the
+project, so don't get bogged down in making the perfect selection
+immediately.&nbsp; You will iteratively define your project process over the
+life of the project.</p>
+
+<p>You may also want to deselect process components that you are not going to
+return to in the life of the project.&nbsp; For example, you will likely define
+your requirements management plan during Inception, and possibly update it
+during Elaboration, but it may be fixed and well understood by
+Construction.&nbsp; At that point, it may be worth removing the 'Requirements
+Management' component from your configuration.</p>
+
+<p>All of the Rational tools and possibly tools defined by your organization are
+selectable components, enabling you to include only the tool support for tools
+you will actually use in your project.&nbsp; They are sub-components of the
+'Tools' component.</p>
+
+<p>You'll note that some process components are grayed out.&nbsp; The component
+container itself will not appear in the published configuration, only the
+contents. This is done to remove unnecessary levels of hierarchy.</p>
+
+<p>You'll also notice small triangles with exclamation points in them.&nbsp;
+These indicate a problem of some sort with the selected components.&nbsp; You
+can expand the tree and drill down until you find the explicit causes of the
+problems.&nbsp; Most of them will not significantly impact your process choices
+and can be safely ignored.</p>
+
+
+<h3><a name="StepNumber4">Save Your Process Configuration</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>After making a series of changes, its a good idea to save your selections to
+a custom configuration for your project if you have not already done so.&nbsp;
+That way, the next time you update your process configuration, you can start
+from the same place you left off, and iterate your process and its views most
+effectively.</p>
+
+
+<h4><a name="MoreInfo">For More Information</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>&nbsp;
+</h4>
+  
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</p>
+
+</body>
+
+</html>

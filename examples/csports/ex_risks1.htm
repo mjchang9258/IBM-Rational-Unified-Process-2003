@@ -1,0 +1,176 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Risk List - Inception Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Risk List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<p align="RIGHT"><font face="Arial" size="4">&nbsp;</font></p><font face="Arial" size="4">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Risk List</p>
+<p align="RIGHT">Version 1.0</p>
+</font><font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%"><b>
+    <p align="CENTER">Version</b></td>
+    <td width="39%"><b>
+    <p align="CENTER">Description</b></td>
+    <td width="24%"><b>
+    <p align="CENTER">Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%">October 4, 1999</td>
+    <td width="12%">1.0</td>
+    <td width="39%">Initial version</td>
+    <td width="24%">Context Integration</td>
+  </tr>
+</table>
+<p><font face="Arial" size="5"><b>&nbsp;</b></font></p><font face="Arial" size="5"><b>
+<p align="CENTER">&nbsp;</p>
+<p align="CENTER">Table of Contents</p></b></font>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Risks">Risks</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a><a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Purpose</h4>
+<p>This document describes the risks known to the Collegiate Sports Paging
+System project.</p>
+<h4>Scope</h4>
+<p>This risk lists addresses the entire Collegiate Sports Paging System project.</p>
+<h4>Definitions, Acronyms and Abbreviations</h4>
+<p>See Glossary document.</p>
+<h4>References</h4>
+<p>None.</p>
+<h3>Overview</h3>
+<p>The risks known at the publication date of this document are listed below,
+along with mitigation strategies for each risk.</p>
+<h3><a name="Risks">Risks</a><a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4><font size="4">Technical Risk : Capacity and Capability</font></h4>
+<h5><font size="3">Risk Magnitude:</font><font size="4"> </font><font size="3">Most
+Damaging</font></h5>
+<dl>
+  <dt><b>Description</b></dt>
+  <dd>
+    <p>Areas of risk include the inability to deliver a solution that meets
+    capacity requirements or to issue a page to a paging device. While the
+    technology to provide such capability exists, the ability to send as many as
+    500,000 pages within 5 minutes will need to be proven.</p>
+  </dd>
+  <dt><b>Impacts</b></dt>
+  <dd>
+    <p>System not functional, probably resulting in loss of subscribers.</p>
+  </dd>
+  <dt><b>Indicators</b></dt>
+  <dd>
+    <p>Failed or delayed delivery of messages within established time frame of 5
+    minutes.</p>
+  </dd>
+  <dt><b>Mitigation Strategy</b></dt>
+  <dd>
+    <p>Context has provided similar pager capability for other projects,
+    therefore this area of technical risk is relatively low. Context Integration
+    must provide an estimate of time required to process and push information to
+    subscribers based on average and maximum projected workloads, which are
+    currently 200,000 to 500,000 subscribers. Context Integration will develop a
+    scalable system. will provide hardware resources necessary to meet
+    processing requirements. Context can not guarantee the ability of each
+    paging gateway service to deliver service levels within the desired
+    specifications.</p>
+  </dd>
+  <dt><b>Contingency Plan</b></dt>
+  <dd>
+    <p>Attempt to locate a service that can, at peak processing time, accept and
+    send up to 500,000 page requests.</p>
+  </dd>
+</dl>
+<h4><font size="4">Scheduling Risk: Deployment of System Delayed Beyond March,
+2000</font></h4>
+<h5><font size="3">Risk Magnitude:</font><font size="4"> </font><font size="3">Most
+Damaging</font></h5>
+<dl>
+  <dt><b>Description</b></dt>
+  <dd>
+    <p>WebNewsOnline's failure to deploy its system within the established
+    schedule is considered by the management as failure and can result in
+    cancellation of the project.</p>
+  </dd>
+  <dt><b>Impacts</b></dt>
+  <dd>
+    <p>Project will be cancelled.</p>
+  </dd>
+  <dt><b>Indicators</b></dt>
+  <dd>
+    <p>Failure to deploy before March, 2000.</p>
+  </dd>
+  <dt><b>Mitigation strategy</b></dt>
+  <dd>
+    <p>The project timeline must be carefully calculated and, if
+    time-constrained, the deliverable schedule shall drive the reduction of
+    scope or scale (as an example, WebNewsOnLine may elect not to implement some
+    of the defined functionality in the first release in order to achieve the
+    target delivery date).</p>
+  </dd>
+  <dt><b>Contingency plan</b></dt>
+  <dd>
+    <p>None.</dd>
+</dl>
+<h4><font size="4">Technical Risk: Interoperability with existing Platform</font></h4>
+<dl>
+  <dt><b>Risk Magnitude</b></dt>
+  <dd>
+    <p>Low</p>
+  </dd>
+  <dt><b>Description</b></dt>
+  <dd>
+    <p>WebNewsOnline's existing web site is IIS-based; it will be necessary to
+    provide a means of immediately capturing each newly published article and
+    transferring it to the for parsing and evaluation of targeted subscribers.</p>
+  </dd>
+  <dt><b>Impacts</b></dt>
+  <dd>
+    <p>The amount of coding to provide interfaces could increase.</p>
+  </dd>
+  <dt><b>Mitigation Strategy</b></dt>
+  <dd>
+    <p>Context Integration will need to work with the technical staff to
+    determine the level of integration that is available with the existing
+    content editing system.</p>
+  </dd>
+  <dt><b>Contingency plan</b></dt>
+  <dd>
+    <p>Develop an NT-based process that detects newly published IIS-resident
+    documents and transfers them to the server.</dd>
+</dl>
+&nbsp;<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

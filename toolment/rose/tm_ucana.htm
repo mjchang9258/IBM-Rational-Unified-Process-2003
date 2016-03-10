@@ -1,0 +1,277 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<HTML>
+ <HEAD>
+  <title>Tool Mentor:&nbsp;Capturing the Results of Use-Case Analysis Using Rational Rose</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <LINK REL="StyleSheet" HREF="../../rop.css" TYPE="text/css">
+</HEAD>
+ <BODY>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<H2 CLASS="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Capturing the Results of Use-Case Analysis Using Rational Rose</rpw><A NAME="Top" msnavigation></A>
+</H2>
+      <H3>
+       Purpose</H3>
+      
+<P> This tool mentor describes how to represent the results of Use-Case analysis 
+  in Rational Rose.</P>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_arcan.htm">Architectural Analysis</a></li>
+<li><a href="../../process/activity/ac_ucana.htm">Use-Case Analysis</a></li>
+</ul>
+<br>
+   
+</p>
+
+      <H3>
+       Overview</H3>
+      <P>
+       The following is a summary of the steps you performed to record the 
+       results of Use-Case Analysis:</P>
+      <OL>
+       <LI CLASS="mvd-P">
+       <P>
+        <A HREF="tm_ucana.htm#Creating the Analysis Model">Create the <b><SPAN STYLE="font-weight : normal;">analysis
+        model (optional)</SPAN></b></a>
+        <LI CLASS="mvd-P"><A HREF="#CreateRealization">Create a use-case
+          realization</a>
+        <LI CLASS="mvd-P"><A HREF="tm_ucana.htm#create collaboration diagram">Create
+          diagrams for the use-case realization</a>
+        <LI CLASS="mvd-P"><A HREF="tm_ucana.htm#creating analysis classes">Create
+          analysis classes</a>
+        <LI CLASS="mvd-P"><A HREF="tm_ucana.htm#Responsibilities">Document class
+          responsibilities</a>
+        <LI CLASS="mvd-P"><A HREF="tm_ucana.htm#Creating Class Diagrams to document Analysis Classes">Create
+          class diagrams to document analysis classes</a>
+       </OL>
+      <H3>
+       1. <A NAME="Creating the Analysis Model"></a>Create the <b>analysis
+       model</b> (optional)<A HREF="tm_ucana.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       The <A HREF="../../process/artifact/ar_amdl.htm">Artifact: Analysis Model</a> 
+       is optional; the results of the <A HREF="../../process/activity/ac_ucana.htm">Activity:
+        Use-Case Analysis</a> are typically represented using the <A HREF="../../process/artifact/ar_desmd.htm">Artifact:
+        Design Model</a>. If a separate Analysis Model is to be maintained, 
+       it can be represented in Rational Rose by creating a package 
+       within the Logical View Named &quot;Analysis Model&quot;.</P>
+      <P>
+       In addition, separate Use-Case realizations will need to be created 
+       within this Model. See <A HREF="tm_ucrea.htm">Tool Mentor: Creating Use-Case
+      Realizations</a>, and follow its 
+       steps, but create the realizations within the Analysis Model package.</P>
+      <P>
+       The goal of an analysis model is to create a preliminary mapping of 
+       required behavior onto modeling elements in the system. In most 
+       cases, it omits the detail of a design model in order to provide an 
+       overview of the system functionality. The analysis model eventually 
+       transitions into the design model, and the analysis classes directly 
+       evolve into design model elements.</P>
+      <H3>
+       <A NAME="CreateRealization"></a>2. Create the use-case realization <A HREF="tm_ucana.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+ <P>
+       See <A HREF="tm_ucrea.htm">Tool Mentor: Creating Use-Case Realizations</a>.</P>
+      <H3>
+       3. <A NAME="create collaboration diagram"></a>Create diagrams for 
+       the use-case realization <A HREF="tm_ucana.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       Use-case realizations may be captured in Rational Rose using 
+       either Collaboration Diagrams or Sequence Diagrams.</P>
+      <P>
+       Collaboration diagrams tend to be easier to draw on a white-board, 
+       while Sequence diagrams portray object interactions and 
+       time-sequencing in a more intuitive way. The choice of which one to 
+       use is largely a matter of taste and project preferences.</P>
+      <P>
+       For information on creating sequence diagrams, see <A HREF="tm_ucds1.htm">Tool
+       Mentor: Managing Sequence Diagrams</a>.</P>
+      <P>
+       For information on creating collaboration diagrams, see <A HREF="tm_ucds2.htm">Tool
+       Mentor: Managing Collaboration Diagrams</a></P>
+      <H3>
+       4. <A NAME="creating analysis classes"></a>Create analysis classes <A HREF="tm_ucana.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       Use-Case analysis results in the <A HREF="../../process/artifact/ar_aclss.htm">Artifact:
+        Analysis Class</a>. These analysis classes are typically represented 
+       in the Design Model, but may be optionally maintained in a separate
+       analysis model (see <A HREF="../../process/artifact/ar_amdl.htm">Artifact:
+        Analysis Model</a>). One of the most common groups of model elements 
+       found in the analysis model are the analysis classes, sometimes 
+       called analysis objects. The analysis classes are stereotyped classes 
+       that represent an early conceptual model for elements in the system 
+       that have responsibility and behavior. The three types of analysis 
+       classes are Boundary, Control, and Entity.</P>
+      <H3>
+       5. <A NAME="Responsibilities"></a>Document class responsibilities <A HREF="tm_ucana.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To document a class responsibility, you add an operation to the 
+       class. When you enter the operation name, precede it with two forward 
+       slashes (//). Using these special characters indicates that the 
+       operation is being used to describe the responsibilities of the 
+       analysis class. Use the Documentation field of the Operation 
+       Specification to describe the responsibility. Note that you can move 
+       responsibilities (operations) and attributes between classes by 
+       dragging and dropping the operation from one class to another.</P>
+      <H3>
+       6. <A NAME="Creating Class Diagrams to document Analysis Classes"></a>Create
+       class diagrams to document analysis classes <A HREF="tm_ucana.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To visualize the analysis classes, you should create a class diagram 
+       and populate it with your analysis classes. Use the <b> Browse &gt; Class 
+       Diagram &gt; New</b> to create and name a new diagram. Once you've 
+       created a new diagram, you can drag classes from the browser and drop 
+       them on the diagram.</P>
+      <P>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

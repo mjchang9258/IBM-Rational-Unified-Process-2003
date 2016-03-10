@@ -1,0 +1,859 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="../rop.css">
+<title>Concepts:&nbsp;Usability Engineering</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+<h1 class="banner"><a name="Top"></a>Concept: <rpw name="PresentationName">Usability 
+  Engineering</rpw> <a name="XE_usability_engineering__walkthrough_concept_for"></a></h1>
+
+<h5>Topics</h5>
+<div align="center"> 
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr> 
+    <td width="50%">
+	  <ul>
+          <li><a href="#Introduction">Introduction</a></li>
+          <li><a href="#roles">Roles</a></li>
+          <li><a href="#disciplines">Disciplines</a>
+		      <ul>
+
+                  <li><a href="#business_modeling">Business Modeling</a></li>
+
+                  <li><a href="#requirements">Requirements</a></li>
+                  <li><a href="#analysis_and_design">Analysis and Design</a></li>
+			      <li><a href="#implementation">Implementation</a></li>
+                  <li><a href="#test">Test</a></li>
+                  <li><a href="#deployment">Deployment</a></li>
+              </ul>
+		  </li>
+          <li><a href="#phases">Iterative Development and Phases</a> 
+              <ul>
+                  <li><a href="#Inception">Inception Phase</a></li>
+                  <li><a href="#Elaboration">Elaboration Phase</a></li>
+                  <li><a href="#Construction">Construction Phase</a></li>
+                  <li><a href="#Transition">Transition Phase</a></li>
+              </ul>
+          </li>
+       </ul>
+     </td>
+     <td width="50%"><h5><b>Concepts:&nbsp;</b></h5>
+       <ul>
+           <li><a href="../process/workflow/requirem/co_ucd.htm">User-Centered 
+                  Design</a></li>
+           <li><a href="../process/workflow/test/co_ustst.htm">Usability 
+                  Testing</a></li>
+       </ul>
+     </td>
+   </tr>
+ </table>
+<br>
+</div>
+
+<h1><a name="Introduction">Introduction</a><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<p>Usability Engineering (also called User-Centered Design) is all about building 
+  better systems by getting a better understanding of the end-users, and involving 
+  users in requirements, user interface design, and testing efforts. Basic concepts 
+  are described in <a href="../process/workflow/requirem/co_ucd.htm">Concepts: 
+  User-Centered Design</a>, and should be read prior to this concept. This concept 
+  page explains how the Rational Unified Process (RUP) currently addresses usability 
+  engineering techniques.</p>
+
+<h1><a name="roles"></a>Roles<a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+      
+<p> The RUP has a number of roles responsible for usability concerns. The  
+  <a href="../process/workers/wk_bpan.htm">Business-Process Analyst</a>, <a href="../process/workers/wk_sysan.htm">System 
+  Analyst</a> and <a href="../process/workers/wk_ucaut.htm">Requirements Specifier</a> 
+  must be skilled in gathering and analyzing information about users, their tasks, 
+  and their environment, and capturing these in the requirements and 
+  business modeling artifacts. This material is reviewed by the <a href="../process/workers/wk_tchrvw.htm">Requirements 
+  Reviewer</a> 
+  and <a href="../process/workers/wk_tchrvw.htm">Business Model Reviewer</a> respectively. 
+  The <a href="../process/workers/wk_tstr.htm">Tester</a> and <a href="../process/workers/wk_tstanl.htm">Test 
+  Analyst</a> roles are primarily responsible for usability testing. The <a href="../process/workers/wk_uides.htm">User-Interface 
+  Designer</a> is responsible for the design and the &quot;visual shaping&quot; 
+  of the user interface. The <a href="../process/workers/wk_implm.htm">Implementer</a> 
+  selects and/or develops user interface components to construct the functioning 
+  user interface.</p>     
+<p>The <a href="../process/workers/wk_projm.htm">Project Manager</a> also has 
+  a key role. He/she enables users to be involved in the development process, 
+  and ensures that the development organization is staffed with the skills required 
+  to build usable systems. Other roles, such as <a href="../process/workers/wk_depm.htm">Deployment 
+  Manager</a>, <a href="../process/workers/wk_crsdv.htm">Course Developer</a>, 
+  and <a href="../process/workers/wk_tchwr.htm">Technical Writer</a> also have 
+  responsibilities for ensuring that the deployed system is usable.</p>
+  
+<h1><a name="disciplines"></a>Disciplines<a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<p>The following sections describe RUP disciplines in terms of the activities 
+  and artifacts which are most important to usability.</p>
+
+<h2><a name="requirements">Requirements</a><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>From a usability perspective, the Requirements discipline focusses on:</p>
+<ul>
+  <li>establishing an understanding of the users and their needs</li>
+  <li> identifying the use cases of greatest benefit to the users.</li>
+</ul>
+
+<p>The specific activities and artifacts are as follows.</p>
+<div align="center"> 
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+          <tr> 
+            <td width="15%"> 
+              <div align="center"><b>Activity</b></div>
+            </td>
+            <td width="15%"> 
+              <p align="center"><b> Artifact</b> 
+            </td>
+            <td width="70%"> 
+              <p align="center"><b>Usability Related Content</b> 
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_elstk.htm">Elicit 
+              Stakeholder Requests</a></td>
+            <td width="15%"><a href="../process/artifact/ar_stnds.htm">Stakeholder 
+              Requests</a></td>
+            <td width="70%"> 
+              <p>This activity involves interviewing users, questionnaires, and 
+                holding workshops to better understand the user and the user environment. 
+                This includes the following:</p>
+              <ul>
+                <li><a href="../process/workguid/wg_assws.htm">Assessment Workshop</a></li>
+                <li><a href="../process/workguid/wg_rqwsh.htm">Requirements Workshop</a></li>
+                <li><a href="../process/workguid/wg_intrv.htm">Interviews</a></li>
+                <li><a href="../process/workguid/wg_brnst.htm">Brainstorming and 
+                  Idea Reduction</a></li>
+                <li><a href="../process/workguid/wg_stbd.htm">Storyboarding</a></li>
+                <li><a href="../process/workguid/wg_rlpl.htm">Role Playing</a></li>
+                <li><a href="../process/workguid/wg_revxr.htm">Reviewing Existing 
+                  Requirements</a></li>
+              </ul>
+              <p>The<a href="../webtmpl/templates/req/rup_stkreq.htm"> template 
+                for Artifact: Stakeholder Requests </a>captures a detailed user 
+                profile, including educational background, computer background, 
+                experience, existing environment, expectations, goals, etc. It 
+                also captures a description of problems and priorities from the 
+                user's perspective. Stakeholder Requests are the raw material 
+                from which the <a href="../process/artifact/ar_vsion.htm">Vision</a> 
+                is compiled.</p>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_dvisn.htm">Develop 
+              Vision</a></td>
+            <td width="15%"><a href="../process/artifact/ar_vsion.htm">Vision</a></td>
+            <td width="70%"> 
+              
+        <p>The User Environment section of the Vision template describes the working 
+          environment of the end users, or what ISO refers to as the Environment 
+          Context [<a href="../process/referenc.htm#ISO13407">ISO 13407</a>].</p>
+        <p>The User Profile section of the Vision template describes the user&#146;s 
+          expertise, technical background, responsibilities, success criteria, 
+          deliverables etc. This is what ISO refers to as the User Context [<a href="../process/referenc.htm#ISO13407">ISO 
+          13407</a>].</p>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_facuc.htm">Find 
+              Actors and Use Cases</a>, <a href="../process/activity/ac_stucm.htm">Structure 
+              the Use Case Model</a>, <a href="../process/activity/ac_desuc.htm">Detail 
+              a Use Case</a></td>
+            <td width="15%"><a href="../process/artifact/ar_ucmod.htm">Use-Case 
+              Model</a></td>
+            <td width="70%"> 
+              <p>The Use Case Model describes the tasks (use cases) that users 
+                (human Actors) perform. It capture similarities and relationships 
+                between Actors, using <a href="../process/modguide/md_actgn.htm">generalization</a> 
+                relationships. Actors are related to use cases through This is 
+                similar to Constantine's &quot;Role Model&quot; [<a href="../process/referenc.htm#CON99">CON99</a>]. 
+                The use cases are structured and related to one another and to 
+                actors through <a href="../process/modguide/md_comas.htm">communicate-association</a>, 
+                <a href="../process/modguide/md_incl.htm">include</a>, <a href="../process/modguide/md_ucgen.htm">generalization</a>, 
+                and <a href="../process/modguide/md_exrel.htm">extension</a> relationships.</p>
+              <p>Workshops are an excellent way to involve the user. See:
+			    <a href="../process/workguid/wg_ucwsh.htm">Use-Case Workshop</a></p>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%">&nbsp;</td>
+            <td width="15%"> 
+              <blockquote> 
+                <p><a href="../process/artifact/ar_actor.htm">Actors</a></p>
+              </blockquote>
+            </td>
+            <td width="70%"> 
+              <p>The characteristics of human actors are captured as attributes 
+                of Actors. These include:</p>
+              <ul>
+                <li> The actor's scope of responsibility. </li>
+                <li>The physical environment in which the actor will be using 
+                  the system.</li>
+                <li>The number of users represented by this actor.</li>
+                <li>The frequency with which the actor will use the system.</li>
+                <li>The actor's level of domain knowledge. </li>
+                <li>The actor's level of general computer experience.</li>
+                <li>General characteristics of the actors, such as level of expertise 
+                  (education), social implications (language), and age.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%">&nbsp;</td>
+            <td width="15%"> 
+              <blockquote> 
+                <p><a href="../process/artifact/ar_uc.htm">Use Cases</a></p>
+              </blockquote>
+            </td>
+            <td width="70%">These can include essential 
+              use cases as described by Constantine [<a href="../process/referenc.htm#CON99">CON99</a>] 
+              (see <a href="../process/workflow/requirem/co_ucd.htm">Concepts: 
+              User-Centered Design </a>for a discussion of essential use cases). 
+              Specific usability requirements for a given use case may be captured 
+              as &quot;Special Requirements&quot; in the <a href="../webtmpl/templates/req/rup_ucspec.htm" target="_blank">use 
+              case specification</a>.</td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_prdsrs.htm">Detail 
+              the Software Requirements</a></td>
+            <td width="15%"> 
+              <p><a href="../process/artifact/ar_sspec.htm">Supplementary Specifications</a></p>
+            </td>
+            <td width="70%">The Supplementary Specifications 
+              capture requirements not specified in the use cases. This includes 
+              availability and performance requirements which may be closely tied 
+              to usability. General usability requirements applicable to multiple 
+              use cases are captured here, along with applicable legislation and 
+              usability standards (see <a href="../process/workflow/requirem/co_ucd.htm">Concepts: 
+              User-Centered Design</a> for details on usability legislation and 
+              standards).</td>
+          </tr>
+		  
+          <tr> 
+            <td width="14%"><a href="../process/activity/ac_mgdep.htm">Manage 
+              Dependencies</a></td>
+            <td width="6%"><a href="../process/artifact/ar_rattr.htm">Requirements 
+              Attributes</a></td>
+            <td width="75%">As use cases and usability requirements are &quot;discovered&quot;, 
+              their importance or benefit should be noted. This requires consultation 
+              with users and other stakeholders. Other attributes, such as the 
+              frequency a use case is executed, may also be captured in this artifact.</td>
+          </tr>
+          <tr> 
+            <td width="15%" height="37" valign="top"><a href="../process/activity/ac_rvucm.htm">Review 
+              Requirements</a></td>
+            <td width="15%" height="37" valign="top"><a href="../process/artifact/ar_crqst.htm">Change 
+              Request</a></td>
+            <td width="70%" height="37" valign="top">A user-centered development 
+              effort involves users as much as possible in all requirements reviews.</td>
+          </tr>
+          <tr> 
+            <td width="15%" height="81" valign="top"><a href="../process/activity/ac_ccvoc.htm">Capture 
+              a Common Vocabulary</a></td>
+            <td width="15%" height="81" valign="top"><a href="../process/artifact/ar_gloss.htm">Glossary</a></td>
+            <td width="70%" height="81" valign="top">Captures common vocabulary 
+              terms specific to the users' domain to facilitate communication 
+              and understanding between users and the rest of the development 
+              team.</td>
+          </tr>
+        </table>
+      </div>
+
+      <p><o:p>There are some other techniques which may be useful additions to 
+        the above Requirements activities.</o:p></p>
+      <ul>
+        <ul>
+          <li><o:p>Affinity Diagramming [<a href="../process/referenc.htm#HOL96">HOL96</a>, 
+            <a href="../process/referenc.htm#BEY98">BEY98</a>] is a technique 
+            which each piece of information gathered about the users and their 
+            tasks is placed on a sticky note. The users and analysts collaborate 
+            to cluster related notes into conceptual groups or &quot;affinities&quot;. 
+            This activity helps promote a common understanding of the issues, 
+            their relative importance, and their relationships.</o:p></li>
+          <li>Card Sorting [<a href="../process/referenc.htm#CON99">CON99</a>] 
+            is a similar activity where information on index cards is organized 
+            into groups. Cards can also be sorted by importance, frequency, and 
+            so on.</li>
+          <li>Hierarchical Task Modeling [<a href="../process/referenc.htm#MAY99">MAY99</a>, 
+            <a href="../process/referenc.htm#CON99">CON99</a>] analyzes the tasks 
+            currently performed by users and organizes them into a hierarchy. 
+            The hierarchy should reflect how users currently understand the organization 
+            of their tasks.</li>
+        </ul>
+      </ul>
+
+    
+<h2><a name="business_modeling">Business Modeling</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>The <a href="../process/workflow/ovu_busm.htm">Business Modeling Discipline</a> 
+  involves understanding the business environment in which the users operate.</p>
+ <div align="center"> 
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+          <tr> 
+            <td width="15%"> 
+              <div align="center"><b>Activity</b></div>
+            </td>
+            <td width="15%"> 
+              <p align="center"><b>Business Modeling Artifacts</b> 
+            </td>
+            <td width="70%"> 
+              <p align="center"><b>Usability Related Content</b> 
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_sgoals.htm">Set 
+              and Adjust Goals</a></td>
+            <td width="15%"><a href="../process/artifact/ar_bvsio.htm">Business 
+              Vision</a></td>
+            <td width="70%"> 
+              <p>Part of creating the Business Vision is identifying stakeholders. 
+                This includes the people that interact with the business (customers 
+                and vendors), as well as those who work in the business - many 
+                of which are or become users of automated systems.</p>
+              <p>Similar to the Vision document in Requirements, the <a href="../webtmpl/templates/bm/rup_bvis.htm" target="_blank">Business 
+                Vision Template</a> captures a description of the business's working 
+                environment and stakeholder characteristics, including their expertise, 
+                technical background, responsibilities, success criteria, deliverables 
+                etc.</p>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_fbauc.htm">Find 
+              Business Actors and Use Cases</a>, <br>
+              <a href="../process/activity/ac_sbucm.htm">Structure the Business 
+              Use-Case Model</a></td>
+            <td width="15%"><a href="../process/artifact/ar_bucm.htm">Business 
+              Use Case Model</a></td>
+            <td width="70%">The Business Use Case model 
+              describes the tasks (business use cases) that human Business Actors 
+              perform. It capture similarities and relationships between Business 
+              Actors, using <a href="../process/modguide/md_bgen.htm">generalization</a> 
+              relationships. The business use cases are structured and related 
+              to one another through <a href="../process/modguide/md_bgen.htm">generalization</a>, 
+              <a href="../process/modguide/md_bext.htm">extension</a>, and <a href="../process/modguide/md_basso.htm">association</a> 
+              relationships.</td>
+          </tr>
+          <tr> 
+            <td width="15%">&nbsp;</td>
+            <td width="15%"> 
+              <blockquote> 
+                <p><a href="../process/artifact/ar_bact.htm">Business Actor</a></p>
+              </blockquote>
+            </td>
+            <td width="70%"> 
+              <p>Human Business Actors are customers and/or vendors which interact 
+                with the business. These often are, or become, users of automated 
+                systems, and even when they do not correspond to users, an understanding 
+                of their characteristics provides a better understanding of the 
+                user environment. The Business Actor artifact includes the following 
+                attributes:</p>
+              <ul>
+                <li>The actor's scope of responsibility. </li>
+                <li>The physical environment in which the actor will be using 
+                  the system.</li>
+                <li>The number of users represented by this actor.</li>
+                <li>The frequency with which the actor will use the system.</li>
+                <li>The actor's level of domain knowledge. </li>
+                <li>The actor's level of general computer experience.</li>
+                <li>General characteristics of the actors, such as level of expertise 
+                  (education), social implications (language), and age</li>
+              </ul>
+              <p>See <a href="../process/modguide/md_bact.htm">Guidelines: Business 
+                Actor</a>.</p>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%">&nbsp;</td>
+            <td width="15%"> 
+              <blockquote> 
+                <p><a href="../process/artifact/ar_buc.htm">Business Use Case</a></p>
+              </blockquote>
+            </td>
+            <td width="70%">The tasks performed by Business 
+              Actors are described by the Business Use Cases. These are typically 
+              free of technology assumptions and are goal-focussed - thus they 
+              qualify as &quot;essential&quot; (see <a href="../process/workflow/requirem/co_ucd.htm">Concepts: 
+              User-Centered Design</a>).</td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_fbwke.htm">Find 
+              Business Workers and Entities</a><br>
+            </td>
+            <td width="15%"> <a href="../process/artifact/ar_bom.htm">Business 
+              Analysis Model </a>(Domain Model)</td>
+            <td width="70%"> 
+              <p>Business modeling is often used in a limited scope, referred 
+                to as <a href="../process/workflow/busmodel/wfs_dm.htm">Domain 
+                Modeling</a>. A domain model captures the objects which are important 
+                in the domain, and therefore of interest and importance to users.</p>
+              <p>See <a href="../process/workguid/wg_bomws.htm">Business Analysis 
+                Modeling Workshop</a>, <a href="../process/workflow/busmodel/co_scobm.htm">Concepts: 
+                Scope of Business Modeling</a>, and <a href="../process/workflow/busmodel/wfs_dm.htm">Workflow 
+                Detail: Develop a Domain Model</a>.</p>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_fbwke.htm">Find 
+              Business Workers and Entities</a>, <br>
+              <a href="../process/activity/ac_dewk.htm">Detail a Business Worker</a><br>
+            </td>
+            <td width="15%"> <a href="../process/artifact/ar_bom.htm">Business 
+              Analysis Model </a>(<a href="../process/artifact/ar_bwk.htm">Business 
+              Worker</a>)</td>
+            <td width="70%"> 
+              <p>The roles filled by people in the business are described by Business 
+                Workers. Attributes similar to those described above for Business 
+                Actor are captured.</p>
+              <p>Since Business Workers are modeled as UML classes, generalization 
+                and association can be used to describe relationships between 
+                Business Workers.</p>
+              <p>See <a href="../process/modguide/md_bgen.htm">Guidelines:Generalization 
+                in the Business Analysis Model</a> and <a href="../process/modguide/md_basso.htm">Guidelines: 
+                Association in the Business Analysis Mode</a>l. The relationships 
+                between Actors, Business Actors and Business Workers is further 
+                discussed in <a href="../process/modguide/md_bmtse.htm">Guideline: 
+                Going from Business Models to Systems</a>.</p>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%">Other</td>
+            <td width="15%">Other</td>
+            <td width="70%">Most of the other artifacts, 
+              including <a href="../process/artifact/ar_bgloss.htm">Business Glossary</a>, 
+              <a href="../process/artifact/ar_brules.htm">Business Rules</a>, 
+              and so on, contribute to an understanding of the business, and therefore 
+              the user's environment.</td>
+          </tr>
+        </table>
+		<br>
+      </div>
+	  
+
+<h2><a name="analysis_and_design">Analysis and Design</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>A number of other activities in this discipline are focussed on the shaping 
+  and design of the user-interface. These are:</p>
+<div align="center"> 
+  <table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+    <tbody valign="top"> 
+    <tr> 
+      <td width="15%"> 
+        <div align="center"><b>Activity</b></div>
+      </td>
+      <td width="15%"> 
+        <p align="center"><b> Artifact</b> 
+      </td>
+      <td width="70%"> 
+        <p align="center"><b>Usability Related Content</b> 
+      </td>
+    </tr>
+    <tr> 
+      <td width="15%"><a href="../process/activity/ac_desui.htm">Design the User-Interface 
+        </a><br>
+      </td>
+      <td width="15%"> 
+        <p><a href="../process/artifact/ar_storyboard.htm">Storyboard</a> </p>
+        <p><a href="../process/artifact/ar_navmap.htm">Navigation Map</a></p>
+      </td>
+      <td width="70%"> 
+        <p>This activity is creates what is often referred to as the Conceptual 
+          Design [<a href="../process/referenc.htm#FER01">FER01</a>]. This is 
+          the initial abstraction of the user interface itself, capturing the 
+          main windows and navigation paths presented to the user. This activity 
+          focuses on use cases that drive the user interface design.</p>
+        <p>Navigation Maps, see [<a href="../process/referenc.htm#CON99">CON99</a>] 
+          give an overview of the navigational pathways between interaction spaces 
+          (screens, windows, and dialogue boxes).</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="15%"><a href="../process/activity/ac_uip.htm">Prototype the User-Interface</a> 
+      </td>
+      <td width="15%"><a href="../process/artifact/ar_uiprt.htm">User-Interface 
+        Prototype</a> </td>
+      <td width="70%"> 
+        <p>You can make three basic kinds of prototypes: </p>
+        <p>Drawings (on paper) <br>
+          Bitmaps (drawing tool) <br>
+          Executables (interactive) <br>
+          In most projects, you should use all three prototypes, in the order 
+          listed above.</p>
+        <p></p>
+        <p>The main purpose of creating a user-interface prototype is to be able 
+          to expose and test both the functionality and the usability of the system 
+          before the real design and development starts. This way, you can ensure 
+          that you are building the right system, before you spend too much time 
+          and resources on development.</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+</div>
+<p>The following techniques may also be useful as part of designing the user 
+  interface:</p>
+<ul>
+  <ul>
+    <li>Card Sorting [<a href="../process/referenc.htm#CON99">CON99</a>], described 
+      previously, is also useful for designing the user interface. Each menu item 
+      or content item is represented by a card, and then the users organize the 
+      cards into logical groupings.</li>
+  </ul>
+</ul>
+<p>In addition to the activities described above, the following Analysis and Design 
+  activities are complementary to the designing of the user interface:</p>
+<div align="center"> 
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+          <tr> 
+            <td width="15%"> 
+              <div align="center"><b>Activity</b></div>
+            </td>
+            <td width="15%"> 
+              <p align="center"><b> Artifact</b> 
+            </td>
+            <td width="70%"> 
+              <p align="center"><b>Usability Related Content</b> 
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_ucana.htm">Use-Case 
+              Analysis</a></td>
+            
+      <td width="15%"><a href="../process/artifact/ar_aclss.htm">Analysis Class,</a><br>
+              <a href="../process/artifact/ar_ucrea.htm">Use-Case Realization</a> 
+            </td>
+            <td width="70%"> 
+              <p>Also see the following:</p>
+              <ul>
+                <li><a href="../process/workguid/wg_uca.htm">Guideline: Use-Case-Analysis 
+                  Workshop</a></li>
+                <li><a href="../process/workflow/ana_desi/co_guiif.htm">Concepts: 
+                  Representing Graphical User-Interfaces</a><br>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr> 
+            <td width="15%"><a href="../process/activity/ac_cldes.htm">Class 
+              Design</a><br>
+            </td>
+            
+      <td width="15%"><br>
+            </td>
+            <td width="70%"> 
+              
+        <p>This activity uses the results of the designing and prototyping of 
+          the user interface and designs the classes. Unlike the prototypes, this 
+          is not throwaway conceptual user interface work, but is intended to 
+          represent the design of the delivered system.</p>
+              <p>Also see the following guidelines:<br>
+        </p>
+              <p><a href="../process/modguide/md_wana.htm">Guidelines: Building 
+                Web Applications with the UML</a></p>
+             </td>
+          </tr>
+        </table>
+		<br>
+      </div>
+
+<h2><a name="implementation">Implementation</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>The implementation of the user interface follows the general <a href="../process/workflow/implemen/wfd_imp.htm">Implementation 
+  Workflow</a>. Note that implementation of the user interface is often done as 
+  part of the design activity.</p>
+  
+<h2><a name="test">Test</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p><a href="../process/workflow/test/co_ustst.htm"> Usability testing</a>, including 
+  usability-related <a href="../process/workflow/test/co_perfo.htm">performance 
+  testing</a>, should be started as soon as there are mockups or executable prototypes 
+  of the user interface. Testing should include verification of usability and 
+  performance requirements captured in the <a href="../process/artifact/ar_sspec.htm">Supplementary 
+  Specifications</a> or as &quot;Special Requirements&quot; in the <a href="../webtmpl/templates/req/rup_ucspec.htm" target="_blank">use 
+  case specification</a>.</p>
+  
+<h2><a name="deployment">Deployment</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Users should be heavily involved in <a href="../process/workflow/deployme/wfs_dep10.htm">Workflow 
+  Detail: Beta Test Product,</a> as well as final <a href="../process/workflow/test/co_ustst.htm">Usability 
+  Testing</a> during <a href="../process/workflow/deployme/wfs_dep3.htm">Workflow 
+  Detail: Manage Acceptance Test.</a></p>
+<p><a href="../process/workflow/deployme/wfs_dep2.htm">Workflow Detail: Develop 
+  Support Material</a> includes development of training material and system support 
+  material to ensure that end users can successfully use the delivered software 
+  product.</p>
+		
+<h2><a name="deployment">Project Management</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p><a href="../process/workflow/ovu_mgm.htm">Project Management</a> is the art 
+  of balancing competing objectives, managing risk, and overcoming constraints 
+  to successfully deliver a product which meets the needs of both customers (the 
+  payers of bills) and the users. From a usability engineering perspective, the 
+  most critical activity is <a href="../process/activity/ac_dfpos.htm">Activity: 
+  Define Project Organization and Staffing</a>. This activity defines the organizational 
+  structure, external interfaces, and roles and responsibilities. This includes 
+  defining the extent to which users will be involved in the development process, 
+  and determines whether the developers should be experienced with usability engineering 
+  methods.</p>
+
+<h2><a name="deployment">Environment</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>The <a href="../process/workflow/ovu_env.htm">Environment discipline</a> includes 
+  the definition of development process to be followed by a project or an organization. 
+  The <a href="../process/activity/ac_devca.htm">Activity: Develop Development 
+  Case</a> (<a href="../process/artifact/ar_devcs.htm">Artifact: Development Case</a>) 
+  defines which usability engineering techniques will be applied, and how the 
+  various RUP artifacts and activities will be tailored to incorporate these techniques.</p>
+      
+<p>Another important activity is <a href="../process/activity/ac_dvlprjspcgdl.htm">Activity: 
+  Develop Project-Specific Guidelines</a> which creates the <a href="../process/artifact/ar_projspecgls.htm">Artifact: 
+  Project Guidelines</a> that includes user-interface guidelines. These guidelines 
+  help ensure consistency of the user-interface, which can be a significant aid 
+  to usability. They also capture usability principles to be followed, such as 
+  guidelines for shortcuts, &quot;undo&quot; capabilities, recognizable exits, 
+  modeless interaction, and so on.</p>
+  
+<h1><a name="phases">Iterative Development and Phases</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<p>The software lifecycle of the RUP is decomposed over time into four sequential 
+  <a href="../process/itrwkfls/iwf_iwfs.htm">phases</a>, each concluded by a major 
+  milestone; each phase is essentially a span of time between two major milestones. 
+  At each phase-end an assessment is performed  
+  (<a href="../process/activity/ac_lmrev.htm">Activity: Lifecycle Milestone Review</a>) 
+   to determine whether the objectives of the phase have been met. A satisfactory 
+  assessment allows the project to move to the next phase.</p>
+<p>Within each phase may be several <a href="../process/workflow/manageme/co_phase.htm">iterations</a>. 
+  An iteration is a complete development loop resulting in a release (internal 
+  or external) of an executable product, a subset of the final product under development, 
+  which grows incrementally from iteration to iteration to become the final system. 
+  Usability benefits greatly from this iterative approach. It allows users to 
+  provide early feedback on usability, and avoids heading too far down a path 
+  which simply won't meet user needs.</p>
+<p>The user should be involved in each iteration, to further refine requirements, 
+  to evaluate design concepts, and test/evaluate the usability of both proof-of-concept 
+  prototypes and the evolving system.</p>
+<p>The following sections describe the usability-related phase completion criteria 
+  and the main activities for each phase.</p>
+  
+<h2><a name="Inception">Inception</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Two key objectives of <a href="../process/itrwkfls/iwf_iii.htm">Inception Phase</a> 
+  are:</p>
+<ul>
+  <li>Establishing the project's software scope and boundary conditions, including 
+    an operational vision, acceptance criteria and what is intended to be in the 
+    product and what is not.</li>
+  <li>Discriminating the critical use cases of the system, the primary scenarios 
+    of operation that will drive the major design trade-offs.</li>
+</ul>
+<p>From a usability engineering perspective, this means emphasizing Requirements 
+  and Business Modeling activities related to:</p>
+<ul>
+  <li>establishing an understanding of the users and their needs</li>
+  <li> identifying the use cases of greatest benefit to the users.</li>
+</ul>
+<p><a href="../process/itrwkfls/iwf_iii.htm">Inception phase</a> is also often 
+  the time to explore some conceptual design and "proof of concept" prototyping. 
+  This is particularly true when the primary project risks are related to the 
+  user interface and usability concerns. <a href="../process/workflow/test/co_ustst.htm">Usability 
+  testing</a>, including usability-related <a href="../process/workflow/test/co_perfo.htm">performance 
+  testing</a>, should be started as soon as there are mockups or executable prototypes 
+  of the user interface.</p>
+  
+<h2><a name="Elaboration">Elaboration</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>As RUP is an iterative process, the artifacts created in Inception are revisited 
+  and reviewed with users in order to manage scope and ensure that the evolving 
+  system meets user needs. 
+<p>In <a href="../process/itrwkfls/iwf_iie.htm">Elaboration</a>, the focus is 
+  on the <a href="../process/workflow/ana_desi/co_swarch.htm">software architecture</a> 
+  - including the architecture of the user interface. The conceptual user interface 
+  is defined, and the critical and/or risky elements of the user interface design 
+  are implemented. Activities related to the software architecture apply in general 
+  to the user interface - there are off-the-shelf products that must be evaluated, 
+  reuse considerations, selection of mechanisms and patterns, etc. 
+<p>This phase emphasizes the user interface design activities, as well as supporting 
+  activities from the Analysis and Design discipline. Implementation and Test 
+  are also involved, since completion of Elaboration requires that a running system 
+  be constructed which can be evaluated.</p>
+<p><a href="../process/workflow/test/co_ustst.htm">Usability testing</a>, and 
+  usability-related <a href="../process/workflow/test/co_perfo.htm">performance 
+  testing</a>, should focus on any risky requirements captured in the <a href="../process/artifact/ar_sspec.htm">Supplementary 
+  Specifications</a> or as &quot;Special Requirements&quot; in the <a href="../webtmpl/templates/req/rup_ucspec.htm" target="_blank">use 
+  case specification</a>.</p>
+
+<h2><a name="Construction">Construction</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>In <a href="../process/itrwkfls/iwf_lic.htm">Construction</a>, the focus is 
+  on implementing more use cases. This involves adding to the user interface, 
+  while remaining true to the conceptual model of the user interface and user-interface 
+  guidelines captured in the <a href="../process/artifact/ar_projspecgls.htm">Project-Specific 
+  Guidelines</a>. <a href="../process/workflow/test/co_ustst.htm">Usability Testing</a> 
+  continues to be very important as new features are added.</p>
+<p>The selection of what functionality to place in each iteration is based on 
+  value to users.</p>
+  
+<h2><a name="Transition">Transition</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>The focus in <a href="../process/itrwkfls/iwf_lit.htm">Transition phase</a> 
+  starts to shift towards the <a href="../process/workflow/ovu_dep.htm">Deployment</a> 
+  discipline. In a user-centered development effort, you shouldn't wait until 
+  Transition phase to involve the user. However, the user continues to be involved, 
+  primarily to give feedback. When the user has been involved throughout the development, 
+  formal beta and acceptance testing is often significantly minimized or non-existent. 
+  Instead, detailed user feedback and approval occurs throughout the development 
+  effort.</p> 
+<p>Development of training material and system support material is finalized in 
+  Transition, but it should be started in earlier phases, if possible, in order 
+  to allow user feedback.</p>
+<p>In Transition, there is a working system that can be used by end-users. It 
+  is a good idea to plan at least a couple of iterations during transition, so 
+  that problems with the initial release can be corrected, and so that key user 
+  feedback can be incorporated.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

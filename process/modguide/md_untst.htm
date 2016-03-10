@@ -1,0 +1,234 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Unit Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Unit Test</rpw><a name="XE_test__developer_testing__unit_test__guidelines_for"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#WhiteBox_Test">White-box test approach</a></li>
+  <li><a href="#BlackBox_Test">Black-box test approach</a></li>
+</ul>
+
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Unit testing is implemented against the smallest testable element (units) of
+the software, and involves testing the internal structure such logic and data
+flow, and the unit's function and observable behaviors. Designing and
+implementing tests focused on a unit's internal structure relies upon the
+knowledge of the unit's implementation (white-box approach). The design and
+implementation of tests to verify the unit's observable behaviors and functions
+does not rely upon a knowledge of the implementation and therefore is known as
+black-box approach.&nbsp;</p>
+<p>Both approaches are used to design and implement the different types of tests 
+  (see <a href="../workflow/test/co_tytst.htm">Concepts: Type of Tests</a>) needed 
+  to successfully and completely test units.&nbsp;</p>
+<p>See also <a href="md_tstcs.htm">Guidelines: Test Case</a> for additional
+information on deriving test cases for unit test.</p>
+<h4><a name="WhiteBox_Test">White-Box Test Approach</a><a name="XE_unit_test__white-box_test"></a><a name="XE_test__white-box_test__of_units"></a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A white-box test approach should be
+taken to verify a unit's internal structure. Theoretically, you should test
+every possible path through the code, but that is possible only in very simple
+units. At the very least you should exercise every <b>decision-to-decision
+path</b> (DD-path) at least once because you are then executing all
+statements at least once. A decision is typically an if-statement, and a DD-path
+is a path between two decisions.</p>
+<p>To get this level of test coverage, it is recommended that you choose test
+data so that every decision is evaluated in every possible way.&nbsp;
+<p>Use code-coverage tools to identify the code not exercised by your white box
+testing. Reliability testing should be done simultaneously with your white-box
+testing.</p>
+<p>See <a href="md_tstcs.htm">Guidelines: Test Case</a> for additional
+information&nbsp;</p>
+<h4><a name="BlackBox_Test">Black-Box Test Approach</a><a name="XE_unit_test__black-box_test"></a><a name="XE_test__black-box_test__of_units"></a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The purpose of a black-box test is to verify the unit's specified function
+and observable behavior without knowledge of <b>how </b>the unit
+implements the function and behavior. Black-box tests focus and rely upon the
+unit's input and output.</p>
+<p>Deriving unit tests based upon the black-box approach utilizes the input and
+output arguments of the unit's operations, and / or output state for evaluation.
+For example, the operation may include an algorithm (requiring two values as
+input and return a third as output), or initiate change in an object's or
+component's state, such as adding or deleting a database record.&nbsp; Both must
+be tested completely. To test an operation, you should derive sufficient test
+cases to verify the following:</p>
+<blockquote>
+  <ul>
+    <li>for each valid value used as input, an appropriate value was returned by
+      the operation</li>
+    <li>for each invalid value used as input, only an appropriate value or was
+      returned by the operation</li>
+    <li>for each valid input state, an appropriate output state occurs&nbsp;</li>
+    <li>for each invalid input state, an appropriate output state occurs</li>
+  </ul>
+</blockquote>
+<p>Use code-coverage tools to identify the code not exercised by your white box
+testing. Reliability testing should be done simultaneously with your black-box
+testing.</p>
+<p>See <a href="md_tstcs.htm">Guidelines: Test Case</a> for additional
+information&nbsp;</p>
+
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

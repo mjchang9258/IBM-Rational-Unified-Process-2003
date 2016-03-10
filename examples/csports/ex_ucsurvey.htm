@@ -1,0 +1,499 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Use Case Model Survey - Inception Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Use Case Model Survey</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Use Case Model Survey</p>
+</font><font face="Arial" size="4">
+<p align="RIGHT">Version 1.0</p>
+</font></b><p align="CENTER"><b><font face="Arial" size="4"></font></b><font size="2">&nbsp;</font></p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP"><b>
+    <p align="CENTER">Version</b></td>
+    <td width="39%" valign="TOP"><b>
+    <p align="CENTER">Description</b></td>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 13, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial version</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<p><font face="Arial" size="5"><b>&nbsp;Table of Contents</b></font></p>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Actor Catalog">Actor Catalog</a></li>
+  <li><a href="#Approve Story">Approve Story</a></li>
+  <li><a href="#Edit Profile">Edit Profile</a></li>
+  <li><a href="#Pay Fee With Credit Card">Pay Fee With Credit Card</a></li>
+  <li><a href="#Print Advertiser Reports">Print Advertiser Reports</a></li>
+  <li><a href="#Provide Feedback">Provide Feedback</a></li>
+  <li><a href="#Post Advertising Content">Post Advertising Content</a></li>
+  <li><a href="#Read Content on Web Site">Read Content on Web Site</a></li>
+  <li><a href="#Send Content">Send Content</a></li>
+  <li><a href="#Send Page">Send Page</a></li>
+  <li><a href="#Subscribe">Subscribe</a></li>
+</ul>
+<p align="CENTER">Use Case Model Survey</p>
+<h3><a name="Introduction"></a>Introduction <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Purpose</h4>
+<p>This report describes the use-case model comprehensively, in terms of how the
+model is structured into packages and what use cases and actors there are in the
+model.</p>
+<h4>Scope</h4>
+<p>This Use Case Model Survey applies to the Collegiate Sports Paging System,
+which will be developed by Context Integration. This system will allow
+subscribers to be notified of events relating to collegiate sports events or
+teams to which they subscribe, and will enable them to view the content they
+have subscribed to.</p>
+<h4>Definitions, Acronyms and Abbreviations</h4>
+<p>See <a href="ex_gloss1.htm">Glossary</a>.</p>
+<h4>References</h4>
+<p>None.</p>
+<h3><a name="Actor Catalog"></a>Actor Catalog <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+
+<table border="1" cellspacing="1" bordercolor="#000000" cellpadding="7" width="546">
+  <tr>
+    <td width="22%" valign="TOP"><b>Name</b></td>
+    <td width="44%" valign="TOP"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Subscriber</td>
+    <td width="44%" valign="TOP">A Subscriber is an individual who pays
+    WebNewsOnLine to deliver customized content and alphanumeric pages when
+    events of interest occur. Subscribers specify, though a profile, which
+    categories of content they are interested in.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Advertiser</td>
+    <td width="44%" valign="TOP">The Advertiser is an entity who pays
+    WebNewsOnLine for displaying advertising content to subscribers and
+    potential subscribers. Advertisers also post advertising content to the Web
+    site.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Editor</td>
+    <td width="44%" valign="TOP">The Editor is a WebNewOnLine employee who
+    categorizes, modifies, approves, or rejects content and advertising content.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Paging Service</td>
+    <td width="44%" valign="TOP">The Paging Service is a system which transmits
+    alphanumeric pages to paging devices.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Pager Gateway</td>
+    <td width="44%" valign="TOP">The Pager Gateway is a system which gathers
+    pages to be sent to subscribers, formats them, and transmits them to the
+    paging service.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Current WebNewsOnLine System</td>
+    <td width="44%" valign="TOP">This system currently provides online,
+    non-customized news and sports content.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Potential Subscriber</td>
+    <td width="44%" valign="TOP">A Potential Subscriber is an individual who
+    does not currently subscribe to the Collegiate Sports Paging System, but who
+    may elect to do so.</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3><a name="Approve Story"></a>Approve Story <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This Use Case takes place when an editor approves a story for inclusion in
+the Collegiate Sports Paging System. Some stories will automatically propogate
+from the existing system, but some stories will require editor intervention
+(either because their subject is not clear or the categories to which the story
+belongs are not clear). This flow is also used to approve advertising content
+being posted.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>The system places a story in the editor’s &quot;to-do&quot; workflow.</li>
+  <li>The editor views the story.</li>
+  <li>The editor categorizes the story and marks it approved.</li>
+  <li>The system includes the story and triggers initiation of paging messages.</li>
+</ol>
+<h4>Alternate Flows</h4>
+<ol>
+  <li>Reject Content</li>
+  <ol>
+    <li>The editor views the story.</li>
+    <li>The editor marks the story as rejected</li>
+    <li>The system notifies the originator of the content that the story has
+      been rejected</li>
+  </ol>
+  <li>Modify Content</li>
+  <ol>
+    <li>Editor selects &quot;Modify Story&quot;</li>
+    <li>System displays titles of all stories available</li>
+    <li>Editor selects specific title</li>
+    <li>System displays characteristics of story</li>
+    <li>Editor updates characteristics</li>
+    <li>Editor selects &quot;Save&quot;</li>
+    <li>System re-posts story, triggering paging activity as needed</li>
+  </ol>
+  <li>Approve Advertising Content</li>
+  <ol>
+    <li>The editor views the advertising content</li>
+    <li>The editor marks it approved.</li>
+    <li>The system includes the advertising content for display</li>
+    <li>The system marks the preliminary billing record as approved</li>
+  </ol>
+  <li>Reject Advertising Content</li>
+  <ol>
+    <li>The editor views the advertising content</li>
+    <li>The editor marks it rejected and provides a reason for rejection</li>
+    <li>The system notifies the advertiser (via email) of the rejection and the
+      reason</li>
+  </ol>
+  <li>Story not viewable</li>
+  <p>If the story has been deleted by another editor and is not currently
+  viewable, the use case terminates.</p>
+</ol>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>Editor must be logged in.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Edit Profile"></a>Edit Profile <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when a subscriber wishes to change their profile
+information or when a new subscriber wishes to enroll.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>User selects &quot;Edit Profile&quot;</li>
+  <li>System displays categories of profile (personal, preferences, pager
+    information, &quot;page me when&quot; selections.</li>
+  <li>User selects category</li>
+  <li>System displays detail</li>
+  <li>User updates detail, presses &quot;OK&quot;</li>
+  <li>System validates data as required, updates subscriber profile.</li>
+</ol>
+<h4>Alternate Flows</h4>
+<p>If this is a new subscriber, the use case &quot;Pay Fee with Credit
+Card&quot; is invoked following step 5 above.</p>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<p>This needs to be secured as credit card information may be in the profile.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>Preconditions will be determined during the next iteration.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<h3><a name="Pay Fee With Credit Card"></a>Pay Fee With Credit Card <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when a new subscriber wants to pay their annual
+subscription fee by specifying a credit card number and PIN. This may also occur
+when an existing subscriber wants to renew (see alternate flow 1)</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>Subscriber selects &quot;pay fee with credit card&quot;</li>
+  <li>System prompts subscriber for credit card number, expiration date, and
+    (optionally) PIN</li>
+  <li>System sends credit card info to external system for charge validation and
+    application</li>
+  <li>Upon receipt of validation, system updates subscriber record to indicate
+    new expiration date</li>
+</ol>
+<h4>Alternate Flows</h4>
+<h5>Subscriber renews subscription</h5>
+<p>When this occurs, the flow runs as follows:
+<ol>
+  <li>Subscriber selects &quot;pay fee with credit card&quot;</li>
+  <li>System displays current credit card information</li>
+  <li>User either accepts information as is or updates appropriately</li>
+  <li>System sends credit card info to external system for charge validation and
+    application</li>
+  <li>Upon receipt of validation, system updates subscriber record to indicate
+    new expiration date</li>
+</ol>
+<h5>Invalid credit card information</h5>
+<p>If the information provided by the subscriber is not validated by the
+external system, an error message will be displayed and the subscriber record
+will NOT be updated (so that the last steps in the above flows will not be
+executed).</p>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<p>Issue – interface specifications for external credit card system need to be
+verified.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>Preconditions will be determined during the next iteration.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Print Advertiser Reports"></a>Print Advertiser Reports <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when an advertiser accesses the Collegiate Sports Paging
+System to obtain reports of how their advertising content has been viewed.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>Advertiser selects &quot;Print Reports&quot;</li>
+  <li>System displays all advertising content provided by advertiser</li>
+  <li>Advertiser selects one or more pieces of content on which to report</li>
+  <li>System displays a list of reports for this advertiser</li>
+  <li>Advertiser selects one or more reports to generate</li>
+  <li>Advertiser selects format (Microsoft&#174; Word&#174;, Microsoft&#174; Excel&#174;, or to browser window)</li>
+  <li>System creates first report and prompts user to save or view</li>
+  <li>Advertiser saves or views report, selects &quot;Next Report&quot;</li>
+  <li>System creates next report and prompts user to save or view</li>
+  <li>Flows 8) and 9) are repeated until no more reports remain</li>
+</ol>
+<h4>Alternate Flows</h4>
+<p>None</p>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<p>Issues – what do we do with obsolete content? How long will we allow
+reports to be run on content no longer available on the web site? Do we need to
+encrypt this transmission?</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>User is connected and validated as an advertiser.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Provide Feedback"></a>Provide Feedback <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when a system user (advertiser, subscriber, or potential
+subscriber) wishes to comment on the service or the web site.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>User selects &quot;Provide Feedback&quot;</li>
+  <li>System looks up central user support phone numbers.</li>
+  <li>System displays phone numbers to call and gives the user the option to
+    send email immediately</li>
+  <li>User selects email option</li>
+  <li>System looks up email address of customer service and passes it to the
+    browser.</li>
+  <li>System launches email browser client</li>
+  <li>User enters message, presses &quot;Send&quot;</li>
+  <li>Browser mail client sends mail.</li>
+</ol>
+<h4>Alternative Flows</h4>
+<p>None</p>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>Preconditions will be determined during the next iteration.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Post Advertising Content"></a>Post Advertising Content <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when an advertiser wants to post advertising content
+(banner ads) on the web site and specify which subscriber profiles should be
+used for display.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>Advertiser selects &quot;Post Content&quot;</li>
+  <li>System validates account billing information to ensure new content will be
+    accepted</li>
+  <li>System prompts for content</li>
+  <li>Advertiser uploads content in GIF format</li>
+  <li>System displays potential categories for ad display (based on subscriber
+    profile options)</li>
+  <li>Advertiser selects categories for which this ad should be shown</li>
+  <li>System displays potential frequencies and prices for the ad</li>
+  <li>Advertiser selects desired frequency for this ad</li>
+  <li>System creates preliminary billing record for this ad</li>
+  <li>System places content in editor’s &quot;to-do&quot; workflow for
+    approval</li>
+</ol>
+<h4>Alternative Flow</h4>
+<h5>Invalid Account Information</h5>
+<ol>
+  <li>Advertiser selects &quot;Post Content&quot;</li>
+  <li>System validates account billing information to ensure new content will be
+    accepted</li>
+  <li>Account information is invalid, advertiser is prompted to contact .</li>
+</ol>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>User is connected and validated as an advertiser.</p>
+<p>Advertiser account exists.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Read Content on Web Site"></a>Read Content on Web Site <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when an active subscriber or unregistered user connects
+to the system to view information.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>System scans &quot;archived&quot; list of content. For any stories older
+    than 2 days, the story is moved back into the general category</li>
+  <li>System displays banner ads, general content categories, and specific
+    stories for which pages have been sent.</li>
+  <li>Subscriber views stories</li>
+  <li>For any paged stories, the stories are marked as viewed and placed into an
+    &quot;archived&quot; category</li>
+</ol>
+<h4>Alternate Flows</h4>
+<h5>User is not registered subscriber</h5>
+<ol>
+  <li>System displays banner ads and general content categories</li>
+  <li>System provides the option for the user to subscribe</li>
+  <li>User views stories</li>
+</ol>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>None.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Send Content"></a>Send Content <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when content is posted to the existing WebNewsOnLine web
+site. Some stories will be tagged for transmission to the Collegiate Sports
+Paging System, and will be sent for possible paging and display.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>Content editor places content on WebNewsOnLine web site</li>
+  <li>For collegiate sports content, system checks categorization and/or
+    headline</li>
+  <li>For categories that are known by the Collegiate Sports Paging System,
+    stories are transmitted along with category information</li>
+  <li>Story is placed into the Collegiate Sports Paging System for possible
+    paging</li>
+</ol>
+<h4>Alternate Flows</h4>
+<h5>Content is not categorized</h5>
+<blockquote>
+  <p>
+  <i></i>If the content is not categorized, the story is placed in the editor’s
+  &quot;to-do&quot; workflow.</p>
+</blockquote>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>Editor must be logged in.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Send Page"></a>Send Page <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when new content is posted to the Collegiate Sports
+Paging System.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>System checks categories for the new content</li>
+  <li>System checks subscriber lists to determine whether any subscribers wish
+    to be paged for this category of content</li>
+  <li>System generates a text message based on the headline</li>
+  <li>System constructs a series of email messages</li>
+  <li>System sends email messages to subscribers (who will receive these as an
+    alphanumeric page)</li>
+</ol>
+<h4>Alternate Flows</h4>
+<p>None.</p>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>Content is posted, headline is available, categorization is available.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+<p>&nbsp;</p>
+<h3><a name="Subscribe"></a>Subscribe <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when a potential subscriber wants to subscribe to the
+service.</p>
+<h3><a name="Flow of Events"></a>Flow of Events</h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>System looks up current contract terms and available service options</li>
+  <li>System displays contract terms and service options</li>
+  <li>Potential subscriber acknowledges terms and selects service options</li>
+  <li>System records currently selected service options</li>
+  <li>System invokes &quot;Edit Profile&quot; use case</li>
+</ol>
+<h4>Alternative FLows</h4>
+<h5>User rejects contract terms</h5>
+<p>If the potential subscriber does not acknowledge the contract terms, the use
+case terminates.</p>
+<h3><a name="Special Requirements"></a>Special Requirements</h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<h3><a name="Preconditions"></a>Preconditions</h3>
+<p>None.</p>
+<h3><a name="Postconditions"></a>Postconditions</h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points</h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.</p>
+&nbsp;<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

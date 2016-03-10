@@ -1,0 +1,488 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Activity:&nbsp;Define the Business Architecture</title>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Define the Business 
+  Architecture</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To understand the forces that significantly affect the business.</li>
+      <li>To define an architecture for the business.</li>
+          <li>To define the business patterns, key mechanisms, and modeling conventions 
+            for the business.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#Develop Overview of the Business Architecture">Develop 
+            an overview of the business architecture</a>.</li>
+          <li><a href="#Describe the Forces Affecting the Business Architecture">Describe 
+            the forces affecting the business architecture</a>.</li>
+          <li><a href="#Prioritize Business Use Cases">Prioritize business use 
+            cases</a>.</li>
+          <li><a href="#Outline the High-Level Organization">Outline the high-level 
+            organization</a>.</li>
+          <li><a href="#Identify Business Systems">Identify business systems</a>.</li>
+          <li><a href="#Outline Prioritized Business Use Case Realizations">Outline 
+            prioritized business use case realizations</a>.</li>
+          <li><a href="#Define Geographic View">Define geographic view</a>.</li>
+          <li><a href="#Define Human Resource Aspect View">Define human resource 
+            and cultural view</a>.</li>
+          <li><a href="#Evaluate Your Results">Evaluate your results</a>.</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bom.htm">Business Analysis Model</a></li>
+<li><a href="../artifact/ar_bgloss.htm">Business Glossary</a></li>
+<li><a href="../artifact/ar_bucm.htm">Business Use Case Model</a></li>
+<li><a href="../artifact/ar_bvsio.htm">Business Vision</a></li>
+<li><a href="../artifact/ar_sbs.htm">Supplementary Business Specification</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_badoc.htm">Business Architecture Document</a></li>
+<li><a href="../artifact/ar_orgu.htm">Business System</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration, with most work occurring in the inception iterations.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_bpan.htm">Business-Process Analyst</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/busmodel/co_barch.htm">Concept: Business Architecture</a></li>
+<li><a href="../modguide/md_bad.htm">Guideline: Business Architecture Document</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_busm.htm">Business Modeling</a>
+<ul>
+<li><a href="../workflow/busmodel/wfs_stat.htm">Assess Business Status</a></li>
+<li><a href="../workflow/busmodel/wfs_dcur.htm">Describe Current Business</a></li>
+<li><a href="../workflow/busmodel/wfs_fbom.htm">Design Business Process Realizations</a></li>
+<li><a href="../workflow/busmodel/wfs_idbm.htm">Identify Business Processes</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<p>This activity adds value only if you are doing business modeling in order to 
+  <a href="../glossary.htm#business_engineering">engineer your business</a>. If 
+  you are merely building a chart of an existing organization in order to derive 
+  system requirements, architecting the business is not necessary. See also <a href="../workflow/busmodel/co_scobm.htm">Concepts: 
+  Scope of Business Modeling</a>.&nbsp;</p>
+<h3><a name="Develop Overview of the Business Architecture">Develop an Overview
+of the Business Architecture</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The business architecture overview is created early in the lifecycle of a project, 
+  possibly as early as the development of the proposal. It is often depicted in 
+  graphical form, using some informal notation or storyboarding technique. It 
+  represents the intent and idea behind a business modeling effort. The lead business-process 
+  analyst produces the business architecture overview, often in collaboration 
+  with the project sponsor. </p>
+<p>The overview graph must indicate major elements of the business and its environment, 
+  such as teams, business tools, and external sources of influence (for example, 
+  regulatory bodies, partners, and market segments).&nbsp;The overview graph most 
+  often does not focus on the entire business architecture as described here. 
+  However, a large effort, such as a business process re-engineering (BPR) project, 
+  would consider the entire business architecture. The notion of business architecture 
+  is described in <a
+href="../workflow/busmodel/co_barch.htm">Concepts: Business Architecture</a>. 
+</p>
+<p>It is useful to consider the purpose of business architecture and its intended 
+  audience. This ensures that the manner in which the business architecture is 
+  described and presented will be appropriate for those who must understand it. 
+  The intended audience can be categorized into different groups with various 
+  concerns. Each of these groups will be interested in different architectural 
+  views of the <a href="../artifact/ar_badoc.htm">Artifact: Business Architecture 
+  Document</a>.</p>
+<p>At this point, the business architecture overview is a provisional first pass. 
+  No commitments should be based on this overview diagram. The initial overview 
+  graph may or may not be included as part of the <a href="../artifact/ar_badoc.htm">Artifact: 
+  Business Architecture Document</a>, depending on what value it adds to the content.</p>
+<h3><a name="Describe the Forces Affecting the Business Architecture">Describe 
+  the Forces Affecting the Business Architecture</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify the constraints and trends within the business and its environment 
+  that could have a significant effect on the structure of the business or the 
+  way in which it works. When defining the business architecture, these forces 
+  must be analyzed to ensure that the business can adapt to possible changes within 
+  a reasonable time and withstand other kinds of impact.&nbsp; Forces that are 
+  worth considering include the business strategy and trends, as well as possible 
+  future events that would affect every part of the organization or radically 
+  change some significant central part of it. In addition, it is important to 
+  consider changes that might have to be made very rapidly, along with constraints 
+  that might be imposed or lifted in future that may alter the way business is 
+  done or open new opportunities.</p>
+<p>Consider the probability of these events or changes occurring, and try to visualize 
+  their effects on the business. Once you understand the probabilities and effects, 
+  you can prioritize these forces and make decisions regarding how to deal with 
+  the highest-priority issues. The options available for dealing with each change 
+  are:</p>
+<ul>
+  <li>Prepare for rapid response to the change.</li>
+  <li>Act is if the change has already occurred.</li>
+  <li>Minimize the possible effects of the change.</li>
+  <li>Ignore the possibility of the change occurring.</li>
+</ul>
+<p>Document your results in the <a href="../artifact/ar_badoc.htm">Artifact: Business 
+  Architecture Document</a>, the section on architectural drivers and constraints.</p>
+<h3><a name="Prioritize Business Use Cases">Prioritize Business Use Cases<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Determine which business processes are most critical to explore in order to 
+  achieve the goals presented in the <a href="../artifact/ar_bvsio.htm">Artifact: 
+  Business Vision Document</a>. Consider the highest-priority and highest-risk 
+  business goals, and then look for the business processes that support them. 
+  Be sure to look for business use cases or business scenarios from the outlined 
+  Business Use-Case Model (in <a href="ac_fbauc.htm">Activity: Find Business Actors 
+  and Use Cases</a>) that represent some significant, central capability of the 
+  of the target organization or have large architectural coverage. Also consider 
+  use cases that employ many architectural elements or illustrate a specific, 
+  delicate point of the business architecture.</p>
+<p>The selection of business processes (or scenarios, which are parts of business 
+  processes) must reflect both <i>coverage</i> and <i>criticality</i>.&nbsp; Coverage 
+  is necessary to ensure that enough of the business systems are being considered.&nbsp;Business 
+  architecture concerns breadth, and coverage ensures a sufficient amount of it.&nbsp; 
+  A few core business processes usually touch the breadth of the organization. 
+  Criticality, on the other hand, characterizes the business processes with the 
+  highest priority. Priority is derived from important or risky business goals, 
+  difficult or complex business processes, and new or vague business processes. 
+  Be especially attentive to vague business processes—they might be vague for 
+  a reason. Investigating a vague business process often clears up much uncertainty 
+  about the way different parts of the organization work together.</p>
+<p>Also consider the business goals supported by the business use cases. Business 
+  goals that can be relatively easily achieved or offer high returns (that is, 
+  most strongly support the business strategy) are a good place to start. The 
+  business use cases supporting these business goals may have high priority.</p>
+<p>The prioritized business processes or business scenarios should be documented 
+  in the business use-case view of the Business Architecture Document. See also 
+  <a href="../modguide/md_bad.htm">Guidelines: Business Architecture Document</a>, 
+  the section on business process view.<a href="../modguide/md_bad.htm"></a></p>
+<h3><a name="Outline the High-Level Organization">Outline the High-Level
+Organization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify the high-level groupings that will constitute the organization. These 
+  can be departments, divisions, or business units, depending on what terminology 
+  your organization uses. These high-level groupings can be used as input when 
+  identifying your initial set of <a href="../artifact/ar_orgu.htm">business systems</a> 
+  in the Business Analysis Model (if you have a very large and complex business 
+  model).&nbsp;</p>
+<p>For key interfaces to customers and (where appropriate) between business systems, 
+  the primary <a href="../artifact/ar_bwk.htm">business workers</a> and <a href="../artifact/ar_bent.htm">business 
+  entities</a> must be identified.&nbsp;It may also help to define the purpose 
+  of each business system and its capabilities. Clear definitions of purpose and 
+  capabilities provide a better understanding of the role that the business system 
+  must play in business use-case realizations. Such definitions also help reveal 
+  the manner in which the business system must interact with other ones.</p>
+<p>Consider the scope of the project as defined in the <a href="../artifact/ar_bvsio.htm">Artifact: 
+  Business Vision</a>. There is no point in exploring details of parts of the 
+  organization that are out of scope. See also <a href="../workflow/busmodel/co_large.htm">Concepts: 
+  Modeling Large Organizations</a>.&nbsp;</p>
+<p>Sketches to a high-level organization should be included in the organization 
+  structure view of the Business Architecture Document. See also <a href="../modguide/md_bad.htm">Guidelines: 
+  Business Architecture Document</a>, the section on organization structure view. 
+</p>
+<h3><a name="Identify Business Systems">Identify Business Systems<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify and briefly describe business systems within the business being modeled. 
+  Business systems are really only useful for large, complex business models. 
+  Depending on the business-modeling scenario and the scope of your efforts, you 
+  might decide against using business systems at all.</p>
+<p>A business system represents a relatively independent capability within the 
+  organization. It defines a set of responsibilities as well as the business workers, 
+  business entities, and business events that undertake these responsibilities. 
+  In this way, a business system is a structural part of the organization, like 
+  a department, except that the only interactions allowed within a business system 
+  are through the predefined responsibilities. Consider, for example, a serving 
+  window in a restaurant or an IT support department with a services catalog. 
+  In both these examples, there are predefined interactions. What, for example, 
+  would happen if you went around to the back of the restaurant to try to get 
+  a meal from somebody in the kitchen? Similarly, what would happen if you asked 
+  the computer support technician to book you an airline flight? We use business 
+  systems to disallow any interactions with the business workers and business 
+  entities within it, other than the specified interactions. This allows us to 
+  partition large, complex business models so that we can focus on detailing one 
+  part of the model without losing sight of where it fits into the whole.</p>
+<p>Discuss and obtain agreement regarding which (if any) business systems should 
+  be included in your model. Some business systems may be described in only limited 
+  detail in the context of the business use-case realizations. Others may provide 
+  important input or receive output, in which cases they should be modeled as 
+  business actors. This means they are external to the business being modeled.</p>
+<p>You may want to indicate how a business system participates in a business use 
+  case without showing the internal interactions between business workers and 
+  business entities within that business system. Where necessary, you can &quot;zoom 
+  into&quot; the business system to show internal collaborations as part of the 
+  business use case.</p>
+<p>For more information on business systems, see <a href="../modguide/md_orgun.htm">Guidelines:
+Business System</a>.</p>
+<h3><a name="Outline Prioritized Business Use Case Realizations">Outline Prioritized Business Use Case Realizations</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify which <a href="../artifact/ar_bwk.htm">business workers</a> and <a href="../artifact/ar_bent.htm">business 
+  entities</a> participate in the execution of each prioritized business use case. 
+  They form the <a href="../artifact/ar_bucr.htm">business use-case realization</a> 
+  of the business use case.&nbsp;For large, complex business models, business 
+  use case realizations can be expressed in terms of interactions between business 
+  systems.</p>
+<p>The sketches to process realizations must be included in the organization view 
+  of the Business Architecture Document. See also the section on organization 
+  structure in the <a href="../modguide/md_bad.htm">Guidelines: Business Architecture 
+  Document</a>.</p>
+<h3><a name="Define Geographic View">Define Geographic View<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This view describes the geographic locations in which the business is deployed, 
+  along with the distribution of organizational structure and function across 
+  these locations. The locality view is useful for assessing the impact of time 
+  and distance on the business processes. Processes may be streamlined, or the 
+  organization itself may be restructured to eliminate the overhead of coordinating 
+  distributed activities.&nbsp; Furthermore, unique characteristics of each location 
+  (such as legislation, resources, accessibility, or image) may affect the decision 
+  to deploy certain business activities there. Ships may also be regarded as locations. 
+  The process of defining the Geographic View consists of the following activities:</p>
+<ul>
+  <li>Identify the major locations (countries or cities) in which business activities 
+    are performed.</li>
+  <li>Identify the dependencies and paths of communication between these
+    locations.</li>
+  <li>Map the business systems (from the Organization View) to these
+    locations.</li>
+  <li>Assess the positive and negative qualities of each location regarding the
+    business activities performed there.</li>
+  <li>Assess the overall effects of distribution on the business use cases.</li>
+  <li>Explore the effects of streamlining business use cases or restructuring
+    the organization to eliminate overhead.</li>
+</ul>
+<h3><a name="Define Human Resource Aspect View">Define Human Resource and Cultural 
+  View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The process of defining the human resource aspects of the business includes 
+  the following activities:</p>
+<ul>
+  <li>Consider the competence profiles that exist within the organization. Define 
+    competence profiles that will be required in the future, or define the necessary 
+    changes to the existing profiles. Will the future business require employees 
+    to be more or less independent? Will they need higher or lower education requirements?</li>
+  <li>Discuss education needs. Define both long-term training programs to overcome 
+    the differences between current and desired competence profiles, as well as 
+    any initial training needs associated with the introduction of new business 
+    processes.&nbsp;</li>
+  <li>Define any mechanisms (reward structures, trainee programs, mentor programs, 
+    or other incentives) that exist or need to be put in place to enhance skill 
+    levels. Discuss the advantages and disadvantages of each.</li>
+  <li>Explore the possibility of relocating individuals in the organization due 
+    to changes in responsibilities or the need to enhance communication.</li>
+</ul>
+<p>The process of describing cultural aspects of the business includes the following 
+  activities:</p>
+<ul>
+  <li>Determine the characteristics of the culture.&nbsp;</li>
+  <li>Determine which of these characteristics are key to the organization and 
+    must be left undisturbed.&nbsp;</li>
+  <li>Discuss which characteristics must change.</li>
+  <li>Determine what mechanisms are in place to maintain and encourage the culture. 
+    Discuss ideas for new or changed mechanisms.</li>
+  <li>Define a path to be taken to introduce any changes that you deem necessary.&nbsp;</li>
+</ul>
+<p>The results of this step should be documented in the Human Resource View of 
+  the Business Architecture Document. See also <a href="../modguide/md_bad.htm">Guidelines: 
+  Business Architecture Document</a>, the section on human resource view.&nbsp;</p>
+<h3><a name="Evaluate Your Results">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Check the Business Architecture Document verify that your work is on track. 
+  See <a href="chklists/ck_bad.htm">Checkpoints: Business Architecture Document</a>.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,333 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Test Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Test 
+  Design</rpw><a name="XE_test_design__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#DerivingTestCasesforUnitTest">Deriving test Cases for Unit Test</a></li>
+  <ul>
+    <li><a href="#WhiteBox_tests">White-box tests</a></li>
+    <li><a href="#BlackBox_Tests">Black-box tests</a></li>
+  </ul>
+</ul>
+
+
+<h3><a name="Explanation">Explanation</a> <a href="#top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Nothing has a greater effect on the end-user's satisfaction with the software
+than a clear view of what the end-user expects so that those expectations can be
+verified and validated. Test cases reflect the requirements that are to be
+verified. Verifying these requirements, however, may be done differently and by
+different testers. For example, executing the software to verify its function
+and performance may be done by a tester using automated test techniques, the
+shut-down sequence of a computer system may be done by manual test and
+observation, while market share and sales, (also product requirements), will be
+done by measuring product and competitive sales.</p>
+<p>Since you may not be able to (or be responsible to) verify all requirements,
+it is critical for the success of your project to select the most appropriate or
+critical ones requirements for test. The requirements you choose to verify will
+be a balance between the cost, risk, and necessity of having the requirement
+verified.</p>
+<p>Identifying the test cases is important for several reasons.
+<ul>
+  <li>Test cases form the foundation on which to design and develop Test Scripts.</li>
+  <li>The &quot;depth&quot; of the testing is proportional to the number of test
+    cases. Greater confidence in the quality of the product and test process is
+    gained when the number of test cases increases, since each test case
+    reflects a different scenario, condition, or flow through the product.</li>
+  <li>A principal measure of the completeness of test is requirements-based
+    coverage, based on the of the number test cases identified, implemented, and
+    / or executed. A statement such as &quot;95 percent of our critical test
+    cases have been executed and verified&quot; is more significant than stating
+    &quot;We're 95 percent of the way through our tests.&quot;</li>
+  <li>The scale of the test effort is proportional to the number of test cases.
+    With a comprehensive breakdown of test cases, the timing of succeeding
+    stages of the test cycle can be more accurately estimated.</li>
+  <li>The kinds of test design and development, and the resources needed are
+    largely governed by the test cases.</li>
+</ul>
+<p>Test cases are often categorized or classified by the type of test or
+requirement for test they are associated with, and will vary accordingly. Best
+practice is to develop at least two test cases for each requirement for test:
+<ul>
+  <li>a test case to demonstrate the requirement has been achieved, often
+    referred to as a positive test case,</li>
+  <li>another test case, reflecting an unacceptable, abnormal, or unexpected
+    condition or data, to demonstrate that the requirement is only achieved
+    under the desired condition, referred to as a negative test cases.</li>
+</ul>
+
+<h3><a name="DerivingTestCasesforUnitTest">Deriving Test Cases for Unit Test 
+  </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Unit testing requires testing both the unit's internal structure and its behavioral 
+  characteristics. Testing the internal structure requires a&nbsp; knowledge of 
+  how the unit is implemented, and tests based upon this knowledge are known as 
+  white-box tests. Testing a unit's behavioral characteristics focuses on the 
+  external observable behaviors of the unit without knowledge or regard its implementation. 
+  Tests based upon this approach are referred to as black-box tests. Deriving 
+  test cases based upon both approaches are described below.</p>
+
+<h4><a name="WhiteBox_tests"></a><a name="XE_white-box_test__of_units">White-Box 
+  Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Theoretically, you should test every possible path through the code. Achieving 
+  such a goal, in all but very simple units, is either impractical or almost impossible. 
+  At the very least you should exercise every <b>decision-to-decision path</b> 
+  (DD-path) at least once, resulting in executing all statements at least once. 
+  A decision is typically an if-statement, and a DD-path is a path between two 
+  decisions.</p>
+<p>To get this level of test coverage, it is recommended that you choose test 
+  data so that every decision is evaluated in every possible way. Toward that 
+  end, the test cases should make sure that:</p>
+<ul>
+  <li>Every Boolean expression is evaluated to <b>true</b> and <b>false</b>. For 
+    example the expression (a&lt;3) OR (b&gt;4) evaluates to four combinations 
+    of <b>true</b>/<b>false</b></li>
+  <li>Every infinite loop is exercised at least zero times, once, and more than 
+    once.</li>
+</ul>
+<p>Use code-coverage tools to identify the code not exercised by your white box 
+  testing. Reliability testing should be done simultaneously with your white-box 
+  testing.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">Assume that you perform a structure test on a function <b>member</b> 
+  in the class <b>Set of Integers. </b>The test - with the help of a binary search 
+  - checks whether the set contains a given integer.</p>
+<p class="picturecenter" align="center"><img src="../activity/images/untst001.gif" width="301" height="200"></p>
+<p class="picturetext">The member function and its corresponding flowchart. Dotted 
+  arrows illustrate how you can use two test cases to execute all the statements 
+  at least once.</p>
+<p>Theoretically, for an operation to be thoroughly tested, the test case should 
+  traverse all the combinations of routes in the code. In <b>member</b>, there 
+  are three alternative routes inside the <b>while-loop</b>. The test case can 
+  traverse the loop either several times or not at all. If the test case does 
+  not traverse the loop at all, you will find only one route through the code. 
+  If it traverses the loop once, you will find three routes. If it traverses twice, 
+  you will find six routes, and so forth. Thus, the total number of routes will 
+  be 1+3+6+12+24+48+…, which in practice, is an unmanageable number of route combinations. 
+  That is why you must choose a subset of all these routes. In this example, you 
+  can use two test cases to execute all the statements. In one test case, you 
+  might choose <code><b>Set of Integers</b> = {1,5,7,8,11}</code> and <code><b>t</b> = 3</code> as test 
+  data. In the other test case, you might choose <code><b>Set of Integers</b> = {1,5,7,8,11}</code> 
+  and <code><b>t</b> = 8</code>.</p>
+<p>See <a href="md_untst.htm">Guidelines: Unit Test</a> for additional information</p>
+
+<h4><a name="BlackBox_Tests"></a>Black-Box 
+  Tests<a name="XE_black-box_test__of_units"></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The purpose of a black-box test is to verify the unit's specified behavior 
+  without looking at <b>how </b>the unit implements that behavior. Black-box tests 
+  focus and rely upon the unit's input and output.</p>
+<p><b>Equivalence partitioning</b><b> </b>is a technique for reducing the required 
+  number of tests.<b> </b>For every operation, you should identify the equivalence 
+  classes of the arguments and the object states. An <b>equivalence class</b> 
+  is a set of values for which an object is supposed to behave similarly. For 
+  example, a <b>Set</b> has three equivalence classes: <b>empty</b>, <b>some element, 
+  </b>and<b> full</b>.</p>
+<p>Use code-coverage tools to identify the code not exercised by your white box 
+  testing. Reliability testing should be done simultaneously with your black-box 
+  testing.</p>
+<p>The next two subsections describe how to identify test cases by selecting test 
+  data for specific arguments.</p>
+
+<h5>Test Cases based upon Input Arguments</h5>
+<p>An <b>input argument </b>is an argument used by an operation. You should create 
+  test cases by using input arguments for each operation, for each of the following 
+  input conditions:&nbsp; 
+<ul>
+  <li>Normal values from each equivalence class.</li>
+  <li>Values on the boundary of each equivalence class.</li>
+  <li>Values outside the equivalence classes.</li>
+  <li>Illegal values.</li>
+</ul>
+<p>Remember to treat the object state as an input argument. If, for example, you 
+  test an operation <b>add </b>on an object <b>Set</b>, you must test <b>add </b>with 
+  values from all of <b>Set</b>'s equivalence classes, that is, with a full <b>Set</b>, 
+  with some element in <b>Set, </b>and with an empty<b> Set</b>.</p>
+
+<h5>Test Cases based upon Output Arguments</h5>
+<p>An <b>output argument</b> is an argument that an operation changes. An argument 
+  can be both an input and an output argument. Select input so that you get <b>output</b> 
+  according to each of the following.</p>
+<ul>
+  <li>Normal values from each equivalence class.</li>
+  <li>Values on the boundary for each equivalence class.</li>
+  <li>Values outside the equivalence classes.</li>
+  <li>Illegal values.</li>
+</ul>
+<p>Remember to treat the object state as an output argument. If for example, you 
+  test an operation <b>remove</b> on a <b>List</b>, you must choose input values 
+  so that <b>List</b> is full, has some element, and is empty after the operation 
+  is performed (test with values from all its equivalence classes).</p>
+<p>If the object is state-controlled (reacts differently depending on the object's 
+  state), you should use a state matrix such as the one in the following figure.</p>
+<p class="picturecenter" align="center"><img src="../activity/images/untst002.gif" width="184" height="166"></p>
+<p class="picturetext">A state matrix for testing. You can test all combinations 
+  of state and stimuli on the basis of this matrix.</p>
+<p>See <a href="md_untst.htm">Guidelines: Unit Test</a> for additional information</p>
+
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

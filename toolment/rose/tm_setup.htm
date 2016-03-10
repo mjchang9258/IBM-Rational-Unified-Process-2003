@@ -1,0 +1,341 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+  <title>Tool Mentor:&nbsp;Setting Up Rational Rose for a Project</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <link rel="StyleSheet" HREF="../../rop.css" TYPE="text/css">
+</head>
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Setting Up Rational Rose for a Project</rpw><A NAME="Top" msnavigation></A></h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to set up Rational Rose for a project.</p>
+ 
+ <p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_setup.htm">Set Up Tools</a></li>
+<li><a href="../../process/activity/ac_strim.htm">Structure the Implementation Model</a></li>
+<li><a href="../../process/activity/ac_sudev.htm">Support Development</a></li>
+</ul>
+<br>
+   
+</p>
+
+<H3>Overview</H3>
+      <P>
+       Setting up Rose for a project means laying the foundation that
+       will enable many team members to work on the same model at the same time.
+       Developing complex systems requires that groups of analysts, architects,
+       and developers be able to see and access the &quot;big picture&quot; at
+       the same time as they are working on their own portion of that picture&#151simultaneously.
+       Successfully managing an environment where multiple team members have
+       different kinds of access to the same model requires:</P>
+      <ul>
+        <li>Formulating a working strategy for managing team activity.</li>
+        <li>Having the tools that can support that strategy.</li>
+      </ul>
+      <P>
+       Ideally, Rose users work within their own private workspace
+       where they are protected from changes that may be untested or not yet
+       approved.</P>
+      <P>
+       The following are the basic steps for laying this foundation:</P>
+      <OL>
+       <LI CLASS="mvd-P">
+       <P>
+        <A HREF="#Create an Activity Diagram in a Business Use Case">Formulate
+        working strategies</a>
+        <LI CLASS="mvd-P"><A HREF="#Create Swimlanes (Optional)">Define Rational
+          Rose defaults</a>
+        <LI CLASS="mvd-P"><A HREF="#Create and Describe an Activity State in the Diagram">Partition
+          the model into controlled units</a>
+        <LI CLASS="mvd-P"><A HREF="#Connect Activity States with Transitions">Define
+          path maps</a>
+        <LI CLASS="mvd-P"><A HREF="#Create Synchronization Bars">Integrate with
+          a configuration management system</a>
+       </OL>
+      <P>
+       For detailed information about using Rose in a team, see:</P>
+      <UL>
+       <LI CLASS="mvd-P">
+       <P>
+        <IMG SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16">
+        <span style="font-style: italic">Team
+       Development</span> topic in the Rational Rose 
+        online help
+        <LI CLASS="mvd-P"><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15">
+          <SPAN STYLE="font-style : italic;">Rational
+          Rose Guide to Team Development</SPAN> manual
+       </UL>
+      <H3>
+       1. <A NAME="Create an Activity Diagram in a Business Use Case"></a>Formulate
+       working strategies <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       When developing a strategy for working in teams, there are two facets to
+       consider:</P>
+      <ul>
+        <li>developing a strategy that supports current development</li>
+        <li>developing a strategy for maintaining and retrieving the reusable
+          modeling artifacts that result</li>
+      </ul>
+      <p>When developing current projects, the tools a team uses must be able to:</p>
+      <ul>
+        <li>provide all team members with simultaneous access to the entire
+          model</li>
+        <li>control which team members can update different model elements</li>
+        <li>introduce change in a controlled manner</li>
+        <li>maintain multiple versions of a model</li>
+      </ul>
+      <p>When you develop a system, you are developing valuable project
+      artifacts that can be reused. Artifacts are typically maintained in some
+      type of repository. To support reuse:</p>
+      <ul>
+        <li>Model artifacts should be architecturally significant units, such as
+          patterns, frameworks, and components (not usually individual classes).</li>
+        <li>All team members, no matter where they are located, should have
+          access to reusable artifacts.</li>
+        <li>It should be easy to catalog, find, and then apply these artifacts
+          in a model.</li>
+      </ul>
+      <p>A reuse repository can differ from your project's configuration
+      management (CM) system as long as it supports versioning. The repository
+      should also support cataloging artifacts at an appropriate level of
+      granularity; for example, at the component level.</p>
+      <H3>
+       2. <A NAME="Create Swimlanes (Optional)"></a>Define Rational Rose
+       defaults <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+ Rose enables you to set model-wide operating defaults, called
+       properties and options, that essentially establish the &quot;rules&quot;
+       that users follow when working with the model. The settings you create
+       are stored in the rose.ini file, which should be put under configuration
+       control if you are using a CM system. You access the model properties and
+       options from the <b> Tools &gt; Options</b> menu.</P>
+      <H3>
+       3. <A NAME="Create and Describe an Activity State in the Diagram"></a>Partition
+       the model into controlled units <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+ Rose supports dividing a model into manageable pieces by letting
+       you partition a model into separate files called <b>controlled units</b>.
+       When using controlled units, each team or each team member is responsible
+       for maintaining or updating a specific unit. The lowest level of
+       granularity for a controlled unit is a package, since packages are
+       considered the smallest architecturally significant elements in a model
+       (classes are not). Controlled units are the basis building blocks that
+       you put under version control.</P>
+      <P>You can create a hierarchy of controlled units where top level
+      controlled units can consist of references to other controlled units. For
+      example, you could make all packages controlled units with top-level
+      packages that are pointers to nested packages. When you do this, you
+      enable two developers to check out packages that belong to the same higher
+      level package. How you partition a model and the type of hierarchy you
+      implement will depend on how team members will operate, both physically
+      (who works on which packages) as well as logically (how best to partition
+      the model and preserve its design).</P>
+      <P>You can create controlled units for packages, deployment diagrams, and
+      model properties. When you create controlled units, you name the new file
+      but you use one of these four extensions for the particular type of
+      controlled unit you're creating:</P>
+      <ul>
+        <li>logical packages and use-case packages are stored in .cat files</li>
+        <li>component packages are stored in .sub files</li>
+        <li>deployment packages are stored in .prc files</li>
+        <li>model properties are stored in a .prp file</li>
+      </ul>
+      <p>You can have an unlimited number of .cat and .sub files, but since a Rose model supports one deployment diagram, there is only one
+      .prc file. Similarly, there is a single set of model properties and only
+      one .prp file.</p>
+      <H3>
+       4. <A NAME="Connect Activity States with Transitions"></a>Define path
+       maps <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>Virtual path maps enable Rose to use relative file paths
+      instead of physical file paths when referencing controlled units. This
+      feature enables you to move a model between different systems or
+      directories and to update a model from different workspaces. When you save
+      a model or you create a controlled unit, you save it to a physical
+      location. However, you model file and any parent-controlled units rely on
+      that file path to locate the controlled units that belong to it. By
+      creating and using virtual path maps, you enable Rose to substitute the
+      physical file path with a relative file path, freeing your model from its
+      ties to a physical location.</P>
+      <P>A leading ampersand (&amp;) in a virtual path map indicates the path is
+      relative to the model file or the enclosing (parent) controlled unit. A
+      common way to implement path maps is to have all team members define
+      &amp;CURDIR=&amp;. This enables you to save a model and controlled units
+      relative to the surrounding context, letting different users open the
+      model and load the unit in different workspaces.</P>
+      <H3>
+       5. <A NAME="Create Synchronization Bars"></a>Integrate with a
+       configuration management system <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>Implementing a configuration management (CM) system is essential for
+      complex projects. A CM system can effectively support team development as
+      long as it:</P>
+      <ul>
+        <li>protects developers from unapproved model changes</li>
+        <li>supports comparing and merging all changes made by multiple
+          contributors</li>
+        <li>supports distributed (geographically dispersed) development</li>
+      </ul>
+      <p>Consider using the same CM tool to maintain the models that you use for
+      your other project artifacts, such as source code and dlls.</p>
+      <P>Since managing parallel development is so crucial, Rose
+      provides integrations with Rational ClearCase and with SCC-compliant
+      version control systems, such as Microsoft Visual Source Safe. By
+      integrating CM systems, Rose makes the most frequently used version
+      control commands directly accessible from Rose menus, including the
+      typical check in and check out functions that are used every day.</P>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

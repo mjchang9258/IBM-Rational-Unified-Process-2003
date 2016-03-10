@@ -1,0 +1,794 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Agile Practices and RUP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concept:&nbsp;<rpw name="PresentationName">Agile Practices and RUP</rpw><a name="XE_Agile_Practices_and_RUP__concept"></a></h2>
+<p>Topics</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr> 
+      <td width="45%"> 
+        <ul>
+          <li> <a href="#Introduction">Introduction</a> </li>
+          <li> <a href="#Roadmap Overview">Overview</a> </li>
+          <li><a href="#XPPractices">XP Practices</a> 
+            <ul>
+              <li><a href="#XP2RUPPractices">XP Practices Compatible with RUP</a></li>
+              <li><a href="#XPNoScale">XP Practices That Don't Scale Well</a></li>
+              <li><a href="#XPCaution">XP Practice Requiring Caution</a></li>
+            </ul>
+          </li>
+          <li><a href="#SmallProjArtifacts">Mapping of Artifacts for a Small Project</a></li>
+          <li><a href="#Activities">Activities</a> </li>
+          <li><a href="#Roles">Roles</a> 
+            <ul>
+              <li><a href="#RUPRolesSmallProject">XP and RUP Roles on a Small 
+                Project</a></li>
+            </ul>
+          </li>
+          <li><a href="#CompareXP2RUP">Using XP Practices with RUP</a></li>
+          <li><a href="#References">Agile Process References</a></li>
+        </ul>
+      </td>
+      <td width="55%">
+        <p><b>White Papers:</b></p>
+        <ul>
+          <li><a href="../../../papers/rupxp.htm">A Comparison of RUP and XP</a> 
+            <br>
+          </li>
+          <li><a href="../../../papers/smproj.htm">Using the RUP for Small Projects: 
+            Expanding upon eXtreme Programming</a></li>
+          <li><a href="../../../papers/xppair.htm">RUP/XP Guidelines: Pair Programming</a></li>
+          <li><a href="../../../papers/xprefact.htm">RUP/XP Guidelines: Test-first 
+            Design and Refactoring</a></li>
+        </ul>
+        </td>
+  </tr>
+</table>
+<br></div>
+
+<h1><b><a name="Introduction">Introduction</a></b><a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h1>
+<p>The Rational Unified Process (RUP) is a process framework that Rational Software 
+  has refined over the years which has been widely used for all types of software 
+  projects&#151;from small to large. Recently a growing number of &quot;agile&quot; 
+  processes&#151;such as eXtreme Programming (XP), SCRUM, Feature-Driven Development 
+  (FDD) and the Crystal Clear Methodology&#151;have recently been gaining recognition 
+  as effective methods for building smaller systems. (See <a href="http://www.agilealliance.org">www.agilealliance.org</a> 
+  for further information on the Agile Alliance.)</p>
+
+<p>The following sections are intended to assist those project teams evaluating 
+  some of the &quot;agile&quot; practices found in one of these methods to see 
+  how they are addressed by the more complete <a href="../../../manuals/intro/im_keymc.htm">software 
+  development process</a> defined by RUP. </p>
+<h1><font size="5"><a name="Roadmap Overview">Overview</a><a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></font></h1>
+      
+<p>The agile community has synthesized a number of &quot;best practices&quot; 
+  that are especially applicable to small, co-located project teams. Although 
+  RUP is targeted to project teams of any size, it can be successfully applied 
+  to small projects. In general, RUP and the processes 
+  of the Agile community have a similar view of the key best practices required 
+  to develop quality software&#151;for example, applying iterative development 
+  and focusing on the end users. </p>
+<p>The following sections explain how to apply some of the &quot;best practices&quot; 
+  identified in the agile community to RUP-based projects that would like to benefit 
+  from some of these practices. In this case, the focus will be specifically on 
+  those practices presented by the eXtreme Programming (XP) methodology. (For 
+  more information on XP, please refer to the website: <a href="http://www.extremeprogramming.org">http://www.extremeprogramming.org</a>.)<br>
+</p>
+<h2><a name="XPPractices"></a>XP Practices<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h2>
+<p>XP includes four basic &quot;activities&quot; (coding, testing, listening, 
+  and designing), which are actually more closely aligned with RUP <a href="../../../manuals/intro/kc_discipline.htm">disciplines</a>. 
+  These XP activities are performed using a set of practices that require the 
+  performance of additional activities, which map to some of the other disciplines 
+  in the RUP. XP's practices, according to <a href="#References"><i>Extreme 
+  Programming Explained</i></a>, are:</p>
+<ul>
+  <li><b>The planning game</b>: Quickly determine the scope of the next release 
+    by combining business priorities and technical estimates. As reality overtakes 
+    the plan, update the plan.</li>
+  <li><b>Small releases</b>: Put a simple system into production quickly, then 
+    release new versions on a very short cycle.</li>
+  <li><b>Metaphor</b>: Guide all development with a simple shared story of how 
+    the whole system works.</li>
+  <li><b>Simple design</b>: The system should be designed as simply as possible 
+    at any given moment. Extra complexity is removed as soon as it is discovered.</li>
+  <li><b>Testing</b>: Programmers continually write unit tests, which must run 
+    flawlessly for development to continue. Customers write tests demonstrating 
+    that features are finished.</li>
+  <li><b>Refactoring</b>: Programmers restructure the system without changing 
+    its behavior to remove duplication, improve communication, simplify, or add 
+    flexibility.</li>
+  <li><b>Pair programming</b>: All production code is written with two programmers 
+    at one machine.</li>
+  <li><b>Collective ownership</b>: Anyone can change any code anywhere in the 
+    system at any time.</li>
+  <li><b>Continuous integration</b>: Integrate and build the system many times 
+    a day, every time a task is completed.</li>
+  <li><b>40-hour week</b>: Work no more than 40 hours a week as a rule. Never 
+    work overtime a second week in a row.</li>
+  <li><b>On-site customer</b>: Include a real, live user on the team, available 
+    full-time to answer questions.</li>
+  <li><b>Coding standards</b>: Programmers write all code in accordance with rules 
+    emphasizing communication through the code.</li>
+</ul>
+<p>Activities performed as a result of the &quot;planning game&quot; practice, 
+  for example, will mainly map to the RUP's project management discipline. But 
+  some RUP topics, such as business modeling and the deployment of the released 
+  software, are outside the scope of XP. Requirements elicitation is largely outside 
+  the scope of XP, since the customer defines and provides the requirements. Also, 
+  because of simpler development projects it addresses, XP can deal very lightly 
+  with the issues the RUP covers in detail in the configuration and change management 
+  discipline and the environment discipline.</p>
+<h3><a name="XP2RUPPractices"></a>XP Practices Compatible with RUP<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h3>
+<p>In the disciplines in which XP and the RUP overlap, the following practices 
+  described in XP could be&#151;and in some cases already are&#151;employed in 
+  the RUP:</p>
+<ul>
+  <li><b>The planning game</b>: The XP guideance on planning could be used to 
+    achieve many of the objectives shown in the Project Management discipline 
+    of RUP for a very small project. This is especially useful for low-formality 
+    projects that are not required to produce formal intermediate project management 
+    artifacts.</li>
+  <li><b>Test-first design and refactoring</b>: These are good techniques that 
+    can be applied in the RUP's implementation discipline. XP's testing practice, 
+    which requires test-first design, is in particular an excellent way to clarify 
+    requirements at a detailed level. As we'll see in the next section, refactoring 
+    may not scale well for larger systems. </li>
+  <li><b>Continuous integration</b>: The RUP supports this practice through builds 
+    at the subsystem and system levels (within an iteration). Unit-tested components 
+    are integrated and tested in the emerging system context.</li>
+  <li><b>On-site customer</b>: Many of the RUP's activities would benefit greatly 
+    from having a customer on-site as a team member, which can reduce the number 
+    of intermediate deliverables needed&#151;particularly documents. As its preferred 
+    medium of customer-developer communication, XP stresses conversation, which 
+    relies on continuity and familiarity to succeed; however, when a system&#151;even 
+    a small one&#151;has to be transitioned, more than conversation will be needed. 
+    XP allows for this as something of an afterthought with, for example, design 
+    documents at the end of a project. While it doesn't prohibit producing documents 
+    or other artifacts, XP says you should produce only those you really need. 
+    The RUP agrees, but it goes on to describe what you might need when continuity 
+    and familiarity are not ideal.</li>
+  <li><b>Coding standards</b>: The RUP has an artifact&#151;programming guidelines&#151;that 
+    would almost always be regarded as mandatory. (Most project risk profiles, 
+    being a major driver of tailoring, would make it so.)</li>
+  <li><b>Forty-hour week</b>: As in XP, the RUP suggests that working overtime 
+    should not be a chronic condition. XP does not suggest a hard 40-hour limit, 
+    recognizing different tolerances for work time. Software engineers are notorious 
+    for working long hours without extra reward&#151;just for the satisfaction 
+    of seeing something completed&#151;and managers need not necessarily put an 
+    arbitrary stop to that. What managers should never do is exploit this practice 
+    or impose it. They should always be collecting metrics on hours actually worked, 
+    even if uncompensated. If the log of hours worked by anyone seems high over 
+    an extended period, this certainly should be investigated; however, these 
+    are issues to be resolved in the circumstances in which they arise, between 
+    the manager and the individual, recognizing any concerns the rest of the team 
+    might have. Forty hours is only a guide&#151;but a strong one.</li>
+  <li><b>Pair programming</b>: XP claims that pair programming is beneficial to 
+    code quality, and that once this skill is acquired it becomes more enjoyable. 
+    The RUP doesn't describe the mechanics of code production at such a fine-grained 
+    level, although it would certainly be possible to use pair programming in 
+    a RUP-based process. Some information on pair programming&#151;as well as 
+    test-first design and refactoring&#151;is now provided with the RUP, in the 
+    form of white papers. Obviously, it is not a requirement to use any of these 
+    practices in the RUP, however in a team environment, with a culture of open 
+    communication, we would hazard a guess that the benefits of pair programming 
+    (in terms of effect on total lifecycle costs) would be hard to discern. People 
+    will come together to discuss and solve problems quite naturally in a team 
+    that's working well, without being obliged to do so. </li>
+</ul>
+<p>The suggestion that good process has to be enforced at the &quot;micro&quot; 
+  level is often unpalatable and may not fit some corporate cultures. Strict enforcement, 
+  therefore, is not advocated by RUP. However, in some circumstances, working 
+  in pairs&#151;and some of the other team-based practices advocated by XP&#151;is 
+  obviously advantageous, as each team member can help the other along; for example:</p>
+<ul>
+  <li>in the early days of team formation, as people are getting acquainted,</li>
+  <li>in teams inexperienced in some new technology,</li>
+  <li>in teams with a mix of experienced staff and novices.</li>
+</ul>
+<h3><a name="XPNoScale"></a>XP Practices That Don't Scale Well<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h3>
+<p>The following XP practices don't scale well for larger systems (nor does XP 
+  claim they do), so we would make their use subject to this proviso in the RUP. 
+</p>
+<ul>
+  <li><b>Metaphor</b>: For larger, complex systems, architecture as metaphor is 
+    simply not enough. The RUP provides a much richer description framework for 
+    architecture that isn't just&#151;as <a href="#References"><i>Extreme Programming 
+    Explained</i></a> describes it&#151;&quot;big boxes and connections.&quot; 
+    Even in the XP community, metaphor has more recently been deprecated. It is 
+    no longer one of the practices in XP (until they can figure out how to describe 
+    it well&#151;maybe a metaphor would help them).</li>
+  <li><b>Collective Ownership</b>: It's useful if the members of a team responsible 
+    for a small system or a subsystem are familiar with all of its code. But whether 
+    you want to have all team members equally empowered to make changes anywhere 
+    should depend on the complexity of the code. It will often be faster (and 
+    safer) to have a fix made by the individual (or pair) currently working on 
+    the relevant code segment. Familiarity with even the best-written code, particularly 
+    if it's algorithmically complex, diminishes rapidly over time.</li>
+  <li><b>Refactoring</b>: In a large system, frequent refactoring is no substitute 
+    for a lack of architecture. <a href="#References"><i>Extreme Programming 
+    Explained</i></a> says, &quot;XP's design strategy resembles a hill-climbing 
+    algorithm. You get a simple design, then you make it a little more complex, 
+    then a little simpler, then a little more complex. The problem with hill-climbing 
+    algorithms is reaching local optima, where no small change can improve the 
+    situation, but a large change could.&quot; In the RUP, architecture provides 
+    the view and access to the &quot;big hill,&quot; to make a large, complex 
+    system tractable.</li>
+  <li><b>Small Releases</b>: The rate at which a customer can accept and deploy 
+    new releases will depend on many factors, typically including the size of 
+    the system, which is usually correlated with business impact. A two-month 
+    cycle may be far too short for some types of system; the logistics of deployment 
+    may prohibit it.</li>
+</ul>
+<h3><a name="XPCaution"></a>XP Practice Requiring Caution<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h3>
+<p>Finally, an XP practice that at first glance sounds potentially usable in the 
+  RUP&#151;Simple Design&#151;needs some elaboration and caution when applied 
+  generally.<br>
+</p>
+<ul>
+  <li><b>Simple Design</b><br>
+    XP is very much functionality driven: user stories are selected, decomposed 
+    into tasks, and then implemented. According to <a href="#References"><i>Extreme 
+    Programming Explained</i></a>, the right design for the software at any given 
+    time is the one that runs all the tests, has no duplicated logic, states every 
+    intention important to the programmers, and has the fewest possible classes 
+    and methods. XP doesn't believe in adding anything that isn't needed to deliver 
+    business value to the customer. 
+    <p>There's a problem here, akin to the problem of local optimizations, in 
+      dealing with what the RUP calls &quot;nonfunctional&quot; requirements. 
+      These requirements also deliver business value to the customer, but they're 
+      more difficult to express as stories. Some of what XP calls constraints 
+      fall into this category. The RUP doesn't advocate designing for more than 
+      is required in any kind of speculative way, either, but it does advocate 
+      designing with an architectural model in mind-that model being one of the 
+      keys to meeting nonfunctional requirements.</p>
+    <p>So, the RUP agrees with XP that the &quot;simple design&quot; should include 
+      running all the tests, but with the rider that this includes tests that 
+      demonstrate that the software will meet the nonfunctional requirements. 
+      Again, this only looms as a major issue as system size and complexity increase, 
+      or when the architecture is unprecedented or the nonfunctional requirements 
+      onerous. For example, the need for marshalling data (to operate in a heterogeneous 
+      distributed environment) seems to make code overly complex, but it will 
+      still be required throughout the program.</p>
+  </li>
+</ul>
+<h2><a name="SmallProjArtifacts"></a>Mapping of Artifacts for a Small Project<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h2>
+<p>When we tailor the RUP for a small project and reduce the <a href="../../../manuals/intro/kc_artifact.htm">artifact</a> 
+  requirements accordingly, how does this compare to the equivalent of artifacts 
+  in an XP project? Looking at the <a href="../../../examples/devcase_sp/dc_index.htm">example 
+  development case for small projects</a> in the RUP, we see a sample RUP configuration 
+  has been configured to produce fewer artifacts (as shown in Table 1).</p>
+<div align="center">
+  <table width="80%" border="1">
+    <tr bgcolor="#CCCCCC"> 
+      <th> 
+        <div align="center">XP Artifacts</div>
+      </th>
+      <th> 
+        <div align="center">RUP Artifacts<br>
+          (from <a href="../../../examples/devcase_sp/dc_index.htm">Example Development 
+          Case for Small Projects</a>)</div>
+      </th>
+    </tr>
+    <tr> 
+      <td>Stories<br>
+        Additional documentation from conversations </td>
+      <td><a href="../../../process/artifact/ar_vsion.htm">Vision</a><br>
+        <a href="../../../process/artifact/ar_gloss.htm">Glossary</a> <br>
+        <a href="../../../process/artifact/ar_ucmod.htm">Use-Case Model</a></td>
+    </tr>
+    <tr> 
+      <td>Constraints </td>
+      <td><a href="../../../process/artifact/ar_sspec.htm">Supplementary Specifications</a></td>
+    </tr>
+    <tr> 
+      <td height="99">Acceptance tests and unit tests <br>
+        Test data and test results </td>
+      <td height="99"> 
+        <p><a href="../../../process/artifact/ar_tstpl.htm">Test Plan<br>
+          </a><a href="../../../process/artifact/ar_tstcs.htm">Test Case</a><a href="../../../process/artifact/ar_tstste.htm"><br>
+          Test Suite</a> (including <a href="../../../process/artifact/ar_tstsc.htm">Test 
+          Script</a>, <a href="../../../process/artifact/ar_tstdta.htm">Test Data</a>)<br>
+          <a href="../../../process/artifact/ar_tstlog.htm">Test Log</a> <br>
+          <a href="../../../process/artifact/ar_tstev.htm">Test Evaluation Summary</a> 
+        </p>
+      </td>
+    </tr>
+    <tr> 
+      <td>Software (code) </td>
+      <td><a href="../../../process/artifact/ar_impmd.htm">Implementation Model</a></td>
+    </tr>
+    <tr> 
+      <td>Releases </td>
+      <td><a href="../../../process/artifact/ar_prdct.htm">Product (Deployment Unit)</a><br>
+        <a href="../../../process/artifact/ar_rlsnt.htm">Release Notes</a></td>
+    </tr>
+    <tr> 
+      <td>Metaphor </td>
+      <td><a href="../../../process/artifact/ar_sadoc.htm">Software Architecture Document</a></td>
+    </tr>
+    <tr> 
+      <td>Design (CRC, UML sketch)<br>
+        Technical tasks and other tasks<br>
+        Design documents produced at end<br>
+        Supporting documentation </td>
+      <td><a href="../../../process/artifact/ar_desmd.htm">Design Model</a></td>
+    </tr>
+    <tr> 
+      <td>Coding standards </td>
+      <td> <a href="../../../process/artifact/ar_projspecgls.htm">Project Specific Guidelines</a></td>
+    </tr>
+    <tr> 
+      <td>Workspace<br>
+        Testing framework and tools </td>
+      <td><a href="../../../process/artifact/ar_devcs.htm">Development Case</a><br>
+        <a href="../../../process/artifact/ar_tstenv.htm">Test Environment Configuration</a> 
+      </td>
+    </tr>
+    <tr> 
+      <td>Release plan<br>
+        Iteration plan<br>
+        Story estimates and task estimates </td>
+      <td><a href="../../../process/artifact/ar_sdp.htm">Software Development Plan</a> 
+        <br>
+        <a href="../../../process/artifact/ar_itpln.htm">Iteration Plan</a></td>
+    </tr>
+    <tr> 
+      <td>Overall plan and budget </td>
+      <td><a href="../../../process/artifact/ar_bcase.htm">Business Case</a><br>
+        <a href="../../../process/artifact/ar_rskls.htm">Risk List</a> </td>
+    </tr>
+    <tr> 
+      <td>Reports on progress<br>
+        Time records for task work<br>
+        Metrics data (including resources, scope, quality, time)<br>
+        Results tracking <br>
+        Reports and notes on meetings </td>
+      <td><a href="../../../process/artifact/ar_stass.htm">Status Assessment</a><br>
+        <a href="../../../process/artifact/ar_itass.htm">Iteration Assessment</a> <br>
+        <a href="../../../process/artifact/ar_rvrec.htm">Review Record</a> </td>
+    </tr>
+    <tr> 
+      <td>Defects (and associated data) </td>
+      <td><a href="../../../process/artifact/ar_crqst.htm">Change Requests</a></td>
+    </tr>
+    <tr> 
+      <td>Code management tools </td>
+      <td><a href="../../../process/artifact/ar_repos.htm">Project Repository</a> <br>
+        <a href="../../../process/artifact/ar_wkspc.htm">Workspace</a></td>
+    </tr>
+    <tr> 
+      <td>Spike (solution) </td>
+      <td> 
+        <p><a href="../../../process/workflow/manageme/co_proto.htm">Prototypes</a><br>
+          <a href="../../../process/artifact/ar_uiprt.htm"> User Interface Prototype</a><br>
+          <a href="../../../process/artifact/ar_archpoc.htm">Architectural Proof of 
+          Concept</a></p>
+      </td>
+    </tr>
+    <tr> 
+      <td>XP itself (it's recommendations and guidance)</td>
+      <td> 
+        <p><a href="../../../process/artifact/ar_tstidslst.htm">Test Ideas List </a><br>
+          <a href="../../../process/artifact/ar_projspecgls.htm">Project Specific Guidelines</a><br>
+        </p>
+      </td>
+    </tr>
+    <tr> 
+      <td>[Not included in XP]</td>
+      <td> 
+        <p> <a href="../../../process/artifact/ar_datmd.htm">Data Model</a><br>
+          <a href="../../../process/artifact/ar_eusm.htm">End-User Support Material.</a> 
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
+<p align="center"><b>Table 1: XP-to-RUP mapping of artifacts for a small project</b></p>
+<p>Although the granularity of the artifacts varies on both sides, in general 
+  the artifacts in the RUP for small projects (the type XP would comfortably address) 
+  map quite well to those of an XP project.</p>
+<p>Note that the <a href="../../../examples/devcase_sp/dc_index.htm">Example Development 
+  Case for Small Projects</a> also includes a few artifacts which are not covered 
+  by XP, but are needed on many projects. These include <a href="../../../process/artifact/ar_datmd.htm">Data 
+  Model</a>, and artifacts related to deployment, such as <a href="../../../process/artifact/ar_eusm.htm">End-User 
+  Support Material.</a><br>
+</p>
+<h2><a name="Activities"></a>Activities<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h2>
+<p>The RUP defines an <a href="../../../manuals/intro/kc_activity.htm">activity</a> 
+  as work performed by a <a href="../../../manuals/intro/kc_role.htm">role</a>&#151;either 
+  using and transforming input artifacts or producing new and changed output artifacts. 
+  RUP goes on to enumerate these activities and categorize them according to the 
+  RUP <a href="../../../manuals/intro/kc_discipline.htm">disciplines</a>. These disciplines 
+  include: business modeling, requirements, analysis and design, deployment, and 
+  project management (among others).</p>
+<p>Activities are time-related through the artifacts they produce and consume: 
+  an activity can logically begin when its inputs are available (and in an appropriately 
+  mature state). This means that producer-consumer activity pairs can overlap 
+  in time, if the artifact state permits; they need not be rigidly sequenced. 
+  Activities are intended to give strong guidance on how an artifact should be 
+  produced, and they may also be used to help the project manager with planning.</p>
+<p>Woven through the RUP as it's described in terms of lifecycle, artifacts, and 
+  activities are &quot;best practices&quot;: software engineering principles proven 
+  to yield quality software built to predictable schedule and budget. The RUP, 
+  through its activities (and their associated artifacts) supports and realizes 
+  these best practices - they are themes running through the RUP. Note that XP 
+  uses the notion of &quot;practices&quot; as well, but as we shall see, there 
+  is not an exact alignment with RUP's concept of best practice.</p>
+<p>XP presents an engagingly simple view of software development as having four 
+  basic activities&#151;coding, testing, listening, and designing&#151;which are 
+  to be enabled and structured according to some supporting practices (as discussed 
+  in Extreme Programming Explained, Chapter 9). Actually, as noted earlier, XP's 
+  activities are closer in scope to the RUP's disciplines than to the RUP's activities, 
+  and much of what happens on an XP project (in addition to its four basic activities) 
+  will come from the elaboration and application of its practices.</p>
+<p>So, there is an XP equivalent of the RUP's activities, but XP's &quot;activities&quot; 
+  aren't formally identified or described as such. For example, looking at Chapter 
+  4, &quot;User Stories,&quot; in <a href="#References"><i>Extreme Programming 
+  Installed</i></a>, you'll find the heading, &quot;Define requirements with stories, 
+  written on cards,&quot; and throughout the chapter there's a mixture of process 
+  description and guidance on what user stories are, and how (and by whom) they 
+  should be produced. And it goes on that way; in the various sections of the 
+  <a href="#References">XP books</a> (under headings that are a mixture of artifact-focused 
+  and activity-focused), both &quot;things produced&quot; and &quot;things done&quot; 
+  are described, to varying degrees of prescription and detail.</p>
+<p> RUP's apparently high degree of prescription results from its completeness 
+  and greater formality in its treatment of activities and their inputs and outputs. 
+  XP does not lack prescription but, perhaps in its attempt to remain lightweight, 
+  the formality and detail are simply omitted. Lack of specificity is neither 
+  a strength nor a weakness, but the lack of detailed information in XP should 
+  not be confused with simplicity. Not having details may be fine for more experienced 
+  developers, but in many cases, more details are a great help for new team members, 
+  and team members that are still getting up to speed with the team's approach 
+  to software development. </p>
+<p>With Activities, just as with Artifacts, it is important to keep focus on what 
+  we are trying to achieve. Carrying out an activity blindly is never a good practice. 
+  Activities and associated guidelines are there to look at when you need them 
+  to achieve your objectives, but should not be used as an excuse for not having 
+  to figure out what you are trying to achieve. This spirit is well articulated 
+  in XP, and we believe it should be applied by every user of RUP<br>
+</p>
+<h2><a name="Roles"></a>Roles<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h2>
+<p>In the RUP, <a href="../../../manuals/intro/kc_activity.htm">activities</a> are said 
+  to be performed by <a href="../../../manuals/intro/kc_role.htm">roles</a> (or, more 
+  precisely, by individuals or groups playing roles). Roles also have responsibility 
+  for particular <a href="../../../manuals/intro/kc_artifact.htm">artifacts</a>; the 
+  responsible role will usually create the artifact and ensure that any changes 
+  made by other roles (if allowed at all) don't break the artifact. An individual 
+  or group of people may perform just one role or several roles. A role doesn't 
+  have to be mapped to a only a single position or &quot;slot&quot; in an organization.</p>
+<p><i><a href="#References">Extreme Programming Explained</a></i> identifies 
+  seven roles applicable to XP&#151;Programmer, Customer, Tester, Tracker, Coach, 
+  Consultant, and Big Boss&#151;and describes their responsibilities and the competencies 
+  required of the people who will perform them. References are made to these roles 
+  in some of the other <a href="#References"><i>XP books</i></a> as well. The 
+  difference in the number of roles in XP and the RUP is easy to explain:</p>
+<ul>
+  <li>XP doesn't cover all of the RUP disciplines.</li>
+  <li>XP roles are more comparable to positions within an organization (possibly 
+    with multiple responsibilities) than to RUP roles. For example, XP's Programmer 
+    actually performs multiple RUP roles&#151;Implementer, Code Reviewer, and 
+    Integrator&#151;which require slightly different competencies.</li>
+</ul>
+<h3><a name="RUPRolesSmallProject"></a>XP and RUP Roles on a Small Project<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h3>
+<p>When RUP roles are mapped to a small project, the number of XP-like roles that 
+  they correspond to is reduced considerably in that the number of positions, 
+  or job titles, is 5. Table 3 (drawn from the RUP) shows this mapping with the 
+  corresponding XP Role.<br>
+</p>
+<div align="center"> 
+  <table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+    <tbody valign="top"> 
+    <tr> 
+      <td width="30%"><b>XP Role</b></td>
+      <td width="30%"><b>Example RUP Small Project Team Member</b></td>
+      <td width="40%"><b>RUP</b><b> Role</b></td>
+    </tr>
+    <tr> 
+      <td width="30%"> Coach<br>
+        Consultant<br>
+        Big Boss </td>
+      <td width="30%">Sally Slalom, Senior Manager</td>
+      <td width="40%"><a href="../../../process/workers/wk_projm.htm">Project Manager</a><br>
+        <a href="../../../process/workers/wk_depm.htm">Deployment Manager</a><br>
+        <a href="../../../process/workers/wk_tchrvw.htm">Technical Reviewer</a><br>
+        <a href="../../../process/workers/wk_cmmgr.htm">Configuration Manager</a><br>
+        <a href="../../../process/workers/wk_ccmgr.htm">Change Control Manager</a> </td>
+    </tr>
+    <tr> 
+      <td width="30%" height="40">Customer</td>
+      <td width="30%" height="40">Stakeholder (as documented in the <a href="../../../process/artifact/ar_vsion.htm">Vision</a>)<br>
+      </td>
+      <td width="40%" height="40"><a href="../../../process/workers/wk_mngrvw.htm">Management 
+        Reviewer</a><br>
+        <a href="../../../process/workers/wk_tchrvw.htm">Technical Reviewer</a> (requirements)</td>
+    </tr>
+    <tr> 
+      <td width="30%"> Customer<br>
+        Big Boss<br>
+        Tracker</td>
+      <td width="30%">Tom Telemark, Senior Software Engineer</td>
+      <td width="40%"><a href="../../../process/workers/wk_sysan.htm">System Analyst</a><br>
+        <a href="../../../process/workers/wk_ucaut.htm">Requirements Specifier</a><br>
+        <a href="../../../process/workers/wk_uides.htm">User Interface Designer</a><br>
+        <a href="../../../process/workers/wk_archt.htm">Software Architect</a><br>
+        <a href="../../../process/workers/wk_tchrvw.htm">Technical Reviewer</a><br>
+        <a href="../../../process/workers/wk_tstmng.htm">Test Manager</a><br>
+        <a href="../../../process/workers/wk_tstanl.htm">Test Analyst</a><br>
+        <p>and to a lesser extent the developer roles. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="30%"> Programmer<br>
+        Tester</td>
+      <td width="30%"> 
+        <p>Susan Snow, Software Engineer</p>
+        <p>Henry Halfpipe, Junior Software Engineer</p>
+      </td>
+      <td width="40%"><a href="../../../process/workers/wk_dsgnr.htm">Designer</a><br>
+        <a href="../../../process/workers/wk_implm.htm">Implementer</a><br>
+        <a href="../../../process/workers/wk_tchrvw.htm">Technical Reviewer</a><br>
+        <a href="../../../process/workers/wk_syint.htm">Integrator</a><br>
+        <a href="../../../process/workers/wk_tstds.htm">Test Designer</a><br>
+        <a href="../../../process/workers/wk_tstr.htm">Tester</a><br>
+        <a href="../../../process/workers/wk_tchwr.htm">Technical Writer</a></td>
+    </tr>
+    <tr> 
+      <td width="30%">Tracker</td>
+      <td width="30%">Patrick Powder, Administrative Assistant</td>
+      <td width="40%">Responsible for maintaining the Project web site, assisting 
+        the Project Manager role in planning/scheduling activities, and assisting 
+        the Change Control Manager role in controlling changes to artifacts.&nbsp; 
+        May also provide assistance to other roles as necessary.</td>
+    </tr>
+  </table>
+  <br></div>
+
+  <p align="center"><b>Table 3: Mapping XP roles to RUP roles on a small project</b></p>
+  <h3 align="left"><a name="CompareXP2RUP"></a>Using XP Practices with RUP<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h3>
+  <p align="left">The RUP is a process framework from which particular processes 
+    can be configured and then instantiated. The RUP must be configured&#151;this 
+    is a required step defined in the RUP itself. Strictly speaking then, we should 
+    compare a tailored version of the RUP with XP&#151;that is, with the RUP tailored 
+    to the project characteristics that XP explicitly establishes (and those that 
+    can be inferred). Such a tailored RUP process could accommodate many of XP's 
+    practices (such as pair programming, test-first design and refactoring), but 
+    it still wouldn't be identical to XP because of RUP's emphasis on the importance 
+    of architecture, abstraction (in modeling), and risk, and its different structure 
+    in time (phases and iterations).</p>
+  <p align="left"> XP is intentionally directed at implementing a lightweight 
+    process for small projects. In doing so, it also includes descriptions (at 
+    least in the books) that are not fully elaborated. In an XP implementation 
+    there will always be things that will need to be discovered, invented, or 
+    defined on the fly. The RUP will accommodate projects that both fit and are 
+    beyond the scope of XP in scale and kind. As this roadmap shows, RUP is actually 
+    quite compatible with most of the practices described in the XP literature. 
+  </p>
+  <p align="left">Keep in mind that essence of XP is its focus on organization, 
+    people, and culture. This is important in all projects and is certainly applicable 
+    to those projects using RUP. Small projects could benefit greatly by using 
+    these practices together.</p>
+  <h3 align="left"><a name="References"></a>Agile Process References<a href="#Top"><img alt="To top of page" border="0" src="../../../images/top.gif" width="26" height="20"></a></h3>
+
+<ul>
+  <li><b>eXtreme Programming (XP)</b> (See <a href="http://www.extremeprogramming.org/more.html">http://www.extremeprogramming.org/more.html</a> 
+    for more information.): 
+    <ul>
+      <li> 
+        <div align="left"><i>Extreme Programming Explained: Embrace Change</i>. 
+          Kent Beck explains the concepts and philosophy behind extreme programming. 
+          This book teaches what and why but not how. <br>
+        </div>
+      </li>
+      <li> 
+        <div align="left"><i>Refactoring Improving the Design of Existing Code</i>. 
+          Martin Fowler writes the first authoritative volume on refactoring. 
+          Presented as patterns. There are plenty of examples in Java. This book 
+          teaches you how to refactor and why. <br>
+        </div>
+      </li>
+      <li> 
+        <div align="left"><i>Extreme Programming Installed</i>. By Ron Jeffries, 
+          Chet Hendrickson, and Ann Anderson. This book covers specific XP practices 
+          in finer detail than Expreme Programming Explained. This book teaches 
+          how to program XP style. <br>
+        </div>
+      </li>
+      <li> 
+        <div align="left"><i>Planning Extreme Programming.</i> by Kent Beck, and 
+          Martin Fowler. This book presents the latest thoughts on how to plan 
+          software in a rapid delivery environment. This book teaches how to run 
+          an XP project. <br>
+        </div>
+      </li>
+      <li> 
+        <div align="left"><i>Extreme Programming Examined.</i> by Giancarlo Succi 
+          and Michele Marchesi. Papers presented at XP2000. A well rounded set 
+          of papers covers most topics. <br>
+        </div>
+      </li>
+      <li> 
+        <div align="left"><i>Extreme Programming in Practice</i>. by Robert C. 
+          Martin, James W. Newkirk. A real project which used XP is described 
+          in gory detail. <br>
+        </div>
+      </li>
+      <li> 
+        <div align="left"><i>Extreme Programming Explored.</i> by William C. Wake. 
+          Based on the popular XPlorations website. Specific subjects are explored 
+          in detail. <br>
+        </div>
+      </li>
+      <li> 
+        <div align="left"><i>Extreme Programming Applied: Playing to Win.</i> 
+          by Ken Auer and Roy Miller. Experiences from pioneers in applying XP. 
+          To be published in September. </div>
+      </li>
+    </ul>
+  </li>
+  <li> 
+    <div align="left">For information on other members of the Agile Alliance see 
+      <a href="http://www.agilealliance.org/signatories.html">http://www.agilealliance.org/signatories.html</a>.<br>
+      <br>
+    </div>
+  </li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

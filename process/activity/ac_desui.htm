@@ -1,0 +1,777 @@
+<!-- RPW META DATA START --
+
+ 
+
+ 
+
+-- RPW META DATA END -->
+
+
+
+<html>
+
+
+
+<head>
+
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+
+<title>Activity:&nbsp;Design the User Interface</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+
+
+
+
+
+
+ 
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Design the User Interface</rpw><a name="Top"></a></h2>
+
+
+
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+      <td colspan="2"><b>Purpose</b> 
+
+        <ul>
+
+          <li>To produce a design of the user interface that supports the reasoning 
+
+            about, and the enhancement of, its usability.</li>
+
+        </ul>
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+      <td colspan="2"><b>Steps</b> 
+
+        <ul>
+
+          <li><a href="#Describe_the_Characteristics_of_Related_Users">Describe 
+            the Characteristics of Related Users</a></li>
+
+          <li><a href="#Identify_the_Primary_User_Interface_Elements">Identify the Primary 
+
+            User-Interface Elements</a></li>
+
+          <li><a href="#Define_the_Navigation_Map">Define the Navigation Map</a></li>
+
+          <li><a href="#Detail_the_Design_of_the_User_Interface_Elements">Detail the Design of the User-Interface 
+
+            Elements</a></li>
+
+        </ul>
+
+        <p>
+
+		<p>These steps are presented in a logical order, but you may have to alternate 
+
+          between them, or perform some of them in parallel. Also, some steps 
+
+          may be optional, depending on the complexity of the specific user interface 
+
+          under consideration.</p>
+
+    </td>
+
+  </tr>
+
+    <!-- Input_Output Artifacts Begins -->
+
+    <tr>
+
+      <td width="50%"><b>Input Artifacts:&nbsp;</b>
+
+	   <ul>
+<li><a href="../artifact/ar_actor.htm">Actor</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sftrqm.htm">Software Requirement</a></li>
+<li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+<li><a href="../artifact/ar_storyboard.htm">Storyboard</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_uc.htm">Use Case</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+
+
+	  </td>
+
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+
+        <ul>
+<li><a href="../artifact/ar_navmap.htm">Navigation Map</a></li>
+</ul>
+
+
+	  </td>
+
+    </tr>
+
+    <!-- Input_Output Artifact End -->
+
+    <!-- Activity Frequency -->
+
+    <tr> 
+
+      <td colspan="2"><b>Frequency:&nbsp;</b>
+
+	  <p>In practice, the design of the user interface is usually performed 
+
+          in conjunction with the prototyping of the user interface (see <a href="ac_uip.htm">activity: 
+
+          Prototype the User Interface</a>). While you design the user-interface, 
+
+          you should continuously prototype your design and expose it to others, 
+
+          taking into consideration any project-specific 
+
+          guidelines. That being said, a &quot;complete&quot; user-interface 
+
+          design is usually not performed prior to prototyping that design. It 
+
+          is often appropriate to defer detailed user-interface design until after 
+
+          several iterations of a <a href="../artifact/ar_uiprt.htm">User-Interface Prototype</a> have been built and 
+
+          reviewed</p></td>
+
+    </tr>
+
+    <!-- Activity Responsible Role -->
+
+    <tr>
+
+      <td colspan="2"><b>Role:&nbsp;</b> 
+
+	    <a href="../workers/wk_uides.htm">User-Interface Designer</a>&nbsp;
+
+	  </td>
+
+    </tr>
+
+    <!-- Activity Tool Mentors -->
+
+    <tr> 
+
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+
+	    &nbsp;
+
+	  </td>
+
+    </tr>
+
+    <!-- Activity More Information -->
+
+    <tr>
+
+      <td colspan="2"><b>More Information:&nbsp;</b>
+
+	    <ul>
+<li><a href="../workflow/ana_desi/co_guiif.htm">Guideline: Representing Graphical User-Interfaces</a></li>
+<li><a href="../modguide/md_uig.htm">Guideline: User Interface (General)</a></li>
+</ul>
+&nbsp;
+
+        <p>See [<a href="../referenc.htm#CON99">CON99</a>] for a very complete 
+
+          coverage of creating designs which focus specifically on usability.&nbsp; 
+
+        </p>
+
+      </td>
+
+    </tr>
+
+  </tbody> 
+
+</table>
+
+<p></p>
+
+<!-- Linked to Workflow Begin -->
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+
+  <tbody valign="top">
+
+    <tr>
+
+      <td colspan="2" width="100%"><b>Workflow Details:&nbsp;</b>
+
+	    <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and3.htm">Analyze Behavior</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+
+	  </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<!-- Linked to Workflow End -->
+
+<br>
+
+</div>
+
+
+
+<p>When designing the user-interface, keep in mind any <a href="../artifact/ar_storyboard.htm">Storyboards</a> created during requirements elicitation, 
+the user interface guidelines in the project-specific guidelines, as well as any existing <a href="../artifact/ar_uiprt.htm">User-Interface Prototypes</a>. 
+If it is discovered that refinements to the Storyboards are needed as a result of this activity, these updates are performed by the 
+<a href="../workers/wk_sysan.htm">System Analyst</a> (see <a href="../activity/ac_elstk.htm">activity: Elicit Stakeholder Requests</a>).</p>
+
+
+
+<h3><a name="Describe_the_Characteristics_of_Related_Users"></a>Describe the Characteristics of Related Users
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Describe the characteristics of the (human) users that will interact with the 
+  system to perform the requirements being considered in the current iteration. 
+  Focus on describing the primary users since the major part of the interactions 
+  involve these users. This information is important for the subsequent steps 
+  below.</p>
+
+<p>Collaborate with the System Analyst to determine if any changes to the <a href="../artifact/ar_actor.htm">Actor</a> 
+  description is needed to reflect the characteristic descriptions. Refer to <a href="../modguide/md_actor.htm#Actor Characteristics">Guidelines: 
+  Actor, Characteristics</a> for details.</p>
+
+
+<h3><a name="Identify_the_Primary_User_Interface_Elements"></a>Identify the Primary User-Interface 
+
+  Elements <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Looking at the requirements being considered in the current iteration (especially 
+  any <a href="../artifact/ar_uc.htm">Use Cases</a>  
+  and/or <a href="../artifact/ar_storyboard.htm">Storyboards</a>), identify 
+  the primary windows of the system's user interface. By &quot;primary&quot; we 
+  mean those windows that the user will interact with the most (those user-interface 
+  elements that are central to the user's mental model of the system). Primary 
+  windows contain menus and may contain sub-windows or forms. Primary windows 
+  are the windows the user navigates between. Non-primary windows may end up as 
+  part of a primary window.</p>
+
+  
+
+<p>The main primary window should be the window that is opened when the user launches 
+
+  the application. It is normally always open as long as the application is running, 
+
+  and is the place where the user spends a considerable part of his &quot;use 
+
+  time.&quot; Since it is always open and since it constitutes the user's first 
+
+  contact with the system, it is the foremost vehicle for enforcing the user's 
+
+  mental model of the system. The main primary window is commonly referred to 
+
+  as the &quot;home page&quot;.</p>
+
+<p>Attempt to group user-interface elements together into the same primary window 
+
+  if they need to be shown together or in spatial relation to other user-interface 
+
+  elements. However, this is not always possible due to limitations in screen 
+
+  area. Note that the average object volumes is an important input to this step, 
+
+  since they state how many objects that potentially need to be shown at once. 
+
+  Too many objects may imply that they cannot all appear on the same window; instead, 
+
+  a primary wondow may contain a compact representation of the objects and then 
+
+  separate primary windows may be defined for each of the objects (or a set of 
+
+  objects).</p>
+
+<p>The following are some recommendations for primary windows:</p>
+
+<ul>
+
+  <li>Windows that are central to the user's mental model of the system.</li>
+
+  <li>Windows that the user will spend most use time in.</li>
+
+  <li>Windows that provide the initiation of use cases.</li>
+
+</ul>
+
+<p>Keep in mind that the goal is to minimize the number of primary windows and 
+
+  the number of navigation paths between them. </p>
+
+
+
+
+
+<h3><a name="Define_the_Navigation_Map"></a>Define the Navigation Map <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Based on the identified set of primary windows, and the <a href="../artifact/ar_storyboard.htm">Storyboards</a>, 
+define the system's <a href="../artifact/ar_navmap.htm">Navigation Map</a>. </p>
+
+<p>The Navigation Map should include the primary user-interface elements and their 
+
+  navigation paths. It does not need to contain all of the possible paths through 
+
+  the user-interface elements, just the main pathways. The goal is for the Navigation 
+
+  Map to serve as a road map of the system’s user interface.</p>
+
+<p>An most obvious candidate for &quot;top&quot; user-interface element in the 
+
+  Navigation Map is the main primary window (the window where the user spends 
+
+  the majority of his/her use time).</p>
+
+<p>The Navigation Map should make it clear "how many clicks" a user needs to make 
+
+  to get to a specific screen or piece of functionality. Generally, you want to 
+
+  have the most important areas of the application only &quot;one click away&quot; 
+
+  from the primary window. In addition to adding needless interaction overhead, 
+
+  window navigation paths that are too long make it more likely that the user 
+
+  will &quot;get lost&quot; in the system. Ideally, all windows should be opened 
+
+  from a main primary window, resulting in a maximum window navigation length 
+
+  of two. Try to avoid window navigation lengths greater than three.</p>
+
+<p>The Navigation Map should also adhere to and reflect the usage metaphor for 
+
+  the system's user interface, as documented in the project-specific guidelines.</p>
+
+<p>A variety of representations may be used for the Navigation Map. Some examples 
+
+  include:</p>
+
+<ul>
+
+  <li>A hierarchical &quot;tree&quot; diagram, where each level of the diagram 
+
+    shows the number of clicks it takes to get to a specific user-interface element</li>
+
+  <li>Free-form graphics with custom icons.</li>
+
+  <li>UML class diagram where classes are used for user interface elements and 
+
+    associations are used for navigation paths.</li>
+
+</ul>
+
+<p>The selection of which representation to use is specified in the project-specific 
+
+  guidelines.</p>
+
+
+
+<h3><a name="Detail_the_Design_of_the_User_Interface_Elements"></a>Detail the Design of the 
+
+  User-Interface Elements <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>At this point, the high-level user-interface design is complete:
+
+<ul>
+
+  <li>The primary windows have been identified</li>
+
+  <li>The user-interface elements and their navigation paths have been defined 
+
+        (the <a href="../artifact/ar_navmap.htm">Navigation Map</a>)</li>
+
+      
+
+</ul>
+
+<p>The detailed design of the user-interface elements can now be performed. The 
+
+  following are different aspects of designing the user-interface elements. Each 
+
+  of these are described below: 
+
+<ul>
+
+  <li><a href="#Design the Visualization of the Primary Windows">Design the Visualization 
+
+    of the Primary Windows</a></li>
+
+  <li><a href="#Design the User Actions of the Primary Windows">Design the User 
+
+    Actions of the Primary Windows</a></li>
+
+  <li><a href="#Design Miscellaneous Features">Design Miscellaneous Features</a></li>
+
+</ul>
+
+
+
+
+
+<h4><a name="Design the Visualization of the Primary Windows"></a>Design the Visualization of the Primary Windows</h4>
+
+<p>The visualization of the primary windows, and the main primary window in particular, 
+
+  will have a significant impact on the usability of the system. Designing this 
+
+  visualization is about determining which parts (properties) of the contained 
+
+  user-interface elements should be visualized. 
+
+ The <a href="../artifact/ar_storyboard.htm">Storyboard</a> 
+
+  flows of events can be used to help prioritize which properties to show. 
+
+ If the user needs 
+
+  to see many different properties of the user-interface elements, you may implement 
+
+  several views of a primary window, each view visualizing a different set of 
+
+  properties. Designing this visualization also means that you have to look at 
+
+  how the properties of the contained user-interface elements should be visualized, 
+
+  by using all visual dimensions. For details, refer to section &quot;Visual Dimensions&quot; 
+
+  in <a href="../modguide/md_uig.htm">Guidelines: User Interface (General)</a>.</p>
+
+<p>Where possible, attempt to identify &quot;common denominators&quot; across 
+
+  the elements to be displayed in the primary windows. By visualizing common denominators 
+
+  in some dimension, the user can relate the elements with each other and start 
+
+  to see patterns. This greatly increases the &quot;bandwidth&quot; of the user 
+
+  interface.</p>
+
+<h5></h5>
+
+<h5>Example:</h5>
+
+<p>Assume you have a customer service system, where you want to 
+
+  show aspects like: 
+
+<ul>
+
+  <li>The customer's complaints and questions over time.</li>
+
+  <li>What products the customer has purchased over time.</li>
+
+  <li>How much the customer has been invoiced over time.</li>
+
+</ul>
+
+<p>Here, a common denominator is &quot;time.&quot; Thus, displaying complaints/questions, 
+
+  purchases and invoices beside each other on the same horizontal time axis will 
+
+  enable the user to see patterns of how these are related (if they are).</p>
+
+  
+
+<h4><a name="Design the User Actions of the Primary Windows"></a>Design the User Actions of the Primary Windows</h4>
+
+<p>This is where you decide how to &quot;implement&quot; the user actions that 
+
+  can be invoked for the primary windows. It is common that the user actions of 
+
+  the primary windows are provided as menu items in a menu bar, and are provided 
+
+  as an alternative and complement via shortcut menus and toolbars. </p>
+
+<p>For each primary window, define the menu(s) and menu options. For example, 
+
+  in a document editor, there is an Edit menu, grouping cohesive operations such 
+
+  as Cut, Copy, etc.</p>
+
+<p>Some user actions may require a complex interaction with the user, thereby 
+
+  justifying a secondary window of their own. For example, in a document editor, 
+
+  there is a Print operation on a Document that, due to its complex interaction, 
+
+  justifies a separate dialog window.</p>
+
+<p>If a large number of objects are to be visualized in a window, it may be necessary 
+
+  to design user actions involving these objects. The following are some examples 
+
+  of such user actions: </p>
+
+<ul>
+
+  <li>Searching among multiple objects.</li>
+
+  <li>Sorting multiple objects.</li>
+
+  <li>Browsing hierarchies of multiple objects.</li>
+
+  <li>Selecting multiple objects.</li>
+
+</ul>
+
+<p>Refer to <a href="../modguide/md_uig.htm">Guidelines: User Interface (General)</a> 
+
+  for more detail.</p>
+
+
+
+<h4><a name="Design Miscellaneous Features"></a>Design Miscellaneous Features</h4>
+
+<p>Add the necessary dynamic behavior to the user interface. Most dynamics are 
+
+  given by the target platform, like the select-operate paradigm, open by double-clicking, 
+
+  pop-up menus on right mouse button, etc. There are, however, some decisions 
+
+  you need to make, including: 
+
+<ul>
+
+  <li>How to support window management.</li>
+
+  <li>What session information, like input cursor position, scroll bar position, 
+
+    opened windows, window sizes, relative window positions, etc., to store between 
+
+    sessions.</li>
+
+  <li>Whether to support single or multiple document interfaces (SDI or MDI) for 
+
+    your primary windows.</li>
+
+</ul>
+
+<p>Also evaluate other common features that can enhance usability, including: 
+
+<ul>
+
+  <li>Whether &quot;on-line help,&quot; including &quot;wizards,&quot; should 
+
+    be provided.</li>
+
+  <li>Whether an &quot;undo&quot; operation should be provided, to make the system 
+
+    safe for exploration.</li>
+
+  <li>Whether &quot;agents&quot; should be provided, to monitor user events and 
+
+    actively suggest actions.</li>
+
+  <li>Whether &quot;dynamic highlighting&quot; should be provided, to visualize 
+
+    associations.</li>
+
+  <li>Whether user-defined &quot;macros&quot; should be supported.</li>
+
+  <li>Whether there are specific areas that should be user configurable.</li>
+
+</ul>
+
+<p>Refer to <a href="../modguide/md_uig.htm">Guidelines: User Interface (General)</a> 
+
+  for more detail.</p>
+
+  
+
+<br>
+
+<br>
+
+
+
+
+
+ 
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+
+ 
+
+
+
+</body>
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+</html>

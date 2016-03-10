@@ -1,0 +1,438 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Manage Dependencies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Manage Dependencies</rpw><a name="Top"></a><a name="XE_dependencies__managing"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To use attributes and traceability of project requirements to
+        assist in managing the scope of the project and manage changing
+        requirements.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Assign_attributes">Assign Attributes</a></li>
+      <li><a href="#Establish and Verify Traceability">Establish and Verify Traceability</a></li>
+      <li><a href="#managing_changing_requirements">Manage Changing Requirements</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_rattr.htm">Requirements Attributes</a></li>
+<li><a href="../artifact/ar_ratgl.htm">Requirements Management Plan</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_rattr.htm">Requirements Attributes</a></li>
+<li><a href="../artifact/ar_ratgl.htm">Requirements Management Plan</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_sysan.htm">System Analyst</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/soda/tm_ucmsv.htm">Creating a Use-Case Model Survey Using Rational SoDA</a></li>
+<li><a href="../../toolment/reqpro/tm_mgdep.htm">Managing Dependencies Using Rational RequisitePro</a></li>
+<li><a href="../../toolment/anastudio/tm_feat_cqrp.htm">Managing Stakeholder Requests Using Rational ClearQuest and Rational RequisitePro</a></li>
+<li><a href="../../toolment/anastudio/tm_iucm.htm">Managing Use Cases Using Rational Rose and Rational RequisitePro</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_req.htm">Requirements</a>
+<ul>
+<li><a href="../workflow/requirem/wfs_unsh.htm">Understand Stakeholder Needs</a></li>
+<li><a href="../workflow/requirem/wfs_defs.htm">Define the System</a></li>
+<li><a href="../workflow/requirem/wfs_sco.htm">Manage the Scope of the System</a></li>
+<li><a href="../workflow/requirem/wfs_mnch.htm">Manage Changing Requirements</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="XE_Requirements_Management__Assigning_Attributes"></a> <a name="Assign_attributes">Assign
+Attributes</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Requirements Management Plan defines the attributes to be tracked for
+each type of requirement.&nbsp; The most important attributes are Benefit (from
+the stakeholders' perspectives), the Effort to implement, the Risk to the
+development effort, the Stability (likelihood to remain unchanged), and
+Architectural Impact (is it architecturally significant) of each
+requirement.</p>
+<p>The Benefit and Stability are set by the System Analyst, in consultation
+with the stakeholders.&nbsp; Effort and Risk are set by the Project Manager, in
+consultation with the Software Architect.&nbsp; Architectural Impact is set by the
+Software Architect.</p>
+<p>Unstable requirements with high risk, high effort, or high benefit should be
+flagged for more analysis.&nbsp; Low benefit requirements with high effort,
+risk, or instability should be flagged for potential removal.</p>
+<p>Below is an example of a set of features of the RequisitePro tool as found in
+the <a href="../artifact/ar_vsion.htm">Vision</a> document, together with <a href="../artifact/ar_rattr.htm">requirements
+attributes</a> for each feature.&nbsp; Benefit refers to customer
+opinion, and effort is input from the developers.</p>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%"><b><a name="Table1Start"></a>Features</b>&nbsp;</td>
+    <td width="12%"><b>Benefit</b>&nbsp;</td>
+    <td width="12%"><b>Effort</b>&nbsp;</td>
+    <td width="12%"><b>Risk</b>&nbsp;</td>
+    <td width="12%"><b>Architecture<br>Impact</b>&nbsp;</td>
+    <td width="12%"><b>Stability</b>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE1: Save and restore sort and filter criteria&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE2: Ability to save a RequisitePro document as a Microsoft&reg; Word&reg; document.&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE3: Ability to see deleted requirements in a view window.&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE4: Support for Currency datatype attributes.&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Med Low&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE5: Support the &quot;All&quot; document type (provides an easy way to define
+      common attributes across multiple document types).&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE6: Ability to select requirement in a view and GoTo in Word document.&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE7: Display a requirement’s attribute in the text of the requirement’s document.&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE8: New project wizard&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%" >High&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE9: Fast creation of a requirement (avoid the requirement dialog on creation).&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Med Low&nbsp;</td>
+    <td width="12%">Med Low&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE10: AutoSave of a project (project archive).&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Med Low&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE11: Change one or more attributes for a selected set of requirements.&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE12: Ability to clone a project’s structure to allow users to easily create new
+    projects from old projects.&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE13: Performance enhancements for printing, requirement identification.&nbsp;</td>
+    <td width="12%">Med Low&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">Low&nbsp;</td>
+    <td width="12%">Med High&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">FEATURE14: Microsoft&reg; Windows95&reg; Port.&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+    <td width="12%">Medium&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+    <td width="12%">High&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<p>Say that based on what you know about resources, you have determined that
+only two-thirds of these features can be included in a first iteration. You need
+to stabilize the architecture, so features 8 and 14 must be implemented
+early. However, feature 8 has only Medium stability - so you need to work
+with the stakeholders to reduce this to Low as soon as possible.</p>
+
+<p>Feature 13 is only Med Low benefit, but has Med High effort, so this may be
+flagged for potential removal.</p>
+
+<p>You also know that it is critical that you can deliver something at your deadline, so you
+want to avoid high effort features, especially if combined with instability. Thus you may decide to exclude features 3, 11, and 12.</p>
+<h3><a name="Establish and Verify Traceability">Establish and Verify Traceability</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Requirements Management Plan defines how requirements types are traced to
+other artifacts. The System Analyst must establish the required
+traceability, and periodically use traceability reports to ensure that traceability is maintained in accordance with the
+Requirements Management Plan.</p>
+<h3><a name="XE_Requirements_Management__managing_changing_requirements"></a> <a name="managing_changing_requirements">Manage Changing Requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>&nbsp;</h3>
+<p>Requirements changes are managed in accordance with the Requirements
+Management Plan.&nbsp; Some additional guidelines are as follows:</p>
+<h4>Re-assess Requirements Attributes and Traceability</h4>
+<p>Even if a requirement hasn't changed, the attributes and traceability
+associated with a requirement can change.&nbsp; The System Analyst is
+responsible for maintaining this information on an ongoing basis.</p>
+<h4>Manage Change Hierarchically</h4>
+<p>A change to one requirement may have a &quot;ripple&quot; effect that affects 
+  other related requirements, design, or other artifacts.&nbsp; To manage this 
+  effect, you should change the requirements from the top down.&nbsp; Review the 
+  impact on the <a href="../artifact/ar_vsion.htm">Vision</a>, then the <a href="../artifact/ar_ucmod.htm"> 
+  Use Case Model</a>, <a href="../artifact/ar_desmd.htm"> Design Model</a>, and 
+  <a href="../artifact/ar_eusm.htm">End-User Support Material</a>. To manage the 
+  impact of requirements change on the test effort, review the related information 
+  in <a href="../activity/ac_tst_dfnasstrcnds.htm">Activity: Define Traceability 
+  and Assessment Needs</a>. Traceability reports are useful in determining the 
+  potentially affected elements.</p>
+
+<br><br>
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Setting Up Version Control using Rational Rose RealTime with Rational ClearCase</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Setting Up Version
+Control using Rational Rose RealTime with Rational ClearCase</rpw>
+</h2>
+
+
+<h3>Purpose</h3>
+<p>This tool mentor explains how to set up version control using Rational Rose 
+  RealTime with Rational ClearCase.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_setup.htm">Set Up Tools</a></li>
+<li><a href="../../process/activity/ac_ckino.htm">Make Changes</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>Rational ClearCase uses a view model combined with a virtual file system that 
+  allows you to specify the lineup of file versions with which you want to work. 
+  Rational Rose RealTime then sees the files in the current view just as if they 
+  were stored on a regular (non-ClearCase) file system. Rose RealTime specifies 
+  the set of files that make up the model, and ClearCase provides the versions 
+  of these files determined by the view's configuration specification.</p>
+<p><img src="../../images/book.gif" width="16" height="16">&nbsp;For detailed information 
+  on using Rose RealTime with ClearCase, see the document titled <i>Guide to 
+  Team Development, Rational Rose RealTime</i>.</p>
+<p>Before using ClearCase, you need to set up your workstation and any workstations 
+  on which ClearCase will be used.</p>
+
+
+<h4>Prerequisite: Setting up ClearCase</h4>
+
+<h5>General Recommendations</h5>
+<p>If you are a Microsoft Windows NT user, do not access views through the MVFS 
+  mount point or M: drive. Instead, use the views through explicit drive mountings, 
+  such as X:, Y:, or Z:. This improves wink-in and eliminates dependencies on 
+  view names.</p>
+
+<h5>UCM Integration</h5>
+<p>The UCM Integration lets you assign activities to revisions from within the 
+  toolsets, if you are working in a UCM VOB. Additionally, you can Rebase, Deliver, 
+  and launch the Project Explorer from within Rose RealTime.</p>
+
+<h5>Snapshot Views</h5>
+<p>With ClearCase, you can initiate a snapshot view update from within Rose RealTime. 
+  The snapshot view contains the directory tree of source files.</p>
+<p>You will want to use snapshot views if any of the following conditions apply:</p>
+<ul>
+  <li>Your computer does not support dynamic views.</li>
+  <li>You want to optimize build performance to achieve native build speeds.</li>
+  <li>You want to work with source files under ClearCase control when you are 
+    either disconnected from the network that hosts the VOBs, or connected to 
+    the network intermittently.</li>
+  <li>You want access to a view from a computer that is not a ClearCase host.</li>
+  <li>Your project does not use ClearCase build auditing and build avoidance.</li>
+</ul>
+
+<h5>Rational ClearCase Workstation Setup</h5>
+<p>All workstations that will be accessing a VOB or view, must be set up to use 
+  ClearCase. For Windows NT/2000, this includes all workstations used for development. 
+  For UNIX, this includes all machines that are view servers.</p>
+<p>Additionally, all machines that act as view servers for the ClearCase views 
+  used by Rose RealTime, must be set up for ClearCase. If you use ClearCase MultiSite, 
+  you will need to do this at all the sites where the VOBs containing the Rose 
+  elements are replicated. You can determine which machines are view servers by 
+  typing:</p>
+<blockquote>
+  <pre>cleartool lsview</pre>
+</blockquote>
+<p>in a command window. The second item on each output line indicates the machine 
+  name where the view server is running. For example, if you see the following 
+  line in the output of the lsview command:</p>
+<blockquote>
+  <pre>myview \\mymachine\vws\myview.vws</pre>
+</blockquote>
+<p>then &quot;mymachine&quot; is the name of the machine where the view server 
+  for myview exists.</p>
+<p><img src="../../images/book.gif" width="16" height="16">&nbsp;For further details, 
+  see your ClearCase administrator or see the information on source control tools 
+  in the <i>Guide to Team Development, Rational Rose RealTime</i>.</p>
+
+<h5>Initial Setup</h5>
+<p>The following steps apply if you will be working on a model that is already 
+  under source control in a VOB. For additional information, see the information 
+  on source control administration in the <i>Guide to Team Development, Rational 
+  Rose RealTime</i>.</p>
+<ol>
+  <li>Create the integrator view so that the configuration specification appears 
+    as follows:</li>
+</ol>
+<blockquote>
+  <blockquote>
+    <pre><b>element * CHECKEDOUT</b><br><b>element * /main/LATEST</b></pre>
+  </blockquote>
+</blockquote>
+
+<ol start="2">
+  <li>Create project labels to define various lineups. Examples of significant 
+    labels are:</li>
+</ol>
+<blockquote>
+<ul>
+    <li>TC_BASELINE_0 &#151 to represent the initial state of the project</li>
+    <li>TC_BUILDFILES &#151 to indicate which element versions should be included 
+      in the next automated build</li>
+    <li>TC_LATEST_STABLE &#151 to identify the most recent stable lineup on the 
+      integration branch</li>
+</ul>
+</blockquote>
+
+<ol start="3">
+  <li>Create the initial lineup and apply the label to the VOB. An example of 
+    an initial lineup is:</li>
+</ol>
+<blockquote>
+  <blockquote>
+<pre><b>[x:\dev]cleartool mklabel -recurse TC_BASELINE_0 \dev</b></pre>
+  </blockquote>
+</blockquote>
+
+<ol start="4">
+  <li>Create the developer view template to ensure that all config specs are derived 
+    from a common base. This provides consistent and controlled access to the 
+    model, and eases the usage of lineups and private branches.<br>
+    <br>
+    There are two primary functions that developers will be performing; browsing 
+    and development. Each requires a different config spec.</li>
+</ol>
+<p><img src="../../images/book.gif" width="16" height="16">&nbsp;For information 
+  on the template rules, see the initial setup information in the <i> Guide to 
+  Team Development, Rational Rose RealTime</i>.</p>
+
+<h4>Tool Steps</h4>
+<p>To use ClearCase from Rose RealTime, follow these steps:</p>
+<ol>
+  <li><a href="#Control appropriate model elements as units">Control appropriate 
+    model elements as units</a> 
+  <li><a href="#Create a local work area">Create a local work area</a> 
+  <li><a href="#Save a model to the work area">Save a model to the work area</a>
+  <li><a href="#Configure the workspace source control options">Configure the 
+    workspace source control options</a> 
+  <li><a href="#Add the model to source control">Add the model to source control</a></li>
+  <li><a href="#Make the default workspace available to project members">Make
+    the default workspace available to all project members</a></li>
+  <li><a href="#Use view templates">Use view templates</a></li>
+  <li><a href="#ClearCase entities">ClearCase entities</a></li>
+  <li><a href="#Automate builds">Automate builds</a></li>
+  <li><a href="#Developer process">Developer process</a></li>
+  <li><a href="#Integration Process">Integration process</a></li>
+</ol>
+
+<h3>1. <a name="Control appropriate model elements as units">Control appropriate 
+  model elements as units</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>Determine the granularity you require for your project and team environment 
+  at the current stage in development. Do this in collaboration with the architect 
+  for the project.</p>
+
+
+<h3>2. <a name="Create a local work area">Create a local work area</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>You will want to establish a local work area to save models in ClearCase. Each 
+  developer accessing Rose RealTime files in a VOB should use their own dedicated 
+  view.</p>
+
+
+<h3>3. <a name="Save a model to the work area">Save a model to the work area</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>Before placing the model under source control, it must be saved to the local 
+  work area. Save the model to the directory you have associated with your source 
+  control repository.</p>
+
+
+<h3>4. <a name="Configure the workspace source control options">Configure the 
+  workspace source control options</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>To enable source control, fill in the appropriate settings described in the 
+  source control fundamentals in the <i> Guide to Team Development, Rational Rose 
+  RealTime</i>.</p>
+
+
+<h3>5. <a name="Add the model to source control">Add the model to source control</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>The simplest way to add all applicable units to source control is to use the 
+  <b>Submit All Changes to Source Control</b> tool. See the source control administration 
+  information in the <i>Guide to Team Development, Rational Rose RealTime</i> 
+  for more information.</p> 
+
+
+<h3>6. <a name="Make the default workspace available to project members">Make 
+  the default workspace available to project members</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>The workspace (.rtwks) file contains information that is common to all users 
+  working on the project. Settings in the workspace will rarely, if ever, change 
+  after it is initially set up. All developers on a project should use identical 
+  copies of the workspace file. For this reason, you may want to place this file 
+  under source control so that a fixed version is available to all project users. 
+  Rational Rose RealTime does not provide explicit support for checking in or 
+  checking out this file.</p>
+<p>After the source control manager adds the model to source control, the workspace 
+  should be manually added using your source control tool. Other users should 
+  then retrieve the workspace as part of their initial update of their local work 
+  area. This ensures that all team members use the same source control settings 
+  for the project.</p>
+
+
+<h3>7. <a name="Use view templates">Use view templates</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a> 
+</h3>
+<p>View templates are used to ensure that developers use a common base for their 
+  view’s config spec and to make it easier to work on private branches. A view 
+  template specifies the integration branch to work from, lists labeled checkpoints 
+  that can be used to base a private branch on, and includes a config spec template 
+  that can be filled in with additional config spec rules.</p>
+<p><img src="../../images/book.gif" width="16" height="16">&nbsp;See the Rational 
+  ClearCase parallel development information in the <i> Guide to Team Development, 
+  Rational Rose RealTime</i> for more information.</p>
+
+
+<h3>8. <a name="ClearCase entities">ClearCase entities</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a> 
+</h3>
+<p>Views, view templates, and labels can be created to help facilitate Rational 
+  ClearCase features. See the ClearCase parallel development information in the 
+  <i>Guide to Team Development, Rational Rose RealTime</i> for more information.</p>
+
+
+<h3>9. <a name="Automate builds">Automate builds</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a> 
+</h3>
+<p>To provide the ability to selectively choose the versions of files that go 
+  into the build, the builder selects all versions that are labeled with the build 
+  label TC_BUILDFILES. This allows flexibility in changing the exact versions 
+  that go into the build if needed. For example, if the most recent version of 
+  a file contains code that does not compile, then the previous version can be 
+  labeled instead.</p>
+<p>The following steps are involved in the build:</p>
+<ol>
+  <li>Label the build files.</li>
+  <li>Perform the build.</li>
+  <li>When the build completes successfully:</li>
+  <ul>
+    <li>Create a new lineup label and apply to build file versions.</li>
+    <li>Apply TC_LATEST_STABLE to build file versions.</li>
+    <li>Make the new lineup available to developers.</li>
+  </ul>
+</ol>
+
+
+<h3>10. <a name="Developer process">Developer process</a>
+ <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h3>
+<p>Each development activity is completed by a single developer and is performed 
+  on a private branch specific to that activity. Again, each developer requires 
+  his or her own view. The view is based on a branching point on the integration 
+  branch identified by a build label.<br>
+  <br>
+  A unique branch name must be chosen that identifies the work being performed, 
+  such as:</p>
+<blockquote>
+  <pre>paulz_timing</pre>
+</blockquote>
+<p>The view’s config spec rules are set up to automatically check out and branch 
+  files from the branching point to the private branch. As well, new elements 
+  created during the development activity are immediately branched to the private 
+  branch.</p> 
+<p>Because the branch is hidden from other developers, the user may check in incremental 
+  changes to the branch. When the developer is satisfied that his or her changes 
+  are completed and ready to be integrated, the developer informs the integrator 
+  that all changes on the private branch are ready for integration.</p> 
+<p>By basing developer private branches off of labels that correspond to the versions 
+  used by automated builds, each developer will be able to reuse most of the build 
+  results in the form of winked-in derived objects. This significantly reduces 
+  the amount of building that is required by each developer when changes are made.</p>
+
+<h3>11. <a name="Integration Process">Integration Process</a>
+ <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h3>
+
+<p>Each development activity must eventually be merged into the integration branch. 
+  ClearCase has several tools available for performing such a merge. The <b>cleartool 
+  findmerge</b> command can be used to merge all changes from a branch onto another 
+  branch. From the integrator view, the following command syntax can be used:</p>
+<blockquote>
+  <pre>cleartool findmerge \dev -all -fversion .../paulz_timing/LATEST -merge</pre>
+</blockquote>
+<p>Alternately, Windows NT users can use the ClearCase Merge Manager to perform 
+  the same merge.</p>
+  
+<p>Both of these methods will merge directory versions and also use Rose RealTime 
+  Model Integrator to merge changes in model files. After performing the merge, 
+  the integrator should load the model into Rose RealTime and verify that no merge 
+  errors have occurred. If the model loads correctly, the changes should be checked 
+  in using the <b>Tools &#151;&gt; Source Control &#151;&gt; Submit All Changes 
+  to Source Control</b> menu item.<br>
+</p>
+<p>To integrate a series of development activities:</p>
+<ol>
+  <li>Load the model from the integrator's view.</li>
+  <li>Perform the merge as detailed above.</li>
+  <li>Use <b>Tools &#151;&gt; Source Control &#151;&gt; Synchronize Entire Model</b>. 
+    This will reload all files that have changed in the merge.</li>
+  <li>Make sure that the merged differences are valid.</li>
+  <li>Use <b>Tools &#151;&gt; Source Control &#151;&gt; Submit All Changes to 
+    Source Control</b> to accept the changes and check them into source control.</li>
+  <li>Repeat steps 2 through 5 for each activity that needs integration.</li>
+</ol>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

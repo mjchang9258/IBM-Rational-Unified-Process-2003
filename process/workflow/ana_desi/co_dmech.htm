@@ -1,0 +1,419 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Concepts:&nbsp;Design and Implementation Mechanisms</title>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Design and Implementation Mechanisms</rpw><a name="Top"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction to Design and Implementation Mechanisms">Introduction
+    to Design and Implementation Mechanisms</a></li>
+  <li><a href="#Example: Characteristics of Design Mechanisms">Example:
+    Characteristics of Design Mechanisms</a></li>
+  <li><a href="#Refining the Mapping between Design and Implementation Mechanisms">Refining
+    the Mapping between Design and Implementation Mechanisms</a></li>
+  <li><a href="#Example: Mapping Design Mechanisms to Implementation Mechanisms">Example:
+    Mapping Design Mechanisms to Implementation Mechanisms</a></li>
+  <li><a href="#Describing Design Mechanisms">Describing Design Mechanisms</a></li>
+</ul>
+<h3><a name="Introduction to Design and Implementation Mechanisms">Introduction
+to Design and Implementation Mechanisms</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A <a href="../../glossary.htm#design_mechanism"><b>design mechanism</b></a>
+is a refinement of a corresponding <a href="../../glossary.htm#analysis_mechanism"><b>analysis
+mechanism</b></a><i> </i>(see also <a href="co_amech.htm">Concepts: Analysis
+Mechanisms</a>). A design mechanism adds concrete detail to the conceptual
+analysis mechanism, but stops short of requiring particular technology - for
+example, a particular vendor's implementation of, say, an object-oriented
+database management system. As with analysis mechanisms, a design mechanism may
+instantiate one or more patterns, in this case <a href="../../glossary.htm#architectural_pattern"><b>architectural</b><i>
+</i></a>or<b> <a href="../../glossary.htm#design_pattern">design patterns</a></b><i>.</i></p>
+<p>Similarly, an <a href="../../glossary.htm#implementation_mechanism"><b>implementation
+mechanism</b></a> is a refinement of a corresponding design mechanism, using,
+for example, a particular programming language and other implementation
+technology (such as a particular vendor's middleware product). An implementation
+mechanism may instantiate one or more<b> <a href="../../glossary.htm#idiom">idioms</a></b>
+or implementation patterns.</p>
+<h3><a name="XE_design_mechanism__characteristics_of"></a><a name="Example: Characteristics of Design Mechanisms">Example:
+Characteristics of Design Mechanisms</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Consider the analysis mechanism for <b>Persistency</b>:
+<ul>
+  <li>There might be a need for many (2,000) small objects (200 bytes each) to
+    be stored for a few seconds, with no need for survival.</li>
+  <li>There might be a need for several very large objects to be stored
+    permanently on disk for several months, never updated, but with
+    sophisticated means of retrieval.</li>
+</ul>
+<p><a name="inventory"></a>These objects will require different support for
+persistency; the following characteristics of design mechanisms for persistency
+support might be identified:
+<ul>
+  <li><b>In-memory storage</b>; characteristics: for up to 1 Mb total
+    (size x volume); very fast access for read, write, update.</li>
+  <li><b>Flash card</b>; characteristics: for up to 8 Mb; slow update
+    and write access; moderate read access.</li>
+  <li><b>Binary file</b>; characteristics: for 100 Kb to 200 Mb; slow
+    update; slow read and write access.</li>
+  <li><b>Database Management System (DBMS)</b>; characteristics: for
+    100 Kb and upwards (with essentially no upper limit); even slower update,
+    read and write access.</li>
+</ul>
+<p>Note that these speeds are only rated 'slow' relative to in-memory
+storage.&nbsp; Obviously, in some environments, the use of caching can improve
+apparent access times.</p>
+<p><a name="mapping"></a></p>
+<blockquote>
+  <p align="center"><img src="images/co_dmec1.gif" width="372" height="221"></p>
+</blockquote>
+<p>&nbsp;</p>
+<h3><a name="XE_implementation_mechanism__mapping_from_design_mechanisms¸_refining"></a><a name="XE_design_mechanism__mapping_to_implementation_mechanisms¸_refining"></a><a name="Refining the Mapping between Design and Implementation Mechanisms">Refining
+the Mapping between Design and Implementation Mechanisms</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Initially, the mapping between design mechanisms and implementation
+mechanisms is likely to be less than optimal but it will get the project
+running, identify yet-unseen risks, and trigger further investigations and
+evaluations. As the project continues and gains more knowledge, the mapping
+needs to be refined.</p>
+<p>Proceed iteratively to refine the mapping between design and implementation
+mechanisms, eliminating redundant paths, working both &quot;top-down&quot; and
+&quot;bottom-up.&quot;</p>
+<p><b>Working Top-Down. </b>When working &quot;top-down,&quot; new and
+refined use-case realizations will put new requirements on the needed design
+mechanisms via the analysis mechanisms needed. Such new requirements might
+uncover additional characteristics of a design mechanism, forcing a split
+between mechanisms. There is also a compromise between the system's complexity
+and its performance:
+<ul>
+  <li>Too many different design mechanisms make the system too complex.</li>
+  <li>Too few design mechanisms can create performance issues for some
+    implementation mechanisms that stretch the limits of the reasonable ranges
+    of their characteristics values.</li>
+</ul>
+<p><b>Working Bottom-Up. </b>When working &quot;bottom-up,&quot;
+investigating the available implementation mechanisms, you might find products
+that satisfy several design mechanisms at once, but force some adaptation or
+repartitioning of your design mechanisms. You want to minimize the number of
+implementation mechanisms you use, but too few of them can also lead to
+performance issues.</p>
+<p>Once you decide to use a DBMS to store objects of class A, you might be
+tempted to use it to store all objects in the system. This could prove very
+inefficient, or very cumbersome. Not all objects which require persistency need
+to be stored in the DBMS. Some objects may be persistent but may be frequently
+accessed by the application, and only infrequently accessed by other
+applications. A hybrid strategy in which the object is read from the DBMS into
+memory and periodically synchronized may be the best approach.</p>
+<p class="example"><b>Example</b></p>
+<p class="example">A flight can be stored in memory for fast access, and in a
+DBMS for long term persistency; this however triggers a need for a mechanism to
+synchronize both.</p>
+<p>It is not uncommon to have more than one design mechanisms associated with a
+client class as a compromise between different characteristics.</p>
+<p>Because implementation mechanisms often come in bundles in off-the-shelf
+components (operating systems and middleware products) some optimization based
+on cost, or impedance mismatch, or uniformity of style needs to occur. Also,
+mechanisms often are inter-dependent, making clear separation of services into
+design mechanisms difficult.</p>
+<p class="example"><b>Examples</b></p>
+<blockquote>
+  <ul>
+    <li>
+      <p class="example">The notification mechanism can be based on the
+      inter-process communication mechanism.</p>
+    </li>
+    <li>
+      <p class="example">The error reporting mechanism can be based on the
+      persistency mechanism.</p>
+    </li>
+  </ul>
+</blockquote>
+<p>Refinement continues over the whole elaboration phase, and is always a
+compromise between:
+<ul>
+  <li>An exact 'fit' with the requirements of the clients of the design
+    mechanism, in terms of the expected characteristics.</li>
+  <li>The cost and complexity of having too many different implementation
+    mechanisms to acquire and integrate.</li>
+</ul>
+<p>The overall goal is always to have a simple clean set of mechanisms that give
+conceptual integrity, simplicity and elegance to a large system.</p>
+<h3><a name="XE_implementation_mechanism__mapping_from_design_mechanisms¸_examples"></a><a name="XE_design_mechanism__mapping_to_implementation_mechanisms¸_examples"></a><a name="Example: Mapping Design Mechanisms to Implementation Mechanisms">Example:
+Mapping Design Mechanisms to Implementation Mechanisms</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The <b>Persistence </b>design mechanisms can be mapped to
+implementation mechanisms as follows:</p>
+<p align="center"><img src="images/co_dmec2.gif" width="325" height="216"></p>
+<p>A possible mapping between analysis mechanisms and design mechanisms. Dotted
+arrows mean &quot;is specialized by,&quot; implying that the characteristics of
+the design mechanisms are inherited from the analysis mechanisms but that they
+will be specialized and refined.</p>
+<p>Once you have finished optimizing the mechanisms, the following mappings
+exist:</p>
+<blockquote>
+  <p align="center"><img src="images/co_dmec3.gif" width="418" height="110"></p>
+  <p class="picturetext">The design decisions for a client class in terms of
+  mappings between mechanisms; the Flight class needs two forms of persistency:
+  in-memory storage implemented by a ready-made library routine, and in a
+  database implemented with an off-the-shelf ObjectStorage product.</p>
+</blockquote>
+<p>The map must be navigable in both directions, so that it is easy to determine
+client classes when changing implementation mechanisms.
+<h3><a name="XE_design_mechanism__describing"></a> <a name="Describing Design Mechanisms">Describing
+Design Mechanisms</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Design mechanisms, and details regarding their use, are documented in the <a href="../../artifact/ar_projspecgls.htm">Artifact: 
+  Project Specific Guidelines</a>. The relationship (or mapping) of analysis mechanisms 
+  to design mechanisms to implementation mechanisms, and the associated rationale 
+  for these choices, is documented in the <a href="../../artifact/ar_sadoc.htm">Artifact: 
+  Software Architecture Document</a>.
+<p></p>
+<p>As with analysis mechanisms, design mechanisms can be modeled using a collaboration, 
+  which may instantiate one or more <a href="../../glossary.htm#architectural_pattern"><b>architectural</b><i> 
+  </i></a>or <b><a href="../../glossary.htm#design_pattern">design patterns</a>.</b> 
+<h4>Example: A Persistency Mechanism</h4>
+<p>This example uses an instance of a pattern for RDBMS-based persistency drawn
+from <a href="http://java.sun.com/products/jdbc/index.html" target="_blank">JDBC&#153;
+(Java Data Base Connectivity)</a>.&nbsp; Although we present the design here,
+JDBC does supply actual code for some of the classes, so it is a short step from
+what is presented here to an implementation mechanism.
+<p>The figure Static View: JDBC shows the classes (strictly, the classifier
+roles) in the collaboration.
+<p align="center"><img border="0" src="images/jdbc1.gif" width="571" height="382">
+<p align="center"><b>Static View: JDBC</b>
+<p align="left">The yellow-filled classes are the ones which were supplied, the
+others (myDBClass etc.) were bound by the designer to create the mechanism.
+<p align="left">In JDBC, a client will work with a <b>DBClass</b>
+to read and write persistent data. The DBClass is responsible for accessing the
+JDBC database using the <b>DriverManager</b> class. Once a database <b>Connection</b>
+is opened, the DBClass can then create SQL statements that will be sent to the
+underlying RDBMS and executed using the <b>Statement</b> class. The Statement
+class is what &#147;talks&#148; to the database. The result of the SQL query is
+returned in a <b>ResultSet</b> object.<span style="mso-spacerun: yes">&nbsp;</span>
+<p align="left">The <b>DBClass</b> class is responsible for
+making another class instance persistent. It understands the OO-to-RDBMS mapping
+and has the behavior to interface with the RDBMS. The DBClass flattens the
+object, writes it to the RDBMS and reads the object data<span style="mso-spacerun: yes">&nbsp;
+</span>from the RDBMS and builds the object. Every class that is persistent will
+have a corresponding DBClass.&nbsp;
+<p align="left">The <b>PersistentClassList</b> is used to return
+a set of persistent objects as a result of a database query (e.g., DBClass.read()).
+<p align="left">We now present a series of dynamic views, to show
+how the mechanism actually works.
+<p align="center"><img border="0" src="images/jdbc2.gif" width="285" height="146">
+<p align="center"><b>JDBC: Initialize</b>
+<p>Initialization must occur before any persistent class can be
+accessed.</p>
+<p>To initialize the connection to the database, the DBClass must
+load the appropriate driver by calling the DriverManager getConnection()
+operation with a URL, user, and password.</p>
+<p>The operation getConnection() attempts to establish a
+connection to the given database URL. The DriverManager attempts to select an
+appropriate driver from the set of registered JDBC drivers.</p>
+<p><i>Parameters:</i></p>
+<p><b>url</b>: A database url of the form jdbc:subprotocol:subname. This URL is 
+  used to locate the actual database server and is not Web-related in this instance.</p>
+<p><b>user</b>: The database user on whose behalf the Connection is being made</p>
+<p><b>pass</b>: The user's password</p>
+<p><i>Returns</i>:</p>
+<p>a Connection to the URL.</p>
+<p align="center"><img border="0" src="images/jdbc3.gif" width="478" height="253">
+<p align="center"><b>JDBC: Create</b>
+<p align="left">To create a new class, the persistency client asks the DBClass 
+  to create the new class. The DBClass creates a new instance of PersistentClass 
+  with default values. The DBClass then creates a new Statement using the Connection 
+  class createStatement() operation. The Statement is executed and the data is 
+  inserted into the database. 
+<p align="center"><img border="0" src="images/jdbc4.gif" width="627" height="352">
+<p align="center"><b>JDBC: Read</b>
+<p>To read a persistent class, the persistency client asks the DBClass to read. 
+  The DBClass creates a new Statement using the Connection class createStatement() 
+  operation. The Statement is executed and the data is returned in a ResultSet 
+  object. The DBClass then creates a new instance of the PersistentClass and populates 
+  it with the retrieved data. The data is returned in a collection object, an 
+  instance of the PersistentClassList class.</p>
+<p>Note: The string passed to executeQuery() is not necessarily exactly the same 
+  string as the one passed into the read(). The DBClass will build the SQL query 
+  to retrieve the persistent data from the database, using the criteria passed 
+  into the read(). This is because we do not want the client of the DBClass to 
+  need the knowledge of the internals of the database to create a valid query. 
+  This knowledge is encapsulated within DBClass.</p>
+<p align="center"><img border="0" src="images/jdbc5.gif" width="473" height="255">
+<p align="center"><b>JDBC: Update</b>
+<p>To update a class, the persistency client asks the DBClass to update. The DBClass 
+  retrieves the data from the given PersistentClass object, and creates a new 
+  Statement using the Connection class createStatement() operation. Once the Statement 
+  is built the update is executed and the database is updated with the new data 
+  from the class.</p>
+<p>Remember: It is the job of the DBClass to &quot;flatten&quot; the PersistentClass 
+  and write it to the database. That is why is must be retrieved from the given 
+  PersistentClass before creating the SQL Statement.</p>
+<p>Note: In the above mechanism, the PersistentClass must provide access routines 
+  for all persistent data so that DBClass can access them. This provides external 
+  access to certain persistent attributes that would have otherwise have been 
+  private. This is a price you have to pay to pull the persistence knowledge out 
+  of the class that encapsulates the data.</p>
+<p align="center"><img border="0" src="images/jdbc6.gif" width="473" height="255">
+<p align="center"><b>JDBC: Delete</b>
+<p align="left">To delete a class, the persistency client asks the DBClass to 
+  delete the PersistentClass. The DBClass creates a new Statement using the Connection 
+  class createStatement() operation. The Statement is executed and the data is 
+  removed from the database. 
+<p align="left">In the implementation of this design, some decisions would be
+made about the mapping of DBClass to the persistent classes, e.g. having one
+DBClass per persistent class and allocating them to appropriate packages.&nbsp;
+These packages will have a dependency on the supplied <i>java.sql</i> (see <a href="http://java.sun.com/products/jdk/1.3/docs/guide/jdbc/index.html" target="_blank">JDBC<font size="-2"><sup>&#153;</sup></font>
+API Documentation</a>) package which contains the supporting classes
+DriverManager, Connection, Statement and ResultSet.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Review the Business Use-Case Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Review the Business Use-Case Model</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To formally verify that the results of business use-case modeling
+        conform to the stakeholders' views of the business.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+	      <li><a href="#GeneralRecommendations">General Recommendations</a></li>
+          <li><a href="#RecommendedReviewMeetings">Recommended Review Meetings</a></li>
+		  <li><a href="#PrepareReviewRecord">Prepare Review Record and Document Defects</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bgloss.htm">Business Glossary</a></li>
+<li><a href="../artifact/ar_buc.htm">Business Use Case</a></li>
+<li><a href="../artifact/ar_bucm.htm">Business Use Case Model</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sbs.htm">Supplementary Business Specification</a></li>
+</ul>
+
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+</ul>
+
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_tchrvw.htm">Technical Reviewer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  &nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="chklists/ck_bact.htm">Checklist: Business Actor</a></li>
+<li><a href="chklists/ck_bucm.htm">Checklist: Business Use Case Model</a></li>
+<li><a href="chklists/ck_buc.htm">Checklist: Business Use Cases</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_busm.htm">Business Modeling</a>
+<ul>
+<li><a href="../workflow/busmodel/wfs_dbuc.htm">Refine Business Process Definitions</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="GeneralRecommendations">General Recommendations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">General recommendations for each review.</td>
+  </tr>
+</table>
+<br>
+</div>
+<p>A person acting as business-model reviewer has some essential knowledge of 
+  the business domain or the technology envisioned to automate the business. Another 
+  skill business-model reviewers need is detailed knowledge of the applied business 
+  engineering techniques. 
+  
+<h3><a name="RecommendedReviewMeetings">Recommended Review Meetings</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">To define the scope and the goals of the review.<br>
+        To define the approaches used for each specific scope/goal combination.&nbsp; 
+      </td>
+  </tr>
+</table>
+<br>
+</div>
+<p>Normally, you should divide the review into the following meetings:
+<ul>
+  <li>A review of the entire business use-case model.</li>
+  <li>A review of the business use cases (for each use case), along with their
+    diagrams. If the model is large, break this review into several meetings,
+    possibly one per business use-case package.</li>
+</ul>
+<p>Even if you can review everything at the same meeting, you probably won't get
+approval of your conclusions the first time. Be prepared to carry out new
+reviews for each new version of the business use-case model. It is important to
+involve employees, domain experts, as well as members of the
+business-engineering team in the review, to make sure the model describes the
+business properly.</p>
+
+<h3><a name="PrepareReviewRecord">Prepare Review Record and Document Defects</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To document the review results.<br>
+      To ensure that identified defects are documented.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>
+  Following each review meeting, the results of the meeting are documented in 
+  a <a href="../artifact/ar_rvrec.htm">Review Record</a>. In addition, any defects 
+  are documented in accordance with the project's change management process. </p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

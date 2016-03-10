@@ -1,0 +1,395 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Detail a Business Use Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Detail a Business 
+  Use Case</rpw><a name="Top"></a><a name="XE_business_use_case__detailing_and_reviewing"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li><a name="XE_business_use_case__describing"></a>To describe the
+        business use case's workflow in detail.</li>
+      <li>To ensure that the business use case supports the business strategy.</li>
+          <li>To ensure that the customers, users, and stakeholders can understand 
+            the business use case's workflow.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#Collect Information about the Business Use Case">Collect 
+            information about the business use case</a>.</li>
+          <li><a href="#Identify Business Goals Supported by the Business Use Case">Identify 
+            business goals supported by the business use case</a>.</li>
+          <li><a href="#Detail the Workflow of the Business Use Case">Detail the 
+            workflow of the business use case</a>.</li>
+          <li><a href="#Structure the Workflow of the Business Use Case">Structure 
+            the workflow of the business use case</a>.</li>
+          <li><a href="#Illustrate Relationships with Business Actors and Other Business Use Cases">Illustrate 
+            relationships with business actors and other business use cases</a>. 
+          </li>
+          <li><a href="#Describe the Special Requirements of the Business Use Case">Describe 
+            the special requirements of the business use case</a>.</li>
+          <li><a href="#Describe Performance Goals of the Business Use Case">Describe 
+            performance goals of the business use case</a>.</li>
+          <li><a href="#Describe Extension Points">Describe extension points</a>. 
+          </li>
+          <li><a href="#Evaluate Your Results">Evaluate your results</a>.</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bact.htm">Business Actor</a></li>
+<li><a href="../artifact/ar_bgloss.htm">Business Glossary</a></li>
+<li><a href="../artifact/ar_bgoal.htm">Business Goal</a></li>
+<li><a href="../artifact/ar_buc.htm">Business Use Case</a></li>
+<li><a href="../artifact/ar_bucm.htm">Business Use Case Model</a></li>
+<li><a href="../artifact/ar_bvsio.htm">Business Vision</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_buc.htm">Business Use Case</a></li>
+<li><a href="../artifact/ar_sbs.htm">Supplementary Business Specification</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_bdes.htm">Business Designer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/reqpro/tm_debuc.htm">Detailing a Business Use Case Using Rational RequisitePro</a></li>
+<li><a href="../../toolment/rose/tm_debuc.htm">Detailing a Business Use Case Using Rational Rose</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_bactd.htm">Guideline: Activity Diagram in the Business Use-Case Model</a></li>
+<li><a href="../modguide/md_buc.htm">Guideline: Business Use Case</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_busm.htm">Business Modeling</a>
+<ul>
+<li><a href="../workflow/busmodel/wfs_dbuc.htm">Refine Business Process Definitions</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><br>
+<a name="Collect Information about the Business Use Case">Collect Information
+about the Business Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The draft step-by-step description of the workflow will serve as a basis for 
+  describing the detailed workflow. However, before you begin describing, you 
+  must collect information about the business use case. Form a group that includes 
+  members of the project team and people from the business that work in the process. 
+  Present a business use case to the group and ask the members to: 
+<ul>
+  <li>Identify the owner of the business use case. The owner is the role or person 
+    responsible for making decisions regarding the performance of and improvements 
+    to the business use case. Questions regarding the current way of working must 
+    be directed towards the business use case owner.</li>
+  <li>Identify at least ten activities that must belong to the business use case. 
+    Brainstorm—accept every suggestion, regardless of the order and size of the 
+    activity.</li>
+  <li>Name at least five interactions with business actors, such as requests from 
+    a business actor and events to which the business use case must react.</li>
+</ul>
+<p>Organize the activities and interactions according to time. Identify the basic 
+  workflow, and add new activities as needed. The resulting order of activities 
+  and interactions will serve as the basis for describing the business use case.</p>
+<p>During this information-gathering phase, you undoubtedly will have ideas regarding 
+  how the business workers and business entities are organized. Be sure to write 
+  these ideas down and save them for later use.</p>
+<h3><a name="Detail the Workflow of the Business Use Case">Detail the Workflow
+of the Business Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When you feel you have collected enough background information and arranged 
+  it in chronological order, it is time to describe the workflow of the business 
+  use case in detail.
+<p>Start by describing the normal workflow of the business use case. Look at the 
+  business actors and the business use case concurrently, and specify the interactions 
+  between them. When the normal workflow is described and relatively stable, start 
+  describing the alternative workflows.</p>
+<p>Follow the agreed-upon standards regarding the appearance of a business use-case 
+  workflow. For more on style, see <a href="../modguide/md_buc.htm">Guidelines: 
+  Business Use Case</a> and <a href="../modguide/md_uc.htm">Guidelines: Use Case</a>, 
+  the discussion of the flow of events.</p>
+<h3><a name="Identify Business Goals Supported by the Business Use Case">Identify
+Business Goals Supported by the Business Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business use cases must support business goals. If it is difficult to identify 
+  the one or more business goals supported by a business use case, it may be a 
+  sign that the use case is too abstract, or that the goals are not yet adequately 
+  concrete. Consider all identified business goals, because the business use case 
+  may support more than one of them. Try to reverse your thinking as well—for 
+  example, ask what (as yet unidentified) business goals could the business use 
+  case support, given its purpose and workflow? This approach may help you discover 
+  business goals or refine existing ones. For more information, see <a href="../modguide/md_bucm.htm">Guidelines: 
+  Business Use-Case Model</a> and <a href="ac_idbgl.htm">Activity: Identify Business 
+  Goals</a>. 
+<h3><a name="Structure the Workflow of the Business Use Case">Structure the
+Workflow of the Business Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A business use case's workflow can be divided into several subflows. When the 
+  business use case is activated, its subflows can combine in various ways if 
+  one of the following holds true: 
+<ul>
+  <li>The business use case can proceed from one of several possible paths, depending 
+    on the input from a given business actor or the values of some attribute or 
+    object. For example, the workflow may take different paths, depending on what 
+    happens during the interaction with the business actor.</li>
+  <li>The business use case can perform some subflows in optional sequences.</li>
+  <li>The business use case can perform several subflows at the same time.</li>
+</ul>
+<p>You must describe all these optional or alternative subflows. It is recommended 
+  that each subflow be described in a separate supplement to the workflow. In 
+  fact, this is mandatory for the following types of subflows: 
+<ul>
+  <li>Subflows that occupy a large segment of a given workflow.</li>
+  <li>Exceptional subflows. Describing these helps the business use case's main 
+    workflow stand out more clearly.</li>
+  <li>Subflows that can be executed at several intervals in the same workflow.</li>
+</ul>
+<p>If a subflow involves only a minor part of the complete workflow, describe 
+  it in the body of the text instead of in a separate supplement.</p>
+<p>You can illustrate the structure of the workflow with an activity diagram. 
+  See <a href="../modguide/md_bactd.htm">Guidelines: Activity Diagram in the Business 
+  Use-Case Model</a>.</p>
+<p>For more information on structure of a workflow, see <a href="../modguide/md_uc.htm">Guidelines: 
+  Use Case</a>, the discussion of structure of the flow of events.</p>
+<h3><a name="Illustrate Relationships with Business Actors and Other Business Use Cases">Illustrate
+Relationships with Business Actors and Other Business Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Create use-case diagrams showing the business use case and its relationships 
+  to business actors and other business use cases. A diagram of this type functions 
+  as a local diagram of the business use case and must be related to it. Note 
+  that this kind of local use-case diagram typically is of little value, unless 
+  the business use case has extend- or include-relationships that need to be explained, 
+  or if there is an unusual complexity among the business actors involved. See 
+  also <a href="../modguide/md_bucdg.htm">Guidelines: Use-Case Diagram in the 
+  Business Use-Case Model</a>.</p>
+<h3><a name="Describe the Special Requirements of the Business Use Case">Describe
+the Special Requirements of the Business Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Describe any items of information that can be related to the business use case 
+  but that are not taken into consideration in the workflow or the performance 
+  goals.</p>
+<h3><a name="Describe Performance Goals of the Business Use Case">Describe
+Performance Goals of the Business Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify the performance goals that currently are relevant in relation to what 
+  should be produced for a business actor. If you are going to develop or deploy 
+  a business system, focus on goals that are relevant from an information-system 
+  perspective. These performance goals may help measure the business case after 
+  deployment.</p>
+<h3><a name="Describe Extension Points">Describe Extension Points</a> <a href="#Top"><img src="../../images/top.gif" alt="up.gif (974 bytes)" border="0" width="26" height="20"></a></h3>
+<p>If the business use case is to be extended by another use case (see <a href="../modguide/md_bext.htm">Guidelines: 
+  Extend-Relationship in the Business Use-Case Model</a>), you need to identify 
+  and describe the extension points (see <a href="../modguide/md_buc.htm">Guidelines: 
+  Business Use Case</a>, discussion on extension points).</p>
+<h3><a name="Evaluate Your Results">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A business use case is complete only when it describes everything the business 
+  performs. Before you finish, make sure the business use case exhibits the characteristic 
+  properties of a good use case.</p>
+<p>Evaluate each business use case and its workflow. A specific way to evaluate 
+  a business use-case workflow is to conduct a walkthrough. In this method of 
+  evaluation, the person responsible for the business use case leads one or two 
+  members of the project team through the business use-case workflow. Use a scenario: 
+  imagine a real-life situation with specific people as actors when you walk through 
+  the business use case.</p>
+<p>See checkpoints for business use cases in <a href="ac_rvbuc.htm">Activity:
+Review Business Use-Case Model</a>.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

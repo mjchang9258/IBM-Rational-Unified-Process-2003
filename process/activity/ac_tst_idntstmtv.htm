@@ -1,0 +1,448 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Identify Test Motivators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Identify Test Motivators</rpw><a name="XE_test__identifying_motivation_for"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b> 
+      <ul>
+          <li>To identify the specific list of things, including both events and 
+            artifacts, that will serve to motivate testing in this iteration.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#IdentifyTargetItems">Identify iteration target items</a></li>
+          <li><a href="#ExamineRelatedInfo">Gather and examine related information</a></li>
+          <li><a href="#IdentifyCandidateMotivators">Identify candidate motivators</a></li>
+          <li><a href="#DetermineQualityRisks">Determine quality risks</a></li>
+          <li><a href="#DefineMotivators">Define motivator list</a></li>
+		  <li><a href="#Traceability">Maintain traceability relationships</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+    </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_bcase.htm">Business Case</a></li>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+<li><a href="../artifact/ar_issues.htm">Issues List</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_qapl.htm">Quality Assurance Plan</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sftrqm.htm">Software Requirement</a></li>
+<li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+<li><a href="../artifact/ar_wkord.htm">Work Order</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstmng.htm">Test Manager</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/testmgr/tm_tstpln.htm">Creating a Test Plan Using Rational TestManager</a></li>
+<li><a href="../../toolment/testmgr/tm_tstmn.htm">Performing Test Activities Using Rational TestManager</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_dfnevlmsn.htm">Define Evaluation Mission</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="IdentifyTargetItems">Identify iteration target items</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gain an initial understanding of the specific objectives 
+        behind the iteration plan.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Examine the iteration plan, and identify the specific items that will govern 
+  the plan, and the key deliverables by which the execution of the plan will be 
+  measured. Key elements you should examine include: Risk lists, Change Request 
+  lists, Requirements sets, Use Cases lists, UML Models etc.</p>
+<p>It's useful to supplement this examination with attending iteration kickoff 
+  meetings. If these aren't already planned, organize one for the test team that 
+  invites key management and software development resources (e.g. project manager, 
+  software architect, development team leads).</p>
+
+
+<h3><a name="ExamineRelatedInfo">Gather and examine related information</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gain a more detailed understanding of the scope of and 
+        specific deliverables of the iteration plan.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Having examined the iteration plan, looking initially for tangible and clearly 
+  defined elements that would be good candidates for assessment. Examine the details 
+  behind the work to be done, including both &quot;new work&quot; and Change Request's 
+  etc. Study the risks that will be addressed by the plan to understand clearly 
+  what the potential impact of the risk is and what must be done to address it 
+  (mitigate, transfer, eliminate etc.)</p>
+<h3><a name="IdentifyCandidateMotivators">Identify candidate motivators</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To outline the test motivators that are candidates for 
+        this iteration.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the understanding you've gained of the iteration plan, identify potential 
+  sources for things that will motivate the test effort. Motivation may come from 
+  one of any number of sources: an individual artifact, a set of artifacts, an 
+  event or activity, or the absence of any of these things. Sources might include: 
+  Risk List, Change Requests, Requirements Set, Use Cases, UML Models etc.</p>
+<p>For each source, examine the detail for potential motivators. If you cannot 
+  find a lot of detail about, or you are unfamiliar with the motivation source, 
+  it may be useful to discuss the items with the analyst and management staff, 
+  usually by starting with the project manager or lead system analysts.</p>
+<p>As you examine the information and discuss it with the relevant staff, enumerate 
+  a list of candidate test motivators.</p>
+
+
+<h3><a name="DetermineQualityRisks">Determine quality risks</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To determine what quality risks are most relevant to this 
+        iteration.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the list of candidate test motivators, consider each motivator in terms 
+  of the potential for quality risks. This will help you to better understand 
+  the relevant importance of each candidate, and may expose other candidate motivators 
+  that are missing from the list.</p>
+<p>There are many different dimensions of quality risk, and it's possible that 
+  a single motivator may highlight the potential for risk in multiple categories. 
+  Highlight the potential quality risks against each candidate motivator and indicate 
+  the likelihood of the risk being encountered, and the impact of the risk eventuating. 
+  <!---[[[See Guidelines: Quality Risks for more information]]]---></p>
+
+
+<h3><a name="DefineMotivators">Define motivator list</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To define the specific test motivators that will be the 
+        focus for this iteration.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the list of candidate motivators and their quality risk information, 
+  determine the relative importance of the motivators. Determine the motivators 
+  that can be addressed in the current iteration ( you may want to retain the 
+  list of remaining candidates for subsequent iterations).</p>
+<p>Define the motivator list, documenting it as appropriate. This may be as part 
+  of the iteration test plan, in a database or spreadsheet or as a list contained 
+  within some other artifact. It is useful to briefly describe why the motivator 
+  is important and what aspects of quality risk it will help to address.</p>
+
+
+<h3><a name="Traceability">Maintain traceability relationships</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To enable impact analysis and assessment reporting to be 
+        performed on the traced items.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the Traceability requirements outlined in the Test Plan, update the traceability 
+  relationships as required.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+
+</body>
+
+</html>

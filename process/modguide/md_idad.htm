@@ -1,0 +1,938 @@
+<!-- RPW META DATA START --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+-- RPW META DATA END -->
+
+
+
+<html>
+
+
+
+<head>
+
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+
+<title>Guidelines:&nbsp;Important Decisions in Analysis & Design</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+
+
+<body>
+
+
+
+ 
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+
+ 
+
+
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Important 
+
+  Decisions in Analysis &amp; Design</rpw></h2>
+
+<h5>Topics</h5>
+
+<ul>
+
+  <li><a href="#Decide How to Perform the Workflow">Decide How to Perform the
+
+    Workflow</a></li>
+
+  <li><a href="#Decide How to Use Artifacts">Decide How to Use Artifacts</a></li>
+
+  <li><a href="#Decide Which Reports to Use">Decide Which Reports to Use</a></li>
+
+  <li><a href="#Decide How to Review">Decide How to Review</a></li>
+
+  <li><a href="#Decide Whether to Generate Code">Decide Whether to Generate Code</a></li>
+
+</ul>
+
+<h3><a name="Decide How to Perform the Workflow">Decide How to Perform the
+
+Workflow</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The following decisions should be made regarding the Analysis &amp; Design
+
+discipline's workflow:</p>
+
+<ul>
+
+  <li>Decide how to perform the workflow by looking at the <a href="../workflow/ana_desi/wfd_and.htm">Analysis 
+
+    &amp; Design: Workflow</a>. Study the diagram with its <a href="../glossary.htm#guard_condition"><i>guard 
+
+    conditions</i></a>, and the guidelines. Decide which workflow details to perform 
+
+    and in which order.&nbsp;</li>
+
+  <li>Decide what parts of the Analysis &amp; Design workflow details to perform. The
+
+    following parts can be introduced relatively independently from the rest.</li>
+
+</ul>
+
+<div align="center">
+
+
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="23%" align="center"><p class="tableheading">Part of workflow</td>
+
+    <td width="77%" align="center"><p class="tableheading">Comments</td>
+
+  </tr>
+
+     <tr>
+
+      <td width="25%">User interface design</td>
+
+      <td width="75%">Some projects decide to not design the user interface. One 
+
+        reason could be that the user interface is easy to develop. If you decide 
+
+        to not do user-interface design it means that you do not develop a Navigation 
+
+        Map and a User-Interface Prototype.&nbsp;</td>
+
+    </tr> <tr>
+
+    <td width="23%">Database design</td>
+
+    <td width="77%">Only used if the entities are going to be stored in a database. If you
+
+    decide against doing database design, it means that you do not develop any Data Model.&nbsp;</td>
+
+  </tr>
+
+
+
+  <tr class="reactive">
+
+    <td width="23%">Real time, using Rational Rose RealTime</td>
+
+    <td width="77%">If you decide to not do this, it means that you do not develop artifacts such as Capsule and Protocol.</td>
+
+  </tr>
+
+
+
+</table>
+
+<br></div>
+
+
+
+<ul>
+
+  <li>Decide when, during the project lifecycle, to introduce each part of the
+
+    workflow. It is sometimes possible to wait until the Elaboration phase
+
+    before introducing the Analysis &amp; Design discipline. For example, if the
+
+    development is in a well-understood domain, does not have demanding
+
+    performance (or other non-functional) requirements, and will be based on a
+
+    well-tried architecture, there is little need for prototyping during
+
+    inception.</li>
+
+</ul>
+
+<p>Document the decisions in 
+the Development Case, under the headings <i>Disciplines, Analysis &amp; Design, Workflow</i>
+.</p>
+
+<h3><a name="Decide How to Use Artifacts">Decide How to Use Artifacts</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Make a decision about what artifacts to use and how to use each of them. The
+
+table below describes mandatory artifacts and those artifacts used only in
+
+certain cases. For more detailed information on how to tailor each artifact, and
+
+a discussion of the advantages and disadvantages of that specific artifact, read
+
+the section titled &quot;Tailoring&quot; for each artifact.</p>
+
+<p>For each artifact, decide how the artifact should be used: Must, Should,
+
+Could or Won't. For more details, see the <a href="md_uclaar.htm">Guidelines:
+
+Classifying Artifacts</a>.</p>
+
+<div align="center">
+
+
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+      <tr> 
+
+        <td width="20%"><b>Artifact</b></td>
+
+        <td width="40%"><b>Purpose</b></td>
+
+        <td width="40%"> 
+
+          <p><b> Tailoring (Optional, Recommended)</b></p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"><a href="../artifact/ar_amdl.htm">Analysis 
+
+          model</a> (<a href="../artifact/ar_aclss.htm">Analysis class</a>)</td>
+
+        <td width="40%">An analysis model is useful to better understand 
+
+          the requirements before making design decisions. On complex systems 
+
+          it may be maintained to provide a conceptual overview of the system.</td>
+
+        <td width="40%"> 
+
+          <p>Optional</p>
+
+          <p>On many projects, an initial Design Model is used in place of the 
+
+            Analysis Model.</p>
+
+          <p>On projects which do create an Analysis Model, it is typically a 
+
+            temporary artifact which evolves into a design model.</p>
+
+        </td>
+
+      </tr>
+
+       <tr> 
+
+        <td width="20%"> 
+
+          
+
+        <p><a href="../artifact/ar_navmap.htm">Navigation Map</a>, <a href="../artifact/ar_uiprt.htm">User-Interface 
+
+          Prototype</a> </p>
+
+        </td>
+
+        
+
+      <td width="40%">Projects with a large and complex user-interface should 
+
+        consider user-interface design. </td>
+
+        <td width="40%"> 
+
+          <p>Optional</p>
+
+          
+
+        <p>More informal user-interface design may be sufficient on smaller development 
+
+          efforts.</p>
+
+          </td>
+
+      </tr>     <tr class="reactive"> 
+
+        <td width="20%"><a href="../artifact/ar_desmd.htm">Design 
+
+          model</a><br>
+
+          <br>
+
+        </td>
+
+        <td width="40%">Most systems, even smaller systems, should 
+
+          be designed before being implemented in order to avoid costly rework 
+
+          due to design errors. Visual models allow the design to be easily communicated. 
+
+          Tools for forward engineering and reverse engineering can ensure consistency 
+
+          with the implementation model and save effort.</td>
+
+        <td width="40%"> 
+
+          <p>Recommended for most projects.</p>
+
+          <p>On smaller projects, the use of automated tools is not critical, 
+
+            but may have long term productivity benefits.</p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../artifact/ar_class.htm">Design class</a>; <a href="../artifact/ar_despk.htm">Design 
+
+              package</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%">Classes and packages are a basic part of any 
+
+          object-oriented design. Object-oriented design is the standard design 
+
+          approach used on most projects. </td>
+
+        <td width="40%"> 
+
+          <p>Recommended for most projects.</p>
+
+          <p>The main tailoring issues are deciding which stereotypes to use (this 
+
+            may be captured in the Design Guidelines).</p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../artifact/ar_ucrea.htm">Use-case realization</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%">Provide the bridge from use cases to design.</td>
+
+        <td width="40%"> 
+
+          <p>Recommended for most projects.</p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../artifact/ar_if.htm">Interface</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%">Interfaces are typically used to define behavior 
+
+          independently from large-grained components that realize the behaviour. 
+
+          <p></p>
+
+        </td>
+
+        <td width="40%"> 
+
+          <p>Recommended for most projects.</p>
+
+          <p>Component-based design is becoming a standard design approach.</p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../artifact/ar_dsub.htm">Design subsystem</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%">Design Subsystems are used to encapsulate behavior inside 
+
+          a &quot;package&quot; that provides interfaces. It is used to encapsulate 
+
+          the interactions of classes and/or other subsystems.</td>
+
+        <td width="40%"> 
+
+          <p>Recommended for most projects.</p>
+
+          <p>Subsystems are often useful to raise the level of design abstraction. 
+
+            They make systems easier </p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../artifact/ar_event.htm">Event</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%">May be useful for systems that respond to many external events.</td>
+
+        <td width="40%">Recommended 
+
+          for real-time systems.</td>
+
+      </tr>
+
+ 	  
+
+      <tr>
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../../process/artifact/ar_prot.htm">Protocol</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%"> 
+
+          Required for real-time systems.</td>
+
+        <td width="40%">Recommended for real-time systems.</td>
+
+      </tr>
+
+ 
+
+      <tr> 
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../artifact/ar_signa.htm">Signal</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%">May be useful for systems that require concurrency and 
+
+          are event-driven. Required 
+
+          for real-time systems. </td>
+
+        <td width="40%"> 
+
+          <p>Recommended for real-time systems..</p>
+
+          <p>May be useful for systems that require concurrency and are event-driven. </p>
+
+        </td>
+
+      </tr>
+
+       
+
+      <tr class="reactive"> 
+
+        <td width="20%"> 
+
+          <blockquote> 
+
+            <p><a href="../../process/artifact/ar_cpsl.htm">Capsule</a></p>
+
+          </blockquote>
+
+        </td>
+
+        <td width="40%">For real-time systems, but can be useful in modeling and 
+
+          designing any system that has a high degree of concurrency.</td>
+
+        <td width="40%"> 
+
+          <p>Recommended for real-time systems.</p>
+
+        </td>
+
+      </tr>
+
+       
+
+      <tr> 
+
+        <td width="20%"><a href="../artifact/ar_datmd.htm">Data model</a></td>
+
+        <td width="40%">Used to describe the logical and possibly 
+
+          physical structure of the persistent information.</td>
+
+        <td width="40%"> 
+
+          <p>Recommended for projects that use a database.</p>
+
+          </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></td>
+
+        <td width="40%">Shows the configuration of processing nodes at run-time, 
+
+          the communication links between them, and the component instances and 
+
+          objects that reside on them.</td>
+
+        <td width="40%"> 
+
+          <p>Optional.</p>
+
+          <p>Many systems have multiple processing nodes and therefore need to 
+
+            address the Deployment Model. It may, however, be captured as a section 
+
+            of the Software Architecture Document and does not need to exist as 
+
+            a separately identified artifact.</p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"><a href="../artifact/ar_archpoc.htm">Architectural 
+
+          Proof-of-Concept</a></td>
+
+        <td width="40%">Used to determine whether there exists a 
+
+          solution that satisfies the architecturally-significant requirements.</td>
+
+        <td width="40%">Recommended for most projects. 
+
+          <p>Many projects will use an Architectural Proof-of-Concept to determine 
+
+            the feasibility of requirements. It may take many forms, for example: 
+
+          </p>
+
+          <ul>
+
+            <li>a list of known technologies which seem appropriate to the solution</li>
+
+            <li>a sketch of a conceptual model of a solution</li>
+
+            <li>a simulation of a solution</li>
+
+            <li>an executable prototype.</li>
+
+          </ul>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"><a href="../artifact/ar_refarch.htm">Reference 
+
+          Architecture</a></td>
+
+        <td width="40%">Reference Architectures speed up development 
+
+          and reduce risks by re-using proven solutions.</td>
+
+        <td width="40%"> 
+
+          <p> Recommended for most projects. </p>
+
+          <p>If suitable Reference Architecture material exists, it can dramatically 
+
+            speed up development and reduce risk.</p>
+
+        </td>
+
+      </tr>
+
+        
+
+      <tr> 
+
+        <td width="20%"><a href="../artifact/ar_sadoc.htm">Software 
+
+          Architecture Document (SAD)</a></td>
+
+        <td width="40%">The Software Architecture Document is used 
+
+          to provide a comprehensive architectural overview of the system. This 
+
+          overview is helpful to understand the system, and to capture key architectural 
+
+          decisions.</td>
+
+        <td width="40%"> 
+
+          <p>Recommended for most projects. </p>
+
+          <p>A high level overview of the software architecture is useful on all 
+
+            but the smallest systems. Complex systems typically require a greater 
+
+            level of detail and more views than smaller projects.</p>
+
+        </td>
+
+      </tr>
+
+      <tr> 
+
+        <td width="20%"><a href="../artifact/ar_uiprt.htm">User-Interface 
+
+          Prototype</a></td>
+
+        
+
+      <td width="40%">Used to expose and test functionality and usability before 
+
+        the real development starts. It is an effective means of validating the 
+
+        design before too much time is wasted.</td>
+
+        <td width="40%"> 
+
+          <p>Recommended for most projects.</p>
+
+          </td>
+
+      </tr>
+
+    </table>
+
+<br></div>
+
+
+
+<p>Tailor each artifact to fit the needs of the project. For tailoring considerations, 
+  see the tailoring section of the artifacts' description page, 
+  or the steps described under the heading &quot;Tailor Artifacts per Discipline&quot; 
+  in the <a href="../activity/ac_devca.htm">Activity: Develop Development Case</a>.</p>
+
+
+
+
+
+<h3><a name="Decide Which Reports to Use">Decide Which Reports to Use</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The decision of which reports to use will depend on the reporting tools available 
+  to the project. If report generation tools are available, we recommend generating 
+  reports for model oriented artifacts Decide how to review and approve the results of Analysis &amp; Design, and to
+
+what extent the results will be reviewed.</p>
+
+<p>The advantages of a design review are:</p>
+
+<ul>
+
+  <li>It detects problems that are impossible, or very difficult, to detect in
+
+    testing. For example, issues of style, and layout.&nbsp;</li>
+
+  <li>It is a way to enforce a common modeling style and an opportunity for
+
+    individuals to learn from each other.&nbsp;</li>
+
+  <li>It detects those defects that wouldn't otherwise get detected until later
+
+    in the project during tests.</li>
+
+</ul>
+
+<p>The disadvantages of a design review are:</p>
+
+<ul>
+
+  <li>It takes time and resources.&nbsp;</li>
+
+  <li>It is easily misused if not managed well.</li>
+
+</ul>
+
+<p>The factors that can be altered are review techniques, resources, and scope.
+
+The following are some examples of what you can decide to do on your project:
+
+<ul>
+
+  <li>Decide that local changes to a subsystem are reviewed only by one peer,
+
+    who conducts an inspection and hands over the results on paper.</li>
+
+  <li>Decide on which parts of the design will not be reviewed at all; for
+
+    example, review only some classes for each member of the project and hope
+
+    that this assures the style is of a similar quality to the rest of the
+
+    results.</li>
+
+  <li>Decide that the Software Architecture Document will be reviewed by
+
+    customer during a separate meeting.</li>
+
+  <li>Decide to use formal review meetings for changes in important interfaces;
+
+    that is, interfaces that affect the work of several project members.</li>
+
+</ul>
+
+<p>For more information about reviewing and different kinds of reviews, see <a href="../workguid/wg_rview.htm">Work
+
+Guideline: Reviews</a>.
+
+<h3><a name="Decide Whether to Generate Code">Decide Whether to Generate Code</a>
+
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The way you do design differs depending on whether you generate code from the
+
+design model or not. If you generate code, the design needs to be very detailed.
+
+On the other hand, if you do not generate code from the design, there is no need
+
+to be very detailed in the design. On the contrary, the details in the design
+
+have to be synchronized manually with the code.</p>
+
+<br>
+
+<br>
+
+
+
+
+
+ 
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+
+ 
+
+
+
+</body>
+
+
+
+</html>
+
+
+

@@ -1,0 +1,516 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Define Test Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Define Test Details</rpw><a name="XE_system_test__defining_the_details"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b> 
+      <ul>
+          <li>To define the individual conditions necessary to realize a test 
+            idea in a specific context</li>
+          <li>To identify potential points of observation and control for the 
+            related test item(s)</li>
+          <li>To identify potential oracles to facilitate observation points</li>
+          <li>To provide consumable resources to support the test</li>
+      </ul>
+    </td>
+  </tr>
+    <tr> 
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#ExamineTargetTestItem">Examine the Target Test Item and 
+            related Test-Ideas List</a></li>
+          <li><a href="#SelectTestIdeas">Select a subset of the test ideas to 
+            detail</a></li>
+          <li><a href="#DesignTest">For each test idea, design the Test</a>; 
+            <ul>
+              <li><a href="#IdentifyIOExeCond">identify input, output and execution 
+                conditions</a>,</li>
+              <li><a href="#IdentifyObservePoints">identify candidate points of 
+                observation</a>,</li>
+              <li><a href="#IdentifyControlPoints">identify candidate points of 
+                control</a>.</li>
+              <li><a href="#IdentifyOracles">Identify appropriate oracles</a></li>
+            </ul>
+          </li>
+          <li><a href="#DefineDataSources">Define required data sources, values 
+            and ranges</a></li>
+          <li><a href="#SourceTestData">Source sufficient consumable Test Data</a></li>
+          <li><a href="#Traceability">Maintain traceability relationships</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+<li><a href="../artifact/ar_storyboard.htm">Storyboard</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_tstcs.htm">Test Case</a></li>
+<li><a href="../artifact/ar_tstdta.htm">Test Data</a></li>
+<li><a href="../artifact/ar_tstidslst.htm">Test-Ideas List</a></li>
+<li><a href="../artifact/ar_tstintspc.htm">Test Interface Specification</a></li>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+<li><a href="../artifact/ar_uc.htm">Use Case</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstcs.htm">Test Case</a></li>
+<li><a href="../artifact/ar_tstdta.htm">Test Data</a></li>
+<li><a href="../artifact/ar_tstsc.htm">Test Script</a></li>
+<li><a href="../artifact/ar_wlmod.htm">Workload Analysis Model</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstanl.htm">Test Analyst</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/testmgr/tm_tstcs.htm">Creating a Test Case Using Rational TestManager</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_vldbldstb.htm">Validate Build Stability</a></li>
+<li><a href="../workflow/test/wfs_vrftstapr.htm">Verify Test Approach</a></li>
+<li><a href="../workflow/test/wfs_imptstast.htm">Improve Test Assets</a></li>
+<li><a href="../workflow/test/wfs_tstandevl.htm">Test and Evaluate</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="ExamineTargetTestItem">Examine the Target Test Item and related Test-Ideas 
+  List</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gain a more detailed understanding of the Targeted Test 
+        Item based on the possible Test Ideas.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the Test-Ideas List as context, examine the available information about 
+  the Target Test Item. The Use Case and related artifacts (e.g. Use-Case Realization, 
+  Use-Case Storyboard and Use-Case Scenarios) are usually good sources to begin 
+  with, in addition to any Supplementary Specifications, Business Rules and design 
+  artifacts.</p>
+<p>Where limited information is available to you, you may need to discuss the 
+  Target Test Item with the development staff directly.</p>
+
+
+<h3><a name="SelectTestIdeas">Select a subset of the Test Ideas to detail</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To determine a manageable subset of tests to define that 
+        are of most benefit in the current context.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Review the Test-Ideas List and pick a number of the test ideas that you will 
+  design detailed tests for. In most cases you will pick a subset of the test 
+  ideas, based on time constraints, relevance of the test ideas to the current 
+  test cycle, completeness of the Target Test Item and so forth. Depending on 
+  the specific context of your situation the actual number of test ideas you take 
+  forward into design in the current test cycle will differ on a case-by-case 
+  basis.</p>
+<p>We recommend that you avoid designing for all test ideas the first time you 
+  design from a given Test-Ideas List. Instead, take an incremental and iterative 
+  approach to working with the Test-Ideas List, focusing your efforts instead 
+  on the few ideas that you think are most likely to produce useful evaluation 
+  information for the given test cycle. This helps to mitigate the risk of devoting 
+  too much time to a single Target Test Item to the neglect of other items, and 
+  minimizes the risk of expending effort on designs for test ideas that may later 
+  prove of little interest.</p>
+
+
+<h3><a name="DesignTest">For each test idea, design the Test</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To define the key characteristics of each test that is 
+        to be derived from the Test-Ideas List.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+  Using the information you've gathered so far, design the test by identifying 
+  and defining the key characteristics that will be necessary to realize the test. 
+  Note that the resulting test design may be captured in different ways:</div>
+
+<ul>
+  <li>Traditionally, test design was captured as a <a href="../artifact/ar_tstcs.htm">Artifact: 
+    Test Case</a>.</li>
+  <li>The <a href="../artifact/ar_wlmod.htm">Artifact: Workload Analysis Model</a> 
+    is conceptually a specialized and more complex form of Test Case that relates 
+    specifically to system performance testing.</li>
+  <li>Depending on the complexity of the test and the project culture, it may 
+    be appropriate to realize the test directly as a <a href="../artifact/ar_tstsc.htm">Artifact: 
+    Test Script</a>, an approach you should consider if it is acceptable for you 
+    not to create Test Case artifacts. If you take this approach, be sure to liberally 
+    comment your Test Scripts with useful information explaining <b>why</b> the 
+    test is useful. Use these comments to act as an informal, in-line Test Case.</li>
+</ul>
+<p>Using the information you have gathered, consider each of the following aspects 
+  of the test.</p>
+
+<h4><a name="IdentifyIOExeCond">identify input, output and execution conditions</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Considering the test from a &quot;Black-box&quot; perspective, identify the 
+  key external visible characteristics that define the test. Identify what inputs 
+  will be required to stimulate the test, and what resulting outputs are to be 
+  expected. Also enumerate the key execution condition(s)&#151;the &quot;How&quot; 
+  of the execution condition does not have to be explained or understood for this 
+  step.</p>
+<p>Note that Inputs and Expected Outputs will&#151;depending on the specific test&#151;range 
+  from simple data type values (eg &quot;A&quot;, &quot;1&quot;), to complex multidimensional 
+  data (eg a sound clip, an object). It is better to define the qualifiers behind 
+  a particular Input or Expected Outputs, rather than just giving specific values. 
+  This provides the person subsequently implementing or executing the test with 
+  the required understanding of the reasoning behind the Test Data, allowing them 
+  to choose replacement and substitute values to vary the test in any given execution.</p>
+
+
+<h4><a name="IdentifyObservePoints">identify candidate points of observation</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>A <a href="../glossary.htm#point_of_control_and_observation" target="_blank"><i>point 
+  of observation</i></a> is a point during the execution of a test at which you 
+  wish to observe some aspect of the state of the test environment. Given what 
+  you know of the execution condition(s) and the input and expected outputs, identify 
+  what specific points should be observed during test execution, and identify 
+  what a data should be observed.</p>
+
+
+<h4><a name="IdentifyControlPoints">identify candidate points of control</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>A <a href="../glossary.htm#point_of_control_and_observation" target="_blank"><i>point 
+  of control</i></a> is a point during the execution of a test at which you wish 
+  to make a decision from multiple choices regarding the test's flow of control. 
+  Investigate the Test Scenarios that are available, and for each consider the 
+  points at which control will vary through different executions of the test. 
+  Collate all of the different points of control and reduce the list to those 
+  needed for the current test cycle.</p>
+
+
+<h4><a name="IdentifyOracles">Identify appropriate test oracles</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>A <a href="../glossary.htm#test_oracle" target="_blank"><i>test oracle</i></a> 
+  combines both the expected output values to be tested for, and the means by 
+  which those values can be divined: it's both the response given and the medium 
+  through which it is given. For example, to verify the accurate representation 
+  of fonts used in a word processing package, print preview might be used as the 
+  medium by which the font presentation can be verified. The test oracle identifies 
+  aspects of both form and function that are necessary to verify the actual results 
+  of the test against the expected results.</p>
+
+
+<h3><a name="DefineDataSources">Define required data sources, values and ranges</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To define the required Test Data values, including appropriate 
+        sources for that data.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>As mentioned previously, Test Data comes in many shapes-and-forms.</p>
+<p>Where complex data-interdependencies are likely, try to make use of Domain 
+  Experts to specify appropriate Test Data conditions. Some test productivity 
+  tools provide features or utilities that enable simplified generation of Test 
+  Data sets.</p>
+
+
+<h3><a name="SourceTestData">Source sufficient consumable Test Data</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To source and record sufficient valid Test Data to support the test.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>The accurate generation or collation of appropriate Test Data is one of the 
+  most arduous and time consuming tasks in defining a test. This is especially 
+  true where the system of a class that is data intensive.</p>
+
+<p>We recommend recording Test Data in Microsoft&#174; Excel&#174; or another product with 
+  a tabular data management interface, such as Microsoft&#174; Access&#174;.</p>
+
+
+<h3><a name="Traceability">Maintain traceability relationships</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To enable impact analysis and assessment reporting to be 
+        performed on the traced items.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the Traceability requirements outlined in the Test Plan, update the traceability 
+  relationships as required.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

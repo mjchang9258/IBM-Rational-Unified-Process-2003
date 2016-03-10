@@ -1,0 +1,415 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Define Test Environment Configurations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Define Test Environment Configurations</rpw><a name="XE_system_test__environment_configuration"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To define the requirements for the evaluation environment(s) needed 
+            to support the test effort</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b> 
+      <ul>
+          <li><a href="#ExamineTestApproachAndSAD">Examine Test Approach against software architecture</a></li>
+          <li><a href="#IdentifyDeploymentEnvirons">Identify each specific deployment environment</a></li>
+          <li><a href="#ConsolidateEnvirons">Consolidate list of necessary environments</a></li>
+          <li><a href="#ForEachEnviron">For each Test Environment Configuration</a>; 
+            <ul>
+              <li><a href="#IdentifySpecificNeeds">Identify specific environment 
+                needs for each test technique</a>,</li>
+              <li><a href="#DefineBaseInventory">Define inventory of base hardware 
+                and software</a>,</li>
+              <li><a href="#DefineTestInventory">Define inventory of hardware 
+                and software to support test process</a>,</li>
+              <li><a href="#DefineEnvironManagement">Define Test Environment management 
+                process requirements</a>.</li>
+            </ul>
+          </li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+      </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_tstatmarc.htm">Test Automation Architecture</a></li>
+<li><a href="../artifact/ar_tstdta.htm">Test Data</a></li>
+<li><a href="../artifact/ar_tstenv.htm">Test Environment Configuration</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+<li><a href="../artifact/ar_wlmod.htm">Workload Analysis Model</a></li>
+</ul>
+&nbsp;
+	  </td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_tstenv.htm">Test Environment Configuration</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstds.htm">Test Designer</a>&nbsp;
+	  </td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/test_realtime/tm_rtrtenv.htm">Configuring the Test Environment in Rational Test RealTime</a></li>
+<li><a href="../../toolment/testmgr/tm_tstpln.htm">Creating a Test Plan Using Rational TestManager</a></li>
+<li><a href="../../toolment/testmgr/tm_tstmn.htm">Performing Test Activities Using Rational TestManager</a></li>
+<li><a href="../../toolment/robot/tm_tsten.htm">Setting Up the Test Environment in Rational Robot </a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <!-- Activity More Information -->
+    
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_vrftstapr.htm">Verify Test Approach</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="ExamineTestApproachAndSAD">Examine Test Approach against software architecture</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To refresh your understanding of the approach for the testing 
+        and how that will be constrained by the the software architecture.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Reviewing the test approach, itemize and characterize the key aspects the the 
+  test approach. Using this information, review the software architecture and 
+  begin to formulate an understanding of the general environmental needs for the 
+  testing effort.</p>
+
+
+<h3><a name="IdentifyDeploymentEnvirons">Identify each specific deployment environment</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gain an understanding of the number of different deployment 
+        environments and become acquainted with the key characteristics of each.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+  Using the software architecture as a starting point, locate and review the deployment 
+  model and associated information. Identify each specific target environment 
+  the software will be deployed on and become familiar with the distinguishing 
+  characteristics of each.</div>
+
+<h3><a name="ConsolidateEnvirons">Consolidate list of necessary environments</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To formulate a consolidated list of a short number of environments 
+        that provide the broadest range of environmental experience.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+  It's not usually practical to setup and administer a large number of test environments. 
+  Economies of scale usually force your hand to accepting a limited subset of 
+  the possible target environments you could test. Make a list of all the target 
+  environments you have identified, and looks for ways to consolidate and reduce 
+  the list to a manageable subset. It's typical for both base hardware and operating 
+  system software to be shared across multiple test environments.</div>
+
+<h3><a name="ForEachEnviron">For each Test Environment Configuration</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To define the essential elements of the each Test Environment 
+        Configuration that will enable the required testing to be performed.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>For each Test Environment Configuration you have identified that you should 
+  perform your testing against, identify and define the following details.</p>
+
+
+<h4><a name="IdentifySpecificNeeds">Identify specific environment needs for each 
+  test technique</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Using the Test Plan, identify each technique that will be part of the Test 
+  Approach. For each technique, list the specific environmental requirements that 
+  will need to be satisfied to allow the testing to be undertaken.</p>
+
+
+<h4><a name="DefineBaseInventory">Define inventory of base hardware and software</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Using the requirements you have identified, begin collating a list of both 
+  the hardware and software that will be require to conduct the testing. Keep 
+  an eye open to find opportunities for consolidation.</p>
+
+
+<h4><a name="DefineTestInventory">Define detailed inventory of hardware and software 
+  to support test process</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>Now gather the details for each configuration. Be as specific as possible. 
+  This may require the assistance of technical support or system administration 
+  resources. Try to find the minimum and maximum &quot;extremes&quot; for the 
+  possible environments. Often these min/ max extremes are enough to provide a 
+  sufficient breadth of environment experience.</p>
+
+
+<h4><a name="DefineEnvironManagement">Define Test Environment management process 
+  requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+<p>To setup, maintain and manage a test environment is often a difficult and demanding 
+  undertaking. Give thought to the management procedures you will adopt to keep 
+  the test environment in good working order.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

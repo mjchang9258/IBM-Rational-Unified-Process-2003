@@ -1,0 +1,337 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Finding Business Actors and Use Cases Using Rational Rose</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Finding Business Actors and Use Cases Using Rational Rose</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational Rose to record the results
+of finding business actors and business use cases.</p>
+  
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_fbauc.htm">Find Business Actors and Use Cases</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>To record the results of finding business actors and business use cases using
+Rational Rose:
+<ol>
+  <ol>
+    <li><a href="#Create the Use-Case Model Package">Create the business
+      use-case model package</a></li>
+    <li><a href="#Create a Use-Case Diagram">Create a use-case diagram</a></li>
+    <li><a href="#Create Actors">Create business actors</a></li>
+    <li><a href="#Create Use Cases">Create business use cases</a></li>
+    <li><a href="#Document the Relationship between Actors and Use Cases">Document
+      the relationship between business actors and business use cases</a></li>
+    <li><a href="#Transfer the Use Cases and Actors to a Rational RequisitePro&#153; Project">Manage
+      use cases using Rational Rose and Rational RequisitePro</a></li>
+  </ol>
+</ol>
+<h3>1. <a name="Create the Use-Case Model Package">Create the business use-case
+model package</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>A separate business use-case model can be represented in Rational Rose&reg; 
+  using a package within the Use Case View named &quot;Business Use-Case Model.&quot; 
+  To create a package called &quot;Business Use-Case Model&quot; in the Use Case 
+  View: 
+<ul>
+  <li>Right-click to select the Use Case View in the browser.</li>
+  <li>Select <b>Package</b> from the <b>New</b> option on the shortcut menu. A
+    &quot;NewPackage&quot; browser icon is added to the browser.</li>
+  <li>With the new package icon selected, type the name &quot;Business Use-Case Model&quot;.</li>
+</ul>
+
+<p>A separate business use-case model package is only necessary if you are maintaining
+both business use-case model and system use-case model in one and the same
+Rational Rose model.
+Otherwise the business use cases and business actors can be created directly under the Use
+Case View in the browser. </p>
+
+<h3>2. <a name="Create a Use-Case Diagram">Create a use-case diagram</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Business actors and business use cases can be created in a use-case diagram. </p>
+
+<p>To create a use-case diagram for the business use-case model: 
+
+<ul>
+  <li>Right-click to select the package named &quot;Business Use-Case Model&quot; in the
+    browser and make the shortcut menu visible.</li>
+  <li>Select <b>Use Case Diagram</b> from the <b>New</b> option on the shortcut menu. A
+    &quot;NewDiagram&quot; use-case diagram icon is added to the browser.</li>
+  <li>With the new use-case diagram selected, type a name of the diagram. </li>
+  <li>Double-click on the new use-case diagram to bring it up in the diagram window.</li>
+</ul>
+
+<h3>3. <a name="Create Actors">Create business actors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To create a business actor in the use-case diagram, do the following: 
+
+<ul>
+  <li>Double-click on a use-case diagram in the Use Case View in the browser to display the
+    diagram in the diagram window.</li>
+  <li>Select <b> Actor</b> in the toolbox. The shape of the cursor changes to a plus sign.</li>
+  <li>Left-click in the use-case diagram where you want to place the actor symbol. Type the
+    name of the new actor.</li>
+  <li>Open the Actor Specification dialog box by double-clicking on the actor&#146;s symbol in
+    a use-case diagram or the browser. The Class Specification is displayed with
+    &quot;Actor&quot; defined as the stereotype setting. Open the <b> General</b> tab.</li>
+  <li>Select the &laquo;business actor&raquo; stereotype.</li>
+  <li>Write a brief description of the business actor in the Documentation field.</li>
+  <li>Click <b> OK</b> to accept and close the Actor Specification dialog box.</li>
+  <li>Right-click on the business actor and make sure that Options: Stereotype Display: Icon
+    is selected. </li>
+</ul>
+
+<h3>4. <a name="Create Use Cases">Create business use cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To create a new business use case in a use-case diagram, do the following: 
+
+<ul>
+  <li>Double-click on a use-case diagram in the Use Case View in the browser to display the
+    diagram in the diagram window.</li>
+  <li>Select <b> Use Case</b> in the toolbox. The shape of the cursor changes to a plus sign.</li>
+  <li>Left-click in the use-case diagram where you want to place the use case symbol. Type the
+    name of the new use case.</li>
+</ul>
+
+<p>To briefly describe the use case, do the following: 
+
+<ul>
+  <li>Open the Use Case Specification dialog box by double-clicking on the use case&#146;s
+    symbol in a use-case diagram or the browser. Open the <b> General</b> tab.</li>
+  <li>Select the &laquo;business use case&raquo; stereotype.</li>
+  <li>Write a brief description of the business use case in the Documentation field.</li>
+  <li>Click <b> OK</b> to accept the brief description entry and close the Use Case Specification
+    dialog box.</li>
+  <li>Right-click on the business use case, and make sure that Stereotype Display: Icon is
+    selected. </li>
+</ul>
+
+<h3>5. <a name="Document the Relationship between Actors and Use Cases">Document
+the relationship between business actors and business use cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To insert a communicates-association from a business actor to a business use case in a
+use-case diagram, do the following: 
+
+<ul>
+  <li>Select the <b> Association</b> arrow from the toolbox in the use-case diagram editor.</li>
+  <li>Position the cursor on the business actor in the use-case diagram. Left-click and move
+    the cursor to the business use-case symbol and release.</li>
+  <li>Double-click on the created association and select the &laquo;communicates&raquo; stereotype in
+    the Association Specification dialog box.</li>
+  <li>Click <b>OK</b>.</li>
+  <li>Right-click on the created association, and make sure that the Show Stereotype selection
+    is checked in the shortcut menu.</li>
+  <li>The stereotype label can be repositioned by dragging and dropping it in the diagram.</li>
+</ul>
+
+<p>To briefly describe a communicates-association, do the following: 
+
+<ul>
+  <li>Open the Association Specification dialog box by double-clicking on the association
+    symbol in a use-case diagram.</li>
+  <li>The <b> General</b> tab in the Association Specification dialog box now appears by default.</li>
+  <li>Write a brief description in the Documentation field.</li>
+  <li>Click <b> OK</b> to accept the brief description entry, and close the Association Specification
+    dialog box.</li>
+</ul>
+
+<p>To describe the multiplicity of a role in a communicates-association, do the following:
+
+<ul>
+  <li>Right-click on the association line close to the business actor or business use case
+    where the multiplicity is to be specified.</li>
+  <li>Select the multiplicity from the multiplicity section of the shortcut menu. Values not
+    predefined in the shortcut menu can be specified in the Association Specification dialog
+    box, which can be opened by double-clicking the association.</li>
+</ul>
+
+<p>To specify the navigability of a role in a communicates-association, do the following: 
+
+<ul>
+  <li>Right-click on the association line close to the business actor or business use case
+    where the navigability is to be specified.</li>
+  <li>Select or de-select the Navigable property in the shortcut menu.</li>
+</ul>
+
+<h3>6. <a name="Transfer the Use Cases and Actors to a Rational RequisitePro&#153; Project">Manage
+use cases using Rational Rose and&nbsp;<br>
+Rational RequisitePro&nbsp;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Rational’s Integrated Use Case Management allows you to manage use cases in
+Rational Rose using attributes, such as Priority, Risk, Status, and Iteration,
+by associating use cases in Rose with Rational RequisitePro documents and
+requirements. You can easily navigate from use-case models in Rose to
+RequisitePro use-case documents and requirements. Use-case management in
+RequisitePro adds depth and relational information to your Rose use cases.</p>
+
+<p>For more information, see <a href="../../toolment/anastudio/tm_iucm.htm">Tool Mentor: Managing Use Cases Using Rational
+Rose and Rational RequisitePro.</a></p>
+
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

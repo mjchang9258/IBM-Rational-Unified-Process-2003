@@ -1,0 +1,259 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Linking Configuration Management and Change Request Management Using Rational ClearQuest and Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Linking Configuration Management and Change Request Management Using Rational ClearQuest and Rational ClearCase</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+
+<p>This tool mentor describes how to enable the use of Rational ClearQuest with
+Rational ClearCase Unified Change Management
+(UCM) projects.&nbsp;</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_wspba.htm">Set Up Configuration Management (CM) Environment</a></li>
+</ul>
+<br>
+    
+</p>
+
+<h3>Overview</h3>
+<p>ClearCase UCM projects can be integrated with ClearQuest, a change request
+management tool. Using ClearQuest, you can submit change requests, view and
+modify existing change requests, and create and run user or site-specific
+queries and reports. The UCM-ClearQuest integration adds significant project
+management and activity management capabilities to UCM projects. For example,
+ClearQuest records can be linked with ClearCase activities and policies that can
+be set to govern when you can deliver an activity in ClearCase and when you can
+close an activity in ClearQuest.</p>
+<p>This tool mentor is applicable when running Microsoft Windows.&nbsp;&nbsp;</p>
+<p>
+<b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;For additional
+information, see the topic titled <i>About the ClearQuest-UCM integration</i> in ClearCase
+online Help.&nbsp;</p>
+<h4>Tool Steps</h4>
+<p>To set up the UCM-ClearQuest integration:&nbsp;
+<ol>
+  <li><a href="#Enable a Rational ClearQuest schema to work with UCM or use the predefined UCM-enabled schema">Enable a ClearQuest schema to work with UCM or use the predefined
+    UCM-enabled schema</a>
+  <li> <a href="#Create or upgrade a Rational ClearQuest database to use the schema"> Create or upgrade a change request database to use the schema</a>
+  <li><a href="#Enable your UCM project to work with Rational ClearQuest">Enable your UCM project to work with ClearQuest</a></li>
+</ol>
+<h3>1.&nbsp;<a name="Enable a Rational ClearQuest schema to work with UCM or use the predefined UCM-enabled schema">Enable a ClearQuest schema to work with UCM or use the predefined
+UCM-enabled schema</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following steps tell you how to use predefined UCM-enabled schemas to set
+up a change request database to work with UCM. The predefined UCM schemas,
+named <b>UnifiedChangeManagement </b>and <b>Enterprise</b>, include the record
+type, field, form, state, and other definitions necessary to work with a UCM
+project.&nbsp;</p>
+<p>To set up a change request database to work with UCM:&nbsp;</p>
+<ol>
+  <li>Create a user database that is associated with one of the predefined
+    UCM-enabled schemas.&nbsp;
+  <li>In the ClearQuest Designer, click <b>Database </b>&gt; <b>New Database </b>to
+    start the New Database Wizard.&nbsp;
+  <li>Complete the steps in the wizard; number 4 prompts you to select a schema
+    to associate with the new database. Scroll the list of schema names and
+    select the new schema.</li>
+  <li>Click <b>Finish</b>.</li>
+</ol>
+<p>
+<IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15">
+ For information on how to enable a ClearQuest schema for use with the
+UCM-ClearQuest integration, see the topic &quot;Enabling a Schema to Work with UCM&quot;
+in the ClearCase manual
+titled <i>Managing Software Projects</i>.&nbsp;</p>
+<h3>2.&nbsp;<a name="Create or upgrade a Rational ClearQuest database to use the schema">Create 
+  or upgrade a change request database to use the schema</a> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></h3>
+<p>The predefined UCM schemas let you use the UCM-ClearQuest integration right
+away, but you may prefer to design a custom schema to track your project’s
+activities and change requests. You may even prefer to use a different,
+predefined schema. There are several ways to do this, depending on your
+project's needs.&nbsp;&nbsp;</p>
+<p>We recommend you become familiar with information in &quot;Setting Up a Change 
+  Request Database&quot; in the ClearCase manual <i>Managing Software Projects</i> 
+  before proceeding. Detailed information on procedures for this task are also 
+  presented in this section of the ClearCase documentation set.&nbsp;</p>
+<p><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15">
+ For detailed information on
+this procedure, see &quot;Planning How to Use the UCM-ClearQuest Integration&quot; in the
+ClearCase manual titled <i>Managing Software Projects.</i></p>
+<h3>3.&nbsp;<a name="Enable your UCM project to work with Rational ClearQuest">Enable your UCM project to work with ClearQuest</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>In the left pane of the ClearCase Project Explorer, right-click the
+    project to display its shortcut menu. Click <b>Properties </b>to display its
+    property sheet.</li>
+  <li>Click the <b>ClearQuest </b>tab and then select the <b>Project is
+    ClearQuest-enabled </b>check box.&nbsp;</li>
+  <li>Select the user database from the &quot;Link to this Change Request Database&quot; 
+    list.&nbsp;</li>
+  <li>The first time you enable a project, ClearQuest opens its Login<b> </b>dialog
+    box. Enter your user name, password, and the name of the database to which
+    you are linking the project.</li>
+  <li>Click <b>OK</b>.&nbsp;</li>
+</ul>
+<p>
+<IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15">
+<b>Advanced feature</b>: You can also set development policies for projects that
+use the UCM-ClearQuest integration. See &quot;Policies Available in UCM-ClearQuest Integration&quot;
+in the manual titled <i>Managing Software Projects</i> for more information.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

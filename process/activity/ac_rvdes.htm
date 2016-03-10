@@ -1,0 +1,452 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Review the Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Review the Design</rpw><a name="Top"></a></h2>
+
+
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To verify that the design model fulfills the requirements on the
+        system, and that it serves as a good basis for its implementation.</li>
+      <li>To ensure that the design model is consistent with respect to the
+        general design guidelines.</li>
+      <li>To ensure that the design guidelines fulfill their objectives.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+	  <li><a href="#GeneralRecommendations">General Recommendations</a></li>
+      <li><a href="#Review the Design Model as a whole">Review the Design Model
+        as a Whole</a></li>
+      <li><a href="#Review Each Use-Case Realization">Review Each Use-Case
+        Realization</a></li>
+
+      <li><a href="#Review Each Design Element">Review Each
+        Design Element</a></li>
+      <li><a href="#Review Design Guidelines">Review Design Guidelines</a></li>
+      <li><a href="#Prepare Review Record and Document Defects">Prepare Review
+        Record and Document Defects</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_amdl.htm">Analysis Model</a></li>
+<li><a href="../artifact/ar_datmd.htm">Data Model</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_navmap.htm">Navigation Map</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_uiprt.htm">User-Interface Prototype</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Arrange one review of the design model per iteration in the Elaboration and
+	  Construction phases, where you review the work in progress. Then, in the
+	  iteration in the Construction phase, where the design model is considered to be
+	  more or less complete, you should arrange a detailed review of the design model.
+	  You should also arrange one review meeting per iteration in the other phases
+ 	  (Inception and Transition) when the design model is refined.
+	  <p>The participants of the review meetings will ultimately approve the design
+	  model. Before that, you will probably have to review the system several times,
+	  because results from a review will undoubtedly result in changes to the model.</p>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_tchrvw.htm">Technical Reviewer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/rose/tm_usingmi.htm">Comparing and Merging Rational Rose Models Using Model Integrator</a></li>
+<li><a href="../../toolment/rose/tm_webpubmod.htm">Publishing Web-based Rational Rose Models Using Web Publisher</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="chklists/ck_aclss.htm">Checklist: Analysis Class</a></li>
+<li><a href="chklists/ck_cpsl.htm">Checklist: Capsule</a></li>
+<li><a href="chklists/ck_dclss.htm">Checklist: Design Class</a></li>
+<li><a href="chklists/ck_dmdl.htm">Checklist: Design Model</a></li>
+<li><a href="chklists/ck_dpckg.htm">Checklist: Design Package</a></li>
+<li><a href="chklists/ck_dsubs.htm">Checklist: Design Subsystem</a></li>
+<li><a href="chklists/ck_prot.htm">Checklist: Protocol</a></li>
+<li><a href="chklists/ck_sgnl.htm">Checklist: Signal</a></li>
+<li><a href="chklists/ck_ucrlz.htm">Checklist: Use-Case Realization</a></li>
+<li><a href="chklists/ck_uidesign.htm">Checklist: User-Interface Design</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and7.htm">Design the Database</a></li>
+<li><a href="../workflow/ana_desi/wfs_and3.htm">Analyze Behavior</a></li>
+<li><a href="../workflow/ana_desi/wfs_and4.htm">Design Components</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="GeneralRecommendations">General Recommendations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">General recommendations for each review.</td>
+  </tr>
+</table>
+<br>
+</div>
+The "peer" reviewer has the same staffing profile as the Role: <a href="../workers/wk_archt.htm">Software Architect</a>, 
+although with a more narrow focus on the technical issues. Leadership, maturity, pragmatism, and result-orientation 
+are important to lesser degrees, but still important: a reviewer may uncover design defects that are likely to be 
+unpopular if they threaten the schedule of the project. Still, it is better to raise critical issues early, when they 
+can be resolved rather than blindly following a schedule that leads the project team down the wrong path. 
+The design reviewer needs to balance risks against costs, remaining sensitive to the broader issues of project 
+success. The design reviewer also needs to be a persuasive communicator who can raise and discuss sensitive issues. 
+From a technical knowledge standpoint, the design reviewer needs to have experience as a Role: <a href="../workers/wk_dsgnr.htm">Designer</a>.
+
+<h3><a name="Review the Design Model as a Whole"><b>Review the Design Model as a
+Whole</b></a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose&nbsp;</b></td>
+	<td width="95%">To ensure that the overall structure for the Design Model is well-formed.<br>
+      To detect large-scale quality problems not visible by looking at lower-level elements.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p><br>The <a href="../artifact/ar_desmd.htm">Design Model</a> as a whole must be reviewed to detect glaring problems with
+layering and responsibility partitioning. The purpose of reviewing the model as
+a whole is to detect large-scale problems that a more detailed review would
+miss.</p>
+
+<p>In the Inception phase and early in the Elaboration phase, this review will
+be focused on the overall structure of the model, with special emphasis on
+layering and on interfaces. Package and Subsystem dependencies should be
+examined to ensure loose coupling between packaging elements. The contents of
+packages and subsystems should be examined to ensure high cohesion within
+packaging elements. In general, all elements should be examine to ensure that
+they have clear and appropriate responsibilities, and that their names reflect
+these responsibilities.</p>
+<p>Once at least architectural prototypes have been developed, a more
+comprehensive review of the design should be conducted. The model should first
+be reviewed for overall completeness, and then more carefully to discover
+defects.</p>
+<h3><a name="Review Each Use-Case Realization"><b>Review Each Use-Case
+Realization</b></a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To ensure that the behavior of the system (as expressed in use-case
+      realizations) matches the required behavior of the system (as expressed in use cases), i.e. is it complete?<br>
+	  To ensure that the behavior is allocated appropriately among model elements, i.e. is it correct?&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p><br>Once the structure of the design model is reviewed, the behavior of the model
+needs to be reviewed. First, make sure that there is no missing behavior by
+checking to see that all scenarios for the current iteration have been
+completely covered by use-case realizations. All of the behavior in the relevant
+use-case sub-flows must be described in the completed <a href="../artifact/ar_ucrea.htm"> use-case
+realizations</a>.</p>
+<p>In cases where the behavior of the system is event-driven, you may have used
+statechart diagrams to describe the behavior of the use case. Where they exist,
+statechart diagrams need to be examined to ensure that they describe the correct
+behavior, see <a href="../modguide/md_stadm.htm">Guidelines: Statechart Diagram</a>
+for more details.&nbsp;</p>
+
+<p class="reactive">In real-time systems, where <a href="../../process/artifact/ar_prot.htm">Artifact:
+Protocol</a>s are used to describe interacting <a href="../../process/artifact/ar_cpsl.htm">Artifact:
+Capsule</a>s, they should be checked to see that they offer the correct
+behavior.</p>
+
+<p>Next, make sure the behavior of the use-case realization is correctly
+distributed between model elements in the realizations: make sure the operations
+are used correctly, that all parameters are passed, and that return values are
+of the correct type.</p>
+
+<h3><a name="Review Each Design Element"><b>Review
+Each Design Element</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose&nbsp;</b></td>
+	<td width="95%">To ensure that the internal implementation of the design element performs the behavior required of it.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>For each design element&nbsp; (e.g., design class or design subsystem) to which 
+  behavior is allocated, the internal design must be reviewed. For <a href="../artifact/ar_dsub.htm">design 
+  subsystems</a> this means ensuring that the behavior specified in the exposed 
+  <a href="../artifact/ar_if.htm">interfaces</a> has been allocated to one or 
+  more contained design elements.&nbsp; For design classes, this means that the 
+  description of each operation is sufficient defined so that it may be implemented 
+  unambiguously.</p>
+
+<h3><a name="Review Design Guidelines"><b>Review Design Guidelines</b></a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To ensure that design related project-specific guidelines remain current, and to correct defects in the guidelines where they exist.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p><br>
+  On the basis of the design review, look for defects in the design guidelines.</p>
+<ul>
+  <li>Were the guidelines followed? If not, why?</li>
+  <li>Are they correct? Were systematic defects detected that were introduced by
+    erroneous guidelines?</li>
+  <li>Are they complete? Would systematic defects have been reduced if the
+    guidance was provided?</li>
+</ul>
+
+
+
+<h3><a name="Prepare Review Record and Document Defects"><b>Prepare Review
+Record and Document Defects</b></a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To document the review results.<br>
+      To ensure that identified defects are documented.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p><br>
+  Following each review meeting, the results of the meeting are documented in 
+  a <a href="../artifact/ar_rvrec.htm">Review Record</a>. In addition, any defects 
+  are documented in accordance with the project's change management process. </p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+
+
+</body>
+
+</html>

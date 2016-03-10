@@ -1,0 +1,314 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Diagrams in the Business Analysis Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Diagrams 
+  in the Business Analysis Model</rpw><a name="Top"></a><a name="XE_business_object_model__activity_diagrams¸_guidelines_for"></a></h2>
+
+<h4>Topics</h4>
+<ul>
+  <li><a href="#ActivityDiagrams">Activity Diagrams</a></li>
+    <ul>
+	<li><a href="#ActivityDiagramsUsingSwimlanes">Using swimlanes</a></li>
+	<li><a href="#ActivityDiagramsUsingObjectFlows">Using object flows</a></li>
+    </ul>
+  <li><a href="#ClassDiagrams">Class Diagrams</a></li>
+  <li><a href="#CollaborationDiagrams">Collaboration Diagrams</a></li>
+  <li><a href="#SequenceDiagrams">Sequence Diagrams</a></li>
+  <li><a href="#StatechartDiagrams">Statechart Diagrams</a></li>
+</ul>
+
+<h2><a name="ActivityDiagrams">Activity Diagrams </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+
+<p>The activity diagram notation is further explained in <a href="md_bactd.htm">Guidelines:
+Activity Diagram in the Business Use Case Model</a>. This page exemplifies how
+the notation is applied to describe a business use case realization.</p>
+<p>An activity diagram of a business use case realization explores the
+ordering of tasks or activities that accomplish business goals, and that satisfy
+commitments between external business actors and internal business workers. An
+activity may be a manual or automated task that completes a unit of work.&nbsp;</p>
+<p>Activity diagrams help:</p>
+<ul>
+  <li>Provide a rationale for and understanding of the introduction of information
+    systems into the business.&nbsp;</li>
+  <li>Establish objectives for system development projects to implement business
+    transformation initiatives.&nbsp;</li>
+  <li>Justify automation investment based on detailed business process
+    metrics.&nbsp;</li>
+</ul>
+<p>Compared to a sequence diagram, which could be perceived as having a similar
+purpose, an activity diagram with swimlanes and object flows focuses on how you
+divide responsibilities into classes, whereas the sequence diagram helps you
+understand how objects interact and in what sequence. Activity diagrams
+focus on the workflow, while sequence diagrams focus on handling
+business entities. Activity diagrams and sequence diagrams could be used as
+complementary techniques, where a sequence diagram shows what happens in an
+activity state.
+<h3><a name="ActivityDiagramsUsingSwimlanes">Using Swimlanes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_activity_diagrams__swimlanes_for_realizations"></a>If you are using swimlanes and the swimlanes are coupled to
+classes (mainly business workers) in the business analysis model, you are using
+the activity diagram to document business use case realizations, rather than
+business use cases.</p>
+<p>As an example, we show an activity diagram of the realization of the business
+use case Proposal process, which you can find described <a href="md_buc.htm">Guidelines:
+Business Use Case</a>.</p>
+<p align="center"><img src="images/md_bact8.gif" width="546" height="404"></p>
+<p class="picturetext">The realization of the business use case Proposal Process</p>
+<p>The activity diagram provides the details of what happens within the business
+by examining people playing specific roles (the business workers) and the
+activities they perform. For application-development projects, these diagrams
+provide a detailed understanding of the business area that will be supported or
+impacted by the new application. They help establish connection points to the
+proposed new system, and these connection points give rise to system use
+cases.&nbsp;</p>
+<h3><a name="ActivityDiagramsUsingObjectFlows">Using Object Flows</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_activity_diagrams__object_flows"></a><a name="XE_object_flows__in_activity_diagrams"></a>In
+this context, object
+flows are used to show how business entities are created and
+used in a workflow. Object flows allow you to show inputs and outputs from
+activity states in an activity graph. There are two elements to the
+notation:&nbsp;</p>
+<ul>
+  <li>The <b>object flow state</b> represents an object of a class that
+    participates in the workflow the activity graph represents. The object may
+    be the output of one activity and the input of many other activities.&nbsp;</li>
+  <li>The <b>object flow</b> is a kind of control flow with an object
+    flow state as input or an output.&nbsp;</li>
+</ul>
+<p>The object flow symbol represents the existence of an object in a particular
+state, not just the object itself. The same object can be manipulated by a
+number of successive activities that change the object's state. The object can
+then be displayed multiple times in an activity graph, with each appearance
+representing a different state during its life. The object’s state at each
+point may be placed in brackets and appended to the name of the class.&nbsp;</p>
+<p align="center"><span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><img src="images/md_bact9.gif" v:shapes="_x0000_i1025" width="522" height="511"></span></p>
+<p class="picturetext">A generic sales process presented using object
+flows to show how an order changes it state while executing the
+workflow.&nbsp;&nbsp;See <a href="md_bactd.htm">Guidelines:
+Activity Diagram in the Business Use Case Model</a></p>
+<p>An object flow state may appear as the target of one object flow (transition)
+and the source of multiple object flows (transitions).&nbsp;</p>
+<p align="center"><span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><img src="images/md_bact10.gif" v:shapes="_x0000_i1025" width="608" height="612"></span></p>
+<p class="picturetext">An activity diagram for the Proposal process, using object flows to show key business entities
+involved</p>
+<p>Object flows can be compared to data flows within the workflow of a business
+use case. Unlike traditional data flows, however, object flows exist at a
+definite point within an activity graph.</p>
+
+<h2><a name="ClassDiagrams">Class Diagrams </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+
+<p>Class diagrams show associations, aggregations and generalizations between
+business workers and business entities. The following kinds of class diagrams
+might be of interest:
+<ul>
+  <li>Inheritance hierarchies.</li>
+  <li>Aggregates of business workers and business entities.</li>
+  <li>How business workers and entities are related by means of associations.</li>
+</ul>
+Class diagrams show generic structures in the business domain model, but can
+also be part of the documentation of a business use case realization (see <a href="md_bucr.htm">Guidelines:
+Business Use Case Realization</a>) by showing it participating business workers
+and business entities.&nbsp;
+<p align="center"><br>
+<img border="0" src="images/bcoldm1.gif" width="426" height="308"></p>
+<p class="picturetext">A class diagram showing participating business workers
+and business entities in the business use case Individual Check-in.
+</p>
+
+<h2><a name="CollaborationDiagrams">Collaboration Diagrams </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+  
+<p>A collaboration diagram is semantically identical to a sequence diagram, but 
+  focuses on the objects, while the latter focuses on the interactions. A collaboration 
+  diagram should present the subset of objects relevant to the affected working 
+  sequence, including their links, messages, and message sequences.</p>
+
+<h2><a name="SequenceDiagrams">Sequence Diagrams </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+
+<p>A sequence diagram graphically depicts the details of the interaction among
+business workers, business actors, and how business entities are accessed,
+during the performance of a business use case. A sequence diagram briefly
+describes what the participating business workers do, and how the business
+entities are manipulated, in terms of activations, and how they communicate by
+sending messages to one another.</p>
+<p align="CENTER"><img src="images/bseqdm1.gif" width="327" height="286"></p>
+<p class="picturetext">A sequence diagram of part of an Individual Check-in
+business use case.</p>
+<p>The same information that can be found in a sequence diagram can be presented 
+  in a collaboration diagram instead.</p>
+
+<h2><a name="StatechartDiagrams">Statechart Diagrams </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+
+<p>Generally, you can use a state diagram to illustrate which states a business
+worker or a business entity can have - the events that cause a transition from
+one state to another; and the actions that result from a state change. A
+statechart diagram often simplifies the validation of the class design.</p>
+<p>For each state that an object of the class can enter, a diagram shows the
+messages it can receive, the actions to be carried out, and the state the object
+of the class will be in thereafter.</p>
+<p align="CENTER"><img src="images/md_bstat.gif" width="142" height="363"></p>
+<p class="picturetext">The business entity Baggage described with a statechart
+diagram.</p>
+
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

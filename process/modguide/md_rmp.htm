@@ -1,0 +1,549 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Requirements Management Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Requirements 
+  Management Plan</rpw><a name="Top"></a><a name="XE_requirements_management_plan__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Relationship to Other Plans">Relationship to Other Plans</a></li>
+      <li><a href="#Organization, Responsibilities, and Interfaces">Organization,
+        Responsibility, and Interfaces</a></li>
+  <li><a href="#Identifying_Traceability_Items">Identifying Traceability Items</a></li>
+  <li><a href="#Specifying Traceability">Specifying Traceability</a></li>
+  <li><a href="#Sample Attributes">Sample Attributes</a></li>
+  <li><a href="#Assigning Requirements Attributes">Selecting Attributes</a></li>
+  <li><a href="#Reports and Measures">Reports and Measures</a></li>
+  <li><a href="#Requirements Change Management">Requirements Change Management</a></li>
+</ul>
+<h3><a name="XE_requirements_management_plan__relationship_to_other_plans"></a><a name="Relationship to Other Plans">Relationship to Other Plans</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Requirements Management Plan contains information which may be covered to
+a greater or lesser extent by other plans.&nbsp; See <a href="../artifact/ar_ratgl.htm#Tailoring">Artifact:
+Requirements Management Plan, Tailoring</a> for tailoring guidance.</p>
+<h3><a name="XE_Requirements_Management__establishing_stakeholder_relationships"></a><a name="Organization, Responsibilities, and Interfaces">Organization,
+ Responsibilities, and Interfaces</a><a name="Organization, Responsibilities, and Interfaces" href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>As described in the <a href="../../papers/apprmuc.htm">White Paper: Applying
+Requirements Management with Use Cases</a>, requirements management is important
+to ensuring project success.&nbsp; The most commonly cited causes of project
+failure include:</p>
+<ul>
+  <li>Lack of user input</li>
+  <li>Incomplete requirements</li>
+  <li>Changing requirements</li>
+</ul>
+<p>Requirements errors are also likely to be the most common class of error, and
+are the most expensive to fix.</p>
+<p>Having the right relationships with stakeholders can help with these
+problems.&nbsp; The stakeholders are a key source of input for defining
+requirements and understanding priorities of requirements.&nbsp; Many
+stakeholders, however, lack the insight into the cost and schedule impacts of
+requested features, and therefore the development organization must manage
+stakeholders expectations.
+<p>Establishing stakeholder relationships includes defining:</p>
+<ul>
+  <li>Responsibilities of the stakeholders: Will staff be available on site for
+    consulting? At pre-arranged times?</li>
+  <li>Visibility of stakeholders into project artifacts: Open visibility to all
+    artifacts?&nbsp; Visibility only at scheduled milestones?</li>
+</ul>
+<h3><a name="XE_requirements_management_plan__identifying_traceability_items"></a><a name="Identifying_Traceability_Items">Identifying Traceability Items</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Describe traceability items, and define how they are to be named, marked, and
+numbered.&nbsp; See <a href="../workflow/requirem/co_reqty.htm">Concepts:
+Requirement Types</a>, and <a href="../workflow/requirem/co_trace.htm">Concepts:
+Traceability</a>.&nbsp; The most important traceability items are listed in
+<a href="../activity/ac_devra.htm">Activity: Develop Requirements Management
+Plan</a>.
+<h3><a name="XE_requirements_management_plan__specifying_traceability"></a><a name="Specifying Traceability">Specifying Traceability</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p> A
+typical traceability, with a limited set of essential artifacts, is described in <a href="../activity/ac_devra.htm">Activity:
+Develop Requirements Management Plan</a>.</p>
+<p>In addition to identifying the traceability links, you should specify the
+cardinality of the links.&nbsp; Some common constraints are:</p>
+<ul>
+  <li>Each approved product feature must be linked to one or more supplemental
+    requirements, or one or more use cases, or both.&nbsp;</li>
+  <li>Each supplemental requirement and each use case section must be linked to
+    one or more test cases.</li>
+</ul>
+<p>A more detailed discussion of traceability is provided in the white paper <a href="../../papers/traceability.htm">Traceability
+Strategies for Managing Requirements With Use Case</a>.</p>
+<h3><a name="XE_requirements_management_plan__sample_attributes"></a><a name="Sample Attributes">Sample Attributes</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following are some example attributes which you may wish to select from,
+organized using the requirements types identified in <a href="../activity/ac_devra.htm">Activity:
+Develop Requirements Management Plan</a>.</p>
+<h4>Stakeholder Need<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<blockquote>
+  <p><b>Source: </b>The stakeholder originating the requirement.&nbsp; (This may
+  also be implemented as a traceability to a &quot;Stakeholder&quot;
+  traceability item.</p>
+  <p><b>Contribution</b>: Indicates the problem contribution to the overall
+  business opportunity or problem being addressed by the project.
+  Percentage (0 to 100%). All contributions should sum to no greater than
+  100%. Below is an example <a href="../workguid/wg_paret.htm">Pareto
+  Diagram</a> showing the contribution for each of several Stakeholder Needs.</p>
+</blockquote>
+  <p><img border="0" src="images/pareto.gif" width="501" height="162"></p>
+<h4>Features, Supplementary Requirements, and Use Cases<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>&nbsp;&nbsp;</h4>
+<blockquote>
+<p class="InfoBlue"><b>Status: </b>Indicates whether the requirement has been
+reviewed and accepted by the &quot;official channel&quot;. Example values are
+Proposed, Rejected, Approved.</p>
+<p class="InfoBlue">&nbsp;This may be a contractual status, or a status set by a
+working group capable of making binding decisions.&nbsp;&nbsp;</p>
+<p><b><a name="Benefit">Benefit</a>: </b> The importance from the stakeholder(s)
+viewpoint.</p>
+<ul>
+  <li><b> Critical</b> (or primary). These have to do with the main tasks of the system,
+its basic function, the functions for which it is being developed. If they are
+missing the system fails to fulfill its primary mission. They drive the
+architectural design and tend to be the most frequently exercised use cases.</li>
+  <li><b> Important</b> (or secondary). These have to do with the support of the
+system's functions, such as statistical data compilation, report generation,
+supervision, and function testing. If they are missing the system can still (for
+a while) fulfill its fundamental mission, but with degraded service quality. In
+modeling, less importance will be attached to them than to critical use cases</li>
+  <li><b> Useful</b> (nice to have). These are &quot;comfort&quot; features, not
+linked to the system's primary mission but that help in its use or market
+positioning.</li>
+</ul>
+  <p><b>Effort</b>: Estimated effort days to implement the requirement.&nbsp;&nbsp;</p>
+<p>E.g. This could be categories such as Low, Medium, High. E.g. Low = &lt;1day,
+Medium = 1-20 days, High = &gt;20 days.</p>
+  <p>In defining Effort, it should be clearly indicated which overheads
+  (management effort, test effort, requirements effort etc.) is included into
+  the estimate.</p>
+  <p><b>Size</b>: Estimated non-comment source lines of code (SLOCs), excluding
+  any test code.</p>
+  <p>You may wish to distinguish between new and re-used SLOCs, in order to
+  better compute cost estimates.&nbsp;</p>
+  <p> <b> <a name="Risk"> Risk</a></b>: % likelihood that implementation of the requirement
+  will encounter significant undesirable events such as schedule slippage, cost
+  overrun, or cancellation.&nbsp;</p>
+<p>E.g. This could be categories such as Low, Medium, High.&nbsp; E.g. Low =
+&lt;10%, Medium = 10-50%, High = &gt;50%.</p>
+  <p>Another option for Risk is separately tracking Technology Risk&nbsp; - % likelihood of running into serious difficulty
+  implementing the requirement because of lack of experience in the domain
+  and/or required technologies.&nbsp; Then overall risk can be computed as a
+  weighted sum based on other attributes, including
+  size, effort, stability, technology risk, architectural impact, and
+  organizational complexity.&nbsp;</p>
+  <p><b>Organizational</b> <b>Complexity</b>: Categorization of control over the
+  organization developing the requirement.</p>
+  <ul>
+    <li><b>Internal</b>: In-house development at one site</li>
+    <li><b>Geographic</b>: Geographically distributed team</li>
+    <li><b>External</b>: External organization within the company.&nbsp;&nbsp;</li>
+    <li><b>Vendor</b>: Subcontract or purchase of externally developed software.</li>
+  </ul>
+  <p><b><a name="Architectural Impact">Architectural Impact</a>: </b>Indicates how this requirement will impact the
+  software architecture.</p>
+  <ul>
+    <li><b>None</b>: Does not affect the existing architecture.</li>
+    <li><b>Extends</b>: Requires extending the existing architecture.</li>
+    <li><b>Modifies</b>: The existing architecture must be changed to accommodate
+      the requirement.&nbsp;&nbsp;</li>
+  </ul>
+  <p><b>Stability:</b> Likelihood that this requirement will change, or that the
+  development teams' understanding of the requirement will change. (&gt;50% =
+  High, 10..50% = Medium, &lt;10%=Low)</p>
+<p><b>Target Release</b>: The intended product release in which the requirement
+will be met. (Release1, Release1.1, Release2, ...)</p>
+<p><b>Hazard Level / Criticality</b>: Ability to affect health, welfare, or
+economic consequences, typically as a result of the software failing to perform
+as required.</p>
+  <ul>
+    <li>
+      <p class="InfoBlue"><b>Negligible</b>: Cannot result in significant
+      personnel injury or equipment damage.</li>
+    <li>
+      <p class="InfoBlue"><b>Marginal</b>: Can be controlled without personnel
+      injury or major system damage.</li>
+    <li>
+      <p class="InfoBlue"><b>Critical</b>: Can cause personnel injury or major
+      system damage, or will require immediate corrective action for personnel
+      or system survival.</li>
+    <li>
+      <p class="InfoBlue"><b>Catastrophic</b>: Can cause serious injury or
+      death, or complete system loss.</li>
+  </ul>
+  <p class="InfoBlue">Hazards may also be identified as separate requirements
+  types, and linked to associated use cases.&nbsp; You may also wish to track
+  hazard probability, corrective actions and/or preventative measures.</p>
+<p><b>Interpretation</b>: In some cases where the requirements form a formal
+contract, it may be difficult and costly to change the wording the requirements.&nbsp; As the development organization gains a
+better understanding of a requirement, it may be necessary to attach
+interpretation text, rather than simply change the official wording of the
+requirement.</p>
+</blockquote>
+<h4>Use Case<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In addition to the above, it is also useful to track the following use case
+attribute:</p>
+<blockquote>
+  <p><b>%Detailed</b>: Degree to which the Use Case has been elaborated:</p>
+  <ul>
+    <li>
+      <p class="InfoBlue"><b>10%</b>: Basic description is provided..</li>
+    <li>
+      <p class="InfoBlue"><b>50%</b>: Main flows documented.</li>
+    <li>
+      <p class="InfoBlue"><b>80%</b>: Completed but not reviewed.&nbsp; All
+      preconditions and postconditions fully specified.</li>
+    <li>
+      <p class="InfoBlue"><b>100%</b>: Reviewed and approved.</li>
+  </ul>
+</blockquote>
+<h4>Test Case<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<blockquote>
+  <p class="InfoBlue"><b>Status: </b>Tracks progress during test development.</p>
+  <ul>
+    <li>
+      <p class="InfoBlue"><b>No Activity</b>: No work has been accomplished in
+      developing this test case.</li>
+    <li>
+      <p class="InfoBlue"><b>Manual</b>: A manual script has been created and
+      validated as capable of verifying the associated requirements.</li>
+    <li>
+      <p class="InfoBlue"><b>Automated</b>: An automated script has been created
+      and validated as capable of verifying the associated requirements.</li>
+  </ul>
+</blockquote>
+<h4>General Attributes<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Some other requirement attributes which have general applicability are:</p>
+<ul>
+  <li>Planned Iteration</li>
+  <li>Actual Iteration</li>
+  <li>Responsible Party</li>
+</ul>
+<h3><a name="XE_requirements_management_plan__selecting_attributes"></a><a name="Assigning Requirements Attributes">Selecting Attributes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Attributes are used to track information associated with a traceability item,
+typically for status and reporting purposes.&nbsp; Each organization may require specific tracking information
+unique to their organization.&nbsp; Before assigning an attribute,
+you should consider:</p>
+<ul>
+  <li>Who will supply this information?</li>
+  <li>Who will use this information, and why is it useful?</li>
+  <li>Is the cost of tracking this information worth the benefit?</li>
+</ul>
+<p>The essential attributes to track are <b> Risk, Benefit, Effort, Stability </b>and<b> Architectural Impact</b>, in order to permit prioritizing
+requirements for scope management and to assign requirements to iterations.
+These should be tracked initially on Features, and later on all Use Cases and
+Supplemental Requirements.</p>
+<h4>Consider Derived Information</h4>
+<p>In addition to directly using requirements attributes, you may wish to derive
+information from these requirements attributes via traceability to other
+requirements types.&nbsp; Some typical patterns of derivation are:</p>
+<ul>
+  <li><b>Deriving Downwards</b> - Given the traceability above, suppose a
+    Product Feature has an attribute &quot;Target Release&quot;.&nbsp; One can
+    derive that each Use Case Section traced to by this Product Feature must
+    also be available at or before the specified Target Release.</li>
+  <li><b>Deriving Upwards</b> - Given the traceability above, suppose a Use Case
+    Section has an attribute &quot;Estimated Effort&quot;.&nbsp; The cost of a
+    Product Feature can be estimated by summing the Estimated Effort for the Use
+    Case Sections that it traces to.&nbsp; This must be used with caution, as
+    several Product Features could map to the same Use Case Section.</li>
+</ul>
+<p>Thus, in order to assign requirements attributes to requirements types, you
+should consider:</p>
+<ul>
+  <li>What derived information / reports do we wish to generate from this
+    attribute?</li>
+  <li>At what level in the traceability hierarchy should we track this
+    attribute?</li>
+</ul>
+<h4>Dependency of Attributes</h4>
+<p>Some attributes may only be applicable to a certain level of
+development.&nbsp; For example, an estimated effort attribute for a use case may
+be replaced by effort estimates on the design elements once the use case is
+fully represented in the design.</p>
+<h3><a name="XE_requirements_management_plan__reports_and_measures"></a><a name="Reports and Measures">Reports and Measures </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following are examples of requirement-related reports and measures.&nbsp;
+By selecting the required/desired
+set of reports and measures for your project, you can derive the necessary attributes for the
+Requirements Management Plan.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%" valign="middle" align="center"><b>Report/Measure Description</b></td>
+    <td width="50%" valign="middle" align="center"><b>Used For</b></td>
+  </tr>
+  <tr>
+    <td width="33%"><b>Development Priority of Use Cases (list of Use Cases
+      sorted by Risk, Benefit, Effort, Stability, and Architectural Impact).</b></td>
+    <td width="33%">This may be separately sorted lists, or a single list sorted
+      by a weighted combination of these attributes.&nbsp; Used for <a href="../activity/ac_priuc.htm">Activity:
+      Prioritize Use Cases</a>.</td>
+  </tr>
+  <tr>
+    <td width="33%"><b>Percent of Features in each Status
+      Category.</b></td>
+    <td width="33%">Tracks progress during definition of the project baseline.</td>
+  </tr>
+  <tr>
+    <td width="33%">&nbsp;- classified by Target Release</td>
+    <td width="33%">- tracks progress on a per release basis</td>
+  </tr>
+  <tr>
+    <td width="33%">&nbsp;- weighted by Effort</td>
+    <td width="33%">&nbsp;- provides a more precise measure of progress.</td>
+  </tr>
+  <tr>
+    <td width="33%"><b>Features sorted by
+      Risk</b></td>
+    <td width="33%">&nbsp;- identifies risky features.&nbsp; Useful for scope
+      management and assigning features to iterations.</td>
+  </tr>
+  <tr>
+    <td width="33%">&nbsp;- classified by Target Release,
+      with Development Risk summed for each Target Release</td>
+    <td width="33%">- useful for assessing whether risky features have been
+      scheduled early or late in the project.</td>
+  </tr>
+  <tr>
+    <td width="33%"><b>Use Case Sections sorted by Stability</b></td>
+    <td width="33%">- used for deciding which use case sections need to be
+      stabilized.</td>
+  </tr>
+  <tr>
+    <td width="33%">- weighted or sorted by Affects Architecture</td>
+    <td width="33%">- useful for prioritizing architecturally significant and/or
+      high effort use cases to be stabilized first.</td>
+  </tr>
+  <tr>
+    <td width="33%"><b>Requirements with Undefined Attributes</b></td>
+    <td width="33%">When requirements are first proposed, you may not
+      immediately assign all the attributes (e.g. by using a default
+      &quot;Undefined&quot; value).&nbsp; The <a href="../activity/chklists/ck_srs.htm">Checkpoints:
+      Software Requirements Specification</a> uses this report to check for such
+      undefined attributes.&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="33%"><b>Traceability Items with incomplete traceability links</b></td>
+    <td width="33%">A report of incorrect or incomplete traceability links is
+      used for the <a href="../activity/chklists/ck_srs.htm">Checkpoints:
+      Software Requirements Specification</a> .</td>
+  </tr>
+</table>
+<br>
+</div>
+<p>Other reports include:</p>
+<ul>
+  <li><a href="../reports/re_ucrep.htm">Report: Use-Case</a> 
+  <li><a href="../reports/re_ucmsv.htm">Report: Use-Case Model Survey</a> 
+  <li><a href="../reports/re_actor.htm">Report: Actor</a> 
+  <li><a href="../reports/re_clrep.htm">Report: Class</a></li>
+</ul>
+
+<h3><a name="Requirements Change Management">Requirements Change Management</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Change is inevitable, and should be planned for.&nbsp; Changes occur because:</p>
+<ul>
+  <li>There was a change to the problem to be solved.&nbsp; This may be because
+    of new regulations, economic pressures, technology changes, etc.</li>
+  <li>The stakeholders changed their minds or perceptions of what they wanted
+    the system to do.&nbsp; This may be due to a variety of causes, including
+    changes in responsible staff, a deeper understanding of the issues, etc.</li>
+  <li>Failure to include all stakeholders, or to ask all the right questions,
+    when defining the original requirements.</li>
+</ul>
+<p>Strategies to managing changing requirements include:</p>
+<ul>
+  <li>Baseline the Requirements</li>
+  <li>Establish a Single Channel to Control Change</li>
+  <li>Maintain a Change History</li>
+</ul>
+<h4>Baseline the Requirements<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Toward the end of the elaboration phase, the System Analyst should baseline
+all known requirements.&nbsp; This typically is performed by ensuring there is
+version control on the requirements artifacts, and identifying the set of
+artifacts and their versions that form the baseline.</p>
+<p>The purpose of the baseline is not to freeze the requirements.&nbsp; Rather
+it is to enable new and modified requirements to be identified, communicated,
+estimated, and controlled.&nbsp;&nbsp;</p>
+
+<p>Also see <a href="../../toolment/reqpro/tm_rbase.htm">Tool Mentor: Baselining
+a Rational RequisitePro Project</a>.</p>
+<h4>Establish a Single Channel to Control Change<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A stakeholder's wish for a change cannot be assumed to officially change the
+budget and schedule.&nbsp; Typically a negotiation or budget reconciliation
+process must be initiated before a change can be approved.&nbsp; Often changes
+must be balanced against one another.</p>
+<p>It is crucial that every change go through a single channel, the Change
+Control Board (CCB), to determine its impact on the system and to undergo
+official approval.
+See <a href="../activity/ac_epcmp.htm">Activity: Establish Change
+Control Process</a>. The mechanism for proposing a change is to <a href="../activity/ac_subcr.htm">submit</a>
+a <a href="../artifact/ar_crqst.htm">Change Request</a>, which is <a href="../activity/ac_revcr.htm">reviewed</a>
+by the CCB.</p>
+<h4>Maintain a Change History<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>It is beneficial to maintain an audit trail of changes to individual
+requirements.&nbsp; This change history allows you to view all prior changes to
+the requirement as well as changes to attribute values, and the rationale for
+the change.&nbsp; This can be useful in assessing actual stability of
+requirements, and identifying cases where the change control process may not be
+working (e.g. identifying requirements changes that were not properly reviewed
+and approved).</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

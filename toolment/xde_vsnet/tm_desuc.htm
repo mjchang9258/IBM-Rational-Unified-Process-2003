@@ -1,0 +1,377 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<title>Tool Mentor:&nbsp;Detailing a Use Case Using Rational XDE Developer - .NET Edition</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+
+</head>
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Detailing a Use Case Using Rational XDE Developer - .NET Edition</rpw><a name="Top" msnavigation></a> </h2>
+
+
+<h3>Purpose</h3>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_desuc.htm">Detail a Use Case</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity. Links to topics
+  in the Rational XDE&#153; online Help are marked with <img src="../../images/helpbook.gif" width="16" height="16">.
+
+
+<h3>Overview</h3>
+
+<p>This tool mentor assumes that a Use-Case Model has been created in accordance 
+  with the <a href="model_structure_guidelines.htm">XDE Model Structure Guidelines</a>. 
+  It further assumes that a use case has been created by following the steps outlined 
+  in <a href="tm_fauc.htm">Tool Mentor: Finding Actors and Use Cases Using Rational 
+  XDE</a>.</p>
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#Detail the Flow of Events of the Use Case">Detail the Flow of
+    Events of the Use Case</a></li>
+  <li><a href="#Structure the Flow of Events of the Use Case">Structure the Flow
+    of Events of the Use Case</a></li>
+  <li><a href="#Illustrate Relationships with Actors and Other Use Cases">Illustrate
+    Relationships with Actors and Other Use Cases</a> &lt;optional&gt;</li>
+  <li><a href="#Describe the Special Requirements of the Use Case">Describe the
+    Special Requirements of the Use Case</a></li>
+  <li><a href="#Describe Communication Protocols">Describe Communication Protocols</a></li>
+  <li><a href="#Describe Preconditions of the Use Case">Describe Preconditions
+    of the Use Case</a> &lt;optional&gt;</li>
+  <li><a href="#Describe Postconditions of the Use Case">Describe Postconditions
+    of the Use Case</a> &lt;optional&gt;</li>
+  <li><a href="#Describe Extension Points">Describe Extension Points</a> &lt;optional&gt;</li>
+  <li><a href="#Evaluate your Results">Evaluate the Results</a></li>
+</ul>
+
+<p>Before detailing a use case, you need to decide how these details will be captured.
+  Some options are:</p>
+
+<ul>
+  <li>Using the Model Documentation window, you can document any selected model
+    element. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+    </li>
+  <li>A separate use-case specification document can be created using the RUP-provided
+    template (see <a href="../../process/artifact/ar_uc.htm">Artifact: Use Case</a>
+    for templates). The document can then be associated with the use-case model
+    element. See
+    <script language=javascript>ReferenceHelpTopic("Linking External Files to Model Elements","rs","rs_t_lnk_extrn_file_mdl_ele");</script>.
+    </li>
+  <li> You can also associate use cases with requirement and documents using the
+    Rational RequisitePro-XDE Integration. To associate a use case to a RequisitePro
+    requirement or document, refer to the RequisitePro-XDE integration help. This
+    is accessed from the top menu bar by clicking <i>Tools &gt; Rational RequisitePro
+    &gt; Integration Help</i>. More information about the RequisitePro-XDE integration
+    is provided below.</li>
+</ul>
+
+
+<h4>Rational RequisitePro-XDE Integration</h4>
+
+<p>Using the Rational RequisitePro-XDE Integration, you can edit use-case model
+  elements from their associated requirements in RequisitePro databases and documents.
+  You can associate use cases with requirements documents in RequisitePro, which
+  allows you to develop a textual definition of the use case in a RequisitePro
+  Microsoft Word document. In RequisitePro use-case documents, you can elaborate
+  the use case with descriptions, flows of events, special requirements, and conditions.
+</p>
+
+<p>The integration also allows you to assign requirement attributes, such as traceability,
+  to model elements. You can use associated requirements to track the relationships
+  between your model elements and other requirements using RequisitePro requirements
+  traceability capabilities. Associating model elements with requirements allows
+  you to review and assess the impact of requirement changes on your model elements.</p>
+
+<p>To use the integration, RequisitePro must be installed, and the RequisitePro
+  profile must be applied to the XDE model. The RequisitePro profile is automatically
+  applied to a model created with the Use Case model template. For existing models,
+  you must apply this profile manually. See
+  <script language=javascript>ReferenceHelpTopic("Applying Profiles to a Model","rs","rs_t_apply_profile_mdl");</script>.
+  <br>
+</p>
+
+
+<h3><a name="Detail the Flow of Events of the Use Case">Detail the Flow of Events
+  of the Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+  <li>Open the Use-Case Model. </li>
+  <li>Navigate to the use case to be detailed. </li>
+  <li>Enter a detailed flow of events into the documentation associated with the
+    model element.</li>
+</ol>
+
+<h3><a name="Structure the Flow of Events of the Use Case">Structure the Flow
+  of Events of the Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>You can illustrate the structure of the flow of events with an activity diagram.
+  To do this, follow these steps:</p>
+
+<ol>
+  <li>Right-click the use case in the Model Explorer, and add an activity diagram.
+    See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>(optional) Add swimlanes. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add initial state, final state, and activities. See
+  <a href="JavaScript:openHelpFile('rs','');"></a>
+   <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Annotate each activity with a brief description. See
+   <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Connect activity states with transitions. See
+   <script language=javascript>ReferenceHelpTopic("Adding Transition Relationships","rs","rs_t_add_trans_rel");</script>.
+  </li>
+  <li>Create synchronization bars (as needed). See
+   <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Specify guard conditions on transitions (as needed). See
+   <script language=javascript>ReferenceHelpTopic("Specifying Guard Conditions in Transition Relationships","rs","rs_t_specify_guard_cndtn");</script>.
+  </li>
+</ol>
+
+<p><img src="../../images/helpbook.gif"width="16" height="16"> For more information,
+  refer to
+  <script language=javascript>ReferenceHelpTopic("Working with Activity Diagrams","rs","rs_o_work_acty_dgms");</script>
+  in the Rational XDE&#153; online Help.
+</p>
+
+
+<h3><a name="Illustrate Relationships with Actors and Other Use Cases">Illustrate
+  Relationships with Actors and Other Use Cases</a> &lt;optional&gt;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>This is an optional step that is performed only to clarify the relationships
+  between the use case and its associated actors and use cases. Adding relationships
+  with actors is described in <a href="tm_fauc.htm">Tool Mentor: Finding Actors
+  and Use Cases Using Rational XDE</a>. Relationships with other use cases are
+  described in <a href="tm_stucm.htm">Tool Mentor: Structuring the Use-Case Model
+  Using Rational XDE</a>. </p>
+
+<p><img src="../../images/helpbook.gif"width="16" height="16">
+ For more information, refer to
+ <script language=javascript>ReferenceHelpTopic("Working with Use-Case Diagrams","rs","rs_o_work_u_c_dgm");</script>
+ in the Rational XDE online Help.
+</p>
+
+
+<h3><a name="Describe the Special Requirements of the Use Case">Describe the Special
+  Requirements of the Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Enter this information into the documentation associated with the use case.
+  Note that there is a specific section for this information in the Use-Case Specification
+  template.</p>
+
+
+<h3><a name="Describe Communication Protocols">Describe Communication Protocols</a>
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Enter this information into the documentation associated with the use case.
+  Note that there is a specific section for this information in the Use-Case Specification
+  template.</p>
+
+
+<h3><a name="Describe Preconditions of the Use Case">Describe Preconditions of
+  the Use Case </a>&lt;optional&gt;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Enter this information into the documentation associated with the use case.
+  Note that there is a specific section for this information in the Use-Case Specification
+  template.</p>
+
+
+<h3><a name="Describe Postconditions of the Use Case">Describe Postconditions
+  of the Use Case &lt;optional&gt;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Enter this information into the documentation associated with the use case.
+  Note that there is a specific section for this information in the Use-Case Specification
+  template.</p>
+
+
+<h3><a name="Describe Extension Points">Describe Extension Points &lt;optional&gt;</a>
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Enter this information into the documentation associated with the use case.
+  Note that there is a specific section for this information in the Use-Case Specification
+  template.</p>
+
+
+<h3><a name="Evaluate your Results">Evaluate the Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Each detailed use-case description should be reviewed with stakeholders. Rational
+  XDE reports and published Use-Case Model diagrams (use case and activity) can
+  aid in the review of the detailed use-case description. </p>
+
+<p>
+For more information, refer to
+<script language=javascript>ReferenceHelpTopic("Reporting in Rational XDE","cr","cr_o_rptg_xde");</script>.
+</p>
+
+
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

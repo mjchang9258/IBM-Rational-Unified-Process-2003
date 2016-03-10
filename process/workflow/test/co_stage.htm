@@ -1,0 +1,277 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Levels of Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Levels 
+  of Test</rpw><a name="XE_test__levels_of"></a><a name="XE_test__stages_of"></a><a name="XE_stages_of_test__introduction_to"></a></h2>
+<p> Testing is applied to different types of targets, in different stages or levels 
+  of work effort. These levels are distinguished typically by those roles that 
+  are best skilled to design and conduct the tests, and where techniques are most 
+  appropriate for testing at each level. It's important to ensure a balance of 
+  focus is retained across these different work efforts.</p>
+
+
+<h3>Developer Testing<a name="XE_developer_testing__explanation_of"></a><a name="XE_unit_test__developer_testing"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Developer testing denotes the aspects of test design and implementation most 
+  appropriate for the team of developers to undertake. This is in contrast to 
+  Independent Testing. In most cases, test execution initially occurs with the 
+  developer testing group who designed and implemented the test, but it is a good 
+  practice for the developers to create their tests in such a way so as to make 
+  them available to independent testing groups for execution.</p>
+<p>Traditionally, developer testing has been considered mainly with respect to 
+  unit testing. While some developers also perform varying levels integration 
+  testing, this is largely dependent on culture and other context issues. We recommend 
+  that developer testing should cover more than just testing independent units 
+  in isolation.</p>
+<h3>Independent Testing<a name="XE_independent_testing__explanation_of"></a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Independent testing denotes the test design and implementation most appropriately 
+  performed by someone who is independent from the team of developers. You can 
+  consider this distinction a superset, which includes Independent Verification 
+  &amp; Validation. In most cases, test execution initially occurs with the independent 
+  testing group that designed and implemented the test, but the independent testers 
+  should create their tests to make them available to the developer testing groups 
+  for execution. Boris Beizer gives the following explanation of the different 
+  objective that independent testing has over developer testing:</p>
+<blockquote>
+  <p>&quot;The purpose of independent testing is to provide a different perspective 
+    and, therefore, different tests; furthermore to conduct those tests in a richer 
+    [...] environment than is possible for the developer.&quot; [<a href="../../referenc.htm#BEI95">BEI95</a>]</p>
+</blockquote>
+
+<h4>Independent Stakeholder Testing<a name="XE_stakeholder_testing__explanation_of"></a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>An alternate view of independent testing is that it represents testing that 
+  is based on the needs and concerns of various stakeholders. Therefore it's referred 
+  to as Stakeholder Testing. This is an important distinction&#151;it helps to 
+  include a broader set of stakeholder concerns than might traditionally be considered, 
+  extending the somewhat generic &quot;customer&quot; with stakeholders such as 
+  technical support staff, technical trainers, sales staff in additional to customers, 
+  and end users.</p>
+<p>As a final comment, <a href="../../glossary.htm#XP" target="_blank"><i>XP'</i></a>'s 
+  notion of <i>customer tests</i> relates to this categorization of independent 
+  testing in the RUP.</p>
+
+
+<h3>Unit Testing<a name="XE_unit_test__explanation_of"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Unit testing focuses on verifying the smallest testable elements of the software. 
+  Typically unit testing is applied to components represented in the implementation 
+  model to verify that control flows and data flows are covered, and that they 
+  function as expected. The Implementer performs unit testing as the unit is developed. 
+  The details of unit testing are described in the Implementation discipline.</p>
+<!--
+<p>These expectations are based on how the component participates in executing 
+  a use case, which you find in sequence diagrams for that use case.</p>
+-->
+
+<h3>Integration Testing<a name="XE_integration_test__explanation_of"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Integration testing is performed to ensure that the components in the implementation 
+  model operate properly when combined to execute a use case. The target-of-test 
+  is a package or a set of packages in the implementation model. Often the packages 
+  being combined come from different development organizations. Integration testing 
+  exposes incompleteness or mistakes in the package's interface specifications.</p>
+<p>In some cases, the assumption by developers is that other groups such as independent 
+  testers will perform integration tests. This situation presents risks to the 
+  software project and ultimately the software quality because:</p>
+<ul>
+  <li> integration areas are a common point of software failure.</li>
+  <li>integration tests performed by independent testers typically use black-box 
+    techniques and are typically dealing with larger software components.</li>
+</ul>
+<p>A better approach is to consider integration testing the repsonsibility of 
+  both developer and independent testers, but make the strategy of each teams 
+  testing effort does not overlap significantly. The exact nature of that overlap 
+  is based on the needs of the individual project. We recommend you foster an 
+  environment where developers and independent system testers share a single vision 
+  of quality. See <a href="co_dvltst.htm">Concepts: Developer Testing</a> for 
+  additional information.</p>
+
+
+<h3>System Testing<a name="XE_system_test__explanation_of"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Traditionally system testing is done when the software is functioning as a 
+  whole. An iterative lifecycle allows system testing to occur much earlier&#151;as 
+  soon as well-formed subsets of the use-case behavior are implemented. Usually 
+  the target is the system's end-to-end functioning elements.</p>
+
+
+<h3>Acceptance Testing<a name="XE_acceptance_test__explanation_of"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><i>User</i> acceptance testing is the final test action taken before deploying 
+  the software. The goal of acceptance testing is to verify that the software 
+  is ready, and that it can be used by end users to perform those functions and 
+  tasks for which the software was built. See <a href="co_accte.htm">Concepts: 
+  Acceptance Testing</a> for additional information.</p>
+<p>There are other notions of acceptance testing, which are generally characterized 
+  by a hand-off from one group or one team to another. For example, a <i>build 
+  acceptance test</i> is the testing done to accept the hand-over of a new software 
+  build from development into independent testing.</p>
+
+<h3>A comment about sequence and timing of test levels<a name="XE_unit_test__explanation_of"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>
+<p>Traditionally, unit testing is thought of as being implemented early in the 
+  iteration as the first stage of testing: all units required to be passed before 
+  subsequent stages are conducted. However, in an iterative development process, 
+  this approach is as a general rule, inappropriate. A better approach is to identify 
+  the unit, integration and system tests that offer most potential for finding 
+  errors, then implement and execute them based on a combination of greatest risk 
+  and supporting environement.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

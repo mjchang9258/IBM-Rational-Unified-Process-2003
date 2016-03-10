@@ -1,0 +1,323 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Adding Templates to Your Rational RequisitePro Project</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Adding Templates to Your Rational RequisitePro Project</rpw>
+</h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Microsoft&reg; Word documents as templates
+for documents in your Rational RequisitePro&reg; projects. The templates are referred to as document "outlines" within RequisitePro.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_devra.htm">Develop Requirements Management Plan</a></li>
+<li><a href="../../process/activity/ac_sudev.htm">Support Development</a></li>
+<li><a href="../../process/activity/ac_depst.htm">Prepare Templates for the Project</a></li>
+</ul>
+<br>
+  <br>
+  <a href="../../process/activity/ac_setup.htm">Activity: Set Up Tools</a>.
+</p>
+
+
+<h3>Overview</h3>
+<p>Every new document in RequisitePro is based on a document type. The document
+type includes a default file extension, a default requirement type, and default
+text and formatting (regarding fonts, tabs, and so on) and is controlled by an
+associated outline. RequisitePro provides the following outlines for
+requirements and use-case development:
+<ul>
+  <li>Product Requirements Document
+  <li>Software Requirements Specification
+  <li>Modern Software Requirements Specification
+  <li>Multiple Use-Case Specification
+  <li>Test Requirements Document
+  <li>Functional Test Cases</li>
+  <li>Requirements Management Plan
+  <li>Stakeholder Requests
+  <li>Vision
+  <li>Glossary
+  <li>Use-Case Specification
+  <li>Software Requirements Specification (with use cases)
+  <li>Software Requirements Specification (without use cases)
+  <li>Supplementary Specification
+  <li>Test Plan</li>
+</ul>
+<h4>Accessing Outlines</h4>
+<p>You can access outlines for your documents in several ways:
+<ul>
+  <li>In RequisitePro, outlines are associated with document types. To create a
+    document, select a package in the Explorer and click <b>File &gt; New &gt; Document</b>. Then select a document type on which to base the new
+    document. To add a new document type and outline to a project, select the
+    project in the Explorer, click <b>File &gt; Properties</b>, click the <b>Document
+    Types</b> tab, and click the <b>Add</b> button. In the Document Type dialog box, you can select an outline.
+  <li>The outlines, which are based on Word .dot files, are located in the
+    following RequisitePro installation directory: \<font face="Courier New" size="2">Program
+    Files\Rational\RequisitePro\outlines</font>.
+  <li>Word templates can be accessed through the RUP treebrowser (click <b>Templates
+    &gt; Microsoft Word</b>).</li>
+</ul>
+<h4>Creating Custom Outlines</h4>
+<p>You can use your existing Word documents to create custom outlines. A RequisitePro outline is a reference document used to
+control the formatting of Word documents in RequisitePro. This is
+useful for maintaining consistency across documents of the same type.</p>
+<p> RequisitePro outlines are composed of two files, which are stored in the <font face="Courier New" size="2">
+outlines</font> directory in your RequisitePro installation:
+<ul>
+  <li>An outline file, which has a .def extension, is a simple,
+    unformatted text file that contains an outline name, a description, and a
+    reference to a Word template.</li>
+  <li>The Word template, which has a .dot file extension, contains the paragraph
+    styles and other information, such as formats, page layout information,
+    attributes, attribute definitions, and system defaults that control the
+    appearance of your RequisitePro document.</li>
+</ul>
+<h4>Tool Steps</h4>
+<p>To add a new outline to your RequisitePro project, do the following:
+<ol>
+  <li><a href="#Create Word Template Files">Create a Microsoft Word template</a></li>
+  <li><a href="#Create Outline Files">Create an outline file</a></li>
+  <li><a href="#Add your outline to RequisitePro">Add your outline to
+    RequisitePro</a></li>
+  <li><a href="#Create a document type based on your outline">Create a document
+    type based on your outline</a></li>
+</ol>
+<h3>1. <a name="Create Word Template Files">Create a Microsoft Word template</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ol>
+  <li>Start Microsoft Word outside of RequisitePro.</li>
+  <li>Open the file you want to use to create a Word template.</li>
+  <li>Edit the file, as needed, to prepare the content for use
+    as an outline.</li>
+  <li>Save the file as a Word template with the extension .dot. See
+    the Microsoft Word documentation for more information about creating
+    templates.</li>
+</ol>
+<h3>2. <a name="Create Outline Files">Create an outline file</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An outline file is created in a text editor and saved with a .def extension.
+The outline file is unformatted text file that contains an outline name, a
+description of the outline, and a reference to a Word template. The .def and the
+.dot files, created in procedure 1 above, must have the same name with different
+extensions; for example, <font face="Courier New" size="2"> usecase.def</font> and
+<font face="Courier New" size="2">usecase.dot</font>. Both files must be stored
+in the <font face="Courier New" size="2"> outlines</font> directory in your RequisitePro installation or in a secondary
+<font face="Courier New" size="2"> outlines </font>directory referenced in RequisitePro by clicking <b> Tools &gt;
+Options/Directories/Document Outlines</b>.
+<ol>
+  <li>Open a text editor, such as NotePad.
+  <li>Create a new text file containing the following three lines of
+    information, separated by returns:
+    <ul>
+      <li>The outline's full (logical) name, up to 64 characters in length. Be sure that
+        this logical name is unique in the <font face="Courier New" size="2"> outlines
+        </font>directory.
+      <li>A description of the outline, up to 256 characters in length.
+      <li>The Word template's file name (with the .dot extension).</li>
+	</ul>
+  <li>Save the text file using the same file name as the template but with the
+    extension .def.</li>
+</ol>
+<p>For example, the <font face="Courier New" size="2"> usecase.def</font> file includes the following lines:</p>
+<blockquote>
+  <pre><font size="3"><medium></medium></font><font size="2">RUP Use Case Specification
+Rational Unified Process supplied template used to specify a use case.
+rup_ucspec.dot   </font></pre>
+</blockquote>
+<h3>3. <a name="Add your outline to RequisitePro">Add your outline to
+RequisitePro </a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Copy the .dot and .def files to the <font face="Courier New" size="2"> outlines</font> directory in your RequisitePro installation directory or a secondary <font face="Courier New" size="2"> outlines</font> directory. The path of a typical <font face="Courier New" size="2"> outlines</font> directory is: <font face="Courier New" size="2"> C:\Program Files\Rational\RequisitePro\outlines</font>. Your installation
+may vary, depending on the Rational products you've installed.</p>
+<p>If you use a secondary directory, be sure that the path is defined in RequisitePro. Click <strong>Tools</strong> &gt; <strong>Options</strong>, and in the <strong>Directories/Document Outlines</strong> field, type the path and directory name for your custom outlines.</p>
+<h3>4. <a name="Create a document type based on your outline">Create a document
+type based on your outline</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ol>
+  <li>In the Explorer, select the project, and then click <strong>File</strong>
+    &gt; <strong>Properties</strong>.
+    The Project Properties dialog box appears.</li>
+  <li>Click the <strong>Document Types</strong>  tab, and then click the <strong>Add</strong> button. The Document Type dialog box
+    appears.</li>
+  <li>In the <strong>Name</strong> text box, enter a name for the document type
+    (up to 64 characters).</li>
+  <li>In the <strong>File Extension</strong> text box, enter a three-character
+    text string, or, if long file names are supported, a longer extension. (File
+    extensions can contain a maximum of 20 characters in RequisitePro.) The file
+    extension is applied to all documents associated with the document type.</li>
+  <li>Select a default requirement type in the list, or click <strong>New</strong>
+    to create a new requirement type.</li>
+  <li>Select an outline from the <strong>Outline Name</strong> list.</li>
+  <li>Click <strong>OK</strong> to close the Document Type dialog box.</li>
+  <li>Click <strong>OK</strong> to close the Project Properties dialog box.</li>
+</ol>
+<h4>For More Information</h4>
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b>Refer to the following topics in the RequisitePro online Help:
+<ul>
+  <li><i>Creating and modifying document types</i> (Index: document types &gt;
+    creating)</li>
+  <li><i>Creating document outlines</i> (Index: outlines &gt; creating)</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

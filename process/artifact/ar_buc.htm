@@ -1,0 +1,471 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Business Use Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Business Use Case</rpw><a name="Top"></a><a name="XE_business_use_case__as_artifact"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/buc.jpg" width="92" height="57">&nbsp;
+	  </td>
+      <td width="80%">A <b>Business Use Case</b> (class) defines a set of business 
+        use-case instances in which each instance is a sequence of actions that 
+        a business performs that yields an observable result of value to a particular 
+        business actor.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_bucm.htm">Business Use Case Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_bdes.htm">Business Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Can be excluded. Business Use Cases should be used when 
+        business processes need to be understood or changed.&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <li><a href="../../webtmpl/templates/bm/rup_bucs.htm">Business Use-Case Specification</a></li>
+<br>
+          <li><a href="../reports/re_buc.htm">Business Use Case <business use-case name></a></li>
+&nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Use case, stereotyped as &laquo;business use case&raquo;&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_bactd.htm">Guideline: Activity Diagram in the Business Use-Case Model</a></li>
+<li><a href="../modguide/md_buc.htm">Guideline: Business Use Case</a></li>
+<li><a href="../reports/re_buc.htm">Report: Business Use Case <business use-case name></a></li>
+<li><a href="../activity/chklists/ck_buc.htm">Checklist: Business Use Cases</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dent.htm">Detail a Business Entity</a></li>
+<li><a href="../activity/ac_debuc.htm">Detail a Business Use Case</a></li>
+<li><a href="../activity/ac_dewk.htm">Detail a Business Worker</a></li>
+<li><a href="../activity/ac_rvbuc.htm">Review the Business Use-Case Model</a></li>
+<li><a href="../activity/ac_sbucm.htm">Structure the Business Use-Case Model</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_debuc.htm">Detail a Business Use Case</a></li>
+<li><a href="../activity/ac_fbauc.htm">Find Business Actors and Use Cases</a></li>
+<li><a href="../activity/ac_sbucm.htm">Structure the Business Use-Case Model</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_business_use_case__purpose_of"></a><a name="Purpose">Purpose</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A Business Use Case describes a business process from an external, value-added 
+  point of view. Business Use Cases are business processes that cut across organization 
+  boundaries, possibly including partners and suppliers, in order to provide value 
+  to a stakeholder of the business.
+<p>Business Use Cases are useful for anybody who wants to know what value the 
+  business provides and how it interacts with its environment. Stakeholders, business-process 
+  analysts, and business designers use Business Use Cases to describe business 
+  processes and to understand the effect of any proposed changes (for example, 
+  a merger or a first CRM implementation) on the way the business works. Business 
+  Use Cases are also used by system analysts and software architects to understand 
+  the way a software system fits into the organization. Test managers use Business 
+  Use Cases to provide context for developing test scenarios for software systems. 
+  Project managers use Business Use Cases for planning the content of business-modeling 
+  iterations and tracking progress. 
+<h3><a name="XE_business_use_case__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%"><p class="tableheading"><b>Property Name</b></td>
+    <td width="40%"><p class="tableheading"><b>Brief Description</b></td>
+    <td width="40%"><p class="tableheading"><b>UML Representation</b></td>
+  </tr>
+  <tr>
+    <td width="20%" >Name</td>
+      <td width="40%" >The name of the Business Use Case.</td>
+    <td width="40%" >The
+    attribute &quot;Name&quot; on model element.</td>
+  </tr>
+  <tr>
+    <td width="20%">Brief
+    Description</td>
+      <td width="40%">A brief description of the role and purpose of the Business 
+        Use Case.</td>
+    <td width="40%">Tagged
+    value, of type &quot;short text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Performance
+    Goals</td>
+      <td width="40%">A specification of the metrics relevant to the Business 
+        Use Case, and a definition of the goals of using these metrics.</td>
+    <td width="40%">Tagged
+    value, of type &quot;formatted text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Workflow</td>
+      <td width="40%">A textual description of the workflow that the Business 
+        Use Case represents. The flow should describe <i>what</i> the business 
+        does to deliver value to a business actor, not <i>how</i> the business 
+        solves its problems. The description should be understandable by anyone 
+        within the business.</td>
+    <td width="40%">Tagged
+    value, of type &quot;formatted text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Category</td>
+      <td width="40%">Whether the Business Use Case is of the category &quot;core,&quot; 
+        &quot;'supporting,&quot; or &quot;management.&quot;&nbsp;</td>
+    <td width="40%">Tagged
+    value, of type &quot;short text&quot;.
+    <p>Optionally, you may choose to use stereotypes with special icons to
+    separate categories of use cases.&nbsp;</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Risk</td>
+      <td width="40%">A specification of the risks of executing or implementing 
+        the Business Use Case. Risk is defined in terms of the potential difference 
+        between added value as expected versus added value as provided.</td>
+    <td width="40%">Tagged
+    value, of type &quot;formatted text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Possibilities</td>
+      <td width="40%">A description of the estimated improvement potential of 
+        the Business Use Case.&nbsp;</td>
+    <td width="40%">Tagged
+    value, of type &quot;formatted text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Process Owner</td>
+      <td width="40%">A definition of the owner of the business process, that 
+        is, the person who manages the changes and plans for changes.&nbsp;</td>
+    <td width="40%">Tagged value, of type &quot;formatted text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Special Requirements</td>
+      <td width="40%">The Business Use-Case characteristics and quantifiers that 
+        are not covered by the workflow as it has been described.</td>
+    <td width="40%">Tagged value, of type &quot;short text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Extension
+    points</td>
+      <td width="40%">A list of locations within the flow of events of the Business 
+        Use Case at which additional behaviors can be inserted using the extend-relationship.</td>
+    <td width="40%">Tagged
+    value, of type &quot;short text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Supported
+      Business Goals</td>
+      <td width="40%">Stereotyped dependencies indicating the Business Goals supported 
+        by the Business Use Case.</td>
+      <td width="40%">Dependency.</td>
+  </tr>
+  <tr>
+    <td width="20%">Relationships</td>
+      <td width="40%">The relationships, such as communicates-associations, include-and 
+        extend-relationships, in which the Business Use Case participates.</td>
+    <td width="40%">Owned
+    by an enclosing package, via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Activity
+    Diagrams</td>
+    <td width="40%">These
+    diagrams show the structure of the workflow.</td>
+    <td width="40%">Participants
+    are owned via the aggregation &quot;types&quot; and
+    &quot;relationships&quot; on a collaboration traced to the use case.</td>
+  </tr>
+  <tr>
+    <td width="20%">Use-Case Diagrams</td>
+      <td width="40%">These diagrams show the relationships involving the Business 
+        Use Case.</td>
+    <td width="40%">Participants are owned via the aggregation &quot;types&quot; and &quot;relationships&quot; on a collaboration traced to the use case.</td>
+  </tr>
+  <tr>
+    <td width="20%">Illustrations
+    of the Workflow</td>
+      <td width="40%">Hand-drawn sketches or the results of storyboarding sessions.</td>
+    <td width="40%">Tagged
+    value, of uninterpreted type.</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="XE_business_use_case__purpose_of"></a><a name="Brief Outline">Brief
+Outline</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_business_use_case__specification"></a>A template is provided for 
+  a Business Use Case Specification, which contains the textual properties of 
+  the Business Use Case.&nbsp;This document is used with a requirements management 
+  tool, such as Rational RequisitePro, for specifying and marking the requirements 
+  within the Business Use-Case properties.&nbsp;&nbsp;</p>
+<p>The diagrams of the Business Use Case can be developed in a visual modeling 
+  tool, such as Rational Rose.&nbsp;&nbsp;A Business Use-Case report (with all 
+  properties) may be generated with Rational SoDA.</p>
+<p>For more information, see tool mentors: <a href="../../toolment/anastudio/tm_iucm.htm">Managing
+Use Cases with Rational Rose and Rational RequisitePro</a> and <a href="../../toolment/soda/tm_ucrep.htm">Creating
+a Use-Case Report Using Rational SoDA</a>.&nbsp;&nbsp;</p>
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business Use Cases are identified and possibly briefly outlined early in the 
+  Inception phase, to help define the scope of the project. If business modeling 
+  is being done as part of a business (re-) engineering project, then the architecturally 
+  significant Business Use Cases will be detailed during the Elaboration phase 
+  and the rest during the Construction phase. If business modeling is being done 
+  as part of developing a software system, the Business Use Cases applicable to 
+  the software system are then described in more detail during the Elaboration 
+  phase.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A <a href="../workers/wk_bpan.htm">business-process analyst</a> is responsible 
+  for the integrity of the Business Use Case, ensuring that: 
+<ul>
+  <li>It correctly describes how the organization does its business.</li>
+  <li>The workflow description is readable and suits its purpose.</li>
+  <li>The include- and extend-relationships originating from the Business Use 
+    Case are justified and kept consistent.</li>
+  <li>The role of the Business Use Case where it is involved in communicates-associations 
+    is clear and intuitive.</li>
+  <li>The diagrams describing the Business Use Case and its relationships are 
+    readable and suit their purpose.</li>
+  <li>The Special Requirements are readable and suit their purpose.</li>
+  <li>The pre-conditions are readable and suit their purpose.</li>
+  <li>The post-conditions are readable and suit their purpose.</li>
+</ul>
+<p>We recommend that the person responsible for a Business Use Case is also responsible 
+  for its enclosing Business Use-Case package. For more information, refer to 
+  <a href="../modguide/md_bucm.htm">Guidelines: Business Use-Case Model</a>. 
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If you perform business modeling merely to chart an existing target
+organization, with no intention of changing it, you could exclude the following
+sections from the outline of the Business Use-Case Specification:</p>
+<ul>
+  <li><i>Performance Goals</i></li>
+  <li><i>Risks</i></li>
+  <li><i>Possibilities</i></li>
+  <li><i>Process Owner</i></li>
+</ul>
+
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

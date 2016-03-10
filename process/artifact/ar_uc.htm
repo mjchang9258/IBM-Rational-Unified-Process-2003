@@ -1,0 +1,452 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Use Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Use Case</rpw> <a name="XE_use_case__artifact_definition"></a><a name="XE_use_case__specification"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/uc.jpg" width="96" height="40">&nbsp;
+	  </td>
+      <td width="80%">A use case defines a set of use-case instances, where each 
+        instance is a sequence of actions a system performs that yields an observable 
+        result of value to a particular actor.&nbsp; </td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_ucmod.htm">Use-Case Model</a>
+
+<br>
+
+Extends: <a href="ar_sftrqm.htm">Software Requirement</a>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_ucaut.htm">Requirements Specifier</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Required&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <li><a href="../../webtmpl/templates/req/rup_ucspec.htm">Use-Case Specification</a></li>
+<li><a href="../../webtmpl/templates/req/ucspec_informal.htm">Use-Case Specification (Informal)</a></li>
+<br>
+          <li><a href="../reports/re_ucrep.htm">Use Case <use-case name></a></li>
+&nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%"><li>Examples<ul>
+<li><a href="../../examples/creg/elaboration_e1/uc_specs.htm">CREG Use Case Specifications - Elaboration Phase</a></li>
+<li><a href="../../examples/csports/ovu_uc_inception.htm">CSPS Use Case Specifications - Inception Phase</a></li>
+<li><a href="../../examples/csports/ovu_uc_elaboration.htm">CSPS Use Case Specifications - Elaboration Phase</a></li>
+</ul>
+</li>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Use Case&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_actd.htm">Guideline: Activity Diagram in the Use-Case Model</a></li>
+<li><a href="../activity/chklists/ck_uc.htm">Checklist: Use Case</a></li>
+<li><a href="../modguide/md_uc.htm">Guideline: Use Case</a></li>
+<li><a href="../reports/re_ucrep.htm">Report: Use Case <use-case name></a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_ccvoc.htm">Capture a Common Vocabulary</a></li>
+<li><a href="../activity/ac_tst_dfntstdtl.htm">Define Test Details</a></li>
+<li><a href="../activity/ac_desui.htm">Design the User Interface</a></li>
+<li><a href="../activity/ac_desuc.htm">Detail a Use Case</a></li>
+<li><a href="../activity/ac_prdsrs.htm">Detail the Software Requirements</a></li>
+<li><a href="../activity/ac_uip.htm">Prototype the User-Interface</a></li>
+<li><a href="../activity/ac_rvucm.htm">Review Requirements</a></li>
+<li><a href="../activity/ac_stucm.htm">Structure the Use-Case Model</a></li>
+<li><a href="../activity/ac_ucana.htm">Use-Case Analysis</a></li>
+<li><a href="../activity/ac_ucdes.htm">Use-Case Design</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_desuc.htm">Detail a Use Case</a></li>
+<li><a href="../activity/ac_facuc.htm">Find Actors and Use Cases</a></li>
+<li><a href="../activity/ac_stucm.htm">Structure the Use-Case Model</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a name="XE_use_case__purpose_of"></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The following people will use the use cases:</p>
+<ul>
+  <li><b>Customers</b> will use the use cases to understand the
+    system's behavior, and, since they must approve the use case's flow of
+    events, customer will also use the use cases to approve the result of
+    use-case modeling.</li>
+  <li>Potential <b>users</b> will use the use case to understand the
+    system's behavior.</li>
+  <li><b>Software Architects</b> will use the use cases to identify
+    architecturally significant functionality.</li>
+  <li>People who <b>analyze</b>, <b>design</b>, and <b>implement</b>
+    the system will use the use case to understand the required system behavior
+    and to refine the system.</li>
+  <li><b>Use-case designers</b> will use the use cases' flows of
+    events to find classes. (These are the most important artifacts for use-case
+    designers.)</li>
+  <li><b>Testers</b> will use the use cases as a base for identifying
+    test cases.</li>
+  <li><b>Managers</b> will use the use cases to plan and follow up the
+    use-case modeling.</li>
+  <li><b>Documentation writers</b> will use the use cases to
+    understand what sequence of use should be described in the documentation
+    (such as the system user guide).</li>
+</ul>
+
+
+<h3><a name="BriefOutline">Brief Outline</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The template provided for a Use-Case Specification contains the textual properties 
+  of the use case. This document is used with a requirements management tool, 
+  such as Rational RequisitePro, for specifying and marking the requirements within 
+  the use case properties.&nbsp;</p>
+<p>A use case consists primarily of a textual specification (called a Use-Case 
+  Specification) that contains a description of the flow of events decribing the 
+  interaction between actors and the system. The specification also typically 
+  contains other information such as preconditions, postconditions, special requirements 
+  and key scenarios. The use case may also be represented visually in UML in order 
+  to show relationships with other the use cases and actors.&nbsp;</p>
+  
+  
+<h3><a name="Properties">Properties</a> <a name="XE_use_case__properties_of"></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <th width="21%" align="left">Property Name&nbsp;</th>
+    <th width="41%" align="left">Brief Description&nbsp;</th>
+    <th width="38%" align="left">UML Representation&nbsp;</th>
+  </tr>
+  <tr>
+    <td width="21%">Name &nbsp;</td>
+    <td width="41%">The name of the use case. &nbsp;</td>
+    <td width="38%">The attribute &quot;Name&quot; on model element. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Brief Description &nbsp;</td>
+    <td width="41%">A brief description of the role and purpose of the use case. &nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Flow of Events&nbsp;</td>
+    <td width="41%">A textual description of what the system does in regard to the use case (not
+    how specific problems are solved by the system). The description is
+    understandable by the customer.&nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;formatted text&quot;.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Special Requirements &nbsp;</td>
+    <td width="41%">A textual description that collects all requirements, such as non-functional
+    requirements, on the use case, that are not considered in the use-case
+    model, but that need to be taken care of during design or implementation. &nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">preconditions &nbsp;</td>
+    <td width="41%">A textual description that defines a constraint on the system when the use case may start. &nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">postconditions &nbsp;</td>
+    <td width="41%">A textual description that defines a constraint on the system when the use
+    cases have terminated. &nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Extension points &nbsp;</td>
+    <td width="41%">A list of locations within the flow of events of the use case at which
+    additional behavior can be inserted using the extend-relationship. &nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Relationships &nbsp;</td>
+    <td width="41%">The relationships, such as communicates-associations, include-, generalization-,
+    and extend-relationships, in which the use case participates. &nbsp;</td>
+    <td width="38%">Owned by an enclosing package, via the aggregation &quot;owns&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Activity Diagrams &nbsp;</td>
+    <td width="41%">These diagrams illustrate the structure of the flow of events. &nbsp;</td>
+    <td width="38%">Participants are owned via the aggregation &quot;types&quot; and
+    &quot;relationships&quot; on a collaboration traced to the use case. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Use-Case Diagrams &nbsp;</td>
+    <td width="41%">These diagrams show the relationships involving the use case. &nbsp;</td>
+    <td width="38%">Participants are owned via the aggregation &quot;types&quot; and
+    &quot;relationships&quot; on a collaboration traced to the use case. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Other Diagrams &nbsp;</td>
+    <td width="41%">Other graphical illustrations of the use case. &nbsp;</td>
+    <td width="38%">Tagged value, of uninterpreted type. &nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<h3><a name="Timing">Timing</a>
+ <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Use cases are identified and possibly briefly outlined early in the inception 
+  phase, to help in defining the scope of the system. The use cases that are relevant 
+  for the analysis or the architectural design of the system are then described 
+  in detail within the Elaboration phase. The remaining use cases are described 
+  in detail within the Construction phase.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> 
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>A <a href="../workers/wk_ucaut.htm">Requirements Specifier</a> is responsible for the integrity of the use 
+  case, which ensures that:</p>
+<ul>
+  <li>the use case fulfills its requirements (that is, it correctly describes
+    the functionality that is relevant to the use case, and only this
+    functionality)</li>
+  <li>the flow of events is readable and suit its purpose</li>
+  <li>the use-case relationships originating from the use case are justified and
+    kept consistent</li>
+  <li>the role of the use case where it is involved in communicates-associations
+    is clear and intuitive</li>
+  <li>the diagrams describing the use case and its relationships are readable
+    and suit their purpose</li>
+  <li>the special requirements are readable and suit their purpose</li>
+  <li>the preconditions are readable and suit their purpose</li>
+  <li>the postconditions are readable and suit their purpose</li>
+</ul>
+<p>It is recommended that the requirements specifier who is responsible for a 
+  use case is also responsible for its enclosing use-case package. For more information, 
+  refer to <a href="../modguide/md_ucpkg.htm">Guidelines: Use-Case Package</a>.</p>
+
+
+<h3><a name="Tailoring">Tailoring</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Decide the extent to which Use Cases will be elaborated:</p>
+<ul>
+  <li>describ e only major flows?</li>
+  <li>describe only the most important use cases?</li>
+  <li>fully describe preconditions and postconditions?</li>
+</ul>
+<p>Some projects apply use cases informally to discover requirements, but document 
+  and maintain these requirements in another form. How you tailor Use Cases may 
+  depend on project size, experience, your tool set, customer relationship, and 
+  so forth. See <a href="../modguide/md_uc.htm">Guidelines: Use Case</a> for guidance 
+  related to Use Case tailoring. Document tailoring decisions in the <a href="ar_projspecgls.htm"> 
+  Artifact: Project Specific Guidelines</a>.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

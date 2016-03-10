@@ -1,0 +1,642 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Concepts:&nbsp;Developer Testing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Developer Testing</rpw><a name="XE_test__developer_testing__concept_of"></a><a name="XE_design__developer_testing__concept_of"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#DeveloperTestingPitfalls">Pitfalls Getting Started with Developer Testing</a></li>
+  <li><a href="#TestDesignMistakes">Characteristic Test Design Mistakes</a></li>
+</ul>
+
+
+<h3><a name="Introduction"></a>Introduction
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>The phrase &quot;Developer Testing&quot; is used to categorize the testing 
+  activities most appropriately performed by software developers. It also includes 
+  the artifacts created by those activities. Developer Testing encompasses the 
+  work traditionally thought of under the following categories: Unit Testing, 
+  much of Integration Testing, and some aspects of what is most often referred 
+  to as System Testing. While Developer Testing is traditionally associated with 
+  activities in the Implementation discipline, it also has a relationship to activities 
+  in the Analysis and Design discipline.</p>
+<p>By thinking of Developer Testing in this &quot;holistic&quot; way, you help 
+  to mitigate some of the risk associated with the more &quot;atomistic&quot; 
+  approach traditionally taken. In the traditional approach to Developer Testing, 
+  the effort is initially focused on evaluating that all units are working independently. 
+  Late in the development life-cycle, as the development work nears completion, 
+  the integrated units are assembled into a working subsystem or system and tested 
+  in this setting for the first time.</p>
+<p>This approach has a number of failings. Firstly, because it encourages a staged 
+  approach to the testing of the integrated units and later subsystems, any errors 
+  identified during these tests are often found too late. This late discovery 
+  typically results in the decision to take no corrective action, or it requires 
+  major rework to correct. This rework is both expensive and detracts from making forward 
+  progress in other areas. This increases the risk of the project being derailed 
+  or abandoned.</p>
+<p>Secondly, creating rigid boundaries between Unit, Integration and System Test 
+  increases the probability that errors spanning the boundaries will be discovered 
+  by no one. The risk is compounded when responsibility for these types of tests 
+  is assigned to separate teams.</p>
+<p>The style of developer testing recommended by RUP encourages the developer 
+  to focus on the most valuable and appropriate tests to conduct at the given 
+  point in time. Even within the scope of a single iteration, it is usually more 
+  efficient for the developer to find and correct as many of the defects in her 
+  own code as possible, without the additional overhead in hand-off to a separate 
+  test group. The desired result is the early discovery of the most significant 
+  software errors&#151;regardless of whether those errors are in the independent 
+  unit, the integration of the units or the working of the integrated units within 
+  a meaningful end-user scenario.</p>
+
+
+<h3><a name="DeveloperTestingPitfalls"></a>Pitfalls Getting Started with Developer 
+  Testing<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Many developers who begin trying to do a substantially more thorough job of 
+  testing give up the effort shortly thereafter. They find that it does not seem 
+  to be yielding value. Further, some developers who begin well with developer 
+  testing find that they've created an unmaintainable test suite that is eventually 
+  abandoned.</p>
+<p>This page gives some guidelines for getting over the first hurdles and for 
+  creating a test suite that avoids the maintainability trap. For more information, 
+  see <a href="../../workguid/wg_mnttstste.htm">Guidelines: Maintaining Automated Test Suites</a>.</p>
+
+
+<h4>Establish expectations<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Those who find developer testing rewarding do it. Those who view it as a chore 
+  find ways to avoid it. This is simply in the nature of most developers in most 
+  industries, and treating it as a shameful lack of discipline hasn't historically 
+  been successful. Therefore, as a developer you should expect testing to be rewarding 
+  and do what it takes to make it rewarding.</p>
+<p>Ideal developer testing follows a very tight edit-test loop. You make a small 
+  change to the product, such as adding a new method to a class, then you immediately 
+  rerun your tests. If any test breaks, you know exactly what code is the cause. 
+  This easy, steady pace of development is the greatest reward of developer testing. 
+  A long debugging session should be exceptional.</p>
+<p>Because it's not unusual for a change made in one class to break 
+  something in another, you should expect to rerun not just the changed class's 
+  tests, but many tests. Ideally, you rerun the complete test suite for your component 
+  many times per hour. Every time you make a significant change, you
+  rerun the suite, watch the results, and either proceed to the next
+  change or fix the last change. Expect to spend some effort making
+  that rapid feedback possible.</p>
+
+
+<h4>Automate your tests<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Running tests often is not practical if tests are manual. For some components, 
+  automated tests are easy. An example would be an in-memory database. It communicates 
+  to its clients through an API and has no other interface to the outside world. 
+  Tests for it would look something like this:</p>
+<blockquote>
+<pre>
+/* Check that elements can be added at most once. */
+
+// Setup
+Database db = new Database();
+db.add("key1", "value1");
+
+// Test
+boolean result = db.add("key1", "another value");
+expect(result == false);
+</pre>
+</blockquote>
+<p>The tests are different from ordinary client code in only one way: instead 
+  of believing the results of API calls, they check. If the API makes client code 
+  easy to write, it makes test code easy to write. If the test code is
+  <i>not</i> easy to write, you've received an early warning that the
+  API could be improved. Test-first design is thus consistent with the
+  Rational Unified Process's focus on addressing important risks early.</p>
+<p>The more tightly connected the component is to the outside world, however, 
+  the harder it will be to test. There are two common cases: graphical user interfaces 
+  and back-end components.</p>
+
+
+<h5>Graphical user interfaces</h5>
+<p>Suppose the database in the example above receives its data via a callback 
+  from a user-interface object. The callback is invoked when the user fills in 
+  some text fields and pushes a button. Testing this by manually filling in the 
+  fields and pushing the button isn't something you want to do many times an hour. 
+  You must arrange a way to deliver the input under programmatic control, typically 
+  by &quot;pushing&quot; the button in code.</p>
+<p>Pushing the button causes some code in the component to be executed. Most likely, 
+  that code changes the state of some user-interface objects. So you must also 
+  arrange a way to query those objects programmatically.</p>
+
+
+<h5>Back-end components</h5>
+<p>Suppose the component under test doesn't implement a database. Instead, it's 
+  a wrapper around a real, on-disk database. Testing against that real database 
+  might be difficult. It might be hard to install and configure. Licenses for 
+  it might be expensive. The database might slow down the tests enough that you're 
+  not inclined to run them often. In such cases, it's worthwhile to &quot;stub 
+  out&quot; the database with a simpler component that does just enough to support 
+  the tests.</p>
+<p>Stubs are also useful when a component that your component talks to isn't ready 
+  yet. You don't want your testing to wait on someone else's code.</p>
+<p>For more information, see <a href="../implemen/co_stubs.htm">Concepts: Stubs</a>.</p>
+
+
+<h4>Don't write your own tools<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Developer testing seems pretty straightforward. You set up some objects, make 
+  a call through an API, check the result, and announce a test failure if the 
+  results aren't as expected. It's also convenient to have some way to group tests 
+  so that they can be run individually or as complete suites. Tools that support 
+  those requirements are called <i>test frameworks</i>.</p>
+
+<p>Developer testing <b>is</b> straightforward, and the requirements for test 
+  frameworks are not complicated. If, however, you yield to the temptation of 
+  writing your own test framework, you'll spend much more time tinkering with 
+  the framework than you probably expect. There are many test frameworks available, 
+  both commercial and open source, and there's no reason not to use one of those.</p>
+
+
+<h4>Do create support code<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Test code tends to be repetitive. It's common to see sequences of code like 
+  this:</p>
+<blockquote>
+<pre>
+// null name not allowed
+retval = o.createName(""); 
+expect(retval == null);
+
+// leading spaces not allowed
+retval = o.createName(" l"); 
+expect(retval == null);
+
+// trailing spaces not allowed
+retval = o.createName("name "); 
+expect(retval == null);
+
+// first character may not be numeric
+retval = o.createName("5allpha"); 
+expect(retval == null);
+</pre>
+</blockquote>
+<p>This code is created by copying one check, pasting it, then editing it to make 
+  another check.</p>
+<p>The danger here is twofold. If the interface changes, much editing will have 
+  to be done. (In more complicated cases, a simple global replacement won't suffice.) 
+  Also, if the code is at all complicated, the intent of the test can be lost 
+  amid all the text.</p>
+<p>When you find yourself repeating yourself, seriously consider factoring out 
+  the repetition into support code. Even though the code above is a simple example, 
+  it's more readable and maintainable if written like this:</p>
+<blockquote>
+<pre>
+void expectNameRejected(MyClass o, String s) {
+    Object retval = o.createName(s);
+    expect(retval == null);
+}
+...
+
+// null name not allowed
+expectNameRejected(o, ""); 
+
+// leading spaces not allowed.
+expectNameRejected(o, " l"); 
+
+// trailing spaces not allowed.
+expectNameRejected(o, "name "); 
+
+// first character may not be numeric.
+expectNameRejected(o, "5alpha"); 
+</pre>
+</blockquote>
+<p>Developers writing tests often err on the side of too much copying-and-pasting. 
+  If you suspect yourself of that tendency, it's useful to consciously err in 
+  the other direction. Resolve that you will strip your code of all duplicate 
+  text. </p>
+
+
+<h4>Write the tests first<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Writing the tests after the code is a chore. The urge is to rush through it, 
+  to finish up and move on. Writing tests before the code makes testing part of 
+  a positive feedback loop. As you implement more code, you see more tests passing 
+  until finally all the tests pass and you're done. People who write tests first 
+  seem to be more successful, and it takes no more time. For more on putting tests 
+  first, see <a href="co_tstfrsdsg.htm">Concepts: Test-first Design</a></p>
+
+
+<h4>Keep the tests understandable<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>You should expect that you, or someone else, will have to modify the tests 
+  later. A typical situation is that a later iteration calls for a change to the 
+  component's behavior. As a simple example, suppose the component once declared 
+  a square root method like this:</p>
+<blockquote>
+    <p><font face="Courier New">double sqrt(double x);</font></p>
+</blockquote>
+<p>In that version, a negative argument caused <font face="Courier New">sqrt</font> 
+  to return NaN (&quot;not a number&quot; from the IEEE 754-1985 <i>Standard for 
+  Binary Floating-Point Arithmetic</i>). In the new iteration, the square root 
+  method will accept negative numbers and return a complex result:</p>
+<blockquote>
+    <p><font face="Courier New">Complex sqrt(double x);</font></p>
+</blockquote>
+<p>Old tests for <font face="Courier New">sqrt</font> will have to change. That 
+  means understanding what they do, and updating them so that they work with the 
+  new <font face="Courier New">sqrt</font>. When updating tests, you must take 
+  care not to destroy their bug-finding power. One way that sometimes happens 
+  is this:</p>
+<blockquote>
+<pre>
+void testSQRT () {
+	//  Update these tests for Complex 
+	// when I have time -- bem
+	/*
+		double result = sqrt(0.0);
+		...
+	*/
+}
+</pre>
+</blockquote>
+<p>Other ways are more subtle: the tests are changed so that they actually run, 
+  but they no longer test what they were originally intended to test. The end 
+  result, over many iterations, can be a test suite that is too weak to catch 
+  many bugs. This is sometimes called &quot;test suite decay&quot;. A decayed 
+  suite will be abandoned, because it's not worth the upkeep.</p>
+<p>You can't maintain a test's bug-finding power unless it's clear what <a href="co_tstidslst.htm#TestIdeas">Test 
+  Ideas</a> a test implements. Test code tends to be under-commented, even though 
+  it's often harder to understand the &quot;why&quot; behind it than product code.</p>
+<p>Test suite decay is less likely in the direct tests for <font face="Courier New">sqrt</font> 
+  than in indirect tests. There will be code that calls <font face="Courier New">sqrt</font>. 
+  That code will have tests. When <font face="Courier New">sqrt</font> changes, 
+  some of those tests will fail. The person who changes <font face="Courier New">sqrt</font> 
+  will probably have to change those tests. Because he's less familiar with them, 
+  and because their relationship to the change is less clear, he's more likely 
+  to weaken them in the process of making them pass.</p>
+<p>When you're creating support code for tests (as urged above), be careful: the 
+  support code should clarify, not obscure, the purpose of the tests that use 
+  it. A common complaint about object-oriented programs is that there's no one 
+  place where anything's done. If you look at any one method, all you discover 
+  is that it forwards its work somewhere else. Such a structure has advantages, 
+  but it makes it harder for new people to understand the code. Unless they make 
+  an effort, their changes are likely to be incorrect or to make the code even 
+  more complicated and fragile. The same is true of test code, except that later 
+  maintainers are even less likely to take due care. You must head off the problem 
+  by writing understandable tests.</p>
+
+
+<h4>Match the test structure to the product structure<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Suppose someone has inherited your component. They need to change a part of 
+  it. They may want to examine the old tests to help them in their new design. 
+  They want to update the old tests before writing the code (test-first design).</p>
+<p>All those good intentions will go by the wayside if they can't find the appropriate 
+  tests. What they'll do is make the change, see what tests fail, then fix those. 
+  That will contribute to test suite decay.</p>
+<p>For that reason, it's important that the test suite be well structured, and 
+  that the location of tests be predictable from the structure of the product. 
+  Most usually, developers arrange tests in a parallel hierarchy, with one test 
+  class per product class. So if someone is changing a class named <font face="Courier New">Log</font>, 
+  they know the test class is <font face="Courier New">TestLog</font>, and they 
+  know where the source file can be found.</p>
+
+
+<h4>Let tests violate encapsulation<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>You might limit your tests to interacting with your component exactly as client 
+  code does, through the same interface that client code uses. However, this has 
+  disadvantages. Suppose you're testing a simple class that maintains a doubly 
+  linked list:</p>
+
+<p align="center"><img src="images/dvltst-img1.gif" width="195" height="46"></p>
+<p class="picturetext">Fig1: Double-linked list</p>
+
+<p>In particular, you're testing the <font face="Courier New">DoublyLinkedList.insertBefore(Object 
+  existing, Object newObject)</font> method. In one of your tests, you want to 
+  insert an element in the middle of the list, then check if it's been inserted 
+  successfully. The test uses the list above to create this updated list:</p>
+
+<p align="center"><img src="images/dvltst-img2.gif" width="318" height="46"></p>
+<p class="picturetext">Fig2: Double-linked list - item inserted</p>
+
+<p>It checks the list correctness like this:</p>
+<blockquote>
+<pre>
+// the list is now one longer. 
+expect(list.size()==3);
+
+// the new element is in the correct position
+expect(list.get(1)==m);
+
+// check that other elements are still there.
+expect(list.get(0)==a);
+expect(list.get(2)==z);
+</pre>
+</blockquote>
+
+<p>That seems sufficient, but it's not. Suppose the list implementation is incorrect 
+  and backward pointers are not set correctly. That is, suppose the updated list 
+  actually looks like this:</p>
+
+<p align="center"><img src="images/dvltst-img3.gif" width="318" height="73"></p>
+<p class="picturetext">Fig3: Double-linked list - fault in implementation</p>
+
+<p>If <font face="Courier New">DoublyLinkedList.get(int index)</font> traverses 
+  the list from the beginning to the end (likely), the test would miss this failure. 
+  If the class provides <font face="Courier New">elementBefore</font> and <font face="Courier New">elementAfter</font> 
+  methods, checking for such failures is straightforward:</p>
+<blockquote>
+<pre>
+// Check that links were all updated
+expect(list.elementAfter(a)==m);
+expect(list.elementAfter(m)==z);
+expect(list.elementBefore(z)==m); //this will fail
+expect(list.elementBefore(m)==a);
+</pre>
+</blockquote>
+<p>But what if it doesn't provide those methods? You could devise more elaborate 
+  sequences of method calls that will fail if the suspected defect is present. 
+  For example, this would work:</p>
+<blockquote>
+<pre>
+// Check whether back-link from Z is correct.
+list.insertBefore(z, x);
+// If it was incorrectly not updated, X will have 
+// been inserted just after A.
+expect(list.get(1)==m); 
+</pre>
+</blockquote>
+<p>But such a test is more work to create and is likely to be significantly harder 
+  to maintain. (Unless you write good comments, it will not be at all clear why 
+  the test is doing what it's doing.) There are two solutions:</p>
+<ol>
+  <li>Add the <font face="Courier New">elementBefore</font> and <font face="Courier New">elementAfter</font> 
+    methods to the public interface. But that effectively exposes the implementation 
+    to everyone and makes future change more difficult.</li>
+  <li>Let the tests &quot;look under the hood&quot; and check pointers directly.</li>
+</ol>
+<p>The latter is usually the best solution, even for a simple class like <font face="Courier New">DoublyLinkedList</font> 
+  and especially for the more complex classes that occur in your products.</p>
+<p>Typically, tests are put in the same package as the class they test. They are 
+  given protected or friend access.</p>
+
+
+<h3><a name="TestDesignMistakes"></a>Characteristic Test Design Mistakes <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Each test exercises a component and checks for correct results. The design 
+  of the test&#151;the inputs it uses and how it checks for correctness&#151;can 
+  be good at revealing defects, or it can inadvertently hide them. Here are some 
+  characteristic test design mistakes.</p>
+
+
+<h4>Failure to specify expected results in advance<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Suppose you're testing a component that converts XML into HTML. A temptation 
+  is to take some sample XML, run it through the conversion, then look at the 
+  results in a browser. If the screen looks right, you "bless" the HTML by saving 
+  it as the official expected results. Thereafter, a test compares the actual 
+  output of the conversion to the expected results.</p>
+<p>This is a dangerous practice. Even sophisticated computer users are used to 
+  believing what the computer does. You are likely to overlook mistakes in the 
+  screen appearance. (Not to mention that browsers are quite tolerant of misformatted 
+  HTML.) By making that incorrect HTML the official expected results, you make 
+  sure that the test can never find the problem.</p>
+<p>It's less dangerous to doubly-check by looking directly at the HTML, but it's 
+  still dangerous. Because the output is complicated, it will be easy to overlook 
+  errors. You'll find more defects if you write the expected output by hand first.</p>
+
+
+<h4>Failure to check the background<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Tests usually check that what should have been changed has been, but their 
+  creators often forget to check that what should have been left alone has been 
+  left alone. For example, suppose a program is supposed to change the first 100 
+  records in a file. It's a good idea to check that the 101<sup>st</sup> hasn't 
+  been changed.</p>
+<p>In theory, you would check that nothing in the &quot;background&quot;&#151;the 
+  entire file system, all of memory, everything reachable through the network&#151;has 
+  been left alone. In practice, you have to choose carefully what you can afford 
+  to check. But it's important to make that choice.</p>
+
+
+<h4>Failure to check persistence<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Just because the component tells you a change has been made, that doesn't mean 
+  it has actually been committed to the database. You need to check the database 
+  via another route.</p>
+
+
+<h4>Failure to add variety<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A test might be designed to check the effect of three fields in a database 
+  record, but many other fields need to be filled in to execute the test. Testers 
+  will often use the same values over and over again for these &quot;irrelevant&quot; 
+  fields. For example, they'll always use the name of their lover in a text field, 
+  or 999 in a numeric field. </p>
+
+<p>The problem is that sometimes what shouldn't matter actually does. Every so 
+  often, there's a bug that depends on some obscure combination of unlikely inputs. 
+  If you always use the same inputs, you stand no chance of finding such bugs. 
+  If you persistently vary inputs, you might. Quite often, it costs almost nothing 
+  to use a number different than 999 or to use someone else's name. When varying 
+  the values used in tests costs almost nothing and it has some potential benefit, 
+  then vary. (Note: It's unwise to use names of old lovers instead of your current 
+  one if your current lover works with you.)</p>
+
+<p>Here's another benefit. One plausible fault is for the program to use field 
+  <i>X</i> when it should have used field <i>Y</i>. If both fields contain &quot;Dawn&quot;, 
+  the fault can't be detected.</p>
+
+
+<h4>Failure to use realistic data<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>It's common to use made-up data in tests. That data is often unrealistically 
+  simple. For example, customer names might be "Mickey", "Snoopy", and "Donald". 
+  Because that data is different from what real users enter - for example, it's 
+  characteristically shorter - it can miss defects real customers will see. For 
+  example, these one-word names wouldn't detect that the code doesn't handle names 
+  with spaces. </p>
+<p>It's prudent to make a slight extra effort to use realistic data.</p>
+
+
+<h4>Failure to notice that the code does nothing at all<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Suppose you initialize a database record to zero, run a calculation that should 
+  result in zero being stored in the record, then check that the record is zero. 
+  What has your test demonstrated? The calculation might not have taken place 
+  at all. Nothing might have been stored, and the test couldn't tell.</p>
+<p>That example sounds unlikely. But this same mistake can crop up in subtler 
+  ways. For example, you might write a test for a complicated installer program. 
+  The test is intended to check that all temporary files are removed after a successful 
+  installation. But, because of all the installer options, in that test, one particular 
+  temporary file wasn't created. Sure enough, that's the one the program forgot 
+  to remove.</p>
+
+
+<h4>Failure to notice that the code does the wrong thing<a href="#Top"> <img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Sometimes a program does the right thing for the wrong reasons. As a trivial 
+  example, consider this code:</p>
+<blockquote>
+<pre>
+if (a < b && c) 
+    return 2 * x;
+else
+    return x * x;
+</pre>
+</blockquote>
+<p>The logical expression is wrong, and you've written a test that causes it to 
+  evaluate incorrectly and take the wrong branch. Unfortunately, purely by coincidence, 
+  the variable X has the value 2 in that test. So the result of the wrong branch 
+  is accidentally correct - the same as the result the right branch would have 
+  given. </p>
+<p>For each expected result, you should ask if there's a plausible way in which 
+  that result could be gotten for the wrong reason. While it's often impossible 
+  to know, sometimes it's not.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

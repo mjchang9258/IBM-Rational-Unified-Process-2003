@@ -1,0 +1,330 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Test Stub</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Test Stub</rpw> <a name="XE_test_stub__artifact_definition"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_stub.jpg" width="57" height="43">&nbsp;
+	  </td>
+      <td width="80%">A specialized implementation element used for testing purposes, 
+        which simulates a real component.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_impmd.htm">Implementation Model</a>
+
+<br>
+
+Extends: <a href="ar_tstcp.htm">Testability Element</a>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_implm.htm">Implementer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Optional. Used if the real components are not available 
+        or are too expensive to use for testing.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Element in the implementation model, stereotyped as &#171;test 
+        stub&#187;.&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../workflow/implemen/co_stubs.htm">Concept: Stubs</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_impdvltst.htm">Implement Developer Test</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_imptstcmp.htm">Implement Testability Elements</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a name="XE_test_stub__purpose_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>The purpose of the Test Stub is to simulate a real component which is not available 
+  for testing.</p>
+
+<h3><a name="BriefOutline">Brief Outline</a> <a name="XE_test_stub__brief_outline_for"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>There are two aspects regarding the Test Stub: the degree of emulation and 
+  the lifecycle. Given the tests' scope and goals, a stub's implemenation could 
+  range from just an almost empty class which complies with a set of interfaces 
+  to a full-blown emulator which will perform very close to the real component 
+  in terms of functionality. Except for the simple throwaway tests, the stubs 
+  will have the same lifecycle as the components under test, therefore in most 
+  of the cases they need to be treated the same as product code.</p>
+
+<h3><a name="Properties">Properties</a><a name="XE_test_stub__properties_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <th width="21%" align="left">Property Name&nbsp;</th>
+    <th width="41%" align="left">Brief Description&nbsp;</th>
+    <th width="38%" align="left">UML Representation&nbsp;</th>
+  </tr>
+  <tr>
+    <td width="21%">name&nbsp;</td>
+    <td width="41%">the name of the class&nbsp;</td>
+    <td width="38%">attribute&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">description&nbsp;</td>
+    <td width="41%">a brief description of the role of the class in the system&nbsp;</td>
+    <td width="38%">attribute&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">responsibilities</td>
+    <td width="41%">a listing of the responsibilities of the class&nbsp;</td>
+    <td width="38%">attribute&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">attributes&nbsp;</td>
+    <td width="41%">the attributes of the class&nbsp;</td>
+    <td width="38%">attribute&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h3><a name="Timing">Timing</a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>The stubs follow the development cycle of the components under test.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>See <a href="ar_comp.htm#Responsibility">Responsibility in Artifact: Implementation 
+  Element</a>.</p>
+<h3><a name="Tailoring">Tailoring</a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>See <a href="ar_comp.htm#Tailoring">Tailoring in Artifact: Implementation Element</a>.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

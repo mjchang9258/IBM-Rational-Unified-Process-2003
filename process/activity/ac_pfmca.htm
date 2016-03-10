@@ -1,0 +1,292 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Perform Configuration Audit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Perform Configuration Audit</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2" ><b>Purpose</b>
+    <ul>
+      <li>To determine that a baseline contains all required artifacts</li>
+      <li>To determine that a baseline meets requirements.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" ><b>Steps</b>
+    <ul>
+      <li><a href="#Perform Physical Configuration Audit">Perform Physical Configuration Audit</a></li>
+      <li><a href="#Perform Functional Configuration Audit">Perform Functional Configuration Audit</a></li>
+      <li><a href="#Report Findings">Report Findings</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_cmpln.htm">Configuration Management Plan</a></li>
+<li><a href="../artifact/ar_repos.htm">Project Repository</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_caudit.htm">Configuration Audit Findings</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>As called out in the Configuration Management Plan -
+      typically performed after system test and prior to acceptance testing.&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_cmmgr.htm">Configuration Manager</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_cm.htm">Configuration & Change Management</a>
+<ul>
+<li><a href="../workflow/conf_mgt/wfd_monrpt.htm">Monitor & Report Configuration Status</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Perform Physical Configuration Audit"></a>Perform Physical Configuration Audit
+<a href="#Top"><img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>A Physical Configuration Audit (PCA) identifies the components of a product
+to be deployed from the Project Repository.&nbsp; Steps are:</p>
+<ul>
+  <li>Identify the baseline to be deployed (typically just a name and/or number, 
+    but may also be a full list of all files and their versions).</li>
+  <li>Confirm that all required artifacts, as specified by the Development Case,
+    are present in the baseline.&nbsp; List missing artifacts in the
+    Configuration Audit Findings.</li>
+</ul>
+<h4><b>Other Levels of Physical Configuration Audit</b></h4>
+<p>Some organizations use a Physical Configuration Audit to confirm consistency
+of design and/or user documentation with the code.&nbsp; The Rational Unified
+Process recommends that this consistency checking be performed as part of the
+review activity throughout the development process.&nbsp; At this late stage,
+audits should be restricted to auditing that required deliverables are present,
+and not reviewing content.</p>
+<h3><a name="Perform Functional Configuration Audit"></a>Perform Functional Configuration Audit
+<a href="#Top"><img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>A Functional Configuration Audit (FCA) confirms that a baseline meets the
+requirements targeted for the baseline.&nbsp; Steps for performing this audit are:</p>
+<ul>
+  <li>Prepare a report which lists each requirement targeted for the baseline, its corresponding test
+    procedure, and test result (pass/fail) for the baseline.&nbsp;&nbsp;</li>
+  <li>Confirm that each requirement has one or more tests, and that all tests of
+    the requirement have passed.&nbsp; List any requirements without test
+    procedures, and requirements with incomplete or failed tests, in the
+    Configuration Audit Findings.&nbsp;</li>
+  <li>Generate a list of CRs targeted for this baseline.&nbsp; Confirm that each CR
+    has been closed.&nbsp; List any CRs which are not closed in the
+    Configuration Audit Findings.</li>
+</ul>
+<h3><a name="Report Findings"></a>Report Findings <a href="#Top"><img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>If there are any discrepancies, then these are captured in the Audit Findings
+as described above.&nbsp; In addition, the following steps should be taken:
+</p>
+<ul>
+  <li>Identify corrective actions.&nbsp; This may require interviewing various
+    members of the project team to identify the source of the discrepancy and
+    appropriate corrections.&nbsp;&nbsp;
+    <p>For missing artifacts, the appropriate action is typically to place the
+    artifact under configuration control, or to create a CR or task to create
+    the missing artifact.</p>
+    <p>For untested or failed requirements, the requirement may be targeted to a
+    later baseline, or negotiated for removal from the set of requirements.</p>
+    <p>For un-closed CRs, the CR may simply need to be closed, or it may need
+    further testing, or deferred to a later baseline.<br>
+  </li>
+  <li>For each corrective action, assign responsibility and determine a
+    completion date.</li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

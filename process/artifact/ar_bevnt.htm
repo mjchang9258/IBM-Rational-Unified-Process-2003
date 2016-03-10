@@ -1,0 +1,353 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Artifact:&nbsp;Business Event</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Business Event</rpw><a name="Top"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_bevnt.jpg" width="73" height="37">&nbsp;
+	  </td>
+      <td width="80%">A <b>Business Event</b> represents a significant occurrence 
+        in the activities of the business that requires immediate action.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_bom.htm">Business Analysis Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_bdes.htm">Business Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Can be excluded. Business Events are unnecessary when Business 
+        Use Cases are not being modeled.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Signal, stereotyped as &laquo;business event&raquo;.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_bevnt.htm">Guideline: Business Event</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_rvbom.htm">Review the Business Analysis Model</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dent.htm">Detail a Business Entity</a></li>
+<li><a href="../activity/ac_fbwke.htm">Find Business Workers and Entities</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_class__purpose_of"></a><a name="Purpose">Purpose</a> 
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Business Events represent the important things that happen in business and 
+  as such help manage complexity. Business Events are triggered and received by 
+  Business Actors, Business Workers, and Business Entities, while interacting 
+  to realize Business Use Cases. Business Events are used to trigger Business 
+  Use Cases, to signal changes of state of the business, and to pass information 
+  between Business Use Cases. 
+<p>Stakeholders and business-process analysts use Business Events to better understand 
+  and describe the activities of the business. Business designers are responsible 
+  for identifying and detailing Business Events. Business Events are also used 
+  by systems analysts to help identify software system actors and use cases, and 
+  by software architects to help make software systems more flexible and maintainable. 
+<h3><a name="XE_class__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%">
+    <p class="tableheading"><b>Property Name</b></td>
+    <td width="40%">
+    <p class="tableheading"><b>Brief Description</b></td>
+    <td width="40%">
+    <p class="tableheading"><b>UML Representation</b></td>
+  </tr>
+  <tr>
+    <td width="20%">Name</td>
+      <td width="40%">The name of the Business Event.</td>
+    <td width="40%">The
+    attribute &quot;Name&quot; on model element.</td>
+  </tr>
+  <tr>
+    <td width="20%">Brief
+    Description</td>
+      <td width="40%">A brief description of the Business Event.</td>
+    <td width="40%">Tagged
+    value, of type &quot;short text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Event
+      Type</td>
+      <td width="40%">Whether it is a Signal Event, a Call Event, a Time Event, 
+        or a Change Event.</td>
+    <td width="40%">enum</td>
+  </tr>
+  <tr>
+    <td width="20%">Relationships</td>
+      <td width="40%">The relationships, such as generalizations, associations, 
+        and aggregations, in which the Business Event participates.</td>
+    <td width="40%">Owned
+    by an enclosing package, via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Operations</td>
+      <td width="40%">The operations defined by the Business Event.</td>
+    <td width="40%">operation</td>
+  </tr>
+  <tr>
+    <td width="20%">Attributes</td>
+      <td width="40%">The attributes defined by the Business Event. Used to describe 
+        information relevant to the occurrence of the Business Event.</td>
+    <td width="40%">attribute</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Timing">Timing</a>
+ <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+Business Events are identified during the Inception phase, as part of finding 
+business actors and use cases and describing Business Use-Case Realizations. During 
+the Elaboration phase, Business Events are detailed, and some may be identified. 
+<h3><a name="Responsibility">Responsibility</a> 
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>A business-process analyst identifies candidate events while finding business 
+  actors and use cases but is not responsible for a Business Event in itself. 
+  A business designer is responsible for a specific Business Event, ensuring that 
+  it is consistent and complete. 
+<h3><a name="Tailoring">Tailoring</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p> Attributes are often useful to explicitly define what information is relevant. 
+  Operations can be used but are not really useful during business modeling, and 
+  therefore are not often employed. Business Events are usually represented in 
+  models of software systems. These software system representations of Business 
+  Events usually do have operations.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Setting Up the Test Environment in Rational TestFactory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Setting Up the Test Environment in Rational TestFactory</rpw>
+</h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to perform the steps to set up the Rational 
+  TestFactory environment so that you can Implement generated Test Scripts for 
+  the application-under-test (AUT).</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_setup.htm">Set Up Tools</a></li>
+<li><a href="../../process/activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../../process/activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+<li><a href="../../process/activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+<li><a href="../../process/activity/ac_sudev.htm">Support Development</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>Before you can use Rational TestFactory to automatically generate Test Scripts, 
+  you must set up the Test Environment Configuration. TestFactory generates Test 
+  Scripts based on an the &#147;application map&#148;&#151;a hierarchical list 
+  of &#147;UI objects&#148; that represent the windows and controls in the user 
+  interface of the application-under-test (AUT).</p>
+<p>This tool mentor is applicable when running Windows 98/2000/NT 4.0.</p>
+<p>To set up the test environment in Rational TestFactory:
+<ol>
+  <li><a href="#Define AUT">Define the project to Rational TestFactory and instrument the
+    AUT</a></li>
+  <li><a href="#Map AUT">Map the application-under-test</a></li>
+  <li><a href="#Review refine AUT">Review and refine the application map</a></li>
+</ol>
+<h3>1.&nbsp;&nbsp; <a name="Define AUT">Define the project to Rational TestFactory 
+  and instrument the AUT</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The first time you open a project in Rational TestFactory, you need to supply
+information about the project and the
+application-under-test (AUT). The main functional areas of
+TestFactory remain unavailable until you specify the project information.</p>
+<p>To measure code-based test coverage of an executed Test Script, the AUT must 
+  contain instrumentation points&#151;counters that tally the parts of the code 
+  that a Test Script executes. Rational TestFactory uses information in the instrumented 
+  files to calculate code-based coverage data for both the Test Scripts that TestFactory 
+  generates and the Robot Test Scripts that you can play back from TestFactory.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp; Refer to the
+following topics in Rational TestFactory Help:
+<ul>
+  <li><i>Starting TestFactory</i></li>
+  <li><i>Specifying information for a new project</i></li>
+  <li><i>Instrumenting the application-under-test</i></li>
+</ul>
+<h3>2.&nbsp;&nbsp; <a name="Map AUT">Map the application-under-test</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A well-developed application map is the foundation for generating Test Scripts 
+  in Rational TestFactory. The &#147;Application Mapper&#148;&#151;the process 
+  that creates the application map&#151;thoroughly explores the user interface 
+  of the application-under-test (AUT). Each window and control is examined and 
+  compared to known classes and subclasses, which are stored in the &#147;user 
+  interface (UI) library.&#148; Based on the outcome of the comparison, the mapping 
+  process creates a UI object, which is an instance of the matched class, and 
+  places it in the application map.</p>
+<p>Every defined class in the UI library has a specific set of &#147;UI object
+properties&#148; associated with it. When it creates a UI object, the Application
+Mapper assigns the object the set of properties associated with its class. These
+properties both identify the control in the AUT that the object represents, and
+inform Rational TestFactory how to exercise the control during mapping and testing.</p>
+<p>If the AUT contains a logon dialog box that requires special input such as a
+user ID or a password, you must provide specific logon information to the
+Application Mapper.</p>
+<p>When mapping is complete, the information in the Mapping Summary report
+reflects the windows and controls in the AUT that Rational TestFactory has mapped.
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to
+the following topics in Rational TestFactory Help:
+<ul>
+  <li><i>Map the AUT using the Application Mapper Wizard</i></li>
+  <li><i>Map the AUT using the Map It! shortcut</i></li>
+  <li><i>Mapping an AUT that has a logon dialog box</i></li>
+</ul>
+<h3>3.&nbsp;&nbsp; <a name="Review refine AUT">Review and refine the application
+map</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The first version of the application map may not be an accurate reflection of
+all the controls in the AUT. The application map may be incomplete or mapped UI
+objects may need reclassifying.</p>
+<p>A well-defined application map is critical to generating quality Test Scripts. 
+  Rational TestFactory can test only the controls in the AUT that are represented 
+  by UI objects in the application map. By reviewing and refining the application 
+  map before you start testing, you can increase the scope and quality of the 
+  generated Test Scripts.</p>
+<p>You can review the application map by comparing the windows and controls that
+you see in the AUT with the UI objects in the application map. If you notice
+unmapped controls in the AUT, and if you want to test these controls, you need
+to determine and resolve the cause for each unmapped control.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to
+the following topics in Rational TestFactory Help:
+<ul>
+  <li><i>Review the application map</i></li>
+  <li><i>Defining undetected controls</i></li>
+  <li><i>Resolving generic objects</i></li>
+  <li><i>Using interaction objects to improve the application map</i></li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

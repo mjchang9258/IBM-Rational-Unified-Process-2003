@@ -1,0 +1,441 @@
+<!-- RPW META DATA START --
+
+
+
+
+
+
+
+ 
+ 
+
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Describe Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Describe Distribution</rpw><a name="Top"></a></h2>
+
+
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+      <ul>
+            To describe how the functionality of the system is distributed across 
+            physical nodes. This activity applies only to distributed systems. 
+      </ul>
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Analyze Distribution Requirements">Analyze Distribution Requirements</a></li>
+      <li><a href="#Define the Network Configuration">Define the Network
+        Configuration</a></li>
+      <li><a href="#Allocate System Elements to Nodes">Allocate System Elements to Nodes</a>
+        </li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_impmd.htm">Implementation Model</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b> Once per iteration, especially during the Elaboration phase.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_archt.htm">Software Architect</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/xde_vsnet/tm_distr.htm">Describing Distribution Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_distr.htm">Describing Distribution Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/rose/tm_dist.htm">Documenting the Deployment Model Using Rational Rose</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/ana_desi/co_dpatt.htm">Concept: Distribution Patterns</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and2.htm">Refine the Architecture</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<p>This activity defines the deployment architecture for the system in terms of 
+  physical nodes and their interconnections. During <a href="ac_arcan.htm">Activity: 
+  Architectural Analysis</a>, an initial <a href="../artifact/ar_dplmdl.htm">Deployment 
+  Model</a> was defined. In this activity, that Deployment Model (specifically 
+  the <a href="../workflow/ana_desi/co_dview.htm">Deployment View</a>) is refined 
+  to reflect the current design.</p>
+
+<p> Early in the Elaboration phase, the deployment view is usually quite preliminary, but by late Elaboration
+it should be well-defined.</p>
+<p>Some implementation environments provide implicit distribution support&#151;meaning 
+  that elements can be distributed automatically and no special work is required 
+  on the part of the developer.&nbsp;Such distribution does not need to be explicitly 
+  modeled.&nbsp;However, specialdistribution (for example, additional distribution 
+  that enhances or elaborates on the distribution provided by default by the implementation 
+  environment) should be described. If the system under development does not contain 
+  any special deployment, this activity (and the Deployment View, for that matter) 
+  can be eliminated.</p>
+
+<h3><a name="Analyze Distribution Requirements">Analyze Distribution
+        Requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To define the extent to which distribution is required for the system.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Distribution requirements are driven by:</p>
+<ul>
+  <li><b>Distribution demands in the problem domain (functional requirements)</b> 
+    &#151; There may be explicit requirements that the system access or use a 
+    specific distributed processor, database, or legacy system to perform part 
+    of its functionality.</li>
+  <li><b>Selected deployment configuration</b> &#151; Specific deployment configurations 
+    impose constraints on the system's distribution by defining the number and 
+    types of nodes and their interconnections. For example, selection of a multi-tier 
+    deployment configuration typically means that you have a client node, a web server node, 
+    and an application server node. A specific deployment configuration is usually selected 
+    during <a href="ac_arcan.htm">Activity: Architectural Analysis</a> and is 
+    then refined during this activity.</li>
+  <li><b>Required resources (nonfunctional requirements)</b> &#151; Time-intensive or computation-intensive 
+    functionality might require specific hardware configurations specifically 
+    equipped to handle the demands of the functionality; for example, a fast processor, 
+    a lot of RAM, or a large amount of disk space.&nbsp;One example of this is digital 
+    signal processing, which could require specialized and dedicated processors.</li>
+  <li><b>The need for fault tolerance </b><b>(nonfunctional requirements)</b> 
+    &#151; The requirement could be to have backup processors.</li>
+  <li><b>Scalability and flexibility concerns </b><b>(nonfunctional 
+    requirements)</b> &#151; The large numbers of concurrent users are simply 
+    too many to support on any single processor. There could be a requirement 
+    to load balance the system functionality, thereby providing maximum performance 
+    and scalability.</li>
+  <li><b>Economic concerns</b> &#151; The price performance of smaller, cheaper processors 
+    cannot be matched in larger models.</li>
+</ul>
+<p>As with many architectural problems, these requirements might be somewhat mutually 
+  exclusive. It's not uncommon to have, at least initially, conflicting requirements. 
+  Ranking requirements in terms of importance will help resolve the conflict.</p>
+<h3><a name="XE_network_configuration__defining"></a><a name="Define the Network Configuration">Define
+the Network Configuration</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">Define the configuration and topology of the network.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<p>In this step, the initial <a href="../artifact/ar_dplmdl.htm">Deployment Model</a> 
+  (defined in <a href="ac_arcan.htm">Activity: Architectural Analysis</a>) is 
+  refined to support the distribution requirements identified in the previous 
+  <a href="#Analyze Distribution Requirements">step</a>.</p>
+<p>The topology of the network, and the capabilities and characteristics of the 
+  processors and devices on the network, will determine the nature and degree 
+  of distribution possible in the system.</p>
+<p>The following information needs to be captured:
+<ul>
+  <li>the physical layout of the network, including locations</li>
+  <li>the nodes on the network, and their configurations and capabilities (the 
+    configuration includes both the hardware and the software installed on the 
+    nodes, the number of processors, the amount of disk space, the amount of memory, 
+    the amount of swap, and so forth) &#151; hardware installed on the node can 
+    be represented using devices</li>
+  <li>the bandwidth of each segment on the network</li>
+  <li>the existence of any redundant pathways on the network (this will aid in 
+    providing fault tolerance capabilities)</li>
+  <li>The primary purpose of the node, including:</li>
+  <ul>
+    <li>workstation nodes used by end users</li>
+    <li>server nodes on what headless processing occurs (to simplify server configuration, 
+      server components can be packed into a headless image, which contains no 
+      user interface components)</li>
+    <li>special configurations used for development and test</li>
+    <li>other specialized processors</li>
+  </ul>
+  <li>IP design and facilities (for example, DNS, VPN), if an IP network exists</li>
+  <li>the part that the Internet plays in the solution</li>
+</ul>
+<p class="exampleheading">Example</p>
+<p class="example">The following diagram illustrates the Deployment View for the
+ATM</p>
+<p align="center"><img src="images/dist1.gif" width="594" height="456"></p>
+<p class="picturetext">Deployment View for the ATM</p>
+<p class="example">The diagram illustrates two Nodes (the ATM itself, which is 
+  the focus of this example), and the ATM Network Server, through which all connections 
+  to the inter-bank network are made. Though the ATM Network Server is out of 
+  scope for the builders of the ATM, we show it here to illustrate how network 
+  bandwidth can be documented. The diagram also shows the processes and threads 
+  which execute on the ATM Node, which are discussed in the next step <a href="#Allocate System Elements to Nodes">Allocate 
+  system elements to nodes.</a></p>
+<p class="example">Note the use of annotation to document processor and network
+capacity. Such documentation can also be presented in the documentation fields
+of the Node (or the devices), in which case it is not displayed in the diagram.</p>
+
+<h3><a name="Allocate System Elements to Nodes">Allocate System Elements to Nodes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose&nbsp;</b></td>
+    <td width="95%">To distribute the workload of the system.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>In this step, system elements are allocated to the nodes defined in the previous 
+  <a href="#Define the Network Configuration">step</a>. Deployment can be described 
+  from both a logical and a physical perspective.</p>
+<p><i>Logical deployment</i> is where logical elements (classes, subsystems, or 
+  instances of these) are mapped to nodes. These may include <a href="ac_concr.htm#IdentifyProcessesAndThreads">threads 
+  of control</a>. For example, a logical deployment might state that the AuctionManager 
+  subsystem is deployed to the Application server.</p>
+<p><i>Physical deployment</i> is where the files are mapped to nodes. For example, 
+  a physical deployment might say that the CloseAuctionTimer.class file is deployed 
+  to server76.</p>
+
+<p> Distribution is one area where the sum can be, and usually is, less than the 
+  sum of the parts. Achieving real benefits to distribution requires work and 
+  careful planning. When deciding what elements will be mapped to what nodes, 
+  the following needs to be considered:</p>
+
+<ul>
+  <li>node capacity (in terms of memory and processing power)</li>
+  <li>communication medium bandwidth (bus, LANs, WANs)</li>
+  <li>availability of hardware and communication links, rerouting</li>
+  <li>requirements for redundancy and fault-tolerance</li>
+  <li>response time requirements</li>
+  <li>throughput requirements</li>
+  <li>and so on</li>
+</ul>
+
+<p>Elements are allocated to nodes with the intent of minimizing the amount of 
+  cross-network traffic; elements that interact to a great degree should be colocated 
+  on the same node; whereas elements that interact less frequently can reside 
+  on different nodes. The crucial decision, and one that sometimes requires iteration, 
+  is where to draw the line. The distribution of processes across two or more 
+  nodes requires a closer examination of the patterns of inter-process communication 
+  in the system. Often, there is a naive perception that distribution of processing 
+  can off-load work from one machine onto a second. In practice, the additional 
+  inter-process communication workload can easily negate any gains made from workload 
+  distribution if the process and node boundaries are not considered carefully.</p>
+<p class="exampleheading">Example</p>
+<p class="example">The previous example diagram, the <b>Deployment View for
+the ATM</b>, illustrates for the ATM Node the allocation of processes onto
+the node. There is a single process (ATM Main), which in turn consists of three
+separate threads of control (Customer Interface, ATM Network Interface, and
+Device Controller).</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,994 @@
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">Use Case Modeling Guidelines</rpw>
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Use-Case-Modeling Guidelines</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body lang="EN-US" link="blue" vlink="purple">
+ 
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+ 
+<div class="Section1">
+<p class="MsoNormal"><span lang="EN-NZ">&nbsp;<o:p>
+  </o:p>
+  </span></p>
+  <p class="MsoTitle" align="right" style="text-align:right"><span style="mso-field-code:&quot;TITLE  \\* MERGEFORMAT&quot;" lang="EN-NZ"><font size="+2"><b>Example 
+    Use-Case Modeling Guidelines</b></font></span></p>
+  <p class="MsoTitle" align="right" style="text-align:right"><span lang="EN-NZ">&nbsp;<o:p> 
+    </o:p> </span></p>
+  <p class="MsoTitle" align="right" style="text-align:right"><span lang="EN-NZ" style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Version 
+    <a name="Version">&lt;n.m&gt;</a><o:p></o:p> </span></p>
+  <p class="MsoTitle" align="right" style="text-align:right"><span lang="EN-NZ" style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Last 
+    Update &lt;yyyymmdd&gt;<o:p> </o:p> </span></p>
+  <p class="MsoNormal"><span lang="EN-NZ">&nbsp;<o:p>
+  </o:p>
+  </span></p>
+  <p class="MsoNormal"><span lang="EN-NZ">&nbsp;<o:p>
+  </o:p>
+  </span></p>
+</div>
+<span lang="EN-NZ" style="font-size:10.0pt;font-family:Arial;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-NZ;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:always;mso-break-type:section-break">
+</span>
+<p class="MsoTitle"><span lang="EN-NZ">Revision History</span></p>
+<table border="1" cellspacing="0" cellpadding="0" style="margin-left:5.4pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .75pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt">
+  <tr> 
+    <td width="146" valign="top" style="width:109.8pt;border:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span lang="EN-NZ">Date<o:p> 
+        </o:p> </span></b></p>
+    </td>
+    <td width="77" valign="top" style="width:.8in;border:solid windowtext .75pt;
+  border-left:none;mso-border-left-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span lang="EN-NZ">Version<o:p> 
+        </o:p> </span></b></p>
+    </td>
+    <td width="221" valign="top" style="width:165.75pt;border:solid windowtext .75pt;
+  border-left:none;mso-border-left-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span lang="EN-NZ">Description<o:p> 
+        </o:p> </span></b></p>
+    </td>
+    <td width="151" valign="top" style="width:113.4pt;border:solid windowtext .75pt;
+  border-left:none;mso-border-left-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span lang="EN-NZ">Author<o:p> 
+        </o:p> </span></b></p>
+    </td>
+  </tr>
+  <tr> 
+    <td width="146" valign="top" style="width:109.8pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+    <td width="77" valign="top" style="width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+    <td width="221" valign="top" style="width:165.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+    <td width="151" valign="top" style="width:113.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+  </tr>
+  <tr> 
+    <td width="146" valign="top" style="width:109.8pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+    <td width="77" valign="top" style="width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+    <td width="221" valign="top" style="width:165.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+    <td width="151" valign="top" style="width:113.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"> 
+      <p class="Tabletext">&nbsp;<span lang="EN-NZ"><o:p> </o:p> </span></p>
+    </td>
+  </tr>
+</table>
+<p class="MsoHeader" style="tab-stops:.5in"><span lang="EN-NZ">&nbsp;<o:p>
+</o:p>
+</span></p>
+<b style="mso-bidi-font-weight:normal"><span lang="EN-NZ" style="font-size:18.0pt;
+mso-bidi-font-size:10.0pt;font-family:Arial;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-NZ;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:always">
+</span></b>
+<p class="MsoTitle"><span lang="EN-NZ"><a name="Table of Contents">Table of Contents</a></span></p>
+<p class="MsoToc1"><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-begin'></span><span style="mso-spacerun:
+yes"> </span>TOC \o &quot;1-3&quot; <span style='mso-element:field-separator'></span></span><![endif]-->
+<span lang="EN-NZ" style="mso-bidi-font-size:12.0pt"><a href="#Introduction">1.</a></span><a href="#Introduction"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span lang="EN-NZ" style="mso-bidi-font-size:
+12.0pt">Introduction</span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330031000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Purpose">1.1</a></span><a href="#Purpose"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Purpose</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330032000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Scope">1.2</a></span><a href="#Scope"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Scope<span style="mso-tab-count:1"> </span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330033000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></a></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Definitions, Acronyms and Abbreviations">1.3</a></span><a href="#Definitions, Acronyms and Abbreviations"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Definitions, Acronyms and Abbreviations<span style="mso-tab-count:1">&nbsp;</span></span></a><span lang="EN-NZ"><span style="mso-tab-count:1">
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330034000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#References">1.4</a></span><a href="#References"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">References<span style="mso-tab-count:1">&nbsp;</span></span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330035000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Overview">1.5</a></span><a href="#Overview"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Overview<span style="mso-tab-count:1"> </span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330036000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></a></p>
+<p class="MsoToc1"><span lang="EN-NZ" style="mso-bidi-font-size:12.0pt"><a href="#General Use-Case Modeling Guidelines">2.</a></span><a href="#General Use-Case Modeling Guidelines"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span lang="EN-NZ" style="mso-bidi-font-size:
+12.0pt">General Use-Case Modeling Guidelines</span></a><span style="mso-tab-count:1" lang="EN-NZ">
+</span><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330037000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#General Style">2.1</a></span><a href="#General Style"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">General Style</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330038000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of the &lt;&lt;Communicates&gt;&gt; relationship">2.2</a></span><a href="#Use of the &lt;&lt;Communicates&gt;&gt; relationship"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use of the &lt;&lt;Communicates&gt;&gt; relationship</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500330039000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of the &lt;&lt;Include&gt;&gt; and &lt;&lt;Extend&gt;&gt; relationships">2.3</a></span><a href="#Use of the &lt;&lt;Include&gt;&gt; and &lt;&lt;Extend&gt;&gt; relationships"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use of the &lt;&lt;Include&gt;&gt; and
+&lt;&lt;Extend&gt;&gt; relationships.</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340030000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of the &lt;&lt;Include&gt;&gt; relationship">2.3.1</a></span><a href="#Use of the &lt;&lt;Include&gt;&gt; relationship"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">Use of the &lt;&lt;Include&gt;&gt; relationship.</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340031000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of the &lt;&lt;Extend&gt;&gt; relationship">2.3.2</a></span><a href="#Use of the &lt;&lt;Extend&gt;&gt; relationship"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">Use of the &lt;&lt;Extend&gt;&gt; relationship.</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340032000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of Actor-Generalization">2.4</a></span><a href="#Use of Actor-Generalization"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use of Actor-Generalization</span></a></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of Interaction Diagrams">2.5</a></span><a href="#Use of Interaction Diagrams"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use of Interaction Diagrams</span></a></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of Activity Diagrams">2.6</a></span><a href="#Use of Activity Diagrams"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use of Activity Diagrams</span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340035000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc1"><span lang="EN-NZ" style="mso-bidi-font-size:12.0pt"><a href="#How to Describe a Use Case">3.</a></span><a href="#How to Describe a Use Case"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span lang="EN-NZ" style="mso-bidi-font-size:
+12.0pt">How to Describe a Use Case</span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340036000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Actor Guidelines">3.1</a></span><a href="#Actor Guidelines"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Actor Guidelines</span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340037000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Each concrete Use Case will be involved with at least one Actor">3.1.1</a></span><a href="#Each concrete Use Case will be involved with at least one Actor"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">Each concrete Use Case will be involved with at least
+one Actor<span style="mso-tab-count:1"> </span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340038000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></a></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Intuitive and Descriptive Actor Name(s)">3.1.2</a></span><a href="#Intuitive and Descriptive Actor Name(s)"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">Intuitive and Descriptive Actor Name(s)</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500340039000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Consistent Use of Actor Name(s)">3.1.3</a></span><a href="#Consistent Use of Actor Name(s)"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">Consistent Use of Actor Name(s)</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350030000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use Case Name">3.2</a></span><a href="#Use Case Name"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use Case Name</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350031000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use Case Brief Description">3.3</a></span><a href="#Use Case Brief Description"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use Case Brief Description<span style="mso-tab-count:1">&nbsp;</span></span></a><span lang="EN-NZ"><span style="mso-tab-count:1">
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350032000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#At least 1 paragraph">3.3.1</a></span><a href="#At least 1 paragraph"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">At least 1 paragraph</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350033000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#(Optional) An example">3.3.2</a></span><a href="#(Optional) An example"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">An example (Optional)</span></a></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Consistent use of the imperative: Will">3.4</a></span><a href="#Consistent use of the imperative: Will"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Consistent use of the imperative: Will</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350035000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of Glossary Terms">3.5</a></span><a href="#Use of Glossary Terms"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use of Glossary Terms</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350036000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of &#147;Action&#148; Terms">3.6</a></span><a href="#Use of &#147;Action&#148; Terms"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Use of &#147;Action&#148; Terms</span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350037000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Define where the system is responsible for presenting the Action Option">3.6.1</a></span><a href="#Define where the system is responsible for presenting the Action Option"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">Define where the system is responsible for presenting
+the Action Option</span></a><span lang="EN-NZ"><span style="mso-tab-count:
+1">&nbsp; </span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350038000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 80.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Consistent use of the term throughout the Use Case">3.6.2</a></span><a href="#Consistent use of the term throughout the Use Case"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;
+</span><span lang="EN-NZ">Consistent use of the term throughout the Use Case</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500350039000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Separate paragraphs for Actor and System behavior">3.7</a></span><a href="#Separate paragraphs for Actor and System behavior"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Separate paragraphs for Actor and System behavior</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500360030000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Alternate and Sub-Flows">3.8</a></span><a href="#Alternate and Sub-Flows"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp;
+</span><span lang="EN-NZ">Alternate and Sub-Flows</span></a><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;
+</span><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500360031000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 50.0pt right 439.7pt"><span lang="EN-NZ"><a href="#preconditions postconditions">3.9</a></span><a href="#preconditions postconditions"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">&nbsp;&nbsp; 
+  </span><span lang="EN-NZ">Preconditions and Postconditions<span style="mso-tab-count:1"> 
+  </span></span></a><span lang="EN-NZ"> 
+  <!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500360032000000</w:data>
+</xml><![endif]-->
+  </span> 
+  <!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+  <span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p> 
+  </o:p> </span></p>
+<p class="MsoToc2" style="tab-stops:.6in 60.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Use of placeholders for missing detail (TBD)">3.10</a></span><a href="#Use of placeholders for missing detail (TBD)"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">
+</span><span lang="EN-NZ">Use of placeholders for missing detail (TBD)</span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500360033000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 60.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Definition of and Reference to Supplementary Specifications">3.11</a></span><a href="#Definition of and Reference to Supplementary Specifications"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">
+</span><span lang="EN-NZ">Definition of and Reference to Supplementary
+Specifications<span style="mso-tab-count:1"> </span></span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500360034000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 60.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Crosscheck with UI Prototype/ Design">3.12</a></span><a href="#Crosscheck with UI Prototype/ Design"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">
+</span><span lang="EN-NZ">Crosscheck with UI Prototype/ Design<span style="mso-tab-count:1">
+</span></span></a><span lang="EN-NZ"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003500300030003100320035003500360035000000</w:data>
+</xml><![endif]-->
+</span><!--[if supportFields]><span lang=EN-NZ><span
+style='mso-element:field-end'></span></span><![endif]-->
+<span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoToc2" style="tab-stops:.6in 60.0pt right 439.7pt"><span lang="EN-NZ"><a href="#Exception Flows">3.13</a></span><a href="#Exception Flows"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">
+</span><span lang="EN-NZ">Exception Flows (Optional)</span></a><span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US">
+</span></p>
+<p class="MsoToc3" style="tab-stops:1.0in 83.0pt right 439.7pt"><span lang="EN-NZ"><a href="#What can go wrong?">3.13.1</a></span><a href="#What can go wrong?"><span style="mso-tab-count: 1; font-size: 12.0pt; font-family: Times New Roman; mso-ansi-language: EN-US">
+</span><span lang="EN-NZ">What can go wrong?</span></a></p>
+<p class="MsoTitle" style="margin-right:54.45pt;tab-stops:right 446.55pt"><!--[if supportFields]><span
+lang=EN-NZ><span style='mso-element:field-end'></span></span><![endif]-->
+<span lang="EN-NZ"><br clear="all" style="page-break-before:always">
+<span style="mso-field-code:&quot;TITLE  \\* MERGEFORMAT&quot;">Use-Case
+Modeling Guidelines</span></span></p>
+<p class="MsoTitle" style="margin-right:54.45pt;tab-stops:right 446.55pt">&nbsp;</p>
+<h1><span lang="EN-NZ" style="mso-bookmark: _Toc456598586">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Introduction">Introduction</a>&nbsp; <a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h1>
+<h2><span lang="EN-NZ" style="mso-bookmark: _Toc456598587">1.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Purpose">Purpose</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">The purpose of this set of guidelines is to ensure consistency 
+  of the Use-Case model. It provides guidance in how to document a Use-Case as 
+  well as general help on related topics often found problematic for Requirement 
+  Specifiers and System Analysts.</span></p>
+<h2><span lang="EN-NZ" style="mso-bookmark: _Toc456598588">1.2<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="Scope">
+</a></span><a name="Scope">Scope</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">These guidelines may be used as is, or tailored, to meet 
+  the needs of most projects.</span></p>
+<h2><span lang="EN-NZ" style="mso-bookmark: _Toc456598589">1.3<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Definitions, Acronyms and Abbreviations">Definitions, Acronyms
+and Abbreviations</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">See <a href="../../process/glossary.htm">Rational Unified 
+  Process Glossary.</a></span></p>
+<h2><span lang="EN-NZ" style="mso-bookmark: _Toc456598590">1.4<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="References">References</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">None</span></p>
+<h2><span lang="EN-NZ" style="mso-bookmark: _Toc456598591">1.5<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="Overview">
+</a></span><a name="Overview">Overview</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">This set of guidelines is organized into two sections, the
+first describes our preferred way of <i>modeling</i> the Use-Cases, the second
+part provides guidelines for the <i>content</i> of the Use-Case model and for <i>naming</i>
+the elements within the model.</span></p>
+<h1><span lang="EN-NZ">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="General Use-Case Modeling Guidelines">
+</a></span><a name="General Use-Case Modeling Guidelines">General Use-Case Modeling
+Guidelines</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h1>
+<h2><span lang="EN-NZ">2.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="General Style">General Style</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">The Use Cases will be written using the template provided 
+  with the Rational Unified Process, with certain style and layout modifications 
+  to suit applicable project documentation standards.&nbsp; <a href="../../webtmpl/templates/req/rup_ucspec.htm" target="_blank">Click 
+  here</a> to see the HTML version of this template.</span></p>
+<h2><span lang="EN-NZ">2.2<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of the &lt;&lt;Communicates&gt;&gt; relationship">Use of the
+&lt;&lt;Communicates&gt;&gt; relationship</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">The association between an Actor and a Use-Case is called
+a Communicates relation. It is recommended that this association is made uni-directional.
+By using this modeling strategy we will distinguish between :</span></p>
+<p style="margin-left:1.0in;text-indent:-.25in;mso-list:l15 level1 lfo26;
+tab-stops:list 1.0in"><span lang="EN-NZ" style="font-size:
+8.0pt;mso-bidi-font-size:10.0pt;font-family:Wingdings">q<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang="EN-NZ">Active Actor<br>
+The Actor is considered active in an Actor-Use Case pair when the Actor is
+initiating (or triggering) the execution of the Use-Case. The arrow on the
+communicates<span style="mso-spacerun: yes">&nbsp; </span>relation points to the
+Use-Case.</span></p>
+<p style="margin-left:1.0in;text-indent:-.25in;mso-list:l15 level1 lfo26;
+tab-stops:list 1.0in"><span lang="EN-NZ" style="font-size:
+8.0pt;mso-bidi-font-size:10.0pt;font-family:Wingdings">q<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang="EN-NZ">Passive Actor<br>
+The Actor is considered passive in an Actor-Use Case pair when the Use-Case is
+initiating the communication. Passive Actors will typically be external systems
+or devices that our system needs to communicate with. The arrow on the
+communicates relation points to the Actor.</span></p>
+<p><span lang="EN-NZ">This recommendation is made because the notion of active
+and passive actors adds value to the reader of the Use-Case model.</span></p>
+<h2><span lang="EN-NZ">2.3<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of the &lt;&lt;Include&gt;&gt; and &lt;&lt;Extend&gt;&gt; relationships">Use
+of the &lt;&lt;Include&gt;&gt; and &lt;&lt;Extend&gt;&gt; relationships</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">In the first instance, it is recommended that you avoid
+the use of these relationships. This recommendation is made because the misuse
+of these relationships has much more potential to clutter and confuse than they
+have to help simplify the Use-Case Model. The best practice is to avoid this
+type of decomposition initially, and consider using these relationships at a
+later stage in the process. These relationships can be used to:</span></p>
+<p style="margin-left:57.0pt;text-indent:-.25in;mso-list:
+l24 level1 lfo23;tab-stops:list 57.0pt"><span lang="EN-NZ">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Factor out behavior that is in common for two or more use cases.</span></p>
+<p style="margin-left:57.0pt;text-indent:-.25in;mso-list:
+l24 level1 lfo23;tab-stops:list 57.0pt"><span lang="EN-NZ">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Factor out behavior from the base use case that is not necessary for the
+understanding of the primary purpose of the use case, only the result of it is
+important.</span></p>
+<p style="margin-left:57.0pt;text-indent:-.25in;mso-list:
+l24 level1 lfo23;tab-stops:list 57.0pt"><span lang="EN-NZ">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>To show that there may be a set of behavior segments of which one or
+several may be inserted at an extension point in a base use case.</span></p>
+<p><span lang="EN-NZ">But they should only be used where they add value by
+helping to simplify and manage the use-case model.</span></p>
+<h3><span lang="EN-NZ">2.3.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of the &lt;&lt;Include&gt;&gt; relationship">Use of the
+&lt;&lt;Include&gt;&gt; relationship</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">The include-relationship describes a behavior segment that
+is inserted into a use-case instance that is executing the base use case. It is
+a mechanism similar in nature to a sub-routine, and is most often used to factor
+out common behavior.&nbsp;</span></p>
+<p><span lang="EN-NZ">See the <a href="../../process/modguide/md_incl.htm" target="ory_doc">guidelines
+for include-relationships</a> in the Rational Unified Process for more detail.</span></p>
+<h3><span lang="EN-NZ">2.3.2<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of the &lt;&lt;Extend&gt;&gt; relationship">Use of the
+&lt;&lt;Extend&gt;&gt; relationship</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">The extend-relationship is a more difficult relationship
+to take advantage of, primarily because the extension use-case is not known to
+the base use case. As a general comment, there are few places where this
+relationship is useful in most business systems. Keep in mind however, that
+there are always exceptions to the rules, and that this mechanism can be useful
+in certain circumstances.</span></p>
+<p><span lang="EN-NZ">See the <a href="../../process/modguide/md_exrel.htm" target="ory_doc">guidelines
+for extends-relationships</a> in the Rational Unified Process for more detail:</span></p>
+<h2><span lang="EN-NZ">2.4<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of Actor-Generalization">Use of Actor-Generalization</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">In general, Actor-Generalization can be used to better define 
+  the different roles played by the users of the system to be developed.<span style="mso-spacerun: yes">&nbsp; 
+  </span>This is useful in applications with different &#147;categories&#148; of end-users. 
+  In this way, only relevant functionality will be presented to each category 
+  of users, and we are able to control the access rights based on this grouping.</span></p>
+<p><span lang="EN-NZ">Rule of thumb : Each use-case will only be initiated by
+one Actor. This &#147;rule&#148; may be overridden, in which case the use-case
+description must justify the decision.</span></p>
+<p><span lang="EN-NZ">Example from the University's Business Domain:<span style="mso-spacerun: yes">&nbsp;
+Librarian and Professor are examples of two existing </span>roles (actors) in
+the University Domain. These roles have some common tasks and some tasks that
+are unique to their role in the Business. The preferred way of modeling this is
+shown below.</span><img border="0" src="images/act_gen.gif" width="646" height="261"></p>
+<p><!--[if gte vml 1]><o:wrapblock><v:shapetype id="_x0000_t75"
+  coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+  filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" style='position:absolute;
+  left:0;text-align:left;margin-left:0;margin-top:0;width:431.65pt;height:216.65pt;
+  z-index:1;mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="file:///C:/DOCUME~1/shopen/LOCALS~1/Temp/msoclip1/01/clip_image001.wmz"
+   o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]-->
+<!--[if gte vml 1]></o:wrapblock><![endif]-->
+<span lang="EN-NZ">See the <a href="../../process/modguide/md_actgn.htm" target="ory_doc">guidelines:
+Actor Generalization </a>in the Rational Unified Process for more detail.</span></p>
+<h2><span lang="EN-NZ">2.5<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="Use of Interaction Diagrams">
+</a></span><a name="Use of Interaction Diagrams">Use of Interaction Diagrams</a>
+</span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">In some cases, it is beneficial to include – in
+addition to the textual flow of events - an Interaction diagram to illustrate
+the &#147;high level&#148; flow of events of the use case. It is recommended you draw a
+sequence diagram for this in Rational Rose. Include only the communication
+between the actors and the boundary objects (covering both the input and the output messages) and treat the
+system as a black box. Use boundary objects with logical names as defined in the
+use case flow of events, without assigning them to classes at this point.</span></p>
+<p><span lang="EN-NZ">It is not necessary for every use case to have a
+corresponding interaction diagram: It is an optional deliverable.</span></p>
+<p><span lang="EN-NZ">For additional <a href="../../process/modguide/md_seqdm.htm" target="ory_doc">guidelines
+on sequence diagrams</a>, see the Rational Unified Process.</span></p>
+<h2><span lang="EN-NZ">2.6<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of Activity Diagrams">Use
+of Activity Diagrams</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">Where an activity diagram adds value in helping to define,
+clarify and complete the flow of events in the use case, it is recommended these
+are modeled in Rational Rose. A good rule of&nbsp; thumb is to consider Activity
+Diagrams for complex use-cases (containing several alternate and / or
+exceptional flows). The activity
+diagram shows a decision tree of the flows in the use-case.</span></p>
+<p><span lang="EN-NZ">It is not necessary for every use case to have a
+corresponding activity diagram: It is an optional deliverable.</span></p>
+<p><span lang="EN-NZ">For additional <span style="color:red"><a href="../../process/modguide/md_actd.htm" target="ory_doc">guidelines
+on Activity Diagram</a> </span>in the Use-Case Model, see the Rational Unified
+Process.</span></p>
+<h1><span lang="EN-NZ">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="How to Describe a Use Case">How to Describe a Use Case</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h1>
+<p><span lang="EN-NZ">For general information and additional <a href="../../process/modguide/md_uc.htm" target="ory_doc">guidelines
+on Use Cases</a>, See the Rational Unified Process.</span></p>
+<h2><span lang="EN-NZ">3.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="Actor Guidelines">
+</a></span><a name="Actor Guidelines">Actor Guidelines</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">For general information and additional <a href="../../process/modguide/md_actor.htm" target="ory_doc">guidelines
+on Actors</a>, See the Rational Unified Process.</span></p>
+<h3><span lang="EN-NZ">3.1.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Each concrete Use Case will be involved with at least one Actor">Each
+concrete Use Case will be involved with at least one Actor</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">Is each concrete use case involved with at least one
+actor? If not, something is wrong; a use case that does not interact with an
+actor is superfluous, and you will either remove it or identify the
+corresponding actor.</span></p>
+<p><span lang="EN-NZ">In some cases, more than one actor may play a part in the
+use case interaction. Be sure to check that the use of multiple actors in the
+one use case is valid (see Actor Generalization).</span></p>
+<h3><span lang="EN-NZ">3.1.2<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Intuitive and Descriptive Actor Name(s)">Intuitive and
+Descriptive Actor Name(s)</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">Do the actors have intuitive and descriptive names? Can
+both users and customers understand the names? It is important that actor names
+correspond to their roles. If not, change them.</span></p>
+<p><span lang="EN-NZ">You should refer to the Use Case Model to ensure that you
+are using the correct actor name for every actor in your use case.</span></p>
+<h3><span lang="EN-NZ">3.1.3<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Consistent Use of Actor Name(s)">Consistent Use of Actor Name(s)</a>
+</span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">The use case specification will be written using actor
+name(s) consistently. Care will be taken to ensure actor naming is clear and
+unambiguous.</span></p>
+<p><span lang="EN-NZ">Do not refer generically to &#147;the actor&#148;; instead use
+the actual name used to uniquely identify or define the actor. The actor name
+can be thought of as the role being played in a set of system interactions.</span></p>
+<h2><span lang="EN-NZ">3.2<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use Case Name">Use Case Name</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">The use-case name will be unique, intuitive, and
+explanatory so that it clearly and unambiguously defines the observable result
+of value gained from the use case.</span></p>
+<p><span lang="EN-NZ">A good check for the use-case name is to survey whether
+customers, business representatives, analysts and developers all understand the
+names and descriptions of the use cases. Remember: You are defining an
+observable result of value from the actors perspective.</span></p>
+<p><span lang="EN-NZ">Each use-case name will describe the behavior the use case
+supports. The name will combine both the action being performed and the key
+element being &#147;actioned&#148;. Most often, this will be a simple Verb/ Noun
+combination. The use case should be named from the perspective of the actor that
+triggers the use case. Examples include: &#147;Register for a course&#148;, &#147;Select
+a course to teach&#148;.</span></p>
+<h2><span lang="EN-NZ">3.3<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="Use Case Brief Description">
+</a></span><a name="Use Case Brief Description">Use Case Brief Description</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<h3><span lang="EN-NZ">3.3.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="At least 1 paragraph">At least 1 paragraph</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">The use case will contain a brief description. This
+description will be at least 1 paragraph and no more than 3 paragraphs in
+length. The description will cover an explanation of the key purpose, value
+proposition and concepts of the use case.</span></p>
+<h3><span lang="EN-NZ">3.3.2<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="(Optional) An example">An example (Optional)</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">Where it adds value, a short example &#147;story&#148; can be
+included with the brief description that helps to provide further context. This
+example will usually follow the Basic Flow, and where helpful will include data
+values.</span></p>
+<h2><span lang="EN-NZ">3.4<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Consistent use of the imperative: Will">Consistent use of the
+imperative: Will</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">System requirements within the use cases will be written
+using the imperative. The term &#147;Will&#148; has been chosen in favor of
+&#147;Shall&#148; and &#147;Must&#148; to describe requirements consistently. The use of
+passive terms that imply the requirement is optional or undefined such as
+&#147;should&#148;, &#147;possibly&#148;, &#147;etc&#148;, &#147;might&#148; or &#147;may&#148; will be
+avoided.</span></p>
+<h2><span lang="EN-NZ">3.5<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of Glossary Terms">Use of Glossary Terms</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">All Business Terms used in a use case will be defined in 
+  the project's Glossary. If a Business Term exists in a use case that does not 
+  exist in the glossary, the term needs to either:</span></p>
+<p style="margin-left:.75in;text-indent:-.25in;mso-list:l18 level1 lfo24;
+tab-stops:list .75in"><span lang="EN-NZ">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Be added to the glossary, including a brief description (max. one
+paragraph).</span></p>
+<p style="margin-left:.75in;text-indent:-.25in;mso-list:l18 level1 lfo24;
+tab-stops:list .75in"><span lang="EN-NZ">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Be changed in the use case to reflect the correct Business Term defined
+in the glossary.</span></p>
+<h2><span lang="EN-NZ">3.6<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Use of &#147;Action&#148; Terms">Use of &#147;Action&#148; Terms</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<h3><span lang="EN-NZ">3.6.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Define where the system is responsible for presenting the Action Option">Define
+where the system is responsible for presenting the Action Option</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">The use case will explicitly state where the system is
+responsible for presenting an action as an available option for the actor to
+select. In most cases, the available options should be presented as part of the
+basic flow, and be referenced as the entry point in the first statement in the
+corresponding alternative flow.</span></p>
+<h3><span lang="EN-NZ">3.6.2<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Consistent use of the term throughout the Use Case">Consistent
+use of the term throughout the Use Case</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h3>
+<p><span lang="EN-NZ">The use of terms such as New, Modify, Cancel, Delete, OK,
+and Print will be consistent throughout the use case: The same logical action
+will not be referred to using different terminology. Special care will be taken
+to ensure that the Action Terms used in the Alternative Flows match those used
+in the basic flow.</span></p>
+<h2><span lang="EN-NZ">3.7<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="Separate paragraphs for Actor and System behavior">
+</a></span><a name="Separate paragraphs for Actor and System behavior">Separate
+paragraphs for Actor and System behavior</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">Each time the interaction between the actor and the system
+changes focus (between the actor and the system), the next segment of behavior
+will start with a new paragraph. Begin first with an actor and then the system.</span></p>
+<p><span lang="EN-NZ">The sentence must begin with &#145;The &lt;actor-name&gt;
+will xxxxx&#146;, or &#145;The system will xxxx&#146;. Always state the actor name
+correctly, in full, rather than any abbreviation.</span></p>
+<h2><span lang="EN-NZ">3.8<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Alternate and Sub-Flows">Alternate and Sub-Flows</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">Each Alternate and Sub-Flow will explicitly and clearly
+define all of the possible entry points into the flow, and will conclude with
+all of the possible exit points from the flow.</span></p>
+<p><span lang="EN-NZ">The alternate flow will also state explicitly the exit
+point and where the actor continues to next –<span style="mso-spacerun: yes">&nbsp;
+</span>whether it is returning to a specific step in the basic flow, or ending.</span></p>
+<p><span lang="EN-NZ">Where the flow of events becomes cluttered due to complex behavior,
+or where a single flow exceeds a physical printed page in length, sub-flows can
+be used to improve clarity and manage the complexity. Sub-flows will be written
+by moving a self-contained, logical group of detailed behavior to a sub-flow,
+and referencing this behavior in summary form within the flow of events.</span></p>
+<h2><span lang="EN-NZ">3.9<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span><a name="preconditions postconditions">Preconditions and Postconditions</a> 
+  </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">The use case specification will include a set of
+conditions (also referred to as assumptions) that are expected to be true before
+the use case begins (preconditions) and after the use case has ended
+(postconditions). Note that the use case may end in a number of ways, and each
+&#147;postcondition&#148; should be described accordingly.</span></p>
+<h2><span lang="EN-NZ">3.10<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a name="Use of placeholders for missing detail (TBD)"> </a></span><a name="Use of placeholders for missing detail (TBD)">Use
+of placeholders for missing detail (TBD)</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">Where information is not yet defined or not yet decided,
+the use case will include a reference to the issue or element and will include
+the placeholder: TBD.</span></p>
+<h2><span lang="EN-NZ">3.11<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Definition of and Reference to Supplementary Specifications">Definition
+of and Reference to Supplementary Specifications</a> </span><span lang="EN-NZ" style="mso-bookmark: _Toc456598586"><a name="Introduction" href="#Table of Contents"><img border="0" src="../../images/top.gif" width="26" height="20"></a></span></h2>
+<p><span lang="EN-NZ">Where there are additional requirements that cannot be
+described naturally during the flow of events, these will be defined as
+supplementary requirements. For those that are specific to a use case, these
+will be defined in the Special Requirements section of the use case
+specification.</span></p>
+<p><span lang="EN-NZ">For those requirements that are applicable system-wide,
+especially those of a non-functional nature, will be defined in one or more
+separate supplementary specification documents.</span></p>
+<p><span lang="EN-NZ">Examples includes:</span></p>
+<p style="margin-left:127.6pt;text-indent:-77.95pt"><span lang="EN-NZ">Reliability:<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>- The system must be available 24 x 7.</span></p>
+<p style="margin-left:127.6pt;text-indent:-77.95pt"><span lang="EN-NZ"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>- The system must run for 48 hrs MTBF.</span></p>
+<p style="margin-left:127.6pt;text-indent:-77.95pt"><span lang="EN-NZ">Performance:<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>- The system must provide an online response that does not exceed 5
+seconds under the expected normal load conditions.</span></p>
+<h2><span lang="EN-NZ">3.12<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Crosscheck with UI Prototype/ Design">Crosscheck with UI
+Prototype/ Design</a></span></h2>
+<p><span lang="EN-NZ">The use case contents will be cross-checked against the UI
+Prototype/ Design to ensure no system requirements are missing from the use case
+or the UI Prototype/ Design. Where changes are required to the use case, these
+will be actioned: Changes to the UI Prototype will be noted as a discussion for
+future action.</span></p>
+<h2><span lang="EN-NZ">3.13<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="Exception Flows">Exception Flows</a> (Optional)</span></h2>
+<p><span lang="EN-NZ">The following guidelines are provided in assisting in the
+discovery of Exception Flows:</span></p>
+<h3><span lang="EN-NZ">3.13.1<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a name="What can go wrong?">What can go wrong?</a></span></h3>
+<p><span lang="EN-NZ">For each step in the use case, consider what can go wrong.
+Each unique exception can be captured as an Exception Flow. In some cases, a
+single Exceptions Flow will be used commonly across the use case, e.g.
+&#147;Timeout&#148;. The key information to be captured is what the business
+requirement is when the exception occurs, i.e. what should the actors experience
+be?</span></p>
+
+ 
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+ 
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+
+<title>Guidelines:&nbsp;Business System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business System</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Business Systems Enable Dynamic Structure">Business Systems
+    Enable Dynamic Structure</a></li>
+  <li><a href="#Business Systems Have Well-defined Responsibilities">Business 
+    Systems Have Well-Defined Responsibilities</a></li>
+  <li><a href="#Business Systems Contain Roles and Resources">Business Systems
+    Contain Roles and Resources</a></li>
+  <li><a href="#Business Use Cases Cut Across Business Systems">Business Use Cases 
+    Cut Across Business Systems</a></li>
+  <li><a href="#Examples">Examples</a></li>
+</ul>
+
+<h3><a name="Introduction"></a>Introduction
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Business systems represent an independent capability within a business. They 
+  are used to partition and understand the structure of a business into manageable 
+  chunks, in much the same way that an organization is typically partitioned into 
+  interdependent units. However, the role and purpose of different parts of an 
+  organization are not always clear to other parts of it, which results in less-than-optimal 
+  interactions when executing a business process. </p>
+
+<p>Business systems take the concept of partitioning and interdependence one step 
+  further. Business systems not only bind and contain roles and resources (and 
+  possible other business systems), but they also explicitly define <i>interfaces</i>, 
+  or the set of services or responsibilities they can be asked to provide. Organizations 
+  that define <i>service level agreements</i> to formally specify and manage interactions 
+  between departments and external collaborators are in effect defining business 
+  systems. The use of a business system often goes hand-in-hand with using business 
+  models at different levels of abstraction (see <a href="../workflow/busmodel/co_large.htm">Concepts: 
+  Modeling Large Organizations</a>). </p>
+<p>The term &quot;business system&quot; should not be confused with a software 
+  system. A business system contains people, hardware, and software and is therefore 
+  at a higher level of abstraction than a software system. </p>
+
+<h3><a name="Business Systems Enable Dynamic Structure"></a>Business
+Systems Enable Dynamic Structure<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>In his book <i>Enterprise Modeling with UML</i>, Chris Marshall points out 
+  that traditional relatively static organizational structures are no longer sufficient 
+  for the radically decentralized and dynamic business world that is emerging. 
+  We can no longer expect a part of the organization to remain intact for long 
+  periods of time. As he states in his book, &quot;Value is created and delivered 
+  through value chains that form and disband over time. Indeed, the day when such 
+  a chain is formed for a single transaction may not be far away.&quot; </p>
+<p>Organizations are organic. As they feel increasing pressure from the business 
+  environment, they need to adapt to remain competitive. Taken to the extreme, 
+  a static organization structure may be crippling in a highly dynamic and ruthless 
+  business environment, and companies may need to turn to <b>dynamic structure 
+  </b> as a survival mechanism. </p>
+
+<p>In the traditional static organization structure, departmental boundaries are 
+  only conceptual. While this may be a sign of an &quot;open&quot; and &quot;informal&quot; 
+  organization, the result is that every person in and segment of the organization 
+  is intertwined with the rest of the organization. It becomes extremely difficult 
+  to change or manage one part of the organization completely independently from 
+  the other parts. Business systems enforce partitions and boundaries by disallowing 
+  interactions between business systems, except by the predefined interfaces. 
+  These interfaces (possibly formalized service-level agreements) become the hinges 
+  that support the organization. The most significant advantage to these interfaces 
+  between business systems is that different parts of the organization are decoupled 
+  from each other. Dependencies are defined in terms of responsibilities and not 
+  on <i>how</i> those responsibilities are carried out. </p>
+
+<p>Separating the specification of responsibilities from the realization of responsibilities 
+  results in a nimble organization—one that is capable of changing its structure 
+  rapidly without degrading the performance of its processes. In such an organization, 
+  one of its capabilities (defined by a business system) can be modified, improved, 
+  or outsourced, and the overall effect on the rest of the organization is kept 
+  to a minimum. As long as the quality of service remains the same after the change, 
+  the business operations continue uninterrupted. The same work could be performed 
+  by a software system, one person, or an entire department—either on-site or 
+  remote. </p>
+
+<p><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">Using business events to abstract interactions
+could reduce direct dependencies between business systems even further. </span>Because business events make time and
+space transparent, business systems can interact indirectly (see <a href="md_bevnt.htm">Guidelines: Business Event</a>).
+</p>
+
+<h3><a name="Business Systems Have Well-defined Responsibilities"></a>Business 
+  Systems Have Well-Defined Responsibilities<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Business systems explicitly define the responsibilities (also called services) 
+  that they can be asked to perform. This specification of behavior is essential 
+  because it allows the decoupling of dependencies mentioned in the previous section. 
+  A business system that does not define its services is without meaning. There 
+  is no way that another business system can know what services it provides, other 
+  than inferring them from its name. For example, we could expect a Resourcing 
+  business system (in departmental terms, it would be called Resource Management) 
+  to provide services for requesting a resource, querying the availability of 
+  resources, and possibly querying the resources types, or profiles. </p>
+
+<p>Responsibilities (or services) define the means of interaction with the business 
+  system and are specified as operations of the interface(s) to it. These interfaces 
+  are collections of related services and as such describe the role that the business 
+  system can play in a particular interaction. In the example that appears below 
+  the next paragraph, we see that each interface is a collection of logically 
+  related services. These interfaces (clusters of responsibility) are assigned 
+  to the business system responsible for carrying out the responsibilities. When 
+  something external to the business system requests one of the provided services, 
+  an event occurs within the business system to initiate fulfillment of the requested 
+  service. This event, which is internal to the business system, may be explicitly 
+  defined as a business event. The roles and resources (business workers and business 
+  entities) within the business system then collaborate with each other (internally) 
+  to fulfill the requested service. As we can see, this is much the same way the 
+  business operates toward its customers. In fact, we could even model the business 
+  system as a &quot;business,&quot; in which case the requestors of services would 
+  be the business system's business actors. </p>
+
+<p>The example below shows the business systems of a generic financial services 
+  institution. Only some of the dependencies between business systems and interfaces 
+  are shown to improve understandability. From this diagram, it becomes apparent 
+  that the responsibilities can be reassigned by allocating an interface to another 
+  business system. This reallocation of responsibility would conceptually have 
+  no effect on the business systems that make use of those services. </p>
+
+<p align="center"><img border="0" src="images/bsys4.gif">
+</p>
+
+<h3><a name="Business Systems Contain Roles and Resources"></a>Business Systems
+Contain Roles and Resources<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>A business system is an abstraction of a collection of people, hardware, and 
+  software that work together to perform the responsibilities of the business 
+  system. We use the word &quot;abstraction&quot; because we do not describe the 
+  internal collaborations within the business system in terms of people, machines, 
+  and software, but in terms of roles and resources. A business system contains 
+  business workers and business entities. A business worker is a role that represents 
+  <i>either</i> a human or a hardware or software system. A business entity is 
+  a piece of information created or manipulated by business workers. These business 
+  workers can eventually be mapped to human resources, or to specific hardware 
+  or software systems. This abstraction helps us focus on the role of the business 
+  worker and determine the <i>necessary </i>responsibilities without having to 
+  consider the (usually imperfect) real situation of a specific person or system. 
+</p>
+
+<h3><a name="Business Use Cases Cut Across Business Systems"></a>Business Use
+Cases Cut Across Business Systems <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Business use cases must not be allocated to a business system. Business use 
+  cases are the customer-facing processes that require the collaboration of a 
+  number of business systems, partners, and suppliers. This is referred to as 
+  the <i>value chain</i>. Business systems collaborate to perform business use 
+  cases, as shown in the figure below. </p>
+
+<p align="center"><img border="0" src="images/bsys1.gif" width="602" height="325"> 
+</p>
+
+There is one exception: When creating business models at different levels of abstraction 
+(see <a href="../workflow/busmodel/co_large.htm">Concepts: Modeling Large Organizations</a>), 
+business use cases can be allocated to a business system. For example, you may 
+want to model the business as a whole as well as one of the business systems of 
+that business. In this case, there would be a Business Use-Case Model for the 
+entire business, in which the overall business use cases would cut across the 
+business systems (as shown above). At a lower level, the services requested from 
+a particular business system could be captured as business use cases in the business 
+system's Business Use-Case Model. The guideline that states that business use 
+cases should not be allocated to a business system should then actually read: 
+&quot;A business use case at a particular level should not be allocated in its 
+entirety to only one business system at a lower level.&quot; 
+<p> This cross-functional nature of business use cases is one of the reasons for 
+  the interest in business modeling and re-engineering, as well as in analysis 
+  of the cost and performance of business processes (see <a href="../workflow/busmodel/co_abc.htm">Concept: 
+  Activity-Based Costing</a>). It is more valuable to understand how the cost 
+  of the entire business use case relates to the added value provided to the customer 
+  than to know how the annual budget of one of the departments relates to the 
+  overall corporate budget. </p>
+
+<h3><a name="Examples"></a>Examples <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<h4>Furniture Store 
+</h4>
+
+<p>The figure below shows the business systems for the furniture store used as 
+  an example in <a href="md_bgoal.htm">Guidelines: Business Goal</a> and <a href="md_bucm.htm">Guidelines: 
+  Business Use-Case Model</a>. This store keeps large inventory in a warehouse 
+  attached to its showroom. This allows customers to browse through the products 
+  on display in the showroom and pick up the products they have purchased at the 
+  warehouse. Customers can arrange for delivery of large items. </p>
+
+<p align="center"><img border="0" src="images/bsys2.gif">
+
+</p>
+
+<p align="left">This business has been divided into three interdependent
+business systems. Each business system has a clear purpose and provides
+well-defined services (not visible in the diagram). Explicitly defining these
+interdependencies and interactions helps to optimize the business.
+
+</p>
+
+<h4>Airport 
+</h4>
+
+<p>An airport provides services to airlines and to passengers and visitors on 
+  behalf of the airlines. Because an airport is a very large and complex business 
+  to model, it makes sense to divide it into a number of independent business 
+  systems. Each business system can then be modeled independently as a business 
+  in its own right, as shown below. </p>
+
+<p align="center"><img border="0" src="images/bsys3.gif">
+
+</p>
+
+<p align="left">In the example above, we see that an airline would have to participate 
+  in the Passengers and Flights business systems. Air traffic would be regulated 
+  by Air Traffic Control, according to laws and regulations. Hangar Facilities 
+  would provide services to the ground crews of the airline. Both Passengers and 
+  Flights would use services provided by Baggage Handling for departures and arrivals, 
+  respectively. The entertainment business system could also be called Airport 
+  Facilities and would include such things as shops, waiting areas, parking, and 
+  transport. </p>
+
+<br><br>
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

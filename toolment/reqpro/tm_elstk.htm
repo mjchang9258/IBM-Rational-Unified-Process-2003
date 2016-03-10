@@ -1,0 +1,344 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Eliciting Stakeholder Requests Using Rational RequisitePro</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Eliciting Stakeholder Requests Using Rational RequisitePro</rpw><a name="Top"></a>
+</h2>
+
+<h3>Purpose</h3>
+<p>The purpose of eliciting stakeholder requests is to gather input from any person 
+  or representative of an organization who has a stake, or a vested interest, 
+  in the outcome of the project. <a href="../../process/workers/wk_sthld.htm">Stakeholders</a> 
+  might be end users, maintainers of the proposed system, shareholders, technical 
+  support representatives, or others.</p>
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_elstk.htm">Elicit Stakeholder Requests</a></li>
+</ul>
+<br>
+  
+</p>
+
+<h3>Overview</h3>
+<p><a href="../../process/artifact/ar_stnds.htm">Stakeholder requests</a> for 
+  a proposed system can be gathered through a variety of elicitation techniques, 
+  including <a href="../../process/workguid/wg_intrv.htm">interviews</a>, questionnaires, 
+  <a href="../../process/workguid/wg_rqwsh.htm">requirements workshops</a>, role 
+  playing, and so on. (See the Gather Information step in <a href="../../process/activity/ac_elstk.htm">Activity: 
+  Elicit Stakeholder Requests</a> for a complete list.)&nbsp;</p>
+<p>Whichever elicitation technique you use, you should record your results in 
+  one central location, such as a Rational ClearQuest&reg; database or a RequisitePro 
+  requirements document, in order to reference them when defining business and 
+  system needs. (For information on integrating ClearQuest and RequisitePro, refer 
+  to <a href="../../toolment/anastudio/tm_feat_cqrp.htm">Managing Stakeholder 
+  Requests Using Rational ClearQuest and Rational RequisitePro</a>.) You may choose 
+  to include your elicitation documents with the RequisitePro project that contains 
+  your system requirements, or you can create a separate RequisitePro project 
+  just for elicitation documents and then use cross-project traceability to link 
+  your elicitation results to the system requirements RequisitePro project.</p>
+<p>The techniques you use to gather stakeholder requests may differ from project 
+  to project, depending on your developers' and customers' knowledge of the system's 
+  domain and proposed functionality. As a starting point, RequisitePro provides 
+  a sample Stakeholder Requests outline and a predefined <a href="../../process/workflow/requirem/co_reqty.htm">requirement 
+  type</a> (STRQ: Stakeholder Request) to help you collect stakeholder requests. 
+  You should modify the provided Stakeholder Requests outline and create additional 
+  RequisitePro outlines, as needed, in order to gather additional input. You may 
+  want to create a RequisitePro outline to gather results for each elicitation 
+  technique: one for questionnaire results, one for storyboarding results, and 
+  so on, or you may choose to record these results in one document.</p>
+
+<h4>Tool Steps</h4>
+<p>Because stakeholder requests elicitation may vary for each project, we offer 
+  instructions for modifying the existing RequisitePro Stakeholder Requests outline 
+  or creating a completely new outline to meet your project needs. Begin by working 
+  with the existing Stakeholder Requests outline.</p>
+<ol>
+  <li><a href="#Add the Stakeholder Requests document type to your project">Add
+    the Stakeholder Requests document type to your project</a></li>
+  <li><a href="#Modify the Stakeholder Requests outline">Modify the
+    Stakeholder Requests outline</a></li>
+  <li><a href="#CreateAStakeholderNeedsDocument">Create a Stakeholder
+    Requests document</a></li>
+  
+  <li><a href="#Create requirements in the Stakeholder Requests document">Create
+    requirements in the Stakeholder Requests document</a> (optional)</li>
+</ol>
+<h3>1.&nbsp; <a name="Add the Stakeholder Requests document type to your project">Add 
+  the Stakeholder Requests document type to your project</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To use the Stakeholder Requests template provided in RequisitePro, you must 
+  add the Stakeholder Requests document type to your project.</p>
+<p><b>Note:</b> To check whether your project already includes the Stakeholder 
+  Request Document Type, select the project in the Explorer, and then click <b>File 
+  &gt; Properties</b>, <b>Document Types</b> tab. If that document type is listed, 
+  you can skip to procedure 3. <a href="#CreateAStakeholderNeedsDocument">Create 
+  a Stakeholder Requests document</a>.</p>
+<p>To add the Stakeholder Requests document type to an open RequisitePro project:</p>
+<ol>
+  <li>Click <b>File &gt; Properties</b>. The Project Properties dialog box appears.</li>
+  <li>Click the <b>Document Types</b> tab and click <b>Add</b>. The Document Type 
+    dialog box appears.</li>
+  <li>Type a document name, description, and file extension. The file extension 
+    is applied to all documents associated with the document type.</li>
+  <li>In the <b>Default Requirement Type</b> list, select &quot;Stakeholder Request 
+    Requirement Type.&quot; If it is not listed, click the adjacent <b>New</b> 
+    button; in the Requirement Type dialog box, type &quot;Request Requirement 
+    Type&quot; in the <b>Name</b> field, complete the remaining fields, and click 
+    <b>OK</b> to return to the Document Type dialog box.</li>
+  <li>In the <b>Outline Name</b> list, select the &quot;RUP Stakeholder Requests&quot; 
+    outline.</li>
+  <li>Click <b>OK</b> to close the Document Type dialog box.</li>
+  <li>Click <b>OK</b> to close the Project Properties dialog box.</li>
+</ol>
+
+<h4>For More Information</h4>
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b>Refer to the topic
+titled <i>Creating and modifying document types</i> (Index: document types &gt;
+    creating) in the RequisitePro online Help.
+<h3>2.&nbsp; <a name="Modify the Stakeholder Requests outline">Modify the Stakeholder 
+  Requests outline</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can customize the RequisitePro Stakeholder Requests outline for specific 
+  aspects of your project. Modify the <font face="Courier New" size="2"> RUP_stkreq.dot</font> 
+  outline in Microsoft&reg; Word (independent of RequisitePro). You can then use 
+  your customized outline to create a new Stakeholder Requests document.</p>
+<p>To modify the provided Stakeholder Requests outline:</p>
+<ol>
+  <li>Create a copy of the Word template file &quot;<b>RUP_stkreq.dot</b>,&quot; 
+    located in the Outlines directory in your RequisitePro installation. (This 
+    step preserves the original outline for future use.) Name the copy to identify 
+    it as the original file (for example, &quot;<font face="Courier New" size="2">Stakeholder_orig.dot</font>&quot;).</li>
+  <li>Open the template file &quot;<font face="Courier New" size="2">RUP_stkreq.dot</font>&quot; 
+    in Word (independent of RequisitePro).</li>
+  <li>Modify this file so that it is specific to your project.</li>
+  <li>Click <b>File &gt; Save</b> and <b>File &gt; Close</b>.<br>
+    <b>Note:</b> RequisitePro must be closed when you make this
+    modification.</li>
+</ol>
+<h3>3.&nbsp; <a name="CreateAStakeholderNeedsDocument">Create a Stakeholder Requests 
+  document</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Create a Stakeholder Requests document in your RequisitePro project, based 
+  on the modified Stakeholder Requests outline.</p>
+<p>To create a Stakeholder Requests document:</p>
+<ol>
+  <li>In the Explorer, select the package in which you want the new document to 
+    reside. Then click <b>File &gt; New &gt; Document</b>. The Document Properties 
+    dialog appears.</li>
+  <li>In the <b>Name</b> field, type &quot;Stakeholder Requests&quot; or another 
+    name to identify the document. (This will be the way you refer to this document 
+    in RequisitePro.)</li>
+  <li>In the <b>Description</b> field, type a short description for the document.</li>
+  <li>In the <b>Filename</b> field, type a file name that RequisitePro will use 
+    when saving the document.</li>
+  <li>Select the document type you added in procedure 1 (<a href="#Add the Stakeholder Requests document type to your project">Add 
+    the stakeholder requests document type to your project</a>),&nbsp; which was 
+    based on the RUP Stakeholder Requests outline. Click <b>OK</b>.</li>
+  <li>In the newly created Stakeholder Requests document, record the results of 
+    the interview process. You may choose to create multiple interview documents 
+    or combine results in one document. We encourage you to document the responses 
+    of each type of stakeholder you interviewed to ensure that a wide spectrum 
+    of stakeholders is represented in that process.</li>
+  <li>Click <b>RequisitePro</b> &gt; <b>Document</b> &gt; <b>Save</b>.</li>
+</ol>
+
+<h4>For More Information</h4>
+<p><img src="images/helpbook.gif" width="16" height="16"> Refer to the topic titled 
+  <i>Creating requirements documents</i> (Index: documents &gt; creating) in the 
+  RequisitePro online Help.</p> 
+
+
+<h3>4.&nbsp;<a name="Create requirements in the Stakeholder Requests document">Create 
+  requirements in the Stakeholder Requests document</a> (optional) <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The Stakeholder Requests document does not contain <a href="../../process/workflow/requirem/co_req.htm">requirements</a> 
+  per se. However, you may want to set <a href="../../process/workflow/requirem/co_trace.htm">traceability</a> 
+  links between stakeholder requests (identified in the Stakeholder Requests document) 
+  and product features (identified in the <a href="../../process/artifact/ar_vsion.htm">Vision</a> 
+  document). A change in stakeholder requests might affect the definition of one 
+  or more product features. By recording the dependencies between the two, you 
+  will be able to make careful and informed decisions when you <a href="../../process/activity/ac_priuc.htm">prioritize 
+  use cases.</a> By marking stakeholder requests as requirements, you can also 
+  use them in traceability links. (See <a href="../../process/activity/ac_mgdep.htm">Activity: 
+  Manage Dependencies</a>.)</p>
+<p>To create requirements from stakeholder requests, follow these steps:</p>
+<ol>
+  <li>In the Stakeholder Requests document, select the text of the requirement.</li>
+  <li>Do one of the following: 
+    <ul>
+      <li>Right-click and select <b>New Requirement</b>.</li>
+      <li>Click <b>RequisitePro</b> &gt; <b>Requirement</b>
+        &gt; <b>New</b>.<br>
+        The Requirement Properties dialog box appears.</li>
+    </ul>
+  </li>
+  <li>Select <b>STRQ</b> as the requirement type. Click the <b>Attributes</b>
+    tab to modify the attribute values.</li>
+  <li>Click <b>OK</b>.</li>
+</ol>
+
+<h4>For More Information</h4>
+<p><img src="images/helpbook.gif" width="16" height="16"> Refer to the topic <i>Creating 
+  requirements in a document</i> (Index: requirements &gt; creating) in the RequisitePro 
+  online Help.</p>
+
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

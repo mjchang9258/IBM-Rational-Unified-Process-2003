@@ -1,0 +1,615 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Determine Test Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Determine 
+  Test Results</rpw><a name="XE_test__determining_results_of"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <td colspan="2"><b>Purpose</b>
+		<ul>
+          <li>To make ongoing summary evaluations of the perceived quality of 
+            the product</li>
+          <li>To identify and capture the detailed Test Results</li>
+          <li>To propose appropriate corrective actions to resolve failures in 
+            quality</li>
+        </ul>
+    </td>
+  </tr>
+    <tr> 
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#ExamineTestIncidentsandFailures">Examine all test incidents 
+            and failures</a></li>
+          <li><a href="#CreateMaintainCRs">Create and maintain Change Requests</a></li>
+          <li><a href="#AnalyzeEvaluateStatus">Analyze and evaluate status</a>
+          </li>
+          <li><a href="#AssessCurrentQuality">Make an assessment of the current 
+            quality experience</a></li>
+          <li><a href="#AssessQualityRisks">Make an assessment of outstanding 
+            quality risks</a></li>
+          <li><a href="#TestCoverage">Make an assessment of test coverage</a></li>
+          <li><a href="#GenerateTestEvaluationSummary">Draft the Test Evaluation 
+            Summary</a></li>
+          <li><a href="#AdviseStakeholdersFindings">Advise stakeholders 
+            of key findings</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+      </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstcs.htm">Test Case</a></li>
+<li><a href="../artifact/ar_tstidslst.htm">Test-Ideas List</a></li>
+<li><a href="../artifact/ar_tstlog.htm">Test Log</a></li>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+<li><a href="../artifact/ar_wlmod.htm">Workload Analysis Model</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstev.htm">Test Evaluation Summary</a></li>
+<li><a href="../artifact/ar_tstrs.htm">Test Results</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstanl.htm">Test Analyst</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/testfact/tm_tfvsc.htm">Evaluating Test Coverage Using Rational TestFactory</a></li>
+<li><a href="../../toolment/testfact/tm_tfvts.htm">Evaluating the Results of Executing a Test Suite Using Rational TestFactory</a></li>
+<li><a href="../../toolment/clearquest/tm_repdd.htm">Reporting Defect Trends and Status Using Rational ClearQuest</a></li>
+<li><a href="../../toolment/clearquest/tm_cplcr.htm">Submitting Change Requests Using Rational ClearQuest</a></li>
+<li><a href="../../toolment/testfact/tm_tfcvg.htm">Using Rational TestFactory to Measure and Evaluate Code-based Test Coverage on Rational Robot Test Scripts</a></li>
+<li><a href="../../toolment/testfact/tm_tfvtp.htm">Viewing Logs and Evaluating the Execute Test Suite Using the Rational TestManager</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_vldbldstb.htm">Validate Build Stability</a></li>
+<li><a href="../workflow/test/wfs_tstandevl.htm">Test and Evaluate</a></li>
+<li><a href="../workflow/test/wfs_achmsnacp.htm">Achieve Acceptable Mission</a></li>
+</ul>
+</li>
+<li><a href="../workflow/ovu_dep.htm">Deployment</a>
+<ul>
+<li><a href="../workflow/deployme/wfs_dep3.htm">Manage Acceptance Test</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="ExamineTestIncidentsandFailures">Examine all test incidents and failures</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To investigate each incident and obtain detailed understanding 
+        of the resulting problems.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>In this activity, the Test Logs are analyzed to determine the meaningful Test 
+  Results, regarding the differences between the expected results and the actual 
+  results of each test. Identify and analyze each incident and failure in turn. 
+  Learn as much as you can about each occurrence.</p>
+<p>Check for duplicate incidents, common symptoms and other relationships between 
+  incidents. These conditions often provide valuable insight into the root cause 
+  of a group of the incidents.</p>
+
+
+
+<h3><a name="CreateMaintainCRs">Create and maintain Change Requests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To enter change request information into a tracking tool 
+        for assessment, management, and resolution.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Differences indicate potential defects in the Target Test Items and should 
+  be entered into a tracking system as incidents or Change Requests, with an indication 
+  of the appropriate corrective actions that could be taken.</p>
+<p><b>Sub-topics:</b></p>
+<ul>
+  <li><a href="#VerifyIncidentFacts">Verify incident facts</a></li>
+  <li><a href="#ClarifyCRDetail">Clarify Change Request details</a></li>
+  <li><a href="#CRSeverityPriority">Indicate relative impact severity and resolution priority</a></li>
+  <li><a href="#LogAnotherCR">Log additional Change Requests separately</a></li>
+</ul>
+
+
+<h4><a name="VerifyIncidentFacts">Verify incident facts</a>
+ <a href="#CreateMaintainCRs"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>  
+
+<p>Verify that there is accurate, supporting data available. Collate the data 
+  for attachment directly to the Change Request, or reference where the data can 
+  be obtained separately.</p>
+<p>Whenever possible, verify that the problem is reproducible. Reproducible problems 
+  have much more likelihood of receiving developer attention and being subsequently 
+  fixed; a problem that cannot be reproduced both frustrates development staff 
+  and will waste valuable programming resources in fruitless research. We recommend 
+  that you still log these incidents, but that you consider identifying unreproducable 
+  incidents separately from the reproducible ones.</p>
+
+<h4><a name="ClarifyCRDetail">Clarify Change Request details</a>
+ <a href="#CreateMaintainCRs"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>  
+<p>It's important for Change Requests to be understandable, especially the headline. 
+  Make sure the headline is crisp and concise, articulating clearly the specific 
+  issue. A brief headline is useful for summary defect listings and discussion 
+  in <a href="../glossary.htm#CCB" target="_blank"><i>CCB</i></a> status meetings.</p>
+<p>It's important that the detailed description of the Change Request is unambiguous 
+  and can be easily interpreted. It's a good idea to log your Change Requests 
+  as soon as possible, but take time to go back and improve and expand on your 
+  descriptions before they are viewed by development staff.</p>
+<p>Provide candidate solutions, as many as practical. This helps to reduce any 
+  remaining ambiguity in the description, often helping to clarify. It also ensures 
+  increases the likelihood that the solution will be close to your exceptions. 
+  Furthermore, it shows that the test team is not only prepared to find the problems, 
+  but also to help identify appropriate solutions.</p>
+<p>Other details to include are screen image captures, Test Data files, automated 
+  Test Scripts, output from diagnostic utilities and any other information that 
+  would be useful to the developers in isolating and correcting the underlying 
+  fault.</p>
+
+
+<h4><a name="CRSeverityPriority">Indicate relative impact severity and resolution 
+  priority</a> <a href="#Top"></a><a href="#CreateMaintainCRs"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+
+<p>Provide an indication to the management and development staff of the severity 
+  of the problem. In larger teams the actual resolution priority is normally left 
+  for the management team to determine, however you might allow individuals to 
+  indicate their preferred resolution priority and subsequently adjust as necessary. 
+  As a general rule, we recommend you assign Change Requests an average resolution 
+  priority by default, and raise or lower that priority on a case-by-case basis 
+  as necessary.</p>
+<p>You may need to differentiate between the impact the Change Request will have 
+  on the production environment if it isn't addressed and the impact the Change 
+  Request will have on the test effort if it isn't addressed; It's just as important 
+  for the management team to know when a defect is impacting the testing effort 
+  as it is to be aware of severity to end users.</p>
+<p>Sometimes it's difficult to see in advance why you need both attributes. It's 
+  possible that an incident may be really severe, such as a system crash, but 
+  the actions required to reproduce it very unlikely to occur. In this case the 
+  team may indicate it's severity as high, but indicate a very low resolution 
+  priority.</p>
+
+
+<h4><a name="LogAnotherCR">Log additional Change Requests separately </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+
+<p>Incidents often bare out the old adage&quot;Where there's smoke, there's fire&quot;; 
+  as you identify and log one Change Request, you quite often identify other issues 
+  that need to be addressed. Avoid the temptation to simply add these additional 
+  findings to the existing Change Request: if the information is directly related 
+  and helps to solve the existing issue better, then that's OK. If the other issues 
+  are different, identifying them against an existing CR may result in those issues 
+  not being actioned, not getting appropriate priority in their own right, or 
+  impacting the speed at which other issues are addressed.</p>
+
+
+
+<h3><a name="AnalyzeEvaluateStatus"></a>Analyze and evaluate status<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+  <div align="left"> 
+    <table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+      <tbody valign="middle"> 
+      <tr> 
+        <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        <td width="95%">To calculate and deliver the key measures and indicators of test.&nbsp;</td>
+      </tr>
+      </tbody> 
+    </table>
+    <br>
+  </div>
+  <p><b>Sub-topics:</b></p>
+  <ul>
+    <li><a href="#IncidentData">Incident distribution</a></li>
+    <li><a href="#ExecutionCoverageData">Test execution coverage</a></li>
+    <li><a href="#CRData">Change Requests statistics</a></li>
+  </ul>
+  <h4><a name="IncidentData">Incident distribution</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Analyze the incidents based on where they are distributed, such as functional 
+  area, quality risk, assigned tester and assigned developer.</p>
+
+<p>Look for patterns in the distribution, such as functional areas that appear 
+  to have above average defects count. Also look for both developers and testers 
+  that may be overworked and where their quality of work is slipping</p>
+<h4>
+  <h4><a name="ExecutionCoverageData">Test execution coverage</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+  
+</h4>
+<p>To evaluate test execution coverage, you need to review the 
+  Test Logs and determine:</p>
+<ul>
+  <li>The ratio between how many tests (Test Scripts or Test Cases) have been 
+    performed in this Test Cycle and a total number of tests for all intended 
+    Target Test Items.</li>
+  <li>The ratio of successfully performed test cases.</li>
+</ul>
+<p>The objective is to ensure that a sufficient number of the tests targeted for 
+  this Test Cycle have been executed usefully. If this is not possible, or to 
+  augment that execution data, one or more additional test coverage criteria can 
+  be identified, based upon: 
+<ul>
+  <li>Quality Risk or priority</li>
+  <li>Specification-based coverage (Requirements etc.)</li>
+  <li>Business need or priority</li>
+  <li>Code-based coverage</li>
+</ul>
+<p>See &quot;<a href="../workflow/test/co_keyme.htm#Requirements-based test coverage">Concepts: Key Measures of Test, Requirements-based test coverage</a>&quot;.</p>
+<p>Record an present the Test Results in an Test Evaluation Report for this Test 
+  Cycle.</p>
+
+
+
+<h4><a name="CRData">Change Requests statistics</a> <a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26 height="20></a></h4> 
+
+<p>To analyze defects, you need to review and analyze the measures chosen as part 
+  of your defect analysis strategy. The most common defect measures used include 
+  the following different measures (often displayed in the form of a graph): 
+<ul>
+  <li><b>Defect Density </b>- the number of defects are shown as a function of 
+    one or two defect attributes (such as distribution over functional area or 
+    quality risk compared to status or severity).</li>
+  <li><b>Defect Trend </b>- the defect count is shown as a function over time.</li>
+  <li><b>Defect Aging</b> - a special defect density report in which the defect 
+    counts are shown as a function of the length of time a defect remained in 
+    a given status (open, new, waiting-for-verification, etc.)</li>
+</ul>
+<p>Compare the measures from this Test Cycle to the running totals for the current 
+  Iteration and those from the analysis of previous iterations, to better understand 
+  the emerging trends over time.</p>
+<p>It is recommended you present the results in diagram form with supporting findings 
+  on request.</p>
+
+
+<h3><a name="AssessCurrentQuality">Make an assessment of the current quality experience</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To give feedback on the current perceived or experienced 
+        quality in the software product.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+  <p>Formulate a summary of the current quality experience, highlighting both good 
+  and bad aspects of the software products quality.</div>
+
+
+<h3><a name="AssessQualityRisks">Make an assessment of outstanding quality risks</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To provide feedback on what remaining areas of risk provide 
+        the most potential exposure to the project.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Identify and explain those areas that have not yet been addressed in terms 
+  of quality risks and indicate what impact and exposure this leaves the team.</p>
+<p>Provide an indication of what priority you consider each outstanding quality 
+  risk to have, and use the priority to indicate the order in which these issues 
+  should be addressed.</p>
+
+
+<h3><a name="TestCoverage">Make an assessment of test coverage</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To make a summary assessment of the test coverage analysis.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Based on the work in step <a href="#ExecutionCoverageData">test execution coverage</a>, 
+  provide a brief summary statement of the status and information the data represents.</p>
+
+
+<h3><a name="GenerateTestEvaluationSummary">Draft the Test Evaluation Summary</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To communicate the results of testing to stakeholders and 
+        make an objective assessment of quality and test status.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Present the Test Results for this Test Cycle in a Test Evaluation Summary. 
+  This step is to develop the initial darft of the summary. This is accomplished 
+  by assembling the previous information that has been gathered into a readable 
+  summary report. Depending on the stakeholder audience and project context, the 
+  actual format and content of the summary will differ.</p>
+<p> Often it is a good idea to distribute the initial draft to a subset of stakeholders 
+  to obtain feedback that you can incorporate before publishing to a broader audience.</p>
+
+
+<h3><a name="AdviseStakeholdersFindings">Advise stakeholders of key findings</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To promote and publicize the Evaluation Summary as appropriate.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+</div>
+
+<p>Using whatever means is appropriate, publicize this information. We recommend 
+  you consider posting these on a centralized project site, or present them in 
+  regularly held status meetings to enable feedback to be gathered and next actions 
+  to be determined.</p>
+<p>Be aware that making evaluation summaries publicly available can sometimes 
+  be a sensitive political issue. Negotiate with the development manager to present 
+  results in such a manner that they reflect an honest and accurate summary of 
+  your findings, yet respect the work of the developers.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

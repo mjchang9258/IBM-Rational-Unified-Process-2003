@@ -1,0 +1,315 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Best Practice: Develop Iteratively</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  <h2 class="banner"><a name="Top"></a>Best Practice: Develop Iteratively</h2>
+      
+<h5 align="center"> <img src="images/iterate.gif" border="0" usemap="#FPMap0" width="406" height="247"> 
+  <map name="FPMap0"> 
+
+          <area href="../../process/workflow/ovu_busm.htm" shape="rect" coords="32,32,123,70">
+		  
+          <area href="../../process/workflow/ovu_and.htm" shape="rect" coords="265,37,407,59">
+          <area href="../../process/workflow/ovu_impl.htm" shape="rect" coords="292,89,408,117">
+		  
+          <area href="../../process/workflow/ovu_dep.htm" shape="rect" coords="301,195,403,213">
+		  
+          <area href="../../process/workflow/ovu_test.htm" shape="rect" coords="281,157,325,177">
+          <area href="../../process/workflow/ovu_env.htm" shape="rect" coords="168,136,262,158">
+          <area href="../../process/workflow/ovu_cm.htm" shape="rect" coords="160,91,278,123">
+          <area href="../../process/workflow/ovu_req.htm" shape="rect" coords="146,17,247,39">
+          <area href="../../process/workflow/ovu_mgm.htm" shape="rect" coords="-2,80,137,176">
+    <area href="../../process/workflow/ovu_mgm.htm" shape="rect" coords="116,197,205,228">
+        </map>
+      </h5>
+<p align="left" class="picturetext">To mitigate risks, develop incrementally in
+an iterative fashion. Each iteration results in an executable release.</p>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#What is Iterative Development">What is Iterative Development?</a></li>
+  <li><a href="#Why Develop Iteratively">Why Develop Iteratively?</a></li>
+  <li><a href="#Benefits of an iterative approach">Benefits of an Iterative
+    Approach</a>
+    <ul>
+      <li><a href="#Mitigating risks">Mitigating risks</a></li>
+      <li><a href="#Accomodating changes">Accommodating changes</a></li>
+      <li><a href="#Higher quality">Reaching higher quality</a></li>
+      <li><a href="#Learning">Learning and improving</a></li>
+      <li><a href="#Increasing reuse">Increasing reuse</a></li>
+    </ul>
+  </li>
+</ul>
+<h2><a name="What is Iterative Development">What is Iterative Development</a>? <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>A project using iterative development has a lifecycle consisting of
+several iterations. An iteration incorporates a loosely sequential set of
+activities in business modeling, requirements, analysis and design,
+implementation, test, and deployment, in various proportions depending on where
+in the development cycle the iteration is located. Iterations in the inception
+and elaboration phases focus on management, requirements, and design activities;
+iterations in the construction phase focus on design, implementation, and test;
+and iterations in the transition phase focus on test and deployment. Iterations
+should be managed in a <a href="../../process/glossary.htm#timeboxing"><i>timeboxed</i></a>
+fashion, that is, the schedule for an iteration should be regarded as fixed, and
+the scope of the iteration's content actively managed to meet that schedule.</p>
+<h2><a name="Why Develop Iteratively">Why Develop Iteratively</a>? <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>An initial design is likely to be flawed with respect to its key requirements.
+Late discovery of design defects results in costly over-runs and, in some cases,
+even project cancellation.</p>
+      <p>All projects have a set of risks involved. The earlier in the lifecycle 
+        you can verify that you've avoided a risk, the more accurate you can make 
+        your plans. Many risks are not even discovered until you've attempted 
+        to integrate the system. You will never be able to predict all risks regardless 
+        of how experienced the development team is.</p>
+<p align="center"><img src="images/risk_wf.gif" width="519" height="279"></p>
+<p align="left" class="picturetext">In a waterfall lifecycle, you can't verify
+whether you have stayed clear of a risk until late in the lifecycle.</p>
+<p align="left" class="picturetext">&nbsp;</p>
+<p align="center"><img src="images/risk_it.gif" width="464" height="232"></p>
+<p align="left" class="picturetext">In an iterative lifecycle, you select
+what increment to develop in an iteration based on a list of key risks. Since
+the iteration produces a tested executable, you can verify whether
+you have mitigated the targeted risks or not.</p>
+<h2><a name="Benefits of an iterative approach">Benefits of an Iterative
+Approach</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>An iterative approach is generally superior to a linear or waterfall approach
+for many different reasons.
+<ul>
+  <li>Risks are mitigated earlier, because elements are integrated
+    progressively.</li>
+  <li>Changing requirements and tactics are accommodated.&nbsp;</li>
+  <li>Improving and refining the product is facilitated, resulting in a more
+    robust product.</li>
+  <li>Organizations can learn from this approach and improve their process.&nbsp;</li>
+  <li>Reusability is increased.</li>
+</ul>
+<p>A customer once said: &quot;With the waterfall approach, everything looks
+fine until near the end of the project, sometimes up until the middle of
+integration. Then everything falls apart. With the iterative approach, it is
+very difficult to hide the truth for very long.&quot;</p>
+<p>Project managers often resist the iterative approach, seeing it as
+endless hacking. In the Rational Unified Process, the interactive
+approach is very controlled; iterations are planned in number, duration, and
+objective. The tasks and responsibilities of the participants are defined.
+Objective measures of progress are captured. Some rework does take place from
+one iteration to the next, but this, too, is carefully controlled.</p>
+<h3><a name="Mitigating risks">Mitigating risks </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An iterative approach lets you mitigate risks earlier, because many risks are only
+addressed and discovered during integration. As you unroll the early iteration, you go through all&nbsp;
+disciplines,
+  exercising many aspects of the project: tools, off-the-shelf software, people
+  skills, and so on. Perceived risks may prove not to be risks, and new,
+  unsuspected risks will show up.</p>
+<p>Integration is not one &quot;big bang&quot; at the end&#151;elements are
+incorporated progressively. In reality, the iterative approach is an almost continuous integration. What used
+  to be a long, uncertain, and difficult time&#151taking up to 40% of the total
+  effort at the end of a project&#151and what was hard to plan accurately, is
+divided into
+  six to nine smaller integrations that start with far fewer elements to
+  integrate.</p>
+<h3><a name="Accomodating changes">Accommodating changes </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The iterative approach lets you take into account changing requirements as
+they <b>will</b>
+normally change along the way.</p>
+  <p>Changes in requirements and requirements &quot;creep&quot; have always been&nbsp;
+  primary sources of trouble for a project,
+  leading to late delivery, missed schedules, unsatisfied customers, and
+  frustrated developers. Twenty-five years ago, Fred Brooks wrote: &quot;Plan to throw one
+  away, you will anyhow.&quot; Users will change their mind along the way. This
+  is human nature. Forcing users to accept the system as they
+  originally imagined it is wrong. They change their minds because the context is
+  changing&#151they learn more about the environment and the technology, and they see
+  intermediate demonstration of the product as it's being developed.</p>
+<p>An iterative lifecycle provides management with a way of making tactical changes to the
+product. For
+example, to compete with existing products, you may decide to
+release a reduced-functionality product earlier to counter a move by a
+competitor, or you may adopt another vendor for a given technology.</p>
+<p>Iteration also allows for technological changes along the way. If some technology changes or becomes a
+standard as new technology
+  appears, the project can take advantage of it. This is particularly the case
+  for platform changes and lower-level infrastructure changes.</p>
+<h3><a name="Higher quality">Reaching higher quality </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An iterative approach results in a more robust architecture because errors are corrected over
+several iterations. Early flaws are detected as the product matures during the early
+  iterations. Performance bottlenecks are discovered and can be reduced, as
+  opposed to being discovered on the eve of delivery.</p>
+<p>Developing iteratively, as opposed to running tests once toward the end of the
+project, results in a more thoroughly tested product. Critical functions have had many opportunities to be
+tested over
+  several iterations, and the tests themselves, and any test software, have had
+  time to mature.</p>
+<h3><a name="Learning">Learning and improving </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Developers can learn along the way, and the various competencies and
+specialties are more fully employed during the whole lifecycle.</p>
+  <p>Rather than waiting a long time just making plans and honing their skills,
+  testers start testing early, technical writing starts early, and so on.
+  The need for additional training or external help can be detected in the early
+  iteration assessment reviews.</p>
+<p>The process itself can be improved and refined as it develops. The assessment at the end of an iteration not only looks at the status of
+  the project from a product-schedule perspective, but also analyzes what needs
+to be changed in the organization and the process to perform better in the next
+  iteration.</p>
+<h3><a name="Increasing reuse">Increasing reuse </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An iterative lifecycle facilitates reuse. It's easier to identify common parts as they
+are partially designed or implemented, compared to having to identify all
+commonality up front.</p>
+  <p>Identifying and developing reusable parts is difficult. Design reviews in
+  early iterations allow software architects to identify unsuspected, potential reuse,
+  and subsequent iterations allow them to further develop and mature this common
+  code.</p>
+<p>Using an iterative approach makes it easier to take advantage of commercial-off-the-shelf products. You have several iterations to select them, integrate them, and validate
+  that they fit with the architecture.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,499 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Find Actors and Use Cases</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Find Actors and Use Cases</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To define the scope of the system &#151; what will be handled by 
+            the system and what will be handled outside the system.</li>
+          <li>To define who and what will interact with the system.</li>
+          <li>To outline the functionality of the system.</li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	  <a href="../workers/wk_sysan.htm">System Analyst</a>&nbsp;
+	  </td>
+    </tr>
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b>As required, typically occurring 
+        multiple times per iteration, and most frequently in Inception and Elaboration 
+        iterations.</td>
+    </tr>
+    <!-- Activity Steps -->
+    <tr>
+      <td colspan="2"><b>Steps</b>
+        <ul>
+          <li><a href="#FindActors">Find Actors</a></li>
+          <li><a href="#FindUseCases">Find Use Cases</a></li>
+          <li><a href="#DescribeHowActorsAndUseCasesInteract">Describe 
+              How Actors and Use Cases Interact</a></li>
+          <li><a href="#PackageUseCasesAndActors">Package Use Cases and 
+              Actors</a></li>
+          <li><a href="#PresentTheUse-CaseModelInDiagrams">Present the 
+              Use-Case Model in Use-Case Diagrams</a></li>
+          <li><a href="#DevelopASurveyOfTheUse-CaseModel">Develop a Survey 
+              of the Use-Case Model</a></li>
+          <li><a href="#EvaluateYourResults">Evaluate Your Results</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_bom.htm">Business Analysis Model</a></li>
+<li><a href="../artifact/ar_bcase.htm">Business Case</a></li>
+<li><a href="../artifact/ar_bucm.htm">Business Use Case Model</a></li>
+<li><a href="../artifact/ar_gloss.htm">Glossary</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	  </td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_actor.htm">Actor</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_uc.htm">Use Case</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+      <td colspan="2"><b>More Information:&nbsp;</b>
+	    <ul>
+<li><a href="../workguid/wg_ucwsh.htm">Guideline: Use-Case Workshop</a></li>
+</ul>
+&nbsp;
+      </td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr>
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	    <ul>
+<li><a href="../../toolment/soda/tm_actor.htm">Creating an Actor Report Using Rational SoDA</a></li>
+<li><a href="../../toolment/rose/tm_fauc2.htm">Finding Actors and Use Cases Using Rational Rose</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_fauc.htm">Finding Actors and Use Cases Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_fauc.htm">Finding Actors and Use Cases Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/anastudio/tm_feat_cqrp.htm">Managing Stakeholder Requests Using Rational ClearQuest and Rational RequisitePro</a></li>
+<li><a href="../../toolment/anastudio/tm_iucm.htm">Managing Use Cases Using Rational Rose and Rational RequisitePro</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+	  <ul>
+<li><a href="../workflow/ovu_req.htm">Requirements</a>
+<ul>
+<li><a href="../workflow/requirem/wfs_anpr.htm">Analyze the Problem</a></li>
+<li><a href="../workflow/requirem/wfs_unsh.htm">Understand Stakeholder Needs</a></li>
+<li><a href="../workflow/requirem/wfs_defs.htm">Define the System</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="FindActors">Find Actors</a> <a name="XE_actor__finding_an"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Finding actors is one of the first steps in defining system use. Each type 
+  of external phenomenon with which the system must interact is represented by 
+  an actor. To find the actors, ask the following questions: 
+<ul>
+  <li>Which user groups require help from the system to perform their tasks?</li>
+  <li>Which user groups are needed to execute the system's most obvious main functions?</li>
+  <li>Which user groups are required to perform secondary functions, such as system 
+    maintenance and administration?</li>
+  <li>Will the system interact with any external hardware or software system?</li>
+</ul>
+<p>Any individual, group or phenomenon that fits one or more of these categories 
+  is a candidate for an actor.</p>
+<p>To determine whether you have the right (human) actors, you can try to name 
+  two or three people who can perform as actors, and then see if your set of actors 
+  is sufficient for their needs. For more on what constitutes an actor, see <a href="../modguide/md_actor.htm">Guidelines: 
+  Actor</a>.</p>
+<p>It may be difficult at first to find the most suitable actors, and you are 
+  not likely to find all of them immediately because you have not found all the 
+  use cases. Working with the use cases is the only thing that gives you a deeper 
+  understanding of the system's environment and how it interacts with the system. 
+  When you have progressed that far, you may want to revise your original model, 
+  because there is a tendency at first to model too many actors. Be careful when 
+  you change actors; changes that you introduce can affect the use cases as well. 
+  Remember that any modification to the actors constitutes a major alteration 
+  in the system's interfaces and behavior.</p>
+
+<p>If you have developed a business use-case model and business analysis model, 
+  see also <a href="../modguide/md_bmtse.htm">Guidelines: Going from Business 
+  Models to Systems</a> for more guidance.</p>
+
+
+<h5><a name="XE_actor__naming">Name and Briefly Describe the Actors You Have Found</a></h5>
+<p>The actor's name must clearly denote the actor's role. Make sure there will 
+  be little risk at a future stage of confusing one actor's name with another.</p>
+<p>Define each actor by writing a brief description that includes the actor's 
+  area of responsibility, and what the actor needs the system for. Because actors 
+  represent things outside the system, you need not describe them in detail. See 
+  also the section Brief Description in <a href="../modguide/md_actor.htm">Guidelines: 
+  Actor</a>.</p>
+
+
+<h3><a name="FindUseCases">Find Use Cases</a> <a name="XE_use_case__finding_a"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When your first outline of the actors is complete, the next step is to look 
+  for the system's use cases. The first use cases are very preliminary, and you 
+  will doubtless have to change them a few times until they are stable. If the 
+  system's vision or requirements are deficient, or if the system analysis is 
+  vague, the system's functionality will be unclear. Therefore, you must constantly 
+  ask yourself if you have found the right use cases. Furthermore, you should 
+  be prepared to add, remove, combine, and divide the use cases before you arrive 
+  at a final version. You will get a better understanding of the use cases once 
+  you have described them in detail.</p>
+<p>The best way to find use cases is to consider what each actor requires of the 
+  system. Remember the system exists only for its users, and should therefore 
+  be based on the users' needs. You will recognize many of the actors' needs through 
+  the functional requirements made on the system. For each actor, human or not, 
+  ask yourself the following questions:</p>
+<ul>
+  <li>What are the primary tasks the actor wants the system to perform?</li>
+  <li>Will the actor create, store, change, remove, or read data in the system?</li>
+  <li>Will the actor need to inform the system about sudden, external changes?</li>
+  <li>Does the actor need to be informed about certain occurrences in the system?</li>
+  <li>Will the actor perform a system start-up or shutdown?</li>
+</ul>
+<p>The answers to these questions represent the flows of events that identify 
+  candidate use cases. Not all constitute separate use cases; some may be modeled 
+  as variants of the same use case. It is not always easy to tell what is a variant 
+  and what is a separate and distinct use case. However, it will become clearer 
+  when you describe the flows of events in detail.</p>
+<p>Other than requirements, an enterprise model of your organization (also called 
+  a business model) is a valuable source of input for determining use cases. The 
+  enterprise model describes how the information system might be incorporated 
+  into existing operations and so gives you a good idea of the system's surroundings. 
+  You will also find concepts that need to be defined in the enterprise model 
+  because it contains the &quot;business objects&quot; of the enterprise. 
+  
+  If you have followed the <a href="../workflow/ovu_busm.htm">Business Modeling</a> 
+  workflow, you will have a <a href="../artifact/ar_bucm.htm">business use-case 
+  model</a> and a <a href="../artifact/ar_bom.htm">business analysis model</a> 
+  to use as input. For more information, see <a href="../modguide/md_bmtse.htm">Guidelines: 
+  Going from Business Models to Systems</a>.</p>
+<p>A system can have several possible use-case models. The best way to find the 
+  &quot;optimal&quot; model is to develop two or three models, choose the one 
+  you prefer, and then develop it further. Developing several alternative models 
+  also helps you to understand the system better.</p>
+<p>When you have outlined your first use-case model, you should verify that the 
+  use-case model addresses all functional requirements. Scrutinize the requirements 
+  carefully to ensure that all the use cases meet all the requirements.</p>
+<p>For more information on what a use case is and how to find them, see <a href="../modguide/md_ucmod.htm">Guidelines: 
+  Use-Case Model</a> and <a href="../modguide/md_uc.htm">Guidelines: Use Case</a>.</p>
+
+<h5>Name and Briefly Describe the Use Cases You Have Found</h5>
+<p>Each use case should have a name that indicates what is achieved by its interactions 
+  with the actor(s). The name may have to be several words to be understood. No 
+  two use cases can have the same name. See also the section Name in <a href="../modguide/md_uc.htm">Guidelines: 
+  Use Case</a>.</p>
+<p>Define each use case by writing a brief description of it. As you write the 
+  description, refer to the glossary and, if you need to, define new concepts. 
+  See also the section Brief Description in <a href="../modguide/md_uc.htm">Guidelines: 
+  Use Case</a>.</p>
+
+<h5>Outline the Flow of Events</h5>
+<p>At this point, you should also write a first draft of the flow of events of 
+  the use case. Describe each use case's flow of events as brief instants of performance, 
+  but do not go into detail. The person who will later specify the use case&#151;even 
+  if it is you&#151;will need this step-by-step description. Start by outlining 
+  the basic flow of events, and once you have agreed on that add alternative flows.</p>
+
+<h5>Example:</h5>
+<p class="example">The initial step-by-step description of the flow of events 
+  of the use case Recycle Items in the Recycling-Machine System might look like 
+  this:</p>
+<blockquote>
+  <ul>
+    <li>The customer presses the &quot;Start&quot; button.</li>
+    <li>The customer inserts deposit items.</li>
+    <li>The system checks the type of the inserted deposit items.</li>
+    <li>The system increments the day's total of the types of items received.</li>
+    <li>The customer presses the &quot;Receipt&quot; button.</li>
+    <li>The system prints out the receipt.</li>
+  </ul>
+</blockquote>
+
+<h5>Collect Additional Requirements</h5>
+<p>Some of the system's requirements cannot be allocated to specific use cases; 
+  collect these in the Supplementary Specifications (see <a href="../artifact/ar_sspec.htm">Artifact: 
+  Supplementary Specifications</a>).</p>
+
+
+<h3><a name="DescribeHowActorsAndUseCasesInteract">Describe How Actors and 
+  Use Cases Interact</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Because it is important to show how actors relate to the use case, you should, 
+  on finding a use case, establish which actors will interact with it. To do this, 
+  you must define a communicates-association that is navigable in the same direction 
+  as the signal transmission between the actor and the use case.</p>
+<p>Signal transmissions usually go in both directions. When this is the case, 
+  you must let the communicates-associations be navigable in both directions. 
+  Define, at the most, one communicates-association for each actor-and-use-case 
+  pair.</p>
+<p>You should also briefly describe each communicates-association you define.</p>
+<p>For more information on communicates-associations, see <a href="../modguide/md_comas.htm">Guidelines: 
+  Communicate-Association</a>.</p>
+
+
+<h3><a name="PackageUseCasesAndActors">Package Use Cases and Actors</a> <a name="XE_use_case__packaging"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If the number of actors or use cases becomes too great, divide them into use-case 
+  packages to simplify the maintenance of the use-case model. This also makes 
+  the use-case model easier to grasp, and simplifies the assignment of responsibilities 
+  in the use-case model by letting developers be responsible for packages of use 
+  cases or actors.</p>
+<p>Some alternative ways of packaging use cases together is if they:</p>
+<ul>
+  <li>Interact with the same actor.</li>
+  <li>Have include- or extend-relationships between each other.</li>
+  <li>Are all optional, and are offered by the system together or not at all.</li>
+</ul>
+<p>There are also other ways; however, to keep the model intuitive, it is important 
+  that you use a clear strategy when you do the packaging.</p>
+<p>For more information on use-case packages, see <a href="../modguide/md_ucpkg.htm">Guidelines: 
+  Use-Case Package</a>.</p>
+
+
+<h3><a name="PresentTheUse-CaseModelInDiagrams">Present the Use-Case Model 
+  in Diagrams</a> <a name="XE_use-case_model__presenting_in_diagram"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can illustrate relationships among use cases and actors, as well as among 
+  related use cases, in diagrams of the use-case model. These diagrams might contain 
+  any of the following:</p>
+<ul>
+  <li>Actors belonging to the same use-case package.</li>
+  <li>An actor and all the use cases with which it interacts.</li>
+  <li>Use cases that handle the same information.</li>
+  <li>Use cases used by the same group of actors.</li>
+  <li>Use cases that are often executed in one sequence.</li>
+  <li>Use cases that belong to the same use-case package.</li>
+  <li>The most important use cases. A diagram of this type can function as a summary 
+    of the model, and is likely to be included in the use-case view.</li>
+  <li>The use cases developed together (within the same increment).</li>
+</ul>
+<p>Each diagram should be owned by an appropriate package in the use-case model.</p>
+<p>For more information on use-case diagrams, see <a href="../modguide/md_ucdgr.htm">Guidelines: 
+  Use-Case Diagram</a>.</p>
+
+
+<h3><a name="DevelopASurveyOfTheUse-CaseModel">Develop a Survey of the Use-Case 
+  Model</a> <a name="XE_use-case_model_survey_report__developing"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In your Survey Description of the use-case model, include the following: </p>
+<ul>
+  <li>Typical sequences in which the use cases are employed by users.</li>
+  <li>Functionality not handled by the use-case model.</li>
+</ul>
+<p>See also the section on Survey Description in <a href="../modguide/md_ucmod.htm">Guidelines: 
+  Use-Case Model</a>.</p>
+
+
+<h3><a name="EvaluateYourResults">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You should check the use-case model at this stage to verify that your work 
+  is on track, but not review the model in detail. You should also consider the 
+  checkpoints for the use-case model while you are working on it. See especially 
+  checkpoints for Actor, Use Case and Use-Case Model in <a href="ac_rvucm.htm">Activity: 
+  Review Requirements</a>.</p>
+<p>It is important that people outside the development team (for example, users 
+  and customers) approve the use-case model at this stage. Therefore, you must 
+  involve the users and the customer in reviewing the use-case model before you 
+  finish this activity. You can use the Use-Case-Model Survey report and its use-case 
+  diagrams as a guide in your discussions.</p>
+<p>The interested parties will have to determine:</p>
+<ul>
+  <li>If all necessary use cases are identified.</li>
+  <li>If any unnecessary use cases are identified.</li>
+  <li>If the behavior of each use case is performed in the right order.</li>
+  <li>If each use case's flow of events is as complete as it could be at this 
+    stage.</li>
+  <li>If the survey description of the use-case model makes it understandable.</li>
+</ul>
+<p>For more issues to review, see checkpoints for actor, use case and use-case 
+  model in <a href="ac_rvucm.htm">Activity: Review Requirements</a>.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

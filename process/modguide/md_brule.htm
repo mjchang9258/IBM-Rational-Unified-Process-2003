@@ -1,0 +1,412 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Business Rules</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business Rules</rpw><a name="Top"></a><a name="XE_business_rules__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Capturing Business Rules">Capturing Business Rules</a></li>
+  <li><a href="#Level of Formalism">Levels of Formalism</a></li>
+  <li><a href="#Categories of Business Rules">Categories of Business Rules</a></li>
+  <li><a href="#How Business Rules are Reflected in the Models">How Business Rules 
+    Are Reflected in the Models</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business rules are kinds of requirements on how the business, including its 
+  business tools, must operate. They can be laws and regulations imposed on the 
+  business but also express the chosen business architecture and style. There 
+  are two ways of capturing business rules:</p>
+<ul>
+  <li><b>Model-based</b>—Business rules are captured as stereotyped constraints 
+    in UML models. The rule can be declared using natural language or a more formal 
+    notation, such as Object Constraint Language (OCL). The advantage of this 
+    technique is that business rules are captured and displayed at the source 
+    where they apply. The main disadvantage is that business rules are scattered 
+    throughout the model, and it is therefore difficult to view related business 
+    rules. The <a href="../reports/re_brules.htm">Report: Business Rules Survey</a> 
+    provides an overview of all business rules in the model.&nbsp;</li>
+  <li><b>Document-based</b>—Business rules are captured in a separate document. 
+    The document contains business rules, but these are not the business rules 
+    used in the model-based approach. A document-based approach is useful when 
+    large numbers of business rules apply (such as for financial products). A 
+    disadvantage is that business rules are captured in a different artifact than 
+    the source where they apply.</li>
+</ul>
+<h3><a name="Capturing Business Rules">Capturing Business Rules</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business rules can be captured in both document and model form. If you want 
+  to obtain an overview of business rules in models, you can generate a <a href="../reports/re_brules.htm">Report: 
+  Business Rules Survey</a>.</p>
+<p>A Business Rules Document is especially useful for business rules that have 
+  long descriptions, such as legislation. The disadvantage of document-based business 
+  rules is that it may still be necessary to trace the business rule to all parts 
+  of the model where it applies (if more than one). This can be overcome by opting 
+  for model-based business rules that can be captured directly in the models where 
+  they apply. However, this has the disadvantage of being &quot;hidden away in 
+  the model,&quot; and it is more difficult to obtain an overview of all business 
+  rules that have some common characteristic (such as belonging to a particular 
+  category).</p>
+<h3><a name="Level of Formalism">Levels of Formalism</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business rules need to be rigorously and formally expressed so that they can 
+  form a basis for automation. An alternative would be to use the Object Constraint 
+  Language (OCL) as specified in the Unified Modeling Language (UML) [<a href="../referenc.htm#RUM98">RUM98</a>].&nbsp; 
+  Always consider who will be reading the business rules. Focusing on the reader 
+  helps ensure that the manner in which you capture the business rules (documents 
+  or models), your selected style, and level of formalism match the target audience. 
+  Business rules that cannot be understood by those who must read them are a waste 
+  of time on any project.</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">You may want to express a limit to the size of a team to less 
+  than ten members. With the OCL, you can state this business rule as an invariant:</p>
+<p class="example"><font face="Courier New"><b>context</b> Team <b>inv</b>:</font></p>
+<p class="example"><font face="Courier New">&nbsp;&nbsp;&nbsp;
+self.numberOfMembers &lt;= 10</font></p>
+<p>However, you must consider that this formal type of language may be difficult 
+  to interpret for many of your stakeholders, so a more natural language style 
+  might be preferable. You can define a set of reserved expressions that you use 
+  to define the rules. Those expressions could be the same as those defined in 
+  [<a href="../referenc.htm#ODL98">ODL98</a>]:&nbsp;</p>
+<ul>
+  <li>IF</li>
+  <li>ONLY IF</li>
+  <li>WHEN</li>
+  <li>THEN</li>
+  <li>ELSE</li>
+  <li>IT MUST ALWAYS HOLD THAT</li>
+  <li>IS CORRECTLY COMPLETED</li>
+</ul>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">In this less formal language, the example above reads:</p>
+<p class="example">IT MUST ALWAYS HOLD THAT the number of team members is less
+or equal to 10.&nbsp;</p>
+<h3><a name="Categories of Business Rules">Categories of Business Rules</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Rules can be classified in many ways, although it is common is to divide them 
+  between constraint rules and derivation rules. [<a href="../referenc.htm#ODL98">ODL98</a>] 
+  Both categories can be further subdivided in the following manner:&nbsp;</p>
+<ul>
+  <li><b>Constraint rules </b>specify policies or conditions that restrict object 
+    structure and behavior.&nbsp;Constraint rules may <i>always</i> apply, or 
+    they may apply <i>only under certain conditions</i>. Constraints that always 
+    apply are referred to as<b> invariants</b>.</li>
+</ul>
+<blockquote>
+  <ul>
+    <li><b>Stimulus and response rules</b> constrain behavior by specifying when and
+      if conditions must be true in order for behavior to be
+      triggered.&nbsp;</li>
+    <li><b>Operation constraint rules</b> specify those conditions that must
+      hold true before and after an operation to ensure that the operation performs
+      correctly.&nbsp;</li>
+    <li><b>Structure constraint rules</b> specify policies or conditions about
+      classes, objects, and their relationships that should not be
+      violated.&nbsp;</li>
+  </ul>
+</blockquote>
+<ul>
+  <li><b>Derivation rules</b> specify policies or conditions for inferring or
+    computing facts from other facts.&nbsp;</li>
+</ul>
+<blockquote>
+  <ul>
+    <li><b>Inference rules</b> specify that if certain facts are true, a
+      conclusion can be inferred.&nbsp;</li>
+    <li><b>Computation rules</b> derive their results by way of processing algorithms,
+      a more sophisticated variant of inference rules.&nbsp;</li>
+  </ul>
+</blockquote>
+<p>This classification of business rules is practical when explaining what business 
+  rules are, how to find them, and how to work with them. However, there is no 
+  need to think of them as fixed groupings to which you always need refer. Therefore, 
+  our template for the business rules artifact does not show this classification—in 
+  your project most likely there will be other groupings (by domain, by user, 
+  or by product group) that are much more valuable to show. For more information 
+  about classifying and applying business rules, see [<a href="../referenc.htm#ROS97">ROS97</a>].</p>
+<h3><a name="How Business Rules are Reflected in the Models">How Business Rules 
+  Are Reflected in the Models</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A business rule affects how your models look. It can also affect how you sequence 
+  activities in your activity diagram, and it may even affect what associations 
+  you have between your business entities. Some rules are not easy to straightforwardly 
+  translate to the way a diagram looks—they may need to reside in the descriptions 
+  of the model elements.&nbsp;</p>
+<p>Business rules in a UML diagram should be linked to the model element they
+affect.&nbsp;</p>
+
+<p>It is also useful to track business rules in the <a href="../artifact/ar_rattr.htm">Requirements 
+  Attributes</a> for traceability and reporting purposes.</p>
+<h4>Stimulus and Response Rules</h4>
+<p>This kind of business rule affects the workflow of a business use case and 
+  can be traced to the business use case to which it applies. You might either 
+  show a conditional path or an alternative path through the workflow. If the 
+  actions involved are less significant, it can be sufficient to let the evaluation 
+  of the business rule be enclosed in an activity state.&nbsp;</p>
+<p>In the Business Analysis Model, a rule of this kind could, for example, affect 
+  how you describe the lifecycle a business entity, or it could be part of the 
+  description of an operation on a business worker.&nbsp;Examining the identified 
+  business events is a very useful source for defining these kinds of business 
+  rules. Usually a business event is identified because somebody or something 
+  is interested in the occurrence of the event. Ask the question, &quot;What conditions 
+  or behavior applies once the event occurs?&quot;</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">In an order management organization, you might find the following 
+  rule:&nbsp;</p>
+<blockquote>
+  <p class="example">WHEN an Order is canceled</p>
+  <p class="example">IF Order is not shipped</p>
+  <p class="example">THEN close Order.&nbsp;</p>
+</blockquote>
+<p class="example">This business rule is reflected by showing two alternative 
+  paths in a workflow and specifically using a decision and guard condition on 
+  outgoing transitions.&nbsp;</p>
+<p align="center"><img border="0" src="images/md_bru1.gif" width="417" height="395"></p>
+<p class="picturetext">The business rule in this case translates to an alternative 
+  path through the workflow.</p>
+<h4>Operation Constraint Rules</h4>
+<p>This type of business rule often translates to preconditions and post-conditions 
+  of a workflow, or to a conditional or alternative path in a workflow.&nbsp;It 
+  can also be a performance goal or some other non-behavioral rule that should 
+  be traced to the business use cases to which it applies.&nbsp;</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">In an order management organization, you might find the following 
+  rule:&nbsp;</p>
+<blockquote>
+  <p class="example">Ship Order to Customer</p>
+  <p class="example">ONLY IF Customer has a shipping address.&nbsp;</p>
+</blockquote>
+<p align="center"><img border="0" src="images/md_bru2.gif" width="428" height="378"></p>
+<p class="picturetext">The business rule translates to an alternative path in 
+  the workflow.</p>
+<p class="picturetext">Example:&nbsp;</p>
+<p class="example">Here is another operation constraint rule:&nbsp;</p>
+<blockquote>
+  <p class="example">IT MUST ALWAYS HOLD THAT</p>
+  <p class="example">All customer
+    inquiries must be responded to within 24 hours of their receipt</p>
+</blockquote>
+<p class="example">This business rule would translate to a performance goal of 
+  a business use case. See the section on performance goal in <a href="md_buc.htm">Guidelines: 
+  Business Use Case</a>.&nbsp;</p>
+<h4>Structure Constraint Rules</h4>
+<p>This type of business rule affects relations between instances of business 
+  entities. They are expressed by the existence of an association between two 
+  business entities, sometimes as a multiplicity on the association. &nbsp;</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">In an order management organization, you might find the following 
+  rule:&nbsp;</p>
+<blockquote>
+  <p class="example">IT MUST ALWAYS HOLD THAT</p>
+  <p class="example">an Order refers to at least 1 Product.&nbsp;</p>
+</blockquote>
+<p align="center"><img border="0" src="images/md_bru3.gif" width="360" height="115"></p>
+<p class="picturetext">This business rule translates to an association with the
+multiplicity of 1..*.&nbsp;</p>
+<h4>Inference Rules</h4>
+<p>Inference rules often seem similar to stimulus and response, as well as to 
+  operation constraint or structure constraint types of rules. The difference 
+  is that there are a few steps that need to be thought through to arrive at the 
+  conclusion. The rule implies a method that needs to be reflected in an activity 
+  state of the workflow and eventually in an operation on a business worker or 
+  business entity.&nbsp;</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">You might set up the following rule to determine a customer’s 
+  status:</p>
+<blockquote>
+  <p class="example">A Customer is a Good Customer IF AND ONLY IF</p>
+  <blockquote>
+    <p class="example">the unpaid invoices sent to this Customer are less than
+    30 days old.&nbsp;</p>
+  </blockquote>
+</blockquote>
+<p align="center"><img border="0" src="images/md_bru4.gif" width="613" height="524"></p>
+<p class="picturetext">This business rule corresponds to an alternative path through 
+  the workflow, and the method prescribed will be part of the Evaluate Customer 
+  activity.</p>
+<h4>Computation Rules</h4>
+<p>Computation rules are similar to inference rules. The difference is that the 
+  method is more formal and looks like an algorithm. As with inference rules, 
+  this method needs to be traced to an activity in the workflow and, eventually, 
+  to an operation on a business worker or a business entity.&nbsp;</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">A computation rule can specify value computation:&nbsp;</p>
+<blockquote>
+  <p class="example">The net price of a Product IS COMPUTED AS FOLLOWS</p>
+  <blockquote>
+    <p class="example">product price * (1+tax percentage/100).</p>
+  </blockquote>
+</blockquote>
+<p class="example">Evaluating the net price could be part of the activity Ship 
+  Order as you produce the bill sent with the order. In the Business Analysis 
+  Model, this rule translates to associations and operations.&nbsp;</p>
+      <p align="center"><img border="0" src="images/md_bru5.gif" width="496" height="266"> 
+      
+<p class="picturetext">The rule needs to be reflected as a method in the operation 
+  Calculate Net Price but also implies a need for relationships between classes 
+  in the model. 
+<p>
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

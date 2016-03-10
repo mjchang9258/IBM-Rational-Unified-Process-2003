@@ -1,0 +1,421 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Develop Measurement Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Develop Measurement Plan</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+      <ul>
+            <li>To define management goals, in terms of quality, progress, and improvement</li>
+            <li>To determine what needs to be measured periodically to support 
+              these goals</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Define the Primary Management Goals">Define the Primary
+        Management Goals</a></li>
+      <li><a href="#Validate the Goals">Validate the Goals</a></li>
+      <li><a href="#Define the Subgoals">Define the Subgoals</a></li>
+      <li><a href="#Identify the Metrics Required to Satisfy the Subgoals">Identify
+        the Metrics Required to Satisfy the Subgoals</a></li>
+      <li><a href="#Identify the Primitive Metrics that Need to be Collected to Compute the Metrics">Identify
+        the Primitive Metrics Needed to Compute the Metrics</a></li>
+      <li><a href="#Write and Review the Measurement Plan">Write the Measurement
+        Plan</a></li>
+      <li><a href="#Evaluate the Measurement Plan">Evaluate the Measurement Plan</a></li>
+      <li><a href="#Put in Place the Collection Mechanisms">Put in Place the
+        Collection Mechanisms</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+ 	  <ul>
+<li><a href="../artifact/ar_bcase.htm">Business Case</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_metr.htm">Measurement Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per project (updated with each iteration, if necessary)&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_projm.htm">Project Manager</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_mgm.htm">Project Management</a>
+<ul>
+<li><a href="../workflow/manageme/wfs_sdp.htm">Plan the Project</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<p>The <a href="../artifact/ar_metr.htm">Measurement Plan</a> describes the
+goals which the project must track towards for successful completion and the
+measures and metrics to be used to determine whether the project is on track.</p>
+<p>The activity Develop Measurement Plan is done once per project, in the
+inception phase, as part of the general planning activity. The measurement plan
+may be revised, like any other section of the software development plan, during
+the course of the project.</p>
+<h3><a name="Define the Primary Management Goals">Define the Primary Management
+Goals</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To determine and record the important functional, non-functional,
+          budgetary and schedule requirements and constraints, which need to be tracked.&nbsp;
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The Project Manager should decide which of the project's requirements and
+constraints are important enough to require an objective monitoring program.
+Additionally, organizational requirements may be imposed that are related to
+business needs (cost reduction, time-to-market and productivity improvements),
+not directly to project needs. Typically, a project manager will want to track
+the growth in capability and reliability of the software under construction, as
+well as expenditures (effort, schedule, other resources), and there may be
+performance and other quality requirements, as well as memory and processor
+constraints. See <a href="../modguide/md_metri.htm">Guidelines: Metrics</a> for
+more details. The sources of information for selection of goals include the <a href="../artifact/ar_vsion.htm">Vision</a>,
+<a href="../artifact/ar_rskls.htm">Risk List</a> and <a href="../artifact/ar_bcase.htm">Business
+Case</a>, as well as organizational requirements and constraints not specified
+in the Rational Unified Process.</p>
+<h3><a name="Validate the Goals">Validate the Goals</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To review the relevance, clarity, feasibility and sufficiency of the selected goals&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The Project Manager should review the selected goals with relevant
+stakeholders to ensure that the focus of the goals selected is correct, that
+there is adequate coverage of all areas of interest and risk, that it is
+possible to reduce the goals to collectible metrics and that adequate resources
+can be committed to the measurement program.</p>
+<h3><a name="Define the Subgoals">Define the Subgoals</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">Analyze complex goals to determine subgoals to which metrics can be applied&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>It may be difficult or impossible to formulate direct measures for some
+high-level or complex goals. Instead it is necessary to decompose such a goal
+into simpler subgoals, which together will contribute to the achievement of the
+high-level goal. For example, project costs will not usually be tracked simply
+through a single overall cost figure, but through some Work Breakdown Structure,
+with budget allocated to lower levels and cost information collected at this
+lower level of granularity. The depth of decomposition should be limited to a
+maximum of two levels of breakdown below the primary or high-level goal. This is
+to limit the amount of data collection and reduction needed, and because it may
+become very difficult in deep hierarchies to be sure that tracking the subgoals
+is really contributing to understanding progress against the high-level goal.</p>
+<h3><a name="Identify the Metrics Required to Satisfy the Subgoals">Identify the
+Metrics Required to Satisfy the Subgoals</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To determine the metrics which will enable the subgoals to be tracked&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The task here is to associate the subgoals with some entity or artifact with
+measurable properties or attributes. Metrics that are objective and easily
+quantified are to be preferred.</p>
+<h3><a name="Identify the Primitive Metrics that Need to be Collected to Compute the Metrics">Identify
+the Primitive Metrics Needed to Compute the Metrics</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To determine the basic measurements that will be used to derive the metrics&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>In this step, the elementary data items, from which the metrics will be
+derived, are identified. These are the items that will need to be collected.</p>
+<h3><a name="Write and Review the Measurement Plan">Write the Measurement Plan</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To produce the <a href="../artifact/ar_metr.htm">Measurement Plan</a> artifact&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The Measurement Plan captures the goals, subgoals and the associated metrics
+and primitive metrics. It will also identify the resources 
+(e.g. <a href="../artifact/ar_prjms.htm">Project Measurements</a>) and responsibilities for the metrics program.</p>
+<h3><a name="Evaluate the Measurement Plan">Evaluate the Measurement Plan</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To check the <a href="../artifact/ar_metr.htm">Measurement Plan</a> for consistency, clarity, appropriateness, feasibility and completeness&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The Project Manager should have the Measurement Plan reviewed by:</p>
+<blockquote>
+  <ul>
+    <li>those directly engaged in the metrics program (in the default
+      organization, the Assessment Team, see <a href="../modguide/md_prpln.htm#ProjectOrganization">Guidelines:
+      Project Plan, Project Organization</a></li>
+    <li>the Project Review Authority (PRA)</li>
+    <li>a metrics expert external to the project, unless there are individuals
+      in the Assessment Team who are considered experts.</li>
+  </ul>
+</blockquote>
+<h3><a name="Put in Place the Collection Mechanisms">Put in Place the Collection
+Mechanisms</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width"95%">To establish the means to collect, record, reduce and report the planned measurements&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The instructions, procedures, tools and repositories for metrics collection,
+computation, display and reporting have to be acquired or produced, installed
+and set-to-work according to the Measurement Plan.
+ This will include
+the <a href="../artifact/ar_prjms.htm">Project Measurements</a> artifact.</p>
+<p>See <a href="../modguide/md_metri.htm">Guidelines: Metrics</a>.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

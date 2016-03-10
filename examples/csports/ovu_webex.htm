@@ -1,0 +1,592 @@
+<!-- RPW META DATA START --
+ 
+
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Example:&nbsp;Collegiate Sports Paging System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+<h1 align="center" class="banner"><font size="5">Example: 
+<rpw name="PresentationName">Collegiate Sports Paging System</rpw>
+</font></h1>
+<p><a name="XE_e-business__example_project"></a><a name="XE_example__e-business_development_project"></a>The
+example artifacts presented here are based on a fictional project to develop a
+system to page subscribers when specified collegiate sporting events take place.</p>
+<p>Additional examples of artifacts, or updated versions of these artifacts, may
+be posted in the future on the <a href="http://www.rational.net/rupcenter" target="_blank">RUP Knowledge Center 
+  on RDN<sup><font size="2">SM</font></sup></a>.</p>
+<p><a name="Sets"><b>Information Sets</b></a>
+<ul>
+  <li><b><a href="#Environment Set">Environment Set</a></b></li>
+  <li><a href="#Management Set"><b>Project Management Set</b></a></li>
+  <li><a href="#Requirements Set"><b>Requirements Set</b></a></li>
+  <li><a href="#Design Set"><b>Analysis &amp; Design Set</b></a></li>
+  <li><a href="#Implementation Set"><b>Implementation Set</b></a></li>
+  <li><a href="#Test Set"><b>Test Set</b></a></li>
+  <li><b><a href="#Deployment Set">Deployment Set</a></b></li>
+</ul>
+<p align="center"><b>To see examples for each phase:&nbsp;<br>
+(</b><b>I</b> = Inception, <b>E</b> = Elaboration, <b>C</b>
+= Construction, <b>T</b> = Transition)<br>
+<b><font size="3"><i>Click below on</i></font></b> 
+ : <img src="../../images/draft.gif" alt="The artifact is still in a 'draft' or fluid state." width="20" height="19">
+Preliminary Artifact, or&nbsp; <img src="../../images/baseline.gif" alt="The artifact has been reviewed and approved, and is under version control." width="20" height="19">
+ Baselined Artifact.<br>
+For the artifact description, click below on: <img border="0" src="../../images/ar_wlmod.gif" width="25" height="22">,<img border="0" src="../../images/ar_anamd.gif" width="16" height="16">,
+or <img border="0" src="../../images/ar_desmd.gif" width="16" height="16"></p>
+<div align="center"><center>
+
+<table border="0" width="75%" height="469" style="border-style: none; border-width: medium" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"><b>I</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>E</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>C</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>T</b></td>
+      <td align="center" valign="top" width="6%" height="28"></td>
+              <td align="left" valign="bottom" width="79%" height="28"><b><a name="Environment Set" href="../../process/artifact/ars_env.htm" ><font size="4">Environment 
+                Set</font></a> </b><a href="#Sets"><img src="../../images/top.gif" alt="Return to the Information Sets list." border="0" width="26" height="20"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_devcase.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="6%" height="28"><a href="../../process/artifact/ar_devcs.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="28"><b>Development
+      Case</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"><b>I</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>E</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>C</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>T</b></td>
+      <td align="center" valign="top" width="6%" height="28"></td>
+      <td align="left" valign="bottom" width="79%" height="28"><b><a name="Management Set" href="../../process/artifact/ars_mgmt.htm"><font size="4">Project
+        Management
+      Set</font></a> </b><a href="#Sets"><img src="../../images/top.gif" alt="Return to the Information Sets list." border="0" width="26" height="20"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_risks1.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_risks2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_risks3.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Construction phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="6%" height="28"><a href="../../process/artifact/ar_rskls.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="28"><b>Risk
+      List</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_sdp.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="6%" height="28"><a href="../../process/artifact/ar_sdp.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="28"><b>Software
+      Development Plan</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_itplan1.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_itplan2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_itplan3.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Construction phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_itplan4.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Transition phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="6%" height="28"><a href="../../process/artifact/ar_itpln.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="28"><b>Iteration
+      Plan</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"></td>
+        <td align="center" valign="top" width="5%" height="28"><a href="ex_itassess1.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Construction phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28">
+          <p align="center">&nbsp;
+        </td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="6%" height="28"><a href="../../process/artifact/ar_itass.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="28"><b>Iteration
+      Assessment</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="5%" height="28">
+      <p align="center"><a href="ex_stsassess.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Construction phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="28"></td>
+      <td align="center" valign="top" width="6%" height="28"><a href="../../process/artifact/ar_stass.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="28"><b>Status
+      Assessment</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"><b>I</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>E</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>C</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>T</b></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="bottom" width="79%" height="29"><b><a name="Requirements Set" href="../../process/artifact/ars_req.htm"><font size="4">Requirements
+      Set</font></a> <big><big> </big></big> </b><a href="#Sets"><img src="../../images/top.gif" alt="Return to the Information Sets list." border="0" width="26" height="20"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle" width="5%" height="29">
+      <p align="center"><a href="ex_rqmgt.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_ratgl.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Requirements
+      Management Plan</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_vision.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_vsion.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Vision</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_ucsurvey.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Use Case
+      Model Survey</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_uc.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Use
+      Cases</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_appstry1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_appstry2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Approve Story</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_edprf1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_edprf2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Edit Profile</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_pfee1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_pfee2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Pay Fee with
+      Credit Card</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_prtadrpt1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_prtadrpt2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Print Advertiser
+      Reports</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_pstadcnt1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_pstadcnt2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Post Advertising
+      Content</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_prvfdbk1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_prvfdbk2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Provide Feedback</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_rdcntnt1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_rdcntnt2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Read Content on
+      Web site</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_sndcntnt1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_sndcntnt2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Send Content</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_sndpg1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_sndpg2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Send Page</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_subsc1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_uc_subsc2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29">- Subscribe</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_gloss1.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_gloss2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_gloss.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Glossary</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_suppspc1.htm" target="_blank"><img src="../../images/draft.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_suppspc2.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="center" width="6%" height="29"><a href="../../process/artifact/ar_sspec.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Supplementary
+      Specifications</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="right"><a href="ex_crdesbrf.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Creative
+      Design Brief</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="right"><a href="ex_descmp.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Design
+      Comparatives</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="right"><a href="ex_navmap.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Inception phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Navigation
+      Map</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"><b>I</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>E</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>C</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>T</b></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="bottom" width="79%" height="29"><b><a name="Design Set" href="../../process/artifact/ars_dsg.htm"><font size="4">Analysis
+        &amp; Design
+      Set</font></a> </b><a href="#Sets"><img src="../../images/top.gif" alt="Return to the Information Sets list." border="0" width="26" height="20"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a target="_blank" href="ex_sad.htm"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_sadoc.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Software
+      Architecture Document</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="root.html" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Rational Rose Model</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29">
+      </td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29"><a href="../../process/artifact/ar_amdl.htm"><img border="0" src="../../images/ar_anamd.gif" width="16" height="16"></a>
+        Analysis Model</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29">
+      </td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="top" width="79%" height="29"><a href="../../process/artifact/ar_desmd.htm"><img border="0" src="../../images/ar_desmd.gif" width="16" height="16"></a>
+        Design Model</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"><b>I</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>E</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>C</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>T</b></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="bottom" width="79%" height="29"><b><a name="Implementation Set" href="../../process/artifact/ars_impl.htm"><font size="4">Implementation
+      Set</font></a> <big><big> </big></big> </b><a href="#Sets"><img src="../../images/top.gif" alt="Return to the Information Sets list." border="0" width="26" height="20"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"><a href="ex_intbldpln1.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_intbp.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Integration
+      Build Plan</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="bottom" width="79%" height="29"><b><a name="Test Set" href="../../process/artifact/ars_test.htm"><font size="4">Test
+      Set</font></a><big><big> </big></big></b><a href="#Sets"><img src="../../images/top.gif" alt="Return to the Information Sets list." border="0" width="26" height="20"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_tstpln.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_tstpl.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Test
+      Plan</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <a href="ex_tstrslt1.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Elaboration phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="6%" height="29"><a href="../../process/artifact/ar_tstev.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Test
+      Evaluation Summary</b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="28"><b>I</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>E</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>C</b></td>
+      <td align="center" valign="top" width="5%" height="28"><b>T</b></td>
+      <td align="center" valign="top" width="6%" height="29"></td>
+      <td align="left" valign="bottom" width="80%" height="29"><b><a name="Deployment Set" href="../../process/artifact/ars_depl.htm"><font size="4">Deployment
+      Set</font></a> </b><a href="#Sets"><img src="../../images/top.gif" alt="Return to the Information Sets list." border="0" width="26" height="20"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29"></td>
+      <td align="center" valign="top" width="5%" height="29">
+      <p align="center"><a href="ex_relnotes.htm" target="_blank"><img src="../../images/baseline.gif" border="0" alt="Transition phase" width="20" height="19"></a></td>
+      <td align="center" valign="top" width="6%" height="29">
+      <a href="../../process/artifact/ar_rlsnt.htm"><img border="0" src="../../images/ar_wlmod.gif" width="22" height="20"></a></td>
+      <td align="left" valign="top" width="79%" height="29"><b>Release
+      Notes</b></td>
+    </tr>
+  </tbody>
+</table>
+</center></div>
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+</body>
+
+</html>

@@ -1,0 +1,405 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Implementing Test Scripts Using Rational Robot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Implementing 
+  Test Scripts Using Rational Robot</rpw> </h2>
+
+<h3>Purpose</h3>
+
+<p>This tool mentor describes how to use Rational Robot to record or program Test 
+  Scripts, and how to subsequently extend them by editing the Test Scripts.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+<li><a href="../../process/activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../../process/activity/ac_impdvltst.htm">Implement Developer Test</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+
+<p>This tool mentor is applicable when running Microsoft Windows 98/2000/NT 4.0.</p>
+
+<p>To record and extend a script using Rational Robot: 
+
+<ol>
+  <li><a href="#heading of tool step one">Record the Test Script in Rational Robot</a></li>
+  <li><a href="#heading of tool step two">Insert a verification point</a></li>
+  <li><a href="#step three">Edit the test script if necessary</a></li>
+</ol>
+
+<h3>1. <a name="heading of tool step one">Record the Test Script in Rational Robot</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>When you record a Test Script, Rational Robot records: 
+<ul>
+  <li>Your actions as you interact with the application-under-test. These user actions include
+    keystrokes and mouse clicks that help you navigate around the application.</li>
+  <li>Verification points that you create to capture and compare information about 
+    the state of specific system components. A verification point is a point in 
+    a Test Script at which you determine you should confirm the state or behavior 
+    of an element of the Target Test Items across Builds. During Test Script recording, 
+    the verification point captures information about the system state and stores 
+    it as a baseline of expected results. During Test Script playback, the verification 
+    point recaptures the same system state information and compares it to the 
+    information stored in the baseline.</li>
+</ul>
+
+<p>The recorded Test Script establishes the baseline of expected behavior for 
+  the Target Test Items. When revised builds of the Target Test Items become available, 
+  you can execute the Test Script against the subsequent Builds and the comparison 
+  of system state information in the verification point usually occurs in a fraction 
+  of the time it would take to perform the comparison manually.</p>
+
+<p>The Rational Robot Object-Oriented Recording technology examines system state 
+  information at the Windows layer during initial Test Script recording and subsequent 
+  playback. As a result, sucessful Test Script playback does not usually need 
+  to rely on absolute screen coordinates. Object-Oriented Recording insulates 
+  the Test Script from minor user interface changes and simplifies Test Script 
+  maintenance.</p>
+
+<p>To record a new Test Script:</p>
+<div align="center"><center>
+
+<table border="0" cellpadding="5" width="85%" height="1063">
+  <tr>
+    <td width="45" align="right" valign="top" height="40">1.</td>
+        <td width="729" height="40">Prepare the test environment by setting the 
+          record options. See 
+          <a href="tm_tsten.htm">Tool Mentor: Setting up the Test Environment 
+          in Rational Robot</a>.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="59"></td>
+    <td width="729" height="59">Start your application-under-test. (Optionally, you can start the
+    application-under-test after you start recording by clicking <b>Insert &gt; Start
+    Application</b> in Robot.)</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="21">2.</td>
+    <td width="729" height="21">Click the <b>Record GUI Script</b> button on the Robot toolbar.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="21">3.</td>
+    <td width="729" height="21">Type a name (40 characters maximum) or select it from the list.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="21">4.</td>
+    <td width="729" height="21">To change the recording options, click <b>Options</b>. When finished,
+    click <b>OK</b>.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="40">5.</td>
+    <td width="729" height="40">If you selected a previously defined or recorded script, you can change
+    the properties by clicking <b>Properties</b>. When finished, click <b>OK</b>.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="21">6.</td>
+    <td width="729" height="21">Click <b>OK</b> to start recording. The following events occur:</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="97"></td>
+    <td width="729" height="97"><ul>
+      <li>If you selected a script that has already been recorded, Robot asks if you want to
+        overwrite it. Click <b>Yes</b>. (If you record over an existing GUI script, you
+        overwrite the script file but any existing properties are applied to the new script.)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="40"></td>
+    <td width="729" height="40"><ul>
+      <li>Robot is minimized (default behavior).</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="59"></td>
+    <td width="729" height="59"><ul>
+      <li>The floating GUI Record toolbar appears. You can use this toolbar to pause or stop
+        recording, redisplay Robot, and insert features into a script.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="60">7.</td>
+    <td width="729" height="60">Execute the test by performing the actions identified in the test and
+    insert the necessary features (such as verification points, comments, and timers). For
+    details, <img SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16"> see the
+    Robot online Help.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="21">8.</td>
+    <td width="729" height="21">If necessary, switch from Object-Oriented Recording to low-level
+    recording.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="78"></td>
+    <td width="729" height="78">Object-Oriented Recording examines Windows GUI objects and other objects
+    in the application-under-test without depending on precise timing or screen coordinates.
+    Low-level recording tracks detailed mouse movements and keyboard actions by screen
+    coordinates and exact timing.</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="40">9.</td>
+    <td width="729" height="40">When finished, click the <b>Stop Recording</b> button on the GUI
+    Record toolbar. The following events occur:</td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top"></td>
+    <td width="729"><ul>
+      <li>The script you recorded appears in a Script window within the Robot main window.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="59"></td>
+    <td width="729" height="59"><ul>
+      <li>The verification points in the script (if any) appear in the Asset pane on the left.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="40"></td>
+    <td width="729" height="40"><ul>
+      <li>The text of the script appears in the Script pane on the right.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="59"></td>
+    <td width="729" height="59"><ul>
+      <li>When you compile or play back the script, the compilation results appear in the Build
+        tab of the Output window.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="45" align="right" valign="top" height="21">10.</td>
+    <td width="729" height="21">Optionally, set the properties for the script by clicking <b>File
+    &gt; Properties</b>.</td>
+  </tr>
+</table>
+</center><br></div>
+
+<h3>2. <a name="heading of tool step two">Insert a verification point</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To insert a verification point while recording or editing a Test Script: 
+<ol>
+  <li>Do one of the following:</li>
+</ol>
+
+<blockquote>
+  <ul>
+    <li>If recording, click the <b>Display GUI Insert Toolbar</b> button on the GUI
+      Record toolbar.</li>
+    <li>If editing, position the pointer in the script and click the <b>Display GUI Insert
+      Toolbar</b> button on the Standard toolbar.</li>
+  </ul>
+</blockquote>
+
+<ol start="2">
+  <li>Click a verification point button on the GUI Insert toolbar.</li>
+  <p>The verification point is named with the verification point type (and a number if there
+  is more than one of the same type in the script).</p>
+  <li>Edit the name as appropriate.</li>
+  <li>Optionally, set the wait state options.</li>
+  <li>Optionally, set the expected results option.</li>
+  <li>Click <b>OK</b>.</li>
+  <li>If prompted to select an object, drag the object finder tool over the desired object and
+    release the left mouse button to select the object. Optionally, the object may be selected
+    from a list of objects by clicking on the <b>Browse</b> button. When the desired
+    object is selected, click <b>OK</b>.</li>
+</ol>
+
+<p>For further details, <img SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16"> see the Robot online Help. <img SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"> See also the chapter titled<b> 
+</b>&quot;Creating Verification Points in GUI
+Scripts&quot; in the <i>Using Rational Robot </i>manual.</p>
+
+<h3>3. <a name="step three">Edit the Test Script if necessary </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>You can edit existing Test Scripts by manually editing the source code of a 
+  Test Script or by inserting new partial recordings. For example, you can: 
+<ul>
+  <li>Edit the text of a Test Script (delete a line, move text, and so forth)</li>
+  <li>Insert a new sequence of user action into an existing Test Script (select 
+    a menu command, click a button, and so on)</li>
+  <li>Add a new feature to an existing Test Script (add verification points, comments, 
+    and the like)</li>
+  <li>Go to a line with a compiler error (go to a specific line number, find the next error,
+    and so forth)</li>
+</ul>
+
+<p>For details, <img SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16"> see
+the Rational Robot online Help. <img SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"> See also the chapter titled<b> 
+</b>&quot;Editing, Compiling, and Debugging Scripts&quot;
+in the <i>Using Rational Robot</i> manual.</p>
+<br>
+<br>
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

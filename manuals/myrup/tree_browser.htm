@@ -1,0 +1,706 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title><i>My RUP</i> Tree</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  <h2 class="banner"> <rpw name="PresentationName"><i>My RUP</i> Tree</rpw></h2>
+<p>The tree browser that appears in the right pane of the RUP browser window lets 
+  you navigate the topics in the RUP. Initially it contains a set of default trees.</p>
+<p>You can customize navigation by creating <i>My RUP</i> trees to suit your process 
+  and environment. To start, you save a default tree as a <i>My RUP</i> tree, 
+  then use it as a starting template. You can then create, customize, or delete 
+  topics in the <i>My RUP</i> tree.</p>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#_Types_of_Trees">Types of Trees</a></li>
+
+  <li><a href="#Creating_a">Creating a <i>My RUP</i> Tree</a></li>
+  <li><a href="#_Customizing_a">Customizing a <i>My RUP</i> Tree</a></li>
+  <li><a href="#Deleting_a">Deleting a <i>My RUP</i> Tree</a></li>
+</ul>
+<h3><a name="_Types_of_Trees"></a>Types of Trees</h3>
+<p>The tree browser displays two types of trees:</p>
+<ul>
+  <li><b>Default RUP trees</b>, which are provided when you install RUP or publish 
+    RUP from RUP Builder, give different views of the topics in the RUP Extended 
+    Help. Default trees cannot be modified. </li>
+  <li><b>Customizable <i>My RUP</i> trees</b> are created by you and can be modified 
+    to display topics that suit your specific process and environment.</li>
+</ul>
+
+<table width="85%" border="0" cellspacing="2" cellpadding="2" height="320">
+  <tr>
+    <td width="35%" height="325"> 
+      <div align="right">
+        <p><font size="2">The tree browser contains a set of tabbed panels, and 
+          each panel contains a tree. This is called a tree panel.</font></p>
+        <p><font size="2">The tab on the panel displays the tree browser's title. 
+          The titles of default trees are gray; the titles of a customized (<i>My 
+          RUP</i>) tree is gray with a <i>pencil</i> icon, indicating that it 
+          is modifiable.</font></p>
+        <p><font size="2">When you first start the RUP, the tree browser opens, 
+          showing a default tree. (In this example, it is the Getting Started 
+          tree.).</font></p>
+      </div>
+    </td>
+        
+    <td valign="top" width="25%" height="325"> 
+      <div align="left"><img src="images/overview_of_treecontrol_small.jpg" width="211" height="267"></div>
+    </td>
+    <td width="40%" valign="top"> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><font size="2">The tree panel consists of a toolbar that works on a tree 
+        basis, tabs for each tree panel, and a list of topics in each tree panel. 
+        </font></p>
+      <p><font size="2">The function of each of the tools on the toolbar is explained 
+        in the following table.</font></p>
+    </td>
+  </tr>
+</table>
+<p></p>
+<table width="85%" border="0" cellspacing="2" cellpadding="2" >
+  <tr> 
+    <th> 
+      <div align="left">To</div>
+    </th>
+    <th> 
+      <div align="left">Click</div>
+    </th>
+  </tr>
+  <tr> 
+    <td><font size="2">show the location of the page you are viewing in the tree</font></td>
+    <td><font size="2"><img src="images/icons/ni_where.gif"></font></td>
+  </tr>
+  <tr> 
+    <td><font size="2">show all trees</font></td>
+    <td><font size="2"><img src="images/icons/unhide.gif"></font></td>
+  </tr>
+  <tr> 
+    <td><font size="2">show all trees except the selected one</font></td>
+    <td><font size="2"><img src="images/icons/hide.gif"></font></td>
+  </tr>
+  <tr> 
+    <td><font size="2">save this tree using a different name</font></td>
+    <td><font size="2"><img src="images/icons/saveas.gif"></font></td>
+  </tr>
+  <tr> 
+    <td><font size="2">delete the <i>My RUP</i> tree you are viewing</font></td>
+    <td><font size="2"><img src="images/icons/delete.gif"> </font></td>
+  </tr>
+  <tr> 
+    <td><font size="2">add a new topic to your <i>My RUP</i> tree </font></td>
+    <td><font size="2"><img src="images/icons/new.gif"></font></td>
+  </tr>
+  <tr> 
+    <td><font size="2">add an existing topic from the main default tree into your 
+      customized <i>My RUP</i> tree</font></td>
+    <td><font size="2"><img src="images/icons/add.gif"></font></td>
+  </tr>
+  <tr> 
+    <td ><font size="2">view a topic in a tree</font></td>
+    <td > 
+      <ul>
+        <li><font size="2">Select the tree by clicking the titled tab.</font></li>
+        <li><font size="2">Navigate to a topic title in the tree, and then double-click 
+          to expand it. The topic content appears to the right of the tree panel.</font></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<p>The tree browser lets you to show and hide trees on other tabs so you can view 
+  only those trees that you want.</p>
+<ul>
+  <li>To show all the tabs, click <img src="images/icons/unhide.gif">.</li>
+  <li>To hide all other tabs except the one you are viewing, click <img src="images/icons/hide.gif">.</li>
+</ul>
+<p>Showing and hiding tree set states is persistent. The next time you start the 
+  RUP, you will see either the tree that you chose or all of the trees, depending 
+  on the state you selected the last time you used the RUP.</p>
+<table width="89%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="33%"> 
+      <div align="right">
+        <p><font size="2">This illustrates a tree browser in which only one tree&#151;<i>My 
+          RUP</i>&#151;is visible, which is how it was left the last time the 
+          RUP was used.</font></p>
+      </div>
+    </td>
+    <td width="67%"><img src="images/show_one_tree.jpg" width="208" height="240"></td>
+  </tr>
+</table>
+
+<p align="left"></p>
+<h3><a name="Creating_a"></a>Creating a <i>My RUP</i> Tree</h3>
+<p>You can create an unlimited number of <i>My RUP</i> trees. The following example 
+  shows how to add a modifiable <i>My RUP</i> tree.</p>
+<table width="82%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="36%"> 
+      <p align="right"><font size="2">Select the tree that you want to use as 
+        the template and click <b>Save As</b>.</font></p>
+    </td>
+    <td width="28%"> 
+      <div align="right"><img src="images/save_as_1.jpg" width="209" height="303"></div>
+    </td>
+    <td width="36%"> 
+      <p align="left"><font size="2">Click <b>Analyst</b> to set it as the template.</font></p>
+    </td>
+  </tr>
+</table>
+<p></p>
+<table width="75%" border="0" cellspacing="4" cellpadding="4">
+  <tbody> 
+  <tr> 
+    <td width="33%"> 
+      <p align="right"><font size="2">The Save As dialog box appears, prompting 
+        you for a tree title for the <i>My RUP</i> tree.</font> 
+    </td>
+    <td width="63%" valign="top"><img src="images/save_as_2.jpg"></td>
+  </tr>
+  </tbody> 
+</table>
+<p>
+</p>
+<table width="75%" border="0" cellspacing="4" cellpadding="4">
+  <tbody> 
+  <tr> 
+    <td width="33%" valign="top"> 
+      <div align="right"> 
+        <p>&nbsp;</p>
+        <p><font size="2">Type the title for your tree (for example,<font face="Courier New, Courier, mono"> 
+          </font><font size="2"><font face="Arial, Helvetica, sans-serif">Tutorial 
+          RUP </font></font>) and click <b> OK</b>.</font></p>
+      </div>
+    </td>
+    <td width="63%" valign="top"><img src="images/save_as_3.jpg"></td>
+  </tr>
+  </tbody> 
+</table>
+<p></p>
+<table width="86%" border="0" cellspacing="4" cellpadding="4">
+  <tbody> 
+  <tr> 
+    <td width="64%" valign="top"> 
+      <div align="right"><img src="images/save_as_4.jpg" width="208" height="276"></div>
+    </td>
+    <td width="36%" valign="top"> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><b><font size="2">Tutorial RUP</font></b><font size="2"> is added to 
+        the tree panel as a new tab.</font> </p>
+    </td>
+  </tr>
+  </tbody> 
+</table>
+
+<h3><a name="_Customizing_a"></a>Customizing a <i>My RUP</i> Tree</h3>
+<p>You can customize a <i>My RUP</i> tree and its topics in a number of ways:</p>
+<table width="85%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="35%" valign="top"> Use the toolbar to: </td>
+    <td width="65%">
+        <li><a href="#_Add_a_Topic">Add a new topic to your <i>My RUP</i> tree</a></li>
+        
+      <li><a href="#_Adding_a_Topic_1">Add a new topic from the main default tree</a></li>
+        </td>
+  </tr>
+  <tr>
+    <td width="35%" valign="top">Use the shortcut menu for selected topics to:</td>
+    <td width="65%">
+      <li><a href="#Insert_a_new_topic">Insert a new topic</a></li>
+      <li><a href="#Changing_topic_properties">Change the properties of a topic</a></li>
+    <li><a href="#_Move_a_Topic">Move a topic within its parent</a></li>
+    <li><a href="#_Move_a_Topic_1">Move a topic outside of its parent</a></li>
+    <li><a href="#_Delete_a_Topic">Delete a topic</a></li></td>
+  </tr>
+  <tr>
+    <td width="35%" valign="top">Another customization you might want to make:</td>
+    <td width="65%"><a href="#_Change_a_Topic">Change a topic's icon</a></td>
+  </tr>
+</table>
+<br>
+<h4><a name="_Add_a_Topic"></a>Adding a new topic to your <i>My RUP</i> tree</h4>
+<table width="86%" border="0" cellspacing="4" cellpadding="4">
+  <tbody> 
+  <tr>
+      
+    <td width="67%" valign="top"> 
+      <div align="right"> 
+        <p><img src="images/add_new_topic_1.jpg" width="207" height="309"></p>
+      </div>
+    </td>
+        
+    <td width="33%" valign="top"> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <br>
+      <font size="2">To add a new topic, click <b>Add New Node</b>.</font></td>
+        </tr>
+        </tbody>
+        </table>
+		<br>
+		<table width="85%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><font size="2">The Properties Editor dialog box opens. Enter the various 
+      properties of this new topic.</font></td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="images/add_new_topic_2.jpg" width="577" height="173"></div>
+    </td>
+  </tr>
+</table>
+<br>
+		<table width="85%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><font size="2">Enter the various property values. Note that you can use 
+      the browse button on the far right to browse to file locations for local 
+      file links and icons.</font></td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="images/add_new_topic_3.jpg" width="577" height="173"></div>
+    </td>
+  </tr>
+</table>
+<p> </p>
+
+<table width="75%" border="0" cellspacing="4" cellpadding="4">
+  <tbody> 
+  <tr> 
+    <td width="38%" valign="top"> 
+      <div align="right"> 
+        <p>&nbsp;</p>
+        <p><font size="2">The new topic is added to end of the tree.</font></p>
+      </div>
+    </td>
+    <td width="62%" valign="top"> <img src="images/add_new_topic_4.jpg" width="201" height="72"></td>
+  </tr>
+  </tbody> 
+</table>
+  <p> </p>      
+
+        
+<p><b>Note</b>: You can also add new topics by dragging files from a file explorer, 
+  such as Windows Explorer, onto any topic in the tree. The topic name is initially 
+  the file name. You can change it as described in this section.</p>
+        
+<p>Changes to your <i>My RUP</i> tree are saved as they are made.</p>
+<h4><a name="_Adding_a_Topic_1"></a>Adding an existing topic from a default tree 
+  to a <i>My RUP</i> tree</h4>
+<p>This section describes how to copy an existing topic from the main default 
+  tree into your <i>My RUP</i> tree.</p>
+<table width="85%" border="0" cellspacing="4" cellpadding="4">
+  <tr> 
+    <td width="68%"> 
+      <div align="right"> 
+        <p><img src="images/add_existing_topic_1.jpg" width="210" height="306"></p>
+      </div>
+    </td>
+    <td width="32%"><font size="2">Click <b>Add From Default</b>.</font></td>
+  </tr>
+</table>
+
+<p> </p>
+<table width="85%" border="0" cellspacing="4" cellpadding="4">
+  <tr> 
+    <td width="38%" valign="top"> 
+      <div align="right"> 
+        <p><font size="2"><br>
+          The Drag and Drop Topic from [default tree] dialog box opens.</font></p>
+        <p><font size="2">Drag any topic into your <i>My RUP</i> tree.</font></p>
+      </div>
+    </td>
+    <td width="62%"><img src="images/add_existing_topic_2.jpg" width="229" height="377"></td>
+  </tr>
+</table>
+<br>
+<table width="85%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="38%" valign="top"> 
+      <div align="right">
+        <p>&nbsp;</p>
+        <p><font size="2">You can also choose the default tree from which to drag 
+          topics. </font></p>
+        <p><font size="2">Click in the list to select the default tree you want. 
+          The tree refreshes with the topics from the selected default tree.</font></p>
+      </div>
+    </td>
+    <td width="62%"><img src="images/add_existing_topic_3.jpg" width="229" height="377"></td>
+  </tr>
+</table>
+
+<p>Changes to your <i>My RUP</i> tree are saved as they are made. </p>
+<h4><a name="Insert_a_new_topic"></a>Inserting a new topic</h4>
+
+<table width="83%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="53%"> 
+      <div align="right"><img src="images/insert_new_topic_1.jpg" width="207" height="252"></div>
+    </td>
+    <td width="47%"> 
+      <p><font size="2">To insert a new topic into an existing one, right-click 
+        it. </font></p>
+      <p><font size="2">On the shortcut menu, click <b>Insert new</b>. The following 
+        example shows the insertion of a new topic (titled <font face="Arial, Helvetica, sans-serif">New 
+        tutorial topic</font>) in Disciplines.</font></p>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="85%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><font size="2">The Properties Editor dialog box opens.</font></td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="images/insert_new_topic_2.jpg" width="577" height="173"></div>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="85%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><font size="2">Enter the various properties for this new topic.</font></td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="images/insert_new_topic_3.jpg" width="577" height="173"></div>
+    </td>
+  </tr>
+</table>
+<br>
+<p> </p>
+<table width="85%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="52%"> 
+      <div align="right"><img src="images/insert_new_topic_4.jpg" width="207" height="194"></div>
+    </td>
+    <td width="48%"> 
+      <p><font size="2"><br>
+        <br>
+        <br>
+        </font></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><font size="2">The new topic is inserted into Disciplines.</font></p>
+    </td>
+  </tr>
+</table>
+<h4><a name="Changing_topic_properties"></a>Changing topic properties</h4>
+<table width="85%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="51%"> 
+      <p align="right"><font size="2">To change a topic's properties, right-click 
+        the topic (for example, Overview).</font></p>
+      <p align="right"><font size="2">On the shortcut menu, select <b>Properties</b>.</font></p>
+    </td>
+    <td width="49%"><img src="images/change_properties_1.jpg" width="206" height="227"></td>
+  </tr>
+</table>
+<br>
+<table width="85%" border="0" cellspacing="2" cellpadding="2">
+  <tr> 
+    <td> 
+      <p align="left"><font size="2">The Properties Editor dialog opens. In this 
+        example, the title of the topic Overview will be changed to Changed Overview.</font></p>
+      <p align="left"><font size="2"> For the Name property, type <font face="Courier New, Courier, mono"> 
+        Changed Overview </font>in the<b> Value</b> field, and click <b>Enter</b> 
+        to commit the change. You can also cut and paste text values into the<b> 
+        Value</b> fields of this dialog box. </font><font size="2">Click <b>OK</b> 
+        to close this dialog box.</font></p>
+      </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center"><img src="images/change_properties_2.jpg" width="577" height="173"></div>
+    </td>
+  </tr>
+</table>
+<p> </p>
+<table width="85%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="36%" valign="top"> 
+      <div align="right">
+        <p>&nbsp;</p>
+        <p><font size="2">The name is changed on the tree.</font></p>
+      </div>
+    </td>
+    <td width="64%"><img src="images/change_properties_3.jpg" width="205" height="174"></td>
+  </tr>
+</table>
+<p><b>Note</b>: The <b>Link to</b> field in the Properties Editor dialog box lets 
+  you link to a URL or a file elsewhere in your system. 
+<h4><a name="_Move_a_Topic"></a>Moving a topic within its parent</h4>
+<p>The position of a topic can be adjusted within its parent. In this example, 
+  the Disciplines topic will be moved up.</p>
+<table width="75%" border="0" cellspacing="4" cellpadding="4">
+  <tbody> 
+  <tr> 
+    <td width="40%" valign="top"> 
+      <div align="right"> 
+        <p><font size="2"><br>
+          <br>
+          <br>
+          <br>
+          </font></p>
+        <p><font size="2"><br>
+          Right-click the Disciplines topic. </font></p>
+        <p><font size="2">On the shortcut menu, click <b> Move up</b>.</font></p>
+      </div>
+    </td>
+    <td width="60%" valign="top"><img src="images/move_up_1.jpg" width="207" height="161"></td>
+  </tr>
+  </tbody> 
+</table>
+<br>
+<table width="75%" border="0" cellspacing="4" cellpadding="4" height="110">
+  <tbody> 
+  <tr> 
+    <td width="40%" valign="top" height="140"> 
+      <div align="right"> 
+        <p>&nbsp;</p>
+        <p><font size="2">The display changes to show you the new position of 
+          the Disciplines topic.</font></p>
+        </div>
+    </td>
+    <td width="60%" valign="top" height="140"><img src="images/move_up_2.jpg" width="205" height="82"></td>
+  </tr>
+  </tbody> 
+</table>
+<p>Changes to your <i>My RUP</i> tree are saved as they are made.</p>
+<h4><a name="_Move_a_Topic_1"></a>Moving a topic to a new parent</h4>
+<p>You can move a topic to another tree by using the drag and drop feature.</p>
+<ul>
+  <li>To start, click the topic and drag it to the new topic.</li>
+  <li>Changes to your <i>My RUP</i> tree are saved as they are made.</li>
+</ul>
+
+<h4><a name="_Delete_a_Topic"></a>Deleting a topic</h4>
+<ul>
+  <li>To delete a topic, select the one you want to remove and click <b>Delete</b>.</li>
+  <li>Changes to your <i>My RUP</i> tree are saved as they are made.</li>
+</ul>
+<h4><a name="_Change_a_Topic"></a>Changing a topic's icon</h4>
+        
+<ul>
+  <li>To change the icon for any topic listed in the tree browser, drag an icon 
+    file onto the topic or use the Properties Editor to change the icon name. 
+    An icon file is a .gif, .jpg, or .bmp file. The new icon replaces the old 
+    one.</li>
+  <li>Changes to your <i>My RUP</i> tree are saved as they are made.</li>
+</ul>
+<h3><a name="Deleting_a"></a>Deleting a <i>My RUP</i> Tree</h3>
+<p>The following figures illustrate how to delete a <i>My RUP</i> tree.</p>
+<table width="85%" border="0" cellspacing="2" cellpadding="2">
+  <tbody> 
+  <tr> 
+    <td width="68%" valign="top"> 
+      <div align="right"> 
+        <p><img src="images/delete_1.jpg" width="208" height="279"></p>
+        </div>
+    </td>
+    <td width="32%" valign="top"> 
+      <p>&nbsp;
+      <p>&nbsp;
+      <p>&nbsp;
+      <p><font size="2">S</font><font size="2">elect the tree to delete (in this 
+        example, Tutorial RUP).</font> 
+      <p><font size="2">Click the <b>Tutorial RUP</b> tab, and then click <b>Delete</b>.</font></p>
+      </td>
+  </tr>
+  </tbody> 
+</table>
+<p> </p>
+<table width="75%" border="0" cellspacing="4" cellpadding="4">
+  <tbody> 
+  <tr> 
+    <td width="32%" valign="top"> 
+      <div align="right"> <font size="2">The Confirm Deletion of Tree dialog box 
+        prompts you to continue.</font></div>
+    </td>
+    <td width="68%" valign="top"><img src="images/delete_2.jpg" width="268" height="115"></td>
+    <p>&nbsp;</p>
+  </tr>
+  </tbody> 
+</table>
+<p> </p>
+<table width="85%" border="0" cellspacing="2" cellpadding="2">
+  <tbody> 
+  <tr> 
+    <td width="63%" valign="top"> 
+      <div align="right"> 
+        <p><img src="images/delete_3.jpg" width="208" height="267"></p>
+      </div>
+    </td>
+    <td width="37%" valign="top"> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><font size="2">The Tutorial RUP tree is removed from the display of tabs 
+        in the Tree panel.</font> </p>
+    </td>
+  </tr>
+  </tbody> 
+</table>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+      
+      
+    
+  
+
+
+</body>
+
+</html>

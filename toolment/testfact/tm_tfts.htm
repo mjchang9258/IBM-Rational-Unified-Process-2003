@@ -1,0 +1,237 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Executing a Test Suite Using Rational TestFactory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Executing 
+  a Test Suite Using Rational TestFactory</rpw> </h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational TestFactory to create and run 
+  a Test Suite.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_exctstste.htm">Execute Test Suite</a></li>
+<li><a href="../../process/activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>A &#147;Test Suite&#148; is the Rational TestFactory element that lets you 
+  arrange and execute a suite of Test Scripts. This TestFactory element lets you 
+  organize Test Scripts, execute them in a batch as a Suite, and then analyze 
+  their code-based test coverage.</p>
+<p>This tool mentor is applicable when running Windows 98/2000/NT 4.0.</p>
+<p>To use Rational TestFactory to execute a suite of Test Scripts: 
+<ol>
+  <li><a href="#Create Test Suite">Create a Test Suite of Test Scripts</a></li>
+  <li><a href="#Execute Test Suite">Execute the Test Suite</a></li>
+</ol>
+<h3>1.&nbsp;&nbsp; <a name="Create Test Suite">Create a Test Suite of test scripts</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A Test Suite object is a container to which you add the Test Scripts that you 
+  want to run as a batch. The Test Suite can include Test Scripts recorded in 
+  Rational Robot as well as Test Scripts generated in Rational TestFactory.</p>
+<ul>
+  <li>To create Test Scripts in Robot, see <a href="../robot/tm_imtst.htm">Tool 
+    Mentor:&nbsp;Implementing Test Scripts Using Rational Robot</a>.</li>
+  <li>To generate Test Scripts in TestFactory, see <a href="tm_tfgen.htm">Tool 
+    Mentor:&nbsp;Implementing Generated Test Scripts 
+    Using Rational TestFactory</a>.</li>
+</ul>
+<p>Test Suites are used to organize and execute groups of best scripts, defect 
+  scripts, and scripts created against a specific Build of the application-under-test 
+  (AUT). The Test Scripts that you include in the Test Suite remain linked to 
+  the Test Suite object. You can execute the Test Suite as a regression Test Suite 
+  on future builds of the AUT. 
+<p>Rational TestFactory provides two methods for creating a Test Suite:
+<ul>
+  <li>You can let TestFactory create the Test Suite automatically with selected 
+    Test Scripts.</li>
+  <li>You can manually add a Test Suite object to the application map and then 
+    populate the Test Suite with Test Scripts.</li>
+</ul>
+<p>If you want to analyze the code-based test coverage for the Test Scripts in 
+  the suite, you must instrument the AUT before you run the Test Suite. Rational 
+  TestFactory calculates code-based test coverage for Test Scripts only if the 
+  application is instrumented.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;Refer to
+the following topics in Rational TestFactory online Help:
+<ul>
+  <li>T<i>est Suites: What they are and how they work</i></li>
+  <li><i>Working with Test Suites</i></li>
+  <li><i>Viewing code coverage for a Robot script</i></li>
+  <li><i>Instrumenting the application-under-test</i></li>
+</ul>
+<h3>2.&nbsp;&nbsp; <a name="Execute Test Suite">Execute the Test Suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When you execute a Test Suite, Rational TestFactory executes each Test Script 
+  in the Test Suite in the order in which it appears in the Test Suite list. If 
+  the order of the Test Scripts is important, you can reorder them before running 
+  the Test Suite.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;Refer to
+the <i>Run a Test Suite manually </i>topic in Rational TestFactory online Help.
+</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

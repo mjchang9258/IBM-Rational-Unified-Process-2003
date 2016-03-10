@@ -1,0 +1,374 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<title>Tool Mentor:&nbsp;Designing Use Cases Using Rational XDE Developer - Java Platform Edition</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Designing Use
+  Cases Using Rational XDE Developer - Java Platform Edition</rpw><a name="Top"></a></h2>
+
+
+<h3>Purpose</h3>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_ucdes.htm">Use-Case Design</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity. Links to topics
+  in Rational XDE&#153; online Help are marked with <img src="../../images/helpbook.gif" width="16" height="16">.
+
+
+<h3>Overview</h3>
+<p> The following steps are performed in this tool mentor:<br>
+
+<ul>
+  <li><a href="#Describe Interactions Between Design Objects">Describe Interactions
+    Between Design Objects</a></li>
+  <li><a href="#Simplify Sequence Diagrams Using Subsystems (optional)">Simplify
+    Sequence Diagrams Using Subsystems</a> (optional)</li>
+  <li><a href="#Describe Persistence-Related Behavior">Describe Persistence-Related
+    Behavior</a></li>
+  <li><a href="#Refine the Flow of Events Description">Refine the Flow of Events
+    Description</a></li>
+  <li><a href="#Unify Classes and Subsystems">Unify Design Classes and Subsystems</a></li>
+  <li><a href="#Evaluate Your Results">Evaluate the Results</a></li>
+</ul>
+
+
+<h3><a name="Describe Interactions Between Design Objects"><b>Describe
+Interactions Between Design Objects</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>For each use-case realization, you should illustrate the interactions between
+  its participating design objects by creating one or more sequence diagrams.
+  You might have created early versions of these diagrams during
+  <a href="../../process/activity/ac_ucana.htm">Activity:
+  Use-Case Analysis</a>.  Such &quot;analysis versions&quot; of the use-case
+  realizations describe interactions between
+  <a href="../../process/artifact/ar_aclss.htm">analysis
+  classes</a>.  They must be evolved to describe interactions between design
+  elements.</p>
+
+<p>One approach is to create a new use-case realization and sequence diagrams
+  by following these steps:</p>
+
+<ol>
+  <li> Navigate to the Design-Model package in which the new use-case realizations
+    are to be created. See <a href="model_structure_guidelines.htm">Rational XDE
+    Model Structure Guidelines</a>.
+  </li>
+  <li>Create a use-case diagram. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Add the use-case realization (a collaboration instance) to the diagram.
+    (See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.)
+    Give it the same name as the use case.
+  </li>
+  <li>Drag and drop the use case that it realizes onto the diagram. See
+   <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add a realization relationship from the use-case realization to the use case. See
+    <script language=javascript>ReferenceHelpTopic("Adding Realization Relationships","rs","rs_t_add_realztn_relshp");</script>.
+  </li>
+  <li> For each independent sub-flow (scenario) create one or more interaction
+    instances. (In the Model Explorer, right-click the collaboration instance,
+    and then click <b>Add UML &gt; Interaction Instance</b>.) Consider naming
+    the interaction instance &quot;&lt;use-case name&gt; - &lt;flow type&gt;.&quot;</li>
+  <li>
+    Create a sequence diagram for this interaction instance. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Type a brief description of the scenario that the sequence diagram depicts.
+    See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Drag and drop actors, classes, and interfaces onto the diagram to create
+    objects for interaction. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add messages between the objects. See
+    <script language=javascript>ReferenceHelpTopic("Adding Messages or Stimuli","rs","rs_t_add_messages");</script>.
+  </li>
+  <li>Describe each message. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>To describe how the object behaves when it receives the message, assign an operation to the message. See
+    <script language=javascript>ReferenceHelpTopic("Assigning Operations to Messages or Stimuli","rs","rs_t_assgn_op_mess");</script>.
+  </li>
+</ol>
+
+<p>Alternatively, if you are not maintaining a separate Analysis Model, you may
+  decide to modify your existing sequence diagrams to reflect the evolution of
+  the design elements.</p>
+
+<p>For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Working with Interaction (Sequence) Diagrams","rs","rs_o_work_inter_dgm");</script>.
+</p>
+
+
+<h3><a name="Simplify Sequence Diagrams Using Subsystems (optional)"><b>Simplify
+  Sequence Diagrams Using Subsystems (optional)</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>See the previous step for guidance on working with sequence diagrams.<br>
+</p>
+
+
+<h3><a name="Describe Persistence-Related Behavior"><b>Describe
+Persistence-Related Behavior</b></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Persistence mechanisms are ideally described using patterns. See the following
+  topics in the Rational XDE online Help: </p>
+
+<ul>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Rational XDE Design Patterns","ea","ea_c_xde_dsign_pttrn");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Benefits of Using Patterns","ea","ea_c_benefit_pttrn");</script>
+  </li>
+
+<!-- begin - wsw -->
+
+
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Understanding J2EE Pattern-Driven Development","j","jee_o_patbdev");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("J2EE Pattern-Driven Development","j","jee_c_j2ee_pattrns");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Supported J2EE Patterns","j","jee_o_supported_ejbs");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Defining Relationships for EJBs","j","jee_o_relating_ejbs");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Persistence Relationships","j","jee_r_ejb_persist_relships");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Creating Persistence Relationships Between EJBs","j","jee_t_creating_ejb_rels");</script>
+  </li>
+
+
+<!-- end - wsw -->
+</ul>
+
+
+<h3><a name="Refine the Flow of Events Description"><b>Refine the Flow of Events
+Description</b></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Additional description can be added to the sequence diagrams for clarification.
+  Text can be added anywhere on the diagram. Notes can be added and attached to
+  shapes on the diagram. Consider using the RUP-provided template for <a href="../../process/artifact/ar_ucrea.htm">Artifact:
+  Use Case Realization</a>.</p>
+
+<p>Refer to
+  <script language=javascript>ReferenceHelpTopic("Attaching Notes to Shapes","rs","rs_t_attach_notes_shp");</script>,
+  <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>,
+  and
+  <script language=javascript>ReferenceHelpTopic("Linking External Files to Model Elements","rs","rs_t_lnk_extrn_file_mdl_ele");</script>
+  in the Rational XDE online Help.
+</p>
+
+
+<h3><a name="Unify Classes and Subsystems"><b>Unify Design Classes and Subsystems</b></a>
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>As use cases are realized, you must unify the identified design classes and
+  subsystems to ensure homogeneity and consistency in the Design Model.</p>
+
+<p> Part of unifying the design is identifying common patterns that can be factored
+  out and reused. See the following topics in the Rational XDE online Help: </p>
+
+<ul>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Implementing Design Patterns","ea","ea_o_rat_xde_pttrn");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Rational XDE Design Patterns","ea","ea_c_xde_dsign_pttrn");</script>
+  </li>
+  <li>
+   <script language=javascript>ReferenceHelpTopic("Benefits of Using Patterns","ea","ea_c_benefit_pttrn");</script>
+  </li>
+</ul>
+
+
+<h3><a name="Evaluate Your Results"><b>Evaluate the Results</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p> It might be helpful to publish any models to html format. Also note that diagrams
+  can be copied from the Rational XDE to Microsoft Word and other programs. </p>
+
+<p> For more information, refer to
+<script language=javascript>ReferenceHelpTopic("Reporting in Rational XDE","cr","cr_o_rptg_xde");</script>.
+</p>
+
+<p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+
+</body>
+
+</html>

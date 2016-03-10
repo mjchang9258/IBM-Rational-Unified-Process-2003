@@ -1,0 +1,264 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Workspaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Workspaces</rpw></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Definition">Definition</a></li>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#WorkingConfigurations">Working Configurations</a></li>
+  <li><a href="#Views">Views</a></li>
+</ul>
+
+<h3><a name="Definition">Definition</a><a name="XE_workspaces__definition"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Workspaces refer to &#145;private&#146; areas where developers can implement 
+  and test code in accordance with the project&#145;s adopted standards in relative 
+  isolation from other developers. The Configuration Manager needs to create a 
+  workspace environment for each developer on the project.</p>
+
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A workspace provides each developer with a consistent, flexible, inexpensive, 
+  and reproducible environment that selects and presents the appropriate version 
+  of each file. The workspace needs to be able to provide fine-grained control 
+  over both sharing and isolation. This is required because in most projects, 
+  developers need to stay isolated from changes made by others; but at the same 
+  time, they must be able to unit-test their changes with changes made by certain 
+  other developers.</p>
+<p>When performing maintenance on older releases, a developer needs to be able 
+  to see older versions, binaries, documents, tests, tools, and other objects. 
+  In this case the workspace serves as a &#145;time machine&#146;, making everything 
+  in the environment, not just the sources, appear as it did in the past.</p>
+<p>Each developer’s workspace needs to be isolated, for purposes of editing, compiling, 
+  testing and debugging. However, the isolation of the workspace should be relative 
+  and not absolute:</p>
+<ul>
+  <li>Others should be able to track a developers work, and selectively integrate 
+    it into their own.</li>
+  <li>Others should be able to shut out, until a subsequent integration period, 
+    those changes that may prove destabilizing to their own work.</li>
+</ul>
+<p>A workspace can be completely private to an individual developer, or shared 
+  among a team of developers over a network.</p>
+<p>In addition to providing access to source versions, a workspace needs to provide 
+  private (isolated) storage for files generated during software development:</p>
+<ul>
+  <li>Working (checked-out) versions of source files,</li>
+  <li>Executables,</li>
+  <li>Other workspace private objects – source code, test subdirectories, and 
+    test data files.</li>
+</ul>
+<p>A workspace’s private storage would be typically located within a developer’s 
+  home directory on a workstation. A workspace shared by a group of developers 
+  might have its private storage area located on a central file server. However, 
+  the actual location of the private storage is largely irrelevant. From the developer’s 
+  point of view the workspace’s private storage should be appear to be fully integrated.</p>
+
+<p align="center"><img src="images/co_wrksp.gif" width="434" height="311"></p>
+<p class="picturetext">The figure above illustrates the notion of private and 
+  integration workspaces in the overall context of the CM Cube.</p>
+
+<h3><a name="WorkingConfigurations">Working Configurations</a><a name="XE_working_configurations"></a><a name="XE_workspaces__working_configurations"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Working configurations (workspace profiles) refer to particular subsystems 
+  that make up a <b>working set</b> for the project. A working set is a list of 
+  specific <b>versions</b> of subsystems that must be referenced, or modified, 
+  to implement a piece of work. This list may represent the entire system or a 
+  subset.</p>
+
+<h3><a name="Views">Views</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A view provides access to a set of files in the project repository. Moreover, 
+  a view provides access to an appropriate set of versions of those files:</p>
+<ul>
+  <li>A new development view may provide access to the most recent versions of 
+    the files.</li>
+  <li>Another new development view may provide access to the versions being used 
+    by a team working on a new user interface for your product.</li>
+  <li>A maintenance view may provide access to the versions of the files that 
+    were used to build a given release of the product.</li>
+</ul>
+<p>A workspace, sometimes also called a view, allows developers to make and test 
+  changes in private before sharing the modifications with the rest of the team. 
+  There are two types of views:</p>
+<ul>
+  <li>Snapshot Views, and</li>
+  <li>Dynamic Views.</li>
+</ul>
+<p>A<i> snapshot view</i> provides the developer with a stable, unchanging working 
+  environment. It is analogous to a computer directory tree. A snapshot view is 
+  populated with copies of the appropriate versions of files from one or more 
+  project repositories. Some people use the term &quot;sandbox&quot; for such 
+  a directory tree. When a developer wants to see changes made by other team members, 
+  she updates her view. This style of working is characterized as a <b>pull</b> 
+  model as it relies on actively pulling in the relevant information, rather than 
+  it being immediately available through automatic refresh mechanisms.</p>
+<p>A <i>dynamic view</i> is a virtual data structure as it appears to contain 
+  all the development data. Dynamic views do not make local copies of files, but 
+  rely on over the network immediate updating. Dynamic views may be the best choice 
+  in the following situations:</p>
+<ul>
+  <li>There is limited client-side disk space</li>
+  <li>You want to take advantage of derived object sharing</li>
+  <li>The development team must work with the latest versions of the code. This 
+    feature is particularly useful for integration that requires the latest version 
+    of any given software.</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

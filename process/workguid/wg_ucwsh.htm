@@ -1,0 +1,453 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Use-Case Workshop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Use-Case Workshop</rpw></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Organization of the Workshop">Organization of the Workshop</a></li>
+  <li><a href="#Tools">Tools</a></li>
+  <li><a href="#Defining Actors">Defining Actors</a></li>
+  <li><a href="#An Administrative System">An Administrative System</a></li>
+  <li><a href="#Instance or Class?">Instance or Class?</a></li>
+  <li><a href="#Tricks of the Trade">Tricks of the Trade</a></li>
+  <li><a href="#Define Use Cases">Define Use Cases</a></li>
+  <li><a href="#Write Brief Description for each Use Case">Write Brief
+    Description for each Use Case</a></li>
+  <li><a href="#Step-by-Step Description of the Flow of Events for each Use Case">Step-by-Step
+    Description of the Flow of Events for each Use Case</a></li>
+  <li><a href="#Capture Supplementary Specifications">Capture Supplementary
+    Specifications</a></li>
+  <li><a href="#Trace Requirements to Use Cases">Trace Requirements to Use Cases</a></li>
+</ul>
+
+<h3><a name="Organization of the Workshop">Organization of the Workshop</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The use-case workshop is an organized <a href="wg_brnst.htm">brain-storming</a> 
+  meeting. A wide range of knowledge needs to be represented:</p>
+<ul>
+  <li>Customer requirements</li>
+  <li>System design</li>
+  <li>Unit design</li>
+  <li>Rational Unified Process</li>
+  <li>Testing</li>
+</ul>
+<p>This means that the group will contain people with different backgrounds,
+knowledge and experience. Try to keep the group small (less than ten). A regular
+setting is to compile half of the group from the development team and the other
+half from user representatives. In the middle of this is the facilitator. The
+facilitator should play the role of a moderator – a catalyst for all ideas and
+wishes.</p>
+
+<h3><a name="Tools">Tools</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Tools that you need are:</p>
+<ul>
+  <li>Two large white boards (one is sufficient but two is better)</li>
+  <li>Easel charts</li>
+  <li>Tape</li>
+  <li>Two colors of self-stick notes</li>
+  <li>White-board pens (multiple colors)</li>
+  <li>Pencils</li>
+  <li>Walls on which to attach paper–preferably in a &quot;war room&quot; that
+    you can use and leave undisturbed for two or three weeks.</li>
+</ul>
+
+<h3><a name="Defining Actors">Defining Actors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Try to identify who or what will use the system. Start initially with actual
+people who will use the system; most people have an easier time focusing on the
+concrete versus the abstract. As users are identified, try to identify the role
+the user plays while interacting with the system - this is usually a good name
+for an <a href="../artifact/ar_actor.htm">actor</a>.</p>
+<p>When identifying actors, be sure to write a short description for each actor;
+usually a few bullet-points capturing the role the actor plays with respect to
+the system and the responsibilities of the actor will help later on when the
+time comes to determine what the actor needs from the system.</p>
+<p>When defining actors, do not forget about the other systems with which the
+system being designed interacts. The icon for an actor is misleading here - it
+seems to imply 'person', but the concept of actor encompasses systems as well.
+Focus first on finding the 'human' actors, though; most groups will do better
+when they focus on the familiar first, then consider the more esoteric.</p>
+<p>Don't worry about the structure of the <a href="../artifact/ar_ucmod.htm">use-case
+model</a>, or about relationships between actors; simply capture the people or
+things which will use the system. Focus on identification, and be prepared to
+find a lot of actors. Don't worry too much about filtering the list now; the
+identification of <a href="../artifact/ar_uc.htm">use cases</a> (see below) will
+do that.</p>
+
+<h3><a name="An Administrative System">An Administrative System</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Ask this question: What are the roles in the organization that will use this
+system? Draw a stick man for each role that is suggested, and write a name below
+the stick man. Then list two columns of actors on the white board – one on
+each side of the cloud or icon that you already drew. Sometimes it can be useful
+to use the word role or user instead of actor.</p>
+<p>Questions to ask:</p>
+<ul>
+  <li>Who will use this system?</li>
+  <li>What other systems will this system send information to?</li>
+  <li>From what other systems will we receive information?</li>
+  <li>Who starts the system?</li>
+  <li>Who will maintain the user information?</li>
+</ul>
+<p align="center"><img src="images/wg_ucws1.gif" width="413" height="330"></p>
+
+<h3><a name="Instance or Class?">Instance or Class?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You may get questions like &quot;Why isn't Tom the actor? It's always Tom who
+does that&quot;. You will then need to ask more questions to gain an
+understanding of what Tom’s role is. The name of the actor should reflect the
+role.</p>
+<ul>
+  <li>What is Tom's role?</li>
+  <li>Who else is also able to perform that role?</li>
+  <li>Why does Tom have that role?</li>
+</ul>
+<p>Many actors can be identified directly through their regular positions in the
+organization. A position in the organization could correspond to more than one
+role to the system. For example, Tom may be a regular depot worker as well as
+the person responsible for reorganizing the depot to create space for new
+products. Those two responsibilities may be two different actors to the system.</p>
+<p>Some people will want to generalize to the extreme. They may suggest a User
+as an actor – and then suggest that is the only actor we need. True – but
+boring, and doesn't add much to the understanding of the system. Try to avoid
+discussing this suggestion if it comes up. Note the User actor on the board and
+then proceed to the next actor.</p>
+
+<h3><a name="Tricks of the Trade">Tricks of the Trade</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>Ask everyone if there is anything missing.</li>
+  <li>Volunteer some bad suggestions. This way, the team can correct you and
+    explain the exact roles of the system.</li>
+  <li>Always accept all suggestions – you can always remove duplicates and
+    non-actors later on. To criticize someone’s suggestions will just kill the
+    spirit of the meeting.</li>
+</ul>
+<p>Defining the actors usually takes between 1 and 4 hours. The whiteboard
+should now list many actors, but make sure there is still room to add use cases.
+When the set of actors seems to be complete, it is time to start with the use
+cases.</p>
+
+<p align="center"><img src="images/wg_ucws2.gif" width="413" height="260"></p>
+
+<h3><a name="Define Use Cases">Define Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Erase the cloud or icon from the whiteboard, and start to identify <a href="../artifact/ar_uc.htm">use 
+  cases</a>. Focus on concrete use cases – avoid discussion about <a href="../modguide/md_incl.htm">include</a> 
+  and <a href="../modguide/md_exrel.htm">extend</a> relations. Draw an ellipse 
+  and write the name for every suggestion. Draw arrows to the <a href="../artifact/ar_actor.htm">actors</a>.</p>
+<p>Use the fact that you don't know anything about their application as a strength. 
+  The participants of the workshop need to tell you what the system is supposed 
+  to do. You should ask a lot of questions about the system. When the participants 
+  provide you with explanations, use cases will appear.</p>
+<p>Some people can understand the concept of use cases right away, and some people 
+  cannot. To put the concept into an easier perspective, get somebody to draw 
+  a system view. A system view is an abstraction of the system. For example, it 
+  can be a server with a database and a number of clients, or a number of circuit 
+  boards with their special tasks marked out. This view is usually easy to illustrate: 
+  one of the participants will generally take a whiteboard pen and show how the 
+  system will work. The system view will help to make the use cases extend from 
+  system border to system border, and will implicitly point at a number of different 
+  system states. Ask questions about these states, and some more use cases will 
+  appear. Check what will happen when different communications die – this can 
+  help you identify alternative flows in the use cases.</p>
+<p>If you are working with a technical system, the system view is often something 
+  well-known to everyone and might be the best way to find actors. In this case, 
+  you might let them draw the system view before you start asking for actors.</p>
+<p>If you are working with an administrative system, the system view may not be 
+  as obvious to everyone. In this case, a graph describing the manual routines 
+  may be more useful. The graph may describe how one business entity is moved 
+  from one person to another and what they are supposed to do with it. To visualize 
+  the process of order and delivery, the graph may show a schematic view of the 
+  customer office, our office, the storage and the customer storage.</p>
+<p>Make sure that both the use-case model and the system view/business entity 
+  view are clearly visible to everyone. This is when having two white boards might 
+  come in handy.</p>
+<p>Allow the use cases to have long names. A recently identified use case may 
+  have a name as long as a sentence – this will be a good start on the brief description 
+  of the use case, and then the name will be shortened later on.</p>
+<p>There will always be a number of use cases that appear to have parts in common. 
+  Make sure everyone understands that this is acceptable for now. There is no 
+  point in structuring yet, since we don't know enough about the contents of the 
+  use cases. You should wait until after the flow of events has been outlined 
+  before you bring up any discussions about use-case relationships.</p>
+<p>When the group agrees that the use cases on the board cover the functionality 
+  of the whole system, break for lunch.</p>
+<p>Once you are back from lunch, review the results from the morning session:</p>
+<ul>
+  <li>Look at each <a href="../artifact/ar_actor.htm">actor</a>: What are
+    his/her tasks in this system? Task may be a better word than use case for
+    people not familiar with the use-case modeling technique.</li>
+  <li>Look at each suggested <a href="../artifact/ar_uc.htm">use case</a>: Do
+    you understand the value the user will achieve with the use case? If the use
+    case has a positive result, then the user will be more willing to do the use
+    case.</li>
+  <li>Look at each suggested use case: Is the use case complete? Or is this just
+    a small part of something bigger?</li>
+</ul>
+<p>Questions to ask:</p>
+<ul>
+  <li>Every actor should have at least one use case. If not, it may be because
+    the actor is a duplicate (another actor plays the same role) or because the
+    actor is really not a direct user of the system. In these cases, if a
+    discussion of the merits of keeping the actor yields no strong reasons to
+    keep the actor, the actor may be removed.</li>
+</ul>
+
+<h3><a name="Write Brief Description for each Use Case">Write Brief Description
+for each Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Work with the use cases one by one, and create one easel chart for each use 
+  case. Draw an ellipse and write the name of the use case at the top of the chart. 
+  Take a pencil and ask the group to help you write a brief description of the 
+  use case. A brief description should be about 1 to 3 sentences. Sometimes it 
+  is useful to draw the actors connected to the use case. Try to leave about half 
+  the paper empty for the next step.</p>
+
+ <p align="center"><img src="images/wg_ucws3.gif" width="312" height="219"></p>
+
+<p>During this work, you will find out that there are some things that everybody 
+  thought were clear that are not actually clear at all. Refer to the requirements 
+  identified as <a href="../workflow/requirem/co_reqty.htm">key user needs and 
+  features</a> in the <a href="../artifact/ar_vsion.htm">Vision</a> and try to 
+  find if there are any <a href="../workflow/requirem/co_req.htm">requirements</a> 
+  on this use case.</p>
+<p>New use cases will appear. Some use cases will disappear. Put the use case 
+  papers on the walls. Try to organize them with one column per functional area. 
+  (Don't use the whiteboards for this –they are needed for the system view and 
+  actors and use cases.) If you can’t solve questions immediately, write them 
+  down on a self-stick note and place them at the appropriate use case. Use one 
+  color for questions.</p>
+<p>When all use cases have an easel chart and a brief description, it is time 
+  for the next mode. It is often wise to take some time discuss if this really 
+  all the use cases that are needed.</p>
+<p>The model you have created so far may be documented in <a href="../../toolment/rose/rose.htm">Rational 
+  Rose</a> or <a href="../../toolment/reqpro/reqpro.htm">Rational RequisitePro</a> 
+  and generated into a <a href="../reports/re_ucmsv.htm">Use-Case Model Survey</a> 
+  report.</p>
+
+<h3><a name="Step-by-Step Description of the Flow of Events for each Use Case">Step-by-Step 
+  Description of the Flow of Events for each Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The way to start writing a use case is to structure the text first. There is 
+  no point in sitting alone and trying to structure the text without first obtaining 
+  input from the stakeholders.</p>
+<p>Work with the use cases one by one. Write down the different actions in order. 
+  Don't try figure out how things will look in code structures, loops, for-while 
+  statements, etc. – just work with the basic flow of events, and don't worry 
+  about alternatives. Enumerate the steps 1, 2, 3, 4, … To help the group understand 
+  the required level of detail, you can say that you want 5 to10 steps in the 
+  basic flow.</p>
+<p>Once you've agreed on the steps in the basic flow of events, walk through it 
+  and identify alternative steps. Enumerate the alternative flows A1, A2, A3, 
+  A4, …</p>
+
+ <p align="center"><img src="images/wg_ucws4.gif" width="312" height="219"></p>
+
+<p>During this discussion a lot of issues will be raised, many of which will not 
+  be solved until you get to <a href="../workflow/ovu_and.htm">Analysis &amp; 
+  Design</a>. Remember to write down all issues, together with any assumptions 
+  you need to make along the way. Some of the issues need to be resolved soon 
+  so that the <a href="../workers/wk_ucaut.htm">Requirements Specifier</a> can 
+  detail the flow of events correctly, and some of them are things that you need 
+  to make sure are resolved before you start Analysis &amp; Design.</p>
+<p>What you have on each easel chart now should be sufficient for the Requirements 
+  Specifier to be able to detail the flow of events of the use case.</p>
+
+<h3><a name="Capture Supplementary Specifications">Capture Supplementary
+Specifications</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>During this session, there will be several <a href="../workflow/requirem/co_req.htm">requirements</a> 
+  on the system that you may not be able to readily capture in a use case. Typically, 
+  these statements have to do with general functionality, usability, reliability, 
+  performance, and supportability of the system. Keep a separate easel chart where 
+  you note these statements. They will form a basis for your <a href="../artifact/ar_sspec.htm">Supplementary 
+  Specifications</a>.</p>
+
+<h3><a name="Trace Requirements to Use Cases">Trace Requirements to Use Cases</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Walk through the key <a href="../artifact/ar_stnds.htm">Stakeholder Requests</a> 
+  and each feature in the <a href="../artifact/ar_vsion.htm">Vision document</a> 
+  and verify that the use-case model covers them in the appropriate way. 
+  Discuss 
+  which user needs or requirements are <a href="../workflow/requirem/co_trace.htm">traced</a> 
+  to which use cases.</p>
+
+ <p align="center"><img src="images/wg_ucws5.gif" width="312" height="219"></p>
+
+<p>Take the <a href="../artifact/ar_vsion.htm">Vision document</a> and read the 
+  first <a href="../workflow/requirem/co_reqty.htm">feature</a>. Write its identity 
+  on one (or more if needed) self-stick note (use a second color to make it easy 
+  to distinguish requirements from issues). Put the note on the use cases that 
+  fulfill this requirement. 
+  Later on, you can enter these <a href="../workflow/requirem/co_trace.htm">traceabilities</a> 
+  in your RequisitePro repository.</p>
+<p>There are always a number of <a href="../workflow/requirem/co_req.htm">requirements</a> 
+  that can't be connected to any use case:</p>
+<ul>
+  <li>They can be specific requirements that have to be postponed to design – 
+    put these requirements on one paper (design requirements).</li>
+  <li>They can be general requirements that can't be connected to any use case 
+    - put them on the list for the <a href="../artifact/ar_sspec.htm">Supplementary 
+    Specifications</a>.</li>
+  <li>They can be requirements that have been forgotten and require either new 
+    use cases or changes to the existing use cases.</li>
+</ul>
+<p>Spend a few moments to review the structure of the room: Are there use cases 
+  with no requirements? Why? Is this use case not required? Or was this functionality 
+  forgotten by the person who wrote the requirement specification? (This is usually 
+  the case.) This situation has to be resolved. Is the customer aware that he 
+  needs this functionality? Is he willing to pay for it?</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

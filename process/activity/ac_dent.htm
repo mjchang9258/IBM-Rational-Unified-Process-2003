@@ -1,0 +1,318 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Detail a Business Entity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Detail a Business 
+  Entity</rpw><a name="Top"></a><a name="XE_business_entity__detailing_and_reviewing"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To ensure the business entity is able to provide the required
+        behavior.</li>
+      <li>To identify the business events triggered by the business entity.</li>
+      <li>To evaluate the business entity's structural relationships.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#Determine Areas of Responsibility">Determine areas of 
+            responsibility</a>. </li>
+          <li><a href="#Define Operations">Define operations</a>.</li>
+          <li><a href="#Define Attributes">Define attributes</a>.</li>
+          <li><a href="#Identify Business Events">Identify business events</a>. 
+          </li>
+          <li><a href="#Analyze Relationships">Analyze relationships</a>.</li>
+          <li><a href="#Evaluate Your Results">Evaluate your results</a>.</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bom.htm">Business Analysis Model</a></li>
+<li><a href="../artifact/ar_bent.htm">Business Entity</a></li>
+<li><a href="../artifact/ar_brules.htm">Business Rule</a></li>
+<li><a href="../artifact/ar_orgu.htm">Business System</a></li>
+<li><a href="../artifact/ar_buc.htm">Business Use Case</a></li>
+<li><a href="../artifact/ar_bucr.htm">Business Use-Case Realization</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sbs.htm">Supplementary Business Specification</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_bent.htm">Business Entity</a></li>
+<li><a href="../artifact/ar_bevnt.htm">Business Event</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_bdes.htm">Business Designer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/rose/tm_dbwke.htm">Detailing Business Workers and Entities Using Rational Rose</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_bent.htm">Guideline: Business Entity</a></li>
+<li><a href="../modguide/md_bactdbom.htm">Guideline: Diagrams in the Business Analysis Model</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_busm.htm">Business Modeling</a>
+<ul>
+<li><a href="../workflow/busmodel/wfs_dm.htm">Develop a Domain Model</a></li>
+<li><a href="../workflow/busmodel/wfs_dbom.htm">Refine Roles and Responsibilities</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="Determine Areas of Responsibility">Determine Areas of
+Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Collect all business use-case realizations in which the business entity participates. 
+  Make sure you have access to descriptions of business workers that access the 
+  business entity, as well as to descriptions of other business entities that 
+  have some relationship to it. The Responsibility Description of the business 
+  entity must include the entity's role in the business, as well as its lifecycle 
+  from creation to deletion. You can document the lifecycle with a statechart 
+  diagram (see <a href="../modguide/md_bactdbom.htm#StatechartDiagrams">Guidelines: Statechart Diagrams 
+  in the Business Analysis Model</a>).</p>
+<h3><a name="Define Operations">Define Operations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Decide what operations the business entity should have. Base your decisions 
+  on the operations of the business entity within each business use-case realization 
+  in which it participates. These operations provide tools for the business workers 
+  to access the business entity. Briefly describe each operation.</p>
+<p>Finalize the Responsibility Description, and explain how all operations are 
+  related, including the business entity’s lifecycle.</p>
+<p>See also <a href="../modguide/md_bent.htm">Guidelines: Business Entity</a>,
+the discussion on operations.</p>
+<h3><a name="Define Attributes">Define Attributes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify and briefly describe the attributes of the business entity. Attributes 
+  are either properties of the business entity or any information that it requires 
+  to perform its responsibilities that is not another business entity. An item 
+  of information that needs to be determined or calculated (on-demand) must be 
+  presented in the form of an operation, rather than as an attribute of the business 
+  entity. Attributes represent persistent properties of the business entity.</p>
+<p>See also <a href="../modguide/md_bent.htm">Guidelines: Business Entity</a>, 
+  the discussion of attributes.</p>
+<h3><a name="Identify Business Events">Identify Business Events<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Inspect the business entity's operations. Candidate business events include 
+  significant changes of state (for example, a target that changes&nbsp; from 
+  tracking to locked, or a proposal that changes from proposed to accepted). Operations 
+  that trigger these changes of state might send these business events. Also consider 
+  what business actors, business workers, or other business entities should be 
+  notified of the business event. Inspect the business entity's relationships 
+  with other business entities. Are there any important changes in these related 
+  entities of which the business entity should be notified?</p>
+<h3><a name="Analyze Relationships">Analyze Relationships</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Review all relationships (association, dependency, generalization) in which 
+  the business entity participates. Are the purposes and semantics of these relationships 
+  clear? Be wary of many generalization relationships among business entities. 
+  Determine whether these relationships are really necessary to the performance 
+  of the business entity's responsibilities. Also confirm that the business entity 
+  does indeed have all the necessary relationships.&nbsp;</p>
+<h3><a name="Evaluate Your Results">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Review and discuss the business entity with other members of the team and
+appropriate stakeholders, so that they have a clear understanding of the
+business entity and agree on its description.</p>
+<p>See also <a href="../modguide/md_bent.htm">Guidelines: Business Entity</a> 
+  and checkpoints for business entities in <a href="ac_rvbom.htm">Activity: Review 
+  Business Analysis Model</a>.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

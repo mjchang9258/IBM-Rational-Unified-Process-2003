@@ -1,0 +1,781 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Use Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Use Case</rpw><a name="Top"></a><a name="XE_use_case__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#How to Find Use Cases">How to Find Use Cases</a></li>
+  <li><a href="#How a Use Case Evolves">How a Use Case Evolves</a></li>
+  <li><a href="#Are All Use Cases Described in Detail?">Are All Use Cases
+    Described in Detail?</a></li>
+  <li><a href="#The Scope of a Use Case">The Scope of a Use Case</a></li>
+  <li><a href="#How Use Cases Are Realized">How Use Cases are Realized</a></li>
+  <li><a href="#A Use-Case has Many Possible Instances">A Use Case has Many
+    Possible Instances</a></li>
+  <li><a href="#Concurrency of Use Case Instances">Concurrency of Use-Case
+    Instances</a></li>
+  <li><a href="#Name">Name</a></li>
+  <li><a href="#Brief Description">Brief Description</a></li>
+  <li><a href="#Flow of Events - Contents">Flow of Events - Contents</a></li>
+  <li><a href="#Flow of Events - Structure">Flow of Events - Structure</a></li>
+  <li><a href="#Flow of Events - Style">Flow of Events - Style</a></li>
+  <li><a href="#Flow of Events - Example">Flow of Events - Example</a></li>
+  <li><a href="#Special Requirements">Special Requirements</a></li>
+        <li><a href="#preconditions and Postconditions">Preconditions and Postconditions</a></li>
+  <li><a href="#Extension Points">Extension Points</a></li>
+  <li><a href="#Use-Case Diagrams">Use-Case Diagrams</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are several key words in this definition:
+<ul>
+  <li><b>Use-case instance</b><i>.</i> The sequence referred to in the
+    definition is really a specific flow of events through the system, or an
+    instance. Many flows of events are possible, and many may be very similar.
+    To make a use-case model understandable, you should group similar flows of
+    events into one use case. Identifying and describing a use case really means
+    identifying and describing a group of related flows of events.</li>
+  <li><b>System performs</b><i>.</i> This means that the system
+    provides the use case. An actor communicates with a use-case instance of the
+    system.</li>
+  <li><b>An observable result of value.</b> You can put a value on a
+    successfully performed use case. A use case should make sure that an actor
+    can perform a task that has an identifiable value. This is very important in
+    determining the correct level or granularity for a use case. Correct level
+    refers to achieving use cases that are not too small. In certain
+    circumstances, you can use a use case as a planning unit in an organization
+    that includes individuals who are actors in the system.</li>
+  <li><b>Actions.</b> An action is a computational or algorithmic
+    procedure. It is invoked either when the actor provides a signal to the
+    system or when the system gets a time event. An action may imply signal
+    transmissions to either the invoking actor or other actors. An action is
+    atomic, which means it is performed either entirely or not at all.</li>
+  <li><b>A particular actor</b><i>.</i> The actor is key to finding
+    the correct use case, especially because the actor helps you avoid use cases
+    that are too large. As an example, consider a visual modeling tool. There
+    are really two actors to this application: a developer – someone who
+    develops systems using the tool as support; and a system administrator –
+    someone who manages the tool. Each of these actors has his own demands on
+    the system, and will therefore require his own set of use cases.</li>
+</ul>
+<p>The functionality of a system is defined by different use cases, each of
+which represents a specific flow of events. The description of a use case
+defines what happens in the system when the use case is performed.</p>
+<p class="picturecenter" align="center"><img src="../../manuals/intro/images/im_uc.gif" width="325" height="173"></p>
+<p class="picturetext">In an automated teller machine the client can, for
+instance, withdraw money from an account, transfer money to an account, or check
+the balance of an account. These functions correspond to flows that you can
+represent with use cases.</p>
+<p>Each use case has a task of its own to perform. The collected use cases
+constitute all the possible ways of using the system. You can get an idea of a
+use-case task simply by observing its name.</p>
+<h3><a name="How to Find Use Cases">How to Find Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Following is a set of questions that are useful when identifying use cases:
+<ul>
+  <li>For each actor you have identified, what are the tasks in which the system
+    would be involved?</li>
+  <li>Does the actor need to be informed about certain occurrences in the
+    system?</li>
+  <li>Will the actor need to inform the system about sudden, external changes?</li>
+  <li>Does the system supply the business with the correct behavior?</li>
+  <li>Can all features be performed by the use cases you have identified?</li>
+  <li>What use cases will support and maintain the system?</li>
+  <li>What information must be modified or created in the system?</li>
+</ul>
+<p>Use cases that are often overlooked, since they do not represent what
+typically are the primary functions of the system, can be of the following kind:
+<ul>
+  <li>System start and stop.</li>
+  <li>Maintenance of the system. For example, adding new users and setting up
+    user profiles.</li>
+  <li>Maintenance of data stored in the system. For example, the system is
+    constructed to work in parallel with a legacy system, and data needs to be
+    synchronized between the two.</li>
+  <li>Functionality needed to modify behavior in the system. An example would be
+    functionality for creating new reports.</li>
+</ul>
+
+<p>If you have developed a business use-case model and a business analysis model,
+see also <a href="md_bmtse.htm">Guidelines: Going from Business Models to
+Systems</a>.</p>
+<h3><a name="How a Use Case Evolves">How a Use Case Evolves</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In early iterations in elaboration, only a few use cases (those that are
+considered architecturally significant) are described in any detail beyond the
+brief description. You should always first develop an outline of the use case
+(in step-by-step format) before delving into the details. This step-by-step
+outline should be your first attempt at defining the structure of the flow of
+events of the use case (see <a href="#Flow of Events - Structure">Flow of Events
+- Structure</a> below). Always start with the basic flow of the use case. Once
+there is some agreement on the outline of the basic flow, you can add what the
+alternative flows should be in relation to the basic flow.</p>
+<p>Towards the end of elaboration, all use cases you plan to describe in detail
+should be completed.</p>
+<h3><a name="Are All Use Cases Described in Detail?">Are All Use Cases Described
+in Detail?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There will often be use cases in your model that are so simple that they do
+not need a detailed description of the flow of events, a step-by-step outline is
+quite enough. The criteria for making this decision is that you don't see
+disagreement among user kind of readers on what the use case means, and that
+designers and testers are comfortable with the level of detail provided by the
+step-by-step format. Examples are use cases that describe simple entry or
+retrieval of some data from the system.</p>
+<h3><a name="XE_use_case__scope_of_a_use_case"></a><a name="The Scope of a Use Case">The
+Scope of a Use Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>It is often hard to decide if a set of user-system interactions, or dialog,
+is one or several use cases. Consider the use of a recycling machine. The
+customer inserts deposit items, such as cans, bottles, and crates, into the
+recycling machine. When she has inserted all her deposit items, she presses a
+button, and a receipt is printed. She can then exchange this receipt for money.</p>
+<p>Is it one use case to insert a deposit item, and another use case to require
+the receipt? Or is it all one use case? There are two actions, but one without
+the other is of little value to the customer. Rather, it is the complete dialog
+with all the insertions, and getting the receipt, that is of value for the
+customer (and makes sense to her). Thus, the complete dialog, from inserting the
+first deposit item, to pressing the button and getting the receipt, is a
+complete case of use, a use case.</p>
+<p>Additionally, you want to keep the two actions together, to be able to review
+them at the same time, modify them together, test them together, write manuals
+for them and in general manage them as a unit. This becomes very obvious in
+larger systems.</p>
+<h3><a name="How Use Cases Are Realized">How Use Cases Are Realized</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A use case describes what happens in the system when an actor interacts with
+the system to execute the use case. The use case does not define how the system
+internally performs its tasks in terms of collaborating objects. This is left
+for the use-case realizations to show.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">In the telephone example, the use case would indicate - among
+other things - that the system issues a signal when the receiver is lifted and
+that the system then receives digits, finds the receiving party, rings his
+telephone, connects the call, transmits speech, and so on.</p>
+<p>In an executing system, an instance of a use case does not correspond to any
+particular object in the implementation model (for example, an instance of a
+class in the code). Instead, it corresponds to a specific flow of events that is
+invoked by an actor and executed as a sequence of events among a set of objects.
+In other words, instances of use cases correspond to communicating instances of
+implemented objects. We call this the realization of the use case. Often, the
+same objects participate in realizations of more than one use case. For example,
+both the use cases Deposit and Withdrawal in a banking system may use a certain
+account object in their realization. This does not mean that the two use cases
+communicate, only that they use the same object in their realization.</p>
+<p>You can view a flow of events as consisting of several subflows, which taken
+together yield the total flow of events. You can reuse the description of a
+subflow in other use cases' flow of events. Subflows in the description of one
+use case's flow of events may be common to those of other use cases. In the
+design you should have the same objects perform this common behavior for all the
+relevant use cases; that is, only one set of objects should perform this
+behavior, no matter which use case is executing.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">In an automated teller machine system the initial subflow is
+the same in the flow of events of the use cases Withdraw Money and Check
+Balance. The flow of events of both use cases start by checking the identity of
+the card and the client's personal access code.</p>
+<h3><a name="A Use-Case has Many Possible Instances">A Use Case has Many
+Possible Instances</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A use-case instance can follow an almost unlimited, but enumerable, number of
+paths. These paths represent the choices open to the use-case instance in the
+description of its flow of events. The path chosen depends on events. Types of
+events include:
+<ul>
+  <li>Input from an actor. For example, an actor can decide, from several
+    options, what to do next.</li>
+</ul>
+<p class="exampleheading">Example:</p>
+<p class="example">In the use case Recycle Items in the Recycling-Machine System
+the Customer always has two options: hand in still another deposit item or get
+the receipt of returned items.
+<ul>
+  <li>A check of values or types of an internal object or attribute. For
+    example, the flow of events may differ if a value is greater or less than a
+    certain value.</li>
+</ul>
+<p class="exampleheading">Example:</p>
+<p class="example">In the use case Withdraw Money in an automated teller machine
+system, the flow of events will differ if the Client asks for more money than he
+has in his account. Thus, the use-case instance will follow different paths.</p>
+<h3><a name="Concurrency of Use Case Instances">Concurrency of Use-Case
+Instances</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Instances of several use cases and several instances of the same use case
+work concurrently if the system permits it. In use-case modeling, you can assume
+that instances of use cases can be active concurrently without conflict. The
+design model is expected to solve this problem, because use-case modeling does
+not describe how things work. One way to view this is to assume that only one
+use-case instance is active at a time and that executing this instance is an
+atomic action. In use-case modeling, the &quot;interpreting machine&quot; is
+considered infinitely fast, so that serialization of use case instances is not a
+problem.</p>
+<h3><a name="Name">Name</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Each use case should have a name that indicates what is achieved by its
+interaction with the actor(s). The name may have to be several words to be
+understood. No two use cases can have the same name.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">These are examples of variations of the name for the use case
+Recycle Items in the Recycling Machine example:
+<ul>
+  <li>Receive Deposit Items</li>
+  <li>Receiving Deposit Items</li>
+  <li>Return Deposit Items</li>
+  <li>Deposit Items</li>
+</ul>
+<h3><a name="Brief Description">Brief Description</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The brief description of the use case should reflect its purpose. As
+you write the description, refer to the actors involved in the use case, the
+glossary and, if you need to, define new concepts.</p>
+<h5>Example:</h5>
+<p class="example">Following are sample brief descriptions of the use cases
+Recycle Items and Add New Bottle Type in the Recycling-Machine System:</p>
+<p class="example"><b>Recycle Items</b>: The user uses this machine to
+automatically have all the return items (bottles, cans, and crates) counted, and
+receives a receipt. The receipt is to be cashed at a cash register (machine).</p>
+<p class="example"><b>Add New Bottle Type</b>: New kinds of bottles
+can be added to the machine by starting it in &#145;learning mode&#146; and inserting
+5 samples just like when returning items. In this way, the machine can measure
+the bottles and learn to identify them. The manager specifies the refund value
+for the new bottle type.</p>
+<h3><a name="XE_use_case__flow_of_events"></a><a name="XE_flow_of_events__guidelines_for"></a><a name="Flow of Events - Contents">Flow
+of Events - Contents</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The <b>Flow of Events</b> of a use case contains the most important
+information derived from use-case modeling work. It should describe the use
+case's flow of events clearly enough for an outsider to easily understand it.
+Remember the flow of events should present what the system does, not how the
+system is design to perform the required behavior.</p>
+<p>Guidelines for the contents of the flow of events are:
+<ul>
+  <li>Describe how the use case starts and ends.</li>
+  <li>Describe what data is exchanged between the actor and the use case.</li>
+  <li>Do not describe the details of the user interface, unless it is necessary 
+    to understand the behavior of the system. For example, it is often good to 
+    use a limited set of web-specific terminology when it is known beforehand 
+    that the application is going to be web-based. Otherwise, your run the risk 
+    that the use-case text is being perceived as too abstract. Words to include 
+    in your terminology could be &quot;navigate&quot;, &quot;browse&quot;, &quot;hyperlink&quot; 
+    &quot;page&quot;, &quot;submit&quot;, and &quot;browser&quot;. However, it 
+    is not advisable to include references to &quot;frames&quot; or &quot;web 
+    pages&quot; in such a way that you are making assumptions about the boundaries 
+    between them - this is a critical design decision.&nbsp;</li>
+  <li>Describe the flow of events, not only the functionality. To enforce this, 
+    start every action with &quot;When the actor ... &quot;.</li>
+  <li>Describe only the events that belong to the use case, and not what happens 
+    in other use cases or outside of the system.</li>
+  <li>Avoid vague terminology such as &quot;for example&quot;, &quot;etc. &quot; 
+    and &quot;information&quot;.</li>
+  <li>Detail the flow of events&#151;all &quot;whats&quot; should be answered.
+    Remember that test designers are to use this text to identify test cases.</li>
+</ul>
+<p>If you have used certain terms in other use cases, be sure to use the exact
+same terms in this use case, and that their intended meaning is the same. To
+manage common terms, put them in a glossary.</p>
+<h3><a name="Flow of Events - Structure">Flow of Events &#151; Structure</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The two main parts of the flow of events are <b>basic flow of events</b>
+and <a name="XE_flow_of_events__alternative_flow"></a><b>alternative flows
+of events</b>. The basic flow of events should cover what
+&quot;normally&quot; happens when the use case is performed. The alternative
+flows of events cover behavior of optional or exceptional character in relation
+to the normal behavior, and also variations of the normal behavior. You can
+think of the alternative flows of events as &quot;detours&quot; from the basic
+flow of events, some of which will return to the basic flow of events and some
+of which will end the execution of the use case.</p>
+<p align="center"><img src="images/ucstrct.gif" width="231" height="212"></p>
+<p class="picturetext">The typical structure of the flow of events. The straight 
+  arrow represents the basic flow of events, and the curves represent alternative 
+  paths in relation to the normal. Some alternative paths return to the basic 
+  flow of events; whereas others end the use case.</p>
+<p>Both the basic flow of events and the alternative flows events should be
+further structured into steps or subflows. In doing this, your main goal should
+be readability of the text (see also the section <a href="#Flow of Events - Style">Flow
+of Events &#151; Style</a> below). A rule of thumb is that a subflow should be a
+segment of behavior within the use case that has a clear purpose, and is
+&quot;atomic&quot; in the sense that you do either all or none of the actions
+described. You may need to have several levels of subflows, but if you can you
+should avoid it since it makes the text more complex and harder to understand.
+You can illustrate the structure of the flow of events with and activity
+diagram, see <a href="md_actd.htm">Guidelines: Activity Diagram in the Use Case</a>.</p>
+<p>This type of written text, structured into consecutive subsections, will by
+its nature imply to the reader that there is a sequence between the subflows. To
+avoid misunderstandings, you should always point out whether the order of the
+subflows is fixed or not. Considerations of this kind are often related to:
+<ul>
+  <li>Business rules. For example, the user has to be authorized before the
+    system can make certain data available.</li>
+  <li>User-interface design. For example, the system should not enforce a
+    certain sequence of behavior that may be intuitive to some but not to other
+    users.</li>
+</ul>
+<p>To clarify where an alternative flow of events fits in the structure, you
+need to describe the following for each &quot;detour&quot; to the basic flow of
+events:
+<ul>
+  <li>Where in the basic flow of events the alternative behavior can be
+    inserted.</li>
+  <li>The condition that needs to be fulfilled for the alternative behavior to
+    start.</li>
+  <li>How and where the basic flow of events is resumed, or how the use case
+    ends.</li>
+</ul>
+<p class="exampleheading">Example:</p>
+<p class="example">This is an alternative subflow in the use case Return Items
+in the Recycling-Machine System.</p>
+<p class="example"><b>2.1. Bottle Stuck</b></p>
+<p class="example">If in section 1.5, Insert Deposit Items, a bottle gets stuck
+in the gate, the sensors around the gate and the measuring gate will detect this
+problem. The conveyer belt is stopped and the machine issues an alarm to call
+for the operator. The machine will wait for the operator to indicate that the
+problem has been fixed. The machine then continues in section 1.9 of the basic
+flow.</p>
+<p>In the example above, the alternative flow of events is inserted at a
+specific location in the basic flow of events. There are also alternative flow
+of events that can be inserted at more than one location, some can even be
+inserted at any location in the basic flow of events.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">This is an alternative subflow in the use case Return Items
+in the Recycling-Machine System.</p>
+<p class="example"><b>2.2. Front Panel is Removed</b></p>
+<p class="example">If somebody removes the front panel to the Recycling machine,
+the can compression is deactivated. It will not be possible to start the can
+compression with the front panel off. The removal will also activate an alarm to
+the operator. When the front panel is closed again, the machine resumes
+operation from the location in the basic flow of events at which it was stopped.</p>
+<p>It might be tempting, if the alternative flow of events is very simple, to
+just describe it in the basic flow of events section (using some informal
+&quot;if-then-else&quot; construct). This should be avoided. Too many
+alternatives will make the normal behavior difficult to see. Also, including
+alternative paths in the basic flow of events section will make the text more
+&quot;pseudo-code like&quot; and harder to read.</p>
+<p>In general, extracting parts of the flow of events and describing these parts
+separately, can increase the readability of the basic flow of events and improve
+the structure of the use case and the use-case model. You can model extracted
+parts as:
+<ul>
+  <li>An alternative flow of events within the base use case if it is a simple
+    variant, option, or exception to the basic flow of events.</li>
+  <li>As an explicit inclusion in the base use case (see <a href="md_incl.htm">Guidelines:
+    Include-Relationship</a>) if it is something that you wish to encapsulate so
+    that it can be reused by other use cases.</li>
+  <li>As an implicit inclusion in the base use case (see <a href="md_exrel.htm">Guidelines:
+    Extend-Relationship</a>), if the basic flow of events of the base use case
+    is complete, that is, has a defined beginning and end. The nature of the
+    extending flow should be such that you prefer to conceal it in the
+    description of the base use case to render it less complex.</li>
+  <li>A subflow in the basic flow of events, possibly as another option, if none
+    of the above alternatives applies. For example, in a Maintain Employee
+    Information use case, there may be separate subflows for adding, deleting
+    and modifying employee information.</li>
+</ul>
+<h3><a name="Flow of Events - Style">Flow of Events &#151; Style</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can describe use cases in many styles. As an example we show the basic
+flow of events of the use case Administer Order described in three different
+styles, varying primarily in how formal they are. The first style, shown in <a href="#Example 1:">example
+1</a> below, is recommended, because it is easy to understand, and the order in
+which things happen is clearly evident. The text is divided into numbered and
+named subsections. Numbers are there to make it easy to refer to a subsection.
+Names of subsections will let the reader get a quick overview of the flow of
+events by browsing through the text reading only the headers.</p>
+<p>In <a href="#Example 2:">example 2</a> below, the description of the flow of
+events fails to clarify the order in which things happen. If you write in this
+style, you and others might miss important things that concern the system.</p>
+<p><a href="#Example 3:">Example 3</a> below shows a yet another style, which
+can be useful if you find it difficult to express the sequence of events
+clearly. This pseudo-code style is more precise, but the text is hard to read
+and absorb for a non-technical person, especially if you want to grasp the flow
+of events quickly.</p>
+<h5><a name="Example 1:">Example 1:</a></h5>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="100%"><b>1.1. Start of Use Case</b>
+    <p>This use case starts when the actor Operator tells the system to create a
+    measurement order. The system will then retrieve all Network Element actors,
+    their measurement objects and corresponding measurement functions that are
+    available to this particular Operator. Available Network Elements are those
+    that are in operation, and that the Operator has the authority to access.
+    The availability of measurement functions depends on what has been set up
+    for a particular type of measurement object.</p>
+    <p><b>1.2. Configure Measurement Order</b></p>
+    <p>The system allows the actor Operator to select which Network Elements to
+    measure and then shows which measurement objects are available for the
+    selected Network Elements. The system allows the Operator to select from the
+    measurement objects, and then select which measurement functions to set up
+    for each measurement object.</p>
+    <p>The system allows the Operator to enter a textual comment on the
+    measurement order.</p>
+    <p>The Operator tells the system to complete the measurement order. The
+    system will respond by generating a unique name for the measurement order
+    and setting up default values for when, how often, and for how long the
+    measurement should be made. The default values are unique to each Operator.
+    The system then allows the Operator to edit these default values.</p>
+    <p><b>1.3. Initialize Order</b></p>
+    <p>The Operator tells the system to initialize the measurement order. The
+    system will then record the identity of the creating Operator, the date of
+    creation, and the &quot;Scheduled&quot; status of the measurement order.</p>
+    <p><b>1.4. Use Case Ends</b></p>
+    <p>The system confirms initialization of the measurement order to the
+    Operator, and the measurement order is made available for other actors to
+    view.</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p class="picturetext" align="center">Describing a use case: In this style, the 
+  text is easy to read and the flow of events is easy to follow. Aim for this 
+  style in your descriptions.</p>
+<h5><a name="Example 2:">Example 2:</a></h5>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="100%">Orderers can create Orders to collect measurement data from the Network Elements.
+    <p>The system will assign the Order a unique name as well as default values
+    that indicate the length and time of the measurement and also how often it
+    is to be repeated. The Orderer will be able to edit these values.</p>
+    <p>The Orderer must further specify which measurement function, network
+    element and measurements objects are applicable. The Orderer can also add a
+    personal comment to the order.</p>
+    <p>When the necessary information had been defined, a new Order is created
+    and initialized with the defined attributes, the name of the creator, and
+    the date of creation. The status of the order will be set to
+    &quot;scheduled&quot;. (Possible values for the status are: Scheduled,
+    Executing, Completed, Canceled, and Erroneous.)</p>
+    <p>The user interface is then notified that a new Order has been created and
+    receives a reference to the new Order so that it can be displayed.</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p class="picturetext">Describing a use case: This style is readable, but there is no clear flow of events.</p>
+<h5><a name="Example 3:">Example 3:</a></h5>
+<div align="center">
+
+<table border="1" width="65%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="100%">
+    <pre><small>'Administrate order' (User identity) 
+REPEAT
+    &lt;='Show administer order menu'
+    IF (=&gt; 'Creating an Order' (Measurement function,
+        network element, measurement object)) THEN
+    The system finds a unique name, default values for when and
+        how long the measurement should be executed. 
+        &lt;= 'Show order' (Default attributes)
+        REPEAT
+            =&gt; 'Edit order' (Attribute to change, New value of attribute)
+            &lt;= 'Update screen' (New attributes)
+        UNTIL (All attributes are defined)
+        REPEAT
+            IF (=&gt; 'Edit order' (Attribute to change, New value of  attribute))
+                THEN &lt;= 'Update screen' (New attributes)
+                ELSIF (=&gt; 'Save order' (Order identity, Attributes)) THEN
+                    The order is created and initialized in the system with
+                    the defined attributes, the name of the creator,
+                    date of creation and the status 'scheduled'.
+                    &lt;= 'New order created' (The order)
+                ENDIF
+        UNTIL (=&gt; 'Quit') 
+    ENDIF 
+UNTIL 'Quit administer order'</small></pre>
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p class="picturetext">Describing a use case: Here the writer has chosen a
+formal style using pseudocode. This style makes it hard to quickly grasp the
+process steps, but can be useful if the flow of events is difficult to capture
+precisely.</p>
+<h3><a name="XE_flow_of_events__examples_of"></a><a name="Flow of Events - Example">Flow
+of Events &#151; Example</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The complete description of the flow of events of the use case Administer
+Order, including its alternative flows, could look as follows:</p>
+<p><b>1. Basic Flow of Events</b></p>
+<p><b>1.1. Start of Use Case</b></p>
+<p>This use case starts when the actor Operator tells the system to create a
+measurement order. The system will then retrieve all Network Element actors,
+their measurement objects and corresponding measurement functions that are
+available to this particular Operator. Available Network Elements are those that
+are in operation, and that the Operator has the authority to access. The
+availability of measurement functions depends on what has been set up for a
+particular type of measurement object.</p>
+<p><b>1.2. Configure Measurement Order</b></p>
+<p>The system allows the actor Operator to select which Network Elements to
+measure and then shows which measurement objects are available for the selected
+Network Elements. The system allows the Operator to select from these
+measurement objects, and then select which measurement functions to set up for
+each measurement object.</p>
+<p>The system allows the Operator to enter a textual comment on the measurement
+order.</p>
+<p>The Operator tells the system to complete the measurement order. The system
+will respond by generating a unique name for the measurement order and setting
+up default values for when, how often, and for how long the measurement should
+be made. The default values are unique to each Operator. The system then allows
+the Operator to edit these default values.</p>
+<p><b>1.3. Initialize Order</b></p>
+<p>The Operator tells the system to initialize the measurement order. The system
+will then record the identity of the creating Operator, the date of creation,
+and the &quot;Scheduled&quot; status of the measurement order.</p>
+<p><b>1.4. Use Case Ends</b></p>
+<p>The system confirms initialization of the measurement order to the Operator,
+and the measurement order is made available for other actors to view.</p>
+<p><b>2. Alternative Flows of Events</b></p>
+<p><b>2.1. No Network Elements Available</b></p>
+<p>If in 1.1, Start of Use Case, it turns out that no Network Elements are
+available to measure for this Operator, the system will inform the Operator. The
+use case then ends.</p>
+<p><b>2.2. No Measurement Functions Available</b></p>
+<p>If in 1.2, Configure Measurement Order, no measurement functions are
+available for the selected Network Elements, the system will inform the Operator
+and allow the Operator to select other Network elements.</p>
+<p><b>2.3. Cancel Measurement Order</b></p>
+<p>The system will allow the Operator to cancel all actions at any point during
+the execution of the use case. The system will then return to the state it was
+in before the use case was started, and end the use case.</p>
+<h3><a name="Special Requirements">Special Requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In the Special Requirements of a use case, you describe all the requirements
+on the use case that are not covered by the flow of events. These are
+non-functional requirements that will influence the design model. See also the
+discussion on non-functional requirements in <a href="md_ucmod.htm">Guidelines:
+Use-Case Model</a>. You could organize these requirements in categories such as
+Usability, Reliability, Performance, and Substitutability, but normally there
+are so few of them that such grouping is not particularly value-adding.</p>
+<h5>Example:</h5>
+<p class="example">In the Recycling-Machine System, a special requirement of the
+Return Deposit Items use case could be:</p>
+<p class="example">The machine has to be able to recognize deposit items with a
+reliability of more than 95 percent.</p>
+      <h3><a name="XE_postcondition__guidelines_for"></a><a name="XE_precondition__guidelines_for"></a><a name="preconditions and Postconditions">Preconditions 
+        and Postconditions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>It can be useful to use the notion of <b>precondition</b> and <b>postcondition</b>
+to clarify how the flow of events starts and ends. However, only use it if it is
+perceived as adding value by the audience of the use case.</p>
+<p align="center"><img src="images/ucprepst.gif" width="344" height="278"></p>
+<p class="picturetext">A precondition is the state of the system and its
+surroundings that is required before the use case can be started. A
+postcondition is the states the system can be in after the use case has ended.</p>
+<p>Consider the following:
+<ul>
+  <li>The states described by pre- or postconditions should be states that the
+    user can observe. &quot;The user has logged on to the system&quot; or
+    &quot;The user has opened the document&quot; are examples of observable
+    states.</li>
+  <li>A precondition is a constraint on when a use case can start. It is not
+    the event that starts the use case.</li>
+  <li>A precondition for a use case is not a precondition for only one subflow,
+    although you can define preconditions and postconditions at the subflow level.</li>
+  <li>A postcondition for a use case should be true regardless of which
+    alternative flows were executed; it should not be true only for the main
+    flow. If something could fail, you would cover that in the postcondition by
+    saying &quot;The action is completed, or if something failed, the action is
+    not performed&quot;, rather than just &quot;The action is completed&quot;.</li>
+  <li>When you use postconditions together with extend-relationships, you
+    should take care that the extending use case does not introduce a subflow
+    that violates the postcondition in the base use case.</li>
+  <li>Postconditions can be a powerful tool for describing use cases. You first 
+    define what the use case is supposed to achieve &#151; the postcondition. 
+    You can then describe how to reach this condition &#151; the flow of events needed.</li>
+</ul>
+<p class="exampleheading">Example:</p>
+<p class="example">A precondition for the use case Cash Withdrawal in the ATM
+machine: The customer has a personally-issued card that fits in the card reader,
+has been issued a PIN number, and is registered with the banking system.</p>
+<p class="example">A postcondition for the use case Cash Withdrawal in the ATM
+machine: At the end of the use case, all account and transaction logs are
+balanced, communication with the banking system is reinitialized and the
+customer has been returned his card.</p>
+<h3><a name="Extension Points">Extension Points</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An <b>extension point</b> opens up the use case to the possibility
+of an extension. It has a name, and a list of references to one or more
+locations within the flow of events of the use case. An extension point may
+reference a single location between two behavior steps within the use case. It
+may also reference a set of discrete locations.</p>
+<p>To use named extension points will help you separate the specification of the
+behavior of the extending use case from the internal details of the base use
+case. The base use case can be modified or rearranged, as long as the names of
+the extension points remain the same it will not affect the extending use case.
+At the same time, you are not loading down the text describing the flow of
+events of the base use case with details of where behavior might be extended
+into it. See also <a href="md_exrel.htm">Guidelines: Extend-Relationship</a>.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">In a phone system, the use case Place Call can be extended by
+the <a name="XE_use_case__abstract_use_case" href="md_ucmod.htm#Concrete and Abstract Use Cases">abstract
+</a>use case Show Caller Identity. This is an optional service, often referred
+to as &quot;Caller ID&quot;, that may or may not have been requested by the
+receiving party. A description of the extension point in the use case Place Call
+could look as follows:</p>
+<p class="example"><b>Name</b>: Show Identity</p>
+<p class="example"><b>Location</b>: After section 1.9 Ring Receiving
+Party's Phone.</p>
+<h3><a name="Use-Case Diagrams">Use-Case Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You may choose to illustrate how a use case relates to actors and other use 
+  cases in a use-case diagram (in unusual cases, more than one diagram), owned 
+  by the use case. This is useful if the use case is involved with many actors, 
+  or has relationships to many other use cases. A diagram of this kind is of &quot;local&quot; 
+  character, since it shows the use-case model from the perspective of one use 
+  case only and is not intended to explain any general facts about the whole use-case 
+  model. See also <a href="md_ucdgr.htm">Guidelines: Use-Case Diagram</a>.</p>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Sequence Diagram</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Sequence Diagram</rpw><a name="Top"></a><a name="XE_sequence_diagram__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Contents">Contents of Sequence Diagrams</a>
+    <ul>
+      <li><a href="#Objects">Objects</a></li>
+      <li><a href="#Actors">Actors</a></li>
+      <li><a href="#Messages">Messages</a></li>
+      <li><a href="#Scripts">Scripts</a></li>
+    </ul>
+  </li>
+  <li><a href="#Distributing Control">Distributing Control Flow in Sequence
+    Diagrams</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In most cases, we use a sequence diagram to illustrate use-case realizations
+(see <a href="../artifact/ar_ucrea.htm">Artifact: Use-Case Realizations</a>),
+i.e. to show how objects interact to perform the behavior of all or part of a
+use case. One or more sequence diagrams may illustrate the object interactions
+which enact a use case. A typical organization is to have one sequence diagram
+for the main flow of events and one sequence diagram for each independent
+sub-flow of the use case.</p>
+<p>Sequence diagrams are particularly important to designers because they
+clarify the roles of objects in a flow and thus provide basic input for
+determining class responsibilities and interfaces.</p>
+<p>Unlike a collaboration diagram, a sequence diagram includes chronological
+sequences, but does not include object relationships. Sequence diagrams and
+collaboration diagrams express similar information, but show it in different
+ways. Sequence diagrams show the explicit sequence of messages and are better
+when it is important to visualize the time ordering of messages. When you are
+interested in the structural relationships among the instances in an
+interaction, use a collaboration diagram. See <a href="md_coldm.htm">Guidelines:
+Collaboration Diagram</a> for more information.</p>
+<h3><b><a name="Contents">Contents of Sequence Diagrams</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can have objects and actor instances in sequence diagrams, together with
+messages describing how they interact. The diagram describes what takes place in
+the participating objects, in terms of activations, and how the objects
+communicate by sending messages to one another. You can make a sequence diagram
+for each variant of a use case's flow of events.</p>
+<p class="picturelarge" align="center"><img src="../activity/images/seqdiag1.gif" width="672" height="417"></p>
+<p class="picturetext">A sequence diagram that describes part of the flow of
+events of the use case <b>Place Local Call</b> in a simple Phone
+Switch.</p>
+<h4><a name="XE_sequence_diagram__objects_in"></a><a name="XE_object__in_sequence_diagram"></a><b><a name="Objects">Objects</a>
+</b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>An object is shown as a vertical dashed line called the &quot;lifeline&quot;.
+The lifeline represents the existence of the object at a particular time. An
+object symbol is drawn at the head of the lifeline, and shows the name of the
+object and its class underlined, and separated by a colon:</p>
+<p>objectname : classname</p>
+<p>You can use objects in sequence diagrams in the following ways:
+<ul>
+  <li>A lifeline can represent an object or its class. Thus, you can use a
+    lifeline to model both class and object behavior. Usually, however, a
+    lifeline represents all the objects of a certain class.</li>
+  <li>An object's class can be unspecified. Normally you create a sequence
+    diagram with objects first, and specify their classes later.</li>
+  <li>The objects can be unnamed, but you should name them if you want to
+    discriminate different objects of the same class.</li>
+  <li>Several lifelines in the same diagram can represent different objects of
+    the same class; but, as stated previously, the objects should be named that
+    so you can discriminate between the two objects.</li>
+  <li>A lifeline that represents a class can exist in parallel with lifelines
+    that represent objects of that class. The object name of the lifeline that
+    represents the class can be set to the name of the class.</li>
+</ul>
+<h4><a name="Actors">Actors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Normally an actor instance is represented by the first (left-most) lifeline
+in the sequence diagram, as the invoker of the interaction. If you have several
+actor instances in the same diagram, try keeping them either at the left-most,
+or the right-most lifelines.</p>
+<h4><a name="XE_sequence_diagram__messages_in"></a><a name="XE_message__in_sequence_diagram"></a><a name="Messages">Messages</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A message is a communication between objects that conveys information with
+the expectation that activity will ensue; in sequence diagrams, a message is
+shown as a horizontal solid arrow from the lifeline of one object to the
+lifeline of another object. In the case of a message from an object to itself,
+the arrow may start and finish on the same lifeline. The arrow is labeled with
+the name of the message, and its parameters. The arrow may also be labeled with
+a sequence number to show the sequence of the message in the overall
+interaction. Sequence numbers are often omitted in sequence diagrams, in which
+the physical location of the arrow shows the relative sequence.</p>
+<p>A message can be unassigned, meaning that its name is a temporary string that
+describes the overall meaning of the message and is not the name of an operation
+of the receiving object. You can later assign the message by specifying the
+operation of the message's destination object. The specified operation will then
+replace the name of the message.</p>
+<h4><a name="XE_sequence_diagram__script_in"></a><a name="XE_script__in_sequence_diagrams"></a><a name="Scripts">Scripts</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Scripts describe the flow of events textually in a sequence diagram.</p>
+<p>You should position the scripts to the left of the lifelines so that you can
+read the complete flow from top to bottom (see figure above). You can attach
+scripts to a certain message, thus ensuring that the script moves with the
+message.</p>
+<h3><a name="Distributing Control">Distributing Control Flow in Sequence
+Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><b>Centralized control</b> of a flow of events or part of the flow
+of events means that a few objects steer the flow by sending messages to, and
+receiving messages from other objects. These controlling objects decide the
+order in which other objects will be activated in the use case. Interaction
+among the rest of the objects is very minor or does not exist.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the <b>Recycling-Machine System, </b>the use
+case <b>Print Daily Report</b> keeps track of - among other things -
+the number and type of returned objects, and writes the tally on a receipt. The <b>Report
+Generator</b> control object decides the order in which the sums will be
+extracted and written.</p>
+<p class="picturecenter" align="center"><img src="images/md_seqd3.gif" width="385" height="334"></p>
+<p class="picturetext">The behavior structure of the use case <b>Print
+Daily Report</b> is centralized in the <b>Report Generator</b>
+control object.</p>
+<p>This is an example of centralized behavior. The control structure is
+centralized primarily because the different sub-event phases of the flow of
+events are not dependent on each other. The main advantage of this approach is
+that each object does not have to keep track of the next object's tally. To
+change the order of the sub-event phases, you merely make the change in the
+control object. You can also easily add still another sub-event phase if, for
+example, a new type of return item is included. Another advantage to this
+structure is that you can easily reuse the various sub-event phases in other use
+cases because the order of behavior is not built into the objects.</p>
+<p><b>Decentralized</b> <b>control</b> arises when the
+participating objects communicate directly with one another, not through one or
+more controlling objects.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the use case <b>Send Letter</b> someone mails a
+letter to another country through a post office. The letter is first sent to the
+country of the addressee. In the country, the letter is sent to a specific city.
+The city, in turn, sends the letter to the home of the addressee.</p>
+<p class="picturelarge" align="center"><img src="images/md_seqd4.gif" width="499" height="310"></p>
+<p class="picturetext">The behavior structure of the use case <b>Send
+Letter</b> is decentralized.</p>
+<p class="example">The use case behavior is a decentralized flow of events. The
+sub-event phases belong together. The sender of the letter speaks of
+&quot;sending a letter to someone.&quot; He neither needs nor wants to know the
+details of how letters are forwarded in countries or cities. (Probably, if
+someone were mailing a letter within the same country, not all these actions
+would occur.)</p>
+<p>The type of control used depends on the application. In general, you should
+try to achieve independent objects, that is, to delegate various tasks to the
+objects most naturally suited to perform them.</p>
+<p>A flow of events with centralized control will have a &quot;fork-shaped&quot;
+sequence diagram. On the other hand, a &quot;stairway-shaped&quot; sequence
+diagram illustrates that the control-structure is decentralized for the
+participating objects.</p>
+<p class="picturecenter" align="center"><img src="images/md_seqd5.gif" width="326" height="399"></p>
+<p class="picturetext">A centralized control structure in a flow of events
+produces a &quot;fork-shaped&quot; sequence diagram. A decentralized control
+structure produces a &quot;stairway-shaped&quot; sequence diagram.</p>
+<p>The behavior structure of a use-case realization most often consists of a mix
+of centralized and decentralized behavior.</p>
+<p>A decentralized structure is appropriate:
+<ul>
+  <li>If the sub-event phases are tightly coupled. This will be the case if the
+    participating objects:
+    <ul>
+      <li>Form a part-of or consists-of hierarchy, such as Country - State -
+        City;</li>
+      <li>Form an information hierarchy, such as CEO - Division Manager -
+        Section Manager;</li>
+      <li>Represent a fixed chronological progression (the sequence of sub-event
+        phases will always be performed in the same order), such as
+        Advertisement - Order - Invoice -Delivery - Payment; or</li>
+      <li>Form a conceptual inheritance hierarchy, such as Animal - Mammal -
+        Cat.</li>
+    </ul>
+  </li>
+  <li>If you want to encapsulate, and thereby make abstractions of,
+    functionality. This is good for someone who always wants to use the whole
+    functionality, because the functionality can become unnecessarily hard to
+    grasp if the behavior structure is centralized.</li>
+</ul>
+<p>A centralized structure is appropriate:
+<ul>
+  <li>If the order in which the sub-event phases will be performed is likely to
+    change.</li>
+  <li>If you expect to insert new sub-event phases.</li>
+  <li>If you want to keep parts of the functionality reusable as separate
+    pieces.</li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

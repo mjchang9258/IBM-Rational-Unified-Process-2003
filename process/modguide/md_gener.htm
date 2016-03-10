@@ -1,0 +1,369 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Generalization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Generalization</rpw><a name="Top"></a><a name="XE_use-case-generalization__guidelines_for"></a><a name="XE_generalization__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Generalization">Generalization</a></li>
+  <li><a href="#Multiple Inheritance">Multiple Inheritance</a></li>
+  <li><a href="#Abstract and Concrete Classes">Abstract and Concrete Classes</a></li>
+  <li><a href="#Use">Use</a></li>
+  <li><a href="#Inheritance to Support Polymorphism">Inheritance to Support
+    Polymorphism</a></li>
+  <li><a href="#Inheritance to Support Implementation Reuse">Inheritance to
+    Support Implementation Reuse</a></li>
+  <li><a href="#Inheritance in Programming Languages">Inheritance in Programming
+    Languages</a></li>
+</ul>
+<h3><a name="Generalization">Generalization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Many things in real life have common properties. Both dogs and cats are
+animals, for example. Objects can have common properties as well, which you can
+clarify using a generalization between their classes. By extracting common
+properties into classes of their own, you will be able to change and maintain
+the system more easily in the future.</p>
+<p>A generalization shows that one class inherits from another. The inheriting
+class is called a descendant. The class inherited from is called the ancestor.
+Inheritance means that the definition of the ancestor - including any properties
+such as attributes, relationships, or operations on its objects - is also valid
+for objects of the descendant. The generalization is drawn from the descendant
+class to its ancestor class.</p>
+<p>Generalization can take place in several stages, which lets you model
+complex, multilevel inheritance hierarchies. General properties are placed in
+the upper part of the inheritance hierarchy, and special properties lower down.
+In other words, you can use generalization to model specializations of a more
+general concept.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the Recycling Machine System all the classes - Can,
+Bottle, and Crate - describe different types of deposit items. They have two
+common properties, besides being of the same type: each has a height and a
+weight. You can model these properties through attributes and operations in a
+separate class, Deposit Item. Can, Bottle, and Crate will inherit the properties
+of this class.</p>
+<p class="picturecenter" align="center"><img src="images/md_gene2.gif" width="400" height="275"></p>
+<p class="picturetext">The classes Can, Bottle, and Crate have common properties
+height and weight. Each is a specialization of the general concept Deposit Item.</p>
+<h3><a name="XE_multiple_inheritance"></a><a name="XE_multiple_inheritance__guidelines_for"></a><a name="XE_inheritance__multiple_inheritance"></a><a name="Multiple Inheritance">Multiple
+Inheritance</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A class can inherit from several other classes through multiple inheritance,
+although generally it will inherit from only one.</p>
+<p>There are a couple of potential problems you must be aware of if you use
+multiple inheritance:
+<ul>
+  <li>If the class inherits from several classes, you must check how the
+    relationships, operations, and attributes are named in the ancestors. If the
+    same name appears in several ancestors, you must describe what this means to
+    the specific inheriting class, for example, by qualifying the name to
+    indicate its source of declaration.</li>
+  <li>If repeated inheritance is used; in this case, the same ancestor is being
+    inherited by a descendant more than once. When this occurs, the inheritance
+    hierarchy will have a &quot;diamond shape&quot; as shown below.</li>
+</ul>
+<p class="picturecenter" align="center"><img src="images/md_gene3.gif" width="362" height="218"></p>
+<p class="picturetext">Multiple and repeated inheritance. The Scrolling Window
+With Dialog Box class is inheriting the Window class more than once.</p>
+<p>A question that might arise in this context is &quot;How many copies of the
+attributes of Window are included in instances of Scrolling Window With Dialog
+Box?&quot; So, if you are using repeated inheritance, you must have a clear
+definition of its semantics; in most cases this is defined by the programming
+language supporting the multiple inheritance.</p>
+<p>In general, the programming language rules governing multiple inheritance are
+complex, and often difficult to use correctly. Therefore using multiple
+inheritance only when needed, and always with caution is recommended.</p>
+<h3><a name="XE_concrete_classes__guidelines_for"></a><a name="Abstract and Concrete Classes">Abstract
+and Concrete Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a><a name="XE_abstract_classes__guidelines_for"></a></h3>
+<p>A class that is not instantiated and exists only for other classes to inherit
+it, is an abstract class. Classes that are actually instantiated are concrete
+classes. Note that an abstract class must have at least one descendant to be
+useful.</p>
+<p class="exampleheading">Example</p>
+<p class="example">A Pallet Place in the Depot-Handling System is an abstract
+entity class that represents properties common to different types of pallet
+places. The class is inherited by the concrete classes Station, Transporter, and
+Storage Unit, all of which can act as pallet places in the depot. All these
+objects have one common property: they can hold one or more Pallets.</p>
+<p class="picturecenter" align="center"><img src="images/md_gene4.gif" width="370" height="208"></p>
+<p class="picturetext">The inherited class, here Pallet Place, is abstract and
+not instantiated on its own.</p>
+<h3><a name="Use">Use</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Because class stereotypes have different purposes, inheritance from one class
+stereotype to another does not make sense. Letting a boundary class inherit an
+entity class, for example, would make the boundary class into some kind of
+hybrid. Therefore, you should use generalizations only between classes of the
+same stereotype.</p>
+<p>You can use generalization to express two relationships between classes:
+<ul>
+  <li>Subtyping, specifying that the descendant is a subtype of the ancestor.
+    Subtyping means that the descendant inherits the structure and behavior of
+    the ancestor, and that the descendant is a type of the ancestor (that is,
+    the descendant is a subtype that can fill in for all its ancestors in any
+    situation).</li>
+  <li>Subclassing, specifying that the descendant is a subclass (but not a
+    subtype) of the ancestor. Subclassing means that the descendant inherits the
+    structure and behavior of the ancestor, and that the descendant is not a
+    type of the ancestor.</li>
+</ul>
+<p>You can create relationships such as these by breaking out properties common
+to several classes and placing them in a separate classes that the others
+inherit; or by creating new classes that specialize more general ones and
+letting them inherit from the general classes.</p>
+<p>If the two variants coincide, you should have no difficulty setting up the
+right inheritance between classes. In some cases, however, they do not coincide,
+and you must take care to keep the use of inheritance understandable. At the
+very least you should know the purpose of each inheritance relationship in the
+model.</p>
+<h3><a name="XE_inheritance__to_support_polymorphism"></a><a name="XE_generalization__inheritance_to_support_polymorphism"></a><a name="Inheritance to Support Polymorphism">Inheritance
+to Support Polymorphism</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Subtyping means that the descendant is a subtype that can fill in for all its
+ancestors in any situation. Subtyping is a special case of polymorphism, and is
+an important property because it lets you design all the clients (objects that
+use the ancestor) without taking the ancestor's potential descendants into
+consideration. This makes the client objects more general and reusable. When the
+client uses the actual object, it will work in a specific way, and it will
+always find that the object does its task. Subtyping ensures that the system
+will tolerate changes in the set of subtypes.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In a Depot-Handling System, the Transporter Interface class
+defines basic functionality for communication with all types of transport
+equipment, such as cranes and trucks. The class defines the operation
+executeTransport, among other things.</p>
+<p class="picturecenter" align="center"><img src="images/md_gene5.gif" width="387" height="193"></p>
+<p class="picturetext">Both the Truck Interface and Crane Interface classes
+inherit from the Transporter Interface; that is, objects of both classes will
+respond to the message executeTransport. The objects may stand in for
+Transporter Interface at any time and will offer all its behavior. Thus, other
+objects (client objects) can send a message to a Transporter Interface object,
+without knowing if a Truck Interface or Crane Interface object will respond to
+the message.</p>
+<p class="picturetext">The Transporter Interface class can even be abstract,
+never instantiated on its own. In which case, the Transporter Interface might
+define only the signature of the executeTransport operation, whereas the
+descendant classes implement it.</p>
+<p>Some object-oriented languages, such as C++, use the class hierarchy as a
+type hierarchy, forcing the designer to use inheritance to subtype in the design
+model. Others, such as Smalltalk-80, have no type checking at compile time. If
+the objects cannot respond to a received message they will generate an error
+message.</p>
+<p>It may be a good idea to use generalization to indicate subtype relationships
+even in languages without type checking. In some cases, you should use
+generalization to make the object model and source code easier to understand and
+maintain, regardless of whether the language allows it. Whether or not this use
+of inheritance is good style depends heavily on the conventions of the
+programming language.</p>
+<h3><a name="XE_inheritance__to_support_implementation_reuse"></a><a name="XE_generalization__inheritance_to_support_implementation_reuse"></a><a name="Inheritance to Support Implementation Reuse">Inheritance
+to Support Implementation Reuse</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Subclassing constitutes the reuse aspect of generalization. When subclassing,
+you consider what parts of an implementation you can reuse by inheriting
+properties defined by other classes. Subclassing saves labor and lets you reuse
+code when implementing a particular class.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the Smalltalk-80 class library, the class Dictionary
+inherits properties from Set.</p>
+<p class="picturecenter" align="center"><img src="images/md_gene6.gif" width="302" height="141"></p>
+<p class="picturetext">The reason for this generalization is that Dictionary can
+then reuse some general methods and storage strategies from the implementation
+of Set. Even though a Dictionary can be seen as a Set (containing key-value
+pairs), Dictionary is not a subtype of Set because you cannot add just any kind
+of object to a Dictionary (only key-value pairs). Objects that use Dictionary
+are not aware that it actually is a Set.</p>
+<p>Subclassing often leads to illogical inheritance hierarchies that are
+difficult to understand and to maintain. Therefore, it is not recommended that
+you use inheritance only for reuse, unless something else is recommended in
+using your programming language. Maintenance of this kind of reuse is usually
+quite tricky. Any change in the class Set can imply large changes of all classes
+inheriting the class Set. Be aware of this and inherit only stable classes.
+Inheritance will actually freeze the implementation of the class Set, because
+changes to it are too expensive.</p>
+<h3><a name="XE_programming_languages__designing_inheritance"></a><a name="XE_inheritance__in_programming_languages"></a><a name="XE_generalization__inheritance_in_programming_languages"></a><a name="Inheritance in Programming Languages">Inheritance
+in Programming Languages</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The use of generalization relationships in design should depend heavily on
+the semantics and proposed use of inheritance in the programming language.
+Object-oriented languages support inheritance between classes, but
+nonobject-oriented languages do not. You should handle language characteristics
+in the design model. If you are using a language that does not support
+inheritance, or multiple inheritance, you must simulate inheritance in the
+implementation. In which case, it is better to model the simulation in the
+design model and not use generalizations to describe inheritance structures.
+Modeling inheritance structures with generalizations, and then simulating
+inheritance in the implementation, can ruin the design.</p>
+<p>If you are using a language that does not support inheritance, or multiple
+inheritance, you must simulate inheritance in the implementation. In this case,
+it is best to model the simulation in the design model and not use
+generalizations to describe inheritance structures. Modeling inheritance
+structures with generalizations, and then only simulating inheritance in the
+implementation can ruin the design.</p>
+<p>You will probably have to change the interfaces and other object properties
+during simulation. It is recommended that you simulate inheritance in one of the
+following ways:
+<ol>
+  <li>By letting the descendant forward messages to the ancestor.</li>
+  <li>By duplicating the code of the ancestor in each descendant. In this case,
+    no ancestor class is created.</li>
+</ol>
+<p class="exampleheading">Example</p>
+<p class="example">In this example the descendants forward messages to the
+ancestor via links that are instances of associations.</p>
+<p class="picturecenter" align="center"><img src="images/md_gene7.gif" width="346" height="206"></p>
+<p class="picturetext">Behavior common to Can, Bottle, and Crate objects is
+assigned to a special class. Objects for which this behavior is common send a
+message to a Deposit Item object to perform the behavior when necessary.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

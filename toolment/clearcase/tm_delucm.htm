@@ -1,0 +1,299 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Delivering Your Work Using Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Delivering Your Work Using Rational ClearCase</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to deliver changes with Rational ClearCase using 
+  the Unified Change Management (UCM) deliver operation.&nbsp;</p>
+  
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_prmci.htm">Deliver Changes</a></li>
+</ul>
+<br>
+    
+</p>
+
+<h3>Overview</h3>
+<p>The following diagram illustrates the UCM workflow. Shaded areas are
+discussed in this tool mentor.&nbsp;</p>
+<p><img border="0" src="images/wflow_deliver.gif" width="406" height="136"></p>
+<p><i><b>Terminology note: </b></i>A ClearCase UCM activity&nbsp; is
+not to be confused with the RUP concept of an <a href="../../process/glossary.htm">Activity</a>.</p>
+<p>In ClearCase's UCM model, modifications to sources are captured in the form
+of&nbsp; UCM activities. An activity is made up of a change set, which
+identifies all versions created while working on a task, and a descriptive
+headline.&nbsp;</p>
+<p>To make work from your isolated work area available to the project team, you
+deliver versions associated with your UCM activities from your development
+stream to the project's integration stream.&nbsp;</p>
+<p>ClearCase merges the file and directory versions you deliver from your
+development stream with versions in the integration stream as needed.&nbsp;However,
+the changes you deliver are not made permanent at this point, which allows you
+to test the changes you've delivered with other work in the integration stream.
+After testing, you can cancel the deliver operation or complete the deliver
+operation, making the deliver results permanent.&nbsp;</p>
+<p>This tool mentor is applicable when running Microsoft Windows.&nbsp;</p>
+<h4>Tool Steps</h4>
+<p>Using the ClearCase UCM deliver operation consists of these tasks:&nbsp;
+<ol>
+  <li><a href="#1">Prepare your work areas</a>
+  <li><a href="#2">Start the deliver operation</a>
+  <li><a href="#3">Merge files</a>
+  <li><a href="#4">Test and build your work</a>
+  <li><a href="#5">Complete the deliver operation</a></li>
+</ol>
+<h3>1.&nbsp;<a name="1">Prepare your work areas</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Before beginning a deliver operation, you need to prepare your work areas by 
+  performing these tasks:&nbsp; </p>
+<ol>
+  <li>Use the UCM rebase operation to check that your development work area has
+    been updated to use the most recent recommended baselines for your project.&nbsp;</li>
+</ol>
+<blockquote>
+  <ul>
+    <li>To start the rebase operation, from the Windows task bar, click <b>Start &gt; Programs &gt;
+      Rational ClearCase &gt; ClearCase Explorer</b>.</li>
+    <li>&nbsp;In ClearCase Explorer, right-click the root directory of your
+      development view and click <b>Rebase Stream</b>.&nbsp;</li>
+    <li>Follow the steps from the Rebase Stream Wizard.&nbsp;</li>
+  </ul>
+</blockquote>
+<ol start="2">
+  <li>Work must be checked in before it can be delivered. Use the ClearCase <b>Find
+    Checkouts</b> utility to find any checked-out versions.&nbsp;</li>
+</ol>
+<blockquote>
+  <ul>
+    <li>To start the <b>Find Checkouts</b> utility from ClearCase Explorer, go
+      to the Folder pane and&nbsp; right-click the folder you want to search.
+      Select <b>Find Checkouts</b> from the context menu.</li>
+    <li>A list of checked-out elements is displayed. Select the elements you
+      want to check in and right-click. Click <b>Check In</b> from the context
+      menu.&nbsp;</li>
+  </ul>
+</blockquote>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;If 
+  your development view is a snapshot view, you must also perform an update operation 
+  for it. Refer to the topic titled <i>To update snapshot views</i> in ClearCase 
+  online Help for detailed information. </p>
+<h3>2.&nbsp;<a name="2">Start the deliver operation</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>After preparing your work areas, you're ready to start the deliver operation, 
+  which is where ClearCase integrates the changes from your development work area 
+  to the integration work area. Files are checked out to your integration view. 
+</p>
+<p>To start a deliver operation, go to ClearCase Explorer and right-click on the
+root directory of your development view. Click <b>Deliver from Stream</b> from
+the context menu.&nbsp;</p>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;Refer to the topic
+titled <i>To start a deliver operation</i> in ClearCase online Help for detailed information on the steps
+for this
+procedure.
+<h3>3.&nbsp;<a name="3">Merge files</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+ 
+<p>ClearCase merges the work in your development stream with the work in the integration 
+  stream. It completes trivial merges for you and, if merge conflicts are encountered, 
+  the ClearCase DiffMerge utility prompts you to resolve the conflicts.&nbsp; 
+</p>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;Refer to the topic
+titled <i>Merging Files, directories, and versions</i> in ClearCase
+online Help for detailed information on the steps for this
+procedure.
+<h3>4.&nbsp;<a name="4">Test and build your work</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To make sure your delivered work is compatible with the work in the integration 
+  stream, update your integration view, which reflects merge results from the 
+  previous step, and build and test the files there. &nbsp; </p>
+<p>In addition to building and testing, you may need to do the following:&nbsp;
+<ul>
+  <li>Edit the checked out versions to resolve build errors.
+  <li>Check out and edit additional files.</li>
+</ul>
+<p>See <a href="tm_rebucm.htm">Tool Mentor: Updating Your Project Work Area Using 
+  Rational ClearCase.</a> </p>
+<p>
+<b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;Refer to the
+following topics in ClearCase online Help:&nbsp;</p>
+<ul>
+  <li><i>Check out files and directories</i>
+  <li><i>Check in files and directories</i>
+  <li><i>Find and set activities</i></li>
+</ul>
+<h3>5.&nbsp;<a name="5">Complete the deliver
+operation</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>&nbsp;When you're satisfied that your changes are compatible with the latest 
+  work for the project, complete the deliver operation from the development view 
+  in which it was started. You also have the option of canceling the operation 
+  at this point. This step checks in the files that result from the merge operation 
+  and completes other housekeeping tasks.&nbsp; </p>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"></b> Refer to the
+following topics in ClearCase online Help for detailed information on the steps
+for this
+procedure:&nbsp;
+<ul>
+  <li><i>To complete a deliver operation</i>
+  <li><i>To undo a deliver operation</i></li>
+</ul>
+<p><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15">&nbsp;Refer 
+  to the section titled &quot;Delivering Activities&quot; of the ClearCase manual 
+  <i>Developing Software</i>. </p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

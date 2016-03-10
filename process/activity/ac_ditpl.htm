@@ -1,0 +1,574 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Develop Iteration Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Develop Iteration 
+  Plan</rpw><a name="Top"></a><a name="XE_Iteration_Plan_document__developing"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+          <td colspan="2"><b>Purpose</b><br>
+            <p>To develop a fine-grained plan for a single iteration, 
+            consisting of: 
+            <ul>
+              <li>a detailed work breakdown structure of the activity and 
+                responsibility assignments</li>
+              <li>intra-iteration milestones and deliverables</li>
+              <li>evaluation criteria for the iteration</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Determine the Iteration Scope">Determine the Iteration Scope</a></li>
+      <li><a href="#Define Iteration Evaluation Criteria">Define Iteration
+        Evaluation Criteria</a></li>
+      <li><a href="#Define Iteration Activities">Define Iteration Activities</a></li>
+      <li><a href="#Assign Responsibilities">Assign Responsibilities</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_dvlprc.htm">Development Process</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+</ul>
+&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_projm.htm">Project Manager</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    
+</table>
+
+
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_mgm.htm">Project Management</a>
+<ul>
+<li><a href="../workflow/manageme/wfs_plan.htm">Plan for Next Iteration</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br>
+</div>
+
+<p>The iteration itself is a time-boxed set of tasks that are focused very
+narrowly on producing an executable. For all but the last transition iteration
+this is an intermediate product, produced to force attention on mitigating risk
+and driving the project toward successful delivery. The focus on an executable
+deliverable forces nearly continuous integration and allows the project to
+address technical risks early, decreasing attendant risks.</p>
+<p>Iterating implies a certain amount of rework (of existing artifacts), and an accompanying change in
+attitude toward rework. In short, a certain amount of rework is required to
+deliver a quality product: by building intermediate products and evaluating the
+suitability of the product architecture <b>early and often</b>, the
+quality of the end-product is increased while changes are less costly to make
+and easier to accommodate.</p>
+<h3><a name="XE_Iteration_Plan_document__determining_scope_of_iteration"></a><a name="XE_iteration__determining_scope_of"></a><a name="Determine the Iteration Scope">Determine
+the Iteration Scope</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To select a set of use cases or scenarios to be considered during the iteration.<br>
+      To select a set of non-functional requirements which must be handled during the iteration.&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Guidelines:&nbsp;</b><a href="../modguide/md_itpln.htm">The Iteration Plan</a>&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The scope of an iteration is driven by four factors:
+<ul>
+  <li>the top risks to the project</li>
+  <li>the functionality required of the system</li>
+  <li>the time allocated to the iteration in the Project Plan</li>
+  <li>the phase and its specific objectives (See <a href="../itrwkfls/iwf_iwfs.htm">Phases</a>)</li>
+</ul>
+<p>In the initial planning of an iteration, enough work is selected to fill the
+time already planned for the iteration 
+(which was based on considerations explored in <a href="../modguide/md_prpln.htm">Guidelines: Software Development
+Plan</a>) - although the Project Manager is permitted some latitude to account
+for resource constraints and other tactical considerations at the time the
+Iteration Plan is being developed. Obviously, work planned for the previous
+iteration, but not completed (because the previous iteration's scope was reduced
+to meet the schedule) will normally have high priority.</p>
+<p>The scope of work has also to be driven by a
+sensible approach to the maximum staffing level that can be applied, in the
+duration of the iteration, for its completion. For example, it is not usually
+possible to double the work completed in an iteration by doubling the staff
+applied to it - even if those resources were available. The approximate staff
+numbers that can be efficiently applied are determined by overall software size
+and architecture, and estimation models such as COCOMO II (see [<a href="../referenc.htm#BOE00">BOE00</a>])
+can provide these.</p>
+<p>The execution of an iteration is then managed by <a href="../glossary.htm#timeboxing">timeboxing</a>
+- that is, the scope and quality (in terms of discovered defects not rectified)
+are actively managed to meet the end date.</p>
+<h4>In the <a href="../itrwkfls/iwf_iie.htm">elaboration phase</a>:</h4>
+<p>There are three main drivers for defining the objectives of an iteration in
+elaboration:
+<ul>
+  <li>Risk</li>
+  <li>Criticality</li>
+  <li>Coverage</li>
+</ul>
+<p>The main driver to define iteration objectives are <b>risks</b>.
+You need to mitigate or retire your risks as early as you can. This is mostly
+the case in the elaboration phase, where most of your risks should be mitigated,
+but this can continue to be a key elements in construction as some risks remain
+high, or new risks are discovered. But since the goal of the elaboration phase
+is to baseline an architecture, some other considerations have to come into
+play, such as making sure that the architecture addresses all aspects of the
+software to be developed (<b>coverage</b>). This is important since
+the architecture will be used for further planning: organization of the team,
+estimation of code to be developed, etc.</p>
+<p>Finally, while focusing on risks is important, one should keep in mind what
+are the primary missions of the system; solving all the hard issues is good, but
+this must not be done in detriment of the core functionality: make sure that the
+critical functions or services of the system are indeed covered (<b>criticality</b>),
+even if there is no perceived risk associated with them.</p>
+<p>From the Risk list, for the most damaging risks, identify some scenario in
+some use case that would force the development team to &quot;confront&quot; the
+risk.</p>
+<p class="exampleheading">Examples</p>
+<blockquote>
+  <ul>
+    <li>if there is an integration risk such as &quot;database D working
+      properly with OS Y&quot;, make sure you include one scenario that involves
+      some database interaction even very modest.</li>
+    <li>if there is a performance risk such as &quot;time to compute the
+      trajectory of the aircraft&quot;, make sure you have one scenario that
+      includes this computation, at least for the most obvious and frequent
+      case.</li>
+  </ul>
+</blockquote>
+<p>For <b>criticality</b>, make sure that the most fundamental
+function or services provided by the system are included. Select some scenario
+out of the use case that represent the most common, the most frequent form of
+the service or feature offered by the system. The <a href="../artifact/ar_sadoc.htm">Artifact:
+Software Architecture Document</a> is used to drive this effort, providing a
+prioritized set of Use Cases or sub-flows of use cases, selected by the <a href="../workers/wk_archt.htm">Role:
+Software Architect</a> to reflect the architecturally significant use cases or scenarios.</p>
+<p class="exampleheading">Example</p>
+<blockquote>
+  <ul>
+    <li>for a telephone switch, the plain station-to-station call is the obvious
+      must for an early iteration. This is far more important to get right than
+      convoluted failure modes in operator configuration of the error handling
+      subsystem.</li>
+  </ul>
+</blockquote>
+<p>For <b>coverage</b>, towards the end of the end of the elaboration
+phase, include scenarios that touches areas that you know will require
+development, although they are neither critical nor risky.</p>
+<p>It is often economical to create long, end-to-end scenarios that address
+multiple issues at once.</p>
+<p>The danger is often to get the scenarios to be too &quot;thick&quot;, i.e.,
+trying to cover too many different aspects, and variants, and error cases (See <a href="../modguide/md_itpln.htm">Guidelines:
+Iteration Plan</a>)</p>
+<p>Also, in the elaboration phase, keep in mind that some of the risks may be of
+a more human or programmatic nature: team culture, training, selection of tools,
+new techniques etc. and just going through iteration is mitigating these risks.</p>
+<p class="exampleheading">Examples</p>
+<blockquote>
+  <ol>
+    <li>
+    <b>Create one subscriber record on a client workstation, to be stored in
+      the database on the server, including user dialog, but not including all
+      field, and assuming no error is detected.<br>
+    </b>Combines some critical function, with some integration risks
+    (database and communication software) and integration issues (dealing with 2
+    different platforms). Also force designers to become familiar with new GUI
+    design tool. Finally produces a prototype that can be demonstrated to
+    end-user for feedback.</li>
+    <li>
+    <b>Make sure up to 20,000 subscribers can be created, and access to one is
+      not longer than 200 milliseconds.<br>
+    </b>Addresses some key performance issues (volume or data, and response
+    time), that may dramatically affect the architecture if not met.</li>
+    <li>
+    <b>Undo a change of subscriber address.<br>
+    </b>A simple feature that forces designers to think about a design of
+    all &quot;undo&quot; functions. This may in turn trigger some push-back to
+    the end-users about what can be undone at reasonable cost.</li>
+    <li>
+    <b>Complete all the use cases relative to supply-chain management.<br>
+    </b>The goal of the elaboration phase is also to complete the capture
+    of requirements, maybe also set by set.</li>
+  </ol>
+</blockquote>
+<h4>In the <a href="../itrwkfls/iwf_lic.htm">construction phase</a>:</h4>
+<p>As the project moves into the construction phase, risks remain a key driver,
+especially as new, unsuspected risks are uncovered. But completeness of use case
+start to be a driver. The iterations can be planned feature by feature, trying
+to complete some of the most critical ones early so that they can be thoroughly
+tested during more than one iteration. Towards the end of construction,
+robustness of full use cases will be the main goal.</p>
+<p class="exampleheading">Example</p>
+<blockquote>
+  <ol>
+    <li>
+    <b>Implement all variants of call forwarding, including erroneous ones.<br>
+    </b>This is a set of related features. One of them may have been
+    implemented during the elaboration phase, and will serve as a prototype for
+    the rest of the development.</li>
+    <li>
+    <b>Complete all telephone operator features except night service.<br>
+    </b>Another set of features.</li>
+    <li>
+    <b>Achieve 5,000 transactions per hour on a 2 computer set-up.<br>
+    </b>This may step up the required performance relative to what was
+    actually achieved in the previous iteration (only 2,357/hour)</li>
+    <li>
+    <b>Integrate new version of Geographical Information System.<br>
+    </b>This may be a modest architectural change, necessitated by some
+    problem discovered earlier.</li>
+    <li>
+    <b>Fix all level 1 and level 2 defects<br>
+    </b>Fixes defects discovered during testing in the previous iteration
+    and not fixed immediately but deferred<b>.</b></li>
+  </ol>
+</blockquote>
+<h4>In the <a href="../itrwkfls/iwf_lit.htm">transition phase</a>:</h4>
+<p>Finishing this generation of the product is the main goal. Objective for an
+iteration are set in terms of which bugs are fixed, which improvements in
+performance or usability are included. If features had to be dropped (or
+disabled) in order to get in time to the end of construction (IOC milestone, or
+&quot;beta&quot;), they may now be completed, or turned on, if they do not
+jeopardize what has been achieved so far.</p>
+<p class="exampleheading">Examples</p>
+<blockquote>
+  <ol>
+    <li>
+    <b>Fix all severity 1 problems discovered on beta customer sites.<br>
+    </b>A goal in term of quality, may be related to credibility on the
+    market.</li>
+    <li>
+    <b>Eliminate all startup crashes due to mismatched data.<br>
+    </b>Another goal expressed in terms of quality.</li>
+    <li>
+    <b>Achieve 2,000 transactions per minute.<br>
+    </b>Performance tuning, involving some optimization: data structure
+    change, caching and smarter algorithm.</li>
+    <li>
+    <b>Reduce the number of different dialog boxes by 30%.<br>
+    </b>Improve usability by reducing the visual clutter</li>
+    <li>
+    <b>Produce German and Japanese versions.<br>
+    </b>The beta was produced only for English customers by lack of time
+    and to reduce rework.</li>
+  </ol>
+</blockquote>
+<h3><a name="XE_transition_iteration__evaluating"></a><a name="XE_Iteration_Plan_document__defining_evaluation_criteria"></a><a name="XE_iteration__defining_evaluation_criteria"></a><a name="XE_evaluation_criteria__of_iteration"></a><a name="XE_construction_iteration__evaluating"></a><a name="Define Iteration Evaluation Criteria">Define
+Iteration Evaluation Criteria</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Each iteration results in an executable release. The release is not generally
+production-quality (except in the final Transition iteration), but it can be
+evaluated nonetheless.</p>
+<h4><a name="XE_inception_iteration__evaluating"></a>Evaluating Inception
+Iterations</h4>
+<p>The Inception iteration generally focuses on proving the concept of the
+product and building the support necessary to approve project funding. As a
+result, the Iteration release is generally a functional proof-of-concept
+prototype which lacks real implementation code under a thin veneer of user
+interface. The evaluation criteria are oriented toward user acceptance and
+qualitative measures.</p>
+<p>Under some circumstances, key technical hurdles must be overcome in inception
+before product funding is provided; if so, the evaluation criteria must reflect
+this.</p>
+<p>See the <a href="../itrwkfls/ms_lco.htm">evaluation
+criteria for the inception phase</a>.</p>
+<h4><a name="XE_elaboration_iteration__evaluating"></a>Evaluating Elaboration
+Iterations</h4>
+<p>Elaboration Iterations focus on creating a stable architecture. As a result,
+Elaboration evaluation criteria must focus on assessing the stability of the
+architecture. Measures that can be used are:
+<ul>
+  <li>Interface stability (or breakage)</li>
+  <li>The rate of change in the Architecture (compared to an architectural
+    baseline)</li>
+  <li>performance of key functionality</li>
+</ul>
+<p>The key goal is to ensure that changes during the Construction phase do not
+ripple throughout the system, causing excessive re-work.</p>
+<p>See the <a href="../itrwkfls/ms_lca.htm">evaluation
+criteria for the elaboration phase</a>.</p>
+<h4>Evaluating Construction and Transition Iterations</h4>
+<p>Construction and Transition iterations are measured along traditional
+software testing and change management dimensions such as breakage, defect
+density, and fault discovery rates. The focus in these iterations is finding
+errors so that they can be fixed.</p>
+<p>Errors are discovered in a number of ways: inspections and code reviews,
+functional tests, performance tests and load tests. Each technique is oriented
+toward discovering a particular set of defects, and each has its place.
+Specifics on these techniques are discussed in the Rational Unified Process Test
+discipline.</p>
+<p>See the <a href="../itrwkfls/ms_ioc.htm">evaluation
+criteria for the construction phase</a>, and also see the <a href="../itrwkfls/ms_pr.htm">evaluation
+criteria for the transition phase</a>.</p>
+<h3><a name="XE_Iteration_Plan_document__defining_iteration_activities"></a><a name="XE_iteration__defining_activities_in"></a><a name="Define Iteration Activities">Define
+Iteration Activities</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Based upon the goals of the iteration, the set of activities to be performed
+during the iteration must be selected. Typically, each iteration will make a
+partial pass through all the activities in the software lifecycle:
+<ul>
+  <li>Use cases and scenarios are selected which exercise the required
+    functionality</li>
+  <li>The use case (or scenario) behavior is researched and documented</li>
+  <li>The behavior is analyzed and allocated amongst subsystems and classes
+    which provide the required behavior</li>
+  <li>The classes and subsystems are designed, implemented and unit tested</li>
+  <li>The system is integrated and tested as a whole</li>
+  <li>For external releases (alpha, beta, and general availability) the product
+    is packaged into a releasable form and transitioned to into its user
+    environment.</li>
+</ul>
+<p>The degree to which these activities are performed varies with the iteration
+and the phase of the project. The individual disciplines (Requirements, Analysis
+&amp; Design, Test, etc.) define the generic activities, which in turn are
+tailored to the organization during process configuration.</p>
+<h4>Identify affected artifacts and activities involved</h4>
+<p>Once the scenarios or full blown use cases to be developed (plus defects to
+be fixed) have been selected and briefly sketched, you need to find what are the
+artifacts that will be affected:
+<ul>
+  <li>Which classes are to be revisited?</li>
+  <li>Which subsystems are affected, or even created?</li>
+  <li>Which interfaces are probably to be modified</li>
+  <li>Which documents have to be updated</li>
+</ul>
+<p>Then extract from the process disciplines the activities that are involved, and
+place them in your plan. Some activities are done once per iteration (example
+here), some have to be done once per class, per use case, per subsystem
+(example). Connect the activities with their obvious dependencies, and allocate
+some estimated effort. Most of the activities described for the process are
+small enough to be accomplished by one person, or a very small group of persons
+in a matter of a few hours to a few days.</p>
+<p>It is likely the case that you discover there is not enough time in the
+iteration to accomplish all this. Rather than extending the iteration (hence
+either extending the final delivery time, or reducing the number of iterations),
+reduce the iteration ambitions. Depending on which phase you are in, make
+scenarios simpler, eliminate or disable features.</p>
+<h3><a name="XE_Iteration_Plan_document__assign_responsibilities"></a><a name="XE_iteration__assign_responsibilities"></a><a name="Assign Responsibilities">Assign
+Responsibilities</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Once the set of activities for the iteration have been defined, they must be
+assigned to individual project team members. Depending on the staff resources
+available and the scope of the iteration, the activities may either be carried
+out by a single individual or a team. Reviews and Inspections are, of course,
+inherently team activities. Other activities, such as authoring use cases or
+designing and implementing classes, are inherently solitary (except in the case
+where a junior team member may be teamed with a senior team member who acts as a
+mentor).</p>
+<p>In general, each work product must be the responsibility of a single
+individual, even if the work is done by a team:
+<ul>
+  <li>Use cases</li>
+  <li>Subsystems</li>
+  <li>Classes</li>
+  <li>Tests and test plans</li>
+  <li>etc.</li>
+</ul>
+<p>Without a single point of contact, ensuring consistency becomes nearly
+impossible.</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

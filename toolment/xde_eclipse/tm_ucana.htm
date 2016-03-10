@@ -1,0 +1,458 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<title>Tool Mentor:&nbsp;Performing Use-Case Analysis Using Rational XDE Developer - Java Platform Edition</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Performing Use-Case
+  Analysis Using Rational XDE Developer - Java Platform Edition</rpw><a name="Top"></a> </h2>
+
+
+<h3>Purpose</h3>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_ucana.htm">Use-Case Analysis</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity. Links to topics
+  in Rational XDE&#153; online Help are marked with <img src="../../images/helpbook.gif" width="16" height="16">.
+
+
+<h3>Overview</h3>
+
+<p>This tool mentor assumes that a Design Model and Use-Case Model have been created 
+  in accordance with the <a href="model_structure_guidelines.htm">XDE Model Structure 
+  Guidelines</a>. It also assumes that the Use-Case Model has been populated with 
+  actors and use cases by following <a href="tm_fauc.htm">Tool Mentor: Finding 
+  Actors and Use Cases Using Rational XDE</a>. 
+<p>In this tool mentor, the following steps are performed for each use case in
+  the current iteration:
+
+<ul>
+  <li><a href="#Create Use-Case Realization">Create the Use-Case Realization</a></li>
+  <li><a href="#Supplement the use-case descriptions">Supplement the Use-Case
+    Descriptions</a></li>
+  <li><a href="#Find Classes from Use-Case Behavior">Find Analysis Classes from
+    Use-Case Behavior</a></li>
+  <li><a href="#Distribute behavior to analysis classes">Distribute Behavior to
+    Analysis Classes</a></li>
+  <li><a href="#Describe responsibilities">Describe Responsibilities</a></li>
+  <li><a href="#Describe attributes and associations">Describe Attributes and
+    Associations</a></li>
+</ul>
+
+<p>The following steps are performed once per iteration:</p>
+
+<ul>
+  <li><a href="#Reconcile the Use-Case Realizations">Reconcile the Use-Case Realizations</a></li>
+  <li><a href="#Qualify Analysis Mechanisms">Qualify Analysis Mechanisms</a></li>
+  <li><a href="#Establish Traceability">Establish 
+    Traceability</a></li>
+  <li><a href="#Review the Results">Review the Results</a></li>
+</ul>
+
+
+<h3><a name="Create Use-Case Realization"></a>Create the Use-Case Realization<a href="#Top"><img src="../../images/top.gif" vspace="0" hspace="0" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>For each use case to be analyzed:</p>
+
+<ol>
+  <li>Navigate to the Design-Model package in which the use-case realizations
+    are to be created. See <a href="model_structure_guidelines.htm">Rational XDE
+    Model Structure Guidelines</a>.
+  </li>
+  <li>Create a use-case diagram to capture the use-case realizations (unless one
+    already exists). See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Add a collaboration instance to the diagram. Give it the same name as the
+    use case. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add a realization relationship to the use case. See
+   <script language=javascript>ReferenceHelpTopic("Adding Realization Relationships","rs","rs_t_add_realztn_relshp");</script>.
+  </li>
+</ol>
+
+<p> For more information, refer to the
+  <script language=javascript>ReferenceHelpTopic("Collaboration Instances","rs","rs_c_collab_instance");</script>
+  topic in the Rational XDE online Help. </p>
+
+
+<h3><a name="Supplement the use-case descriptions">Supplement the Use-Case Descriptions</a>
+ <a href="#Top"><img src="../../images/top.gif" border="0" alt="To Top of Page" width="26" height="20"></a></h3>
+
+<p>If the use-case description needs to be supplemented with additional internal
+  behavioral descriptions, this can be done by adding to an existing use-case
+  description created by following the steps outlined in <a href="tm_desuc.htm">Tool
+  Mentor: Detailing a Use Case with Rational XDE</a>. If the internal behavior
+  of the system bears little resemblance to its external behavior, a completely
+  separate description may be warranted. In this case, attach a separate use-case
+  specification document (see <a href="../../process/artifact/ar_uc.htm">Artifact:
+  Use Case</a> for the template) to the collaboration instance in the model.
+  See
+  <script language=javascript>ReferenceHelpTopic("Linking External Files to Model Elements","rs","rs_t_lnk_extrn_file_mdl_ele");</script>.
+</p>
+
+
+<h3><a name="Find Classes from Use-Case Behavior">Find Analysis Classes from Use-Case
+  Behavior</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+  <li>Navigate to the package in the Design Model that will contain the analysis
+    classes. See <a href="model_structure_guidelines.htm">Rational XDE Model Structure
+    Guidelines</a>.
+  </li>
+  <li>Create one or more class diagrams to capture the analysis classes. See
+   <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Add the analysis classes. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Assign analysis class stereotypes as appropriate. See
+   <script language=javascript>ReferenceHelpTopic("Assigning Stereotypes","rs","rs_t_assign_stereos");</script>.
+  </li>
+  <li>Add a brief description to each class. See
+   <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Optionally associate a document with each class. See
+    <script language=javascript>ReferenceHelpTopic("Linking External Files to Model Elements","rs","rs_t_lnk_extrn_file_mdl_ele");</script>.
+  </li>
+</ol>
+
+<p> For more information, refer to the
+  <script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>
+  topic in the Rational XDE online Help. </p>
+
+<h3><a name="Distribute behavior to analysis classes">Distribute Behavior to Analysis
+  Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+  <li>
+  Navigate to each use-case realization (collaboration instance) to be analyzed.
+  </li>
+  <li> For each independent sub-flow (scenario), create one or more interaction
+    instances. (In the Model Explorer, right-click the collaboration instance,
+    and then click <b>Add UML &gt; Interaction Instance</b>.)
+  </li>
+  <li>
+    Create a sequence diagram for this interaction instance. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Enter a brief description of the scenario that the sequence diagram depicts. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Drag and drop actors and participating classes onto the sequence diagram.
+    See <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add messages between the objects. See
+    <script language=javascript>ReferenceHelpTopic("Adding Messages or Stimuli","rs","rs_t_add_messages");</script>.
+  </li>
+  <li>(optional) Describe the message. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>To describe how the object behaves when it receives the message, assign an operation to the message. See
+    <script language=javascript>ReferenceHelpTopic("Assigning Operations to Messages or Stimuli","rs","rs_t_assgn_op_mess");</script>.
+    (If the operation does not exist, add one to the class as described under
+    <a href="#Describe responsibilities">Describe Responsibilities</a> below,
+    and then assign the operation to the message.)
+  </li>
+</ol>
+
+<p> For more information, refer to the following topics in the Rational XDE online
+  Help:</p>
+
+<ul>
+  <li><script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>
+  </li>
+  <li><script language=javascript>ReferenceHelpTopic("Working with Interaction (Sequence) Diagrams","rs","rs_o_work_inter_dgm");</script>
+  </li>
+</ul>
+
+
+<h3><a name="Describe responsibilities">Describe Responsibilities</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+  <li>Describe responsibilities of the class by adding operations. When you enter
+    the operation name, precede it with two forward slashes (//). The use of these
+    special characters indicates that the operation is being employed to describe
+    the responsibilities of the analysis class. See
+    <script language=javascript>ReferenceHelpTopic("Adding Operations to Classifiers","rs","rs_t_add_oper_clssfr");</script>.
+  </li>
+  <li>Add a description to each operation. See
+   <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+</ol>
+
+
+<h3><a name="Describe attributes and associations">Describe
+  Attributes and Associations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Use the following steps below to describe attributes and associations. </p>
+
+
+<h4><a name="Define Attributes">Define Attributes</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>See the
+  <script language=javascript>ReferenceHelpTopic("Adding Attributes to Classifiers","rs","rs_t_add_attributes_clssfr");</script>
+  topic in the Rational XDE online Help.<br>
+</p>
+
+
+<h4><a name="Establish associations between analysis classes">Establish Associations
+  Between Analysis Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<ol>
+  <li>(optional) Navigate to each use-case realization, and add a class diagram
+    to show the participants in the use-case realization. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Add association relationships (either to the &quot;participants&quot; diagram
+    for a use-case realization or to the class diagram in which the class was
+    first introduced, or to both). (See
+    <script language=javascript>ReferenceHelpTopic("Adding Association Relationships","rs","rs_t_add_assoc_rels");</script>
+  and
+  <script language=javascript>ReferenceHelpTopic("Specifying Kinds of Association Relationships","rs","rs_t_spec_kinds_assoc");</script>.)
+    Once a relationship has been added between classes on one diagram, it can
+    be automatically added to another diagram. See
+    <script language=javascript>ReferenceHelpTopic("Adding or Removing Related Connectors.","rs","rs_t_add_rem_rel_conn");</script>.
+  </li>
+  <li>Specify multiplicity on each association end. See
+    <script language=javascript>ReferenceHelpTopic("Specifying Multiplicity in Association Ends","rs","rs_t_spec_multip_assoc");</script>.
+  </li>
+  <li>Specify navigability on each association end. See
+    <script language=javascript>ReferenceHelpTopic("Specifying Navigability in Association Ends","rs","rs_t_spec_navi_assoc");</script>.
+  </li>
+</ol>
+
+
+<h4><a name="Describe event dependencies between analysis classes">Describe Event
+  Dependencies Between Analysis Classes </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Give a name or stereotype the associations to indicate event dependencies. See
+  <script language=javascript>ReferenceHelpTopic("Naming Relationships","rs","rs_t_name_relshp");</script>
+  and
+  <script language=javascript>ReferenceHelpTopic("Assigning Stereotypes","rs","rs_t_assign_stereos");</script>.
+</p>
+
+<p> For more information, refer to the
+  <script language=javascript>ReferenceHelpTopic("Working with Stereotypes","rs","rs_o_working_stereotypes");</script>
+  topic in the Rational XDE online Help. </p>
+
+
+<h3><a name="Reconcile the Use-Case Realizations">Reconcile the Use-Case Realizations</a>
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p> Examine the analysis classes and their associations. Identify and resolve
+  inconsistencies, and remove any duplicates. </p>
+
+<p> For more information, refer to the
+  <script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>
+  topic in the Rational XDE online Help. </p>
+
+
+<h3><a name="Qualify Analysis Mechanisms">Qualify Analysis Mechanisms</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The analysis mechanisms used by a class and their associated characteristic
+  do not need to be captured in a formal way. A note attached to a diagram (see
+  <script language=javascript>ReferenceHelpTopic("Attaching Notes to Shapes","rs","rs_t_attach_notes_shp");</script>)
+  or an extension to the description of the class (see
+  <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>)
+  is sufficient to convey the information.
+</p>
+
+
+<h3><a name="Establish Traceability">Establish
+  Traceability</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p> Add traceability dependencies between the Analysis/Design-Model elements and 
+  other models, as specified in project guidelines. For example, there may be 
+  a separate business model, conceptual data model, or model of user interface 
+  screens that you wish to trace analysis classes to. To do this:</p>
+
+<ol>
+  <li>Create a diagram for Traceability. See 
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Drag and drop elements to be traced onto the diagram. See
+   <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add the traceability dependencies (abstraction dependencies optionally stereotyped &laquo;trace&raquo;). See
+   <script language=javascript>ReferenceHelpTopic("Adding Abstraction Relationships","rs","rs_t_add_abstrctn_relshp");</script>.
+  </li>
+</ol>
+
+
+<h3><a name="Review the Results">Review the Results</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>It may be helpful to publish any models to html format. Also note that diagrams
+  can be copied from Rational XDE to Microsoft Word and other programs. </p>
+
+<p> For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Reporting in Rational XDE","cr","cr_o_rptg_xde");</script>.
+</p>
+
+
+
+
+
+  
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>  
+
+</body>
+
+</html>

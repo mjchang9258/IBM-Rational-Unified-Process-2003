@@ -1,0 +1,296 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Layering</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Layering</rpw><a name="XE_layering__guidelines"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#LayeringGuidelines">Layering Guidelines</a></li>
+  <li><a href="#PartitioningPatterns">Partitioning Patterns</a></li>
+</ul>
+
+<h3><a name="LayeringGuidelines">Layering Guidelines </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Layering provides a logical partitioning of subsystems into a number of sets, 
+  with certain rules as to how relationships can be formed between layers. The 
+  layering provides a way to restrict inter-subsystem dependencies, with the result 
+  that the system is more loosely coupled and therefore more easily maintained.</p>
+<p>The criteria for grouping subsystems follow a few patterns:</p>
+<ul>
+  <li><b>Visibility</b>. Subsystems may only depend on subsystems in the same 
+    layer and the next lower layer.</li>
+  <li><b>Volatility</b>.
+    <ul>
+      <li><b>In the highest layers</b>, put elements which vary when user requirements 
+        change.</li>
+      <li><b>In the lowest layers</b>, put elements that vary when the implementation 
+        platform (hardware, language, operating system, database, etc.) changes.</li>
+      <li>Sandwiched in the middle, put elements which are generally applicable 
+        across wide ranges of systems and implementation environments.</li>
+      <li>Add layers when additional partitions within these broad categories 
+        helps to organize the model.</li>
+    </ul>
+  </li>
+  <li><b>Generality</b>. Abstract model elements tend to be placed lower in the 
+    model. If not implementation-specific, they tend to gravitate toward the middle 
+    layers.</li>
+  <li><b>Number of Layers.</b> For a small system, three layers are sufficient. 
+    For a complex system, 5-7 layers are usually sufficient. For any degree of 
+    complexity, more than 10 layers should be viewed with suspicion that increases 
+    with the number of layers. Some rules of thumb are presented below:</li>
+</ul>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%"><p align="center"><b># Classes</b></td>
+    <td width="60%"><p align="center"><b># Layers</b></td>
+  </tr>
+  <tr>
+    <td width="40%"><p align="center">0 - 10</td>
+    <td width="60%">No layering needed</td>
+  </tr>
+  <tr>
+    <td width="40%"><p align="center">10 - 50</td>
+    <td width="60%">2 layers</td>
+  </tr>
+  <tr>
+    <td width="40%"><p align="center">25 - 150</td>
+    <td width="60%">3 layers</td>
+  </tr>
+  <tr>
+    <td width="40%"><p align="center">100 - 1000</td>
+    <td width="60%">4 layers</td>
+  </tr>
+</table>
+<br></div>
+
+<p>Subsystems and packages within a particular layer should only depend upon subsystems 
+  within the same layer, and at the next lower layer. Failure to restrict dependencies 
+  in this way causes architectural degradation and makes the system brittle and 
+  difficult to maintain.</p>
+<p>Exceptions include cases where subsystems need direct access to lower layer 
+  services: a conscious decision should be made on how to handle primitive services 
+  needed throughout the system, such as printing, sending messages, etc. There 
+  is little value in restricting messages to lower layers if the solution is to 
+  effectively implement call pass-throughs in the intermediate layers.</p>
+
+<h3><a name="PartitioningPatterns">Partitioning Patterns</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Within the top-layers of the system, additional partitioning may help organize 
+  the model. The following guidelines for partitioning present different issues 
+  to consider:</p>
+<ul>
+  <li><b>User organization</b>. Subsystems may be organized along lines that mirror 
+    the organization of functionality in the business organization (e.g. partitioning 
+    occurs along departmental lines). This partitioning often occurs early in 
+    the design because an existing enterprise model has a strongly organizationally 
+    partitioned structure. This organization pattern usually affects only the 
+    top few layers of application-specific services, and often disappears as the 
+    design evolves. 
+    <ul>
+      <li>Partitioning along user organization lines can be a good starting point 
+        for the model.</li>
+      <li>The structure of the user organization is not stable over a long period 
+        of time (due to business reorganization), and is not a good long-term 
+        basis for system partitioning. The internal organization of the system 
+        should enable the system to evolve and be maintained independently of 
+        the organization of the business it supports.</li>
+    </ul>
+  </li>
+  <li><b>Areas of competence and/or skills</b>. Subsystems may be organized to 
+    partition responsibilities for parts of the model among different groups within 
+    the development organization. Typically, this occurs in the middle and lower 
+    layers of the system, and reflects the need for specialization in skills during 
+    the development and support of complex infrastructural technology. Examples 
+    of such technologies include network and distribution management, database 
+    management, communication management, and process control, among others. Partitioning 
+    along competence lines may also occur in upper layers, where special competency 
+    in the problem domain is required to understand and support key business functionality; 
+    examples include telecommunication call management, securities trading, insurance 
+    claims processing, and air traffic control, to name a few.</li>
+  <li><b>System distribution</b>. Within any of the layers of the system, the 
+    layers may be further partitioned &quot;horizontally&quot; to reflect the 
+    physical distribution of functionality. 
+    <ul>
+      <li>Partitioning to reflect distribution can help to visualize the network 
+        communication which will occur as the system executes.</li>
+      <li>Partitioning to reflect distribution can, however, make the system more 
+        difficult to change if the Deployment Model changes significantly.</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li><b>Secrecy areas</b>. Some applications, especially those requiring special 
+    security clearance to develop and/or support, require additional partitioning 
+    along security access privilege lines. Software that control access to secrecy 
+    areas must be developed and maintained by personnel with appropriate clearance. 
+    If the number of persons with this background on the project is limited, the 
+    functionality requiring special clearance must be partitioning into subsystems 
+    that will be developed independently of other subsystems, with the interfaces 
+    to the secrecy areas the only visible aspect of these subsystems.</li>
+  <li><b>Variability areas</b>. Functionality that is likely to be optional, and 
+    thereby delivered only in some variants of the system, should be organized 
+    into independent subsystems which are developed and delivered independently 
+    of the mandatory functionality of the system.</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

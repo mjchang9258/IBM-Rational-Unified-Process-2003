@@ -1,0 +1,251 @@
+<!-- RPW META DATA START --
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Component</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Component</rpw><a name="Top"></a><a name="XE_component__concepts"></a></h2>
+<h5 align="left">Topics</h5>
+<ul>
+  <li><a href="#Introduction">Definition</a></li>
+  <li><a href="#Component_Replaceability">Component Replaceability</a></li>
+  <li><a href="#Component_Modeling">Modeling of Components</a></li>
+</ul>
+<h3><b><a name="Introduction">Definition</a> </b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The software industry and literature use the term &quot;component&quot; to 
+  refer to many different things. It is often used in the broad sense to mean 
+  &quot;a constituent part&quot;. It is also frequently used in a narrow sense 
+  to denote specific characteristics that enable replacement and assembly in larger 
+  systems.</p>
+<p>In the RUP, we use the term &quot;component&quot; to mean an encapsulated part 
+  of a system, ideally a non-trivial, nearly independent, and replaceable part 
+  of a system that fulfills a clear function in the context of a well-defined 
+  architecture. This includes:</p>
+<ul>
+  <li>design component &#151; a significant encapsulated part of the design, and 
+    so includes Design Subsystems and sometimes significant Design Classes and 
+    Design Packages.</li>
+  <li>implementation component &#151; a significant encapsulated part of the implementation, 
+    generally code that implements a design component.</li>
+</ul>
+<p>Ideally the design reflects the implementation, and so one can refer to just 
+  components, each component having a design and an implementation. </p>
+<p>The UML defines component as</p>
+<blockquote>
+  <p>A modular, deployable, and replaceable part of a system that encapsulates 
+    implementation and exposes a set of interfaces. A component is typically specified 
+    by one or more classifiers (e.g., implementation classes) that reside on it, 
+    and may be implemented by one or more artifacts (e.g., binary, executable, 
+    or script files). </p>
+</blockquote>
+<p>The RUP usage of the term component is broader than the UML definition. Rather 
+  than define components as having characteristics such as modularity, deployability, 
+  and replaceability, we instead recommend these as desirable characteristics 
+  of components. See the section below on Component Replaceability.<br>
+</p>
+<h3><b><a name="Component_Replaceability">Component Replaceability</a></b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In RUP and UML terminology, components should be replaceable. However, this 
+  may only mean that it exposes a set of interfaces that hide an underlying implementation.</p>
+<p>There are other, stronger, kinds of replaceability. These are listed below.</p>
+<h4>Source-file replaceability</h4>
+<p>If two classes are implemented in a single source code file, then each of the 
+  classes cannot usually be separately versioned and controlled.</p>
+<p>However, if a set of files fully implements a single component, and no other 
+  component, then the component is source-file replaceable. This characteristic 
+  makes it easier for component source code to be version-controlled, baselined, 
+  and re-used.</p>
+<h4>Deployment replaceability</h4>
+<p> If two classes are deployed in a single executable, then each class is not 
+  independently replaceable in a deployed system.</p>
+<p>A desirable characteristic of larger granularity components is to be &quot;deployment 
+  replaceable&quot;, allowing new versions of the component to be deployed without 
+  having to re-build the other components. This usually means there is one file 
+  or one set of files that deploy the component and no other component.</p>
+<h4>Run-time replaceability</h4>
+<p>If a component can be redeployed into a running system, then it is referred 
+  to as &quot;run-time replaceable&quot;. This enables software to be upgraded 
+  without loss of availability.</p>
+<h4>Location transparency</h4>
+<p>Components with network addressable interfaces are referred to as having &quot;location 
+  transparency&quot;. This allows components to be relocated to other servers, 
+  or to be replicated on multiple servers, to support fault tolerance, load balancing, 
+  and so on. These kinds of components are often referred to as &quot;distributed&quot; 
+  or &quot;distributable&quot; components.</p>
+<h3><b><a name="Component_Modeling">Modeling of Components</a></b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The UML component is a modeling construct that, much like the UML subsystem, 
+  provides the following capabilities:</p>
+<ul>
+  <li>can group classes to define a larger granularity part of a system</li>
+  <li>can separate the visible interfaces from internal implementation </li>
+  <li>can have instances that execute at run-time <br>
+  </li>
+</ul>
+<p> The RUP definition of &quot;component&quot; is broader than that of the UML 
+  definition, and so other modeling constructs, such as class, package, and subsystem, 
+  are often referred to as representing components. RUP considers the UML component 
+  modeling construct as an alternative notation for <a href="../../artifact/ar_dsub.htm">Artifact: 
+  Design Subsystem</a>. See <a href="../../modguide/md_dsub.htm">Guidelines: Design 
+  Subsystem</a> for details.</p>
+<p>Note that in UML 1.3 and earlier versions of the UML, the &quot;component&quot; 
+  notation was used to represent files in the implementation. Files are no longer 
+  considered &quot;components&quot; by the latest UML definition. However, many 
+  tools and UML profiles still use the component notation to represent files. 
+  See <a href="../../modguide/md_comp.htm">Guidelines: Implementation Element</a> 
+  for more discussion on representing files in the UML.</p>
+<br>
+  <br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+  
+</body>
+
+</html>

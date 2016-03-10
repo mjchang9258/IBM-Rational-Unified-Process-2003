@@ -1,0 +1,727 @@
+<!-- RPW META DATA START --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Checkpoints:&nbsp;Software Architecture Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Checkpoints:&nbsp;<rpw name="PresentationName">Software Architecture 
+  Document</rpw><a name="XE_Software_Architecture_Document__checkpoints"></a><a name="Top"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li class="ck"><a href="#General">General</a></li>
+  <li class="ck"><a href="#Models">Models</a>
+    <ul>
+      <li><a href="#Architectural Analysis Considerations">Architectural
+        Analysis Considerations</a></li>
+      <li><a href="#General Model Considerations">General Model Considerations</a></li>
+    </ul>
+  </li>
+  <li class="ck"><a href="#Diagrams">Diagrams</a></li>
+  <li class="ck"><a href="#Documentation">Documentation</a></li>
+  <li class="ck"><a href="#Error recovery">Error Recovery</a></li>
+  <li class="ck"><a href="#Transition and Installation">Transition and
+    Installation</a></li>
+  <li class="ck"><a href="#Administration">Administration</a></li>
+  <li class="ck"><a href="#Performance">Performance</a></li>
+  <li class="ck"><a href="#Memory Utilization">Memory Utilization</a></li>
+  <li class="ck"><a href="#Cost and Schedule">Cost and Schedule</a></li>
+  <li class="ck"><a href="#Portability">Portability</a></li>
+  <li class="ck"><a href="#Reliability">Reliability</a></li>
+  <li class="ck"><a href="#Security">Security</a></li>
+  <li class="ck"><a href="#Organizational Issues">Organizational Issues</a></li>
+  <li class="ck"><a href="#LogicalView">The Logical View</a></li>
+  <li class="ck"><a href="#The Process View">The Process View</a></li>
+  <li class="ck"><a href="#The Deployment View">The Deployment View</a></li>
+</ul>
+<h3><a name="General">General</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p><font face="Helvetica-Bold">Overall, the system is soundly based
+architecturally,
+because:</font>
+<ul>
+  <li class="ck">The architecture appears to be stable.
+    <p>The need for stability is dictated by the nature of the Construction
+    phase: in Construction the project typically expands, adding developers who
+    will work in parallel, communicating loosely with other developers as they
+    produce the product. The degree of independence and parallelism needed in
+    Construction simply cannot be achieved if the architecture is not stable.</p>
+    <p>The importance of a stable architecture cannot be overstated. Do not be
+    deceived into thinking that 'pretty close is good enough' - unstable is
+    unstable, and it is better to get the architecture right and delay the onset
+    of Construction rather than proceed. The coordination problems involved in
+    trying to repair the architecture while developers are trying to build upon
+    its foundation will easily erase any apparent benefits of accelerating the
+    schedule. Changes to architecture during Construction have broad impact:
+    they tend to be expensive, disruptive and demoralizing.</p>
+    <p>The real difficulty of assessing architectural stability is that
+    &quot;you don't know what you don't know&quot;; stability is measured
+    relative to expected change. As a result, stability is essentially a
+    subjective measure. We can, however, base this subjectivity on more than
+    just conjecture. The architecture itself is developed by considering
+    'architecturally significant' scenarios - sub-sets of use cases which
+    represent the most technologically challenging behavior the system must
+    support. Assessing the stability of the architecture involves ensuring that
+    the architecture has broad coverage, to ensure that there will be no
+    'surprises' in the architecture going forward.</p>
+    <p>Past experience with the architecture can also be a good indicator: if
+    the rate of change in the architecture is low, and remains low as new
+    scenarios are covered, there is good reason to believe that the architecture
+    is stabilizing. Conversely, if each new scenario causes changes in the
+    architecture, it is still evolving and baselining is not yet warranted.</p>
+  </li>
+  <li class="ck">The complexity of the system matches the functionality it provides.</li>
+  <li class="ck"> The conceptual complexity is appropriate given the skill and 
+    experience of its:
+<ul>
+    <li class="ck">users</li>
+    <li class="ck">operators</li>
+    <li class="ck">developers</li>
+  </ul>
+  </li>
+  <li class="ck">The system has a single consistent, coherent architecture</li>
+  <li class="ck">The number and types of component is reasonable</li>
+  <li class="ck">The system has a consistent system-wide security
+    facility.&nbsp; All the security components work together to safeguard the
+    system.</li>
+  <li class="ck">The system will meet its availability targets.</li>
+  <li class="ck">The architecture will permit the system to be recovered in the
+    event of a failure within the required amount of time.</li>
+  <li class="ck">The products and techniques on which the system is based match
+    its expected life?
+    <ul>
+      <li class="ck">An interim (tactical) system with a short life can safely
+        be built using old technology because it will soon be discarded.</li>
+      <li class="ck">A system with a long life expectancy (most systems) should
+        be built on up-to-date technology and methods so it can be maintained
+        and expanded to support future requirements.</li>
+    </ul>
+  </li>
+  <li class="ck">The architecture provides defines clear interfaces to enable
+    partitioning for parallel team development.</li>
+  <li class="ck">The designer of a model element can understand enough from the
+    architecture to successfully design and develop the model element.</li>
+  <li class="ck">The packaging approach reduces complexity and improves
+    understanding.</li>
+  <li class="ck">Packages have been defined to be highly cohesive within the
+    package, while the packages themselves are loosely coupled.</li>
+  <li class="ck">Similar solutions within the common application domain have
+    been considered.</li>
+  <li class="ck">The proposed solution can be easily understood by someone
+    generally knowledgeable in the problem domain.</li>
+  <li class="ck">All people on the team share the same view of the architecture
+    as the one presented by the software architect.</li>
+  <li class="ck">The Software Architecture Document is current.</li>
+  <li class="ck">The Design Guidelines have been followed.</li>
+  <li class="ck">All technical risks been either mitigated or have been
+    addressed in a contingency plan. New risk discovered have been documented
+    and analyzed for their potential impact.</li>
+  <li class="ck">The key performance requirements (established budgets) have
+    been satisfied.</li>
+  <li class="ck">Test cases, test harnesses, and test configurations have been
+    identified.</li>
+  <li class="ck">The architecture does not appear to be
+    &quot;over-designed&quot;.
+    <ul>
+      <li class="ck">The mechanisms in place appear to be simple enough to use.</li>
+      <li class="ck">The number of mechanisms is modest and consistent with the
+        scope of the system and the demands of the problem domain.</li>
+    </ul>
+</li>
+  <li class="ck">All use-case realizations defined for the current iteration can
+    be executed by the architecture, as demonstrated by diagrams depicting:</li>
+  
+    <ul>
+      <li class="ck">Interactions between objects,</li>
+      <li class="ck">Interactions between tasks and processes,</li>
+      <li class="ck">Interaction between physical nodes.</li>
+    </ul>
+  
+</ul>
+<h3><a name="Models">Models</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<h4><a name="Architectural Analysis Considerations">Architectural Analysis
+Considerations</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h4>
+<h5>Overall</h5>
+<ul>
+  <ul>
+    <li class="ck">Subsystem and package partitioning and layering is logically
+      consistent.</li>
+    <li class="ck">All analysis mechanisms have been identified and described.</li>
+  </ul>
+</ul>
+<h5>Subsystems</h5>
+<ul>
+  <ul>
+    <li class="ck">The services (interfaces) of subsystems in upper-level layers
+      have been defined.</li>
+    <li class="ck">The dependencies between subsystems and packages correspond
+      to dependency relationships between the contained classes.</li>
+    <li class="ck">The classes in a subsystem support the services identified
+      for the subsystem.</li>
+  </ul>
+</ul>
+<h5>Classes</h5>
+<ul>
+  <ul>
+    <li class="ck">The key entity classes and their relationships have been
+      identified.</li>
+    <li class="ck">Relationships between key entity classes have been defined.</li>
+    <li class="ck">The name and description of each class clearly reflects the
+      role it plays.</li>
+    <li class="ck">The description of each class accurately captures the
+      responsibilities of the class.</li>
+    <li class="ck">The entity classes have been mapped to analysis mechanisms
+      where appropriate.</li>
+    <li class="ck">The role names of aggregations and associations accurately
+      describe the relationship between the related classes.</li>
+    <li class="ck">The multiplicities of the relationships are correct.</li>
+    <li class="ck">The key entity classes and their relationships are consistent
+      with the business model (if it exists), domain model (if it exists),
+      requirements, and glossary entries.</li>
+  </ul>
+</ul>
+<h4><a name="General Model Considerations">General Model Considerations</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h4>
+<ul>
+  <ul>
+    <li class="ck">The model is at an appropriate level of detail given the
+      model objectives.</li>
+    <li class="ck">For the business model, requirements model or the design
+      model during the elaboration phase, there is not an over-emphasis on
+      implementation issues.</li>
+    <li class="ck">For the design model in the construction phase, there is a
+      good balance of functionality across the model elements, using composition
+      of relatively simple elements to build a more complex design.</li>
+    <li class="ck">The model demonstrates familiarity and competence with the
+      full breadth of modeling concepts applicable to the problem domain;
+      modeling techniques are used appropriately for the problem at hand.</li>
+    <li class="ck">Concepts are modeled in the simplest way possible.</li>
+    <li class="ck">The model is easily evolved; expected changes can be easily
+      accommodated.</li>
+    <li class="ck">At the same time, the model has not been overly structured to
+      handle unlikely change, at the expense of simplicity and
+      comprehensibility.</li>
+    <li class="ck">The key assumptions behind the model are documented and
+      visible to reviewers of the model. If the assumptions are applicable to a
+      given iteration, then the model should be able to be evolved within those
+      assumptions, but not necessarily outside of those assumptions. Documenting
+      assumptions is a way of indemnifying designers from not looking at
+      &quot;all&quot; possible requirements. In an iterative process, it is
+      impossible to analyze all possible requirements, and to define a model
+      which will handle every future requirement.</li>
+  </ul>
+</ul>
+<h3><a name="Diagrams">Diagrams</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The purpose of the diagram is clearly stated and easily
+      understood.</li>
+    <li class="ck">The graphical layout is clean and clearly conveys the
+      intended information.</li>
+    <li class="ck">The diagram conveys just enough to accomplish its objective,
+      but no more.</li>
+    <li class="ck">Encapsulation is effectively used to hide detail and improve
+      clarity.</li>
+    <li class="ck">Abstraction is effectively used to hide detail and improve
+      clarity.</li>
+    <li class="ck">Placement of model elements effectively conveys
+      relationships; similar or closely coupled elements are grouped together.</li>
+    <li class="ck">Relationships among model elements are easy to understand.</li>
+    <li class="ck">Labeling of model elements contributes to understanding.</li>
+  </ul>
+</ul>
+<h3><a name="Documentation">Documentation</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Each model element has a distinct purpose.</li>
+    <li class="ck">There are no superfluous model elements; each one plays an
+      essential role in the system.</li>
+  </ul>
+</ul>
+<h3><a name="Error recovery">Error recovery</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">For each error or exception, a policy defines how the system
+      is restored to a &quot;normal&quot; state.</li>
+    <li class="ck">For each possible type of input error from the user or wrong
+      data from external systems, a policy defines how the system is restored to
+      a &quot;normal&quot; state.</li>
+    <li class="ck">There is a consistently applied policy for handling
+      exceptional situations.</li>
+    <li class="ck">There is a consistently applied policy for handling data
+      corruption in the database.</li>
+    <li class="ck">There is a consistently applied policy for handling database
+      unavailability, including whether data can still be entered into the
+      system and stored later.</li>
+    <li class="ck">If data is exchanged between systems, there is a policy for
+      how systems synchronize their views of the data.</li>
+    <li class="ck">In the system utilizes redundant processors or nodes to
+      provide fault tolerance or high availability, there is a strategy for
+      ensuring that no two processors or nodes can 'think' that they are
+      primary, or that no processor or node is primary.</li>
+    <li class="ck">The failure modes for a distributed system have been
+      identified and strategies defined for handling the failures.</li>
+  </ul>
+</ul>
+<h3><a name="Transition and Installation">Transition and Installation</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The process for upgrading an existing system without loss of
+      data or operational capability is defined and has been tested.</li>
+    <li class="ck">The process for converting data used by previous releases is
+      defined and has been tested.</li>
+    <li class="ck">The amount of time and resources required to upgrade or
+      install the product is well-understood and documented.</li>
+    <li class="ck">The functionality of the system can be activated one use case
+      at a time.</li>
+  </ul>
+</ul>
+<h3><a name="Administration">Administration</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Disk space can be reorganized or recovered while the system
+      is running.</li>
+    <li class="ck">The responsibilities and procedures for system configuration
+      have been identified and documented.</li>
+    <li class="ck">Access to the operating system or administration functions is
+      restricted.</li>
+    <li class="ck">Licensing requirements are satisfied.</li>
+    <li class="ck">Diagnostics routines can be run while the system is running.</li>
+    <li class="ck">The system monitors operational performance itself (e.g.
+      capacity threshold, critical performance threshold, resource exhaustion).
+      <ul>
+        <li class="ck">The actions taken when thresholds are reached are
+          defined.</li>
+        <li class="ck">The alarm handling policy is defined.</li>
+        <li class="ck">The alarm handling mechanism is defined and has been
+          prototyped and tested.</li>
+        <li class="ck">The alarm handling mechanism can be 'tuned' to
+          prevent false or redundant alarms.</li>
+      </ul>
+    </li>
+    <li class="ck">The policies and procedures for network (LAN, WAN) monitoring
+      and administration are defined.</li>
+    <li class="ck">Faults on the network can be isolated.</li>
+    <li class="ck">There is an event tracing facility that can enabled to aid in
+      troubleshooting.
+      <ul>
+        <li class="ck">The overhead of the facility is understood.</li>
+        <li class="ck">The administration staff possesses the knowledge to use
+          the facility effectively.</li>
+      </ul>
+    </li>
+    <li class="ck">It is not possible for a malicious user to:
+      <ul>
+        <li class="ck">enter the system.</li>
+        <li class="ck">destroy critical data.</li>
+        <li class="ck">consume all resources.</li>
+      </ul>
+    </li>
+  </ul>
+</ul>
+<h3><a name="Performance">Performance</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<blockquote> 
+  <ul>
+    <li class="ck">Performance requirements are reasonable and reflect real constraints 
+      in the problem domain; their specification is not arbitrary.</li>
+    <li>Estimates of system performance exist (modeled as necessary using a Workload 
+      Analysis Model), and these indicate that the performance requirements are 
+      not significant risks.</li>
+    <li>System performance estimates have been validated using architectural prototypes, 
+      especially for performance-critical requirements.</li>
+  </ul>
+</blockquote>
+<h3><a name="Memory Utilization">Memory Utilization</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Memory budgets for the application have been defined.</li>
+    <li class="ck">Actions have been taken to detect and prevent memory leaks.</li>
+    <li class="ck">There is a consistently applied policy defining how the
+      virtual memory system is used, monitored and tuned.</li>
+  </ul>
+</ul>
+<h3><a name="Cost and Schedule">Cost and Schedule</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The actual number of lines of code developed thus far agrees
+      with the estimated lines of code at the current milestone.</li>
+    <li class="ck">The estimation assumptions have been reviewed and remain
+      valid.</li>
+    <li class="ck">Cost and schedule estimates have been re-computed using the
+      most recent actual project experience and productivity performance.</li>
+  </ul>
+</ul>
+<h3><a name="Portability">Portability</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Portability requirements have been met.</li>
+    <li class="ck">Programming Guidelines provide specific guidance on creating
+      portable code.</li>
+    <li class="ck">Design Guidelines provide specific guidance on designing
+      portable applications.</li>
+    <li class="ck">A 'test port' has been done to verify portability claims.</li>
+  </ul>
+</ul>
+<h3><a name="Reliability">Reliability</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Measures of quality (MTBF, number of outstanding defects,
+      etc.) have been met.</li>
+    <li class="ck">The architecture provides for recovery in the event of
+      disaster or system failure</li>
+  </ul>
+</ul>
+<h3><a name="Security">Security </a><a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Security requirements have been met.</li>
+  </ul>
+</ul>
+<h3><a name="Organizational Issues">Organizational Issues</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Are the teams well-structured? Are responsibilities
+      well-partitioned between teams?</li>
+    <li class="ck">Are there political, organizational or administrative issues
+      that restrict the effectiveness of the teams?</li>
+    <li class="ck">Are there personality conflicts?</li>
+  </ul>
+</ul>
+<h3><a name="LogicalView">The Logical View</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p>The Logical View section of the Software Architecture Document:
+<ul>
+  <ul>
+    <li class="ck">accurately and completely presents an overview of the
+      architecturally significant elements of the design.</li>
+    <li class="ck">presents the complete set of architectural mechanisms used in
+      the design along with the rationale used in their selection.</li>
+    <li class="ck">presents the layering of the design, along with the rationale
+      used to partition the layers.</li>
+    <li class="ck">presents any frameworks or patterns used in the design, along
+      with the rationale used to select the patterns or frameworks.</li>
+    <li class="ck">The number of architecturally significant model elements is
+      proportionate to the size and scope of the system, and is of a size which
+      still renders the major concepts at work in the system understandable.</li>
+  </ul>
+</ul>
+<h3><a name="The Process View">The Process View</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<h5>Topics</h5>
+<ul>
+  <li class="ck"><a href="#Resource Utilization">Resource Utilization</a></li>
+  <li class="ck"><a href="#Performance1">Performance</a></li>
+  <li class="ck"><a href="#Fault Tolerance">Fault Tolerance</a></li>
+  <li class="ck"><a href="#Modularity">Modularity</a></li>
+</ul>
+<h4><a name="Resource Utilization">Resource Utilization</a>  <a href="#The Process View"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h4>
+<ul>
+  <ul>
+    <li class="ck">Potential race conditions (process competition for critical
+      resources) have been identified and avoidance and resolution strategies
+      have been defined.</li>
+    <li class="ck">There is a defined strategy for handling &quot;I/O queue
+      full&quot; or &quot;buffer full&quot; conditions.</li>
+    <li class="ck">The system monitors itself (capacity threshold, critical
+      performance threshold, resource exhaustion) and is capable of taking
+      corrective action when a problem is detected.</li>
+  </ul>
+</ul>
+<h4><a name="Performance1">Performance</a> <a href="#The Process View"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h4>
+<ul>
+  <ul>
+    <li class="ck">Response time requirements for each message have been
+      identified.</li>
+    <li class="ck">There is a diagnostic mode for the system which allows
+      message response times to be measured.</li>
+    <li class="ck">The nominal and maximal performance requirements for
+      important operations have been specified.</li>
+    <li class="ck">There are a set of performance tests capable of measuring
+      whether performance requirements have been met.</li>
+    <li class="ck">The performance tests cover the &quot;extra-normal&quot;
+      behavior of the system (startup and shutdown, alternate and exceptional
+      flows of events of the use cases, system failure modes).</li>
+    <li class="ck">Architectural weaknesses creating the potential for
+      performance bottlenecks have been identified. Particular emphasis has been
+      given to:</li>
+    <ul>
+      <li class="ck">Use of some finite shared resource such as (but not limited
+        to) semaphores, file handles, locks, latches, shared memory, etc.</li>
+      <li class="ck">inter-process communication. Communication across process
+        boundaries is always more expensive than in-process communication.</li>
+      <li class="ck">inter-processor communication. Communication across process
+        boundaries is always more expensive than inter-process communication.</li>
+      <li class="ck">physical and virtual memory usage; the point at which the
+        system runs out of physical memory and starts using virtual memory is a
+        point at which performance usually drops precipitously.</li>
+    </ul>
+  </ul>
+</ul>
+<h4><a name="Fault Tolerance">Fault Tolerance</a>  <a href="#The Process View"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h4>
+<ul>
+  <ul>
+    <li class="ck">Where there are primary and backup processes, the potential
+      for more than one process believing that it is primary (or no process
+      believing that it is primary) has been considered and specific design
+      actions have been taken to resolve the conflict.</li>
+    <li class="ck">There are external processes that will restore the system to
+      a consistent state when an event like a process failure leaves the system
+      in an inconsistent state.</li>
+    <li class="ck">The system tolerant of errors and exceptions, such that when
+      an error or exception occurs, the system can revert to a consistent state.</li>
+    <li class="ck">Diagnostic tests can be executed while the system is running.</li>
+    <li class="ck">The system can be upgraded (hardware, software) while it is
+      running, if required.</li>
+    <li class="ck">There is a consistent policy for handling alarms in the
+      system, and the policy has been consistently applied. The alarm policy
+      addresses:</li>
+    <ul>
+      <li class="ck">the &quot;sensitivity&quot; of the alarm reporting
+        mechanism;</li>
+      <li class="ck">the prevention of false or redundant alarms;</li>
+      <li class="ck">the training and user interface requirements of staff who
+        will use the alarm reporting mechanism.</li>
+    </ul>
+    <li class="ck">The performance impact (process cycles, memory, etc.) of the
+      alarm reporting mechanism has been assessed and falls within acceptable
+      performance thresholds as established in the performance requirements.</li>
+    <li class="ck">The workload/performance requirements have been examined and
+      have been satisfied. In the case where the performance requirements are
+      unrealistic, they have been re-negotiated.</li>
+    <li class="ck">Memory budgets, to the extent that they exist, have been
+      identified and the software has been verified to meet those requirements.
+      Measures have been taken to detect and prevent memory leaks.</li>
+    <li class="ck">A policy exists for use of the virtual memory system,
+      including how to monitor and tune its usage.</li>
+  </ul>
+</ul>
+<h4><a name="Modularity">Modularity</a>  <a href="#The Process View"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h4>
+<ul>
+  <ul>
+    <li class="ck">Processes are sufficiently independent of one another that
+      they can be distributed across processors or nodes when required.</li>
+    <li class="ck">Processes which must remain co-located (because of
+      performance and throughput requirements, or the inter-process
+      communication mechanism (e.g. semaphores or shared memory)) have been
+      identified, and the impact of not being able to distribute this workload
+      has been taken into consideration.</li>
+    <li class="ck">Messages which can be made asynchronous, so that they can be
+      processed when resources are more available, have been identified.</li>
+  </ul>
+</ul>
+
+    <h3><a name="The Deployment View">The Deployment View</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+
+<ul>
+  <ul>
+    <li class="ck">The throughput requirements have been satisfied by the
+      distribution of processing across nodes, and potential performance
+      bottlenecks have been addressed.</li>
+    <li class="ck">Where information is distributed and potentially replicated
+      across several nodes, information integrity is ensured.</li>
+    <li class="ck">Requirements for reliable transport of messages, such that
+      they exist, have been satisfied.</li>
+    <li class="ck">Requirements for secure transport of messages, such that they
+      exist, have been satisfied.</li>
+    <li class="ck">Processing has been distributed across nodes in such a way
+      that network traffic and response time have been minimized subject to
+      consistency and resource constraints.</li>
+    <li class="ck">System availability requirements, to the extent that they
+      exist, have been satisfied.
+      <ul>
+        <li class="ck">The maximum system down-time in the event of a server or
+          network failure has been determined and is within acceptable limits as
+          defined by the requirements.</li>
+        <li class="ck">Redundant and stand-by servers have been defined in such
+          a way that it is not possible for more than one server to be
+          designated as the &quot;primary&quot; server.</li>
+      </ul>
+    </li>
+    <li class="ck">All potential failure modes have been documented.</li>
+    <li class="ck">Faults in the network can be isolated, diagnosed and
+      resolved.</li>
+    <li class="ck">The amount of &quot;headroom&quot; in the CPU utilization has
+      been identified, and the method of measurement has been defined</li>
+    <li class="ck">There is a stated policy for the actions to be taken when the
+      maximum CPU utilization is exceeded.</li>
+  </ul>
+</ul>
+    <p>&nbsp;</p>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

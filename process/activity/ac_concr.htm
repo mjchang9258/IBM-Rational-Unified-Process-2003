@@ -1,0 +1,652 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Describe the Run-time Architecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Describe the Run-time 
+  Architecture</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To analyze concurrency requirements, to identify processes, identify
+        inter-process communication mechanisms, allocate inter-process
+        coordination resources, identify process lifecycles, and distribute
+        model elements among processes.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Define Concurrency Requirements">Analyze Concurrency
+        Requirements</a></li>
+      <li><a href="#IdentifyProcessesAndThreads">Identify Processes and Threads</a></li>
+      <li><a href="#Identify Process Lifecycles">Identify Process Lifecycles</a></li>
+      <li><a href="#Identify Inter-Process Communication Mechanisms">Identify
+        Inter-Process Communication Mechanisms</a></li>
+      <li><a href="#Allocate Inter-Process Coordination Resources">Allocate
+        Inter-Process Coordination Resources</a></li>
+      <li><a href="#Map Processes onto the Implementation Environment">Map
+        Processes onto the Implementation Environment</a></li>
+      <li><a href="#Map Design Elements To Threads of Control">Map Design Elements To Threads of Control</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_cpsl.htm">Capsule</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_archt.htm">Software Architect</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/rosert/tm_rrtconcur.htm">Capturing a Concurrency Architecture using Rational Rose RealTime</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_concr.htm">Describing the Run-time Architecture Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_concr.htm">Describing the Run-time Architecture Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/rose/tm_proc.htm">Documenting the Process View Using Rational Rose</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/ana_desi/co_cncry.htm">Concept: Concurrency</a></li>
+<li><a href="../modguide/md_cncry.htm">Guideline: Concurrency</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and2.htm">Refine the Architecture</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<p>Active objects (that is, instances of active classes) are used
+to represent concurrent threads of execution in the system: notionally, each
+active object has its own thread of control, and, conventionally, is the root of
+an execution stack frame. The mapping of active objects to actual operating
+system threads or processes may vary according to responsiveness requirements,
+and will be influenced by considerations of context switching overhead. For
+example, it is possible for a number of active objects, in combination with a
+simple scheduler, to share a single operating system thread, thereby giving the
+appearance of running concurrently. However, if any of the active objects
+exhibits blocking behavior, for example, by performing synchronous input-output,
+then other active objects in the group will be unable to respond to events that
+occur while the operating system thread is blocked.</p>
+<p>At the other extreme, giving each active object its own operating system thread 
+  should result in greater responsiveness, provided the processing resources are 
+  not adversely impacted by the extra context switching overhead.</p>
+
+<p class="reactive">In real-time systems, <a href="../../process/artifact/ar_cpsl.htm">Artifact: 
+  Capsule</a>s are the recommended way of modeling concurrency; like active classes, 
+  each capsule has its own notional thread of control, but capsules have additional 
+  encapsulation and compositional semantics to make modeling of complex real-time 
+  problems more tractable.</p>
+ 
+<p>This activity defines a process architecture for the system in terms of active 
+  classes and their instances and the relationship of these to operating system 
+  threads and processes.&nbsp;</p>
+
+<p class="reactive">Equally, for real-time systems, the process architecture
+will be defined in terms of capsules and an associated mapping of these to
+operating system processes and threads.</p>
+
+
+<p>Early in the Elaboration phase this architecture will be quite preliminary, 
+  but by late Elaboration the processes and threads should be well-defined.</p>
+<p>The results of this activity are captured in the design model - in particular, 
+  in the process view (see <a href="../workflow/ana_desi/co_pview.htm">Concepts: 
+  Process View</a>).</p>
+<h3>Analyze<a name="Define Concurrency Requirements"> Concurrency Requirements</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose&nbsp;</b></td>
+	<td width="95%">To define the extent to which parallel execution of tasks is required 
+      for the system. This definition will help shape the architecture.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>During <a href="ac_iddes.htm">Activity: Identify Design Elements</a>,
+concurrency requirements driven primarily by naturally occurring demands for
+concurrency in the problem domain were considered.&nbsp;</p>
+<p> The result of this was a set of active classes, representing
+logical threads of control in the system.&nbsp;</p>
+
+<p class="reactive">In real-time systems, these active classes are represented
+by <a href="../../process/artifact/ar_cpsl.htm">Artifact: Capsule</a>s.</p>
+
+<p> In this step, we consider other
+sources of concurrency requirements - those imposed by the non-functional
+requirements of the system.</p>
+<p>Concurrency requirements are driven by:
+<ul>
+  <li><b>The degree to which the system must be distributed.</b> A system whose
+    behavior must be distributed across processors or nodes virtually requires a
+    multi-process architecture. A system which uses some sort of Database
+    Management System or Transaction Manager also must consider the processes
+    which those major subsystems introduce.</li>
+  <li><b>The computation intensity of key algorithms.</b> In order to provide
+    good response times, it may be necessary to place computationally intensive
+    activities in a process or thread of their own so that the system is still
+    able to respond to user inputs while computation takes place, albeit with
+    fewer resources.</li>
+  <li><b>The degree of parallel execution supported by the environment.</b> If
+    the operating system or environment does not support threads (lightweight
+    processes) there is little point in considering their impact on the system
+    architecture.</li>
+  <li><b>The need for fault tolerance in the system</b>. Backup
+    processors require backup process, and drive the need to keep primary and
+    backup processes synchronized.</li>
+  <li><b>The arrival pattern of events in the system. </b>In systems with
+    external devices or sensors, the arrival patterns of incoming events may
+    differ from sensor to sensor. Some events may be periodic (i.e. occur at a
+    fixed interval, plus or minus a small amount) or aperiodic (i.e. with an
+    irregular interval). Active classes representing devices which generate different
+    event patterns will usually be assigned to different operating system
+    threads, with different scheduling algorithms, to ensure that events or
+    processing deadlines are not missed (if this is a requirement of the
+    system).
+
+  <p class="reactive">This reasoning applies equally to capsules, when used in the design of
+    real-time systems.</p>
+
+</ul>
+<p>As with many architectural problems, these requirements may be somewhat
+mutually exclusive. It is not uncommon to have, at least initially, conflicting
+requirements. Ranking requirements in terms of importance will help resolve the
+conflict.</p>
+<h3><a name="IdentifyProcessesAndThreads">Identify Processes and Threads </a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+  <table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+    <tbody valign="top"> 
+    <tr> 
+      <td width="5%"><b>Purpose&nbsp;</b></td>
+      <td width="95%">To define the processes and threads which will exist in 
+        the system.&nbsp;</td>
+    </tr>
+  </table>
+<br>
+</div>
+
+<p>The simplest approach is to allocate all active objects to a common thread or
+process and use a simple active object scheduler, as this minimizes context-switching overhead. However, in
+some cases, it may be
+necessary to distribute the active objects across one or more threads or processes.</p>
+
+
+<p class="reactive">This will almost certainly be the case for most real-time
+systems, where the capsules used to represent the logical threads in some cases
+have to meet hard scheduling requirements.</p>
+
+<p>If an active object sharing an operating system thread with other active
+objects makes a synchronous call to some other process or thread, and this call
+blocks the invoking object's shared operating system thread, then this
+will automatically suspend all other active objects located in the invoking process.
+Now, this does not have to be the case: a call that is synchronous from the point of
+view of the active object, may be handled asynchronously from the point of view
+of the simple scheduler that controls the group of active objects - the
+scheduler suspends the active object making the call (awaiting the completion of
+its synchronous call) and then schedules other active
+objects to run.&nbsp;</p>
+<p>When the original 'synchronous' operation completes, the invoking active
+object can be resumed. However, this approach may not always be possible, because it
+may not be feasible for the scheduler to be designed to intercept all
+synchronous calls before they block. Note that a synchronous invocation between
+active objects using the same operating system process or thread can, for
+generality, be handled by the scheduler in this way - and is equivalent in
+effect to a procedure call from the point of view of the invoking active object.</p>
+<p>This leads us to the conclusion that active objects should be grouped into processes or threads based on their need to run
+concurrently with synchronous invocations that block the thread. That is, the only time
+an active object should be packaged in the same process or a thread with another object that uses
+synchronous invocations that block the thread, is if it does not need to execute concurrently with that
+object, and can tolerate being prevented from executing while the other object
+is blocked. In the extreme case, when responsiveness is critical, this can lead to
+the need for a separate thread or process for
+each active object.</p>
+
+<p class="reactive">For real-time systems, the message-based interfaces of capsules mean that it
+is simpler to conceive a scheduler that ensures, at least for capsule-to-capsule communications,
+that the supporting operating system threads are never
+blocked, even when a capsule communicates synchronously with another capsule.
+However, it is still possible for a capsule to issue a request directly to the
+operating system, for example, for a
+synchronous timed wait, that would block the thread.
+Conventions have to be established, for lower level services invoked by capsules,
+that avoid this behavior, if capsules are to share a common thread (and use a
+simple scheduler to simulate concurrency).</p>
+
+<p>As a general rule, in the above situations it is better to use lightweight
+threads instead of full-fledged processes since that involves less overhead.
+However, we may still want to take advantage of some of the special
+characteristics of processes in certain special cases. Since threads share the
+same address space, they are inherently more risky than processes. If the
+possibility of accidental overwrites is a concern, then processes are preferred.
+Furthermore, since processes represent independent units of recovery in most
+operating systems, it may be useful to allocate active objects to processes
+based on their need to recover independently of each other. That is, all active
+objects that need to be recovered as a unit might be packaged together in the
+same process.</p>
+<p>For each separate flow of control needed by the system, create a process or a
+thread (lightweight process). A thread should be used in cases where there is a
+need for nested flow of control (i.e. if, within a process, there is a need for
+independent flow of control at the sub-task level).</p>
+<p>For example, we can say (not necessarily in order of importance) that
+separate threads of control may be needed to:
+<ul>
+  <li>Separate concerns between different areas of the software</li>
+  <li>Take advantage of multiple CPUs in a node or multiple nodes in a
+    distributed system</li>
+  <li>Increase CPU utilization by allocating cycles to other activities when a
+    thread of control is suspended</li>
+  <li>Prioritize activities</li>
+  <li>Support load sharing across several processes and processors</li>
+  <li>Achieve a higher system availability by having backup processes</li>
+  <li>Support the DBMS, Transaction Manager, or other major subsystems.</li>
+</ul>
+<p class="exampleheading">Example</p>
+<p class="example">In the Automated Teller Machine, asynchronous events must be
+handled coming from three different sources: the user of the system, the ATM
+devices (in the case of a jam in the cash dispenser, for example), or the ATM
+Network (in the case of a shutdown directive from the network). To handle these
+asynchronous events, we can define three separate threads of execution within
+the ATM itself, as shown below using active classes in UML.</p>
+<p align="center"><img src="images/proc1.gif" width="250" height="362"></p>
+<p class="picturetext">Processes and Threads within the ATM</p>
+<h3><a name="XE_process__identifying_process_lifecycles"></a><a name="Identify Process Lifecycles">Identify
+Process Lifecycles</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose&nbsp;</b></td>
+    <td width="95%">To identify when processes and threads are created and destroyed.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Each process or thread of control must be created and destroyed. In a
+single-process architecture, process creation occurs when the application is
+started and process destruction occurs when the application ends. In
+multi-process architectures, new processes (or threads) are typically spawned or
+forked from the initial process created by the operating system when the
+application is started. These processes must be explicitly destroyed as well.</p>
+<p>The sequence of events leading up to process creation and destruction must be
+determined and documented, as well as the mechanism for creation and deletion.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the Automated Teller Machine, one main process is started
+which is responsible for coordinating the behavior of the entire system. It in
+turn spawns a number of subordinate threads of control to monitor various parts
+of the system: the devices in the system, and events emanating from the customer
+and from the ATM Network. The creation of these processes and threads can be
+shown with <b>active classes</b> in UML, and the creation of instances
+of these active classes can be shown in a sequence diagram, as shown below:</p>
+<p align="center"><img src="images/proc2.gif" width="607" height="350"></p>
+<p class="picturetext">Creation of processes and threads during system start-up</p>
+<h3><a name="XE_process__identifying_communication_mechanisms"></a><a name="Identify Inter-Process Communication Mechanisms">Identify
+Inter-Process Communication Mechanisms</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose&nbsp;</b></td>
+    <td width="95%">To identify the means by which processes and threads will communicate.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Inter-process communication (IPC) mechanisms enable messages to be sent
+between objects executing in separate processes.</p>
+<p>Typical inter-process communications mechanisms include:
+<ul>
+  <li><b>Shared memory</b>, with or without semaphores to ensure
+    synchronization.</li>
+  <li><b>Rendezvous</b>, especially when directly supported by a
+    language such as Ada</li>
+  <li><b>Semaphores</b>, used to block simultaneous access to shared
+    resources</li>
+  <li><b>Message passing</b>, both point-to-point and
+    point-to-multipoint</li>
+  <li><b>Mailboxes</b></li>
+  <li><b>RPC</b> - Remote procedure calls</li>
+  <li><b>Event Broadcast</b> - using a &quot;software bus&quot;
+    (&quot;message bus architecture&quot;)</li>
+</ul>
+<p>The choice of IPC mechanism will change the way the system is modeled; in a
+&quot;message bus architecture&quot;, for example, there is no need for explicit
+associations between objects to send messages.</p>
+<h3><a name="Allocate Inter-Process Coordination Resources">Allocate
+Inter-Process Coordination Resources</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To allocate scarce resources<br>
+	  To anticipate and manage potential performance bottlenecks&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Inter-process communication mechanisms are typically scarce. Semaphores,
+shared memory, and mailboxes are typically fixed in size or number and cannot be
+increased without significant cost. RPC, messages and event broadcasts soak up
+increasingly scarce network bandwidth. When the system exceeds a resource
+threshold, it typically experiences non-linear performance degradation: once a
+scarce resource is used up, subsequent requests for it are likely to have an
+unpleasant effect.</p>
+<p>If scarce resources are over-subscribed, there are several strategies to
+consider:
+<ul>
+  <li>reducing the need for the scarce resource by reducing the number of
+    processes</li>
+  <li>changing the usage of scarce resources (for one or more processes, choose
+    a different, less scarce resource to use for the IPC mechanism)</li>
+  <li>increasing the quantity of the scarce resource (e.g. increasing the number
+    of semaphores). This can be done for relatively small changes, but often has
+    side effects or fixed limits.</li>
+  <li>sharing the scarce resource (e.g. only allocating the resource when it is
+    needed, then letting go when done with it). This is expensive and may only
+    forestall the resource crisis.</li>
+</ul>
+<p>Regardless what the strategy chosen, the system should degrade gracefully
+(rather than crashing), and should provide adequate feedback to a system
+administrator to allow the problem to be resolved (if possible) in the field
+once the system is deployed.</p>
+<p>If the system requires special configuration of the run-time environment in
+order to increase the availability of a critical resource (often control by
+re-configuring the operating system kernel), the system installation needs to
+either do this automatically, or instruct a system administrator to do this
+before the system can become operational. For example, the system may need to be
+re-booted before the change will take effect.</p>
+<h3><a name="XE_process__map_process_onto_implementation_environment"></a><a name="Map Processes onto the Implementation Environment">Map
+Processes onto the Implementation Environment</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b>&nbsp;</td>
+	<td width="95%">To map the &quot;flows of control&quot; onto the concepts supported by
+      the implementation environment.&nbsp;
+	</td>
+  </tr>
+</table>
+<br></div>
+
+<p>Conceptual processes must be mapped onto specific constructs in the operating
+environment. In many environments, there are choices of types of process, at the
+very least usually process and threads. The choices will be base on the degree
+of coupling (processes are stand-alone, whereas threads run in the context of an
+enclosing process) and the performance requirements of the system (inter-process
+communication between threads is generally faster and more efficient than that
+between processes).</p>
+<p>In many systems, there may be a maximum number of threads per process or
+processes per node. These limits may not be absolute, but may be practical
+limits imposed by the availability of scarce resources. The threads and
+processes already running on a target node need to be considered along with the
+threads and processes proposed in the process architecture. The results of the
+earlier step, Allocate<a href="#Allocate Inter-Process Coordination Resources">
+Inter-Process Coordination Resources</a>, need to be considered when the mapping
+is done to make sure that a new performance problem is not being created.</p>
+<h3><a name="XE_process__map_design_elements_to"></a><a name="Map Design Elements To Threads of Control">Map 
+  Design Elements To Threads of Control</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b>&nbsp;</td>
+	  <td width="95%">To determine which threads of control classes and subsystems 
+        should execute within.&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<p>Instances of a given class or subsystem must execute within at least <b>one 
+  </b>thread of control that provides the execution environment for the class 
+  or subsystem; they may in fact execute in several different processes.</p>
+<p>Using two different strategies simultaneously, we determine the
+&quot;right&quot; amount of concurrency and define the &quot;right&quot; set of
+processes:</p>
+<h4>Inside-out</h4>
+<ol>
+  <li>Starting from the Design Model, group classes and subsystems together in
+    sets of cooperating elements that (a) closely cooperate with one another and
+    (b) need to execute in the same thread of control. Consider the impact of
+    introducing inter-process communication into the middle of a message
+    sequence before separating elements into separate threads of control.</li>
+  <li>Conversely, separate classes and subsystems which do not interact at all,
+    placing them in separate threads of control.</li>
+  <li>This clustering proceeds until the number of processes has been reduced to
+    the smallest number that still allows distribution and use of the physical
+    resources.</li>
+</ol>
+<h4>Outside-in</h4>
+<ol>
+  <li>Identify external stimuli to which the system must respond. Define a
+    separate thread of control to handle each stimuli and a separate server
+    thread of control to provide each service.</li>
+  <li>Consider the data integrity and serialization constraints to reduce this
+    initial set of threads of control to the number that can be supported by the
+    execution environment.</li>
+</ol>
+<p>This is not a linear, deterministic process leading to an optimal process
+view; it requires a few iterations to reach an acceptable compromise.</p>
+<p class="exampleheading">Example</p>
+<p class="example">The following diagram illustrates how classes within the ATM
+are distributed among the processes and threads in the system.</p>
+<p align="CENTER"><img src="images/proc3.gif" width="574" height="403"></p>
+<p class="picturetext">Mapping of classes onto processes for the ATM</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

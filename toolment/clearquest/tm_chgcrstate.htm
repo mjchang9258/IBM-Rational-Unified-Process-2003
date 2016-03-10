@@ -1,0 +1,236 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Changing States of a Change Request using Rational ClearQuest</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Changing States of a Change Request using Rational ClearQuest</rpw>
+ <a name="XE_clearquest__changing_change_request_state"></a> 
+</h2>
+
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to change the state of a change request using 
+  Rational ClearQuest.</p>
+<p>This tool mentor relates to the following RUP information:<br>
+ <br>
+ 
+</p>
+
+
+<h3>Overview</h3>
+<p>Change requests move through a pattern, a lifecycle, from submission through 
+  resolution. In ClearQuest, each stage in this lifecycle is called a state, and 
+  each movement from one state to another is called a state transition.</p>
+<p>The ClearQuest administrator defines the possible states in which records can 
+  exist. For example, a change record is usually given the Submit state when it 
+  is first entered into the database. From there, it might proceed to the Open 
+  state while the change request is examined, and then to the Fixed state when 
+  the defect is corrected.</p>
+
+<h3>Tool Steps</h3>
+<p>The following steps are performed to change the state of a change request using 
+  Rational ClearQuest:</p>
+<ol>
+  <li><a href="#StepNumber1">Query the Database</a></li>
+  <li><a href="#StepNumber2">Change the State</a><br><br>
+    <a href="#AdditionalInformation">Additional Information</a></li>
+</ol>
+
+
+<h3><a name="StepNumber1">1. Query the Database</a>
+ <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a> 
+</h3>
+<p>ClearQuest has several default queries stored in folders. To query the database:</p>
+<ol>
+  <li>Double-click a query.<br>
+    If there are any change requests in the database that match the parameters 
+    of the query, ClearQuest lists them on the <b>Results Set</b> tab.</li>
+  <li>Optionally, sort the change requests by double-clicking the column titles 
+    on the Results Set tab.</li>
+  <li>On the <b>Results Set</b> tab, select the change request you want to change.</li>
+</ol>
+
+
+<h3><a name="StepNumber2">2. Change the State</a>
+ <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h3>
+<ol>
+  <li>Click the <b>Actions</b> button and select the state on the list.<br>
+    The <b>Actions</b> menu is dynamic. It displays only those actions that are 
+    legal for the current state. Your ClearQuest administrator specifies the legal 
+    actions. For example, in the default application, a Resolved record cannot 
+    be moved to back to the Opened state without first being verified or having 
+    the fix rejected.</li>
+  <li>Move from tab to tab, and complete the mandatory fields which are highlighted 
+    in red.<br>
+    For instructions on what to fill in, right-click the field and choose Error 
+    Message on the shortcut menu.</li>
+  <li>Click <b>Apply</b>. To clear the changes without saving them, click <b>Revert</b>. 
+  </li>
+</ol>
+
+<h4><a name="AdditionalInformation">Additional Information</a>
+ <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h4>
+<p><img src="../../images/helpbook.gif" width="16" height="16"> For more information, 
+  See ClearQuest online <i>Help &gt; Working with records &gt; Changing the state 
+  of records</i>.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

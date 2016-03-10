@@ -1,0 +1,290 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Plan System Integration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Plan System Integration</rpw><a name="Top"></a><a name="XE_system__plan_integration_of"></a><a name="XE_Integration_Build_Plan_document__creating"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To plan the integration of the system.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Identify Subsystems">Identify Subsystems</a></li>
+      <li><a href="#Define &quot;Build Sets&quot;">Define &quot;Build Sets&quot;</a></li>
+      <li><a href="#Define a Series of Builds">Define a Series of Builds</a></li>
+      <li><a href="#Evaluate the Integration Build Plan">Evaluate the
+        Integration Build Plan</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:</b>
+	  <ul>
+<li><a href="../artifact/ar_impmd.htm">Implementation Model</a></li>
+<li><a href="../artifact/ar_intbp.htm">Integration Build Plan</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_intbp.htm">Integration Build Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_syint.htm">Integrator</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_impl.htm">Implementation</a>
+<ul>
+<li><a href="../workflow/implemen/wfs_pint.htm">Plan the Integration</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Identify Subsystems">Identify Subsystems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>The iteration plan specifies all use cases and scenarios that should be
+implemented in this iteration. Identify which implementation subsystems
+participate in the use cases and scenarios for the current iteration. Study the
+use-case realization's sequence diagrams, collaboration diagrams, and so on.
+Also identify which other implementation subsystems are needed to make it
+possible to compile, that is, create builds.</p>
+<p class="picturecenter" align="center"><img src="images/plsyint1.gif" align="center" width="339" height="171"></p>
+<p class="picturetext">Implementation subsystems are identified from the
+use-case realizations.</p>
+<h3><a name="Define &quot;Build Sets&quot;">Define &quot;Build Sets&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>In large systems where you may have up to a hundred implementation
+subsystems, it becomes a complex task to plan the integration.</p>
+<p>To facilitate integration planning, and manage complexity you need to reduce
+the number of things you need to think about. It is recommended that you define
+meaningful sets of subsystems (<b>build sets</b> or <b>towers</b>),
+that belong together from an integration point of view. 'Belong together' in the
+sense that these subsystems are sometimes integrated as a group; it does not
+make sense to integrate just one of the subsystems. For example, all the
+subsystems in lower layers that a subsystem needs (imports directly, or
+indirectly) to execute, could be a meaningful build set.</p>
+<p class="picturecenter" align="center"><img src="images/plsyint2.gif" align="center" width="327" height="188"></p>
+<p class="picturetext">A build set is defined for the lowest layer if these two
+subsystem often are integrated as a group. A build set is defined with all
+subsystems that are needed to compile and execute subsystem A.</p>
+<p>Notice that the build sets can, and will, overlap. Which build sets and their
+contents you have may vary during the life of a project.</p>
+<p>The purpose of defining these build sets is to make it easier to do the
+integration planning. Instead of thinking about individual subsystems you can
+think about sets of subsystems.</p>
+<h3><a name="Define a Series of Builds">Define a Series of Builds</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>You define a series of builds to incrementally integrate the system. This is
+typically done bottom-up in the layered structure of subsystems in the
+implementation model. For each build, define which subsystems should go into it,
+and which other subsystems must be available as stubs. In the figure following,
+three builds have been defined.</p>
+<p class="picturecenter" align="center"><img src="images/plsyint3.gif" width="339" height="171"></p>
+<p class="picturetext">An integration planned to be done in three builds.</p>
+<h3><a name="XE_Integration_Build_Plan_document__evaluating"></a><a name="Evaluate the Integration Build Plan">Evaluate
+the Integration Build Plan</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>To evaluate the Integration Build Plan consider the following check-points:
+<ul>
+  <li>Does the integration order make it easy to locate errors?</li>
+  <li>Does integration order keep the need for stubs to a minimum?</li>
+  <li>Is the integration order coordinated with the order in which components
+    are developed?</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

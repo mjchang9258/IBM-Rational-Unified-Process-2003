@@ -1,0 +1,551 @@
+<!-- RPW META DATA START --
+
+
+
+
+
+
+
+ 
+ 
+
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Analysis Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Analysis Class</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Analysis Class Stereotypes">Analysis Class Stereotypes</a>
+    <ul>
+      <li><a href="#Boundary Class Def">Boundary Class</a></li>
+      <li><a href="#Control Class Def">Control Class</a></li>
+      <li><a href="#Entity Class Def">Entity Class</a></li>
+    </ul>
+  </li>
+  <li><a href="#Recommended Restrictions on the Use of Association">Association
+    Stereotype Usage Restrictions</a>
+    <ul>
+      <li><a href="#Restrictions for Boundary Classes">Restrictions for Boundary
+        Classes</a></li>
+      <li><a href="#Restrictions for Control Classes">Restrictions for Control
+        Classes</a></li>
+      <li><a href="#Restrictions Entity Classes">Restrictions for Entity Classes</a></li>
+      <li><a href="#Summary of Restrictions">Summary of Restrictions</a></li>
+    </ul>
+  </li>
+  <li><a href="#Enforcing Consistency">Enforcing Consistency</a></li>
+</ul>
+<h3><a name="Analysis Class Stereotypes">Analysis Class Stereotypes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Analysis classes may be stereotyped as one of the following:
+<ul>
+  <li>Boundary classes</li>
+  <li>Control classes</li>
+  <li>Entity classes</li>
+</ul>
+<p>Apart from giving you more specific process guidance when finding classes,
+this stereotyping results in a robust object model because changes to the model
+tend to affect only a specific area. Changes in the user interface, for example,
+will affect only boundary classes. Changes in the control flow will affect only
+control classes. Changes in long-term information will affect only entity
+classes. However, these stereotypes are specially useful in helping you to
+identify classes in analysis and early design. You should probably consider
+using a slightly different set of stereotypes in later phases of design to
+better correlate to the implementation environment, the application type, and so
+on.</p>
+<h4><a name="Boundary Class Def">Boundary Class</a> <font face="Bookman" size="2"><img src="../artifact/images/bcls.jpg" width="47" height="31"></font>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A <b>boundary class</b> is a class used to model interaction
+between the system's surroundings and its inner workings. Such interaction
+involves transforming and translating events and noting changes in the system
+presentation (such as the interface).</p>
+<p>Boundary classes model the parts of the system that depend on its
+surroundings. Entity classes and control classes model the parts that are
+independent of the system's surroundings. Thus, changing the GUI or
+communication protocol should mean changing only the boundary classes, not the
+entity and control classes.</p>
+<p>Boundary classes also make it easier to understand the system because they
+clarify the system's boundaries. They aid design by providing a good point of
+departure for identifying related services. For example, if you identify a
+printer interface early in the design, you will soon see that you must also
+model the formatting of printouts.</p>
+<p>Common boundary classes include windows, communication protocols, printer interfaces, 
+  sensors, and terminals. You do not have to model routine interface parts, such 
+  as buttons, as separate boundary classes. Generally the entire window is the 
+  finest grained boundary object. Boundary classes are also useful for capturing 
+  interfaces to possibly nonobject oriented API's, such as legacy code.</p>
+<p>You should model boundary classes according to what kind of boundary they represent. 
+  Communication with another system and communication with a human actor (through 
+  a user interface) have very different objectives. For communication with a human 
+  actor, the most important concern is how the interface will be presented to 
+  the user. For communication with another system, the most important concern 
+  is the communication protocol.</p>
+<p>A boundary object (an instance of a boundary class) can outlive a use case
+instance if, for example, it must appear on a screen between the performance of
+two use cases. Normally, however, boundary objects live only as long as the use
+case instance.</p>
+<h5>Finding Boundary Classes </h5>
+<p>A boundary class intermediates the interface to something outside the system.
+Boundary objects insulate the system from changes in the surroundings (changes
+in interfaces to other systems, changes in user requirements, etc.), keeping
+these changes from affecting the rest of the system.</p>
+<p>A system may have several types of boundary classes:
+<ul>
+  <li><b>User interface classes</b> - classes which intermediate
+    communication with human users of the system</li>
+  <li><b>System interface classes</b> - classes which intermediate
+    communication with other system</li>
+  <li><b>Device interface classes</b> - classes which provide the
+    interface to devices (such as sensors), which detect external events</li>
+</ul>
+<h5>Find User-Interface Classes</h5>
+<p>Define one boundary class for each use-case actor-pair. This class can be viewed 
+  as having responsibility for coordinating the interaction with the actor. You 
+  may also define additional boundary classes to represent <b>subsidiary </b>classes 
+  to which the primary boundary class delegates some of its responsibilities. 
+  This is particularly true for window-based GUI applications, where you may model 
+  one boundary object for each window, or one for each form. Only model the key 
+  abstractions of the system; do not model every button, list and widget in the 
+  GUI. The goal of analysis is to form a good picture of how the system is composed, 
+  not to design every last detail. In other words, identify boundary classes only 
+  for phenomena in the system or for things mentioned in the <b>flow of events 
+  </b>of the use-case realization. </p>
+<p>Make sketches, or use screen dumps from a <a href="../artifact/ar_uiprt.htm">user-interface prototype</a>, that illustrate 
+  the behavior and appearance of the boundary classes.</p>
+<h5>Find System-Interface Classes</h5>
+<p>A boundary class which communicates with an external system is responsible
+for managing the dialogue with the external system; it provides the interface to
+that system for the system being built.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In an Automated Teller Machine, withdrawal of funds must be
+verified through the ATM Network, an actor (which in turn verifies the
+withdrawal with the bank accounting system). An object called ATM Network
+Interface can be identified to provide communication with the ATM Network.</p>
+<p>The interface to an existing system may already be well-defined; if it is,
+the responsibilities should be derived directly from the interface definition.
+If a formal interface definition exists, it may be reverse engineered and we
+need not formally define it here; simply make note of the fact that the existing
+interface will be reused during design.</p>
+<h5>Find Device Interface Classes</h5>
+<p>The system may contain elements that act as if they were external (change
+value spontaneously without any object in the system affecting them), such as
+sensor equipment. Although it is possible to represent this type of external
+device using actors, users of the system may find doing so
+&quot;confusing&quot;, as it tends to put devices and human actors on the same
+&quot;level&quot;. Once we move away from gathering requirements, however, we
+need to consider the source for all external events and make sure we have a way
+for the system to detect these events.</p>
+<p>If the device is represented as an actor in the use-case model, it is easy to
+justify using a boundary class to intermediate communication between the device
+and the system. If the use-case model does not include these
+&quot;device-actors&quot;, now is the appropriate time to add them, updating the
+Supplementary Descriptions of the Use Cases where appropriate.</p>
+<p>For each &quot;device-actor&quot;, create a boundary class to capture the
+responsibilities of the device or sensor. If there is a well-defined interface
+already existing for the device, make note of it for later reference during
+design.</p>
+<h4><a name="Control Class Def">Control Class</a> <font size="2"><img src="../artifact/images/control.jpg" width="36" height="37"></font>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A <b>control class</b> is a class used to model control behavior
+specific to one or a few use cases. Control objects (instances of control
+classes) often control other objects, so their behavior is of the coordinating
+type. Control classes encapsulate use-case specific behavior.</p>
+<p>The behavior of a control object is closely related to the realization of a
+specific use case. In many scenarios, you might even say that the control
+objects &quot;run&quot; the use-case realizations. However, some control objects
+can participate in more than one use-case realization if the use-case tasks are
+strongly related. Furthermore, several control objects of different control
+classes can participate in one use case. Not all use cases require a control
+object. For example, if the flow of events in a use case is related to one
+entity object, a boundary object may realize the use case in cooperation with
+the entity object. You can start by identifying one control class per use-case
+realization, and then refine this as more use-case realizations are identified
+and commonality is discovered.</p>
+<p>Control classes can contribute to understanding the system because they
+represent the dynamics of the system, handling the main tasks and control flows.</p>
+<p>When the system performs the use case, a control object is created. Control
+objects usually die when their corresponding use case has been performed.</p>
+<p>Note that a control class does not handle <b>everything</b>
+required in a use case. Instead, it coordinates the activities of other objects
+that implement the functionality. The control class delegates work to the
+objects that have been assigned the responsibility for the functionality.</p>
+<h5>Finding Control Classes </h5>
+<p>Control classes provide coordinating behavior in the system. The system can
+perform some use cases without control objects (just using entity and boundary
+objects)&#151;particularly use cases that involve only the simple manipulation of
+stored information.</p>
+<p>More complex use cases generally require one or more control classes to
+coordinate the behavior of other objects in the system. Examples of control
+objects include programs such as transaction managers, resource coordinators, and error handlers.</p>
+<p>Control classes effectively de-couple boundary and entity objects from one
+another, making the system more tolerant of changes in the system boundary. They
+also de-couple the use-case specific behavior from the entity objects, making
+them more reusable across use cases and systems.</p>
+<p>Control classes provide behavior that:
+<ul>
+  <li>Is surroundings-independent (does not change when the surroundings
+    change),</li>
+  <li>Defines control logic (order between events) and transactions within a use
+    case.</li>
+  <li>Changes little if the internal structure or behavior of the entity classes
+    changes,</li>
+  <li>Uses or sets the contents of several entity classes, and therefore needs
+    to coordinate the behavior of these entity classes.</li>
+  <li>Is not performed in the same way every time it is activated (flow of
+    events features several states).</li>
+</ul>
+<h5>Determine whether a Control Class is Needed</h5>
+<p>The flow of events of a use case defines the order in which different tasks
+are performed. Start by investigating if the flow can be handled by the already
+identified boundary and entity classes. For simple <b>flows of events </b>which
+primarily enter, retrieve and display, or modify information, a separate control
+class is not usually justified; the boundary classes will be responsible for
+coordinating the use case.</p>
+<p>The <b>flows of events </b>should be encapsulated in a separate
+control class when it is complex and consists of dynamic behavior that may
+change independently from the interfaces (boundary classes) or information
+stores (entity classes) of the system. By encapsulating the <b>flows of
+events</b>, the same control class can potentially be re-used for a variety
+of systems which may have different interfaces and different information stores
+(or at least the underlying data structures).</p>
+<p class="example"><b>Example: Managing a Queue of Tasks</b></p>
+<p class="example">You can identify a control class from the use case Perform
+Task in the Depot-Handling System. This control class handles a queue of Tasks,
+ensuring that Tasks are performed in the right order. It performs the next Task
+in the queue as soon as suitable transportation equipment is allocated. The
+system can therefore perform several Tasks at the same time.</p>
+<p class="example">The behavior defined by the corresponding control object is
+easier to describe if you split it into two control classes, Task Performer and
+Queue Handler. A Queue Handler object will handle only the queue order and the
+allocation of transportation equipment. One Queue Handler object is needed for
+the whole queue. As soon as the system performs a Task, it will create a new
+Task Performer object, which will perform the Task. We thus need one Task
+Performer object for each Task the system performs.</p>
+<p align="CENTER"><img src="../activity/images/splitclass.gif" alt="&quot;too complex&quot; classes should be split into classes with a consistent, related set of responsibilities" width="403" height="164"></p>
+<p align="CENTER" class="picturetext">Complex classes should be divided along
+lines of similar responsibilities</p>
+<p class="example">The principal benefit of this split is that we have separated
+queue handling responsibilities (something generic to many use cases) from the
+specific activities of task management, which are specific to this use case.
+This makes the classes easier to understand and easier to adapt as the design
+matures. It also has benefits in balancing the load of the system, as many
+Task Performers can be created as necessary to handle the workload.</p>
+<h5>Encapsulating the Main Flow of Events and Alternate/Exceptional Flows of
+Events in separate Control Classes</h5>
+<p>To simplify changes, encapsulate the main flow of events and alternate flows
+of events in different control classes. If alternate and exception flows are
+completely independent, separate them as well. This will make the system easier
+to extend and maintain over time.</p>
+<h5>Divide Control Classes where two Actors share the same Control Class</h5>
+<p>Control classes may also need to be divided when several actors use the same
+control class. By doing this, we isolate changes in the requirements of one
+actor from the rest of the system. In cases where the cost of change is high or
+the consequences dire, you should identify all control classes which are related
+to more than one actor and divide them. In the ideal case, each control class
+should interact (via some boundary object) with one actor or none at all.</p>
+<p class="exampleheading">Example: Call Management</p>
+<p class="example">Consider the use case <b>Local Call</b>. Initially,
+we can identify a control class to manage the call itself.</p>
+<p align="CENTER" class="example"><img src="../activity/images/ac_ucan2.gif" alt="Different actors invloved in a use case usually require separate control classes" width="362" height="295"></p>
+<p class="picturetext">The control class handling local phone calls in a
+telephone system can quickly be divided into two control classes, <b>A-behavior</b>
+and <b>B-behavior</b>, one for each actor involved.</p>
+<p class="example">In a local phone call, there are two actors: <b>A-subscriber</b>
+who initiates the call, and <b>B-subscriber</b> who receives the call.
+The <b>A-subscriber </b>lifts the receiver, hears the dial tone, and
+then dials a number of digits, which the system stores and analyzes. When the
+system has received all the digits, it sends a ringing tone to <b>A-subscriber</b>,
+and a ringing signal to <b>B-subscriber</b>. When <b>B-subscriber
+</b>answers, the tone and the signal stop, and the conversation between the
+subscribers can begin. The call is finished when both subscribers hang up.</p>
+<p class="example">Two behaviors must be controlled: What happens at
+A-subscriber’s place and what happens at B-subscriber’s place. For this
+reason, the original control object was split into two control objects, <b>A-behavior
+</b>and <b>B-behavior</b>.</p>
+<p>You do not have to divide a control class if:
+<ul>
+  <li>You can be reasonably sure that the behavior of the actors related to the
+    objects of the control class will never change, or change very little.</li>
+  <li>The behavior of an object of the control class toward one actor is very
+    insignificant compared with its behavior toward another actor, a single
+    object can hold all the behavior. Combining behavior in this way will have a
+    negligible effect on changeability.</li>
+</ul>
+<h4><a name="Entity Class Def">Entity Class</a> <font size="2"><img src="../artifact/images/entity.jpg" width="37" height="37"></font>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>An <b>entity class</b> is a class used to model information and
+associated behavior that must be stored. Entity objects (instances of entity
+classes) are used to hold and update information about some phenomenon, such as
+an event, a person, or some real-life object. They are usually persistent,
+having attributes and relationships needed for a long period, sometimes for the
+life of the system.</p>
+<p>An entity object is usually not specific to one use-case realization;
+sometimes, an entity object is not even specific to the system itself. The
+values of its attributes and relationships are often given by an actor. An
+entity object may also be needed to help perform internal system tasks. Entity
+objects can have behavior as complicated as that of other object stereotypes.
+However, unlike other objects, this behavior is strongly related to the
+phenomenon the entity object represents. Entity objects are independent of the
+environment (the actors).</p>
+<p>Entity objects represent the key concepts of the system being developed.
+Typical examples of entity classes in a banking system are <b>Account</b>
+and <b>Customer.</b> In a network-handling system, examples are <b>Node</b>
+and <b>Link</b>.</p>
+<p>If the phenomenon you wish to model is not used by any other class, you can
+model it as an attribute of an entity class, or even as a relationship between
+entity classes. On the other hand, if the phenomenon is used by any other class
+in the design model, you must model it as a class.</p>
+<p>Entity classes provide another point of view from which to understand the
+system because they show the logical data structure, which can help you
+understand what the system is supposed to offer its users.</p>
+<h5>Finding Entity Classes </h5>
+<p>Entity classes represent stores of information in the system; they are
+typically used to represent the key concepts the system manages. Entity objects
+are frequently passive and persistent. Their main responsibilities are to store
+and manage information in the system.</p>
+<p>A frequent source of inspiration for entity classes are the Glossary
+(developed during requirements) and a business-domain model (developed during
+business modeling, if business modeling has been performed).</p>
+<h3><a name="Recommended Restrictions on the Use of Association">Association
+Stereotype Usage Restrictions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4><b><a name="Restrictions for Boundary Classes">Restrictions for
+Boundary Classes</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The following are allowable:
+<ul>
+  <li>Communicate associations between two Boundary classes, for instance, to describe how a
+    specific window is related to other boundary objects.</li>
+  <li>Communicate or subscribe associations from a Boundary class to an Entity class, because boundary
+    objects might need to keep track of certain entity objects between actions
+    in the boundary object, or be informed of state changes in the entity
+    object.</li>
+  <li>Communicate associations from a Boundary class to a Control class, so that
+    a boundary object may trigger particular behavior.</li>
+</ul>
+<h4><b><a name="Restrictions for Control Classes">Restrictions for Control
+Classes</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The following are allowable:
+<ul>
+  <li>Communicate or subscribe associations between Control classes and Entity classes, because control
+    objects might need to keep track of certain entity objects between actions
+    in the control object, or be informed of state changes in the entity object.</li>
+  <li>Communicate associations between Control and Boundary classes, allowing
+    the results of invoked behavior to be communicated to the environment.</li>
+  <li>Communicate associations between Control classes, allowing the
+    construction of more complex behavioral patterns.</li>
+</ul>
+<h4><b><a name="Restrictions Entity Classes">Restrictions for Entity
+Classes</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Entity classes should only be the source of associations (communicate or
+subscribe) to other entity classes. Entity
+class objects tend to be long-lived; control and boundary class objects tend to
+be short-lived. It is sensible from an architectural viewpoint to limit the
+visibility that an entity object has of its surroundings, that way, the system
+is more amenable to change.</p>
+<h4><b><a name="Summary of Restrictions">Summary of Restrictions</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%">From\To<br>(navigability)</td>
+    <td width="26%" align="center"><p class="tableheading">Boundary</td>
+    <td width="27%" align="center"><b>Entity</b></td>
+    <td width="27%" align="center"><p class="tableheading">Control</td>
+  </tr>
+  <tr>
+    <td width="20%"><p class="tableheading">Boundary</td>
+    <td width="26%" align="center"><p align="center">communicate</p></td>
+    <td width="27%" align="center">communicate <p>subscribe</p></td>
+    <td width="27%" align="center">communicate</td>
+  </tr>
+  <tr>
+    <td width="20%"><p class="tableheading">Entity</td>
+    <td width="26%" align="center"><p align="center">&nbsp;</td>
+    <td width="27%" align="center">communicate <p>subscribe</p></td>
+    <td width="27%" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="20%"><p class="tableheading">Control</td>
+    <td width="26%" align="center"><p align="center">communicate</td>
+    <td width="27%" align="center">communicate<p>subscribe</p></td>
+    <td width="27%" align="center">communicate</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p class="picturetext">Valid Association Stereotype Combinations</p>
+<h3><a name="Enforcing Consistency">Enforcing Consistency </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>When a new behavior is identified, check to see if there is an existing
+    class that has similar responsibilities, reusing classes where possible.
+    Only when sure that there is not an existing object that can perform the
+    behavior should you create new classes.</li>
+  <li>As classes are identified, examine them to ensure they have consistent
+    responsibilities. When an classes responsibilities are disjoint, split the
+    object into two or more classes. Update the collaboration diagrams
+    accordingly.</li>
+  <li>If the a class is split because disjoint responsibilities are discovered,
+    examine the collaborations in which the class plays a role to see if the
+    collaboration needs to be updated. Update the collaboration if needed.</li>
+  <li>A class with only one responsibility is not a problem, per se, but it
+    should raise questions on why it is needed. Be prepared to challenge and
+    justify the existence of all classes.</li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

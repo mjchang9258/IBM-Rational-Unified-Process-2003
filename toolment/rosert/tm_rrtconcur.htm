@@ -1,0 +1,234 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Capturing a Concurrency Architecture using Rational Rose RealTime</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Capturing 
+  a Concurrency Architecture using Rational Rose RealTime</rpw></h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to distribute capsules across threads.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_concr.htm">Describe the Run-time Architecture</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>This tool mentor is applicable when running Microsoft Windows 98/NT 4.0.</p>
+
+<h4>Tool Steps</h4>
+<p>To distribute capsules across threads in Rose RealTime:</p> 
+<ol>
+  <li><a href="#Identify processes and threads">Identify processes and threads</a>
+  <li><a href="#Design the structure">Design the structure</a>
+</ol>
+
+<h3>1. <a name="Identify processes and threads">Identify processes and threads</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+
+<p>Rose RealTime uses three mechanisms to deal with concurrency:</p>
+<ul>
+  <li>Processes, which are heavyweight active objects with a high context switching overhead</li>
+  <li>Threads and tasks, which are lightweight context switching mechanisms</li>
+  <li>Capsules, which are very lightweight active objects with very low context switching overhead</li>
+</ul>
+<p>With Rose RealTime, capsules are active objects that can be allocated to operating 
+  system threads. These active objects are scheduled using an active object scheduling 
+  mechanism, which minimizes context switching overhead. In some cases, it may 
+  be necessary to distribute capsules across threads and processes.</p>
+<p>For additional information on how to design with active objects, see <a href="tm_rrtobjdesign.htm"> 
+  Tool Mentor: Designing with Active Objects in Rational Rose RealTime</a>.</p>
+
+
+<h3>2. <a name="Design the structure">Design the structure</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>The steps for designing the physical and logical structure vary, depending 
+  upon which language you are using (C, C++, or Java).</p>
+
+<h4>Designing the structure using C or C++</h4>
+<ol>
+  <li>Add the frame service port to the container capsule.</li>
+  <li>Define the sub-capsule.</li>
+  <li>Make the sub-capsule optional.</li>
+  <li>Determine the logical thread.</li>
+  <li>Define the physical thread.</li>
+  <li>Map the logical thread to the physical thread.</li>
+  <li>Incarnate the capsule on a logical thread.</li>
+</ol>
+<p><img src="../../images/book.gif" width="16" height="16"> For additional information 
+  on designing the structure with C or C++, refer to the <i>Rational Rose RealTime 
+  C Reference or C++ Reference</i> guide.</p>
+
+<h4>Designing the structure using Java</h4>
+<ol>
+  <li>Add the frame service port to the container capsule.&nbsp;</li>
+  <li>Make the sub-capsule optional.&nbsp;</li>
+  <li>Create a new controller and thread.&nbsp;</li>
+  <li>Incarnate the capsule on a new controller.&nbsp;</li>
+</ol>
+<p><img src="../../images/book.gif" width="16" height="16"> For additional information 
+  on designing the structure with Java, refer to <i>Rational Rose RealTime Java 
+  Reference</i> guide.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

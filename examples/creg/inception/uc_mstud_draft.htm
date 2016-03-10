@@ -1,0 +1,246 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CREG Use Case - Maintain Student Information - Inception Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Example: Maintain Student Information Use Case Specification</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Microsoft Border" content="b, default">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<font face="Arial" size="5"><b>
+<p align="RIGHT">Course Registration System</p>
+<p align="RIGHT">Use-Case Specification</p>
+<p>&nbsp;</p>
+<i>
+<p align="RIGHT">Maintain Student Information Use Case</p></i></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="4"><b>
+<p align="RIGHT">Version: Draft</p></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <td width="136" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Date</b></font></td>
+    <td width="59" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Version</b></font></td>
+    <td width="231" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Description</b></font></td>
+    <td width="144" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Author</b></font></td>
+  </tr>
+  <tr>
+    <td width="136" valign="TOP"><font size="2">21/Dec/98</font></td>
+    <td width="59" valign="TOP"><font size="2">Draft</font></td>
+    <td width="231" valign="TOP"><font size="2">Draft version</font></td>
+    <td width="144" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="136" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="59" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="231" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="144" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="136" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="59" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="231" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="144" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="136" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="59" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="231" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="144" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Table of Contents</p></b></font>
+<ol>
+  <li><font size="2">&nbsp; <a href="#_Toc449502028">Brief Description</a></font></li>
+  <li><font size="2">&nbsp; <a href="#_Toc449502029">Flow of Events</a></font>
+    <dl compact>
+      <dd><font size="2">2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449502030"><font size="2">Basic Flow – Add Student</font></a></dd>
+      <dd><font size="2">2.2&nbsp;&nbsp;&nbsp; <a href="#_Toc449502031">Alternative Flows</a></font></dd>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449502032">Modify a Student</a></font></dt>
+      <dd>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.2&nbsp;&nbsp;&nbsp; <a href="#_Toc449502033">Delete a Student</a></font></dd>
+    </dl>
+  </li>
+  <li><a href="#_Toc449502034"><font size="2">Special Requirements</font></a></li>
+  <li><a href="#_Toc449502035"><font size="2">Preconditions</font></a>
+    <dl compact>
+      <dd><font size="2">4.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449502036">Log In</a></font></dd>
+    </dl>
+  </li>
+  <li><font size="2"><a href="#_Toc449502037">Postconditions</a></font></li>
+  <li><font size="2"><a href="#_Toc449502038">Extension Points</a></font></li>
+</ol>
+<b><font face="Arial" size="5">
+<p align="CENTER">&nbsp;</p>
+<p align="CENTER"><a name="_Toc423410237"></a><a name="_Toc425054503">Maintain
+Student Information Use Case</a></p>
+</font>
+</b><ol><b>
+  <li><font face="Arial" size="2"><a name="_Toc449502028">Brief Description</a></font></li>
+  </b><font size="2">
+<p>This use case allows the Registrar to maintain student information in the
+registration system. This includes adding, modifying, and deleting students from
+the system.</p>
+<p>The actor for this use case is the Registrar.</p>
+</font></ol><font size="2">
+<a name="_Toc423410239"></a><a name="_Toc425054505"></a></font><font face="Arial"><b>&nbsp;&nbsp;&nbsp;
+2.&nbsp;&nbsp;&nbsp; <a name="_Toc449502029">Flow
+of Events</a>
+</b></font>
+<ol>
+  <font size="2">
+<p>The use case begins when the Registrar selects the &quot;maintain
+student&quot; activity from the Main Form.
+</font></ol><font size="2">
+  <a name="_Toc423410240"></a><a name="_Toc425054506"></a></font>
+<blockquote>
+  <font face="Arial" size="2"><b>2.1&nbsp;&nbsp;&nbsp; <a name="_Toc449502030">Basic
+  Flow</a> – Add Student</b></font>
+</blockquote>
+<ol>
+  <ol>
+    <font size="2">
+    <li>The Registrar selects &quot;add student.&quot;</li>
+    <li>The system displays a blank student form.</li>
+    <li>The Registrar enters the following information for the student: name,
+      date of birth, social security number, status, and graduation date.</li>
+    <li>The system validates the data to insure the proper format and searches
+      for an existing student with the specified name. If the data is valid the
+      system creates a new student and assigns a unique system-generated id
+      number.</li>
+    <li>Steps 2-4 are repeated for each student added to the system. When the
+      Registrar is finished adding students to the system the use case ends.</li>
+    </font></ol>
+  </ol><font size="2">
+  <a name="_Toc423410241"></a><a name="_Toc425054507"></a></font>
+<blockquote>
+  <font face="Arial" size="2"><b>2.2&nbsp;&nbsp;&nbsp; <a name="_Toc449502031">Alternative
+      Flows</a><a name="_Toc423410242"></a><a name="_Toc425054508"></a></b>
+  <p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </i>&nbsp; 2.2.1<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449502032">Modify
+        a Student</a>
+  </i></font></blockquote><ol>
+  
+      <ol>
+    <ol>
+      <font face="Arial" size="2">
+      </font><font size="2">
+      <p>Issue: Must ensure the flows for modifying and deleting students are
+      similar to the flows for modifying and deleting professors.</p>
+    </font></ol>
+  </ol>
+</ol><font size="2">
+  <a name="_Toc423410243"></a><a name="_Toc425054509"></a></font>
+<blockquote>
+  <font face="Arial" size="2"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+  2.2.2<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449502033">Delete
+      a Student</a></i></font>
+  <blockquote>
+    <blockquote>
+      <font size="2">
+      <p>Issue: Must ensure the flows for modifying and deleting students are
+      similar to the flows for modifying and deleting professors.</p>
+      </font>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<font size="2">
+<a name="_Toc423410251"></a><a name="_Toc425054510"></a></font><font face="Arial"><b>&nbsp;&nbsp;&nbsp;
+3.&nbsp;&nbsp;&nbsp; <a name="_Toc449502034">Special
+  Requirements</a>
+</b></font><ol><font face="Arial"><b>
+  </b></font><font size="2">
+<p>Special requirements will be determined during the next iteration.</p>
+</font></ol><font size="2">
+<a name="_Toc423410253"></a><a name="_Toc425054512"></a></font><b><font face="Arial">&nbsp;&nbsp;&nbsp;
+4.&nbsp;&nbsp;&nbsp; <a name="_Toc449502035">Preconditions</a></font></b>
+<b><font face="Arial"><a name="_Toc423410254"></a><a name="_Toc425054513"></a></font>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.1&nbsp;&nbsp;&nbsp; <a name="_Toc449502036">Log
+  In</a>
+</font></b><ol><b><font face="Arial" size="2">
+</font></b>
+<blockquote>
+  <font size="2">
+  <p>Before this use case begins the Registrar has logged onto the system.</p>
+  </font>
+</blockquote>
+
+</ol><font size="2">
+<a name="_Toc423410255"></a><a name="_Toc425054514"></a></font><font face="Arial"><b>&nbsp;&nbsp;&nbsp;
+5.&nbsp;&nbsp;&nbsp; <a name="_Toc449502037">Postconditions</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</b></font>
+<ol>
+  <font size="2">
+<p>Postconditions will be determined during the next iteration.</p>
+</font>
+</ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp; <a name="_Toc449502038">Extension Points</a></b></font>
+<blockquote>
+  <font size="2">
+  <p>Extension points of the business use case will be identified during the
+  Elaboration Phase.</p></font>
+</blockquote>
+<br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+    <td width="56%" height="19"><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2003 Rational Software Corporation&nbsp;</small></small></a></font>
+    </td>
+    <td width="39%" height="19">
+<p align="right"><font face="Arial"><small><small>
+Course Registration Project Web Example<br>
+Version 2001.02</small></small></font>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

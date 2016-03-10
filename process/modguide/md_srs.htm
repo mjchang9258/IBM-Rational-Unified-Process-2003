@@ -1,0 +1,1064 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Software Requirements Specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Software Requirements 
+  Specification</rpw><a name="Top"></a><a name="XE_software_requirements_specification__guidelines_for"></a></h2>
+
+<p>This information partially derived from content provided by IBM Corporation. <map name="FPMap0">
+<area href="http://www.ibm.com/e-business" target="_blank" coords="0, 0, 112, 46" shape="rect"></map><img border="0" src="../../images/ibm.gif" usemap="#FPMap0" width="113" height="47"></p>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a>
+    <ul>
+      <li><a href="#A Document or a Package?">A Document or a Package?</a></li>
+      <li><a href="#From Vision to SRS">From Vision to SRS</a></li>
+      <li><a href="#A Living Artifact">A Living Artifact</a></li>
+      <li><a href="#The Project Members' Reference Standard">The Project Members' Reference Standard</a></li>
+    </ul>
+  </li>
+  <li><a href="#Defining Functional Requirements">Defining Functional Requirements</a></li>
+  <li><a href="#Defining Non-Functional Requirements">Defining Non-Functional Requirements</a>
+    <ul>
+      <li><a href="#1 General">1 General</a>
+        <ul>
+          <li><a href="#1.1 Assumptions and Issues">1.1 Assumptions and Issues</a></li>
+          <li><a href="#1.2 Geographic Organization">1.2 Geographic Organization</a></li>
+        </ul>
+      </li>
+      <li><a href="#2 Givens">2 Givens</a>
+        <ul>
+          <li><a href="#2.1 Pre-selected Application Packages?">2.1 Pre-selected Application Packages?</a></li>
+          <li><a href="#2.2 Other Givens">2.2 Other Givens</a></li>
+          <li><a href="#2.3 Special Hardware?">2.3 Special Hardware?</a></li>
+          <li><a href="#2.4 Existing Data?">2.4 Existing Data?</a></li>
+        </ul>
+      </li>
+      <li><a href="#3 Standards">3 Standards</a>
+        <ul>
+          <li><a href="#3.1 Technical Architecture / Strategic Plan">3.1 Technical Architecture / Strategic Plan</a></li>
+          <li><a href="#3.2 Network Architecture">3.2 Network Architecture</a></li>
+          <li><a href="#3.3 Connection Policies">3.3 Connection Policies</a></li>
+          <li><a href="#3.4 Other Policies?">3.4 Other Policies?</a></li>
+        </ul>
+      </li>
+      <li><a href="#4 Numbers">4 Numbers</a>
+        <ul>
+          <li><a href="#4.1 &quot;Units of measurement&quot;">4.1 &quot;Units of measurement&quot;</a></li>
+          <li><a href="#4.2 &quot;Business volumes and sizings&quot;">4.2 &quot;Business volumes and sizings&quot;</a></li>
+          <li><a href="#4.3 &quot;Business process performance criteria&quot;">4.3 &quot;Business process performance criteria&quot;</a></li>
+        </ul>
+      </li>
+      <li><a href="#5 Availability">5 Availability</a>
+        <ul>
+          <li><a href="#5.1 Availability Advice">5.1 Availability Advice</a></li>
+          <li><a href="#5.2 &quot;Scheduled service hours&quot;">5.2
+            &quot;Scheduled service hours&quot;</a></li>
+          <li><a href="#5.3 &quot;Service outage costs&quot;">5.3 &quot;Service
+            outage costs&quot;</a></li>
+          <li><a href="#5.4 &quot;Availability and recovery criteria&quot;">5.4
+            &quot;Availability and recovery criteria&quot;</a></li>
+          <li><a href="#5.5 &quot;Disaster Recovery?&quot;">5.5 &quot;Disaster
+            Recovery?&quot;</a></li>
+          <li><a href="#5.6 &quot;Other availability design considerations&quot;">5.6
+            &quot;Other availability design considerations&quot;</a></li>
+        </ul>
+      </li>
+      <li><a href="#6 Security">6 Security</a>
+        <ul>
+          <li><a href="#6.1 &quot;Security requirements&quot;">6.1
+            &quot;Security requirements&quot;</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The <a href="../artifact/ar_srs.htm">Software Requirements Specification
+(SRS)</a> focuses on the collection and organization of all requirements
+surrounding your project. Refer 
+to the <a href="../artifact/ar_ratgl.htm">Requirements Management Plan</a> to determine the correct 
+location and organization of the requirements. For example, it may be desired to have a separate SRS to 
+describe the complete software requirements for each <a href="../workflow/requirem/co_reqty.htm">feature</a>
+in a particular release of the product. This may include several <a href="../artifact/ar_uc.htm">use
+cases</a> from the system <a href="../artifact/ar_ucmod.htm">use-case model</a>,
+to describe the functional requirements of this feature, along with the relevant
+set of detailed requirements in <a href="../artifact/ar_sspec.htm">Supplementary
+Specifications</a>.</p>
+<p>Since you might find yourself with several different tools for collecting
+these requirements, it is important to realize that the collection of
+requirements may be found in several different artifacts and tools. For example,
+you might find it appropriate to collect textual requirements such as
+non-functional requirements, Design Constraints, etc, with a text documenting
+tool in <a href="../artifact/ar_sspec.htm">Supplementary Specifications</a>. On
+the other hand, you might find it useful to collect some (or all) of the
+functional requirements in the <a href="../artifact/ar_uc.htm">use cases</a> and
+you might find it handy to use a tool appropriate to the needs of defining the <a href="../artifact/ar_ucmod.htm">use-case
+model</a>.</p>
+<h4><a name="A Document or a Package?">A Document or a Package?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>We find that there is no strong reason to focus on the differences between
+the tools used. After all, you are collecting requirements and you really should
+focus on the efficient collection and organization of the requirements without
+regard to the tools at hand. Since we are focused on the requirements and not on
+the tools, we will assume that the collection of requirements in the SRS
+constitutes a <a href="../glossary.htm#package">package</a> of information. The
+elaboration of the various requirements for the system is embodied in a package
+we call the <a href="../artifact/ar_srs.htm">Software Requirements Specification
+(SRS)</a>.</p>
+<h4><a name="From Vision to SRS">From Vision to SRS</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The SRS Package is obviously related to the <a href="../artifact/ar_vsion.htm">Vision</a>
+document. Indeed, the Vision document serves as the input to the SRS. But the
+two artifacts serve different needs and are typically written by different
+authors. At this stage in the project, the focus of the project moves from the
+broad statement of user needs, goals and objectives, target markets and features
+of the system to the details of how these features are going to be implemented
+in the solution.</p>
+<p>What we need now is a collection, or package, of artifacts that describes the
+complete external behavior of the system - i.e., a package that says
+specifically, &#147;Here is what the system has to do to deliver those features.&#148;
+That is what we refer to as the SRS Package.</p>
+<h4><a name="A Living Artifact">A Living Artifact</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The SRS Package is not a frozen tome, produced to ensure ISO 9000 compliance
+and then buried in a corner and ignored as the project continues. Instead, it is
+an active, living artifact. Indeed it has a number of uses as the
+developers embark upon their implementation effort: It serves as a basis of
+communication between all parties - i.e., between the developers themselves, and
+between the developers and the external groups (users and other stakeholders)
+with whom they must communicate. Formally or informally, it represents a
+contractual agreement between the various parties - if it’s not in the SRS
+Package, the developers shouldn’t be working on it. And if it is in the SRS
+Package, then they are accountable to deliver that functionality.</p>
+<h4><a name="The Project Members' Reference Standard">The Project Members'
+Reference Standard</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The SRS serves as the <a href="../workers/wk_projm.htm">project manager</a>’s
+reference standard. The project manager is unlikely to have the time, energy, or
+skills to read the code being generated by the developers and compare that
+directly to the <a href="../artifact/ar_vsion.htm">Vision</a> document. He or
+she must use the SRS Package as the standard reference for discussions with the
+project team.</p>
+<p>As noted earlier, it serves as input to the design and implementation groups.
+Depending on how the project is organized, the implementers may have been
+involved in the earlier problem-solving and feature-definition activities that
+ultimately produced the Vision document. But it’s the SRS Package they need to
+focus on for deciding what their code must do. It serves as input to the
+software testing and QA groups. These groups should also have been involved in
+some of the earlier discussions, and it’s obviously helpful for them to have a
+good understanding of the &#147;vision&#148; laid out in the Vision documents. But
+their charter is to create test cases and QA procedures to ensure that the
+developed system does indeed fulfill the requirements laid out in the SRS
+Package. The SRS Package also serves as the standard reference for their
+planning and testing activities.</p>
+<h3><a name="Defining Functional Requirements">Defining Functional Requirements</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>See <a href="md_ucmod.htm">Guidelines: Use-Case Model</a> and <a href="md_uc.htm">Guidelines:
+Use Case</a> for a full discussion of the recommended approach to defining
+functional requirements within a <a href="../artifact/ar_ucmod.htm">Use-Case
+Model</a> and the <a href="../artifact/ar_uc.htm">Use Cases</a>.</p>
+<h3><a name="Defining Non-Functional Requirements">Defining Non-Functional
+Requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The non-functional requirements of your system should be documented in the <a href="../artifact/ar_sspec.htm">Artifact:
+Supplementary Specifications</a>.&nbsp; Following are guidelines to follow when
+defining these requirements.</p>
+<b><font face="Helvetica-Bold" size="4">
+<h4><a name="1 General">1 General</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font></b><h5><b>
+<font face="Helvetica-Bold"><a name="1.1 Assumptions and Issues">1.1 Assumptions and Issues</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>While gathering and validating non-functional requirements, maintain
+Assumptions and Issues lists.&nbsp;</p>
+<p>Some activities will not give you satisfactory answers. This can be due to
+lack of information, or simply because you consider the answer threatens the
+viability of the design. Therefore, create two lists, and maintain them through
+the design study:</p>
+<p>Any assumptions you make during the requirements and design process,
+including the rationale or thought processes behind those assumptions.
+Assumptions may be used to identify related subprojects or items of work which
+are outside the scope of or after this project.</p>
+<p>Any major issues (significant concerns that could become show-stoppers)</p>
+<p>The issues should be reviewed with the customer at the and of each phase. The
+assumptions need to be reviewed also, at the end of each phase, but the customer
+might not always be the correct person for the less important ones.</p>
+<p>Assumptions and issues apply to all artifacts, but are particularly common
+for non-functional requirements.</p>
+<h5><b>
+<font face="Helvetica-Bold"><a name="1.2 Geographic Organization">1.2 Geographic Organization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Document the client’s geographic organization.</p>
+<p>Document the geographic locations of the part of the business affected by
+this system. The definition should include those unaffected sites also, which
+host major IT facilities. Make special note of any part of the organization that
+is mobile. For instance a sales force that will travel about and use
+workstations. Note any geographic locations at which you may have to provide
+special natural language support (NLS).</p>
+<b><font face="Helvetica-Bold" size="4">
+<h4><a name="2 Givens">2 Givens</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font></b><h5><b>
+<font face="Helvetica-Bold"><a name="2.1 Pre-selected Application Packages?">2.1 Pre-selected
+Application Packages?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Do the requirements specify the use of any application packages? One very
+important &quot;given&quot; that may dictate strongly some of the system design
+decisions is the use of a specific application package that provides predefined
+software logic and data organization. Some software packages are flexible and
+allow a great deal of customization; some are very rigid and do not. Packages
+may dictate such components and decisions as:</p>
+      <ul>
+        <li>Workstation type</li>
+        <li>Connection methods</li>
+        <li>Processor and Direct Access Storage Device type (DASD)</li>
+        <li>System Control Program</li>
+        <li>Data organization, placement and management</li>
+        <li>Programming language</li>
+        <li>Batch interfaces</li>
+        <li>Process and data relationships</li>
+        <li>Business logic</li>
+        <li>Screen design and end user interfaces</li>
+        <li>Performance and availability characteristics</li>
+        <li>Any existing or required architecture for printing, such as preferred 
+          print data formats (for example, PostScript, PCL, IPDT)</li>
+        <li>National Language Support (NLS)</li>
+      </ul>
+<p>It is important to understand what influences any given package will have
+upon your design. If you have a &quot;given&quot; package, make sure you have
+the right skills and knowledge about this package available to you. This might
+come from:</p>
+<ul>
+  <li>The package vendor</li>
+  <li>External consultants</li>
+  <li>Specially trained design team members</li>
+</ul>
+<p>Do not assume that this knowledge is readily available. Ensure that it will
+be available to you when you need it.</p>
+<h5><b>
+<font face="Helvetica-Bold"><a name="2.2 Other Givens">2.2 Other Givens</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Document any other givens in the requirements that will limit the flexibility
+of your design.</p>
+<p>This is to catch any specific requirements not explicitly covered in earlier
+activities that might limit the flexibility of your design. For example, look
+for:</p>
+<ul>
+  <li>Use of existing processors or operating system images</li>
+  <li>Use of existing workstation equipment</li>
+  <li>Use of an existing network</li>
+  <li>Use of existing system management practices</li>
+  <li>Use of a specific model, such as: &#145;you must use a client/server system
+    model for the design that clearly shows Presentation/Business/Data Access
+    Logic and where and how they interface&#146;.</li>
+</ul>
+<p>Will any of these givens affect the new system? If the new system is to run
+on an existing processor, operating system image, or network configuration, are
+the characteristics of the existing platform and workload going to affect the
+new system?</p>
+<p>How much connection and processing capacity is already taken by existing
+workloads?</p>
+<p>What security controls are used by existing workloads? Note these, and check
+them against the security requirements of the new system when you consider the
+latter.</p>
+<p>What are the availability characteristics of the existing workload?</p>
+<p>Note anything which might affect your later design of availability for the
+new system. For example, does the existing workload insist on shutting down the
+whole of a processor each night?</p>
+<h5><b>
+<font face="Helvetica-Bold"><a name="2.3 Special Hardware?">2.3 Special Hardware?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Do the requirements specify the use of any special hardware?</p>
+<p>This might be stated in generic terms (&quot;the system must support a
+high-speed flat-bed plotter&quot;) or be more specific (&quot;the existing Panda
+Corp ATMs will be supported&quot;). Document, as far as you can:</p>
+<ul>
+  <li>Any hardware or software prerequisites</li>
+  <li>The vendors and their support organizations</li>
+  <li>National Language (NLS) Considerations</li>
+  <li>Cryptographic equipment</li>
+</ul>
+<h5><b>
+<font face="Helvetica-Bold"><a name="2.4 Existing Data?">2.4 Existing Data?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Do the requirements specify the use of existing data? If so, then this will
+influence your system design. Document:</p>
+<ul>
+  <li>On which system(s) the data currently exists</li>
+  <li>Its structure (such as, relational or flat file)</li>
+  <li>Its size</li>
+  <li>Which users and what systems use this data today</li>
+  <li>Availability considerations (such as periods when data is unavailable
+    because of database maintenance or batch activity)</li>
+  <li>Can this data be moved or copied?</li>
+</ul>
+<b><font face="Helvetica-Bold" size="4">
+<h4><a name="3 Standards">3 Standards</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font></b><h5><b>
+<font face="Helvetica-Bold"><a name="3.1 Technical Architecture / Strategic Plan">3.1 Technical
+Architecture / Strategic Plan</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Does the client have a technical architecture and/or IT strategic plan (or
+equivalent set of standards)?</p>
+<p>A technical architecture is roughly equivalent to the following:</p>
+<ul>
+  <li>Enterprise technical platform</li>
+  <li>Enterprise technical infrastructure</li>
+  <li>Technology architecture</li>
+</ul>
+<p>In a technical architecture you might find some of the following defined for
+you:</p>
+<ul>
+  <li>The number and use of computing centers</li>
+  <li>The networking connectivity of the enterprise (WAN)</li>
+  <li>The localized connectivity of certain establishments (LAN)</li>
+  <li>Client/server infrastructure services (middleware) covering</li>
+</ul>
+<blockquote>
+  <p>· Directory and naming services that keep track of network resources and
+  attributes<br>
+  · Security services that protect network resources from unauthorized used by
+  registering users and their authorization levels<br>
+  · Time services that regulate date and time across the network<br>
+  · Transaction management services that coordinate resource recovery across
+  various systems in a network</p>
+</blockquote>
+<ul>
+  <li>The development methods that will be used for new applications&nbsp;</li>
+  <li>The accepted set of supported products such as:</li>
+</ul>
+<blockquote>
+  <p>· Hardware<br>
+  · System control software<br>
+  · Broad application software such as &quot;Office&quot;<br>
+  · Help desk use<br>
+  · Security rules</p>
+</blockquote>
+<ul>
+  <li>Printing subsystem architecture</li>
+</ul>
+<p>The list may be very extensive and the items in it may be policed on a very
+rigid basis or may not be enforced at all.</p>
+<p>Document any requirements that specifically ask for, or exclude, the use of
+sub-architectures such as:</p>
+<ul>
+  <li>OSI or SNA</li>
+  <li>UNIX**</li>
+  <li>SAA</li>
+  <li>PS/2* with OS/2* EE.</li>
+</ul>
+<p>Special architectures that may be implied by the use of a packaged
+application solution. Remember some application packages are architectural
+definitions in their own right.</p>
+<p>Document the degree of openness (that is, vendor independence and
+interoperability) required by the client. If there is a technical architecture,
+then your design will almost certainly have to comply with it. You should read
+it and understand the rules that will influence design of this system.</p>
+<h5><b>
+<font face="Helvetica-Bold"><a name="3.2 Network Architecture">3.2 Network Architecture</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Does the client have a network architecture to which this system must
+conform? A network architecture is a common set of rules for high-level
+connectivity, plus a common transport infrastructure. This might include the
+definition of a backbone network, including concentrators and lines. If there is
+such an architecture, then understand the essential rules and topology and
+document:</p>
+<p>Considerations for physical topology (that is, whether the network is
+essentially rural or metropolitan and whether the network attachment are densely
+populated versus loosely distributed).</p>
+<p>What high-level connection functions are supported by the current network
+infrastructure.</p>
+<p>What communications standards are used (for example SNA, OSI, TCP/IP) to
+support these connections functions.</p>
+<p>What programming interfaces are supported.</p>
+<p>Any network architecture definitions of the connectivity between
+client/server layers or the base system model layers like:</p>
+<ul>
+  <li>Relational data access between client workstations and LAN relational
+    servers must be via the protocols of a specific relational database product.</li>
+  <li>The presentation logic must always be in the workstation and the data
+    access logic must always be in a centralized host system.</li>
+</ul>
+<h5><b>
+<font face="Helvetica-Bold"><a name="3.3 Connection Policies">3.3 Connection Policies</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Does the client have any stated policies for connections?</p>
+<p>Even if you don’t have technical or network architectures, you may still
+have some connection policies.</p>
+<p>Document any policies regarding:</p>
+<ul>
+  <li>The use of particular protocols or communication facilities (for
+    connections within a single building or external to the building or
+    organization).</li>
+  <li>Whether any particular protocols are implicitly required to support
+    existing equipment or software.</li>
+  <li>Whether existing physical connectivity facilities are to be used (that is,
+    cabling or wiring, network or peripheral controllers, and common carrier
+    facilities). If not, there may be constraints on the type of physical
+    facilities that can be used (policies, government regulations, physical
+    space, ownership of premises, involvement of third parties). Document these.</li>
+  <li>If installation or modification of physical facilities is likely to be
+    required, there may be a need to involve one or more third parties (such as
+    contractors or common carriers). Understand how the contracting or
+    responsibility would be managed. This is particularly important if the
+    business interactions will involve international connections.</li>
+  <li>Support of mobile users.</li>
+</ul>
+<h5><b>
+<font face="Helvetica-Bold"><a name="3.4 Other Policies?">3.4 Other Policies?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Does the client have any other policies, standards or rules not explicitly
+stated in their requirements? For example:</p>
+<ul>
+  <li>All new system interfaces for end users must be designed to object
+    oriented principles to allow drag and drop actions.</li>
+  <li>All new systems must be based upon the client/server application model.</li>
+  <li>All new systems must be defined with open standards</li>
+  <li>Standards and policies for National Language Support (NLS) especially
+    anything such as right-to-left text operation.</li>
+  <li>Security policy defining management responsibility and standards for user
+    authentication, access control and data protection.</li>
+  <li>Application interchange standards (such as UNEDIFACT or VISA) which may
+    imply the use of special equipment for connection or security.</li>
+</ul>
+<p>If there are other policies, then make sure you understand them and have
+access to them so that you can ensure that your design conforms to the standards
+in the later phases of the design process. The use of a packaged application
+solution may well bring with it some implied standards.</p>
+<p>What is the policy on allowing users or departments to add and/or develop
+their own local programs on:</p>
+<ul>
+  <li>Workstations</li>
+  <li>Servers (especially disk space usage)</li>
+</ul>
+<p>Without controls, you may find that local usage quickly uses up resources
+which are needed by the production systems for which the local components were
+originally bought. You may find that you cannot install the production system by
+the time it is finally ready for rollout.</p>
+<b><font face="Helvetica-Bold" size="4">
+<h4><a name="4 Numbers">4 Numbers</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font></b><h5><b>
+<font face="Helvetica-Bold"><a name="4.1 &quot;Units of measurement&quot;">4.1 &quot;Units of
+measurement&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Work with the applications development personnel to break down the business
+processes into more granular units such as smaller business processes or
+transactions.</p>
+<p>The reason for doing this is that you are going to capture numbers in the
+next question, and you have to decide what it is you are going to count.</p>
+<p>Be aware that a business process may start several instances of smaller
+business transactions (for example multiple item orders per customer order) and
+these multipliers should be remembered when you document the numbers. However,
+do not get caught up with too much detail, particularly for a complex system.</p>
+<p>A business &quot;process&quot; (for example, &quot;customer order
+handling&quot;) will typically be implemented by an &quot;application&quot; (an
+IT term), or may span more than one application. Within each application, there
+will usually be many IT &quot;transactions&quot;, for example, &quot;query stock
+level&quot; or &quot;generate customer letter&quot;.</p>
+<p>Different communities use their own names to identify the units we are trying
+to agree. For example, &quot;transaction&quot; might mean one thing to people
+with an applications development background, and a completely different thing to
+the infrastructure team. It is important to work together to correlate the names
+and then collect the information.</p>
+<h5><b>
+<font face="Helvetica-Bold"><a name="4.2 &quot;Business volumes and sizings&quot;">4.2 &quot;Business
+volumes and sizings&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Identify and document volume and sizing information for each of the units in
+4.1: &quot;Units of measurement&quot;, for example:</p>
+<ul>
+  <li>How many users are expected to be using each business process or
+    application on average and at peak times</li>
+  <li>When the peaks are (daily, weekly, monthly etc., as appropriate)</li>
+  <li>At what rate transactions will need to be processed at peak and on average</li>
+  <li>The number of data elements and instances in each data group and their
+    sizes.</li>
+</ul>
+<h5><b>
+<font face="Helvetica-Bold"><a name="4.3 &quot;Business process performance criteria&quot;">4.3
+&quot;Business process performance criteria&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>The client may have performance criteria specified for some or all the
+business processes. However, remember also to document performance targets for
+system support processes (such as system backup) and applications development
+processes if identified. For each category, document:</p>
+<ul>
+  <li>The response/turnaround requirements for each category</li>
+  <li>Where these are to be measured</li>
+  <li>Whether different criteria are acceptable at different times (for example
+    off-peak/overnight)</li>
+  <li>Whether the criteria are to be met during recovery or fallback</li>
+  <li>If a performance guarantee is required</li>
+  <li>What the impact will be on any party if the performance requirements are
+    not met</li>
+  <li>Express the minimum performance conditions required for the business
+    process to be considered available (that is, the point below which the
+    system is considered to be &quot;unavailable&quot; instead of
+    &quot;slow&quot;).</li>
+  <li>If a packaged application solution has already been chosen ensure that you
+    have access to its performance characteristics. You may not need them all
+    now but you should be aware where to get them as they will probably be
+    needed in future activities. It may also take a long time for third parties
+    to deliver the figures you require, so ask for them now.</li>
+</ul>
+<b><font face="Helvetica-Bold" size="4">
+<h4><a name="5 Availability">5 Availability</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font></b><h5><b>
+<font face="Helvetica-Bold"><a name="5.1 Availability Advice">5.1 Availability Advice</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>The recommended approach to establishing availability requirements is as
+follows:</p>
+<ol>
+  <li>Identify the true end users of the system, the business processes they are
+    performing, and the hours when the end users perform those processes</li>
+  <li>Analyze the impact of service availability (or unavailability) on the end
+    users’ ability to accomplish their business objectives</li>
+  <li>Specify availability requirements that directly reflect what the end users
+    require to accomplish their business objectives.</li>
+  <li>Be aware that if a packaged application solution has already been chosen,
+    its structure and design may have a significant influence upon the
+    availability characteristics of the application as seen by the end users. A
+    package that has not been designed to operate continuously may be very
+    difficult to operate continuously, especially as regards maintenance and
+    batch windows.</li>
+</ol>
+<p>Consider these guidelines as you form the availability requirements:</p>
+<ul>
+  <li>Rather than specifying &quot;global&quot; requirements for the entire
+    system, specify availability requirements at a low level of granularity (for
+    example, by individual process, user group, data group, etc.). This gives
+    the designer more flexibility to meet the end users’ needs. This is
+    particularly important for systems with very high continuous availability
+    requirements.</li>
+</ul>
+<p>Some examples:</p>
+<ul>
+  <li>The statement &quot;The system must be up 24 hours per day to accommodate
+    users in New York and Hong Kong&quot; leaves the designer much less design
+    flexibility than the statement &quot;New York users must be able to perform
+    transactions on THEIR data from 7AM to 7PM New York time and Hong Kong users
+    must be able to perform transactions on THEIR data from 7AM to 7PM Hong Kong
+    time&quot;. In the latter case, the designer has the flexibility to perform
+    maintenance on one time zone’s data or system components while the other
+    time zone is still in the middle of their production day.</li>
+  <li>In an ATM application, it may be critical to accept deposits and dispense
+    cash at 3AM Monday morning, while the ability to provide exact account
+    balances at that hour may be less critical.</li>
+  <li>Distinguish between availability characteristics that are DESIRED and
+    those that are MANDATORY. For example &quot;The ATM MUST be able to accept
+    deposits and dispense cash 24 hours per day. It is DESIRED that the ATM be
+    able to provide the customer their exact account balance 24 hours a day;
+    however occasional interruptions in the account balance enquiry process can
+    be accommodated, but they MUST be less than 10 minutes in duration and occur
+    between the hours of 3:00 and 4:00 AM&quot;.</li>
+  <li>If the impact of not meeting a particular availability target cannot be
+    directly related to the users’ ability to accomplish their business
+    objectives, that target may not be a good one to state as an availability
+    requirement for the system.</li>
+  <li>Availability requirements that only indirectly reflect the availability as
+    perceived by the end user (for example &quot;The IMS control region must be
+    up&quot;) tend not to be as useful as those that do (for example &quot;Bank
+    tellers must be able to perform processes X and Y&quot;).</li>
+</ul>
+<h5><b>
+<font face="Helvetica-Bold"><a name="5.2 &quot;Scheduled service hours&quot;">5.2 &quot;Scheduled
+service hours&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>For each of the business processes and the groups of users who must perform
+them, identify the hours during which the user must be able to perform that
+process. Remember also to do this for those processes which are not directly
+associated with user group(s).</p>
+<p>If there are user groups in different time zones (such as the earlier New
+York / Hong Kong example), treat them as separate groups of users.</p>
+<p>Also show if there will be occasional periods, such as business holidays,
+when the application may not be needed. (This gives the designer the flexibility
+to use those periods for extended maintenance). What changes are anticipated in
+these service hours over the projected life of the application?</p>
+<p>The service hours of this system may also be affected by those of other
+systems with which this one interfaces.</p>
+<p>How are the scheduled service hours of this system expected to change over
+its projected life?</p>
+<h5><b>
+<font face="Helvetica-Bold"><a name="5.3 &quot;Service outage costs&quot;">5.3 &quot;Service outage
+costs&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Understand the BUSINESS IMPACT, FINANCIAL COSTS, AND RISKS associated with
+service interruptions during the scheduled service hours.</p>
+<p>To identify what availability requirements are really important for this
+system, consider the set of business processes and groups of users and identify
+the business impact that would result from:</p>
+<ul>
+  <li>A brief interruption or period of unacceptably slow response time during
+    the scheduled hours. Define &quot;brief&quot; and &quot;unacceptably
+    slow&quot; as they relate to this particular application (see &quot;Business
+    process performance criteria&quot;)</li>
+  <li>Various longer-duration interruptions in service during the above hours (a
+    minute, a few minutes, 15 minutes, 30 minutes, an hour, two hours, four
+    hours, etc.)</li>
+  <li>Extended interruptions in service (a shift, a day, multiple days, etc.).</li>
+  <li>Also consider any processes which are not directly associated with a user
+    group (for example, overnight check clearing).</li>
+</ul>
+<p>When assessing the impact of each outage, identify fallback procedures and
+consider how they can reduce the true business impact of the outage.</p>
+<p>Try to quantify this impact in financial terms (cost of lost staff or
+equipment productivity, value of lost current business, estimated loss of future
+business due to customer dissatisfaction, interest expenses, regulatory
+penalties, etc.).</p>
+<p>Provide as many answers as necessary to reflect differences in the costs and
+risks associated with outages of different duration’s, at different times of
+the day, whether planned or unplanned, which business processes or users are
+affected, etc.</p>
+<p>How is the business/financial impact of a service interruption anticipated to
+change during the projected life of this system?</p>
+<p>Review each of these agreed important business processes to identify
+alternatives to allow the most critical elements of those processes to proceed
+should some portions of the system become temporarily unavailable. The ability
+to operate temporarily with reduced business function may be a way to help
+reduce the availability impact of interdependencies among critical processes and
+data.</p>
+<p>Some examples:</p>
+<ul>
+  <li>FULL FUNCTION 1 Read and update stock record.</li>
+  <li>REDUCED FUNCTION 1 Enter update of stock record and queue for future
+    update.</li>
+  <li>FULL FUNCTION 2 Read most-recent customer balance.</li>
+  <li>REDUCED FUNCTION 2 Read customer balance from an alternate source, which
+    may not be quite as current.</li>
+  <li>FULL FUNCTION 3 Update computer diary.</li>
+  <li>REDUCED FUNCTION 3 Update printed paper copy of diary.</li>
+</ul>
+<p>Remember that when the system is working with reduced function there may be a
+limit to which this is acceptable to the business processes. For example, an
+out-of-date customer balance must not be more than 24 hours out-of-date.</p>
+<p>If service is interrupted during the scheduled hours (see &quot;Scheduled
+service hours&quot;) the impact of the interruption will usually vary depending
+on outage duration and other conditions. Some outages may have minimal impact on
+the users’ ability to perform their business processes (brief outages, those
+which occur during lightly-used periods of the day, those which impact only a
+subset of the user group, or those for which an acceptable manual fallback
+procedure exists). Other outages, such as those which are longer or occur during
+a &quot;critical&quot; period of the day, may have a more significant
+impact.&nbsp;</p>
+<p>Some examples:</p>
+<ul>
+  <li>A brief outage of manufacturing line control processes might have minimal
+    impact on productivity, since work can continue based on previously-printed
+    work orders and changes can be noted manually for later entry. However, an
+    outage extending beyond sixty minutes may result in the shutdown of the line
+    for the remainder of the shift.</li>
+  <li>An outage of a high-dollar-volume financial settlement system during the
+    last hour of trading might result in significant interest costs or
+    regulatory penalties.</li>
+  <li>Police and fire department responses to life-threatening emergencies can
+    continue using manual fallback procedures if a dispatching system is
+    unavailable. However the response times may increase, and potentially
+    threaten lives, due to the increased dispatcher workload.</li>
+  <li>A peak-period outage of an airline or hotel reservations system may not
+    only result in a loss of current business when customers call a competitor
+    to make their reservations, but may also result in a loss of future business
+    if customers become dissatisfied enough to call another airline or hotel
+    first the next time they need these services.</li>
+</ul>
+<h5><b>
+<font face="Helvetica-Bold"><a name="5.4 &quot;Availability and recovery criteria&quot;">5.4
+&quot;Availability and recovery criteria&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Identify the AVAILABILITY AND RECOVERY CRITERIA that would apply under
+&quot;normal&quot; situations.</p>
+<p>Exclude &quot;disaster&quot; situations, such as an extended loss or shutdown
+of the entire computing facility.</p>
+<p>Based on the business/financial costs and risks identified in &quot;Service
+outage costs&quot;, develop a specification of the availability criteria that
+must be met to avoid significantly inhibiting user groups from performing their
+assigned business processes. Such criteria might be specified in forms such as:</p>
+<ul>
+  <li>Percentage of outages recovered within a given number of minutes/seconds</li>
+  <li>Maximum amount of time over a given week/month/year when the user cannot
+    perform a particular function</li>
+</ul>
+<p>Be as specific as necessary to reflect factors such as differences between
+planned and unplanned outages, the hour during which the outage occurs (for
+example &quot;critical&quot; periods versus lightly used periods) whether all
+users or only a few are affected, etc.</p>
+<p>Be careful not to specify unnecessarily stringent availability criteria, as
+this could significantly affect the implementation cost. In general, if
+significant business/financial costs or risks cannot be identified with a given
+set of outage conditions, this may be an indication that this set of outage
+conditions should not be included in the stated availability criteria.</p>
+<p>If &quot;Scheduled service hours&quot; suggested that the scheduled service
+hours are likely to change, and/or &quot;Service outage costs&quot; suggested
+that the business/financial costs or risks associated with a service
+interruption are likely to change during the projected life of the system,
+estimate how the availability criteria would change as a result.</p>
+<p>If cryptography is to be used, there will be additional recovery and
+availability considerations. For example:</p>
+<ul>
+  <li>The ability to recover secret information that may be held outside of the
+    system.</li>
+  <li>The need to ensure that data which is protected cryptographically is
+    recovered in co-ordination with the recovery of the appropriate encryption
+    keys</li>
+</ul>
+<h5><b>
+<font face="Helvetica-Bold"><a name="5.5 &quot;Disaster Recovery?&quot;">5.5 &quot;Disaster
+Recovery?&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>Is disaster recovery required within the scope of this design project
+(availability during &quot;disaster&quot; situations, such as extended loss or
+shutdown of the entire computing facility)? If so, what are the criteria for
+such recovery?</p>
+<p>Be aware that probably not all business processes will require disaster
+recovery facilities. Select only those processes that are critical and do
+require disaster recovery. Even within those processes, not all functions may
+need to be covered.</p>
+<ul>
+  <li>How soon must service be restored? Is this measured from when the disaster
+    occurs, or from when a decision is made to go to a remote site?</li>
+  <li>Under what conditions would the organization decide to recover at a remote
+    site, rather than locally?</li>
+  <li>How current must the data be at the remote site for the business to
+    continue operating (absolutely up-to-the-second; within a few minutes of the
+    failure; previous day’s data acceptable)?</li>
+  <li>When service is first restored from the remote site?</li>
+  <li>At some future point in time?</li>
+  <li>What is the remote site recovery priority of this set of applications
+    relative to other business applications dependent on the same computing
+    facility?</li>
+</ul>
+<p>Note that there may be different sets of criteria for different parts of the
+system or depending on the type of disaster.</p>
+<p>What changes in the above disaster recovery requirements are anticipated
+during the projected life of the application?</p>
+<h5><b>
+<font face="Helvetica-Bold"><a name="5.6 &quot;Other availability design considerations&quot;">5.6
+&quot;Other availability design considerations&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>To design a system that recovers as quickly as possible, the designer needs
+to know what flexibility is available to them in implementing the application,
+while still meeting the functional requirements of the application. Here are
+some questions which may be of value to the designer:</p>
+<p>1. To accommodate necessary maintenance activities, may the system operate
+for brief periods during which it would:</p>
+<blockquote>
+  <p>a. Perform inquiry but not update?</p>
+  <p>b. Accept update requests from the user, but not actually update the DB
+  until after the maintenance activities have completed?</p>
+</blockquote>
+<p>2. For an outage requiring recovery of data, is it more important to:</p>
+<blockquote>
+  <p>c. Restore service as quickly as possible, even if it means using data that
+  is not completely up-to-date, or:</p>
+  <p>d. Recover all data to their current state before restoring service, even
+  if this takes longer?</p>
+</blockquote>
+<p>3. Should a user request be &quot;in process&quot; at the time of failure,
+can the user be relied on to re-enter the request following recovery of service?</p>
+<p>4. Are there any non-technical considerations that might affect the
+availability of this system (such as a business policy which says that process A
+must not be made available to users unless process B is also available)?</p>
+<p>Are any of the above design considerations expected to change over time?</p>
+<p>For processes that are critical to the business, it is useful to identify
+alternatives which allow the most critical elements of those processes to appear
+functional even when portions of the system are temporarily unavailable. The
+ability to operate temporarily with reduced business function may be a way to
+help reduce the availability impact of interdependencies among critical
+processes and data.</p>
+<b><font face="Helvetica-Bold" size="4">
+<h4><a name="6 Security">6 Security</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font></b><h5><b>
+<font face="Helvetica-Bold"><a name="6.1 &quot;Security requirements&quot;">6.1 &quot;Security
+requirements&quot;</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></font></b></h5>
+<p>1. Identify data to be protected</p>
+<p>2. Identify the type of threats to which each type of data is exposed:</p>
+<ul>
+  <li>Accidental corruption or destruction</li>
+  <li>Deliberate corruption or destruction</li>
+  <li>Commercial intelligence</li>
+  <li>Fraud</li>
+  <li>Hacking</li>
+  <li>Viruses</li>
+</ul>
+<blockquote>
+  <p>1. Identify threats to physical security:</p>
+  <blockquote>
+    <ul>
+      <li>Theft of components</li>
+      <li>Unauthorized physical access</li>
+      <li>Physical safety of users</li>
+    </ul>
+  </blockquote>
+  <p>2. Identify the people who may be the sources of these threats:</p>
+  <blockquote>
+    <ul>
+      <li>Data center staff</li>
+      <li>Other IT staff (for example, development)</li>
+      <li>Non-IT staff of the organization</li>
+      <li>People outside the organization</li>
+    </ul>
+  </blockquote>
+  <p>3. Identify any special or unusual security requirements especially with
+  respect to:</p>
+  <blockquote>
+    <ul>
+      <li>Access to the system</li>
+      <li>Encryption of data</li>
+      <li>Auditability</li>
+    </ul>
+  </blockquote>
+  <p>4. Are there any general policies, such as Freedom of Information acts,
+  that might influence the security design of this system?</p>
+  <p>5. Some packaged application solutions have their own security sub-systems.
+  If you have a &quot;given&quot; package be aware of its security facilities.</p>
+</blockquote>
+<p>In order to establish and classify the security requirements, you may want to
+use the following approach:</p>
+<blockquote>
+  <p>1. List the objects which require protection by logical or physical
+  security.</p>
+  <p>2. Identify the exposure which is relevant to each object. Typical
+  categories are:</p>
+  <blockquote>
+    <ul>
+      <li>View access (breach of confidentiality), e.g. account information,
+        client list, patents.</li>
+      <li>Update access, i.e. modification of data for fraud, cover-up,
+        diversion of funds.</li>
+      <li>Loss of assets, i.e. somebody else gets a possession and it is no
+        longer available to the owner (as distinguished from loss due to
+        disaster). Examples are: client and prospect lists, contracts, etc.</li>
+    </ul>
+  </blockquote>
+  <p>Note that not all objects are sensitive to all of the above exposures.</p>
+  <p>3. Identify all the threats which are relevant to your environment.
+  Examples are:</p>
+  <blockquote>
+    <ul>
+      <li>Disgruntled employees</li>
+      <li>Unauthorized employees</li>
+      <li>Open terminal sessions in public place</li>
+      <li>Hackers</li>
+      <li>Line tapping</li>
+      <li>Loss of equipment (e.g. portable PCs)</li>
+    </ul>
+  </blockquote>
+  <p>4. For each object establish which threat may apply and associate it with
+  the particular exposure.</p>
+</blockquote>
+<p>Note that you may have to review the security requirements for the object
+both in a static location (e.g. on a hard disk) as well as in transit (e.g.
+during transmission).</p>
+<p>Since the design may extend the location of the object into unsecured areas,
+you may have to revisit this subject.</p>
+<p>The security aspects of some system designs can be very demanding. They can
+dominate your design decisions. They could cause otherwise good options of
+structure and component selection to become unacceptable. So make a definite
+choice now as to whether the system that you are designing has particularly
+demanding security requirements. For example:</p>
+<ul>
+  <li>A sensitive military system</li>
+  <li>A high value money transfer system</li>
+  <li>A system that handles confidential personal information</li>
+</ul>
+<p>If you believe that you have special security demands then you should
+identify a Security Expert or Practitioner to assist you in the design aspects
+of your system.</p>
+
+<b><font face="Helvetica-Bold" size="4">
+<h4><a name="6 Usability">7 Usability</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font></b>
+<p>Usability requirements define how high the usability of the user interface 
+  must be.</p>
+<p>The usability requirements should be set to the lowest level of usability that 
+  the system must achieve in order to be used. They should not be set to what 
+  you believe the system can achieve. In other words, the usability requirements 
+  should not be considered a target, i.e., an upper limit. Usability requirements 
+  should define the absolute lowest acceptable system usability. Thus, you should 
+  not necessarily stop improving usability when usability requirements are fulfilled</p>
+<p>What the system must achieve, in order to be used, depends mostly on what the 
+  alternative to using the system is. It is reasonable to require that the system 
+  should be significantly more usable than the alternatives. The alternatives 
+  can be to utilize: 
+<ul>
+  <li>Existing manual procedures.</li>
+  <li>Legacy system(s).</li>
+  <li>Competing products.</li>
+  <li>Earlier version(s) of the system.</li>
+</ul>
+<p>Usability requirements can also come from the need to economically justify 
+  the new system: if the customer has to pay $3 million for the new system, he 
+  might want to impose usability requirements that imply that he will save perhaps 
+  $1 million per year because of decreased workload on his human resources.</p>
+<p>The following are examples of some general usability requirements: </p>
+<ul>
+  <li>Maximum execution time - how long it should take a trained user to execute 
+    a common scenario.</li>
+  <li>Maximum error rate - how many errors a trained user will average for a common 
+    scenario.<br>
+    The only errors that are relevant to measure are those that are unrecoverable 
+    and will have negative effects on the organization, such as losing business, 
+    or causing damage to monitored hardware. If the only consequence of an error 
+    is that it takes time to fix, this will affect the measured execution time. 
+  </li>
+  <li>Learning time - how long it takes before the user can execute a scenario 
+    faster than the specified maximum execution time.</li>
+</ul>
+
+<p>The following is an example of some specific usability requirements for a &quot;Manage 
+  Incoming Mail Messages&quot; Use Case. </p>
+<ul>
+  <li>The Mail User should be able to arrange Mail Messages with 
+      a single mouse click.</li>
+  <li>The Mail User should be able to scroll Mail Message texts 
+      by pressing single keyboard buttons.</li>
+  <li>The Mail User should not be disturbed by incoming Mail 
+      Messages when reading existing Mail Messages.</li>
+</ul>
+
+
+<table border="0" width="100%">
+  <tr>
+    <td width="59%">
+      <p>Portions of the text herein are used under license from IBM
+    Corporation</td>
+    <td width="41%">
+      <p>
+      <a href="http://www.ibm.com/e-business" target="_blank"><img border="0" src="../../images/ibm.gif" width="113" height="47"></a></td>
+  </tr>
+</table>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

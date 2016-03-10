@@ -1,0 +1,400 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Developer Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Developer Test</rpw><a name="XE_Developer_Test__artifact_definition"></a></h2>
+
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/dvltst.jpg" width="72" height="55">&nbsp;
+	  </td>
+      <td width="80%">The step-by-step instructions that realize a test design 
+        specification, enabling its execution.</td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_implm.htm">Implementer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Depends on the scope and granularity of developer testing: 
+        for subsystem testing there will be as many as needed to provide the appropriate 
+        coverage; in the case of smaller components, only the critical aspects 
+        are usually tested.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Not applicable.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../workflow/test/co_tstfrsdsg.htm">Concept: Test-first Design</a></li>
+<li><a href="../modguide/md_untst.htm">Guideline: Unit Test</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_untst.htm">Execute Developer Tests</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_impdvltst.htm">Implement Developer Test</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a><a name="XE_Developer_Test__purpose_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>The purpose of the Developer Test is to provide the implementation of a subset 
+  of required tests in an efficient and effective manner.</p>
+
+<h3><a name="BriefOutline">Brief Outline</a><a name="XE_Developer_Test__brief_outline_for"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Each Developer Test should consider various aspects including the following: 
+</p>
+<ul>
+  <li>The basic computer hardware requirements; for example, Processors, Memory 
+    Storage, Hard-disk Storage, Input/ Output Interface Devices</li>
+  <li>The basic underlying software environment; for example, Operating System 
+    and basic productivity tools such as e-mail or a calendar system</li>
+  <li>Additional specialized input/output peripheral hardware; for example, Bar-code 
+    scanners, receipt printers, cash draws, and sensor devices</li>
+  <li>The required software for the specialized input/ output peripheral hardware; 
+    for example, drivers, interface and gateway software</li>
+  <li>The minimal set of software tools necessary to facilitate test, evaluation 
+    and diagnostic activities; for example,&nbsp; memory diagnostics, automated 
+    test execution, and so forth</li>
+  <li>The required configuration settings of both hardware and software options; 
+    for example, video-display resolution, resource allocation, environment variables, 
+    and so on</li>
+  <li>The required "preexisting" consumables; for example, populated data sets, 
+    receipt printer dockets, and the like.</li>
+</ul>
+
+
+<h3><a name="Properties">Properties</a><a name="XE_Developer_Test__properties_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>There are no UML representations for these properties. The level of formality 
+  for Developer Tests varies, so some of the following information might be missing 
+  or embedded in the implementation. In general, the larger and more critical 
+  the component under test is, the more effort needs to be put into maintaining 
+  the developer tests.</p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top"> 
+  <tr> 
+    <td width="20%">
+      <p class="tableheading"><b>Property Name</b>&nbsp;
+    </td>
+    <td width="80%">
+      <p class="tableheading"><b>Brief Description</b>&nbsp;
+    </td>
+  </tr>
+  <tr> 
+    <td width="20%">Name&nbsp;</td>
+    <td width="80%">An unique name used to identify this Developer Test.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Description&nbsp;</td>
+    <td width="80%">A short description of the contents of the Developer Test, 
+      typically giving some high-level indication of complexity and scope.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Purpose&nbsp;</td>
+    <td width="80%">An explanation of what this Developer Test represents and 
+      why it is important.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Dependent Test and Evaluation Items&nbsp;</td>
+    <td width="80%">Some form of traceability or dependency mapping to specific 
+      elements such as individual Requirements that need to be referenced.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Preconditions&nbsp;</td>
+    <td width="80%">The starting state that must be achieved prior to the Developer 
+      Test being executed.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Instructions &nbsp;</td>
+    <td width="80%">Either the step-by-step instructions for executing the manual 
+      test, or the machine readable instructions that, when executed, stimulate 
+      the software in a similar manner to the actions that would be undertaken 
+      by the appropriate Actor, human or otherwise.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Observation Points&nbsp;</td>
+    <td width="80%">One or more locations in the Developer Test instructions where 
+      some aspect of the system state will be observed, and usually compared with 
+      an expected result.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Control Points&nbsp;</td>
+    <td width="80%">One or more locations in the Developer Test instructions where 
+      some condition or event in the system may occur and needs to be considered 
+      in regard to determining the next instruction to be followed.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Log Points&nbsp;</td>
+    <td width="80%">One or more locations in the Developer Test instructions where 
+      some aspect of the executing test script state is recorded for the purpose 
+      of future reference.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Postconditions&nbsp;</td>
+    <td width="80%">The resulting state that the system must be left in after 
+      the Developer Test has been executed.&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3><a name="Timing">Timing</a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Most of the Developer Tests are created in the same timeframe as the software 
+  components that need to be tested. The tests driven by Change Requests are developed 
+  after the components have been developed, and most of the times are short-lived 
+  if their goal is only to reproduce a defect in a more controllable environment.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>The <a href="../workers/wk_implm.htm">Implementer</a> role is primarily responsible for this 
+  artifact. Those responsibilities include:</p>
+<ul>
+  <li>develop the tests according to the design specifications, in an efficient 
+    and effective manner</li>
+  <li>follow the defined guidelines, ensuring that the tests are maintainable 
+    and compatible with the other tests</li>
+  <li>manage the changes</li>
+  <li>identify the tests that need to be maintained and clean up or mark the ones 
+    that are limited in purpose and time</li>
+  <li>identify opportunities for reuse and simplification</li>
+</ul>
+
+
+<h3><a name="Tailoring">Tailoring</a><a name="XE_Developer_Test__tailoring_of"></a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>The overall goal is to implement a simple and efficient developer testing framework. 
+  For the &quot;one time only&quot; tests, most of the documentation overhead 
+  should be avoided. Special attention should be given to the tests that will 
+  be used as regression tests for subsystems or the more &quot;volatile&quot; 
+  components, in terms of documentation, maintainability, efficiency, effectiveness 
+  and robustness.</p>
+
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

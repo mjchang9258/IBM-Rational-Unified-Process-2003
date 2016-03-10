@@ -1,0 +1,503 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Business Use-Case Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business Use-Case 
+  Model</rpw><a name="Top"></a><a name="XE_business_use-case_model__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Different Categories of Business Use Cases">Categories of Business 
+    Use Cases</a></li>
+  <li><a href="#A Business has Many Business Use Cases">A Business Has Many Business 
+    Use Cases</a></li>
+  <li><a href="#Are Business Use Cases Always Related to Actors?">Are Business 
+    Use Cases Always Related to Business Actors?</a></li>
+  <li><a href="#Business Use Cases Should Support Business Goals">Business Use 
+    Cases Must Support Business Goals</a></li>
+  <li><a href="#Structuring the Business Use-Case Model">Structuring the Business 
+    Use-Case Model</a></li>
+  <li><a href="#Delimiting the Modeling Effort">Delimiting the Modeling Effort</a></li>
+  <li><a href="#The Survey Description">The Survey Description</a></li>
+  <li><a href="#Characteristics of a Good Business Use-Case Model">Characteristics 
+    of a Good Business Use-Case Model</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A primary purpose of modeling business use cases and actors is to describe 
+  how the business is used by its customers and partners. Activities that directly 
+  concern the customer or partner, as well as supporting or managerial tasks that 
+  indirectly concern the external party can be presented.</p>
+<p>The model describes the business in terms of business use cases, which
+correspond to what are generally called &quot;processes&quot;.</p>
+<p align="center"><img border="0" src="images/bucm1.gif"></p>
+<p class="picturetext">Actors and use cases at the check-in counter.</p>
+<h3 align="left"><a name="Different Categories of Business Use Cases">
+Categories of Business Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When looking at the activities in a business, you will be able to identify 
+  at least three categories of work corresponding to three categories of business 
+  use cases: 
+<ul>
+  <li><b>Core</b>—These are customer-facing business use cases that provide the 
+    value chain—for example, Buy Product.</li>
+  <li><b>Management</b>—These are internal business use cases that coordinate 
+    the value chain—for example, Strategic Planning.</li>
+  <li><b>Support</b>—These are internal business use cases that support the value 
+    chain—for example, Procure Raw Materials.</li>
+</ul>
+<p>Typically, a management type of business use case describes in general the 
+  relationships between the CEO and the people who work in the business use cases. 
+  It also describes how business use cases are developed and instantiated (started).</p>
+<p align="center"><img border="0" src="images/bucm2.gif"></p>
+<p class="picturetext">At a restaurant, the core business use cases are
+marketing and serving dinner, and the supporting business use case is purchasing
+supplies.</p>
+<p>Note that what you regard as a core business use case can sometimes be a supporting 
+  business use case in another business. For example, software development is 
+  a core business use case in a software development company, but it would be 
+  classified as a supporting business use case in a bank or an insurance company.</p>
+<h3><a name="A Business has Many Business Use Cases">A Business Has Many Business 
+  Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Instances of several different business use cases, as well as several instances 
+  of a single business use case, normally execute in parallel. There might be 
+  an almost unlimited number of paths a use-case instance can follow. These different 
+  paths represent the choices open to the use-case instance in the workflow description. 
+  Depending on specific events or facts, a use-case instance can proceed along 
+  one of several possible paths; for example: 
+<ul>
+  <li>input from an actor</li>
+  <li>a business rule</li>
+</ul>
+<p>In modeling business use cases, you can assume that use-case instances can 
+  be active concurrently without conflicting. At this stage of business development, 
+  you should focus on <b>what</b> the business should do. Solve potential resource 
+  conflicts later, when modeling the business use-case realizations, at which 
+  stage you try to understand <b>how</b> things should work in the business. Or 
+  you can solve these problems during the implementation of the new organization 
+  by increasing the number of employees who can perform the critical task.</p>
+<h3><a name="Are Business Use Cases Always Related to Actors?">Are Business Use
+Cases Always Related to Business Actors?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Every core business use case must have a communicates-relationship to or from 
+  a business actor. This rule enforces the goal that businesses must be built 
+  around the services that their users request. If your Business Use-Case Model 
+  has business use cases that no one requests, this should warn you that something 
+  is wrong with the model.</p>
+<p>Business use cases can be triggered periodically, or they can run for a very 
+  long time; a surveillance function is an example of the latter. Even these business 
+  use cases have business actors that originally initiated them and expect different 
+  services from them. Otherwise they would not be part of the business. Other 
+  business use cases produce results for a business actor, although they are not 
+  explicitly initiated by the business actor. For example, the development of 
+  a widely distributed product is seldom initiated by an identifiable customer. 
+  Instead, the need for a new product is realized from market studies and the 
+  accumulated requests of many users.</p>
+<p>Management and supporting business use cases do not necessarily need to connect 
+  to a business actor, although they normally have some kind of external contact. 
+  A management business use case, for instance, might have the business' owners 
+  or the board as its business actor.</p>
+<p>Abstract business use cases do not need a business actor, because they are 
+  never instantiated (started) on their own.</p>
+<h3><a name="Business Use Cases Should Support Business Goals">Business Use Cases 
+  Must Support Business Goals</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business processes are the vehicle with which the business does things. Because 
+  business strategy is very difficult to translate directly into actions, something 
+  is else is needed. This something else is business goals, which ensure that 
+  business processes execute the business strategy by steering actions at all 
+  levels of the organization towards the ultimate business goal—the business idea.
+<p>For this reason, each business use case should support at least one business 
+  goal. Translating the strategy into goals at different levels provides concrete, 
+  measurable objectives, which can be directly supported by business processes. 
+  Defining supporting relationships between goals and processes ensures that the 
+  business processes are aligned with the business strategy. This also helps find 
+  the right level of business use cases, which is often difficult to determine. 
+  Only one business use case (for example, Make Profit)<i> </i>that directly supports 
+  the strategic goals of the enterprise would be too complex and cumbersome to 
+  model as a sequence of activities. On the other hand, a separate business use 
+  case for each individual operational task in the organization (for example, 
+  Forward Telephone Call or Book Conference Room) would result in too many business 
+  use cases to understand. Defining the business goals supported by a business 
+  use case indicates whether the business use case is &quot;too high&quot; or 
+  &quot;too low.&quot;&nbsp;
+<p>When a business use case explicitly supports one or more business goals, it 
+  becomes easier to quantify the value of the business use case. The contribution 
+  of the result of the business use case toward the goal can be measured. The 
+  performance of the business use case also can be monitored to provide an objective 
+  comparison of value versus cost.
+<p>The existence of these relationships helps in prioritizing business use cases. 
+  Business use cases that support many business goals, or important and risky 
+  ones, are most likely to be considered architecturally significant. Many goals 
+  might also point to unnecessary complexity. If one business use case supports 
+  many different goals, then it is quite likely that conflicts will arise. In 
+  these cases, it may not be clear which goals should preside, resulting in inefficient 
+  actions.
+<p>The category of the business use case (core, supporting, or management) does 
+  not directly determine the types of business goals it supports. While the category 
+  does provide a guideline, the business strategy will ultimately determine which 
+  business goals a particular business use case supports. For example, a Market 
+  and Sell Product business use case might support the Competitive Prices business 
+  goal for a business with an aggressive growth strategy. The same business, years 
+  later, may wish to maximize its investment in these products and markets by 
+  targeting customer satisfaction and retention. The Market and Sell Product business 
+  use case may then have to support the (very different) Superior Quality business 
+  goal. See <a href="md_bgoal.htm">Guidelines: Business Goal</a> for more information 
+  on modeling business goals.
+<p>For example, consider the large furniture store used as an example in <a href="md_bgoal.htm">Guidelines: 
+  Business Goal</a>. A Business Use Case Model for such a furniture chain may 
+  look as follows:
+<p align="center"><img border="0"
+src="images/bucm5.gif">
+<p>The customer can select products, pick them up from the warehouse attached 
+  to the showroom, and pay for them. Defect products can be returned. Identify 
+  Customer Needs is the business use case that is often referred to as Market 
+  Research. Once a suitable product has been found, it is launched, and the Vendor 
+  then becomes a Supplier. Product sales must be monitored, although it is arguable 
+  whether this a separate business use case (shown in the figure above) or part 
+  of Market Research. If we were to map the above business use cases onto the 
+  business goals described in <a href="md_bgoal.htm">Guidelines: Business Goal</a>, 
+  the following could result:
+<p align="center"><img border="0" src="images/bucm6.gif">
+<p align="left">The Find Suitable Product business use case supports somewhat 
+  conflicting business goals. It must be made clear how to make tradeoffs between 
+  price and quality to ensure that both business goals are met. If product quality 
+  is measured by the number (or percentage) of returned defects, the cause of 
+  the defect must be established to trace it back to the supplier. For example, 
+  it could be that many products delivered to customers are returned due to the 
+  fact that they are damaged by the delivery team. However, if only the number 
+  of deliveries is measured, the quality of deliveries is not revealed.
+<p align="left">The Pay for Product business use case may support Payment Method 
+  and not Low Pricing, because pricing is determined during the (separate) Find 
+  Suitable Product Business use case.
+<p align="left">In some companies, a number of business use cases support no business 
+  goals. This may be a reason to merge Monitor Sales, for example, into Identify 
+  Customer Need, because Monitor Sales does not directly support any business 
+  goals. However, such merging should not be done too hastily, because a lack 
+  of support for business goals can be a sign that the business goals need to 
+  made more concrete. In the worst case, Monitor Sales provides input to Identify 
+  Customer Needs. 
+<p align="left">The Deliver Product business use case supports the Delivery Time 
+  business goal. Customers should not have to wait too long for their purchased 
+  products to be delivered. Considering how this goal can be achieved might provide 
+  radical new ideas. For example, an underground tube could connect the warehouse 
+  to houses in the city and products could be blasted at 100 mph through the tubes 
+  to arrive at home before the customer does! While this is unrealistic, this 
+  kind of brainstorming often generates many ideas for improving the business.
+<p align="left">Here is an example of how considering business goals may reveal 
+  the importance of seemingly trivial business use cases. Suppose it appears that 
+  many customers shop during mealtimes. Because one of the business goals is to 
+  improve the quality of facilities and another is to attract customers, we may 
+  decide to provide a restaurant where customers can have a snack before or after 
+  shopping. The business use case that supports this goal, Have Meal, is shown 
+  below. It may turn out that the restaurant becomes one of the main attractions 
+  of the business!
+<p align="center"><img border="0" src="images/bucm7.gif">
+<p align="left">We also see the effect of adjusting the boundary of the business 
+  in the diagram above. Here, a new business actor has been introduced—namely, 
+  Shipper, a partner responsible for picking products up at the warehouse and 
+  delivering them to customers. It could be that this approach allows us to minimize 
+  the delivery time, which is one of the business goals. 
+<h3><a name="Structuring the Business Use-Case Model">Structuring the Business
+Use-Case Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are three main reasons for structuring the Business Use-Case Model: 
+<ul>
+  <li>to make the business use cases easier to understand</li>
+  <li>to reuse parts of workflows that are shared among many business use cases</li>
+  <li>to make the Business Use-Case Model easier to maintain</li>
+</ul>
+<p>To structure the business use cases, we have three kinds of relationships. 
+  You will use these relationships to factor out pieces of business use cases 
+  that can be reused in other business use cases, or that are specializations 
+  or options to the business use case. The business use case that represents the 
+  modification is called the <b>addition use case</b>. The business use case that 
+  is modified is called the <b>base use case</b>. 
+<ul>
+  <li>If there is a part of a base use case that represents a function of which
+    the business use case only depends on the result, not the method used to
+    produce the result, you can factor that part out to an addition use case.
+    The addition is explicitly included in the base use case, using the
+    include-relationship. See also <a href="md_bincl.htm">Guidelines:
+    Include-Relationship in the Business Use-Case Model</a>.</li>
+  <li>If there is a part of a base use case that is optional, or not necessary
+    to understand the primary purpose of the use case, you can factor that part
+    out to an addition use case in order to simplify the structure of the base
+    use case. The addition is implicitly included in the base use case, using
+    the extend-relationship. See also <a href="md_bext.htm">Guidelines:
+    Extend-Relationship in the Business Use-Case Model</a>.</li>
+  <li>If there are business use cases that have commonalities in behavior and 
+    structure and that have similarities in purpose, their common parts can be 
+    factored out to a base use case (parent) that is inherited by addition use 
+    cases (children). The child use cases can insert new behavior and modify existing 
+    behavior in the structure they inherit from the parent use case. See also 
+    <a href="md_bucgn.htm">Guidelines: Use-Case-Generalization in the Business 
+    Use-Case Model</a>.</li>
+</ul>
+<p align="center"><img border="0" src="images/bucm3.gif"></p>
+<p class="picturetext">The figure above shows actors and use cases and the check-in 
+  counter. Here we also show the inclusion use case Baggage Handling and the extension 
+  use case Through Check-In.</p>
+<p>You can use actor-generalization to show how actors are specializations of
+one another. See also <a href="md_bacg.htm">Guidelines: Actor-Generalization in
+the Business Use-Case Model</a>.</p>
+<p>See also the discussion on structuring system use cases in <a href="md_ucmod.htm">Guidelines:
+Use-Case Model</a>.</p>
+<h3><a name="Delimiting the Modeling Effort">Delimiting the Modeling Effort</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Especially when developing business models just to &quot;prime the pump&quot; 
+  for a software engineering project, you must carefully delimit the business-modeling 
+  effort. In this case, it is rarely worthwhile to span the whole organization, 
+  even if you model only a subset of the business processes. To stay focused and 
+  produce results that are of the expected value, you should consider a part of 
+  the whole company as your &quot;business system.&quot; The part you choose should 
+  be the part that might directly use the system to be built. The parts of the 
+  organization that you decide to treat as external to the model can be represented 
+  as business actors.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">The company has decided to undertake an effort to build a new 
+  application for sales and order management. To explore the needs of the organization 
+  and also to align the way business is done throughout the organization, the 
+  first step is to build a set of business models. The departments of the company 
+  that will not actively use the new order application are considered external 
+  to the model and are represented with business actors.</p>
+<p align="center"><img border="0" src="images/bucm4.gif"></p>
+<p class="picturetext">The figure above shows business actors and business use 
+  cases in a Business Use-Case Model of an order management organization. This 
+  organization sells complex solutions, custom-made to each customer.</p>
+<p class="example">Here are some brief descriptions of the business use cases:</p>
+<p class="example"><b>Order Process—</b>This process describes how the company 
+  takes appropriate actions to deliver a solution to a customer as defined by 
+  a set of customer requirements. The process starts when there is a business 
+  decision to proceed with an agreed-upon solution. This may often be in the form 
+  of the company receiving a purchase order from a customer. It ends when the 
+  customer is satisfied with the installment, and commission of the solution and 
+  payment is received. The objective is to satisfy customer requirements in a 
+  profitable way.</p>
+<p class="example"><b>Proposal Process—</b>This is the process of generating a 
+  proposal(s) in response to customer requirements. The process is triggered by 
+  an inquiry from a customer and ends when the customer accepts (or rejects) any 
+  of the quote(s) in the proposal. The objective is to reach agreement on a quote 
+  that is acceptable both to the customer and to the company.</p>
+<p class="example"><b>Quote Process—</b>The Quote Process is an abstract business 
+  use case that is included in both the Proposal Process and the Order Process. 
+  The process begins when there are customer requirements that need a quote produced 
+  for it. The objective of the Quote Process is to produce a solution meeting 
+  the customer requirements, and to provide it along with a price.</p>
+<h3><a name="The Survey Description">The Survey Description</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A survey description of the Business Use-Case Model must: 
+<ul>
+  <li>summarize the purpose of the organization</li>
+  <li>point out delimitations of the model—things that are not included and the 
+    reasons why</li>
+  <li>specify the primary business use cases</li>
+</ul>
+<p class="exampleheading">Example:</p>
+<p class="example">This Business Use-Case Model covers the part of our company 
+  that manages orders from our customers, since only this part is of interest 
+  to the software engineering project that will use the results of business modeling 
+  as an input. For this reason, we do not include the parts of the company that 
+  handles billing, manufacturing, product management, and product development; 
+  they are considered external and therefore represented as business actors.</p>
+<p class="example">In this organization, a sale involves not just the agreement 
+  on a solution, but also the actual building of the solution. To define a price 
+  for a solution, you need to engineer and build it to a certain level of detail. 
+  That is what is done in the Proposal Process. Once an agreement has been made 
+  with the customer, the solution is engineered in all details and then installed 
+  at the customer site. This is what is described in the Order Process. Both the 
+  Proposal Process and the Order Process include the abstract business use case 
+  Quote Process.</p>
+<h3><a name="XE_business_use-case_model__characteristics_of_a_good"></a><a name="Characteristics of a Good Business Use-Case Model">Characteristics
+of a Good Business Use-Case Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>Business use cases are aligned with the business strategy, as described by
+    concrete business goals.</li>
+  <li>Use cases conform to the business they describe.</li>
+  <li>All use cases are found. Taken together, use cases perform all activities
+    within the business.</li>
+  <li>Every activity within the business should be included in at least one use
+    case.</li>
+  <li>There should be a balance between the number of use cases and the size of
+    the use cases:</li>
+</ul>
+<blockquote>
+  <ul>
+    <li>Few use cases make the model easier to understand.</li>
+    <li>Many use cases may make the model difficult to understand.</li>
+    <li>Large use cases may be complex and difficult to understand.</li>
+    <li>Small use cases are often easy to understand. However, make sure that
+      the use case describes a complete workflow that produces something of
+      value for a customer.</li>
+  </ul>
+</blockquote>
+<ul>
+  <li>Each use case must be unique. If the workflow is the same as or similar to
+    another use case, it will be difficult to keep them synchronized later.
+    Consider merging them into a single use case.</li>
+  <li>The survey description of the Business Use-Case Model should give a good, 
+    comprehensive picture of the organization.</li>
+</ul>
+
+<p>
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

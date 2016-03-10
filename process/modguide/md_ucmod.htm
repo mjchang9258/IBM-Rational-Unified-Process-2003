@@ -1,0 +1,509 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Use-Case Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Use-Case Model</rpw><a name="Top"></a><a name="XE_use-case_model__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#How the Use-Case Model Evolves">How the use-case model evolves</a></li>
+  <li><a href="#Avoiding Functional Decomposition">Avoiding functional
+    decomposition</a></li>
+  <li><a href="#Non-Functional Requirements">Non-functional requirements</a></li>
+  <li><a href="#The What vs. How Dilemma">The what versus how dilemma</a></li>
+  <li><a href="#Concrete and Abstract Use Cases">Concrete and abstract use cases</a></li>
+  <li><a href="#Structuring the Use-Case Model">Structuring the use-case model</a></li>
+  <li><a href="#Use Cases Are Always Related to Actors">Are use cases always
+    related to actors?</a></li>
+  <li><a href="#The Survey Description">The survey description</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A use-case model is a model of the system's intended functions and its
+surroundings, and serves as a contract between the customer and the developers.
+Use cases serve as a unifying thread throughout system development. The same
+use-case model is the result of the Requirements discipline, and is used as input to
+Analysis &amp; Design and Test disciplines.</p>
+<p>The diagram below shows a part of a use-case model for the Recycling-Machine
+System.</p>
+<p class="picturecenter" align="center"><img src="images/md_ucmo2.gif" width="421" height="213"></p>
+<p class="picturetext">A use-case diagram, showing an example of a use-case
+model with actors and use cases.</p>
+<p>There are many ways to model a system, each of which may serve a different
+purpose. However, the most important purpose of a use-case model is to communicate
+the system's behavior to the customer or end user. Consequently, the model must
+be easy to understand.</p>
+<p>The users and any other system that may interact with the system are the
+actors. Because they represent system users, actors help delimit the system and
+give a clearer picture of what it is supposed to do. Use cases are developed on
+the basis of the actors' needs. This ensures that the system will turn out to be
+what the users expected.</p>
+<h3><a name="How the Use-Case Model Evolves">How the Use-Case Model Evolves</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Both the actors and the use cases are found by using the requirements of
+customers and potential users as vital information. As they are discovered, the
+use cases and the actors should be briefly described. Before the use cases are
+described in detail, the use-case model should be reviewed by the customer to
+verify that all the use cases and actors are found, and that together they can
+provide what the customer wants.</p>
+<p>In an iterative development environment, you will select a subset of use
+cases to be detailed in each iteration. See also <a href="../activity/ac_priuc.htm">Activity:
+Prioritize Use Cases</a>.</p>
+<p>When the actors and use cases have been found, the flow of events of each use
+case is described in detail. These descriptions show how the system interacts
+with the actors and what the system does in each individual case.</p>
+<p>Finally, the completed use-case model (including the descriptions of use
+cases) is reviewed, and the developers and customers use it to agree on what the
+system should do.</p>
+<h3><a name="Avoiding Functional Decomposition">Avoiding Functional
+Decomposition</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>It is not uncommon that the use-case model degenerates into a functional
+decomposition of the system. To avoid this, watch for the following symptoms:
+<ul>
+  <li>&quot;Small&quot; use cases, meaning that the description of the flow of
+    events is only one or a few sentences.</li>
+  <li>&quot;Many&quot; use cases, meaning that the number of use cases is some
+    multiple of a hundred, rather than a multiple of ten.</li>
+  <li>Use-case names that are constructions like &quot;do this operation on this
+    particular data&quot; or &quot;do this function with this particular
+    data&quot;. For example, &quot;Enter Personal Identification Number in an
+    ATM machine&quot; should not be modeled as a separate use case for the ATM
+    machine, since no one would use the system to do just this. A use case is a
+    complete flow of events that results in something of value to an actor.</li>
+</ul>
+<p>To avoid functional decomposition, you should make sure that the use-case
+model helps answer questions like:
+<ul>
+  <li>What is the context of the system?</li>
+  <li>Why is the system built?</li>
+  <li>What does the user want to achieve when using the system?</li>
+  <li>What value does the system add to the users?</li>
+</ul>
+<h3><a name="Non-Functional Requirements">Non-Functional Requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>It is quite easy to see that use cases are a very good way of capturing
+functional requirements on a system. But what about the non-functional
+requirements? What are they and where are they captured?</p>
+<p>Non-functional requirements are often categorized as usability-, reliability,
+performance, and substitutability-requirements (see also <a href="../workflow/requirem/co_req.htm">Concepts:
+Requirement</a>). They are often requirements that specify need of compliance
+with any legal and regulatory requirements. They can also be design constraints
+due to the operating system used, the platform environment, compatibility
+issues, or any application standards that apply. In general, you can say that
+any requirement that does not allow for more than one design option should be
+regarded as a design constraint.</p>
+<p>Many non-functional requirements apply to an individual use case and are
+captured within the properties of that use case. In that case, they are captured
+within the flow of events of the use case, or as a special requirement of the
+use case (see <a href="md_uc.htm">Guidelines: Use Case</a>).</p>
+<p class="exampleheading">Example:</p>
+<p class="example">In the Recycling-Machine System, a non-functional requirement
+specific to the Return Deposit Items use case could be:</p>
+<p class="example">The machine has to be able to recognize deposit items with a
+reliability of more than 95 percent.</p>
+<p>Often the non-functional requirements apply to the whole system. Such
+requirements are captured in the Supplementary Specifications (see <a href="../artifact/ar_sspec.htm">Artifact:
+Supplementary Specifications</a>).</p>
+<p class="exampleheading">Example:</p>
+<p class="example">In the Recycling-Machine System, a non-functional requirement
+that applies to the whole system could be:</p>
+<p class="example">The machine will allow only one user at a time.</p>
+<h3><a name="The What vs. How Dilemma">The What Versus How Dilemma</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>One of the more difficult things is to learn how to determine at what level
+of detail the use cases should &quot;start and end&quot;. Where does features
+start and use cases begin, and where does use cases end and design begin? We
+often say that use cases or software requirements should state &quot;what&quot;
+the system does, but not &quot;how&quot; it does it. Consider the following
+graph:</p>
+<p align="center"><img src="images/ucm2.gif" width="382" height="196"></p>
+<p class="picturetext">One person's destination is another's starting point.</p>
+<p>Depending on your background, you will use a different context to decide what
+you think is &quot;what&quot; and what is &quot;how&quot;. This needs to be
+taken into consideration when determining whether or not a certain detail should
+be left out of the use-case model.</p>
+<h3><a name="Concrete and Abstract Use Cases"></a><a name="XE_abstract_use_case__description_of">Concrete
+and Abstract Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There is a distinction between concrete and abstract use cases. A <b>concrete</b><i>
+</i>use case is initiated by an actor and constitutes a complete flow of events.
+&quot;Complete&quot; means that an instance of the use case performs the entire
+operation called for by the actor.</p>
+<p>An <b>abstract</b><i> </i>use case is never instantiated in itself.
+Abstract use cases are included in (see <a href="md_incl.htm">Guidelines:
+Include-Relationship</a>), extend into (see <a href="md_exrel.htm">Guidelines:
+Extend-Relationship</a>), or generalize (see <a href="md_ucgen.htm">Guidelines:
+Use-Case-Generalization</a>) other use cases. When a concrete use case is
+initiated, an instance of the use case is created. This instance also exhibits
+the behavior specified by its associated abstract use cases. Thus, no separate
+instances are created from abstract use cases.</p>
+<p>The distinction between the two is important, because it is concrete use
+cases the actors will &quot;see&quot; and initiate in the system.</p>
+<p>You indicate that a use case is abstract by writing its name in italics.</p>
+<h5>Example:</h5>
+<p align="center"><img src="images/ucmex3.gif" width="213" height="165"></p>
+<p class="picturetext">The use case Create Task is included in the use case
+Register Order. Create Task is an abstract use case.</p>
+<p class="example">In the Depot-Handling System the abstract use case, Create
+Task, is included in the use case Register Order. When Register Order is
+initiated, an instance of Register Order is created that, apart from following
+Register Order's flow of events, also follows the flow of events described in
+the included use case, Create Task. Create Task is never performed by itself,
+always as a part of Register Order (or any other use cases in which it is
+included). Create Task is therefore an abstract use case.</p>
+<h3><a name="Structuring the Use-Case Model">Structuring the Use-Case Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are three main reasons for structuring the use-case model:
+<ul>
+  <li>To make the use cases easier to understand.</li>
+  <li>To partition out common behavior described within many use cases</li>
+  <li>To make the use-case model easier to maintain.</li>
+</ul>
+<p>Structuring is, however, not the first thing you do. There is no point in
+structuring the use cases until you know a bit more about their behavior, beyond
+a one sentence brief description. You should at least have established a
+step-by-step outline to the flow of events of the use case, to make sure that
+you decisions are based on an accurate enough understanding of the behavior.</p>
+<p>To structure the use cases, we have three kinds of relationships. You will
+use these relationships to factor out pieces of use cases that can be reused in
+other use cases, or that are specializations or options to the use case. The use
+case that represents the modification is called the <b>addition use case</b>.
+The use case that is modified is called the <b>base use case</b>.
+<ul>
+  <li>If there is a part of a base use case that represents a function of which
+    the use case only depends on the result, not the method used to produce the
+    result, you can factor that part out to an addition use case. The addition
+    is explicitly inserted in the base use case, using the include-relationship.
+    See also <a href="md_incl.htm">Guidelines: Include-Relationship</a>.</li>
+  <li>If there is a part of a base use case that is optional, or not necessary
+    to understand the primary purpose of the use case, you can factor that part
+    out to an addition use case in order to simplify the structure of the base
+    use case. The addition is implicitly inserted in the base use case, using
+    the extend-relationship. See also <a href="md_exrel.htm">Guidelines:
+    Extend-Relationship</a>.</li>
+  <li>If there are use cases that have commonalties in behavior and structure
+    and similarities in purpose, their common parts can be factored out to a
+    base use case (parent) that is inherited by addition use cases (children).
+    The child use cases can insert new behavior and modify existing behavior in
+    the structure they inherit from the parent use case. See also <a href="md_ucgen.htm">Guidelines:
+    Use-Case-Generalization</a>.</li>
+</ul>
+<p>You can use actor-generalization to show how actors are specializations of
+one another. See also <a href="md_actgn.htm">Guidelines: Actor-Generalization</a>.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">Consider part of the use-case model for an Order Management
+System.</p>
+<p class="example">It is useful to separate ordinary Customer from Internet
+Customer, since they have slightly different properties. However, since Internet
+Customer does exhibit all properties of a Customer, you can say that Internet
+Customer is a specialization of Customer, indicated with an
+actor-generalization.</p>
+<p class="example">The concrete use cases in this diagram are Phone Order
+(initiated by the Customer actor) and Internet Order (initiated by Internet
+Customer). These use cases are both variations of the more general Place Order
+use case, which in this example is abstract. The Request Catalog use case
+represents an optional segment of behavior that is not part of the primary
+purpose of Place Order. It has been factored out to an abstract use case to
+simplify the Place Order use case. The Supply Customer Data use case represents
+a segment of behavior that was factored out since it is a separate function of
+which only the result is affecting the Place Order use case. The Supply Customer
+Data use case can also be reused in other use cases. Both Request Catalog and
+Supply Customer Data are abstract in this example.</p>
+<p align="center"><img src="images/ucmex2.gif" width="354" height="366"></p>
+<p class="picturetext">This use-case diagram shows part of the use-case model
+for an Order Management System.</p>
+<p>The following table shows a more detailed comparison between the three
+different use-case relationships:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%"><b>Question</b></td>
+    <td width="20%"><b>Extend</b></td>
+    <td width="27%"><b>Include</b></td>
+    <td width="33%"><b>Generalization</b></td>
+  </tr>
+  <tr>
+    <td width="20%">What is the direction of the relationship?</td>
+    <td width="20%">The addition use case references the base use case.</td>
+    <td width="27%">The base use case references the addition use case.</td>
+    <td width="33%">The addition use case (child) references the base use case (parent).</td>
+  </tr>
+  <tr>
+    <td width="20%">Does the relationship have multiplicity?</td>
+    <td width="20%">Yes, on the addition side.</td>
+    <td width="27%">No. If you want to include the same segment of behavior more than once, that
+    needs to be stated in the base use case.</td>
+    <td width="33%">No.</td>
+  </tr>
+  <tr>
+    <td width="20%">Does the relationship have a condition?</td>
+    <td width="20%">Yes.</td>
+    <td width="27%">No. If you want to express a condition on the inclusion you need to say it explicitly in the base use case.</td>
+    <td width="33%">No.</td>
+  </tr>
+  <tr>
+    <td width="20%">Is the addition use case abstract?</td>
+    <td width="20%">Often yes, but not necessarily.</td>
+    <td width="27%">Yes.</td>
+    <td width="33%">Often no, but it can be.</td>
+  </tr>
+  <tr>
+    <td width="20%">Is the base use case modified by the addition?</td>
+    <td width="20%">The extension implicitly modifies the behavior of the base use case.</td>
+    <td width="27%">The inclusion explicitly modifies the effect of the base use case.</td>
+    <td width="33%">If the base use case (parent) is instantiated, it is unaffected by the child.
+    To obtain the effects of the addition, the addition use case (child) must be instantiated.</td>
+  </tr>
+  <tr>
+    <td width="20%">Does the base use case have to be complete and meaningful?</td>
+    <td width="20%">Yes.</td>
+    <td width="27%">Together with the additions, yes.</td>
+    <td width="33%">If it is abstract, no.</td>
+  </tr>
+  <tr>
+    <td width="20%">Does the addition use case have to be complete and meaningful?</td>
+    <td width="20%">No.</td>
+    <td width="27%">No.</td>
+    <td width="33%">Together with the base use case (parent), yes.</td>
+  </tr>
+  <tr>
+    <td width="20%">Can the addition use case access attributes of the base use case?</td>
+    <td width="20%">Yes.</td>
+    <td width="27%">No. The inclusion is encapsulated, and only &quot;sees&quot; itself.</td>
+    <td width="33%">Yes, by the normal mechanisms of inheritance.</td>
+  </tr>
+  <tr>
+    <td width="20%">Can the base use case access attributes of the addition use case?</td>
+    <td width="20%">No. The base use case must be well-formed in the absence of the addition.</td>
+    <td width="27%">No. The base use case only knows about the effect of the addition. The addition is encapsulated.</td>
+    <td width="33%">No. The base use case (parent) must in this sense be well-formed in the absence of the addition (child).</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Another aspect of organizing the use-case model for easier understanding is
+to group the use cases into packages. The use-case model can be organized as a
+hierarchy of use-case packages, with &quot;leaves&quot; that are actors or use
+cases. See also <a href="md_ucpkg.htm">Guidelines: Use-Case Package</a>.</p>
+<p class="picturecenter" align="center"><img src="images/md_ucmo6.gif" width="181" height="235"></p>
+<p class="picturetext">This graph shows the use-case model hierarchy. Arrows
+indicate possible ownership.</p>
+<h3><a name="Use Cases Are Always Related to Actors">Are Use Cases Always
+Related to Actors?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The execution of each use case includes communication with one or more
+actors. A use case instance is always started by an actor asking the system to
+do something. This implies that every use case should have
+communicates-associations with actors. The reason for this rule is to enforce
+the system to provide only the functionality that users need, and nothing else.
+Having use cases that no one requests is an indication that something is wrong
+in the use-case model or in the requirements.</p>
+<p>However, there are some exceptions to this rule:
+<ul>
+  <li>If a use case is abstract (not separately instantiable), its behavior may
+    not include interaction with any actor. In that case, there will not be any
+    communication-associations to actors from that abstract use case.</li>
+  <li>A child use case in a generalization-relationship does not need to have an
+    actor associated with it if the parent use case describes all actor
+    communication.</li>
+  <li>A base use case in an include-relationship does not need to have an actor
+    associated with it if the inclusion use case describes all actor
+    communication.</li>
+  <li>A use case may be initiated according to a schedule (for example, once a
+    week or once a day), which means the system clock is the initiator. The
+    system clock is internal to the system – and the use case is not initiated
+    by an actor, but by an internal system event. If no other actor interaction
+    occurs in the use case, it will not have any associations to actors.
+    However, for clarity, you can use a fictive actor &quot;Time&quot; to show
+    how the use case is initiated in your use-case diagrams.</li>
+</ul>
+<h3><a name="The Survey Description">The Survey Description</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The survey description of the use-case model should:
+<ul>
+  <li>State which are the primary use cases of the system (the reason the system
+    is built).</li>
+  <li>Summarize important technical facts about the system.</li>
+  <li>Point out system delimitations – things that the system is not supposed
+    to do.</li>
+  <li>Summarize the system's environment, for example, target platforms and
+    existing software.</li>
+  <li>Describe any sequences in which use cases are normally performed in the
+    system.</li>
+  <li>Specify functionality not handled by the use-case model.</li>
+</ul>
+<p class="exampleheading">Example:</p>
+<p class="example"><font color="#000000">Following is a sample survey
+description of the Recycling Machine's use-case model:</font></p>
+<p class="example">This model contains three actors and three use cases. The
+primary use case is Recycle Items, which represents the main purpose of the
+Recycling Machine.</p>
+<p class="example">Supporting use cases are:
+<ul>
+  <li>
+    <p class="example">Print Daily Report, which allows an operator to get a
+    report on how many items have been recycled.</p>
+  </li>
+  <li>
+    <p class="example">Administer Deposit Item, which allows an operator to
+    change refund value for a type of deposit item, or add new deposit item
+    types.</p>
+  </li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

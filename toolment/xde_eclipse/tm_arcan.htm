@@ -1,0 +1,332 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Tool Mentor:&nbsp;Performing Architectural Analysis Using Rational XDE Developer - Java Platform Edition</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;
+<rpw name="PresentationName">Performing Architectural Analysis Using Rational XDE Developer - Java Platform Edition</rpw><a name="Top"></a> </h2>
+
+
+<h3>Purpose</h3>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_arcan.htm">Architectural Analysis</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity. Links to topics
+  in the Rational XDE&#153; online Help are marked with <img src="../../images/helpbook.gif" width="16" height="16">.
+
+
+<h3>Overview</h3>
+
+<p> This tool mentor assumes that a set of structured models has already been 
+  created, in accordance with the <a href="model_structure_guidelines.htm">XDE 
+  Model Structure Guidelines</a>.
+<p>The following steps are performed in this tool mentor:<br>
+<ul>
+  <li><a href="#Develop Architecture Overview">Develop Architecture Overview</a></li>
+  <li><a href="#Survey Available Assets">Survey Available Assets</a></li>
+  <li><a href="#Define the High-Level Organization of Subsystems">Define the High-Level 
+    Organization of Subsystems</a></li>
+  <li><a href="#Identify Key Abstractions">Identify Key Abstractions</a></li>
+  <li><a href="#Identify Stereotypical Interactions">Identify Stereotypical Interactions</a> 
+  </li>
+  <li><a href="#Develop Deployment Overview">Develop Deployment Overview</a></li>
+  <li><a href="#Identify Analysis Mechanisms">Identify Analysis Mechanisms</a></li>
+  <li><a href="#Review the Results">Review the Results</a></li>
+</ul>
+<h3><a name="Develop Architecture Overview">Develop Architecture Overview</a><b>&nbsp;</b>
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Rational XDE can be used as a drawing tool to generate informal
+  diagrams that describe the architecture overview.<br>
+</p>
+
+
+<h3><a name="Survey Available Assets">Survey Available Assets</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The architect must consider the reuse of in-place assets, including existing
+  Rational XDE models.</p>
+
+<p>Note that the RDA Exchange on the <a href="http://www.rational.net/" target="_blank">Rational 
+  Developer Network<font size="-2"><sup>SM</sup></font></a> contains assets that 
+  you might find useful. </p>
+<h3><a name="Define the High-Level Organization of Subsystems">Define the High-Level 
+  Organization of Subsystems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Add packages in the Design Model to reflect your layering strategy. In accordance 
+  with the example layering given in <a href="model_structure_guidelines.htm">Rational 
+  XDE Model Structure Guidelines</a>, the steps are as follows:</p>
+<ol>
+  <li>Open the Design Model. </li>
+  <li>Navigate to the package or packages that contain layering sub-packages. 
+  </li>
+  <li>Create packages for each layer, and stereotype as &laquo;layer&raquo;. See 
+    the topics 
+    <script language=javascript>ReferenceHelpTopic("Grouping Model Elements in Packages","rs","rs_t_group_mod_ele_package");</script>
+    and 
+    <script language=javascript>ReferenceHelpTopic("Working with Stereotypes","rs","rs_o_working_stereotypes");</script>
+    in the Rational XDE online Help. </li>
+</ol>
+<p> <img src="../../images/book.gif"width="16" height="16">Refer to the following 
+  white papers for guidance on structuring models:</p>
+<ul>
+  <li><a href="model_structure_guidelines.htm">Rational XDE Model Structure Guidelines</a> 
+  </li>
+  <li><a href="../../papers/layering_strategies.htm">Layering Strategies</a> </li>
+</ul>
+
+
+<h3><a name="Identify Key Abstractions">Identify Key Abstractions&nbsp;</a>
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Capture key abstractions in class diagrams with brief descriptions of each
+  class. To do this:</p>
+
+<ol>
+  <li>Open the Design Model.
+  </li>
+  <li>Navigate to the package containing key abstractions. See <a href="model_structure_guidelines.htm">Rational XDE Model Structure Guidelines</a>.
+  </li>
+  <li>Add a class diagram. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Add classes to the diagram, stereotyped as &laquo;entity&raquo;. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>
+   and
+    <script language=javascript>ReferenceHelpTopic("Assigning Stereotypes","rs","rs_t_assign_stereos");</script>.
+  </li>
+  <li>Add a description to each class. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Optionally associate a document with the class. See
+    <script language=javascript>ReferenceHelpTopic("Linking External Files to Model Elements","rs","rs_t_lnk_extrn_file_mdl_ele");</script>.
+  </li>
+  <li>Define any relationships that exist between the classes.
+  </li>
+
+   <ul>
+    <li>Add association relationships. See
+      <script language=javascript>ReferenceHelpTopic("Adding Association Relationships","rs","rs_t_add_assoc_rels");</script>.
+    </li>
+    <li>Specify the kinds of association relationships. See
+      <script language=javascript>ReferenceHelpTopic("Specifying Kinds of Association Relationships","rs","rs_t_spec_kinds_assoc");</script>.
+    </li>
+    <li>Add generalization relationships. See
+      <script language=javascript>ReferenceHelpTopic("Adding Generalization Relationships","rs","rs_t_add_genrlztn_relshp");</script>.
+    </li>
+   </ul>
+
+</ol>
+
+<p> For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>.
+</p>
+
+
+<h3><a name="Identify Stereotypical Interactions">Identify Stereotypical Interactions</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This step is included only when performing this activity during inception.</p>
+<p>The purpose of this step is to identify those interactions, between key abstractions 
+  in the system, that characterize or are representative of significant kinds 
+  of activity in the system. These interactions are captured as Use-Case Realizations.</p>
+<p>For guidance on creating Use-Case Realizations in XDE, see <a href="tm_ucana.htm">Tool 
+  Mentor: Performing Use-Case Analysis Using Rational XDE</a>.</p>
+<h3><a name="Develop Deployment Overview">Develop Deployment Overview</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ol>
+  <li>Add a deployment diagram to the Deployment Model. See 
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>
+    . </li>
+  <li>Add nodes to the diagram. See 
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>
+    . </li>
+  <li>Add associations between nodes. See 
+    <script language=javascript>ReferenceHelpTopic("Adding Association Relationships","rs","rs_t_add_assoc_rels");</script>
+    . </li>
+</ol>
+<p> For more information, refer to 
+  <script language=javascript>ReferenceHelpTopic("Working with Deployment Diagrams","rs","rs_o_work_with_deploy_dgm");</script>
+  . </p>
+<h3><a name="Identify Analysis Mechanisms"><b>Identify Analysis Mechanisms</b>&nbsp;</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>There is no Rational XDE specific guidance for this step. </p>
+<h3><a name="Review the Results">Review the Results</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p> The results of architectural analysis are preliminary and relatively informal;
+  therefore, reviews should be informal as well. It might be helpful to publish
+  any models to html format. Also note that diagrams can be copied from Rational
+  XDE to Microsoft Word and other programs. </p>
+
+<p> For more information, refer to
+<script language=javascript>ReferenceHelpTopic("Reporting in Rational XDE","cr","cr_o_rptg_xde");</script>.
+</p>
+
+
+
+
+
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

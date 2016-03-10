@@ -1,0 +1,358 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Design Package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Design Package</rpw><a name="XE_design_package__as_artifact"></a><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/package.jpg" width="53" height="40">&nbsp;
+	  </td>
+      <td width="80%">A design package is a collection of classes, relationships, 
+        use-case realizations, diagrams, and other packages. It is used to structure 
+        the design model by dividing it into smaller parts.&nbsp; </td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_desmd.htm">Design Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_dsgnr.htm">Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Required. Elaboration and Construction phases.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          <li><a href="../reports/re_dspkg.htm">Design Package/Subsystem</a></li>
+&nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Package in the design model.&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_despk.htm">Guideline: Design Package</a></li>
+<li><a href="../activity/chklists/ck_dpckg.htm">Checklist: Design Package</a></li>
+<li><a href="../reports/re_dspkg.htm">Report: Design Package/Subsystem</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dspck.htm">Design Testability Elements</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dspck.htm">Design Testability Elements</a></li>
+<li><a href="../activity/ac_iddes.htm">Identify Design Elements</a></li>
+<li><a href="../activity/ac_dsmec.htm">Identify Design Mechanisms</a></li>
+<li><a href="../activity/ac_incds.htm">Incorporate Existing Design Elements</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_design_package__purpose_of"></a><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Design packages are used to group related Design Model elements together for
+organizational purposes, and often for configuration management. Unlike the <a href="ar_dsub.htm">Artifact:
+Design Subsystem</a>, a design package does not offer a formal interface, though
+it may expose some of its contents (marked as 'public') which offer behavior.
+Design packages should be used primarily as a model organizational tool, to
+group related things together; if behavioral semantics are needed, use Design
+Subsystems.</p>
+<p>A design package and its contents are the responsibility of a single <a href="../workers/wk_dsgnr.htm">Role:
+Designer</a>. Elements within the package may be dependent on the elements
+contained by other packages; this gives rise to dependencies between packages.
+Package dependencies can be used as a tool to analyze the resiliency of the
+design model: a model with cross-dependent packages is less resilient to change.</p>
+<h3><a name="XE_design_package__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="21%"><p class="tableheading"><b>Property Name</b>&nbsp;</td>
+    <td width="41%"><p class="tableheading"><b>Brief Description</b>&nbsp;</td>
+    <td width="38%"><p class="tableheading"><b>UML Representation</b>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Name&nbsp;</td>
+    <td width="41%">The name of the package.&nbsp;</td>
+    <td width="38%">The attribute &quot;Name&quot; on model element.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Brief Description&nbsp;</td>
+    <td width="41%">A brief description of the role and purpose, or the &quot;theme&quot; of the package.&nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Classes&nbsp;</td>
+    <td width="41%">The classes directly contained in the package.&nbsp;</td>
+    <td width="38%">Owned via the aggregation &quot;owns&quot;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Relationships&nbsp;</td>
+    <td width="41%">The relationships directly contained in the package.&nbsp;</td>
+    <td width="38%">- &quot; -&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Use-Case Realizations&nbsp;</td>
+    <td width="41%">The use-case realizations directly contained in the package.&nbsp;</td>
+    <td width="38%">- &quot; -&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Diagrams&nbsp;</td>
+    <td width="41%">The diagrams directly contained in the package.&nbsp;</td>
+    <td width="38%">- &quot; -&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Design Packages&nbsp;</td>
+    <td width="41%">The packages directly contained in the package.&nbsp;</td>
+    <td width="38%">- &quot; -&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Import Dependencies&nbsp;</td>
+    <td width="41%">The import dependencies from the package to other packages.&nbsp;</td>
+    <td width="38%">Owned by an enclosing package, via the aggregation &quot;owns&quot;.&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Packaging is done primarily during the Elaboration Phase, but minor
+adjustments to packaging will occur during the Construction phase, especially to
+re-allocate work or to restructure dependencies between packages.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A designer is responsible for the integrity of the package, ensuring that:
+<ul>
+  <li>The package fulfills the requirements made on it.</li>
+  <li>The package is as independent as possible of other packages.</li>
+  <li>The import dependencies originating from the package are described so that
+    the effect of future changes can be estimated.</li>
+  <li>The existence of the direct contents of the package, including its
+    classes, relationships, use-case realizations, diagrams, and packages, is
+    justified and kept consistent.</li>
+  <li>The visibilities of the direct contents of the package, primarily
+    regarding classes and packages, are correct. A visibility can be
+    &quot;public,&quot; &quot;private,&quot; and so on.</li>
+</ul>
+<p>It is recommended that the designer responsible for a design package is also
+responsible for its contained classes; for more information refer to <a href="ar_class.htm">Artifact:
+Design Class</a>.</p>
+<p>Note that the designer is not responsible for the contained use-case
+realizations and their related diagrams; instead, these are under the
+corresponding use-case designer's responsibilities.</p>
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Packages are used in the models to group similar model elements, improving
+the organization of the model and making it easier to understand. Packaging in
+large models is essential. Even in smaller models, appropriate packaging can
+dramatically improve the comprehensibility of the model. Some packaging is
+almost always useful. For more information, see <a href="../modguide/md_despk.htm">Guidelines:
+Design Package</a>.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

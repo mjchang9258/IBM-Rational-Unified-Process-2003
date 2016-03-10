@@ -1,0 +1,718 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Metrics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Metrics</rpw><a name="Top"></a><a name="XE_metrics__introduction_to"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Why do we measure?">Why do we Measure?</a>
+    <ul>
+      <li><a href="#Organizational Needs for Metrics">Organizational Needs for
+        Metrics</a></li>
+      <li><a href="#Project Needs for Metrics">Project Needs for Metrics</a></li>
+      <li><a href="#Technical Needs for Metrics">Technical Needs for Metrics</a></li>
+    </ul>
+  </li>
+  <li><a href="#What is a metric?">What is a Metric?</a>
+    <ul>
+      <li><a href="#Templates">Templates</a></li>
+    </ul>
+  </li>
+  <li><a href="#Metrics activities">Metric Activities</a>
+    <ul>
+      <li><a href="#How are the metrics used?">How are the Metrics Used?</a></li>
+    </ul>
+  </li>
+</ul>
+<h3><a name="XE_metrics__motivation_for"></a><a name="Why do we measure?">Why do
+we Measure? </a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>We measure primarily to gain control of a project, and therefore to be able
+to manage it. We measure to evaluate how close or far we are from the objectives
+we had set in our plan in terms of completion, quality, compliance to
+requirements, etc.</p>
+<p>We measure also to be able to better estimate for new projects effort, cost
+and quality, based on past experience. Finally, we measure to evaluate how we
+improve on some key aspects of performance of the process over time, to see what
+are the effects of changes.</p>
+<p>Measuring some key aspects of a project adds a non-negligible cost. So we do
+not measure just anything because we can. We must set very precise goals for
+this effort, and only collect metrics that will allow us to satisfy these goals.</p>
+<p>There are two kinds of goals:
+<ol>
+  
+  <li><b>Knowledge goals</b>: they are expressed by the use of verbs like
+  evaluate, predict, monitor. You want to better understand your development
+  process. For example, you may want to assess product quality, obtain data to
+  predict testing effort, monitor test coverage, or track requirements changes.</li>
+  
+  <li><b>Change or achievement goals</b>: these are expressed by the use of
+  verbs such as increase, reduce, improve, or achieve. You are usually
+  interested in seeing how things change or improve over time, from an iteration
+  to another, from a project to another.</li>
+</ol>
+<p class="exampleheading">Examples</p>
+<blockquote>
+  <ul>
+    <li>Monitor progress relative to plan</li>
+    <li>Improve customer satisfaction</li>
+    <li>Improve productivity</li>
+    <li>Improve predictability</li>
+    <li>Increase reuse</li>
+  </ul>
+</blockquote>
+<p>These general management goals do not translate readily into metrics. We have
+to translate them into some smaller subgoals (or <b>action goals</b>)
+which identify the actions project members have to take to achieve the goal. And
+we have to make sure that the people involved understand the benefits.</p>
+<p class="exampleheading">Examples</p>
+<p class="example">The goal to<b> &quot;improve customer satisfaction&quot;</b>
+would decompose into:</p>
+<blockquote>
+  <ul>
+    <li>Define customer satisfaction</li>
+    <li>Measure customer satisfaction, over several releases</li>
+    <li>Verify that satisfaction improves</li>
+  </ul>
+</blockquote>
+<p class="example">The goal to <b>&quot;improve productivity&quot;</b>
+would decompose into:</p>
+<blockquote>
+  <ul>
+    <li>Measure effort</li>
+    <li>Measure progress</li>
+    <li>Calculate productivity over several iterations or projects.</li>
+    <li>Compare the results</li>
+  </ul>
+</blockquote>
+<p class="example">Then some of the subgoals (but not all) would require some
+metrics to be collected.</p>
+<p class="exampleheading">Example</p>
+<p class="example"><b>&quot;Measure customer satisfaction&quot;</b>
+can be derived from</p>
+<blockquote>
+  <ul>
+    <li>Customer survey (where customer would give marks for different aspects)</li>
+    <li>Number and severity of calls to a customer support hotline.</li>
+  </ul>
+</blockquote>
+<p>For more information, consult [<a href="../../referenc.htm#AMI95">AMI95</a>].</p>
+<p>A useful way to categorize these goals is by organization, project and
+technical need. This gives a framework for the refinement discussed above.</p>
+<h4><a name="Organizational Needs for Metrics">Organizational Needs for Metrics</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>An organization needs to know, and perhaps improve, its costs per &#145;item&#146;,
+shorten its build times (time-to market), while delivering product of known
+quality (objective and subjective), and appropriate maintenance demands. An
+organization may from time to time (or even continuously) need to improve its
+performance to remain competitive. To reduce its risks, an organization needs to
+know the skill level and experience level of its staff, and ensure it has the
+other resources and capability to compete in its chosen sphere. An organization
+must be able to introduce new technology and determine the cost-benefit of that
+technology. The following table lists some examples of the kinds of metrics that
+are relevant to these needs for a software development organization.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%">
+    <p align="center"><b>Concern</b></td>
+    <td width="50%">
+    <p align="center"><b>Metric</b></td>
+  </tr>
+  <tr>
+    <td width="50%">Item Cost</td>
+    <td width="50%">Cost per line of code, cost per function point, cost per use
+    case. Normalized effort (across defined portion of life cycle, programming
+    language, staff grade, etc.) per line of code, function point or use case.
+    Note that these metrics are not usually simple numbers - they depend on the
+    size of the system to be delivered and whether the schedule is compressed.</td>
+  </tr>
+  <tr>
+    <td width="50%">Construction Time</td>
+    <td width="50%">Elapsed time per line of code or per function point. Note
+    that this will also depend on system size. The schedule can also be
+    shortened by adding staff - but only up to a point. An organization's
+    management ability will determine exactly where the limit is.</td>
+  </tr>
+  <tr>
+    <td width="50%">Defect Density in Delivered Product</td>
+    <td width="50%">Defects (discovered after delivery) per line of code or per
+    function point.</td>
+  </tr>
+  <tr>
+    <td width="50%">Subjective Quality</td>
+    <td width="50%">Ease of use, ease of operation, customer acceptance.
+    Although these are fuzzy, ways of attempting quantification have been
+    devised.</td>
+  </tr>
+  <tr>
+    <td width="50%">Ease of Maintenance</td>
+    <td width="50%">Cost per line of code or function point per year.</td>
+  </tr>
+  <tr>
+    <td width="50%">Skills Profile, Experience Profile</td>
+    <td width="50%">The Human Resources group would presumably keep some kind of
+    skills and experience database.</td>
+  </tr>
+  <tr>
+    <td width="50%">Technology Capability</td>
+    <td width="50%">
+    <ul>
+      <li>Tools - an organization should know which are in general use, and the
+        extent of expertise for those not regularly used.</li>
+      <li>Process Maturity - where does the organization rate on the SEI CMM
+        scale, for example?</li>
+      <li>Domain Capability - in which application domains is the organization
+        capable of performing?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Process Improvement Measures</td>
+    <td width="50%">
+    <ul>
+      <li>Process execution time and effort.</li>
+      <li>Defect rates, causal analysis statistics, fix rates, scrap and rework.</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<br></div>
+
+<h4><a name="Project Needs for Metrics">Project Needs for Metrics</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A project must be delivered typically:
+<ul>
+  <li>with required functional and non-functional capabilities;</li>
+  <li>under certain constraints;</li>
+  <li>to a budget and in a certain time;</li>
+  <li>delivering a product with certain transition (to the customer),
+    operational and maintenance characteristics.</li>
+</ul>
+<p>The Project Manager must be able to see if s/he is tracking towards such
+goals, expanded in the following table to give some idea of things to consider
+when thinking about project measurements:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%">
+    <p align="left"><b>Concern</b></td>
+  </tr>
+  <tr>
+    <td width="50%">Project Effort and Budget
+    <ul>
+      <li>How is project tracking on effort and cost against plan?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Project Schedule
+    <ul>
+      <li>Is the project meeting its milestones?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Transition/Installation
+    <ul>
+      <li>Are the predicted effort, cost and skills requirements acceptable?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Operation
+    <ul>
+      <li>Are the predicted effort and skills requirements supportable by the
+        customer?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Maintenance/Supportability
+    <ul>
+      <li>Are the predicted effort and skills requirements acceptable to the
+        customer?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Functional Requirements
+    <ul>
+      <li>Are the requirements valid, complete?</li>
+      <li>Are the requirements allocated to an iteration?</li>
+      <li>Are the requirements being realized according to plan?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Non-Functional Requirements
+    <ul>
+      <li>Performance
+        <ul>
+          <li>Is the system meeting requirements for responsiveness, throughput,
+            recovery time?</li>
+        </ul>
+      </li>
+      <li>Capacity
+        <ul>
+          <li>Can the system handle the required number of simultaneous users?
+            Can the web site handle the required number of hits per second? Is
+            there sufficient storage for the required number of customer
+            records?</li>
+        </ul>
+      </li>
+      <li>Quality Factors
+        <ul>
+          <li>Reliability: how often are system failures allowed, and what
+            constitutes a system failure?</li>
+          <li>Usability: is the system easy and pleasant to use? How long does
+            it take to learn how to use it and what skills are required?</li>
+          <li>Fault tolerance/robustness/resilience/survivability: can the
+            system continue to function if failures occur? Can the system cope
+            with bad input? Is the system capable of automatic recovery after
+            failure?</li>
+        </ul>
+      </li>
+      <li>Specialty Engineering Requirements
+        <ul>
+          <li>Safety: can the system perform without risk to life or property
+            (tangible and intangible)?</li>
+          <li>Security/privacy: does the system protect sensitive data from
+            unauthorized access? Is the system secure from malicious access?</li>
+          <li>Environmental impact: does the system meet environmental
+            requirements?</li>
+        </ul>
+      </li>
+      <li>Other Regulatory or Legal Requirements</li>
+      <li>Constraints
+        <ul>
+          <li>External environment: is the system capable of operation in the
+            prescribed environment?</li>
+          <li>Resources, host, target: does the system meet its CPU, memory,
+            language, hardware/software environment, constraints?</li>
+          <li>Use of commercial-off-the-shelf (COTS) or other existing software: is the system meeting its reuse constraints?</li>
+          <li>Staff availability and skills: can the system be built with the
+            number and type of staff available?</li>
+          <li>Interface support/compatibility: can the system support required
+            access to and from other systems?</li>
+          <li>Reusability: what provisions are made for the system to be
+            reusable?</li>
+          <li>Imposed standards: are the system and the development method
+            compliant?</li>
+          <li>Other design constraints (architectural, algorithmic, for example):&nbsp;
+            is the system using the required architectural style? Are the
+            prescribed algorithms being used?</li>
+        </ul>
+      </li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<br></div>
+
+<p>This is an extensive, but not exhaustive list, of concerns for the Project
+Manager. Many will require the collection and analysis of metrics, some will
+also require the development of specific tests (to derive measurements) to
+answer the questions posed.</p>
+<h4><a name="Technical Needs for Metrics">Technical Needs for Metrics</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Many of the project needs will not have direct measures and even for those
+that do, it may not be obvious what should be done or changed to improve them.
+Lower level quality-carrying attributes can be used to build in quality against
+various higher level quality attributes such as those identified in ISO Standard
+9126 (Software Quality Characteristics and Metrics) and those mentioned above in
+Project Needs. These technical measures are of engineering (structural and
+behavioral) characteristics and effects (covering process and product), that
+contribute to project level metrics needs. The attributes in the following table
+have been used to derive a sample set of metrics for the Rational Unified
+Process artifacts and process.  
+This may be found in <a href="../../modguide/md_metri.htm">Guidelines:
+Metrics</a>.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%">
+    <p align="center"><b>Quality</b></td>
+    <td width="50%">
+    <p align="center"><b>Attributes</b></td>
+  </tr>
+  <tr>
+    <td width="50%">Goodness of Requirements</td>
+    <td width="50%">
+    <ul>
+      <li>Volatility: frequency of change, rate of introduction of new
+        requirements</li>
+      <li>Validity: are these the right requirements?</li>
+      <li>Completeness: are any requirements missing?</li>
+      <li>Correctness of expression: are the requirements properly stated?</li>
+      <li>Clarity: are the descriptions understandable and unambiguous?</li>
+    </ul>
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Goodness of Design</td>
+    <td width="50%">
+    <ul>
+      <li>Coupling:&nbsp; how extensive are the connections between system elements?</li>
+      <li>Cohesion: do the components each have a single, well-defined purpose?</li>
+      <li>Primitiveness: can the methods or operations of a class be
+        constructed from other methods or operations of the class? If so they
+        are not primitive (a desirable characteristic).</li>
+      <li>Completeness: does the design completely realize the requirements?</li>
+      <li>Volatility: frequency of architectural change.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Goodness of Implementation</td>
+    <td width="50%">
+    <ul>
+      <li>Size: how close is the implementation to the minimal size (to solve
+        the problem)? Will the implementation meet its constraints?</li>
+      <li>Complexity: is the code algorithmically difficult or intricate? Is it
+        difficult to understand and modify?</li>
+      <li>Completeness: does the implementation faithfully realize all of the
+        design?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Goodness of Test</td>
+    <td width="50%">
+    <ul>
+      <li>Coverage: how well does the test exercise the software? Are all
+        instructions executed by a set of tests? Does the test exercise many
+        paths through the code?</li>
+      <li>Validity: are the tests themselves a correct reflection of the
+        requirements?</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Goodness of Process (at lowest level)</td>
+    <td width="50%">
+    <ul>
+      <li>Defect rate, defect cause: what is the incidence of defects in an
+        activity, and what are the causes?</li>
+      <li>Effort and duration: what duration and how much human effort does an
+        activity require?</li>
+      <li>Productivity: per unit of human effort, what does an activity yield?</li>
+      <li>Goodness of artifacts: what is the level of defects in the outputs of
+        an activity?</li>
+    </ul>
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">Effectiveness of Process/Tool Change</td>
+    <td width="50%">(as for Goodness of Process, but percentage changes rather
+    than total values):
+    <ul>
+      <li>Defect rate, defect cause</li>
+      <li>Effort and duration</li>
+      <li>Productivity</li>
+      <li>Goodness of artifacts</li>
+    </ul>
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<br></div>
+
+<p>For a deep treatment of metrics concepts, see [<a href="../../referenc.htm#WHIT97">WHIT97</a>].</p>
+<h3><a name="What is a metric?">What is a Metric? </a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>We distinguish two kinds of metrics:
+<ul>
+  <li>A <b>metric</b> is a measurable attribute of an entity. For
+    example, project effort is a measure (that is, metric) of project size. To be
+    able to calculate this metric you would need to sum all the time-sheet
+    bookings for the project.</li>
+  <li>A <b>primitive metric</b> is a raw data item that is used to
+    calculate a metric. In the above example the time-sheet bookings are the
+    primitive metrics. A primitive metric is typically a metric that exists in a
+    database but is not interpreted in isolation.</li>
+</ul>
+<p>Each metric is made up of one or more collected metrics. Consequentially each
+primitive metric has to be clearly identified and its collection procedure
+defined.</p>
+<p>Metrics to support change or achievement goals are often
+&quot;first-derivative&quot; over time (or iterations or project). We are
+interested in a trend, not in the absolute value. To &quot;improve quality&quot;
+we need to check that the residual level of known defects diminishes over time.</p>
+<h4><a name="XE_metrics__templates_for"></a><a name="Templates">Templates </a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Template for a metric</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="27%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Name</td>
+    <td width="73%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Name
+    of the metric and any known synonyms.</td>
+  </tr>
+  <tr>
+    <td width="27%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Definition</td>
+    <td width="73%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">The
+    attributes of the entities that are measured using this metric, how the
+    metric is calculated, and which primitive metrics it is calculated from.</td>
+  </tr>
+  <tr>
+    <td width="27%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Goals</td>
+    <td width="73%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">List
+    of goals and questions related to this metric. Also some explanation as to
+    why the metric is being collected.</td>
+  </tr>
+  <tr>
+    <td width="27%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Analysis
+    procedure</td>
+    <td width="73%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">How
+    the metric is intended to be used. preconditions for the interpretation of
+    the metric (e.g., valid range of other metrics). Target values or trends.
+    Models of analysis techniques and tools to be used. Implicit assumptions
+      (for example, of the environment or models). Calibration procedures. Storage.</td>
+  </tr>
+  <tr>
+    <td width="27%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Responsibilities</td>
+    <td width="73%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Who
+    will collect and aggregate measurement data, prepare the reports and analyze
+    the data.</td>
+  </tr>
+</table>
+<br></div>
+
+<p>Template for a primitive metric</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="31%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Name</td>
+    <td width="69%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Name
+    of the primitive metric</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Definition</td>
+    <td width="69%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Unambiguous
+    description of the metric in terms of the project’s environment</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Collection
+    procedure</td>
+    <td width="69%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Description
+    of the collection procedure. Data collection tool and form to be used.
+    Points in the lifecycle when data are collected. Verification procedure to
+    be used. Where will the data be stored, format, precision.</td>
+  </tr>
+  <tr>
+    <td width="31%" valign="top">Responsibilities</td>
+    <td width="69%" valign="top">Who is responsible for collecting the data. Who is responsible for verifying the data.</td>
+  </tr>
+</table>
+</div>
+
+<h3><a name="Metrics activities">Metrics Activities </a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are two activities:
+<ul>
+  <li>Define measurement plan</li>
+  <li>Collect measures</li>
+</ul>
+<p>Define measurement plan is done once per development cycle - in the inception
+phase, as part of the general planning activity, or sometimes as part of the
+configuration of the process in the development case. The measurement plan may
+be revisited like any other section of the software development plan during the
+course of the project.</p>
+<p>Collect measures is done repetitively, at least once per iteration, and
+sometimes more often; for example, weekly on an iteration spanning many months.</p>
+<p>The metrics collected are part of the Status Assessment document, to be
+exploited in assessing the progress and health of the project. They may also be
+accumulated for later use in project estimations and trends over the
+organization.</p>
+<h4><a name="How are the metrics used?">How are the Metrics Used?</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Estimation</h5>
+<p>The project manager in particular is faced with having to plan – assign
+resources to activities with budgets and schedules. Either effort and schedule
+are estimated from a judgment of what is to be produced, or the inverse –
+there are fixed resources and schedule and an estimate of what can be produced
+is needed. Estimation typically has to do with the calculation of resource needs
+based on other factors – typically size and productivity – for planning
+purposes.</p>
+<h5>Prediction</h5>
+<p>Prediction is only slightly different from estimation, and is usually about
+the calculation of the future value of some factor based on today’s value of
+that factor, and other influencing factors. For example, given a sample of
+performance data, it is useful to know (predict) from it how the system will
+perform under full load, or in a resource constrained or degraded configuration.
+Reliability prediction models use defect rate data to predict when the system
+will reach certain reliability levels. Having planned an activity, the project
+manager will need data on which to predict completion dates and effort at
+completion.</p>
+<h5>Assessment</h5>
+<p>Assessment is used to establish the current position for comparison with a
+threshold, say, or identification of trends, or for comparison between
+alternatives, or as the basis for estimation or prediction.</p>
+<p>For more on metrics in project management, read [<a href="../../referenc.htm#ROY98">ROY98</a>].</p>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

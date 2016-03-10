@@ -1,0 +1,562 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Plan Phases and Iterations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Plan Phases and Iterations</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To estimate the total scope, effort, and cost
+        for the project.</li>
+          <li>To develop a coarse-grained plan for the project, focusing on major 
+            milestones and key deliverables in the product lifecycle.</li>
+      <li>To define a set of iterations within the project
+        phases, and identify the objectives for each of these iterations.</li>
+      <li>To develop the schedule and budget for the
+        project.</li>
+      <li>To develop a resource plan for the project.</li>
+      <li>To define the activities for the orderly completion of the project.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Estimate Project">Estimate Project</a></li>
+      <li><a href="#Define Milestones">Define Project Phase Milestones</a></li>
+      <li><a href="#Define Milestone Goals">Define Milestone Goals</a></li>
+      <li><a href="#Define Number, Length, and Objectives of Iterations Within Phases">Define
+        Number, Length, and Objectives of Iterations Within Phases</a></li>
+      <li><a href="#Refine Milestones">Refine Milestones Dates and Scope</a></li>
+      <li><a href="#Determine Project Resourcing Requirements">Determine Project
+        Resourcing Requirements</a></li>
+      <li><a href="#Develop Project Close-Out Plan">Develop Project Close-Out
+        Plan</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bcase.htm">Business Case</a></li>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per project.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_projm.htm">Project Manager</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/manageme/co_phase.htm">Concept: Iteration</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_mgm.htm">Project Management</a>
+<ul>
+<li><a href="../workflow/manageme/wfs_sdp.htm">Plan the Project</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Estimate Project">Estimate Project</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To estimate the magnitude of work required to deliver the project.<br>
+      To select the optimal schedule that satisfies project constraints.&nbsp;
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>During the <a href="../itrwkfls/iwf_iii.htm">Inception phase</a>, you should
+prepare estimates for the work proposed in the project (for a general discussion
+of software project estimation see [<a href="../referenc.htm#BOE81">BOE81</a>],
+[<a href="../referenc.htm#PUT92">PUT92</a>], and [<a href="../referenc.htm#MCO96">MCO96</a>]).
+Software project estimation is based on some complex mathematics, so detailed
+technical background is not discussed here. Estimation follows a four step
+process:
+<ol>
+  <li>Estimate product size.</li>
+  <li>Estimate total project effort and cost</li>
+  <li>Apply constraints and priorities (for example, number of staff, delivery date,
+    budget)</li>
+  <li>Select optimum schedule, effort, and cost estimate</li>
+</ol>
+<h4><b>Estimate Product Size</b></h4>
+<p>This is the key input to the estimation process. If you can't estimate the
+magnitude of work to be done, any project schedule you create is likely to be
+far from reality. There are two approaches to estimating the size of the
+software product that can be used early in the project: Sizing by Analogy, and
+Sizing by Analysis. Of course, later in the project (during the Elaboration
+phase) you can prepare more rigorous bottom-up estimates based on a detailed
+project Work Breakdown Structure.</p>
+<p><b>Sizing by Analogy</b></p>
+<p>When you estimate the project scope using the Sizing by Analogy approach you
+compare the new product you will be developing with products (of known size)
+developed in previous projects. You should compare various characteristics of
+the products being compared, such as number of business use cases, number of
+actors, database size/complexity, and likely numbers of online and batch
+programs.</p>
+<p>By comparing these characteristics you can estimate the relative size of the
+new product compared to the old ones, then you use the known size of the old
+product to calculate the estimated size for the new one. Bear in mind that it is
+important to compare products of similar complexity, developed using similar
+approaches as variances in such things as the level of detail in use case
+descriptions can invalidate your comparisons.</p>
+<p><b>Sizing by Analysis</b></p>
+<p>Later on in the Inception phase, it is likely that you will have gathered
+enough information about the new product to use analytical techniques to
+estimate the product size. These techniques rely upon a functional description
+of the software product being available (for example, Software Requirements
+Specification, Software Architecture Document) and apply standard counting rules
+to determine a size measure from these descriptions. Probably the most well
+known of these techniques is Function Point Counting, although a number of other
+measures have been developed including Feature Points (a modification of
+Function Points for application to real-time systems) and Predictive Object
+Points (a measure for object-oriented systems based on an analysis of class
+complexities and hierarchies).&nbsp;</p>
+<p>There are also white papers available from the <a href="http://www.rational.net/rupcenter" target="_blank">RUP 
+  Knowledge Center on RDN<sup><font size="2">SM</font></sup></a>, which describe 
+  methods for size estimation based on Use Cases. When using these papers, you 
+  should be aware that to make <b>initial</b> size estimations based on Use Cases, 
+  you <b>must</b> calibrate to suit your organization's Use Case style, because 
+  Use Cases can vary greatly in level of abstraction and manner of expression 
+  between organizations, and even within an organization. Once calibrated, it 
+  is important to keep to the selected standard style for writing Use Cases, otherwise 
+  the size estimates can be wildly erroneous.</p>
+<p><b>Estimate Total Project Effort and Costs</b></p>
+<p>The total staff effort and schedule for a project can be calculated from the
+product size estimate using established scientific models. The two prominent
+models in use today are the COnstructive COst MOdel (COCOMO) developed by <a href="http://sunset.usc.edu/Research_Group/barry.html" target="_blank">Barry
+Boehm</a>, and Larry Putnam's Putnam Methodology. Both models have been
+validated against industry data. For more information on latest version of
+COCOMO, see the <a href="http://sunset.usc.edu/COCOMOII/cocomo.html" target="_blank">COCOMOII
+web site</a>.</p>
+<p>Aside from the size input, the other key input is a measure of the team
+productivity. This value determines the overall project effort. The total
+project schedule is related non-linearly to the total effort. Unfortunately the
+models are mathematically complex, so it is best to make use of software tools
+to assist with the calculations.</p>
+<p><b>Apply Constraints and Priorities</b></p>
+<p>Just about every project is subject to some constraints (for example, must ship be a
+certain date, or cost cannot exceed $850,000) or priorities (for example, product needed
+as soon as possible). Given a fixed product size, these are affected by
+adjustments to team size. It turns out that the relationship between team size
+and schedule is not linear, so you'll need to use the scientific models to
+generate a number of scenarios based on varying team sizes. Automated estimation
+software is very useful for this exercise.</p>
+<p><b>Select Optimum Schedule, Effort and Cost Estimate</b></p>
+<p>Now that you have a range of scenarios for the project, you review and select
+the scenario that best fits your project's needs. This gives you an initial
+picture of the overall duration of the project as proposed, and indicates the
+necessary team size and budget.</p>
+<h3><a name="Define Milestones">Define Project Phase Milestones</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To define the points at which project progress is formally assessed.<br>
+   	  To allocate estimated effort and costs to each phase.&nbsp;
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The Software Development Plan first defines the dates and nature of the major
+milestones (see <a href="../itrwkfls/iwf_iwfs.htm">Phases</a>). This part of the
+Software Development Plan serves as the overall &quot;road map&quot; to the
+project and is created at the beginning of the project (inception phase).</p>
+<p>To plan the phases for a project in the initial development cycle, you may
+have to make some educated guesses about milestones on the basis of:
+<ul>
+  <li>Experience with projects similar in nature and domain.</li>
+  <li>The degree of novelty.</li>
+  <li>Specific environment constraints such as response-time, distribution, and
+    safety.</li>
+  <li>The maturity of the organization.</li>
+</ul>
+<p>Using estimates based on your own experiences in other projects of a similar
+nature, you create the initial project budget by allocating the appropriate
+portions of the total estimated effort and costs to each phase of the project.</p>
+ 
+<p>For more information on how to define the length of iterations and the number
+of iterations, see <a href="../modguide/md_prpln.htm">Guidelines: Software
+Development Plan</a>.</p>
+<h3><a name="XE_project_management__defining_milestone_goals"></a><a name="Define Milestone Goals">Define
+Milestone Goals</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To define the criteria by which phases are assessed.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Each milestone is focused on a specific deliverable; each provides a
+well-defined transition point into the next phase.</p>
+<div align="left">
+
+<table border="1" width="54%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="25%"><h5 align="left">Phase&nbsp;</h5></td>
+    <td width="35%"><h5 align="left">Milestone&nbsp;</h5></td>
+    <td width="40%"><h5 align="left">Purpose&nbsp;</h5></td>
+  </tr>
+  <tr>
+    <td width="25%"><a href="../itrwkfls/iwf_iii.htm">Inception</a>&nbsp;</td>
+    <td width="35%"><a href="../itrwkfls/ms_lco.htm">Lifecycle Objective</a>&nbsp;</td>
+    <td width="40%">To commit resources to the project&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%"><a href="../itrwkfls/iwf_iie.htm">Elaboration</a>&nbsp;</td>
+    <td width="35%"><a href="../itrwkfls/ms_lca.htm">Lifecycle Architecture</a>&nbsp;</td>
+    <td width="40%">To stabilize the product's architecture&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%"><a href="../itrwkfls/iwf_lic.htm">Construction</a>&nbsp;</td>
+    <td width="35%"><a href="../itrwkfls/ms_ioc.htm">Initial Operational Capability</a>&nbsp;</td>
+    <td width="40%">To complete product development&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%"><a href="../itrwkfls/iwf_lit.htm">Transition</a>&nbsp;</td>
+    <td width="35%"><a href="../itrwkfls/ms_pr.htm">Product Release</a>&nbsp;</td>
+    <td width="40%">To successfully deploy the product&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<p>Each milestone represents a critical hurdle that the project must clear; at
+each milestone the project faces a go/no-go decision.</p>
+<h3><a name="Define Number, Length, and Objectives of Iterations Within Phases">Define
+Number, Length, and Objectives of Iterations Within Phases</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To determine how many iterations will be planned for each project phase.<br>
+      To determine the relative allocation of work across iterations.<br>
+      To determine the objectives for each iteration.&nbsp;
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Once the length of the project phases are determined, the number of
+iterations and their length need to be determined.  
+For more information on how to define the length of iterations and the number of iterations, 
+see <a href="../modguide/md_prpln.htm">Guidelines: Project Plan</a>. There are a number of iteration patterns that can be applied,
+depending on the type of project, problem domain and novelty of the problem
+domain (see also <a href="../workflow/manageme/co_phase.htm">Concepts: Iteration</a>).</p>
+<p>Each iteration produces a deliverable, a release which is an executable
+product that is used to assess progress and quality. Because each iteration has
+a different focus, the functionality and completeness of the iteration
+deliverable will vary. Iteration goals must be specific enough to assess, at the
+end of the iteration, whether the iteration goals have been met. In early
+iterations, goals are usually expressed in terms of <b>risks mitigated</b>;
+in later iterations goals are expressed in measures of functional completion and
+quality.</p>
+<h3><a name="XE_project_management__refine_milestones"></a><a name="XE_milestone__refining"></a><a name="Refine Milestones">Refine
+Milestone Dates and Scope</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To refine the estimates based on the information available at the end of the inception phase&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Towards the end of the inception phase, phases can be planned more accurately
+by taking into account the:
+<ul>
+  <li>Number of use cases identified.</li>
+  <li>Complexity of the use cases already studied.</li>
+  <li>Risks identified, both technical and business.</li>
+  <li>Function-point, or use-case metrics.</li>
+  <li>Result of any prototyping.</li>
+</ul>
+<p>This very rough plan is updated during the elaboration phase. It serves as
+the basis for building the rest of the project plan.</p>
+<h3><a name="Determine Project Resourcing Requirements">Determine Project
+Resourcing Requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To define the numbers and types of resources required for this project, allocated by phase/iteration.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Based on your effort estimates and the project schedule derived from them,
+you can now define the resources required to carry out the project. For each
+phase/iteration, identify which roles need to be involved, and how many of
+each.</p>
+<h3><a name="Develop Project Close-Out Plan">Develop Project Close-Out Plan</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To develop the plan for an orderly termination of the project.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The Project Close-Out Plan is documented in <i>Section 5.6 Close-out Plan</i>
+of the Software Development Plan. Project Close-Out is the series of activities
+that are carried out to bring an orderly closure to the project, ensuring that
+any metrics and lessons learned are captured for future reference.</p>
+<p>The close-out process begins when the following conditions have been met:
+<ul>
+  <li>All project deliverables have been completed and stored under
+    configuration control</li>
+  <li>Acceptance testing has been completed and the product has been formally
+    accepted by the customer</li>
+  <li>The product has been formally delivered/handed over to the customer</li>
+</ul>
+<h4>Define Close-Out Activities</h4>
+<p>Firstly, list in your plan the activities you will perform during project
+close-out. Typically these will include the following:
+<ul>
+  <li>A project post-mortem meeting</li>
+  <li>Development of a project post mortem report</li>
+  <li>End of project personnel reviews</li>
+  <li>Archival of project artifacts</li>
+  <li>Re-assignment of project staff</li>
+  <li>Addition of project metrics to your organizations historical metrics
+    database for future project estimation.</li>
+</ul>
+<h4>Identify Participants for Close-Out Activities</h4>
+<p>Next, identify in your plan which individuals will be involved in each of the
+close-out activities.</p>
+<h4>Define Schedule for Close-Out Activities</h4>
+<p>Then, define the schedule for the close-out activities. Usually, this detail
+is added to the Software Development Plan towards the end of the project.</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

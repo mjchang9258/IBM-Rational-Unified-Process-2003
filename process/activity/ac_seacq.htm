@@ -1,0 +1,752 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Select and Acquire Tools</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Select and Acquire 
+  Tools</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To select tools that fit the needs of the project.</li>
+      <li>To acquire the tools for the project.</li>
+      <li>Sometimes special tools have to be developed internally to support
+        special needs, provide additional automation of tedious or error-prone
+        tasks, and provide better integration between tools.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Identify Needs">Identify needs and constraints</a></li>
+      <li><a href="#Collect Information about Tools">Collect information about
+        tools</a></li>
+      <li><a href="#Compare Tools">Compare tools</a></li>
+      <li><a href="#Select Tools">Select tools</a></li>
+      <li><a href="#AcquireTools">Acquire tools</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_deorv.htm">Development-Organization Assessment</a></li>
+<li><a href="../artifact/ar_tools.htm">Tools</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_tools.htm">Tools</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Most of the tools are acquired early in the project.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_tlsmt.htm">Tool Specialist</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_env.htm">Environment</a>
+<ul>
+<li><a href="../workflow/environm/wfs_env1.htm">Prepare Environment for Project</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<p>Many of the steps in the process can only be efficiently carried on with the
+proper tool support. Tools need to be selected that fit the particular needs of
+an organization, based mostly on specific activities or artifacts necessary for
+the process. The <a href="../workflow/environm/co_tools.htm">Concepts:
+Supporting Tools</a> gives a brief overview of the different kinds of supporting
+tools that a project needs.</p>
+<p>Sometimes special tools have to be developed internally to support special
+needs, provide additional automation of tedious or error-prone tasks, and
+provide better integration between tools. This tool development may proceed with
+a lighter weight process than the one used for developing the product.</p>
+<p>Selecting and acquiring the tools is done in hand-in-hand with the implementation 
+  of the process in the organization. See <a href="../workflow/environm/co_iproj.htm">Concept. 
+  Implementing a Process in a Project</a> for more details.</p>
+<h3><a name="XE_tools__selecting"></a><a name="XE_selecting_tools"></a><a name="Identify Needs">Identify
+Needs</a> and Constraints <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify what the needs for tool support are, and what the constraints are,
+by looking at the following:
+<ul>
+  <li>The development process. What tool support is required to effectively
+    work. For example, if the organization decide to employ an iterative
+    development process, it is necessary to automate the tests, since you will
+    be testing several times during the project.</li>
+  <li>Host (or development) platform(s).&nbsp;</li>
+  <li>Target platform(s).</li>
+  <li>The programming language(s) to be used.</li>
+  <li>Existing tools. Evaluate any existing and proven tools and decide whether
+    they can continue to be used.</li>
+  <li>The distribution of the development organization. Is the organization
+    physically distributed? Development tools generally support a physically
+    distributed organization differently.</li>
+  <li>The size of the development effort. Tools support large organizations more
+    or less well.</li>
+  <li>Budget and time constraints.</li>
+</ul>
+<p>The Development-Organization Assessment will provide good input.&nbsp;
+<h3><a name="Collect Information about Tools">Collect Information about Tools</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Collect information about the candidate tools and their vendors. Some of this
+information is data that can be collected from the vendor, or from independent
+reviews.&nbsp;&nbsp;&nbsp;
+<h4>Tool Features and Functions</h4>
+<p>Create a list of features and functions for the type of tool you are
+studying. In most cases the tool vendors provide such lists.&nbsp;The table
+below shows a fraction of a list for configuration management tools.&nbsp;</p>
+<div align="center">
+
+<table border="1" width="50%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td>
+    <p class="tableheading">Features &amp; Functions&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td>Versions all file system objects&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Versions directories&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Mixing of file types&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Compresses text and binaries&nbsp;</td>
+  </tr>
+  <tr>
+    <td>...&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h4>Tool and Vendor Criteria</h4>
+<p>Collect information about each tool for the following criteria.&nbsp;</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="15%"><p class="tableheading">Tool<br>Criteria&nbsp;</td>
+    <td width="85%"><p class="tableheading">Comments&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Features&nbsp; &amp;<br>
+    Functions&nbsp;</td>
+    <td width="85%">The functionality that tool provides. This should be the overall
+    conclusion of the 'Tool Features' table.&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Integration&nbsp;</td>
+    <td width="85%">The level of integration with other tools. How is information
+    transferred between different tools? How well does the tool fit with your
+    existing tools, and other tools that you are evaluating.&nbsp;Level of
+    integration is often more important that features. Well integrated tools are
+    more likely to be easier to use and maintain.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Applicability&nbsp;</td>
+    <td width="85%">
+    <p>How well the tool support your development process.&nbsp;Do you have to
+    change the way you work in order to use the tool? Can you accept the
+    trade-offs?&nbsp;Lack of applicability means that you may have to change the
+    way you work, &quot;design-to-tools&quot;. But, this may be worth
+    considering if the tool has other strengths.</p>
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Extendibility&nbsp;</td>
+    <td width="85%">The ability to extend and customize the tool.&nbsp;Extendibility, is
+    good since it means that you can adapt the tool to your needs. However, make
+    sure that it doesn't take too long time to configure the tool, to make
+    it&nbsp; work.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Team support&nbsp;</td>
+    <td width="85%">The ability to support a team of users. Does the tool support a team
+    that is geographically distributed?&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Usability&nbsp;</td>
+    <td width="85%">The ease of learning and using the tool. Focus on the most common ways
+    to use the tool. How long time does it take to be productive using the tool?
+    Is the tool suitable for people who will use it infrequently? Be sure to
+    look at the most commonly used functions. The fact that some rarely used
+    function is difficult to use, can often be ignored.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Quality&nbsp;</td>
+    <td width="85%">Depending on the kind of tool, the quality of the tool will determine
+    the quality of the product you are building. Quality is important,
+    especially when if have direct impact on the product&nbsp; you develop. For
+    example, a compiler that produces slow code, or an HTML editor that produce
+    bad HTML.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Performance&nbsp;</td>
+    <td width="85%">The total effectiveness of the tool, including capacity, accessibility,
+    and response times. Bad performance may be acceptable if it affect functions
+    or capabilities that are seldom used.&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Maturity&nbsp;</td>
+    <td width="85%">The tool's level of maturity. Some organizations would not buy a version
+    1 of a tool from a new vendor, regardless of how good the tool is supposed
+    to be.&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%"><p class="tableheading">Vendor<br>Criteria&nbsp;</p></td>
+    <td width="85%"><p class="tableheading">Comments&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td width="15%">Stability&nbsp;</td>
+    <td width="85%">You risk your future on the future the vendor. How long has the company
+    been in business? How stable is the company? Are they investing in the tool?
+    Is the tool in the main line for the company, or is it a sideline?&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Support availability&nbsp;</td>
+    <td width="85%">What support is available from the vendor, and/or potential partners?
+    You may need help to install and configure the tool, and continuous support
+    for the end-users.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Training availability&nbsp;</td>
+    <td width="85%">What training is available from the vendor, and/or potential
+    partners?&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Growth direction&nbsp;</td>
+    <td width="85%">How well the tool supports the direction where your development is
+    going. Consider what direction your development is going. Will the tool
+    support that direction, and other direction that you may want to go?&nbsp;&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h4>Cost</h4>
+<p>The costs associated with acquiring and owning the tool, includes acquisition
+costs, implementation costs and maintenance costs. Decide how many users you
+have and for how long period of time, you want to calculate the cost.&nbsp;</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="15%"><p class="tableheading">Cost</p>&nbsp;</td>
+    <td width="85%"><p class="tableheading">Comment&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Acquisition cost&nbsp;</td>
+    <td width="85%">The cost to purchase the tool.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Implementation cost&nbsp;</td>
+    <td width="85%">The cost to have the tool installed and integrated with your existing
+    development environment. This includes cost of training the users of the
+    tool, both the end-users and people that will administer the tool.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="15%">Maintenance cost&nbsp;</td>
+    <td width="85%">The on-going cost to make sure that the tool work and is used. This
+    includes both the cost to administer the tool, to handle upgrades, and the
+    on-going training cost for both the people that administer the tool, and the
+    end-users of the tool.&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Compare Tools">Compare Tools</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To combine the factors and select the best tools is not a trivial issue. To
+help you make a decision we recommend that you create a table for the features.</p>
+<h4>Compare Features and Functions</h4>
+<p>Using the list of features and functions, decide how important each feature
+or function is for you. The following ranking can be used:</p>
+<ul>
+  <li>'<b>Must</b>'. The tool must have this feature.</li>
+  <li>'<b>Nice</b>'. The feature would be nice to have, but it is not critical.</li>
+  <li>'<b>Not required</b>'. It does not matter whether to tool has the feature
+    or not.&nbsp;</li>
+</ul>
+<p>Indicate for each tool whether it has the feature or not using the following
+symbols:</p>
+<div align="center">
+
+<table border="1" width="20%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td><p class="tableheading">Symbol&nbsp;&nbsp;</td>
+    <td><p class="tableheading">Description&nbsp;</td>
+  </tr>
+  <tr>
+    <td>+&nbsp;</td>
+    <td>has the feature&nbsp;</td>
+  </tr>
+  <tr>
+    <td>-&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>lacks the feature&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Document all features and functions in a table, and rank how important they
+are. Indicate for each tool, whether it has the feature or not. The table below
+is a fraction of a comparison between three configuration management
+tools.&nbsp;</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%"><p class="tableheading">Features &amp; Functions&nbsp;</td>
+    <td width="15%"><p class="tableheading">Rank&nbsp;</td>
+    <td width="15%"><p class="tableheading">Tool 1&nbsp;</td>
+    <td width="15%"><p class="tableheading">Tool 2&nbsp;</td>
+    <td width="15%"><p class="tableheading">Tool 3&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">Versions all file system objects&nbsp;</td>
+    <td width="15%">Must&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+    <td width="15%">-&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">Versions directories&nbsp;</td>
+    <td width="15%">Must&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">Mixing of file types&nbsp;</td>
+    <td width="15%">Must&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">Compresses text and binaries&nbsp;</td>
+    <td width="15%">Nice&nbsp;</td>
+    <td width="15%">+&nbsp;</td>
+    <td width="15%">-&nbsp;</td>
+    <td width="15%">-&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">...&nbsp;</td>
+    <td width="15%">...&nbsp;</td>
+    <td width="15%">...&nbsp;</td>
+    <td width="15%">...&nbsp;</td>
+    <td width="15%">...&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h4>Compare Tool and Vendors Criteria</h4>
+<p>You need to compare the tools in all other factors, except the features. To
+get an overview of the tools, we recommend that you document the overview in a
+table, such as the table below. Briefly describe your needs and constraints for
+each factor. Give each factor a weight to indicate how important this factor is
+to you. For example, use a scale from 1 to 5, where 5 means that the factor is
+very important.&nbsp;</p>
+<p>Grade each tool (and vendor) in the following criteria. You can use a scale
+from 1 to 5:</p>
+<ol>
+  <li>Useless in this area</li>
+  <li>Weak or has some serious shortcomings.&nbsp;</li>
+  <li>Adequate in this area.</li>
+  <li>Better than average in this area.&nbsp;</li>
+  <li>Excellent in this area.</li>
+</ol>
+<p>Document the comparison in a table such as the following table.&nbsp;</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="25%"><p class="tableheading">Tool Criteria&nbsp;</td>
+    <td width="19%"><p class="tableheading">Comments&nbsp;</td>
+    <td width="19%"><p class="tableheading">Tool 1&nbsp;&nbsp;</td>
+    <td width="19%"><p class="tableheading">Tool 2&nbsp;</td>
+    <td width="18%"><p class="tableheading">Tool 3&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Features &amp;&nbsp;<br>
+    Functions&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Integration&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Applicability&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Extendibility&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Team support&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Usability&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Quality&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Performance&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Maturity&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%"><p class="tableheading">Vendor Criteria&nbsp;</p></td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Stability&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Support availability&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Training availability&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Growth direction&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h4>Compare Cost</h4>
+<p>Compare the cost of each tool and document it in a table, such as below.
+Grade each cost as 'Low', 'Medium' or 'High'.&nbsp;</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="25%"><p class="tableheading">Cost&nbsp;</td>
+    <td width="19%"><p class="tableheading">Comments&nbsp;</td>
+    <td width="19%"><p class="tableheading">Tool 1&nbsp;&nbsp;</td>
+    <td width="19%"><p class="tableheading">Tool 2&nbsp;</td>
+    <td width="18%"><p class="tableheading">Tool 3&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Acquisition cost&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Implementation cost&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Maintenance cost&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="19%">&nbsp;&nbsp;</td>
+    <td width="18%">&nbsp;&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Select Tools">Select Tools</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Select the tools that best fulfill your needs, and can fit within your
+constraints. Do not fall into the trap of comparing features and functions only.
+The other criteria are equally, or more important. Unless the choice of tool is
+obvious, we recommend that you test the tool (or tools) that you have found to
+best suit your needs, before you decide to acquire it.&nbsp;</p>
+<p>If there are any doubts about the tool, the best is always to test the tool.
+You can also try to find other companies that are using the tool, and ask them
+if they can evaluate the tool. You can also ask for reference customers from the
+vendors; other customers who are using the tool. There is also information
+available on the internet, where for example online magazines publish their
+reviews.&nbsp;&nbsp;</p>
+<p>Once you have made the choice, stick to it. To change tool in the middle of a
+project is often very costly.</p>
+<h3><a name="AcquireTools">Acquire Tools</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To acquire tools is a non-trivial issue, which involves legal matters as well
+as financial matters. Tool acquisition is not covered in any detail here. The
+following areas should be considered: &nbsp;&nbsp;</p>
+<ul>
+  <li>Installation. How much assistance do they offer to set up the tools?</li>
+  <li>Support. What kind of support do the vendor offer? Many tool vendors offer
+    several grades of support to choose from. The more you pay the better
+    support you get.&nbsp;</li>
+  <li>Vendor commitment. How committed is the vendor to you as a new customer?
+    If you run into problems with the tool, what kind of help can they offer? In
+    what time-frame and to what cost?</li>
+  <li>Influence. What influence will you have on the future of the tool? How
+    will your need be prioritized?&nbsp;&nbsp;</li>
+  <li>Maintenance. How does the vendor handle bugs in the tool? Are there
+    planned &quot;service pack&quot; releases?&nbsp;</li>
+  <li>Training. What training do they offer? What is the availability of
+    training courses?&nbsp;</li>
+  <li>Product future. Is there a plan that describes the future evolvement of
+    the tool?</li>
+  <li>Licensing. Should you buy one site license for all project members, or
+    should you buy one tool per individual? Some tools offer
+    &quot;floating&quot; licenses, which sets a limit to the number of
+    concurrent users in an organization.</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

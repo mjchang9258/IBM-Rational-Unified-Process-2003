@@ -1,0 +1,1476 @@
+<!-- RPW META DATA START --
+ 
+ 
+<rpw name="PresentationName">Test Plan</rpw>
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guideline:&nbsp;Testing Techniques by Quality Risk/ Test Type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Testing Techniques 
+  by Quality Risk/ Test Type</rpw> <a name="XE_test_strategy__technique_guidelines"></a></h2>
+
+
+ 
+ <h3><a name="DataAndDatabaseIntegrityTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Data and 
+  Database Integrity Testing</a></h3>
+  
+  
+<p>The databases and the database processes should be tested as an independent 
+  subsystem. This testing should test the subsystems without the target-of-test's 
+  User Interface as the interface to the data. Additional research into the Database 
+  Management System (DBMS) needs to be performed to identify the tools and techniques 
+  that may exist to support the testing identified in the following table.</p>
+  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%"> 
+        <p>Exercise database access methods and processes independent 
+          of the UI so you can observe and log incorrectly functioning target 
+          behavior or data corruption.
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        
+          <li>
+          <p>Invoke each database access method and process, seeding 
+            each with valid and invalid data or requests for data.</li>
+       <li>   
+          <p>Inspect the database to ensure the data has been populated 
+            as intended and all database events have occurred properly, or review the 
+            returned data to ensure that the correct data was retrieved for the 
+            correct reasons. 
+        </li>
+        
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%">
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%">
+        <p>The technique requires the following tools: 
+        <li><p>  Test Script Automation Tool</li>
+	  <li><p>  base configuration imager and restorer</li>
+	  <li><p>  backup and recovery tools</li>
+	    <li> 
+          <p> installation-monitoring tools (registry, hard disk, 
+            CPU, memory, and so on) 
+        </li>
+	    <li> 
+          <p> database SQL utilities 
+            and tools</li>
+	    <li> 
+          <p> data-generation tools 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%">
+        <p>The technique supports the testing of all key database 
+          access methods and processes.
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%"><li>
+          <p> Testing may require a DBMS development environment 
+            or drivers to enter or modify data directly in the database.
+        </li>
+<li><p>  	Processes should be invoked manually.</li>
+<li><p>      Small or minimally sized databases (with a limited number of records) should be used to increase the visibility of any non-acceptable events.</p> </td>
+    </tr>
+  </table>
+    <br>
+
+ <h3><a name="FunctionTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Function Testing</a></h3>
+ 
+  <p>Function testing of the target-of-test should focus on any 
+    requirements for test that can be traced directly to use cases or business 
+    functions and business rules. The goals of these tests are to verify proper 
+    data acceptance, processing, and retrieval, and the appropriate implementation 
+    of the business rules. This type of testing is based upon black box techniques; 
+    that is, verifying the application and its internal processes by interacting 
+    with the application via the Graphical User Interface (GUI) and analyzing 
+    the output or results. The following table identifies an outline of the testing 
+    recommended for each application.</p>
+  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%">
+        <p>Exercise target-of-test functionality, including navigation, 
+          data entry, processing, and retrieval to observe and log target behavior. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <p>Exercise each use-case scenario's individual use-cases 
+          flows or functions and features, using valid and invalid data, to verify 
+          that:
+        <li><p> the expected results occur when valid data is used</li>
+        <li><p> the appropriate error or warning messages are displayed when invalid data is used</li>
+        <li><p> each business rule is properly applied 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%">
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          mad, and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%">
+        <p>The technique requires the following tools: 
+        <li><p>  Test Script Automation Tool</li>
+	  <li><p>  base configuration imager and restorer</li>
+	  <li><p>  backup and recovery tools</li>
+	    <li> 
+          <p> installation-monitoring tools (registry, hard disk, 
+            CPU, memory, and so on)
+        </li>
+	    <li> 
+          <p> data-generation tools 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%">
+        <p>The technique supports the testing of: 
+        <li>
+          <p> all key use-case scenarios
+        </li>
+	  <li>
+          
+        <p> all key features 
+      </li>
+	   
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%">
+          
+        <p> Identify or describe those items or issues (internal 
+          or external) that impact the implementation and execution of function 
+          test.</p>
+      </td>
+    </tr>
+  </table>
+    <br>
+  
+   
+ <h3><a name="BusinessCycle"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Business Cycle Testing</a></h3>
+   
+  <p>Business Cycle Testing should emulate the activities performed 
+    on the &lt;Project Name&gt; over time. A period should be identified, such 
+    as one year, and transactions and activities that would occur during a year's 
+    period should be executed. This includes all daily, weekly, and monthly cycles, 
+    and events that are date-sensitive, such as ticklers.</p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%"> 
+        <p>Exercise target-of-test and background processes according 
+          to required business models and schedules to observe and log target 
+          behavior. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <p>Testing will simulate several business cycles by performing 
+          the following: 
+        <li> 
+          <p> The tests used for target-of-test's function testing 
+            will be modified or enhanced to increase the number of times each 
+            function is executed to simulate several different users over a specified 
+            period.
+        </li>
+        <li> 
+          <p> All time or date-sensitive functions will be executed 
+            using valid and invalid dates or time periods.
+        </li>
+        <li> 
+          <p> All functions that occur on a periodic schedule will 
+            be executed or launched at the appropriate time.
+        </li>
+        <li> 
+          <p> Testing will include using valid and invalid data 
+            to verify the following: 
+          
+            
+          <ul>
+            <li>
+              <p>The expected results occur when valid data is used.
+            </li>
+            <li> 
+              <p>The appropriate error or warning messages are 
+                displayed when invalid data is used.
+            </li>
+			 <li> 
+              <p>Each business rule is properly applied.
+            </li>
+          </ul>
+        
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%">
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made, and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination.
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%">
+        <p>The technique requires the following tools: 
+        <li><p>  Test Script Automation Tool</li>
+	  <li><p>  base configuration imager and restorer</li>
+	  <li><p>  backup and recovery tools</li>
+	    <li>
+          <p> data-generation tools</li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%">
+        <p>The technique supports the testing of all critical 
+          business cycles. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%"><li>
+          <p> System dates and events may require special support 
+            activities.</li>
+         <li>
+          <p> A business model is required to identify appropriate 
+            test requirements and procedures.</p>
+ </td>
+    </tr>
+  </table>
+    <br>
+
+ <h3><a name="UserInterfaceTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>User Interface Testing</a></h3>
+   
+  <p>User Interface (UI) testing verifies a user's interaction 
+    with the software. The goal of UI testing is to ensure that the UI provides 
+    the user with the appropriate access and navigation through the functions 
+    of the target-of-test. In addition, UI testing ensures that the objects within 
+    the UI function as expected and conform to corporate, or industry, standards.</p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%">
+        <p>Exercise the following to observe and log standards 
+          conformance and target behavior:
+        <li> 
+          <p>Navigation through the target-of-test reflecting business 
+            functions and requirements, including window-to-window, field-to- 
+            field, and use of access methods (tab keys, mouse movements, accelerator 
+            keys).
+        </li>
+        <li> 
+          <p>Window objects and characteristics can be exercised-such 
+            as menus, size, position, state, and focus. 
+        </li> 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <p>Create or modify tests for each window to verify proper 
+          navigation and object states for each application window and object.
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%">
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%">
+        <p>The technique requires the Test Script Automation Tool.       </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%">
+        <p>The technique supports the testing of each major screen 
+          or window that will be used extensively by the end user. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%">        <p>Not all properties for custom and third party objects 
+          can be accessed. </p>
+ </td>
+    </tr>
+  </table>
+    <br>
+
+ <h3><a name="PerformanceProfiling"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Performance Profiling</a></h3>
+  
+  <p>Performance profiling is a performance test in which response 
+    times, transaction rates, and other time-sensitive requirements are measured 
+    and evaluated. The goal of Performance Profiling is to verify performance 
+    requirements have been achieved. Performance profiling is implemented and 
+    executed to profile and tune a target-of-test's performance behaviors as a 
+    function of conditions, such as workload or hardware configurations.</p>
+  <p> <b>Note</b>: Transactions in the following table refer to 
+    &quot;logical business transactions&quot;. These transactions are defined 
+    as specific use cases that an actor of the system is expected to perform using 
+    the target-of-test, such as add or modify a given contract.</p>
+  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%">
+        <p>Exercise behaviors for designated functional transactions 
+          or business functions under the following conditions to observe and 
+          log target behavior and application performance data:
+        <li> 
+          <p>normal anticipated workload
+        </li>
+        <li> 
+          <p>anticipated worst-case workload 
+        </li>      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        
+          <li>
+          <p>Use Test Procedures developed for Function or Business Cycle Testing.<li>
+          <p>Modify data files to increase the number of transactions 
+            or the scripts to increase the number of iterations that occur in 
+            each transaction.
+        </li>
+       <li>   
+          <p>Scripts should be run on one machine (best case is to benchmark single user, single transaction) and should be repeated with multiple clients (virtual or actual, see Special Considerations below). 
+        </li>
+        
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%">
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%">
+        <p>The technique requires the following tools: 
+        <li><p>  Test Script Automation Tool</li>
+	  <li><p>  an application performance profiling tool, such as Rational Quantify</li>
+	    <li> 
+          <p> installation-monitoring tools (registry, hard disk, 
+            CPU, memory, and so on</li>
+	    <li> 
+        <p> resource-constraining tools; for example, Canned Heat 
+      </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%">
+        <p>The technique supports testing:
+        <li> 
+          <p> Single Transaction or single user: Successful emulation 
+            of the transaction scripts without any failures due to test implementation 
+            problems.
+        </li>
+        <li> 
+          <p> Multiple transactions or multiple users: Successful 
+            emulation of the workload without any failures due to test implementation 
+            problems.
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%">        <p>Comprehensive performance testing includes having a 
+          background workload on the server.</p>
+        <p>There are several methods that can be used to perform 
+          this, including: 
+        <li> 
+          <p> &quot;Drive transactions&quot; directly to the server, 
+            usually in the form of Structured Query Language (SQL) calls. 
+        </li>
+        <li> 
+          <p> Create &quot;virtual&quot; user load to simulate 
+            many clients, usually several hundred. Remote Terminal Emulation tools 
+            are used to accomplish this load. This technique can also be used 
+            to load the network with &quot;traffic&quot;.
+        </li>
+        <li> 
+          <p> Use multiple physical clients, each running test 
+            scripts, to place a load on the system. 
+        </li><br>
+<p>  	Performance testing should be performed on a dedicated machine or at a dedicated time. This permits full control and accurate measurement.</p>
+        <p> The databases used for Performance Testing should be either 
+          actual size or scaled equally.</p> </td>
+    </tr>
+  </table>
+    <br>
+  
+   
+ <h3><a name="LoadTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Load Testing</a></h3>
+ 
+  <p>Load testing is a performance test that subjects the target-of-test 
+    to varying workloads to measure and evaluate the performance behaviors and 
+    abilities of the target-of-test to continue to function properly under these 
+    different workloads. The goal of load testing is to determine and ensure that 
+    the system functions properly beyond the expected maximum workload. Additionally, 
+    load testing evaluates the performance characteristics, such as response times, 
+    transaction rates, and other time-sensitive issues.</p>
+  <p><b>Note</b>: Transactions in the following table refer to 
+    &quot;logical business transactions&quot;. These transactions are defined 
+    as specific functions that an end user of the system is expected to perform 
+    using the application, such as add or modify a given contract.</p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%">
+        <p>Exercise designated transactions or business cases 
+          under varying workload conditions to observe and log target behavior 
+          and system performance data.
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        
+        <li><p>Use Transaction Test Scripts developed for Function 
+            or Business Cycle Testing as a basis, but remember to remove unnecessary 
+            interactions and delays.</li>
+        <li><p> Modify data files to increase the number of transactions or the tests to increase the number of times each transaction occurs.</li>
+        <li>
+          <p> Workloads should include&#151;for example, daily, 
+            weekly, and monthly&#151;peak loads.
+        </li>
+		<li>
+          <p>Workloads should represent both average as well as 
+            peak loads.</li>
+		<li>
+          <p>Workloads should represent both instantaneous and 
+            sustained peaks.
+        </li>
+		<li>
+          <p>The workloads should be executed under different Test 
+            Environment Configurations. 
+        </li>
+        
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%">
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%">
+        <p>The technique requires the following tools: 
+        <li><p>  Test Script Automation Tool</li>
+	    <li><p> Transaction load scheduling and control tool</li>
+	    <li>
+          <p> installation-monitoring tools (registry, hard disk, 
+            CPU, memory, and so on)
+        </li>
+	    <li>
+          <p> resource-constraining tools; for example, Canned 
+            Heat
+        </li>
+	    <li> <p> data-generation tools</li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%">
+        <p>The technique supports the testing of Workload Emulation, 
+          which is the successful emulation of the workload without any failures 
+          due to test implementation problems. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%">        <li> 
+          <p> Load testing should be performed on a dedicated 
+            machine or at a dedicated time. This permits full control and accurate 
+            measurement.</li>
+		<li>
+          <p> The databases used for load testing should be either 
+            actual size or scaled equally.</p>
+        
+ </td>
+    </tr>
+  </table>
+    <br>
+
+ <h3><a name="StressTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Stress Testing</a></h3>
+  
+  <p>Stress testing is a type of performance test implemented 
+    and executed to understand how a system fails due to conditions at the boundary, 
+    or outside of, the expected tolerances. This typically involves low resources 
+    or competition for resources. Low resource conditions reveal how the target-of-test 
+    fails that is not apparent under normal conditions. Other defects might result 
+    from competition for shared resources, like database locks or network bandwidth, 
+    although some of these tests are usually addressed under functional and load 
+    testing.</p>
+  <p><b>Note</b>: References to transactions in the following table 
+    refer to logical business transactions.</p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%">
+        <p>Exercise the target-of-test functions under the following 
+          stress conditions to observe and log target behavior that identifies 
+          and documents the conditions under which the system <b>fails</b> to 
+          continue functioning properly: 
+        <li> 
+          <p>little or no memory available on the server (RAM and 
+            persistent storage space)
+        </li>
+        <li>
+          <p>maximum actual or physically capable number of clients 
+            connected or simulated
+        </li> 
+        <li> 
+          <p>multiple users performing the same transactions against 
+            the same data or accounts
+        </li>
+        <li>
+          <p>&quot;overload&quot; transaction volume or mix (see 
+            Performance Profiling above) 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        
+        <li>
+          <p>Use tests developed for Performance Profiling or 
+            Load Testing.
+        </li>
+          
+        <li>
+          <p>To test limited resources, tests should be run on 
+            a single machine, and RAM and persistent storage space on the server 
+            should be reduced or limited.
+        </li>
+          
+        <li>
+          <p>For remaining stress tests, multiple clients should 
+            be used, either running the same tests or complementary tests to produce 
+            the worst-case transaction volume or mix.
+        </li>        
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%">
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%">
+        <p>The technique requires the following tools: 
+        <li><p>  Test Script Automation Tool</li>
+	  <li>
+          <p> Transaction load scheduling and control tool 
+        </li>
+	    <li> 
+          <p> installation-monitoring tools (registry, hard disk, 
+            CPU, memory, and so on
+        </li>
+	    <li> 
+          <p> resource-constraining tools; for example, Canned 
+            Heat
+        </li>
+	    <li> 
+          <p> data-generation tools 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%">
+        <p>The technique supports the testing of Stress Emulation. 
+          The system can be emulated successfully in one or more conditions defined 
+          as stress conditions, and an observation of the resulting system state, 
+          during and after the condition has been emulated, can be captured. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%">        <li> 
+          <p> Stressing the network may require network tools 
+            to load the network with messages or packets.
+        </li>
+        <li>
+          <p> The persistent storage used for the system should 
+            temporarily be reduced to restrict the available space for the database 
+            to grow.
+        </li>
+        <li> 
+          <p> Synchronize the simultaneous clients accessing of 
+            the same records or data accounts.</p>
+ </td>
+    </tr>
+  </table>
+    <br>
+
+ <h3><a name="VolumeTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Volume Testing</a></h3>
+ 
+  <p>Volume testing subjects the target-of-test to large amounts 
+    of data to determine if limits are reached that cause the software to fail. 
+    Volume testing also identifies the continuous maximum load or volume the target-of-test 
+    can handle for a given period. For example, if the target-of-test is processing 
+    a set of database records to generate a report, a Volume Test would use a 
+    large test database, and would check that the software behaved normally and 
+    produced the correct report.</p>
+  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%"> 
+        <p>Exercise the target-of-test functions under the following 
+          high volume scenarios to observe and log target behavior: 
+        <li> 
+          <p>Maximum (actual or physically-capable) number of clients 
+            connected, or simulated, all performing the same, worst case (performance) 
+            business function for an extended period. 
+        </li>
+        <li> 
+          <p>Maximum database size has been reached (actual or 
+            scaled) and multiple queries or report transactions are executed simultaneously. 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <li> 
+          <p>Use tests developed for Performance Profiling or 
+            Load Testing. 
+        </li>
+        <li> 
+          <p>Multiple clients should be used, either running the 
+            same tests or complementary tests to produce the worst-case transaction 
+            volume or mix (see Stress Testing) for an extended period. 
+        </li>
+        <li> 
+          
+        <p>Maximum database size is created (actual, scaled, or 
+          filled with representative data), and multiple clients are used to run 
+          queries and report transactions simultaneously for extended periods.
+      </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%"> 
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%"> 
+        <p>The technique requires the following tools: 
+        <li>
+          <p> Test Script Automation Tool
+        </li>
+        <li> 
+          <p>Transaction load scheduling and control tool 
+        </li>
+        <li> 
+          <p> installation-monitoring tools (registry, hard disk, 
+            CPU, memory, and so on
+        </li>
+        <li> 
+          <p> resource-constraining tools; for example, Canned 
+            Heat
+        </li>
+        <li> 
+          <p> data-generation tools
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%"> 
+        <p>The technique supports the testing of Volume Emulation. 
+          Large quantities of users, data, transactions, or other aspects of the 
+          system use under volume can be successfully emulated and an observation 
+          of the system state changes over the duration of the volume test can 
+          be captured. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%"> 
+        <p>What period of time would be considered an acceptable 
+          time for high volume conditions, as noted above?</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+  
+   
+ <h3><a name="SecurityAndAccessControlTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Security and Access Control Testing</a></h3>
+
+  <p>Security and Access Control Testing focuses on two key areas 
+    of security:</p>
+    <li>
+    <p>  Application-level security, including access to the Data 
+      or Business Functions</p>
+  </li>
+    <li>
+    <p>  System-level Security, including logging into or remotely 
+      accessing to the system</p>
+  </li>
+    
+  <p>Based on the security you want, application-level security 
+    ensures that actors are restricted to specific functions or use cases, or 
+    they are limited in the data that is available to them. For example, everyone 
+    may be permitted to enter data and create new accounts, but only managers 
+    can delete them. If there is security at the data level, testing ensures that 
+    &quot;user type one&quot; can see all customer information, including financial 
+    data, however, &quot;user type two&quot; only sees the demographic data for 
+    the same client.</p>
+    <p>System-level security ensures that only those users granted access to the 
+    system are capable of accessing the applications and only through the appropriate 
+    gateways.</p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%"> 
+        <p>Exercise the target-of-test under the following conditions 
+          to observe and log target behavior: 
+        <li> 
+          <p>Application-level Security: an actor can access only 
+            those functions or data for which their user type is provided permissions. 
+        </li>
+        <li> 
+          
+        <p>System-level Security: only those actors with access 
+          to the system and applications are permitted to access them.
+      </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <li>
+          <p>Application-level Security: Identify and list each 
+            user type and the functions or data for which each type has permissions.
+        </li>
+        <ul>
+          <li> 
+            <p>Create tests for each user type and verify each 
+              permission by creating transactions specific to each user type.
+          </li>
+        </ul>
+        <ul>
+          <li> 
+            <p>Modify user type and rerun tests for same users. 
+              In each case, verify those additional functions or data are correctly 
+              available or denied. 
+          </li>
+        </ul>
+        <li> 
+          <p>System-level Access: See Special Considerations below. 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%"> 
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%"> 
+        <p>The technique requires the following tools: 
+        <li>
+          <p> Test Script Automation Tool
+        </li>
+        <li>
+          <p> &quot;Hacker&quot; security breach and probing tools
+        </li>
+        <li>
+          <p> OS Security Administration tools 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%"> 
+        <p>The technique supports the testing of the appropriate 
+          functions or data affected by security settings can be tested for each 
+          known actor type. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%"> 
+        <p> Access to the system must be reviewed or discussed 
+          with the appropriate network or systems administrator. This testing 
+          may not be required as it may be a function of network or systems administration.</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+ <h3><a name="FailoverAndRecoveryTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Failover and Recovery Testing</a></h3>
+ 
+  <p>Failover and recovery testing ensures that the target-of-test 
+    can successfully failover and recover from a variety of hardware, software, 
+    or network malfunctions with undue loss of data or data integrity.</p>
+  <p>For those systems that must be kept running, failover testing 
+    ensures that when a failover condition occurs, the alternate or backup systems 
+    properly &quot;take over&quot; for the failed system without any loss of data 
+    or transactions.</p>
+  <p>Recovery testing is an antagonistic test process in which 
+    the application or system is exposed to extreme conditions, or simulated conditions, 
+    to cause a failure, such as device Input/Output (I/O) failures, or invalid 
+    database pointers and keys. Recovery processes are invoked, and the application 
+    or system is monitored and inspected to verify proper application, or system, 
+    and data recovery has been achieved.</p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%"> 
+        <p>Simulate the failure conditions and exercise the recovery 
+          processes (manual and automated) to restore the database, applications, 
+          and system to a desired, known state. The following types of conditions 
+          are included in the testing to observe and log behavior after recovery: 
+        <li> 
+          <p>power interruption to the client 
+        </li>
+        <li> 
+          <p>power interruption to the server 
+        </li>
+        <li> 
+          <p>communication interruption via network servers 
+        </li>
+        <li> 
+          
+        <p>interruption, communication, or power loss to DASD (Direct 
+          Access Storage Devices) and DASD controllers 
+      </li>
+        <li> 
+          <p>incomplete cycles (data filter processes interrupted, 
+            data synchronization processes interrupted) 
+        </li>
+        <li> 
+          <p>invalid database pointers or keys 
+        </li>
+        <li> 
+          <p>invalid or corrupted data elements in database 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <p>The tests already created for Function and Business 
+          Cycle testing can be used as a basis for creating a series of transactions 
+          to support failover and recovery testing, primarily to define the tests 
+          to be run to test that recovery was successful. 
+        <li> 
+          <p>Power interruption to the client: power down the PC. 
+        </li>
+        <li> 
+          <p>Power interruption to the server: simulate or initiate 
+            power down procedures for the server. 
+        </li>
+        <li> 
+          <p>Interruption via network servers: simulate or initiate 
+            communication loss with the network (physically disconnect communication 
+            wires or power down network servers or routers).</li> 
+        <li>
+        <p>Interruption, communication, or power loss to DASD and 
+          DASD controllers: simulate or physically eliminate communication with 
+          one or more DASDs or DASD controllers.</p></li>
+        <p>Once the above conditions or simulated conditions are 
+          achieved, additional transactions should be executed and upon reaching 
+          this second test point state, recovery procedures should be invoked. 
+        <p>Testing for incomplete cycles utilizes the same technique 
+          as described above except that the database processes themselves should 
+          be aborted or prematurely terminated.</p>
+        <p>Testing for the following conditions requires that a 
+          known database state be achieved. Several database fields, pointers, 
+          and keys should be corrupted manually and directly within the database 
+          (via database tools). Additional transactions should be executed using 
+          the tests from Application Function and Business Cycle Testing and full 
+          cycles executed. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%"> 
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%"> 
+        <p>The technique requires the following tools: 
+        <li>
+          <p>base configuration imager and restorer
+        </li>
+        <li>
+          <p> installation-monitoring tools (registry, hard disk, 
+            CPU, memory, and so on
+        </li>
+        <li> 
+          <p> backup and recovery tools 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%"> 
+        <p>The technique supports the testing of:</p>
+        <li>
+          <p>One of more simulated disasters involving one or more 
+            combinations of the application, database, and system.</p>
+        </li>
+        <li>
+          
+        <p>One or more simulated recoveries involving one or more 
+          combinations of the application, database, and system to a known desired 
+          state.</p>
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%"> 
+        <li> 
+          <p> Recovery testing is highly intrusive. Procedures 
+            to disconnect cabling (simulating power or communication loss) may 
+            not be desirable or feasible. Alternative methods, such as diagnostic 
+            software tools may be required. 
+        </li>
+        <li> 
+          <p> Resources from the Systems (or Computer Operations), 
+            Database, and Networking groups are required. 
+        </li>
+        <li> 
+          <p> These tests should be run after hours or on an isolated 
+            machine.</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+ <h3><a name="ConfigurationTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Configuration Testing</a></h3>
+ 
+  <p>Configuration testing verifies the operation of the target-of-test 
+    on different software and hardware configurations. In most production environments, 
+    the particular hardware specifications for the client workstations, network 
+    connections, and database servers vary. Client workstations may have different 
+    software loaded (for example, applications, drivers, and so on) and, at any 
+    one time, many different combinations may be active using different resources.</p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%"> 
+        <p>Exercise the target-of-test on the required hardware 
+          and software configurations to observe and log target behavior under 
+          different configurations and identify changes in configuration state. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <li>
+          <p>Use Function Test scripts.
+        </li>
+        <li> 
+          <p>Open and close various non-target-of-test related 
+            software, such as the Microsoft&#174; Excel&#174; and Microsoft&#174; Word&#174; applications, either 
+            as part of the test or prior to the start of the test. 
+        </li>
+        <li> 
+          <p>Execute selected transactions to simulate actors interacting 
+            with the target-of-test and the non-target-of-test software. 
+        </li>
+        <li> 
+          <p>Repeat the above process, minimizing the available 
+            conventional memory on the client workstation. 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%"> 
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%"> 
+        <p>The technique requires the following tools: 
+        <li>
+          <p>base configuration imager and restorer
+        </li>
+        <li>
+          
+        <p>installation-monitoring tools (registry, hard disk, 
+          CPU, memory, and so on) 
+      </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%"> 
+        <p>The technique supports the testing of one or more combinations 
+          of the target test items running in expected, supported deployment environments. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%"> 
+        <li> 
+          <p> What non-target-of-test software is needed, is available, 
+            and is accessible on the desktop? 
+        </li>
+        <li> 
+          <p> What applications are typically used? 
+        </li>
+        <li> 
+          <p> What data are the applications running; for example, 
+            a large spreadsheet opened in Excel or a 100-page document in Word? 
+        </li>
+        <li> 
+          <p> The entire systems' netware, network servers, databases, 
+            and so on, also need to be documented as part of this test.</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+ <h3><a name="InstallationTesting"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Installation Testing</a></h3>
+ 
+  <p>Installation testing has two purposes. The first is to ensure 
+    that the software can be installed under different conditions (such as a new 
+    installation, an upgrade, and a complete or custom installation) under normal 
+    and abnormal conditions. Abnormal conditions include insufficient disk space, 
+    lack of privilege to create directories, and so on. The second purpose is 
+    to verify that, once installed, the software operates correctly. This usually 
+    means running a number of tests that were developed for Function Testing.<b><span style='font-size:12.0pt;font-family:Arial;'><br clear=all style='page-break-before:always'>
+    </span></b> </p>
+	  <p>
+  <table width="100%" border="1">
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique 
+        Objective: </font></td>
+      <td width="69%"> 
+        <p>Exercise the installation of the target-of-test onto 
+          each required hardware configuration under the following conditions 
+          to observe and log installation behavior and configuration state changes: 
+        <li> 
+          <p>new installation: a new machine, never installed previously 
+            with &lt;Project Name&gt; 
+        </li>
+        <li> 
+          <p>update: a machine previously installed &lt;Project 
+            Name&gt;, same version 
+        </li>
+        <li> 
+          <p>update: a machine previously installed &lt;Project 
+            Name&gt;, older version 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Technique:</font></td>
+      <td width="69%"> 
+        <li>
+          <p>Develop automated or manual scripts to validate the 
+            condition of the target machine.
+        </li>
+        <ul>
+          <li>
+            <p>new: <project Name> never installed</p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p><project Name> same or older version already installed</p>
+          </li>
+        </ul>
+        <li> 
+          
+        <p>Launch or perform installation.
+      </li>
+        <li> 
+          <p>Using a predetermined subset of Function Test scripts, 
+            run the transactions. 
+        </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Oracles:</font></td>
+      <td width="69%"> 
+        <p>Outline one or more strategies that can be used by 
+          the technique to accurately observe the outcomes of the test. The oracle 
+          combines elements of both the method by which the observation can be 
+          made and the characteristics of specific outcome that indicate probable 
+          success or failure. Ideally, oracles will be self-verifying, allowing 
+          automated tests to make an initial assessment of test pass or failure, 
+          however, be careful to mitigate the risks inherent in automated results 
+          determination. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Required 
+        Tools: </font></td>
+      <td width="69%"> 
+        <p>The technique requires the following tools: 
+        <li>
+          <p> base configuration imager and restorer
+        </li>
+        <li>
+          
+        <p> installation-monitoring tools (registry, hard disk, 
+          CPU, memory, and so on) 
+      </li>
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Success 
+        Criteria: </font></td>
+      <td width="69%"> 
+        <p>The technique supports the testing of the installation 
+          of the developed product in one or more installation configurations. 
+      </td>
+    </tr>
+    <tr> 
+      <td width="31%"><font face="Arial, Helvetica, sans-serif" size="2">Special 
+        Considerations: </font></td>
+      <td width="69%"> 
+        <p> What <project Name> transactions should be selected 
+          to comprise a confidence test that <project Name> application has been 
+          successfully installed and no major software components are missing?</p>
+      </td>
+    </tr>
+  </table>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+
+</body>
+
+</html>

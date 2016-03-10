@@ -1,0 +1,642 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Test Ideas for Method Calls</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Test Ideas for Method Calls</rpw><a name="XE_test__developer_testing__test_ideas__for_method_calls"></a><a name="XE_design__developer_testing__test_ideas__for_method_calls"></a><a name="XE_test-ideas__for_method_calls"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#FindingTestIdeas">Finding test ideas</a></li>
+  <li><a href="#UndiscoveredFaults">Undiscovered faults</a></li>
+</ul>
+
+<h3><a name="Introduction">Introduction</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Here's an example of defective code:</p>
+<blockquote>
+<pre>
+File file = new File(stringName);
+file.delete();
+</pre>
+</blockquote>
+
+<p>The defect is that <font face="Courier New">File.delete</font> can fail, but 
+  the code doesn't check for that. Fixing it requires the addition of the italicized 
+  code shown here:</p>
+<blockquote>
+<pre>
+File file = new File(stringName);
+<font color="#FF0000"><i><b>if (</b></i></font>file.delete()<font color="#FF0000"><i><b> == false) {...}</b></i></font>
+</pre>
+</blockquote>
+
+<p>This guideline describes a method for detecting cases where your code does 
+  not handle the result of calling a method. (Note that it assumes that the method 
+  called produces the correct result for whatever inputs you give it. That's something 
+  that should be tested, but creating test ideas for the called method is a separate 
+  activity. That is, it's not your job to test <font face="Courier New">File.delete</font>.)</p>
+
+<p>The key notion is that you should create a test idea for each <i>distinct unhandled 
+  relevant result</i> of a method call. To define that term, let's first look 
+  at <i>result</i>. When a method executes, it changes the state of the world. 
+  Here are some examples:</p>
+<ul>
+  <li>It might push return values on the runtime stack.</li>
+  <li>It might throw an exception.</li>
+  <li>It might change a global variable.</li>
+  <li>It might update a record in a database.</li>
+  <li>It might send data over the network.</li>
+  <li>It might print a message to standard output.</li>
+</ul>
+
+<p>Now let's look at <i>relevant</i>, again using some examples.</p>
+<ul>
+  <li>Suppose the method being called prints a message to standard output. That 
+    &quot;changes the state of the world&quot;, but it cannot affect the further 
+    processing of this program. No matter what gets printed, even nothing at all, 
+    it can't affect the execution of your code.</li>
+  <li>If the method returns true for success and false for failure, your program 
+    very likely should branch based on the result. So that return value is relevant.</li>
+  <li>If the called method updates a database record that your code later reads 
+    and uses, the result (updating the record) is relevant.</li>
+</ul>
+
+<p>(There's no absolute line between relevant and irrelevant. By calling <font face="Courier New">print</font>, 
+  your method might cause buffers to be allocated, and that allocation might be 
+  relevant after <font face="Courier New">print</font> returns. It's conceivable 
+  that a defect might depend on whether and what buffers were allocated. It's 
+  conceivable, but is it at all plausible?)</p>
+
+<p>A method might often have a very large number of results, but only some of 
+  them will be <i>distinct</i>. For example, consider a method that writes bytes 
+  to disk. It might return a number less than zero to indicate failure; otherwise, 
+  it returns the number of bytes written (which might be fewer than the number 
+  requested). The large number of possibilities can be grouped into three distinct 
+  results:</p>
+<ul>
+  <li>a number less than zero.</li>
+  <li>the number written equals the number requested</li>
+  <li>some bytes were written, but less than the number requested.</li>
+</ul>
+
+<p>All the values less than zero are grouped into one result because no reasonable 
+  program will make a distinction among them. All of them (if, indeed, more than 
+  one is possible) should be treated as an error. Similarly, if the code requested 
+  that 500 bytes be written, it doesn't matter if 34 were actually written or 
+  340: the same thing will probably be done with the unwritten bytes. (If something 
+  different should be done for some value, such as 0, that will form a new distinct 
+  result.)</p>
+
+<p>There's one last word in the defining term to explain. This particular testing 
+  technique is not concerned with distinct results that are already <i>handled</i>. 
+  Consider, again, this code:</p>
+<blockquote>
+<pre>
+File file = new File(stringName);
+if (file.delete() == false) {...}
+</pre>
+</blockquote>
+
+<p>There are two distinct results (true and false). The code handles them. It 
+  might handle them incorrectly, but test ideas from <a href="md_tstidsblnbnd.htm">Guideline: 
+  Test Ideas for Booleans and Boundaries </a> will check that. This test technique 
+  is concerned with distinct results that are not specifically handled by distinct 
+  code. That might happen for two reasons: you thought the distinction was irrelevant, 
+  or you simply overlooked it. Here's an example of the first case:</p>
+<blockquote>
+<pre>
+result = m.method();
+switch (result) {
+    case FAIL:
+    case CRASH:
+       ...
+       break;
+    case DEFER:
+       ...
+       break;
+    default:
+       ...
+       break;
+}
+</pre>
+</blockquote>
+<p><font face="Courier New">FAIL</font> and <font face="Courier New">CRASH</font> 
+  are handled by the same code. It might be wise to check that that's really appropriate. 
+  Here's an example of an overlooked distinction:</p>
+<blockquote>
+<pre>
+result = s.shutdown();
+if (result == PANIC) {
+   ...
+} else {
+   // success! Shut down the reactor.
+   ...
+} 
+</pre>
+</blockquote>
+<p>It turns out that shutdown can return an additional distinct result: <font face="Courier New">RETRY</font>. 
+  The code as written treats that case the same as the success case, which is 
+  almost certainly wrong.</p>
+
+
+<h3><a name="FindingTestIdeas">Finding test ideas</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>So your goal is to think of those distinct relevant results you previously 
+  overlooked. That seems impossible: why would you realize they're relevant now 
+  if you didn't earlier?</p>
+
+<p>The answer is that a systematic re-examination of your code, when in a testing 
+  frame of mind and not a programming frame of mind, can sometimes cause you to 
+  think new thoughts. You <i>can</i> question your own assumptions by methodically 
+  stepping through your code, looking at the methods you call, rechecking their 
+  documentation, and thinking. Here are some cases to watch for.</p>
+
+<h4>&quot;Impossible&quot; cases
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Often, it will appear that error returns are impossible. Doublecheck your assumptions. 
+</p>
+
+<p>This example shows a Java implementation of a common Unix idiom for handling 
+  temporary files.</p>
+<blockquote>
+<pre>
+File file = new File("tempfile");
+FileOutputStream s;
+try {
+    // open the temp file.
+    s = new FileOutputStream(file);
+} catch (IOException e) {...}
+
+// Make sure temp file will be deleted
+file.delete();
+</pre>
+</blockquote>
+
+<p>The goal is to make sure that a temporary file is always deleted, no matter 
+  how the program exits. You do this by creating the temporary file, then immediately 
+  deleting it. On Unix, you can continue to work with the deleted file, and the 
+  operating system takes care of cleaning up when the process exits. A not-painstaking 
+  Unix programmer might not write the code to check for a failed deletion. Since 
+  she just successfully created the file, she must be able to delete it.</p>
+
+<p>This trick doesn't work on Windows. The deletion will fail because the file 
+  is open. Discovering that fact is hard: as of August 2000, the Java documentation 
+  did not enumerate the situations in which <font face="Courier New">delete</font> 
+  could fail; it merely says that it can. But&#151;perhaps&#151;when in &quot;testing 
+  mode&quot;, the programmer might question her assumption. Since her code is 
+  supposed to be &quot;write once, run everywhere&quot;, she might ask a Windows 
+  programmer when <font face="Courier New">File.delete</font> fails on
+  Windows and so discover the 
+  awful truth.</p>
+
+<h4>&quot;Irrelevant&quot; cases
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Another force against noticing a distinct relevant value is being already convinced 
+  that it doesn't matter. A Java <font face="Courier New">Comparator</font>'s 
+  <font face="Courier New">compare</font> method returns either a number &lt;0, 
+  0, or a number &gt;0. Those are three distinct cases that might be tried. This 
+  code lumps two of them together:</p>
+<blockquote>
+<pre>
+void allCheck(Comparator c) {
+   ...
+   if (c.compare(o1, o2) &lt;= 0) {
+      ...
+   } else {
+      ...
+   } 
+</pre>
+</blockquote>
+
+<p>But that might be wrong. The way to discover whether it is or not is to try 
+  the two cases separately, even if you really believe it will make no difference. 
+  (Your beliefs are really what you're testing.) Note that you might be executing 
+  the <font face="Courier New">then</font> case of the <font face="Courier New">if</font> 
+  statement more than once for other reasons. Why not try one of them with the 
+  result less than 0 and one with the result exactly equal to zero?</p>
+
+<h4>Uncaught exceptions
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Exceptions are a kind of distinct result. By way of background, consider this 
+  code:</p>
+<blockquote>
+<pre>
+void process(Reader r) {
+   ...
+   try {
+      ...
+      int c = r.read();
+      ...
+   } catch (IOException e) {
+      ...
+   }
+}
+</pre>
+</blockquote>
+
+<p>You'd expect to check whether the handler code really does the right thing 
+  with a read failure. But suppose an exception is explicitly unhandled. Instead, 
+  it's allowed to propagate upward through the code under test. In Java, that 
+  might look like this:</p>
+<blockquote>
+<pre>
+void process(Reader r) <font color="#FF0000"><i><b>throws IOException</b></i></font> {
+    ...
+    int c = r.read();
+    ...
+}
+</pre>
+</blockquote>
+
+<p>This technique asks you to test that case <i>even though</i> the code explicitly 
+  doesn't handle it. Why? Because of this kind of fault:</p>
+<blockquote>
+<pre>
+void process(Reader r) throws IOException {
+    ...
+    <font color="#FF0000"><i><b>Tracker.hold(this);</b></i></font>
+    ...
+    int c = r.read();
+    ...
+    <font color="#FF0000"><i><b>Tracker.release(this);</b></i></font>
+    ...
+}
+</pre>
+</blockquote>
+
+<p>Here, the code affects global state (through <font face="Courier New">Tracker.hold</font>). 
+  If the exception is thrown, <font face="Courier New">Tracker.release</font> 
+  will never be called.</p>
+
+<p>(Notice that the failure to release will probably have no obvious immediate 
+  consequences. The problem will most likely not be visible until <font face="Courier New">process</font> 
+  is called again, whereupon the attempt to <font face="Courier New">hold</font> 
+  the object for a second time will fail. A good article about such defects is 
+  Keith Stobie's <a href="http://www.testingcraft.com/stobie-exceptions.pdf" target="_blank">&quot;Testing 
+  for Exceptions&quot;</a>.)</p>
+
+
+<h3><a name="UndiscoveredFaults">Undiscovered faults</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>This particular technique does not address all defects associated with method 
+  calls. Here are two kinds that it's unlikely to catch.</p>
+
+<h4>Incorrect arguments<a href="#Top"> <img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Consider these two lines of C code, where the first line is wrong and the second 
+  line is correct.</p>
+<blockquote>
+<pre>
+... strncmp(s1, s2, strlen(s1)) ...
+... strncmp(s1, s2, strlen(<font color="#FF0000"><i><b>s2</b></i></font>)) ...
+</pre>
+</blockquote>
+
+<p><font face="Courier New">strncmp</font> compares two strings and returns a 
+  number less than 0 if the first one is lexicographically less than the second 
+  (would come earlier in a dictionary), 0 if they're equal, and a number greater 
+  than 0 if the first one is lexicographically larger. However, it only compares 
+  the number of characters given by the third argument. The problem is that the 
+  length of the first string is used to limit the comparison, whereas it should 
+  be the length of the second.</p>
+
+<p>This technique would require three tests, one for each distinct return value. 
+  Here are three you could use:</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>s1</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>s2</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>expected result</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>actual result</b></td>
+    </tr>
+    <tr>
+        <td align="center" width="25%">&quot;a&quot;</td>
+        <td align="center" width="25%">&quot;bbb&quot;</td>
+        <td align="center" width="25%">&lt;0</td>
+        <td align="center" width="25%">&lt;0</td>
+    </tr>
+    <tr>
+        <td align="center" width="25%">&quot;bbb&quot;</td>
+        <td align="center" width="25%">&quot;a&quot;</td>
+        <td align="center" width="25%">&gt;0</td>
+        <td align="center" width="25%">&gt;0</td>
+    </tr>
+    <tr>
+        <td align="center" width="25%">&quot;foo&quot;</td>
+        <td align="center" width="25%">&quot;foo&quot;</td>
+        <td align="center" width="25%">=0</td>
+        <td align="center" width="25%">=0</td>
+    </tr>
+	</tbody>
+</table>
+<br>
+</div>
+
+<p>The defect is not discovered because nothing in this technique <i>forces</i> 
+  the third argument to have any particular value. What's needed is a test case 
+  like this:</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>s1</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>s2</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>expected
+        result</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>actual
+        result</b></td>
+    </tr>
+    <tr>
+        <td align="center" width="25%">&quot;foo&quot;</td>
+        <td align="center" width="25%">&quot;foo<font
+        color="#FF0000"><i><b>d</b></i></font>&quot;</td>
+        <td align="center" width="25%"><font color="#FF0000"><i><b>&lt;0</b></i></font></td>
+        <td align="center" width="25%">=0</td>
+    </tr>
+</table>
+<br>
+</div>
+
+<p>While there are techniques suitable for catching such defects, they are seldom 
+  used in practice. Your testing effort is probably better spent on a rich set 
+  of tests that targets many types of defects (and that you hope catches this 
+  type as a side effect).</p>
+
+<h4>Indistinct results
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>There's a danger that comes when you're coding - and testing - method-by-method. 
+  Here's an example. There are two methods. The first, <font face="Courier New">connect</font>, 
+  wants to establish a network connection:</p>
+<blockquote>
+<pre>
+void connect() {
+   ...
+   Integer portNumber = serverPortFromUser();
+   if (portNumber == null) {
+      // pop up message about invalid port number
+      return;
+   }
+</pre>
+</blockquote>
+
+<p>It calls <font face="Courier New">serverPortFromUser</font> to get a port number. 
+  That method returns two distinct values. It returns a port number chosen by 
+  the user if the number chosen is valid (1000 or greater). Otherwise, it returns 
+  null. If null is returned, the code under test pops up an error message and 
+  quits.</p>
+
+<p>When <font face="Courier New">connect</font> was tested, it worked as intended: 
+  a valid port number caused a connection to be established, and an invalid one 
+  led to a popup.</p>
+
+<p>The code to <font face="Courier New">serverPortFromUser</font> is a bit more 
+  complicated. It first pops up a window that asks for a string and has the standard 
+  OK and CANCEL buttons. Based on what the user does, there are four cases:</p>
+<ol>
+  <li>If the user types a valid number, that number is returned.</li>
+  <li>If the number is too small (less than 1000), null is returned (so the message 
+    about invalid port number will be displayed).</li>
+  <li>If the number is misformatted, null is again returned (and the same message 
+    is appropriate). </li>
+  <li>If the user clicks CANCEL, null is returned. </li>
+</ol>
+
+<p>This code also works as intended. </p>
+
+<p>The combination of the two chunks of code, though, has a bad consequence: the 
+  user presses CANCEL and gets a message about an invalid port number. All the 
+  code works as intended, but the overall effect is still wrong. It was tested 
+  in a reasonable way, but a defect was missed.</p>
+
+<p>The problem here is that <font face="Courier New">null</font> is one result 
+  that represents two distinct <i>meanings</i> (&quot;bad value&quot; and &quot;user 
+  cancelled&quot;). Nothing in this technique forces you to notice that problem 
+  with the design of <font face="Courier New">serverPortFromUser</font>.</p>
+
+<p>Testing can help, though. When <font face="Courier New">serverPortFromUser</font> 
+  is tested in isolation - just to see if it returns the intended value in each 
+  of those four cases - the context of use is lost. Instead, suppose it were tested 
+  via <font face="Courier New">connect</font>. There would be four tests that 
+  would exercise both of the methods simultaneously:</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>input</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>expected result</b></td>
+        <td align="center" width="25%" bgcolor="#C0C0C0"><b>thought process</b></td>
+    </tr>
+    <tr>
+        <td align="center" width="25%">user types &quot;1000&quot;</td>
+        <td align="center" width="25%">connection to port 1000 is opened</td>
+        <td align="center" width="25%"><font face="Courier New">serverPortFromUser</font>
+        returns a number, which is used. </td>
+    </tr>
+    <tr>
+        <td><p align="center">user types &quot;999&quot;</p>
+        </td>
+        <td><p align="center">popup about invalid port number</p>
+        </td>
+        <td><p align="center"><font face="Courier New">serverPortFromUser</font>
+        returns null, which leads to popup</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" width="25%"><p align="center">user
+        types &quot;i99&quot;</p>
+        </td>
+        <td align="center" width="25%">popup about invalid port
+        number</td>
+        <td align="center" width="25%"><font face="Courier New">serverPortFromUser</font>
+        returns null, which leads to popup</td>
+    </tr>
+    <tr>
+        <td align="center" width="25%">users clicks CANCEL</td>
+        <td align="center" width="25%">whole connection process
+        should be cancelled</td>
+        <td align="center" width="25%"><font face="Courier New"><i>serverPortFromUser</i></font><i>
+        returns null, hey wait a minute that doesn't make sense...</i></td>
+    </tr>
+</table>
+<br>
+</div>
+
+<p>As is often the case, testing in a larger context reveals integration problems 
+  that escape small-scale testing. And, as is also often the case, careful thought 
+  during test design reveals the problem before the test is run. (But if the defect 
+  isn't caught then, it will be caught when the test is run.)</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

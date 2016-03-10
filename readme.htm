@@ -1,0 +1,66 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+<head>
+<title>McKinley (Beta) Rational Unified Process Install - Troubleshooting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p>This file provides troubleshooting information when running Rational Unified Process 
+and Extended Help in the Mckinley Beta Release.</p>
+
+<ol>
+  <li><b>JRE plugin:</b><br>
+    We recommend that you use the Sun Java 1.3.1_0X plugin. If you do not already
+    have the plugin installed, you will be prompted to do so as soon as you try
+    launching RUP or Extended Help for the first time. <br>
+  </li>
+  <br>
+  <li><b>If running RUP or Extended Help from an HTTP server and you receive a message informing you that
+        limited read/write access is required: </b><br>
+   	Locate the <i>java.policy</i> file in your installed Sun Java plugin directory 
+    	(e.g. C:\Program Files\JavaSoft\JRE\1.3.1_02\lib\security). <br>
+    	Add the following permissions to the <i>java.policy</i> file (add them after the last "permissions" 
+        line and before the "};" tag at the end of the file):
+	<br>	
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.io.FilePermission "C:\\Documents and Settings\\username\\MyRup", "read,write,delete"; <br>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.io.FilePermission "C:\\Documents and Settings\\username\\MyRup\\-", "read,write,delete"; <br>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.lang.RuntimePermission "loadLibrary.environment"; <br>
+	  	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.util.PropertyPermission "user.name", "read"; <br>
+  		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.util.PropertyPermission "user.home", "read"; <br>
+	  	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.util.PropertyPermission "user.dir", "read"; <br>
+  		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.util.PropertyPermission "file.encoding", "read"; <br>
+	  	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.awt.AWTPermission "accessClipboard"; <br>
+  		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp permission java.awt.AWTPermission "showWindowWithoutWarningBanner"; <br>
+	<br>
+	Change the string <i>C:\\Documents and Settings\\username\\MyRup</i> to match with your user profile. <br>   
+	For example, your string might look like <i>C:\\Documents and Settings\\jdoe\\MyRup</i>. <br>
+	Notice that the change is to <i>username</i> in the string. <br>
+	<br>
+	Also, change the string <i>C:\\Documents and Settings\\username\\MyRup\\-</i> to match with your user profile. <br>   
+	For example, your string might look like <i>C:\\Documents and Settings\\jdoe\\MyRup\\-</i>. <br>
+	Notice that the change is to <i>username</i> in the string. <br>
+	<br>
+	<b>TIP: to find what your user profile is, run the command <i>echo %USERPROFILE%</i> in a command prompt window. </b><br>
+  </li>
+  <br>
+  <li><b>When running a locally installed RUP or Extended Help and you receive a message informing
+         you that limited read/write access is required: </b><br>
+	Locate the directory where you had installed RUP. Go up a level to the <i>Common</i> directory and <br>
+    	run <i>ConfigurePolicy.bat</i>. Typically, this is <i>C:\Program Files\Rational\Common\ConfigurePolicy.bat.</i> <br>
+
+  </li>
+  <br>
+  <li>Make sure all your browser windows are closed before restarting RUP again. <br>
+    To start RUP locally, go to Start -&gt; Program Files -&gt; Rational Unified Process (McKinley 
+    Beta) -&gt; Rational Unified Process (McKinley Beta). <br>
+    To start RUP from an HTTP server, simply launch the appropriate URL again. <br></li>
+</ol>
+</body>
+</html>

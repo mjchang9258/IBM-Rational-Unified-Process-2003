@@ -1,0 +1,619 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Data Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Data Model</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Relational Databases and Object Orientation">Overview</a>
+    </li>
+  <li><a href="#Stages of Data Modeling">Stages of Data Modeling</a><ul>
+  <li><a href="#Logical data modeling">Logical Data Modeling</a></li>
+  <li><a href="#Physical Data Modeling">Physical Data Modeling</a></li>
+
+  </ul>
+  </li>
+  <li><a href="#Data Model Elements">Data Model Elements</a><ul>
+  <li><a href="#Package">Package</a></li>
+  <li><a href="#Table">Table</a></li>
+  <li><a href="#Trigger">Trigger</a></li>
+  <li><a href="#Index">Index</a></li>
+  <li><a href="#View">View</a></li>
+  <li><a href="#Domain">Domain</a></li>
+  <li><a href="#Stored Procedure Container">Stored Procedure Container</a></li>
+  <li><a href="#Tablespace">Tablespace</a></li>
+  <li><a href="#Schema">Schema</a></li>
+  <li><a href="#Database">Database</a></li>
+  <li><a href="#Relationship">Relationships</a></li>
+
+  </ul>
+  </li>
+
+  <li><a href="#Evolution of the Data Model">Evolution of the Data Model</a><ul>
+  <li><a href="#Inception Phase">Inception Phase</a></li>
+  <li><a href="#Elaboration Phase">Elaboration Phase</a></li>
+  <li><a href="#Construction Phase">Construction Phase</a></li>
+  <li><a href="#Transition Phase">Transition Phase</a></li>
+
+  </ul>
+  </li>
+  <li><a href="#Roundtrip Engineering Considerations">Round-Trip Engineering Considerations</a></li>
+
+  </ul>
+  <h3><a name="Overview"></a><a name="XE_persistence__relational_databases_and_object_orientation"></a>
+  <a name="Relational Databases and Object Orientation">Overview</a> <a href="#Top">
+  <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a href="../artifact/ar_datmd.htm">Data Models</a> are used to design the structure 
+  of the persistent data stores used by the system.&nbsp;&nbsp;The Unified Modeling 
+  Language (UML) profile for database design provides database designers with 
+  a set of modeling elements that can be used to develop the detailed design of 
+  tables in the database and model the physical storage layout of the database.&nbsp; 
+  The UML database profile also provides constructs for modeling referential integrity 
+  (constraints and triggers), as well as stored procedures used to manage access 
+  to the database.</p>
+<p>Data Models might be constructed at the enterprise, departmental, or individual 
+  application level. Enterprise and departmental level Data Models can be used 
+  to provide standard definitions for key business entities (such as customer 
+  and employee) that will be used by all applications within a business or a business 
+  unit.&nbsp;These types of Data Models can also be used to define which system 
+  in the enterprise is the &quot;owner&quot; of the data for a specific business 
+  entity and what other systems are users of (subscribers to) the data. </p>
+<p>This guideline describes the model elements of the UML profile for database 
+  modeling used to construct a Data Model for a relational database.&nbsp;Because 
+  there are numerous existing publications on general database theory, it does 
+  not cover this area.&nbsp; For background information on relational Data Models 
+  and Object Models see <a href="../workflow/ana_desi/co_rdbom.htm">Concepts: 
+  Relational Databases and Object Orientation.</a> </p>
+<p>Note: The data modeling representations contained in this guideline are based 
+  on the UML 1.3. At the time that this guideline was developed, the UML 1.4 data-modeling 
+  profile was not available.</p>
+<h3><a name="Stages of Data Modeling"></a><a name="Persistence Frameworks">
+Stages of Data Modeling</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>As described in [<a href="../referenc.htm#NBG01">NBG01</a>], there are three 
+  general stages in the development of a Data Model: conceptual, logical, and 
+  physical.&nbsp; These stages of data modeling reflect the different levels of 
+  detail in the design of the persistent data storage and retrieval mechanisms 
+  of the application. A discussion of conceptual data modeling is provided in 
+  <a href="../workflow/ana_desi/co_concdatmd.htm">Concepts</a><font color="#ff0000"><a href="../workflow/ana_desi/co_concdatmd.htm">: 
+  Conceptual Data Modeling</a></font>.&nbsp; Summaries of logical and physical 
+  data modeling are provided in the next two sections of this guideline. </p>
+<h4><a name="Logical data modeling">Logical</a> Data Modeling <a href="#Top">
+<img src="../../images/top.gif" alt="To start of section" border="0" width="26" height="20"></a></h4>
+<p>In logical data modeling, the <a href="../workers/wk_dbdsr.htm">database designer</a> 
+  is concerned with identifying the key entities and relationships that capture 
+  the critical information that the application needs to persist in the database.&nbsp; 
+  During the <a href="../activity/ac_ucana.htm">use-case analysis</a>, <a href="../activity/ac_ucdes.htm">use-case 
+  design</a>, and <a href="../activity/ac_cldes.htm">class design</a> activities, 
+  the <a href="../workers/wk_dbdsr.htm">database designer</a> and the <a href="../workers/wk_dsgnr.htm">designer</a> 
+  must work together to ensure that the evolving designs of the analysis and design 
+  classes for the application will adequately support the development of the database.&nbsp; 
+  During the <a href="../activity/ac_cldes.htm">class design</a> activity, the 
+  database designer and the designer must identify the set of classes in the Design 
+  Model that will need to persist data in the database.</p>
+<p>This set of persistent classes in the Design Model provides a Design Model 
+  View that, although different from the traditional Logical Data Model, meets 
+  many of the same needs.&nbsp;The persistent classes used in the Design Model 
+  function in the same manner as the traditional entities in the Logical Data 
+  Model. These design classes accurately reflect the data that must be persisted, 
+  including all of the data columns (attributes) that must be persisted and key 
+  relationships. This makes these design classes an excellent starting point for 
+  the physical database design. </p>
+<p>Creating a separate Logical Data Model is an option. However, in the best case 
+  it would end up capturing the same information in a different form. In the worst 
+  case it would not, and thus in the end might not meet the business needs of 
+  the application. In particular, if the database is intended to service a single 
+  application, then the application's view of the data might be the best starting 
+  point. The database designer creates tables from this set of persistent design 
+  classes to form an initial Physical Data Model.</p>
+<p>Still, situations might exist that would require the database designer to create 
+  an idealized design of the database that is independent from the application 
+  design.&nbsp;In this case, the logical database design is represented in a separate 
+  Logical Data Model that is part of the overall <a href="../artifact/ar_datmd.htm">Artifact: 
+  Data Model</a>.&nbsp;This Logical Data Model depicts the key logical entities 
+  and their relationships that are necessary to satisfy the system requirements 
+  for persisting data consistent with the overall architecture of the application.&nbsp;The 
+  Logical Data Model might be constructed using the modeling elements of the UML 
+  profile for database design described in later sections of this guideline.&nbsp;For 
+  projects that use this approach, close collaboration between the application 
+  designers and the database designers is absolutely critical to the successful 
+  development of the database design. </p>
+<p>The Logical Data Model might be refined by applying the standard rules for 
+  normalization as defined in <a href="../workflow/ana_desi/co_normalization.htm">Concepts: 
+  Normalization</a> prior to evolving the elements of the Logical Data Model to 
+  create the physical design of the database. </p>
+<p>The figure below depicts the primary approach of using the Design Model classes 
+  as the source of logical database design information for creating an initial 
+  Physical Data Model. It also illustrates the alternative approach of using a 
+  separate Logical Data Model.&nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p align="center">
+<img border="0" src="images/md_datamd25.gif" width="706" height="500"></p>
+<p align="center">Logical Data Modeling Approaches</p>
+<h4><a name="Physical Data Modeling">Physical</a> Data Modeling<a href="#Top"><img src="../../images/top.gif" alt="To start of section" border="0" width="26" height="20"></a></h4>
+<p>Physical data modeling is the final stage of development in the design of the 
+  database.&nbsp; The Physical Data Model consists of the detailed database table 
+  designs and their relationships created initially from the persistent design 
+  classes and their relationships.&nbsp; The mechanics of performing the transformation 
+  of the Design Model classes to tables is discussed in <a href="md_rdbforw.htm"> 
+  Guidelines:&nbsp;Forward-Engineering Relational Databases</a>.&nbsp;The Physical 
+  Data Model is part of the <a href="../artifact/ar_datmd.htm">Data Model</a>; 
+  it is not a separate artifact.</p>
+<p>The tables in the Physical Data Model have well-defined columns, as well as 
+  keys and indexes as needed. The tables might also have triggers defined as necessary 
+  to support the database functionality and referential integrity of the system. 
+  In addition to the tables, stored procedures have been created, documented, 
+  and associated with the database in which the stored procedure will reside. 
+</p>
+<p>The diagram below shows an example of some of the elements of the Physical 
+  Data Model.&nbsp; This example model is a part of the Physical Data Model of 
+  a fictional online auction application. It depicts four tables (Auction, Bid, 
+  Item, and AuctionCategory), along with one stored procedure (sp_Auction) and 
+  its container class (AuctionManagement).&nbsp; The figure also depicts the columns 
+  of each table, the primary key and foreign key constraints, and the indexes 
+  defined for the tables.&nbsp; </p>
+<p align="center"><img border="0" src="images/md_datamd18.GIF" width="748" height="656"></p>
+<p>&nbsp;</p>
+<p align="center">Example (Physical) Data Model Elements</p>
+<p>The Physical Data Model also contains mappings of the tables to physical storage 
+  units (tablespaces) in the database.&nbsp;The figure below shows an example 
+  of this mapping.&nbsp; In this example, the tables Auction and OrderStatus are 
+  mapped to a tablespace called PRIMARY. The diagram also illustrates modeling 
+  the realization of the tables to the database (named PearlCircle in this example). 
+</p>
+<p>&nbsp;</p>
+<p align="center"><img border="0" src="images/md_datamd19.GIF" width="695" height="668"></p>
+<p align="center">Example Data Storage Model Elements</p>
+<p>On projects in which a database already exists, the database designer can reverse-engineer 
+  the existing database to populate the Physical Data Model.&nbsp; See&nbsp; <a href="md_rdboo.htm">Guidelines: 
+  Reverse-Engineering Relational Databases</a> for more information. </p>
+<h3><a name="Data Model Elements">Data 
+Model Elements</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This section describes the general modeling guidelines for each major element 
+  of the Data Model based on the UML profile for database modeling. A brief description 
+  of each model element is followed by an example illustration of the UML model 
+  element. The <a href="#Relationship">Relationships</a> section of this guideline 
+  includes a description of the usage of the model elements.</p>
+<h4><a name="Package">Package</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Standard UML packages are used to group and organize elements of the Data Model.&nbsp; 
+  For example, packages might be defined to organize the Data Model into separate 
+  Logical and Physical Data Models.&nbsp; Packages might also be used to identify 
+  logically related groups of tables in the Data Model that constitute the major 
+  data &quot;subject areas&quot; of importance to the business domain of the application 
+  being developed.&nbsp; The figure below shows an example of two subject area 
+  packages (Auction Management and UserAccount Management) used to organize views 
+  and tables in the Data Model. </p>
+<p align="center"><img border="0" src="images/md_datamd02.GIF" width="244" height="230"></p>
+<p align="center">Subject Area Packages Example</p>
+<h4><a name="Table">Table</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In the UML profile for database modeling, a table is modeled as a class with 
+  a stereotype of «Table».&nbsp; The columns in the table are modeled as attributes 
+  with the stereotype of «column». One or more columns might be designated as 
+  a primary key to provide for unique row entries in the table. Columns might 
+  also be designated as foreign keys.&nbsp; Primary keys and foreign keys have 
+  associated constraints that are modeled as the stereotyped operations of «Primary 
+  Key» and «Foreign Key» respectively.&nbsp; The figure below depicts the structure 
+  of an example table used to manage information about items sold at auction in 
+  a fictional&nbsp; online auction system.&nbsp; </p>
+<p align="center"><img border="0" src="images/md_datamd03.GIF" width="294" height="214"></p>
+<p align="center">Table Example</p>
+<p>Tables might be related to other tables through the following types of relationships:</p>
+<ul>
+  <li>identifying (composite aggregation)</li>
+  <li>non-identifying (association)</li>
+</ul>
+<p>The <a href="#Relationship">Relationships</a> section of this guideline provides 
+  examples of how these relationships are used. Information on how these types 
+  of relationships can be mapped to Design Model elements appears in <a href="md_rdboo.htm">Guidelines: 
+  Reverse-Engineering Relational Databases</a>.</p>
+<h4><a name="Trigger">Trigger</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A trigger is a procedural function designed to run as a result of some action 
+  on the table in which the trigger resides. A trigger is defined to execute when 
+  a row in the table is inserted, updated, or deleted. Additionally, a trigger 
+  is designated to execute either before or after the table command executes. 
+  Triggers are defined as operations in a table. The operations are stereotyped 
+  «Trigger».&nbsp; </p>
+<p align="center"><img border="0" src="images/md_datamd13.GIF" width="316" height="218"></p>
+<p align="center">Trigger Example</p>
+<h4><a name="Index">Index</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Indexes are used as mechanisms for enabling faster access of information when 
+  specific columns are used to search the table.&nbsp; An index is modeled as 
+  an operation in the table with a stereotype of «index».&nbsp; Indexes might 
+  be designated as unique and might be designated as clustered or unclustered. 
+  Clustered indexes are used to force the order of the data rows in the table 
+  to be aligned with the order of the index values. An example of an index operation 
+  (IX_auctioncategory) is shown in the figure below. </p>
+<p>&nbsp;</p>
+<p align="center"><img border="0" src="images/md_datamd14.GIF" width="346" height="150"></p>
+<p align="center">Index Example</p>
+<h4><a name="View">View</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A view is a virtual table with no independent persistent storage. A view has 
+  the characteristics and behaviors of a table and accesses the data in the columns 
+  from the table(s) with which the view has defined relationships.&nbsp;Views 
+  are used for providing more efficient access to information in one or more tables 
+  and also can be used to enforce business rules for restricting access to data 
+  in the tables. In the example below, an AuctionView has been defined as a &quot;view&quot; 
+  of information in the Auction table shown in the physical data modeling section 
+  of this guideline.</p>
+<p>Views are modeled as classes with the stereotype of «view».&nbsp;The attributes 
+  of the view class are the columns from the tables referenced by the view.&nbsp;The 
+  datatypes of the columns in the view are inherited from the tables with a defined 
+  dependency with the view.</p>
+<p align="center">&nbsp;<img border="0" src="images/md_datamd21.GIF" width="451" height="244"></p>
+<p align="center"></p>
+<p align="center">&nbsp;</p>
+<p align="center">View Example</p>
+<h4><a name="Domain">Domain</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A domain is a mechanism used to create user-defined datatypes that can be applied 
+  to columns across multiple tables.&nbsp;A domain is modeled as a class with 
+  the stereotype «Domain».&nbsp; In the example below, a domain has been defined 
+  for a &quot;zip + 4&quot; zipcode.&nbsp; </p>
+<p align="center"><img border="0" src="images/md_datamd20.gif" width="225" height="98"></p>
+<p align="center">Domain Example</p>
+<h4><a name="Stored Procedure Container">Stored Procedure Container</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A stored procedure container is a grouping of stored procedures within the 
+  Data Model. A stored procedure container is created as a UML class that is stereotyped 
+  «SP Container». Multiple stored procedure containers can be created in a database 
+  design. Each stored procedure container must have at least one stored procedure.</p>
+<h5><a name="Stored Procedure">Stored Procedure</a></h5>
+<p>A stored procedure is an independent procedure that typically resides on the 
+  database server. Stored procedures are documented as operations that are grouped 
+  into classes stereotyped as «SP Container». The operations are stereotyped «SP».&nbsp; 
+  The example below shows a single stored procedure operation (SP_Auction) in 
+  a container class named AuctionManagement.&nbsp; When designing stored procedures, 
+  the database designer must be cognizant of any naming conventions used by the 
+  specific RDBMS.&nbsp; </p>
+<p align="center"><img border="0" src="images/md_datamd12.GIF" width="165" height="88"></p>
+<p align="center">Stored Procedure Container and Stored Procedure Example</p>
+<h4><a name="Tablespace">Tablespace</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A tablespace represents the amount of storage space to be allocated to such 
+  items as tables, stored procedures and indexes. Tablespaces are linked to a 
+  specific database through a dependency relationship. The number of tablespaces 
+  and how the individual tables will be mapped to them depends on the complexity 
+  of the Data Model.&nbsp;Tables that will be accessed frequently might need to 
+  be partitioned into multiple tablespaces. Tables that do not contain large amounts 
+  of frequently accessed data might be grouped into a single tablespace.</p>
+<p>A tablespace container is defined for each tablespace. The tablespace container 
+  is the physical storage device for the tablespace. Although multiple tablespace 
+  containers can exist for a single tablespace, it is recommended that a tablespace 
+  container be assigned to only a single tablespace. Tablespace containers are 
+  defined as attributes to the tablespace; they are not explicitly modeled.</p>
+<p align="center"><img border="0" src="images/md_datamd15.GIF" width="132" height="69"></p>
+<p align="center">Tablespace Example</p>
+<h4><a name="Schema">Schema</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A schema documents the organization or structure of the database. A schema is 
+represented as a package that is stereotyped «Schema». When a schema is defined 
+as a package, the tables that make up that package should be contained within 
+the schema. A dependency between the database and the schema is created to 
+document the relationship between the database and the schema.&nbsp; </p>
+<p align="center"><img border="0" src="images/md_datamd17.GIF" width="105" height="86"></p>
+<p align="center">Schema  Example</p>
+<h4><a name="Database">Database</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A database is a collection of data that is organized such that the information 
+  in it can be accessed and managed.&nbsp; The management and access of information 
+  in the database is performed through the use of a commercial database management 
+  system (DBMS).&nbsp; A database is represented in the Data Model as a component 
+  that is stereotyped «Database».</p>
+<p align="center"><img border="0" src="images/md_datamd16.GIF" width="125" height="69"></p>
+<p align="center">Database  Example</p>
+<h4><a name="Relationship">Relationship</a>s <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The UML profile for database modeling defines the valid relationships between 
+  the major elements of the Data Model. The following sections provide examples 
+  of the different relationship types.&nbsp; </p>
+<h5>Non-Identifying</h5>
+<p>A non-identifying relationship is a relationship between two tables that 
+independently exist within the database. A non-identifying relationship is 
+documented by using an association between the tables. The association is 
+stereotyped «Non-Identifying».&nbsp; The example below depicts a non-identifying 
+relationship between the Item table and the AuctionCategory table. </p>
+<p align="center"><img border="0" src="images/md_datamd05.GIF" width="735" height="398"></p>
+<p align="center">Non-Identifying Relationship Example</p>
+<h5>Identifying</h5>
+<p>An identifying relationship is a relationship between two tables in which the 
+  child table must coexist with the parent table. An identifying relationship 
+  is documented by using a composite aggregation between two tables. The composite 
+  aggregation is stereotyped as «Identifying». The figure below is an example 
+  of an identifying relationship. This example shows that instances of the child 
+  table (CreditCard) must have an associated entry in the parent table (UserAccount). 
+</p>
+<p align="center"><img border="0" src="images/md_datamd06.GIF" width="747" height="443"></p>
+<p align="center">Identifying Relationship Example</p>
+<p>&nbsp;</p>
+<p>For both the association and composite aggregation, 
+multiplicity should be defined to document the number of rows in the 
+relationship. In the example above, for each row in the UserAccount table, there 
+can be 0 or more CreditCard rows in the CreditCard table. For each row in the 
+CreditCard table, there is exactly one row in the UserAccount table. 
+Multiplicity is also known as cardinality.</p>
+<h5>Database Views</h5>
+<p>When defining a database view's relationship with a table, a dependency relationship 
+  is used, drawn from the view to the table. The stereotype of the dependency 
+  is «Derive». Typically, the view dependency is named, and the name of the dependency 
+  is the same as the name of the table that is defined in the dependency relationship 
+  with the database view.</p>
+<p align="center">
+<img border="0" src="images/md_datamd22.GIF" width="763" height="513"></p>
+<p align="center">&nbsp;</p>
+<p align="center"></p>
+<p align="center">View and Table Dependency Relationship Example</p>
+<h5>Tablespace</h5>
+<p>A dependency relationship is used to link a tablespace to a specific database. 
+  As shown in the figure below, the relationship is drawn to show that the database 
+  has the dependency on the tablespace.&nbsp;Multiple tablespaces can be related 
+  to a single database in the model. </p>
+<p align="center"><img border="0" src="images/md_datamd08.GIF" width="298" height="88"></p>
+<p align="center">Tablespace and Database Dependency Relationship Example</p>
+<p>A dependency relationship is used to document the relationships between tablespaces 
+  and the tables within a tablespace.&nbsp; One or many tables can be related 
+  to a single tablespace, and a single table can be related to multiple tablespaces. 
+  The example below shows that the table Auction is assigned to a single tablespace 
+  named PRIMARY.</p>
+<p align="center"><img border="0" src="images/md_datamd09.GIF" width="560" height="345"></p>
+<p align="center">Table and Tablespace Dependency Relationship Example</p>
+<h5><u>Realizations</u></h5>
+<p>Realizations are used to establish the relationship between a database and 
+  the tables that exist within it.&nbsp;A table can be realized by multiple databases 
+  in the Data Model. </p>
+<p align="center"><img border="0" src="images/md_datamd10.GIF" width="561" height="348"></p>
+<p align="center">Table and Database Realization Relationship Example</p>
+<h5>Stored Procedures</h5>
+<p>A dependency relationship is used to document the relationship between the 
+  stored procedure container and the tables that the stored procedures within 
+  the stored procedure containers act upon. The example below depicts this type 
+  of relationship by showing that the stored procedure SP_Auction will be used 
+  to access information in the Auction table. </p>
+<p align="center"><img border="0" src="images/md_datamd11.GIF" width="633" height="344"></p>
+<p align="center">Stored Procedure Container and Table Dependency Relationship 
+Example</p>
+<h3><a name="Evolution of the Data Model">Evolution of the Data Model</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4><a name="Inception Phase">Inception Phase</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In the <a href="../itrwkfls/iwf_iii.htm">inception phase</a>, initial data 
+  modeling activities might be performed in conjunction with the development of 
+  any proof-of-concept prototypes as part of the&quot;Perform architectural synthesis 
+  workflow detail&quot; activities.&nbsp;On projects in which a database already 
+  exists, the database designer might reverse-engineer the existing database to 
+  develop an initial Physical Data Model based on the structure of the existing 
+  database.&nbsp;See <a href="md_rdboo.htm">Guidelines: Reverse-Engineering Relational 
+  Databases</a> for more information. Elements of the Physical Data Model might 
+  be transformed into Design Model elements as needed to support any proof-of-concept 
+  prototyping activities.</p>
+<h4><a name="Elaboration Phase">Elaboration Phase</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The goal of the <a href="../itrwkfls/iwf_iie.htm">elaboration phase</a> is 
+  to eliminate technical risk and to produce a stable (baselined) architecture 
+  for the system. In large-scale systems, poor performance resulting from a badly 
+  designed Data Model is a major architectural concern. As a result, both data 
+  modeling and the development of an architectural prototype that allows the performance 
+  of the database to be evaluated are essential to achieving a stable architecture.&nbsp;As 
+  the architecturally significant use cases are detailed and analyzed in each 
+  iteration, Data Model elements are defined based on the development of the persistent 
+  class designs from the use cases. As the class designs stabilize, the database 
+  designer might periodically transform the class designs into tables in the Data 
+  Model and define the appropriate data storage model elements.</p>
+<p>By the end of the elaboration phase, the major database structures (tables, 
+  indexes, and primary and foreign key columns) must be put in place to support 
+  the execution of the defined architecturally significant scenarios for the application. 
+  In addition, representative data volumes must be loaded into the database to 
+  support architectural performance testing. Based on the results of performance 
+  testing, the Data Model might need to be adjusted with optimization techniques, 
+  including but not limited to de-normalizing, optimizing physical storage attributes 
+  or distribution, and indexing.</p>
+<h4><a name="Construction Phase">Construction Phase</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Major restructuring of the Data Model must not occur during the <a href="../itrwkfls/iwf_lic.htm">construction 
+  phase</a>. Additional tables and data storage elements might be defined during 
+  the construction phase iterations based on the detailed design of the set of 
+  use cases and approved change requests allocated to the iteration. A primary 
+  focus of database design during the construction phase is to continually monitor 
+  the performance of the database and optimize the database design as needed through 
+  de-normalizing, defining indexes, creating database views, and other optimization 
+  techniques. </p>
+<p>The Physical Data Model is the design artifact that the database designer maintains 
+  during the construction phase. It can be maintained by either making direct 
+  updates in the model or as a result of a tool reading updates that have been 
+  made directly on the database.</p>
+<h4><a name="Transition Phase">Transition Phase</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The Data Model, like the Design Model, is maintained during the <a href="../itrwkfls/iwf_lit.htm">transition 
+  phase</a> in response to approved change requests. The database designer must 
+  keep the Data Model synchronized with the database as the application goes through 
+  final acceptance test and is deployed into production. </p>
+<h3><a name="Roundtrip Engineering Considerations">Round-trip Engineering Considerations</a> 
+  <a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If a development team is using modern visual modeling tools that have the ability 
+  to convert classes to tables (and vice versa) and/or has the ability to reverse 
+  and forward engineer databases, then the team needs to establish guidelines 
+  for managing the transformation and engineering processes.&nbsp;The guidelines 
+  are primarily needed for large projects in which a team is working in parallel 
+  on the database and application design.&nbsp;The development team must define 
+  the points in the development of the application (build/release cycle) at which 
+  it will be appropriate to perform the class-to-table transformations and to 
+  forward-engineer the database.&nbsp;Once the initial database is created, the 
+  development team must define guidelines for the team to manage the synchronization 
+  of the Data Model and database as the design and code of the system evolve throughout 
+  the project.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

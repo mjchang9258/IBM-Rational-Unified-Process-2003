@@ -1,0 +1,364 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Set Up Tools</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Set Up Tools</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To customize the tools.</li>
+      <li>To install tools on servers and for users.&nbsp;&nbsp;&nbsp;</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Install the Tool on the Server">Install the Tool on the
+        Server</a></li>
+      <li><a href="#Customize the Tool (on the Server)">Customize the Tool (on
+        the Server)</a></li>
+      <li><a href="#Set Up Multisite Support">Set up Multisite Support</a></li>
+      <li><a href="#Integrate With Other Tools">Integrate with Other Tools</a></li>
+      <li><a href="#Install Tools on Clients">Install and Customize Tools on
+        Clients</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_tools.htm">Tools</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_tools.htm">Tools</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Most tool installation and customization is done early in
+    the project's lifecycle.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_tlsmt.htm">Tool Specialist</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/test_realtime/tm_rtrtenv.htm">Configuring the Test Environment in Rational Test RealTime</a></li>
+<li><a href="../../toolment/reqpro/tm_setup.htm">Setting Up Rational RequisitePro for a Project</a></li>
+<li><a href="../../toolment/rose/tm_setup.htm">Setting Up Rational Rose for a Project</a></li>
+<li><a href="../../toolment/robot/tm_tsten.htm">Setting Up the Test Environment in Rational Robot </a></li>
+<li><a href="../../toolment/testfact/tm_tfenv.htm">Setting Up the Test Environment in Rational TestFactory</a></li>
+<li><a href="../../toolment/rosert/tm_rrtclearcase.htm">Setting Up Version Control using Rational Rose RealTime with Rational ClearCase</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_env.htm">Environment</a>
+<ul>
+<li><a href="../workflow/environm/wfs_env2.htm">Prepare Environment for an Iteration</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<p>Many software-development tools support teams of people, with several users
+working with information stored in a shared repository. Each user uses the tool
+on their personal computer (client) and the shared repository is stored on a
+central server.&nbsp;In this case the tool must be installed on the server and
+on the clients. Customizing the tool is done both on the server and on the
+client.&nbsp;&nbsp;&nbsp;</p>
+<p>There are tools that do not use a shared repository, such as compilers,
+debuggers, editors, graphic tools, etc. These tools can simply be installed on
+the users' computers. It may still be needed to customize the tools so that all
+members of the project use the tool in the same way.&nbsp;</p>
+<p>The approach should be to automate as much as possible of the installation
+and customization procedures.</p>
+<h3><a name="Install the Tool on the Server">Install the Tool on the Server</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Identify what other software is required for the specific tool to work, and
+install this software.&nbsp;For example, a tool may require a database
+management system (DBMS) be installed first.&nbsp;</p>
+<p>When you have installed the support software, you can install the tool on the
+server.</p>
+<h3><a name="Customize the Tool (on the Server)">Customize the Tool (on the
+Server)</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Decide how to customize the tool so that it supports the development process
+in the best way. The development case will serve as a good input. The following
+are some brief examples of how you can customize Rational tools:&nbsp;</p>
+<ul>
+  <li><b>Rational Rose</b>. You can create a template model that defines the
+    structure of models. The template model will be used when creating a new
+    model in Rose. You can create a file in which you define what stereotypes to
+    use, and their icons. Then this file can be installed on all users'
+    computers, so that they use the same set of stereotypes.&nbsp;&nbsp;</li>
+  <li><b>Rational RequisitePro</b>. You can create a RequisitePro project
+    template, in which you define the requirements attribute types to use. You
+    can start with the provided &quot;RequisitePro Project Template&quot;, and
+    customize it according to your needs.</li>
+  <li><b>Rational ClearCase</b>. You can define 'events' that make the tool
+    behave in a certain way. For example, you can customize the tool so that
+    when a user checks-in an item, a script is automatically executed that does
+    some checking on the item.&nbsp;&nbsp;</li>
+  <li><b>Rational ClearQuest</b>. You can create and modify forms to support the
+    way the project wishes to collect information about change requests. You can
+    also create and modify schemas to make the tool manage the change requests
+    in a certain way.&nbsp;</li>
+</ul>
+<p>In addition to customizing the tools, you should set up user groups and
+access rights on the server.&nbsp; In some cases, a tool may provide its own
+mechanisms for this.&nbsp; In other cases, user groups and access rights are
+defined using the operating system.&nbsp; The configuration of user groups and
+access rights affects how the tools can be used. For example, you can set
+constraints on what parts of a repository certain users will have access
+to.&nbsp;&nbsp;</p>
+<p>Document the customizations in <a href="../artifact/ar_projspecgls.htm">Project Specific
+Guidelines</a>.&nbsp;</p>
+<h3><a name="Set Up Multisite Support">Set Up Multisite Support</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If the team is geographically distributed it may be necessary to divide the
+repository on several sites, or to duplicate the repository. To divide or
+duplicate a repository requires that the repositories on the different sites
+must be synchronized, information must be transferred between the
+sites.&nbsp;&nbsp;&nbsp;</p>
+<h3><a name="Integrate With Other Tools">Integrate with Other Tools</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Integrate the tool with other tools to make it easier to use. An integration
+between tools is in most cases in the form of an extension to one or several
+tools. An 'integration extension' to a tool typically:</p>
+<ul>
+  <li>Synchronize data between the different tools. It automates the creation
+    and maintenance of related items in development projects</li>
+  <li>Automatically adds traceability between related items in different
+    tools.&nbsp;</li>
+  <li>Allow the user to add traceability between items in different tools.&nbsp;</li>
+  <li>Allow the user to navigate between tools. For example, access an item in a
+    test tool from a requirements management tool.&nbsp;</li>
+  <li>Allow the user to run certain functionality from one tool. For example,
+    the possibility to create items in another tool.</li>
+  <li>Allow the user to version a tool's items in a configuration management
+    tool. For example, the possibility to version control requirements (from
+    RequisitePro) using ClearCase.&nbsp;&nbsp;</li>
+</ul>
+<p>Most tools offer ready-to-use extensions to integrate tools with each
+other.&nbsp;</p>
+<p>Describe how the tools are integrated with each other in the <a href="../artifact/ar_projspecgls.htm">Project 
+Specific Guidelines</a>.&nbsp;</p>
+<h3><a name="Install Tools on Clients">Install and Customize Tools on Clients</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Install the tool on each client. The least that is needed to do when
+installing a tool on the client side, is to set up the connection to the
+repository on the server.&nbsp;</p>
+<p>Customize the tool on the clients, just as you customized the tool on the
+server:&nbsp;</p>
+<ul>
+  <li>In some cases you do not have to do anything with the client. For example,
+    if the client is a web-interface it is enough that the clients get the
+    address to the application on the server. Some tools allow you to do all
+    customization on the server side. When the users access the repository on
+    the server, they automatically get the correct settings.&nbsp;&nbsp;</li>
+  <li>In other cases you customize the tool on the client by installing software
+    that customizes the tool, or installing files with customization
+    information.&nbsp;&nbsp;</li>
+</ul>
+<p>It may be necessary to install 'integration software' on the client. Place
+the 'integration software' on a server and allow the users to download and
+install it on their computers.&nbsp;</p>
+<p>If it possible you should automate the tool installation, and the tool
+customization for the users. The benefit of creating installation programs is
+that it allows you to set up the tools so that the clients get all the right
+settings, extensions, and connections to the repository.&nbsp; You create
+installation (and customization) programs, and place them on a server. Then the
+users download these programs and run them to install and customize the tool in
+their computer.&nbsp;</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

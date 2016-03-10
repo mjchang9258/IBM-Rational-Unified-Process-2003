@@ -1,0 +1,366 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Test Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Test Design</rpw> <a name="XE_test_design__artifact_definition"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="../../rpw_gen/artifact.gif" width="50" height="50">&nbsp;
+	  </td>
+      <td width="80%">Description of the structural test elements and the realizations 
+        of the test cases.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_desmd.htm">Design Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_tstds.htm">Test Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Optional. Used mostly when the target test item is a subsystem.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Package.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_tstdsg.htm">Guideline: Test Design</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_impdvltst.htm">Implement Developer Test</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a name="XE_test_design__purpose_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>The Test Design incorporates all the decisions regarding the test structural 
+  elements and their collaborations, required to enable testing of the already 
+  identified targets. This artifact drives the test implementation activities 
+  and increases the testing focus during the design and implementation.</p>
+
+
+<h3><a name="BriefOutline">Brief Outline</a> <a name="XE_test_design__brief_outline_for"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+p>For each target test item, all the test mechanisms should be identified and 
+  described and all the test responsibilities have to be assigned to the appropriate 
+  test structural elements. For each significant test case, the design should 
+  specify how is realized in terms of collaborating elements, using collaboration 
+  or/and sequence diagrams.<br>
+</p>
+
+
+<h3><a name="Properties">Properties</a> <a name="XE_test_design__properties_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top"> 
+    <tr> 
+      <th width="21%" align="left">Property Name&nbsp;</th>
+      <th width="41%" align="left">Brief Description&nbsp;</th>
+      <th width="38%" align="left">UML Representation&nbsp;</th>
+    </tr>
+    <tr> 
+      <td width="21%">Introduction &nbsp;</td>
+      <td width="41%">A textual description that serves as a brief introduction 
+        to the model. &nbsp;</td>
+      <td width="38%">Tagged value, of type &quot;short text&quot;. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="21%">Packages &nbsp;</td>
+      <td width="41%">The Packages used for organizational grouping purposes, 
+        usually representing a hierarchy. &nbsp;</td>
+      <td width="38%">Owned via the association &quot;represents&quot;, or recursively 
+        via the aggregation &quot;owns&quot;. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="21%">Interfaces &nbsp;</td>
+      <td width="41%">The interfaces in the model, owned by the packages. &nbsp;</td>
+      <td width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="21%">Key Events and Signals &nbsp;</td>
+      <td width="41%">The relevant Events and Signals in the model, owned by the 
+        Packages. &nbsp;</td>
+      <td  width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="21%">Key Test Suites and Test Scripts. &nbsp;</td>
+      <td width="41%">The relevant Test Suites and Test Scripts in the model, 
+        owned by the Packages. &nbsp;</td>
+      <td  width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="21%">Key Relationships &nbsp;</td>
+      <td width="41%">The relevant relationships in the model, owned by the Packages. &nbsp;</td>
+      <td width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="21%">Key Diagrams &nbsp;</td>
+      <td width="41%">The key diagrams in the model, owned by the Packages. &nbsp;</td>
+      <td width="38%">There are various UML diagram representations. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="21%">Key Use-Case Realizations &nbsp;</td>
+      <td width="41%">The relevant Use-Case Realizations in the model, owned by 
+        the Packages. &nbsp;</td>
+      <td width="38%">Interaction and Class Diagrams supplemented with textual 
+        documents. &nbsp;</td>
+    </tr>
+  </tbody> 
+</table>
+  <br>
+</div>
+
+
+<h3><a name="Timing">Timing</a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>As the main drivers are the Design Model and the Test Cases, the Test Design 
+  starts with the first iteration of the Elaboration phase and is refined throughout 
+  the same phase.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The <a href="../workers/wk_tstds.htm">Test Designer</a> role is primarily responsible for this 
+  artifact. Those responsibilities include:</p>
+<ul>
+  <li>Identifying the scope and the level of detail.</li>
+  <li>Identifying a group of significant test cases which will be realized in 
+    terms of collaborating elements.</li>
+  <li>Maintaining the Test Design up to date.</li>
+</ul>
+
+
+<h3><a name="Tailoring">Tailoring</a><a name="XE_Test_Design__tailoring_of"></a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>The level of formalism could be reduced in order to accommodate smaller or 
+  low-ceremony projects.</p>
+<p>This artifact is often regarded as being enclosed in the <a href="ar_desmd.htm">Design 
+  Model</a></p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

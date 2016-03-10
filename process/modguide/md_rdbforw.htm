@@ -1,0 +1,427 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Forward-Engineering Relational Databases </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+ 
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Forward-Engineering 
+  Relational Databases </rpw><a name="Guidelines: Forward-Engineering Relational Databases"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Transform Design Model Elements to Data Model Elements"> Transforming 
+    Design Model Elements to Data Model Elements</a> 
+    <ul>
+  <li><a href="#Mapping Persistent Classes to Tables">Mapping Persistent Classes 
+  to Tables</a></li>
+  <li><a href="#Persistent Attributes and Keys">Persistent Attributes and Keys</a></li>
+      <li><a href="#Mapping Associations between Persistent Objects to the Data Model"> 
+        Mapping Associations Between Persistent Objects to the Data Model</a></li>
+  <li><a href="#Mapping Aggregation Associations to the Data Model">Mapping 
+  Aggregation Associations to the Data Model</a></li>
+  <li><a href="#Modeling Inheritance">Modeling Generalization Relationships in 
+  the Data Model</a></li>
+  <li><a href="#Modeling Many-to-Many Associations">Modeling Many-to-Many 
+  Associations in the Data Model</a></li>
+</ul>
+  </li>
+  <li><a href="#Refine the Data Model">Refining the Data Model</a></li>
+  <li><a href="#Forward-Engineering the Data Model"> 
+    Forward-Engineering the Data Model</a></li>
+</ul>
+
+<h3><a name="Introduction"></a>Introduction
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>This guideline describes methods for mapping persistent <a href="../artifact/ar_class.htm">design 
+  classes</a> in the <a href="../artifact/ar_desmd.htm">Design Model</a> into 
+  tables in the <a href="../artifact/ar_datmd.htm">Data Model</a>.&nbsp; </p>
+
+<h3><a name="Transform Design Model Elements to Data Model Elements"></a>Transforming 
+  Design Model Elements to Data Model Elements <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Persistent classes from the design model can be transformed to tables in the 
+  Data Model.&nbsp;The table below shows a summary of the mapping between Design 
+  Model elements and Data Model elements.</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="50%">
+      <p class="Text"><b>Design Model Element</b></td>
+      <td width="50%">
+      <p class="Text"><b>Corresponding Data Model Element</b></td>
+    </tr>
+    <tr>
+      <td width="50%">Class</td>
+      <td width="50%">Table</td>
+    </tr>
+    <tr>
+      <td width="50%">Attribute</td>
+      <td width="50%">Column</td>
+    </tr>
+    <tr>
+      <td width="50%">
+      <p class="Text">Association</td>
+      <td width="50%">
+      <p class="Text">Non-Identifying Relationship</td>
+    </tr>
+    <tr>
+      <td width="50%">
+      <p class="Text">Association Class</td>
+      <td width="50%">
+      <p class="Text">Intersection Table</td>
+    </tr>
+    <tr>
+      <td width="50%">
+      <p class="Text">Composite Aggregation</td>
+      <td width="50%">
+      <p class="Text">Identifying Relationship</td>
+    </tr>
+    <tr>
+      <td width="50%">
+      <p class="Text">Many-to-Many Association</td>
+      <td width="50%">
+      <p class="Text">Intersection Table</td>
+    </tr>
+    <tr>
+      <td width="50%">
+      <p class="Text">Multiplicity</td>
+      <td width="50%">
+      <p class="Text">Cardinality</td>
+    </tr>
+    <tr>
+      <td width="50%">
+      <p class="Text">Qualified Association</td>
+      <td width="50%">
+      <p class="Text">Intersection Table</td>
+    </tr>
+    <tr>
+      <td width="50%">Generalization (Inheritance)</td>
+      <td width="50%">Separate Table</td>
+    </tr>
+</table>
+<br>
+</div>
+
+<h4><a name="Mapping Persistent Classes to Tables"></a>Mapping Persistent 
+Classes to Tables<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h4>
+
+<p>The persistent classes in the Design Model represent the information that the 
+  system must store. Conceptually, these classes might resemble a relational design. 
+  (For example, the classes in the Design Model might be reflected in some fashion 
+  as entities in the relational schema.) As a project moves from elaboration into 
+  construction, however, the goals of the Design Model and the Relational Data 
+  Model diverge. This divergence is caused because the objective of relational 
+  database development is to normalize data, whereas the goal of the Design Model 
+  is to encapsulate increasingly complex behavior. The divergence of these two 
+  perspectives—data and behavior—leads to the need for mapping between related 
+  elements in the two models.</p>
+<p>In a relational database written in third normal form, every row in the tables—every 
+  &quot;tuple&quot;—is regarded as an object. A column in a table is equivalent 
+  to a persistent attribute of a class. (Keep in mind that a persistent class 
+  might have transient attributes.) Therefore, in the simple case in which there 
+  are no associations to other classes, the mapping between the two worlds is 
+  simple. The datatype of the attribute corresponds to one of the allowable datatypes 
+  for columns.</p>
+<p class="exampleheading">Example</p>
+<p class="example">The folllowing class Customer:</p>
+      <p align="center"><img src="images/md_rdb1.gif" alt="Customer Class" width="130" height="87"></p>
+<p class="example">when modeled in the RDBMS would translate to a table called 
+  Customer, with the columns Customer_ID, Name, and Address.</p>
+<p>An instance of this table can be visualized as:</p>
+<p align="CENTER"><img src="images/md_rdb2.gif" width="428" height="118"></p>
+<h4><a name="Persistent Attributes and Keys">Persistent Attributes and Keys</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>For each persistent attribute, questions must be asked to elicit additional 
+  information that will be used to appropriately model the persistent object in 
+  a relational Data Model. For example: 
+<ul>
+  <li>Can this persistent attribute serve as a key or part of a key? Example: 
+    &quot;Attribute X, together with attribute Z, uniquely identifies the object.&quot; 
+    In the Customer table, the Customer_ID represents a primary key.</li>
+  <li>What are the minimum and maximum values for the attribute?</li>
+  <li>Will it be possible to search using this attribute as a key? It might, for 
+    instance, be part of a filter in a Select statement such as &quot;It is common 
+    to search for all instances where Y &gt; 1000.&quot;</li>
+  <li>Does the attribute have a description such as &quot;attribute X is the number 
+    of retransmissions per 100 000 transmitted characters&quot;?</li>
+  <li>Does the attribute have possible numerical values and desired conversions 
+    between different numerical values?</li>
+  <li>Who is allowed to update the attribute? Example: &quot;T may only be changed 
+    by people in authority class nn.&quot;</li>
+  <li>Who is allowed to read the attribute? Examples: &quot;P may be read by people 
+    in authority classes yy and zz&quot; or &quot;&quot;P is included in views 
+    Vi and Vj.&quot;</li>
+  <li>Is there adequate information about volumes and frequencies? Examples: &quot;There 
+    are up to 50 000 occurrences of A&quot; or &quot;On average 2000 As are changed 
+    per day.&quot;</li>
+  <li>Is the attribute unique? Example: Only one person can have the same driver’s 
+    license number.</li>
+</ul>
+<h4><a name="Mapping Associations between Persistent Objects to the Data Model"> 
+  Mapping Associations Between Persistent Objects to the Data Model</a> <a href="#Top"> 
+  <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Associations between two persistent objects are realized as foreign keys to 
+  the associated objects. A foreign key<strong> </strong>is a column in one table 
+  that contains the primary key value of the associated object.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">Assume there is the following association between Order and 
+  Customer:</p>
+      <p align="center"><img src="images/md_rdb4.gif" width="135" height="211"></p>
+<p class="example">When this is mapped into relational tables, the result is an 
+  Order table and a Customer table. The Order table has columns for attributes 
+  listed, plus an additional column named Customer_ID that contains foreign-key 
+  references to the primary key of the associated row in the Customer table. For 
+  a given Order, the Customer_ID column contains the identifier of the Customer 
+  to whom the Order is associated. Foreign keys allow the RDBMS to join<b> </b> 
+  related information together.</p>
+<h4><a name="Mapping Aggregation Associations to the Data Model">Mapping 
+Aggregation Associations to the Data Model</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Aggregation is also modeled using foreign key relationships.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">Assume that there is the following association between Order 
+  and Line Item:</p>
+      <p align="center">
+      <img src="images/md_rdb3.gif" alt="Order and Line Item Classes" width="343" height="74"></p>
+<p class="example">When this is mapped into relational tables, the result is an 
+  Order table and a Line_Item table. The Line_Item table has columns for attributes 
+  listed, plus an additional column called Order_ID that contains a foreign-key 
+  reference to the associated row in the Order table. For a given Line Item, the 
+  Order_ID column contains the Order_ID of the Order with which the Line Item 
+  is associated. Foreign keys allow the RDBMS to optimize join operations.</p>
+<p>In addition, it is important to implement a cascading delete constraint that 
+  provides referential integrity in the Data Model. Once this is accomplished, 
+  whenever the Order is deleted, all of their Line Items are deleted as well.</p>
+<h4><a name="Modeling Inheritance">Modeling Generalization Relationships</a> in 
+the Data Model <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The standard relational Data Model does not support modeling inheritance in 
+  a direct <b> </b>way. A number of strategies can be used to model inheritance. 
+  These can be summarized as follows: 
+<ul>
+  <li>Use separate tables to represent the super-class and sub-class. The sub-class 
+    table must include a foreign key reference to the super-class table. In order 
+    to instantiate a sub-class object, the two tables must be joined together. 
+    This approach is conceptually easy and facilitates changes to the model, but 
+    it often performs poorly due to the extra work.</li>
+  <li>Duplicate all inherited attributes and associations as separate columns 
+    in the sub-class table. This is similar to de-normalization in the standard 
+    relational Data Model.</li>
+</ul>
+<h4><a name="Modeling Many-to-Many Associations">Modeling Many-to-Many 
+Associations</a> in the Data Model <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A standard technique in relational modeling is to use an intersection entity 
+  <strong> </strong>to represent many-to-many associations. The same approach 
+  can be applied here: An intersection table is used to represent the association.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">If Suppliers can supply many Products, and a Product can be 
+  supplied by many Suppliers, the solution is to create a Supplier/Product table. 
+  This table would contain only the primary keys of the Supplier and Product tables, 
+  and serve to link the Suppliers and their related Products. The Object Model 
+  has no analog for this table; it is strictly used to represent the associations 
+  in the relational Data Model.</p>
+
+
+<h3><a name="Refine the Data Model"></a>Refining the Data Model<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Once the design classes have been transformed into tables and the appropriate 
+  relationships in the Data Model, the model is refined as needed to implement 
+  referential integrity and optimize data access through views and stored procedures. 
+  For more information, see <a href="md_datmd.htm">Guidelines: Data Model</a>.</p>
+  
+<h3><b><a name="Forward-Engineering the Data Model">Forward-Engineering 
+  the Data Model</a></b><a href="#Top"><font color="#FF0000"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h3>
+<p>Most application design tools support the generation of Data Definition Language 
+  (DDL) scripts from Data Models and/or the generation of the database from the 
+  Data Model.&nbsp;Forward-engineering of the database needs to be planned as 
+  part of the overall application development and integration activities.&nbsp;The 
+  timing and frequency for forward-engineering the database from the Data Model 
+  depends on the specific project situation.&nbsp;For new application development 
+  projects that are creating a new database, the initial forward-engineering might 
+  need to be done as part of the work to implement a stable architectural version 
+  of the application by the end of the elaboration phase.&nbsp;In other cases, 
+  the initial forward-engineering might be done in early iterations of the construction 
+  phase.&nbsp; </p>
+
+<p>The types of model elements in the Data Model that can be forward-engineered 
+  vary, depending on the specific design tools and RDBMS used on the project.&nbsp; 
+  In general, the major structural elements of the Data Model, including tables, 
+  views, stored procedures, triggers, and indexes can be forward-engineered into 
+  the database.</p>
+<br><br>
+ 
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+ 
+</body>
+
+</html>

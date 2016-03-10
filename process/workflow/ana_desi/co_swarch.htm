@@ -1,0 +1,500 @@
+<!-- RPW META DATA START --
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Software Architecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Software Architecture</rpw></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Architecture Description">Architecture Description</a>
+    <ul>
+      <li><a href="#Architectural Views">Architectural Views</a></li>
+      <li><a href="#A Typical Set of Architectural Views">A Typical Set of
+        Architectural Views</a></li>
+    </ul>
+  </li>
+  <li><a href="#Architectural Focus">Architectural Focus</a>
+    <ul>
+      <li><a href="#Architectural Patterns">Architectural Patterns</a></li>
+      <li><a href="#Architectural Style">Architectural Style</a></li>
+      <li><a href="#Architectural Blueprints">Architectural Blueprints</a></li>
+      <li><a href="#The Architecting Process">The Architecting Process</a></li>
+    </ul>
+  </li>
+</ul>
+<h2><a name="XE_architecture__introduction_to"></a><a name="Introduction">Introduction</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h2>
+<p>Software architecture is a concept that is easy to understand, and that most
+engineers intuitively feel, especially with a little experience, but it is hard
+to define precisely. In particular, it is difficult to draw a sharp line between
+design and architecture&#151architecture is one aspect of design that concentrates
+on some specific features.</p>
+<p>In <i>An Introduction to Software Architecture</i>, David Garlan and
+Mary Shaw suggest that software architecture is a level of design concerned with
+issues: &quot;Beyond the algorithms and data structures of the computation;
+designing and specifying the overall system structure emerges as a new kind of
+problem. Structural issues include gross organization and global control
+structure; protocols for communication, synchronization, and data access;
+assignment of functionality to design elements; physical distribution;
+composition of design elements; scaling and performance; and selection among
+design alternatives.&quot; [<a href="../../referenc.htm#GAR93">GAR93</a>]</p>
+<p>But there is more to architecture than just structure; the IEEE Working Group
+on Architecture defines it as &quot;the highest-level concept of a system <b>in
+its environment</b>&quot; [<a href="../../referenc.htm#IEEE98">IEEE98</a>].
+It also encompasses the &quot;fit&quot; with system integrity, with economical
+constraints, with aesthetic concerns, and with style. It is not limited to an
+inward focus, but takes into consideration the system as a whole in its user
+environment and its development environment - an outward focus.</p>
+<p>In the RUP, the architecture of a software system (at a
+given point) is the organization or structure of the system's significant
+components interacting through interfaces, with components composed of
+successively smaller components and interfaces.</p>
+<h2><a name="Architecture Description">Architecture Description</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h2>
+<p>To speak and reason about software architecture, you must first define an
+architectural representation, a way of describing important aspects of an
+architecture. In the RUP, this description is captured in
+the <a href="../../artifact/ar_sadoc.htm">Software Architecture Document</a>.</p>
+<h3><a name="Architectural Views">Architectural Views</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p>We have chosen to represent software architecture in multiple <b>architectural
+views</b>. Each architectural view addresses some specific set of concerns,
+specific to stakeholders in the development process: end users, designers,
+managers, system engineers, maintainers, and so on.</p>
+<p>The views capture the major structural design decisions by showing how the
+software architecture is decomposed into components,
+and how components are connected by <b>connectors</b> to produce
+useful <b>forms </b>[<a href="../../referenc.htm#PW92">PW92</a>].
+These design choices must be tied to the <a href="../requirem/co_req.htm">requirements</a>,
+functional, and supplementary, and other constraints. But these choices in turn
+put further <b>constraints</b> on the requirements and on future
+design decisions at a lower level.</p>
+<h3><a name="A Typical Set of Architectural Views">A Typical Set of
+Architectural Views</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p>Architecture is represented by a number of different architectural views,
+which in their essence are extracts illustrating the &quot;architecturally
+significant&quot; elements of the models. In the RUP, you
+start from a typical set of views, called the &quot;4+1 view model&quot; [<a href="../../referenc.htm#KRU95">KRU95</a>].
+It is composed of:
+<ul>
+  <li>The<b> </b><a href="../requirem/co_ucv.htm"><b>Use-Case View</b>,</a>
+    which contains use cases and scenarios that encompasses architecturally
+    significant behavior, classes, or technical risks. It is a subset of the <a href="../../artifact/ar_ucmod.htm">use-case
+    model</a>.</li>
+  <li>The<b> </b><a href="co_lview.htm"><b>Logical View</b></a>, which
+    contains the most important <a href="../../artifact/ar_class.htm">design
+    classes</a> and their organization into <a href="../../artifact/ar_despk.htm">packages</a>
+    and <a href="../../artifact/ar_dsub.htm">subsystems</a>, and the
+    organization of these packages and subsystems into <a href="co_layer.htm">layers</a>.
+    It contains also some <a href="../../artifact/ar_ucrea.htm">use case
+    realizations</a>. It is a subset of the <a href="../../artifact/ar_desmd.htm">design
+    model</a>.</li>
+  <li>The <a href="../implemen/co_impvw.htm"><b>Implementation View</b>,</a>
+    which contains an overview of the <a href="../../artifact/ar_impmd.htm">implementation
+    model</a> and its organization in terms of modules into packages and layers.
+    The allocation of packages and classes (from the Logical View) to the
+    packages and modules of the Implementation View is also described. It is a
+    subset of the <a href="../../artifact/ar_impmd.htm">implementation model</a>.</li>
+  <li>The <a href="co_pview.htm"><b>Process View</b></a>, which
+    contains the description of the tasks (process and threads) involved, their
+    interactions and configurations, and the allocation of design objects and
+    classes to tasks. This view need only be used if the system has a
+    significant degree of <a href="co_cncry.htm">concurrency</a>. In RUP, it is a subset of the <a href="../../artifact/ar_desmd.htm">design
+    model</a>.</li>
+  <li>The <a href="co_dview.htm"><b>Deployment View</b></a>, which
+    contains the description of the various physical nodes for the most typical
+    platform configurations, and the allocation of tasks (from the Process View)
+    to the physical nodes. This view need only be used if the system is
+    distributed. It is a subset of the <a href="../../artifact/ar_dplmdl.htm">deployment
+    model</a>.</li>
+</ul>
+<p>The architectural views are documented in a <a href="../../artifact/ar_sadoc.htm">Software
+Architecture Document</a>. You can envision additional views to express
+different special concerns: user-interface view, security view, data view, and
+so on. For simple systems, you may omit some of the views contained in the 4+1
+view model.</p>
+<h2><a name="Architectural Focus">Architectural Focus</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h2>
+<p>Although the views above could represent the whole design of a system, the
+architecture concerns itself only with some specific aspects:
+<ul>
+  <li>The <b>structure</b> of the model &#151 the organizational patterns,
+    for example, <a href="co_layer.htm">layering</a>.</li>
+  <li>The <b>essential elements </b>&#151<i> </i>critical <a href="../../artifact/ar_uc.htm">use
+    cases</a>, main <a href="../../artifact/ar_class.htm">classes</a>, common
+    mechanisms, and so on, as opposed to all the elements present in the model.</li>
+  <li>A few <b>key scenarios</b> showing the main control flows
+    throughout the system.</li>
+  <li>The <b>services</b>, to capture modularity, optional features,
+    product-line aspects.</li>
+</ul>
+<p>In essence, architectural views are <b>abstractions</b><i>,</i> or
+simplifications, of the entire design, in which important characteristics are
+made more visible by leaving details aside. These characteristics are important
+when reasoning about
+<ul>
+  <li>System evolution&#151going to the next development cycle.</li>
+  <li>Reuse of the architecture, or parts of it, in the context of a product
+    line.</li>
+  <li>Assessment of supplementary qualities, such as performance, availability,
+    portability, and safety.</li>
+  <li>Assignment of development work to teams or subcontractors.</li>
+  <li>Decisions about including off-the-shelf components.</li>
+  <li>Insertion in a wider system.</li>
+</ul>
+<h3><a name="Architectural Patterns">Architectural Patterns</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p><a href="../../glossary.htm#architectural_pattern"><b>Architectural
+patterns</b></a> are ready-made forms that solve recurring architectural
+problems. An <b>architectural framework</b> or an <b>architectural
+infrastructure </b>(middleware) is a set of components on which you can
+build a certain kind of architecture. Many of the major architectural
+difficulties should be resolved in the framework or in the infrastructure,
+usually targeted to a specific domain: command and control, MIS, control system,
+and so on.</p>
+<h4>Examples of Architectural Patterns</h4>
+<p>[<a href="../../referenc.htm#BUS96">BUS96</a>] groups architectural patterns
+according to the characteristics of the systems in which they are most
+applicable, with one category dealing with more general structuring issues. The
+table shows the categories presented in [<a href="../../referenc.htm#BUS96">BUS96</a>]
+and the patterns they contain.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%" align="center"><b>Category</b></td>
+    <td width="50%" align="center"><b>Pattern</b></td>
+  </tr>
+  <tr>
+    <td width="50%" rowspan="3">Structure</td>
+    <td width="50%">Layers</td>
+  </tr>
+  <tr>
+    <td width="50%">Pipes and Filters</td>
+  </tr>
+  <tr>
+    <td width="50%">Blackboard</td>
+  </tr>
+  <tr>
+    <td width="50%">Distributed Systems</td>
+    <td width="50%">Broker</td>
+  </tr>
+  <tr>
+    <td width="50%" rowspan="2">Interactive Systems</td>
+    <td width="50%">Model-View-Controller</td>
+  </tr>
+  <tr>
+    <td width="50%">Presentation-Abstraction-Control</td>
+  </tr>
+  <tr>
+    <td width="50%" rowspan="2">Adaptable Systems</td>
+    <td width="50%">Reflection</td>
+  </tr>
+  <tr>
+    <td width="50%">Microkernel</td>
+  </tr>
+</table>
+<br></div>
+
+<p>Two of these are presented in more detail here, to clarify these ideas; for a
+complete treatment see [<a href="../../referenc.htm#BUS96">BUS96</a>]. Patterns
+are presented in the following widely used form:</p>
+<ul>
+  <li>Pattern name</li>
+  <li>Context</li>
+  <li>Problem
+    <ul>
+      <li>Forces describing different problem aspects that should be considered</li>
+    </ul>
+  </li>
+  <li>Solution
+    <ul>
+      <li>Rationale</li>
+      <li>Resulting context</li>
+      <li>Examples</li>
+    </ul>
+  </li>
+</ul>
+<h5>Pattern Name</h5>
+<p><b><i>Layers</i></b></p>
+<h5>Context</h5>
+<p>A large system that requires decomposition.</p>
+<h5>Problem</h5>
+<p>A system which must handle issues at different levels of abstraction.<span style="mso-spacerun: yes">&nbsp; 
+  </span>For example: hardware control issues, common services issues and domain-specific 
+  issues. It would be extremely undesirable to write vertical components that 
+  handle issues at all levels. The same issue would have to be handled (possibly 
+  inconsistently) multiple times in different components.</p>
+<blockquote> 
+  <p>Forces</p>
+  <ul>
+    <li>Parts of the system should be replaceable</li>
+    <li>Changes in components should not ripple</li>
+    <li>Similar responsibilities should be grouped together</li>
+    <li>Size of components&#151complex components may have to be decomposed<font size="3"></font></li>
+  </ul>
+</blockquote>
+<h5>Solution</h5>
+<p>Structure the systems into groups of components that form layers on top of 
+  each other. Make upper layers use services of the layers below only (never above). 
+  Try not to use services other than those of the layer directly below (don’t 
+  skip layers unless intermediate layers would only add pass-through components).</p>
+<blockquote>
+  <p>Examples:</p>
+  <p>1. Generic Layers</p>
+  <p align="center"><img border="0" src="images/layers.gif" width="508" height="313"></p>
+  <p align="left">A strict layered architecture states that design elements (classes, 
+    packages, subsystems) only use the services of the layer below them.&nbsp; 
+    Services can include event-handling, error-handling, database access, and 
+    so forth.<span style="mso-spacerun: yes"> </span>It contains more palpable 
+    mechanisms, as opposed to raw operating system level calls documented in the 
+    bottom layer.</p>
+  <p align="left">2. Business System Layers</p>
+  <p align="left"><img border="0" src="images/layers2.gif" width="615" height="398"></p>
+  <p align="left">The above diagram shows another layering example, where there 
+    are vertical application-specific layers, and horizontal, infrastructure layers. 
+    Note that the goal is to have very short business &#147;stovepipes&#148; and to leverage 
+    commonality across applications.<span style="mso-spacerun: yes">&nbsp; </span>If 
+    not, you may have multiple people solving the same problem, potentially differently.</p>
+  <p align="left">See<a href="../../modguide/md_layer.htm"> Guidelines: Layering</a> 
+    for more discussion on this pattern.</p>
+</blockquote>
+<h5 align="left">Pattern Name</h5>
+<p align="left"><b><i>Blackboard</i></b></p>
+<h5 align="left">Context</h5>
+<p align="left">A domain in which no closed (algorithmic) approach to solving 
+  a problem is known or feasible. Examples are AI systems, voice recognition, 
+  and surveillance systems.</p>
+<h5 align="left">Problem</h5>
+<p align="left">Multiple problem-solving agents (knowledge agents) must cooperate 
+  to solve a problem that cannot be solved by any of the individual agents. The 
+  results of the work of the individual agents must be accessible to all the other 
+  agents so they can evaluate whether they can contribute to finding a solution 
+  and post results of their work.</p>
+<blockquote>
+  <p align="left">Forces</p>
+  <ul>
+    <li> 
+      <p align="left">Sequence in which knowledge agents can contribute to solving 
+        the problem is not deterministic and may depend on problem solving strategies
+    </li>
+    <li> 
+      <p align="left">Input from different agents (results or partial solutions) 
+        may have different representations
+    </li>
+    <li> 
+      <p align="left">Agents do not know of each other's existence directly but 
+        can evaluate each other's posted contributions
+    </li>
+  </ul>
+</blockquote>
+<h5 align="left">Solution</h5>
+<p align="left">A number of Knowledge Agents have access to a shared data store 
+  called the Blackboard. The blackboard provides an interface to inspect and update 
+  its content. The Control module/object activates the agents following some strategy. 
+  Upon activation an agent inspects that blackboard to see if it can contribute 
+  to solving the problem. If the agent determines that it can contribute, the 
+  control object can allow the agents to put its partial (or final) solution on 
+  the board.</p>
+<blockquote>
+  <p align="left">Example:</p>
+        <p align="center"><img border="0" src="images/blkbd.gif" width="464" height="264"></p>
+  <p align="left">This shows the structural or static view modeled using UML.
+  This would be part of a parameterized collaboration, which is then bound to
+  actual parameters to instantiate the pattern.</p>
+</blockquote>
+<h3><a name="Architectural Style">Architectural Style</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p>A software architecture, or only an architectural view, may have an attribute 
+  called <b>architectural style</b>, which reduces the set of possible forms to 
+  choose from, and imposes a certain degree of uniformity to the architecture. 
+  The style may be defined by a set of patterns, or by the choice of specific 
+  components or connectors as the basic building blocks. For a given system, some 
+  of the style can be captured as part of the architectural description in an 
+  <b>architecture style guide</b>&#151provided 
+  through the <a href="../../artifact/ar_projspecgls.htm">project specific guidelines</a> 
+  artifact in the RUP. Style plays a major part in the understandability 
+  and integrity of the architecture.</p>
+<h3><a name="Architectural Blueprints">Architectural Blueprints</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p>The graphical depiction of an architectural view is called an <b>architectural
+blueprint</b>. For the various views described above, the blueprints are
+composed of the following diagrams from the Unified Modeling Language [<a href="../../referenc.htm#UML01">UML01</a>]:
+<ul>
+  <li><a href="co_lview.htm"><b>Logical view</b></a>. Class diagrams,
+    state machines, and object diagrams</li>
+  <li><a href="co_pview.htm"><b>Process view</b></a>. Class diagrams
+    and object diagrams (encompassing task&#151processes and threads)</li>
+  <li><a href="../implemen/co_impvw.htm"><b>Implementation view</b></a>.
+    Component diagrams</li>
+  <li><a href="co_dview.htm"><b>Deployment view</b></a>. Deployment
+    diagrams</li>
+  <li><a href="../requirem/co_ucv.htm"><b>Use-case view</b></a>.
+    Use-case diagrams depicting use cases, actors, and ordinary design classes;
+    sequence diagrams depicting design objects and their collaboration</li>
+</ul>
+<h3><a name="The Architecting Process">The Architecting Process</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p>In the RUP, the architecture is primarily an outcome of
+the <a href="../ovu_and.htm">analysis &amp; design workflow</a>. As the project
+reenacts this workflow, iteration after iteration, the architecture evolves,
+refined, and polished. As each iteration includes integration and test, the
+architecture is quite robust by the time the product is delivered. This
+architecture is a main focus of the iterations of the <a href="../../itrwkfls/iwf_iie.htm">elaboration</a>
+phase, at the end of which the architecture is normally baselined.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

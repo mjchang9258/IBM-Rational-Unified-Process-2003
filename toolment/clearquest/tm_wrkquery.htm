@@ -1,0 +1,277 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Working with Queries Using Rational ClearQuest</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Working with Queries Using Rational ClearQuest</rpw>
+ <a name="XE_clearquest__queries"></a> 
+</h2>
+
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use queries to retrieve records from a ClearQuest 
+  database using Rational ClearQuest.</p>
+
+<p>This tool mentor relates to the following RUP information:<br>
+
+
+
+<h3>Overview</h3>
+<p>Queries are the means by which you search for specific records in a ClearQuest database. Queries contain search criteria you specify by using either readily available queries, or by creating them using the Query Editor. When you run the query, ClearQuest searches the database using the criteria provided by the query. If one or more records matches the search criteria, ClearQuest displays a summary list of the records in the Results pane. </p>
+
+<p>This tool mentor provides the steps for the following:</p>
+
+<ul>
+  <li><a href="#StepNumber1">Creating and Saving Queries</a></li>
+  <li><a href="#StepNumber2">Viewing Query Results</a></li>
+  <li><a href="#StepNumber3">Displaying Query Results</a></li>
+  <li><a href="#StepNumber4">Printing Queries</a></li>
+</ul>
+
+
+<h3><a name="StepNumber1">Creating and Saving Queries</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h3>
+
+<p>There are multiple ways to create queries, but each one requires you to name, define, run, and/or save the query. When you first use a database, the Query wizard walks you through choosing the fields you want to display and enables you to choose the fields and corresponding values you want to use as query filters. Later, when you are familiar with building queries, you can use the Query window to edit query filters and set up display fields. </p>
+
+<h4>Tool Steps</h4>
+<p>The following steps are performed to create a query with the Query Wizard using Rational ClearQuest:</p>
+<ol start="1"><li>Make sure the option <b>Use Query Wizard</b> is checked in the Q<b>uery</b> menu.</li>
+<li>Select <b>Query > New Query</b> to open the <b>Choose Record Type</b> dialog box.</li>
+<li>Select a record type and click <b>OK</b>.</li>
+<li>In the <b>ClearQuest Query Wizard</b> dialog box, do the following:
+	<ol type="a">
+	<li>In <b>Start with an Existing Query</b>, specify the name of a query to use as a template.</li>
+	<li>Click <b>Browse</b> and then <b>Yes</b> to see a list of available queries to use as templates. We recommend you choose a query under Public Queries.</li>
+	<li>Click <b>Next</b> to create a new, blank query with the Query Wizard.</li>
+	</ol>
+<li>The <b>Define How the Query Displays</b> dialog box enables you to customize the display of the query results by choosing the fields to display.For example, if you select ID, State, and Headline to use as display fields, your query results display only those three fields. 
+	<ol type="a" start="a">
+	<li>To display the fields of your choice, double-click the record to move it the Display grid. 
+	The Display grid includes the following columns: Field, Title, Sort, Show, and Sort Order.</li>
+	<li>Select the display fields you want, and click <b>Next</b>.</li>
+	</ol>
+<li>Select the fields to use as query filters. Query filters determine what records are displayed. 
+<ol type="a" start="a">
+	<li>In the <b>Select Fields to Use as Query Filters</b> dialog box, choose the fields to use as query filters by double-clicking the field to move it to the Filters pane.</li>
+	<li>Click <b>Next</b>.</li>
+	</ol>
+<li>The Filter definition page of the Query Wizard lets you define the query filters by creating expressions that search for the legal value or range of values you specify. The Filter definition page is divided in two panes: the Filters pane (on the left,) which lists the fields you selected, and the Filter tool (on the right,) which lets you define filter values. </li>
+	<ol type="a" start="a">
+	<li>Click the filter you want to define.</li>
+	<li>In the Filter tool (on the right) choose the operator you want to use. The list of available operators is dependent on what type of data is required for the field. Use the <b>Not</b> checkbox to indicate that you want to perform the opposite of the selected operator.</li>
+	<li>Click <b>Values</b> to see a list of values available for this filter.</li>
+	<li>In the <b>Values</b> dialog box, select the values you want to include, and click <b>OK</b>.</li>
+	<li>Click <b>Set Value</b> to set the value for the selected field. Repeat this step for each field.</li>
+	</ol>
+<li>To finish, click <b>Run</b>. The query is assigned a default name and runs. A Query window appears displaying the results.</li>
+<li>If you are satisfied with the results and want to run the query at other times, save the query by clicking <b>File > Save</b> or <b>File > Save As</b>. Specify a name and locaction to store the query.
+<li>If you want to discard the query and close the Query window, click <b>File > Close</b> and then click <b>No</b>.
+</ol>
+
+<h3><a name="StepNumber2">Viewing Query Results</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h3>
+
+<p>Query results are displayed in the <b>Results set</b> tab and listed in a grid, according to the fields you select in the Display editor. The record data is organized under various tabs in the Results grid, such as <b>Main</b>, <b>Analysis</b>, <b>Resolution</b>. The fields appearing on each tab and the number of tabs for each record may vary depending on your ClearQuest environment.</p>
+
+<h4>Tool Steps</h4>
+<p>The following steps are performed to view the results of a query using Rational ClearQuest:</p>
+<ol start="1"><li>Click the row that contains the record's information.</li>
+<li>To see more information about the record, click the appropriate tab.</li>
+</ol>
+
+
+<h3><a name="StepNumber3">Displaying Query Results</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h3>
+
+<p>Rational ClearQuest stores queries in the Private Queries and Public Queries folders. Queries you create are automatically stored in the Personal Queries folder. Both folders contain queries that are ready to be run or to be customized for personal use. </p>
+
+<h4>Tool Steps</h4>
+<p>The following steps are performed to display query results using Rational ClearQuest:</p>
+<ol start="1"><li>Open either the Private Queries or Public Queries folder to reveal the queries they contain.</li>
+<li>Double-click the query you want to run.</li>
+<li>If prompted, complete or select the options in the dialog box, and click <b>OK</b>.</li>
+</ol>
+
+<h3><a name="StepNumber4">Printing Query Results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>After running a query, you can print the records appearing on the <b>Results set</b> tab. You have the option to add headers and footers when printing the query results. The report format that is associated with the type of the record determines the fields that are printed. </p>
+
+<h4>Tool Steps</h4>
+<p>The following steps are performed to print a query result using Rational ClearQuest:</p>
+<ol start="1"><li>Run a query and select the <b>Result set</b> tab.</li>
+<li>You can add headers and footers to your query grids that are included when you print. To modify these headers and footers, do the following:
+	<ol start="a" style="a">
+	<li>Click <b>File > Headers/Footers</b></li>
+	<li>Click the <b>Headers</b> tab to add or modify the header and type the test you want to use in the respective column. You can have it centered, left-justified, or right-justified.</li>
+	<li>Click the <b>Footers</b> tab to add or modify the footer.</li>
+	<li>Select <b>Save setting to profile</b> if you want these settings to be applied the next time you run Rational ClearQuest</li>
+	<li>Click <b>OK</b>. </li>
+	</ol>
+<li>Click <b>File > Print Grid</b> or click the <b>Print</b> toolbar button. </li>
+<li>In the <b>Print</b> dialog box, set or specify options in <b>Printer</b>, <b>Print to file</b>, <b>Print range</b>, or <b>Copies</b> as needed, and click <b>OK</b>. </li>
+</ol>
+
+  
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

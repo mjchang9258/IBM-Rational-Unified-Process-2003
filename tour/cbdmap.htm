@@ -1,0 +1,537 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../rop.css" type="text/css">
+<title>Concept: Developing Component Solutions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h1 class="banner"><a name="Top"></a>Concept: <rpw name="PresentationName">Developing Component Solutions</rpw></h1>
+
+<h5><big>Topics</big></h5>
+<center>
+
+  <table border="1" width="70%" height="102" bordercolor="#CCCCCC" cellspacing="0" cellpadding="2">
+    <tr>
+    <td width="228" height="102" valign="middle">
+    <h6><b><font size="2">Activities across the lifecycle:</font></b></h6>
+    <ol>
+      <li><a href="#Introduction">Introduction</a></li>
+      <li><a href="#Inception Phase Activities">Inception Phase Activities</a></li>
+      <li><a href="#Elaboration Phase Activities">Elaboration Phase Activities</a></li>
+      <li><a href="#Construction Phase Activities">Construction Phase Activities</a></li>
+      <li><a href="#Transition Phase Activities">Transition Phase Activities</a></li>
+    </ol>
+    </td>
+      <td width="284" height="102">
+        <h6><b><font size="2">Additional topics:</font></b></h6>
+        <ul>
+          <li><b>Concepts</b>
+            <ul>
+              <li><a href="../process/workflow/ana_desi/co_dpatt.htm">distribution
+            patterns</a></li>
+            </ul>
+          </li>
+          <li><b>Guidelines</b>
+            <ul>
+              <li><a href="../process/modguide/md_cncry.htm">concurrency</a></li>
+              <li><a href="../process/modguide/md_datmd.htm">data modeling</a></li>
+              <li><a href="../process/modguide/md_acls2.htm">functionality
+            partitioning using analysis classes</a></li>
+              <li><a href="../process/modguide/md_if.htm">interfaces</a></li>
+              <li><a href="../process/modguide/md_layer.htm">layering</a></li>
+              <li><a href="../process/modguide/md_sad.htm">software architecture</a></li>
+              <li><a href="../process/modguide/md_untst.htm">unit testing components</a></li>
+              <li><a href="../process/modguide/md_dsub.htm">using design subsystems
+            to represent components</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li><b>White Papers</b>
+            <ul>
+              <li><a href="../papers/sis.htm">developing large-scale component-based
+            systems</a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+  </tr>
+</table>
+</center><h1><font face="Arial">
+<b><small><a name="Introduction">Introduction</a> </small></b></font><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<p class="node">Component-based development is a variation on
+general application development in which:</p><blockquote>
+<ul>
+  <font size="3">
+    <li>The application is <b>assembled from discrete executable components</b> 
+      which are<b> developed and deployed relatively independently of one 
+      another</b>, potentially by different teams.</li>
+    </font>
+  <font size="3">
+  <li>The application may be <b>upgraded in smaller increments</b> by
+    upgrading only some of the components that comprise the application.</li></font>
+  <font size="3">
+  <li>Components may be shared between applications, creating opportunities for <b>reuse</b>,
+    but also creating <b>inter-project dependencies</b>.</li></font>
+  <font size="3">
+  <li>Though not strictly related to being component-based, component-based
+    applications tend to be <b>distributed</b>.</li></font>
+</ul>
+</blockquote>
+<p class="node">Throughout this page, &quot;component&quot; is used to refer to 
+  these independently developed and deployable components. Elsewhere in RUP, however, 
+  we will use the term &quot;component&quot; in the more general sense described 
+  in <a href="../process/workflow/ana_desi/co_component.htm">Concepts: Component</a> 
+  , and qualify as necessary.</p>
+<p class="node">The adaptation of the Rational Unified Process (RUP) to dealing 
+  with component-based development challenges is discussed below.</p>
+<h1>
+<b><small><a name="Inception Phase Activities"><font face="Arial">Inception
+Phase Activities</font></a><font face="Arial"> </font></small></b><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<p class="node">The basic workflow for the <a href="../process/itrwkfls/iwf_iii.htm">Inception
+Phase</a> applies, with the following extensions or variations:</p>
+<h4><b>Project Management</b></h4>
+<ul>
+  <li><a href="../process/workflow/manageme/wfs_con.htm"><b>Workflow Detail: Conceive 
+    New Project</b></a></li>
+  <p class="node">The focus of the <a href="../process/activity/ac_dbzcs.htm">Activity: 
+    Develop Business Case</a> is adjusted to take into account that using components 
+    change the cost structure of development. In specific, the cost of developing 
+    components decreases, but more effort is spent on identifying components and 
+    validating that selected components meet their requirements.</p>
+ </ul>
+<ul>
+  <li><a href="../process/workflow/manageme/wfs_eval.htm"><b>Workflow
+    Detail: Evaluate Project Scope and Risk</b></a></li>
+  <p class="node">Taking a component approach changes the nature of certain
+  risks and introduces new risks. Specifically:</p>
+  <ul>
+    <li>externally-sourced components increase risk because they introduce
+      critical elements not under the direct control of the project team</li>
+    <li>externally-sourced components can reduce development time, reducing
+      resource risk</li>
+    <li>externally-sourced components can distort the architecture of the system
+      if they impose architectural restrictions of their own</li>
+  </ul>
+</ul>
+<ul>
+  <li><a href="../process/workflow/manageme/wfs_sdp.htm"><b>Workflow Detail: Plan 
+    the Project</b></a></li>
+  <p class="node">In the <a href="../process/activity/ac_plph.htm">Activity: Plan 
+    Phases and Iterations</a>, the plan for the Construction phase may potentially 
+    show the project splitting into two different but parallel tracks: one which 
+    develops the application-specific and domain-specific components (organized 
+    in the upper layers of the architecture - see <a href="../process/workflow/ana_desi/co_layer.htm">Concepts: 
+    Layering</a>), and the non-application and non-domain-specific components 
+    organized in lower layers. In some cases, reusable components will be developed 
+    by independently managed development teams. The decision to introduce parallel 
+    tracks is largely a staffing and resource issue introduced by a desire to 
+    manage reusable components as assets independent of the applications in which 
+    they are deployed.</p>
+</ul>
+
+<h4><b>Requirements</b></h4>
+
+<ul>
+  <li><a href="../process/workflow/requirem/wfs_refs.htm"><b>Workflow
+    Detail: Refine the System Definition</b></a></li>
+  <p class="node">When refining the requirements of the system, the constraints
+  imposed by the selected component framework need to be captured. Component
+  frameworks improve development productivity in part by restricting the degrees
+  of freedom offered to the software architect and designer. The <a href="../process/activity/ac_prdsrs.htm">Activity:
+  Detail the Software Requirements</a> must focus on documenting these
+  constraints.</p>
+
+</ul>
+
+<h4><b>Test</b></h4>
+<ul>
+  <li><a href="../process/workflow/test/wfs_dfnevlmsn.htm"><b>Workflow Detail: 
+    Define Evaluation Mission</b></a></li>
+  <p class="node">A test plan identifying the overall intended testing for the 
+    project should be created, called the &quot;Master Test Plan&quot;.</p>
+</ul>
+<h4><b>Environment</b></h4>
+<ul>
+  <li><a href="../process/workflow/environm/wfs_env1.htm"><b>Workflow Detail: 
+    Prepare Environment for Project</b></a></li>
+  <p class="node">When collecting and preparing guidelines for the 
+  	project, see 
+    <a href="../process/activity/ac_dvlprjspcgdl.htm">Activity: Prepare Guidelines 
+    for the Project</a> for details, take into account the specific component 
+    framework and the constraints imposed by it. Guidelines should include how 
+    to design and code using the framework. They should also provide testing guidance 
+    on how to verify conformance with <b>both</b> the component framework itself 
+    and with the interfaces defined between components.</p>
+</ul>
+<h1><b><small><a name="Elaboration Phase Activities"><font face="Arial">Elaboration
+Phase Activities</font></a><font face="Arial"> </font></small></b><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<p class="node">The basic workflow for the <a href="../process/itrwkfls/iwf_iie.htm">Elaboration
+Phase</a> applies, with the following extensions or variations:</p>
+<h4><b>Requirements</b></h4>
+<ul>
+  <li><a href="../process/workflow/requirem/wfs_refs.htm"><b>Workflow Detail: 
+    Refine the System Definition</b></a></li>
+  <p class="node">The <a href="../process/activity/ac_prdsrs.htm">Activity: Detail 
+    the Software Requirements</a> additionally focuses on the technical and non-functional 
+    requirements and constraints imposed on the components that are either built 
+    or purchased. Specific non-functional requirements to consider are size, performance, 
+    memory or disk footprint, run-time licensing issues, and similar constraints 
+    that will influence component selection or construction.</p>
+
+</ul>
+<h4><b>Analysis &amp; Design</b></h4>
+<ul>
+  <li><a href="../process/workflow/ana_desi/wfs_and1.htm"><b>Workflow Detail: 
+    Define a Candidate Architecture</b></a></li>
+  <p class="node">The <a href="../process/activity/ac_arcan.htm">Activity: Architectural 
+    Analysis</a> uses the component framework and the technical and non-functional 
+    requirements to define an initial architecture, including an initial layering 
+    scheme and a default set of components and services (represented as analysis 
+    and design mechanisms). The <a href="../process/activity/ac_ucana.htm">Activity: 
+    Use-Case Analysis</a> focuses on identifying architecturally significant components 
+    from architecturally significant use cases. 
+  </p>
+  <li><a href="../process/workflow/ana_desi/wfs_and2.htm"><b>Workflow Detail: 
+    Refine the Architecture</b></a></li>
+  <p class="node">The <a href="../process/activity/ac_strim.htm">Activity: Structure 
+    the Implementation Model</a> establishes an implementation model compatible 
+    with the component framework structure and the structure and responsibilities 
+    of the development team(s).</p>
+  <p class="node">The <a href="../process/activity/ac_dsmec.htm">Activity: Identify 
+    Design Mechanisms</a> will refine the initial design mechanisms to take into 
+    account specific framework services and components.</p>
+  <p class="node">The <a href="../process/activity/ac_iddes.htm">Activity: Identify 
+    Design Elements</a> will identify the major, architecturally significant components 
+    of the system. Potentially reusable responsibilities should be grouped together 
+    to improve reusability; application-specific functionality should be separated 
+    from domain-specific and application-and-domain-independent functionality. 
+    For purposes of design, components can be represented as <a href="../process/artifact/ar_dsub.htm">Artifact: 
+    Design Subsystem</a>s. <a href="../process/artifact/ar_if.htm">Artifact: Interface</a>s 
+    should be identified for these components/subsystems.</p>
+  <p class="node">The <a href="../process/activity/ac_incds.htm">Activity: Incorporate 
+    Existing Design Elements</a> will ensure that identified components are consistent 
+    and compatible with existing components identified in prior iterations, in 
+    the framework itself, or from outside sources.</p>
+  <p class="node">The <a href="../process/activity/ac_concr.htm">Activity: Describe 
+    the Run-time Architecture</a> describes the basic process and thread architecture 
+    of the component framework, while the <a href="../process/activity/ac_distr.htm">Activity: 
+    Describe Distribution</a> describes the distributed computing environment 
+    in which the component application will execute.</p>
+</ul>
+<ul>
+  <li><a href="../process/workflow/ana_desi/wfs_and4.htm"><b>Workflow Detail: 
+    Design Components</b></a></li>
+  <p class="node"><font size="3">The </font><a href="../process/activity/ac_subds.htm">Activity: 
+    Subsystem Design</a> further refines the design of the components, identifying 
+    classes within the component which provide the real behavior of the component. 
+    In the early stages of the Elaboration phase, there is likely to be a single 
+    class, a kind of 'subsystem/component proxy' which acts as a stub to simulate 
+    the behavior of the component for architectural prototyping purposes. Later 
+    the behavior of this class is distributed to a collaboration of classes contained 
+    within the subsystem. These contained classes are refined in the <a href="../process/activity/ac_cldes.htm">Activity: 
+    Class Design</a>.</p>
+
+</ul>
+<ul>
+  <li><a href="../process/workflow/ana_desi/wfs_and7.htm"><b>Workflow Detail: 
+    Design the Database</b></a></li>
+  <p class="node">The focus in elaboration is on ensuring that the persistence 
+    strategy is scalable and that the database design and persistence mechanism 
+    will support the throughput requirements of the system. Persistent classes 
+    are identified and mapped to the persistence mechanism. Data-intensive use 
+    cases are analyzed to ensure the mechanisms will be scalable. In conjunction 
+    with the Testing Workflow Details, the persistence mechanism and database 
+    design is assessed and validated.</p>
+</ul>
+<h4><b>Implementation</b></h4>
+<ul>
+  <li><a href="../process/workflow/implemen/wfs_implc.htm"><b>Workflow
+    Detail: Implement Components</b></a>
+    <p class="node">The <a href="../process/activity/ac_impcl.htm">Activity: Implement 
+      Design Elements</a> must conform to the constraints imposed by the component 
+      framework, 
+      as described in the Programming Guidelines, provided as part of <a href="../process/artifact/ar_projspecgls.htm">Artifact: 
+      Project-Specific Guidelines</a>. In the Elaboration phase, most of 
+      the components will contain a great deal of 'stub' code, as the implementation 
+      here focuses on validating the architecture, not producing production-quality 
+      code.</p>
+  </li>
+</ul>
+<h4><b>Test</b></h4>
+<ul>
+  <li><b>Workflow Details: <a href="../process/workflow/test/wfs_dfnevlmsn.htm">Define 
+    Evaluation Mission</a>, <a href="../process/workflow/test/wfs_vrftstapr.htm">Verify 
+    Test Approach</a>, <a href="../process/workflow/test/wfs_tstandevl.htm">Test 
+    and Evaluate</a>, <a href="../process/workflow/test/wfs_achmsnacp.htm">Achieve 
+    Acceptable Mission</a>, 
+	<a href="../process/workflow/test/wfs_imptstast.htm">Improve Test Assets</a></b> 
+    <p class="node">The testing activities in Elaboration focus on validating 
+      the architecture. For a component-based system, this focus translates to:</p>
+    <ul>
+      <li>exercising the interfaces between components, to ensure that component 
+        boundaries are appropriate, and</li>
+      <li>a greater focus on performance testing, especially performance scaling 
+        tests, to ensure that anticipated transaction volumes can be sustained</li>
+    </ul>
+    <br>
+    <p class="node">Any inherent assumptions in the component framework need to 
+      be assessed as well. These commonly include the scalability and throughput 
+      of the persistence and transaction management mechanisms, in which hidden 
+      assumptions made by the mechanism designer often effectively undermine the 
+      application architecture if it does not understand the assumption. </p>
+  </li>
+  </ul>
+    <h4><b>Project Management</b></h4>
+    <ul>
+      <li><a href="../process/workflow/manageme/wfs_plan.htm"><b>Workflow Detail: 
+        Plan for Next Iteration</b></a> 
+        <p class="node">Using the implementation subsystems as 'logical units 
+          of responsibility', the construction work can be partitioned into to 
+          or more parallel &quot;tracks&quot;: one which focuses on application-specific 
+          functionality, and one or more which focus on generic, reusable components. 
+          This, of course, depends on having sufficient resources to staff parallel 
+          development efforts. The ability to divide the development teams and 
+          work in parallel depends wholly on the stability of the architecture, 
+          and more specifically on the quality and stability of the interfaces 
+          between components. Strong effort in the Elaboration phase will enable 
+          this division.</p>
+      </li>
+    </ul>
+  <h1>
+<b><small><a name="Construction Phase Activities"><font face="Arial">Construction
+Phase Activities</font></a><font face="Arial"> </font></small></b><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<p class="node">The basic workflow for the <a href="../process/itrwkfls/iwf_lic.htm">Construction
+Phase</a> applies, with the following extensions or variations:</p>
+<h4><b>Project Management</b></h4>
+<ul>
+  <li><a href="../process/workflow/manageme/wfs_plan.htm"><b>Workflow
+    Detail: Plan for Next Iteration</b></a>
+    <p class="node">Planning for the first construction iteration was described 
+      previously, as it occurs towards the end of elaboration. Follow-on iteration 
+      planning, and the ability to divide the development teams and work in parallel, 
+      continues to be dependent on the stability of the architecture, and the 
+      quality and stability of the interfaces between components.</p>
+  </li>
+</ul>
+<h4><b>Analysis &amp; Design</b></h4>
+<ul>
+  <li><b><a href="../process/workflow/ana_desi/wfs_and2.htm">Workflow
+    Detail: Refine the Architecture</a> and <a href="../process/workflow/ana_desi/wfs_and4.htm">Workflow
+    Detail: Design Components</a></b>
+    <p class="node">The focus in construction is on analyzing the remainder of
+    the use cases and identifying appropriate components and component
+    collaborations that realize the use cases. The existing architecture is
+    expanded and completed, and the 'internal behaviors' of the component are
+    completely designed and implemented.</p>
+  </li>
+</ul>
+<ul>
+  <li><a href="../process/workflow/ana_desi/wfs_and7.htm"><b>Workflow
+    Detail: Design the Database</b></a>
+    <p class="node">The focus in construction is on completing the database
+    design, ensuring that all persistent classes are supported by both the
+    database and the persistence mechanism. This work is performed in parallel
+    and iteratively with the work done in <a href="../process/workflow/ana_desi/wfs_and2.htm">Workflow
+    Detail: Refine the Architecture</a> and <a href="../process/workflow/ana_desi/wfs_and4.htm">Workflow
+    Detail: Design Components</a>. The ideal organization is to have
+    integrated component teams, with cross-team coordination on persistence
+    issues to ensure a good database design.</p>
+  </li>
+</ul>
+<h4><b>Implementation</b></h4>
+<ul>
+  <li><a href="../process/workflow/implemen/wfs_implc.htm"><b>Workflow Detail: 
+    Implement Design Elements</b></a></li>
+  <p class="node">The work here is similar to that in Elaboration, but the remaining 
+    details are increasingly complete as the phase progresses.</p>
+  <li><a href="../process/workflow/implemen/wfs_inss.htm"><b>Workflow Detail: 
+    Integrate Each Subsystem</b></a> and <a href="../process/workflow/implemen/wfs_insy.htm"><b>Workflow 
+    Detail: Integrate the System</b></a></li>
+  <p class="node">The system is progressively built as the phase continues.</p>
+</ul>
+<h4><b>Test</b></h4>
+<ul>
+  <li><b>Workflow Details: <a href="../process/workflow/test/wfs_dfnevlmsn.htm">Define 
+    Evaluation Mission</a>, <a href="../process/workflow/test/wfs_vrftstapr.htm">Verify 
+    Test Approach</a>
+	, <a href="../process/workflow/test/wfs_vldbldstb.htm">Validate 
+    Build Stability</a>, <a href="../process/workflow/test/wfs_tstandevl.htm">Test 
+    and Evaluate</a>, <a href="../process/workflow/test/wfs_achmsnacp.htm">Achieve 
+    Acceptable Mission</a>, <a href="../process/workflow/test/wfs_imptstast.htm">Improve 
+    Test Assets</a></b></li>
+</ul>
+<ul>
+  <p class="node">Performance testing remains important, but there is an increasing 
+    focus on functional testing. Completeness of functionality, regression testing 
+    of existing functionality, as well as conformance with performance expectations 
+    need to be addressed. 
+  </p>
+</ul>
+<h1>
+<b><small><a name="Transition Phase Activities"><font face="Arial">Transition
+Phase Activities</font></a><font face="Arial"> </font></small></b><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h1>
+<ul>
+  <li><b>Product release </b>in the web environment tends to be
+    incremental and continuous, and less focused on traditional distribution of
+    media. Release planning must be adjusted accordingly.</li>
+  <li><b>Production support</b> is increasingly the focus of the
+    phase.</li>
+  <li><b>Data conversion activities</b> are performed.</li>
+</ul>
+<p>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Creating a Test Case Using Rational TestManager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Creating a Test 
+  Case Using Rational TestManager</rpw><a name="Top"></a> </h2>
+
+<h3>Purpose</h3>
+
+<p>This tool mentor describes how to use Rational TestManager to create a Test
+Case.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_dfntstdtl.htm">Define Test Details</a></li>
+<li><a href="../../process/activity/ac_tst_idntstids.htm">Identify Test Ideas</a></li>
+</ul>
+<br>
+   
+</p>
+
+<ul>
+  <li>  <a href="../testmgr/tm_tstpln.htm">Tool
+Mentor: Creating a Test Plan Using Rational TestManager</a></li>
+  <li>  <a href="../../process/artifact/ar_tstcs.htm">Artifact: Test Case</a></li>
+  <li> <a href="../../process/workflow/test/co_keyme.htm">Concepts: Key Measures 
+    of Test &#151 Requirements-based test coverage</a></li>
+  
+</ul><p> </p>
+<h3>Overview</h3>
+
+<p>A Test Case answers the question: &quot;What is it that I need to test?&quot;&nbsp;&nbsp;Test
+Cases provide the foundation<br>
+of your testing effort.&nbsp;Collectively, they organize the testing
+criteria:&nbsp;</p>
+<ul>
+  <li>What to test</li>
+  <li>How to test</li>
+  <li>When to test</li>
+</ul>
+<p>They contain&nbsp;information pertaining to design, requirement validation,
+implementation,&nbsp;and configuration.</p>
+<p>Use test cases as the basis to validate requirements, which may be based on
+input from a variety of sources: Use Test Cases in a Rational Rose model,
+specifications, Rational RequisitePro requirements, marketing collateral, code
+comments gleaned from code reviews, and change requests.&nbsp;</p>
+<p>A Test Case always resides in a test case folder of a test plan.</p>
+<p>This tool mentor applies to Windows 98/ME/XP/2000 and NT 4.0 platforms.</p>
+
+<h4>Tool Steps</h4>
+
+<p>To create a test case, perform the following steps:</p>
+<ol type="n">
+  <li><a href="#Insert a Test Case">Insert a Test Case</a>
+  <li><a href="#Fill in the properties for the Test Case">Fill in the Properties
+    of a Test Case</a></li>
+</ol>
+
+<h3>1. <a name="Insert a Test Case">Insert a Test Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The first part to creating a test case is to insert a test case into
+TestManager.&nbsp;</p>
+
+<ul>
+  <li>From the&nbsp;<b>Planning </b>tab of the Test Asset Workspace, click <b>File
+    &gt; Open Test Plan</b>.</li>
+  <li>Select the appropriate&nbsp;<b>Test Plan</b>.&nbsp;</li>
+  <li>Select the appropriate <b>Test Case Folder</b>, and right-click <b>Insert
+    Test Case</b>. The&nbsp;<b>New Test Case</b> dialog box displays.</li>
+  <li>The name of the test case is the only required field. Name your test
+    case according to what it validates, for example: Create Account. At&nbsp;
+    the<b> Name</b> field, input the appropriate name and click <b>OK.</b></li>
+</ul>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to the
+following topics in the TestManager online Help:</p>
+<ul>
+  <li><i>Inserting a test case folder into a test plan</i> (Contents: planning
+    tests)</li>
+  <li><i>Inserting a test case into a test case folder</i> (Contents: planning
+    tests)</li>
+</ul>
+
+<h3>2. <a name="Fill in the properties for the Test Case">Fill in the properties
+for the Test Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+In addition to assigning a test case name, you can assign other properties. For
+example, you can assign a test case owner, specify the configurations and
+iterations associated with the test case, and add pointers to external documents
+associated with the test case.<br>
+<br>
+Test case properties can include:
+<ul>
+  <li>A <b>description</b> of the test case &#151 Use this field to explain
+    exactly what system behavior your test case validates.
+  <li>The <b>design</b> of the test case &#151 These are the step-by-step
+    instructions of how your test case performs the specified test, including how
+    to verify proper behavior.
+  <li>The <b>owner</b> of the test case &#151 Assign ownership of feature areas
+    through test cases to structure your team.
+  <li>The <b>configurations</b> associated with the test case &#151 Specify the
+    hardware and software configurations on which the test case needs to be
+    executed to verify proper behavior.
+  <li>The <b>iterations</b> associated with the test case &#151 By associating a
+    test case with an iteration, you make it part of the acceptance criteria for
+    that iteration. This helps give you insight into when you need to execute
+    your test cases.
+  <li>The <b>test inputs</b> associated with the test case &#151 Associate test
+    inputs with test cases. Test inputs are the motivators for the test case. A
+    test case may be one of many that verifies the test input; for example, a
+    requirement. Test inputs come from a wide variety of sources: Use Cases in a
+    Rational Rose model, specifications, Rational RequisitePro requirements,
+    marketing collateral, code comments gleaned from code reviews, and change
+    requests.
+  <li>The <b>external documents</b> associated with the test case &#151 External
+    documents may contain anything from detailed test designs to specifications
+    of data to be used with the implementation of your test case.
+  <li>The <b>manual and/or automated implementation</b> of the test case &#151
+    Implement your test case either by automated test scripts, manual script, or
+    both.</li>
+</ul>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to the
+following topics  in the TestManager online Help:</p>
+<ul>
+  <li><i>Associating a Configuration with a Test Case </i>(Contents: Planning
+    Tests)</li>
+  <li><i>Associating an Iteration with a Test Case </i>(Contents: Planning
+    Tests)</li>
+  <li><i>Designing Tests</i> (Contents: Planning Tests)</li>
+  <li><i>Associating an Implementation with a Test Case</i> (Index:
+    Implementing)</li>
+</ul>
+
+<p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</p>
+
+</body>
+
+</html>
+

@@ -1,0 +1,326 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Workflow Detail:&nbsp;Refine Business Process Definitions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 align="left" class="banner">Workflow Detail:&nbsp;<rpw name="PresentationName">Refine 
+  Business Process Definitions</rpw> <a name="Top"></a> </h2>
+
+<div align="center">
+  <table width="100%" cellpadding="4" border="0" bordercolor="#808080">
+    <tr> 
+      <td colspan="2" valign="top" bgcolor="#FFFFFF" height="28"> 
+        <p>The purpose of this workflow detail is to detail the business process 
+          descriptions and describe how they support the business goals.</p>
+        </td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" bgcolor="#CCCCCC" height="123"> 
+        <h5><br>Topics</h5>
+        <ul>
+          <li><a href="#Description">Description</a></li>
+          <li><a href="#RelatedInformation">Related Information</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Optionality">Optionality</a>&nbsp;</li>
+          <li><a href="#HowToStaff">How to Staff</a></li>
+          <li><a href="#WorkGuidelines">Work Guidelines</a></li>
+        </ul>
+      </td>
+      <td width="90%" height="123"> 
+        <p align="center"><a name="Overview"><map name="RPWMap0">
+
+ 
+    <area href="../../activity/ac_sbucm.htm" shape="rect" coords="109,23,172,85">
+    
+
+    <area href="../../workers/wk_bpan.htm" shape="rect" coords="18,14,78,81">
+    
+
+    <area href="../../artifact/ar_rvrec.htm" shape="rect" coords="375,149,412,211">
+    
+
+    <area href="../../artifact/ar_sbs.htm" shape="rect" coords="318,263,370,338">
+    
+
+    <area href="../../workers/wk_sthld.htm" shape="rect" coords="212,22,262,152">
+    
+
+    <area href="../../workers/wk_tchrvw.htm" shape="rect" coords="282,54,335,124">
+    
+
+    <area href="../../workers/wk_bdes.htm" shape="rect" coords="54,268,100,335">
+    
+
+    <area href="../../artifact/ar_buc.htm" shape="rect" coords="254,271,306,335">
+    
+
+    <area href="../../artifact/ar_bucm.htm" shape="rect" coords="114,145,174,213">
+    
+
+    <area href="../../activity/ac_rvbuc.htm" shape="rect" coords="274,156,351,204">
+    
+
+    <area href="../../activity/ac_debuc.htm" shape="rect" coords="129,278,189,328">
+    
+
+    <area href="../../artifact/ar_brules.htm" shape="rect" coords="6,166,55,223">
+    
+
+    <area href="../../artifact/ar_bvsio.htm" shape="rect" coords="46,115,85,174">
+    
+
+    <area href="../../artifact/ar_bgloss.htm" shape="rect" coords="58,176,104,240">
+    
+
+    <area href="../../artifact/ar_bgoal.htm" coords="200,191,244,248" shape="rect">
+    
+<area shape="rect" coords="379,215,448,279" href="../../artifact/ar_projspecgls.htm">
+</map><img border="0" src="images/wfg_dbuc.gif" width="455" height="343" usemap="#RPWMap0">
+</a> </p>
+      </td>
+    </tr>
+  </table>
+<br></div>
+
+<h4><a name="Description">Description</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>Each business use case will be assigned to a subset of the business-modeling 
+  team, who will describe it in detail. Acting as business designer, this subset 
+  team will complete the definition of the business use case and lead a review 
+  session for it. Other members of the business-modeling team are invited to this 
+  review session to act as business-model reviewers. The business designers might 
+  also invite representatives of the stakeholders to the project, such as end 
+  users.</p>
+<p>The purpose of this workflow detail is to:</p>
+<ul>
+  <li>Detail the definition of the business use cases.</li>
+  <li>Describe how the business use cases support the business goals.</li>
+  <li>Verify that the business use case correctly reflects how business is conducted.</li>
+</ul>
+<p>It may be necessary to restructure the <a href="../../artifact/ar_bucm.htm">Business 
+  Use Case Model</a> to improve understanding or readability, but restructuring 
+  should not be attempted too early. This is because it is best to wait until 
+  the level of understanding of the business use cases has become sufficient enough 
+  to prevent the introduction of unnecessary complexity during restructuring. 
+  Usually, any necessary restructuring should be performed after this workflow 
+  detail has been reached. </p>
+<p>Common sub-flows might be identified, as well as relationships between <a href="../../artifact/ar_buc.htm">business 
+  use cases</a>. Business use cases may also be grouped into packages. Restructuring 
+  should occur only to make the model more understandable or manageable.</p>
+<p>Once the <a href="../../artifact/ar_buc.htm">business use cases</a> have become 
+  somewhat stabilized, the highest priority ones must be detailed. This entails 
+  further describing each step of the business use case, as well as completing 
+  its remaining properties (preconditions, post-conditions, and special requirements). 
+  While detailing the highest priority business use cases, certain quantitative 
+  and qualitative requirements governing their behavior might be discovered (for 
+  example, required turnaround time or process flexibility). If these requirements 
+  are applicable to the business use case only, they should be captured in the 
+  Special Requirements property of the business use case. Otherwise, they should 
+  be captured in the <a href="../../artifact/ar_sbs.htm">Supplementary Business 
+  Specification</a>.</p>
+<p>The <a href="../../artifact/ar_bucm.htm">Business Use Case Model</a> must be 
+  reviewed to ensure that it remains succinct and understandable to all stakeholders. 
+  The <a href="../../artifact/ar_sbs.htm">Supplementary Business </a><a href="../../artifact/ar_bucm.htm">Specification</a> 
+  must also be reviewed to ensure that the requirements are clear and realistic.</p>
+
+<h4><a name="RelatedInformation">Related Information</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>This section provides links to additional information related to this workflow detail.</p>
+
+  
+<h4><a name="Timing">Timing</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>Begins in Inception phase, repeated in later iterations as required/planned.</p>
+
+<h4><a name="Optionality">Optionality</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>Recommended for business modeling efforts aimed at engineering or re-engineering a business.</p>
+
+<h4><a name="HowToStaff">How to Staff</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>A person acting as business designer must have strong writing skills. Knowledge 
+  of the business domain is, of course, also helpful, but this can be obtained 
+  by involving domain experts as reviewers.</p>
+
+<h4><a name="WorkGuidelines">Work Guidelines</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>The core development team must conduct a few rounds of internal walkthroughs 
+  facilitated by the business designer. These walkthroughs will clean up any inconsistencies 
+  before the work of the core development team is more formally inspected and 
+  reviewed by the extended team.</p>
+<p>The team divides the material so that they do not have to review everything 
+  at once. The review meeting (covering the most important business use cases) 
+  should not take more than a day.</p>
+<p><a href="../../activity/ac_rvbuc.htm">Activity: Review the Business Use-Case 
+  Model</a> contains checklists that will be helpful when you are reviewing a 
+  business use case. See also <a href="../../workguid/wg_rview.htm">Work Guideline: 
+  Reviews</a>.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+
+</body>
+
+</html>

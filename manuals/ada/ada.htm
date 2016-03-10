@@ -1,0 +1,2823 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Ada Programming Guidelines</title>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+ 
+
+
+
+<h1 align="CENTER" class="banner"><a name="XE_Ada_Programming_Guidelines"></a><a name="XE_Programming_Guidelines_document__Ada_Programming_Guidelines"></a>
+<rpw name="PresentationName">Ada Programming Guidelines</rpw></h1>
+
+<h5>Copyright &copy; 1997 Rational Software Corporation.<br>
+All rights reserved.<br>
+<br>
+The word &quot;Rational&quot; and Rational's products are trademarks of Rational
+Software Corporation. References to other companies and their products use
+trademarks owned by the respective companies and are for reference purpose only.</h5>
+<hr align="left">
+<h1>Contents</h1>
+<h3><a href="#anchor5153777">About this Document</a></h3>
+<h3><a href="#anchor5154670">Introduction</a></h3>
+<h4><a href="#anchor5154670">Fundamental Principles</a><br>
+<a href="#anchor5410283">Assumptions</a><br>
+<a href="#anchor5411263">Classification of Guidelines</a><br>
+<a href="#anchor5412258">The First and Last Guideline</a></h4>
+<h3><a href="#anchor5156132">Code Layout</a></h3>
+<h4><a href="#anchor5156132">General</a><br>
+<a href="#anchor5413805">Letter Case</a><br>
+<a href="#anchor5414628">Indentation</a><br>
+<a href="#anchor5415464">Line Length and Line Breaks</a><br>
+<a href="#anchor5416253">Alignments</a></h4>
+<h3><a href="#anchor5157422">Comments</a></h3>
+<h4><a href="#anchor5157422">General</a><br>
+<a href="#anchor5417984">Guidelines for the Use of Comments</a></h4>
+<h3><a href="#anchor5158239">Naming Conventions</a></h3>
+<h4><a href="#anchor5158239">General</a><br>
+<a href="#anchor5419947">Packages</a><br>
+<a href="#anchor5420811">Types</a><br>
+<a href="#anchor5421958">Exceptions</a><br>
+<a href="#anchor5422907">Subprograms</a><br>
+<a href="#anchor5424181">Objects and Subprogram (or Entry) Parameters</a><br>
+<a href="#anchor5425191">Generic Units</a><br>
+<a href="#anchor5426206">Naming Strategies for Subsystems</a></h4>
+<h3><a href="#anchor5159726">Declarations of Types, Objects, and Program Units</a></h3>
+<h4><a href="#anchor5428537">Enumeration Types</a><br>
+<a href="#anchor5429626">Numeric Types</a><br>
+<a href="#anchor5430745">Real Types</a><br>
+<a href="#anchor5431859">Record Types</a><br>
+<a href="#anchor5433114">Access Types</a><br>
+<a href="#anchor5434441">Private Types</a><br>
+<a href="#anchor5435613">Derived Types</a><br>
+<a href="#anchor5436675">Object Declarations</a><br>
+<a href="#anchor5440697">Subprograms and Generic Units</a></h4>
+<h3><a href="#anchor5161086">Expressions and Statements</a></h3>
+<h4><a href="#anchor5161086">Expressions</a><br>
+<a href="#anchor5444672">Statements</a><br>
+<a href="#anchor5446110">Coding Hints</a></h4>
+<h3><a href="#anchor5162436">Visibility Issues</a></h3>
+<h4><a href="#anchor5162436">Overloading and Homographs</a><br>
+<a href="#anchor5448097">Context Clauses</a><br>
+<a href="#anchor5449655">Renamings</a><br>
+<a href="#anchor5450738">Note about Use Clauses</a></h4>
+<h3><a href="#anchor5163153">Program Structure and Compilation Issues</a></h3>
+<h4><a href="#anchor5163153">Decomposition of Packages</a><br>
+<a href="#anchor5452557">Structure of Declarative Parts</a><br>
+<a href="#anchor5453895">Context Clauses</a><br>
+<a href="#anchor5455075">Elaboration Order</a></h4>
+<h3><a href="#anchor5164826">Concurrency</a></h3>
+<h3><a href="#anchor5165643">Error Handling and Exceptions</a></h3>
+<h3><a href="#anchor5166654">Low-Level Programming</a></h3>
+<h4><a href="#anchor5458692">Representation Clauses and Attributes</a><br>
+<a href="#anchor5460020">Unchecked Conversions</a></h4>
+<h3><a href="#anchor5168080">Summary</a></h3>
+<h3><a href="#anchor5169125">References</a></h3>
+<h3><a href="#anchor5169786">Glossary</a></h3>
+<hr align="left">
+<h2><a name="anchor5153777"></a><i>Chapter 1</i></h2>
+<h1>About this Document</h1>
+<p>This document <i>Rational Unified Process - Ada Programming Guidelines</i> is
+a template that can be used to derive a coding standard for your own
+organization. Its specifies how Ada programs must be written. Its intended
+audience are all application software designers and developers who use Ada as
+the implementation language, or as a design language for specifying interfaces
+or data structures for example.</p>
+<p>The rules described in this document cover most aspects of coding. General
+rules apply to program layout, naming conventions, use of comments. Specific
+rules apply to selected Ada features and specify forbidden constructs,
+recommended usage patterns, and general hints to enhance program quality.</p>
+<p>There is a certain degree of overlap between the project <i>design</i>
+guidelines and the present <i>programming</i> guidelines, and this is
+intentional. Many coding rules, especially in the area of <i>naming conventions</i>,
+have been introduced to actively support and reinforce an <i>object-oriented</i>
+approach to software design.</p>
+<p>The guidelines were originally written for Ada 83. They include compatibility
+rules with Ada 95, but no specific guidelines for the use of the new features of
+the language introduced in the revised language standard, such as tagged types,
+child units or decimal types.</p>
+<p>The document organization follows loosely the structure of the Ada Reference
+Manual <a href="#anchor247944">[ISO 8052]</a>.</p>
+<p>Chapter 2, <i>Introduction</i>, explains the fundamental principles on which
+the guidelines are based, and introduces a classification of guidelines.</p>
+<p>Chapter 3, <i>Code layout</i>, deals with the general visual organization of
+the text of the programs.</p>
+<p>Chapter 4, <i>Comments</i>, gives guidance on how to use comments to document
+the code in a structured, useful and maintainable fashion.</p>
+<p>Chapter 5, <i>Naming conventions</i>, gives some general rules about naming
+language entities, and examples. This chapter must be tailored to suit the needs
+of your particular project or organization.</p>
+<p>Chapter 6, <i>Declarations</i>, and Chapter 7, <i>Expression and statements</i>,
+give further advice on each kind of language construct.</p>
+<p>Chapter 8, <i>Visibility issues</i>, and Chapter 9, <i>Program structure and
+compilation issues</i>, give guidance on global structuring and organization of
+the programs.</p>
+<p>Chapter 10, <i>Concurrency</i>, deals with the specialized topic of using
+tasking and time-related features of the language.</p>
+<p>Chapter 11, <i>Error-handling and exceptions</i> gives some guidance on how
+to use or not use exception to handle errors in a systematic and light-weight
+fashion.</p>
+<p>Chapter 12, <i>Low-level programming</i>, deals with issues of representation
+clauses.</p>
+<p>Chapter 13, <i>Summary</i>, recapitulates the most important guidelines.</p>
+<p>This document replaces <i>Ada Guidelines: Recommendations for Designers and
+programmers</i>, Application Note #15, Rational, Santa Clara, CA., 1990.</p>
+<hr align="left">
+<h2><a name="anchor5154670"></a><i>Chapter 2</i></h2>
+<h1>Introduction</h1>
+<h2>Fundamental Principles</h2>
+<p>Ada was explicitly designed to support the development of high-quality,
+reliable, reusable, and portable software <a href="#anchor247944">[ISO 87, sect.
+1.3]</a>. However, no programming language on its own can ensure that this is
+achieved. Programming has to be done as part of a well-disciplined process.</p>
+<p>Clear, understandable Ada source code is the primary goal of most of the
+guidelines provided here. This is a major contributing factor to reliability and
+maintainability. What is meant by clear and understandable code can be captured
+in the following three simple fundamental principles.</p>
+<h3>Minimal Surprise</h3>
+<p>Over its lifetime, source code is read more often than it is written,
+especially specifications. Ideally, code should read like an English-language
+description of what is being done, with the added benefit that it executes.
+Programs are written more for people than for computers. Reading code is a
+complex mental process that can be supported by uniformity, also referred to in
+this guide as the <i>minimal-surprise principle</i>. A uniform style across an
+entire project is a major reason for a team of software developers to agree on
+programming standards, and it should not be perceived as some kind of punishment
+or as an obstacle to creativity and productivity.</p>
+<h3>Single Point of Maintenance</h3>
+<p>Another important principle underlying this guide is the <i>single-point-of-maintenance
+principle</i>. Whenever possible, a design decision should be expressed at only
+one point in the Ada source, and most of its consequences should be derived
+programmatically from this point. Violations of this principle greatly
+jeopardize maintainability and reliability, as well as understandability.</p>
+<h3>Minimal Noise</h3>
+<p>Finally, as a major contribution to legibility, the <i>minimal-noise
+principle</i> has been applied. That is, an effort has been made to avoid
+cluttering the source code with visual &quot;noise&quot;: bars, boxes, and other
+text with low information content or information that does not contribute to the
+understanding of the purpose of the software.</p>
+<p>Portability and reusability are also reasons for many of the guidelines. The
+code will have to be ported to several different compilers for different target
+computers, and eventually to a more advanced version of Ada, called &quot;Ada
+95&quot; <a href="#anchor245999">[PLO92,</a> <a href="#anchor243927">TAY92]</a>.</p>
+<h2><a name="anchor5410283"></a>Assumptions</h2>
+<p>The guidelines presented here make a small number of basic assumptions:</p>
+<h3>The reader knows Ada.</h3>
+<p>The use of advanced Ada features is encouraged wherever beneficial, rather
+than discouraged on the ground that some programmers are unfamiliar with them.
+This is the only way in which the project can really benefit from using Ada. Ada
+should not be used as if it were Pascal or FORTRAN. Paraphrasing the code in
+comments is discouraged; on the contrary, Ada should be used in place of
+comments wherever feasible.</p>
+<h3>The reader knows English.</h3>
+<p>Many of the naming conventions are based on English, both vocabulary and
+syntax. Moreover, Ada keywords are common English words, and mixing them with
+another language degrades legibility.</p>
+<h3>The use of use clauses is highly restricted.</h3>
+<p>Naming conventions and a few other rules assume that &quot;use&quot; clauses
+are not used.</p>
+<h3>A very large project is being dealt with.</h3>
+<p>Many rules offer the most value in large Ada systems, although they can also
+be used in a small system, if only for the sake of practice and uniformity at
+the project or corporate level.</p>
+<h3>Source code is being developed on the Rational Environment.</h3>
+<p>By using the Rational Environment, issues such as code layout, identifiers in
+closing constructs, and so on are taken care of by the Ada editor and formatter.
+However, the layout recommendations contained in this document can be applied on
+any development platform.</p>
+<h3>Coding follows an object-oriented design</h3>
+<p>Many rules will support a systematic mapping of object-oriented (OO) concepts
+to Ada features and specific naming conventions.</p>
+<h2><a name="anchor5411263"></a>Classification of Guidelines</h2>
+<p>These guidelines are not of equal importance. They roughly follow this scale:</p>
+<h3>Hint:<img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28"></h3>
+<p>The guideline is a simple piece of advice; there is no real harm done by not
+following it, and it can be selected or rejected as a matter of taste. Hints are
+marked in this document with the above symbol.</p>
+<h3>Recommendation:<img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37"></h3>
+<p>The guideline is usually based on more technical grounds; portability or
+reusability may be affected, as well as performance in some implementations.
+Recommendations must be followed unless there is a good reason not to. Some
+exceptions are mentioned in this document. Recommendations are marked in this
+document by the above symbol.</p>
+<h3>Restriction:<img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35"></h3>
+<p>The feature in question is dangerous to use, but it is not completely banned;
+the decision to use it should be a project-level decision, and that decision
+should be made highly visible. Restrictions are marked in this document by the
+symbol presented above.</p>
+<h3>Requirement:<img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17"></h3>
+<p>A violation would definitely lead to bad, unreliable, or non-portable code.
+Requirements cannot be violated. Requirements are marked in this document the
+pointing hand above.</p>
+<p>The Rational Design Facility will be used to flag the use of restricted
+features and to enforce required rules and many of the recommendations.</p>
+<p>Contrary to many other Ada coding standards, very few Ada features are in
+fact completely banned in these guidelines. The key to good software resides in:
+<ul>
+  <li>Knowing each feature, its limitations, and its potential dangers</li>
+  <li>Knowing exactly in which circumstances the feature is safe to use</li>
+  <li>Making the decision to use the feature highly visible</li>
+  <li>Using the feature with great care and moderation, where appropriate.</li>
+</ul>
+<h2><a name="anchor5412258"></a>The First and Last Guideline</h2>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Use common
+sense.</p>
+<p>When you cannot find a rule or guideline, when the rule obviously does not
+apply, when everything else fails: use common sense, and check the fundamental
+principles. This rule overrides all of the others. Common sense is <i>required</i>.</p>
+<hr align="left">
+<h2><a name="anchor5156132"></a><i>Chapter 3</i></h2>
+<h1>Code Layout</h1>
+<h2>General</h2>
+<p>The layout of a program unit is completely under the control of the Rational
+Environment Formatter, and the programmer should not have to worry too much
+about the layout of a program, except in comments and blank space. The
+formatting conventions adopted by this tool are those expressed in Appendix E of
+the Reference Manual for the Ada Programming Language <a href="#anchor247944">[ISO87]</a>.
+In particular, they suggest that the keywords starting and ending a structured
+construct be vertically aligned. Also the identifier of a construct is
+systematically repeated at the end of the construct.</p>
+<p>The precise behavior of the formatter is controlled by a series of <i>library
+switches</i> which receive a uniform set of values throughout the project, based
+on a common model world. The relevant switches are listed below with their
+current value for the <i>model world</i> we recommend.</p>
+<h2><a name="anchor5413805"></a>Letter Case</h2>
+<h3>Format . Id_Case : Letter_Case := Capitalized</h3>
+<p>Specifies the case of identifiers in Ada units: the very first letter, and
+each first letter after an underscore are in uppercase. The capitalized form is
+recognized as the most legible form by human readers, with most modern screen
+and laser printer fonts.</p>
+<h3>Format . Keyword_Case : Letter_Case := Lower</h3>
+<p>Specifies the case of Ada keywords. This distinguishes them slightly from
+identifiers.</p>
+<h3>Format . Number_Case : Letter_Case := Upper</h3>
+<p>Specifies the case of the letter &quot;E&quot; in floating-point literals and
+based digits (&quot;A&quot; to &quot;F&quot;) in based literals.</p>
+<h2><a name="anchor5414628"></a>Indentation</h2>
+<p>An Ada unit is formatted according to the general conventions expressed in
+Appendix E of the Ada Reference Manual <a href="#anchor247944">[ISO87]</a>. This
+means that the keywords starting and ending a structured construct are aligned.
+For example, &quot;loop&quot; and &quot;end loop&quot;, &quot;record&quot; and
+&quot;end record&quot;. Elements that are <i>inside</i> structured constructs
+are <i>indented</i> to the right.</p>
+<h3>Format . Major_Indentation : Indent_Range := 3</h3>
+<p>Specifies the number of columns that the formatter indents structured (major)
+constructs such as &quot;if&quot; statements, &quot;case&quot; statements, and
+&quot;loop&quot; statements.</p>
+<h3>Format . Minor_Indentation : Indent_Range := 2</h3>
+<p>Specifies the number of columns that the formatter indents minor constructs:
+record declarations, variant record declarations, type declarations, exception
+handlers, alternatives, case statements, and named and labeled statements.</p>
+<h2><a name="anchor5415464"></a>Line Length and Line Breaks</h2>
+<h3>Format . Line_Length : Line_Range := 80</h3>
+<p>Specifies the number of columns used by the formatter for printing lines in
+Ada units before wrapping them. This allows the display of formatted units with
+traditional VT100 like terminals.</p>
+<h3>Format . Statement_Indentation : Indent_Range := 3</h3>
+<p>Specifies the number of columns the formatter indents the second and
+subsequent lines of a statement when the statement has to be broken because it
+is longer than Line_Length. The formatter indents Statement_Indentation number
+of columns only if there is no lexical construct with which the indented code
+can be aligned.</p>
+<h3>Format . Statement_Length : Line_Range := 35</h3>
+<p>Specifies the number of columns reserved on each line to display a statement.
+If the current level of indentation allows for fewer than Statement_Length
+columns on a line, then the formatter starts over with the Wrap_Indentation
+column as its new level of indentation. This practice prevents deeply nested
+statements from being printed beyond the right margin.</p>
+<h3>Format . Wrap_Indentation : Line_Range := 16</h3>
+<p>Specifies the column at which the formatter begins the next level of
+indentation when the current level of indentation does not allow for
+Statement_Length. This practice prevents deeply nested statements from being
+printed beyond the right margin.</p>
+<h2><a name="anchor5416253"></a>Alignments</h2>
+<h3>Format . Consistent_Breaking : Integer := 1</h3>
+<p>Controls the formatting of lists of the form (xxx:aaa; yyy:bbb), which appear
+in subprogram formal parts and as discriminants in type declarations. It also
+controls formatting of lists of the form (xxx=&gt;aaa, yyy=&gt;bbb), which
+appear in subprogram calls and aggregates. Since this option is non-zero (True),
+when a list does not fit on a line, every element of the list begins on a new
+line.</p>
+<h3>Format . Alignment_Threshold : Line_Range := 20</h3>
+<p>Specifies the number of blank spaces that the formatter can insert to align
+lexical constructs in consecutive statements, such as colons, assignments, and
+arrows in named notation. If more than this number of spaces would be needed to
+align a construct, the construct is left unaligned.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Note that in
+order to force a certain layout, the programmer can insert an end-of-line, or
+line break that will not be removed by the formatter by entering &lt;space&gt;
+&lt;space&gt; &lt;carriage-return&gt;.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Using this
+technique, and in order to improve legibility and maintainability, lists of Ada
+elements should be broken to contain only one element per line, when the list
+exceeds 3 items, and when they do not fit on one line. In particular this
+applies to the following Ada constructs (as defined in Appendix E of the Ada
+Reference Manual <a href="#anchor247944">[ISO87]</a>):</p>
+<p>argument association</p>
+<pre>pragma Suppress (Range_Check,
+                 On =&gt; This_Type,
+                 On =&gt; That_Type,                 On =&gt; That_Other_Type);      </pre>
+<p>identifier list, component list</p>
+<pre>Next_Position,
+Previous_Position,
+Current_Position : Position;
+type Some_Record is 
+    record
+        A_Component,
+        B_Component,
+        C_Component : Component_Type;
+    end record;      </pre>
+<p>enumeration type definition</p>
+<pre>type Navaid is 
+       (Vor, 
+        Vor_Dme, 
+        Dme, 
+        Tacan, 
+        Vor_Tac, 
+        NDB);      </pre>
+<p>discriminant constraint</p>
+<pre>subtype Constrained is Element 
+        (Name_Length    =&gt; Name'Length,
+         Valid          =&gt; True,
+         Operation      =&gt; Skip);      </pre>
+<p>sequence of statements (done by formatter)</p>
+<p>formal part, generic formal part, actual parameter part, generic actual
+parameter part</p>
+<pre>procedure Just_Do_It (This     : in Some_Type;
+                      For_That : in Some Other_Type;
+                      Status   : out Status_Type);
+Just_Do_It (This     =&gt; This_Value;
+            For_That =&gt; That_Value;
+            Status   =&gt; The_Status);      </pre>
+<hr align="left">
+<h2><a name="anchor5157422"></a><i>Chapter 4</i></h2>
+<h1>Comments</h1>
+<h2>General</h2>
+<p>Contrary to a widely held belief, good programs are not characterized by the <i>number</i>
+of comments, but by their <i>quality</i>.</p>
+<p>Comments should be used to <i>complement</i> Ada code, never to paraphrase
+it. Ada by itself is a very legible programming language-even more so when
+supported by good naming conventions. Comments should supplement Ada code by
+explaining what is not obvious; they should not duplicate the Ada syntax or
+semantics. Comments should help the reader to grasp the background concepts, the
+dependencies, and especially complex data encoding or algorithms. Comments
+should highlight deviations from coding or design standards, use of restricted
+features, and special &quot;tricks.&quot; Comment frames, or forms, that appear
+systematically for each major Ada construct (such as subprograms and packages)
+have the benefit of uniformity and of reminding the programmer to document the
+code, but they often lead to a paraphrasing style. For each comment, the
+programmer should be able to answer well the question: &quot;What value is added
+by this comment?&quot;</p>
+<p>A misleading or wrong comment is worse than no comment at all. Comments
+(unless they participate in some formal Ada Design Language (ADL) or Program
+Design Language (PDL), as with the Rational Design Facility) are not checked by
+the compiler. Therefore, in accordance with the single-point-of-maintenance
+principle, design decisions should be expressed in Ada rather than in comments,
+even at the expense of a few more declarations.</p>
+<p>As a (not so good) example, consider the following declaration:</p>
+<pre>------------------------------------------------------------
+-- procedure Create
+------------------------------------------------------------
+--
+   procedure Create
+              (The_Subscriber: in out Subscriber.Handle;
+               With_Name     : in out Subscriber.Name);
+--
+-- Purpose: This procedure creates a subscriber with a given
+-- name. 
+--
+-- Parameters: 
+-     The_Subscriber    :mode in out, type Subscriber.Handle
+-               It is the handle to the created subscriber
+-     With_Name         :mode in, type Subscriber.Name
+-               The name of the subscriber to be created.
+-               The syntax of the name is
+--                 &lt;letter&gt; { &lt;letter&gt; | &lt;digit&gt; }
+-- Exceptions:
+--    Subscriber.Collection_Overflow when there is no more
+--    space to create a new subscriber
+--    Subscriber.Invalid_Name when the name is blank or
+--    malformed
+--
+-------------------------------------------- end Create ----      </pre>
+<p>Several points can be made about this example.
+<ul>
+  <li>There is much redundancy:</li>
+</ul>
+<dl>
+  <dd>- Procedure Create: If the name needs to be changed, there are several
+    places to change it; consistent changes to the comment will not be enforced
+    by the compiler.</dd>
+  <dd>- Parameters, with their name, mode, and type, need not be repeated in
+    comments.</dd>
+  <dd>- Good names chosen for each Ada entity involved here make purpose and
+    parameter explanations redundant. Note that this is true for a simple
+    subprogram as shown above. A more complex subprogram still requires
+    explanation of purpose and parameters.</dd>
+</dl>
+<ul>
+  <li>The frame adds too much noise and hides the key item: the procedure
+    declaration. Also, the vertical border on the right looks nice initially but
+    makes modification painful, and it usually ends up totally misaligned and
+    with holes after a few years of maintenance.</li>
+  <li>Contrarily, it is necessary to document which exceptions are raised here,
+    since it is not obvious from just reading the specification. However, the
+    precise meaning of each exception should be left attached to the exception
+    declarations themselves.</li>
+        <li>Preconditions and postconditions on the parameters should be expressed, 
+          particularly stressing relationships between parameters. These should 
+          not duplicate information found elsewhere, such as the syntax of valid 
+          names, which should be expressed at only one point.</li>
+</ul>
+<p>In this case, the following more concise and useful version is preferred:</p>
+<pre>procedure Create (The_Subscriber : in out Subscriber.Handle;
+                  With_Name      : in    Subscriber.Name);--
+-­Raises Subscriber.Collection_Overflow.
+-­Raises Subscriber.Invalid_Name when the name is 
+­­blank or malformed (see syntax description 
+­­attached to  declaration of type Subscriber.Name).      </pre>
+<h2><a name="anchor5417984"></a>Guidelines for the Use of Comments</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Comments
+should be placed near the code they are associated with, with the same
+indentation, and attached to that code-that is, with blank comment line(s)
+visually tying the block of comments to the Ada construct:</p>
+<pre>procedure First_One;
+--
+-- This comment relates to First_One.
+-- But this comment is for Second_One.
+-- 
+procedure Second_One (Times : Natural);      </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use blank
+lines to separate related blocks of source code (comments and code) rather than
+heavy comment lines such as:</p>
+<pre>-------------------------------------------------------------      </pre>
+<p>or:</p>
+<pre>--===========================================================      </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use empty
+comments, rather than empty lines, within a single comment block to separate
+paragraphs:</p>
+<pre>-- Some explanation here that needs to be continued in a
+-- subsequent paragraph.
+--
+-- The empty comment line above makes it clear that we 
+-- are dealing with a single comment block.      </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Although
+comments can be placed above or below the Ada construct(s) to which they are
+related, place comments such as a section title or a major piece of information
+that applies to several Ada constructs <i>above</i> the construct(s). Place
+comments that are remarks or additional information <i>below</i> the Ada
+construct to which they apply.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Group
+comments at the beginning of the Ada construct, using the whole width of the
+page. Avoid comments on the same line as an Ada construct. These comments often
+become misaligned. Such comments are tolerated, however, in descriptions of each
+element in long declarations, such as enumeration type literals.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use a small
+hierarchy of standard blocks of comments for section titles, but only in very
+large Ada units (&gt;200 declarations or statements):</p>
+<pre>--===========================================================
+--
+­­               MAJOR TITLE HERE
+--
+--===========================================================
+
+
+-------------------------------------------------------------
+­­               Minor Title Here
+-------------------------------------------------------------
+
+
+­­             --------------------
+­­               Subsection Header
+­­             --------------------      </pre>
+<p>Put more blank lines above such title comments than below-for example, two
+lines before and one line after. This visually associates the title with the
+following text.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid the
+use of headers containing information such as author, phone numbers, dates of
+creation and modification, and location of unit (or filename), because this
+information rapidly becomes obsolete. Place ownership copyright notices at the
+end of the unit, especially when using the Rational Environment. When accessing
+the source of a package specification-by pressing [Definition] on the Rational
+Environment, for instance-the user does not want to have to scroll through two
+or three pages of text that is not useful for the understanding of the program,
+and/or text that does not carry any program information at all, such as a
+copyright notice. Avoid the use of vertical bars or closed frames or boxes,
+which just add visual noise and are difficult to keep consistent. Use Rational
+CMVC notes (or some other form of software development files) to keep unit
+history.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not
+replicate information normally found elsewhere; provide a pointer to the
+information.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use Ada
+wherever possible, rather than a comment. To achieve this, you can use better
+names, extra temporary variables, qualification, renaming, subtypes, static
+expressions, and attributes, all of which do not affect the generated code (at
+least with a good compiler). You can also use small, inlined predicate functions
+and split the code into several parameterless procedures, whose names provide
+titles for several discrete sections of code.</p>
+<p>Examples:</p>
+<p>Replace:</p>
+<pre>exit when Su.Locate (Ch, Str) /= 0; 
+-- Exit search loop when found it.      </pre>
+<p>with:</p>
+<p>Search_Loop : loop</p>
+<p>Found_It := Su.Locate (Ch, Str) /= 0;</p>
+<p>exit Search_Loop when Found_It</p>
+<p>end Search_Loop;</p>
+<p>Replace:</p>
+<pre>if Value &lt; 'A' or else Value &gt; 'Z' then 
+-- If not in uppercase letters.      </pre>
+<p>with:</p>
+<pre>subtype Uppercase_Letters is Character range 'A' .. 'Z';
+if Value not in Uppercase_Letters then ...      </pre>
+<p>Replace:</p>
+<pre>X := Green;         -- This is the Green from 
+                    -- Status, not from Color.
+raise Fatal_Error;  -- From package Outer_Scope.
+delay 384.0;        -- Equal to 6 minutes and 24 
+                    -- seconds.      </pre>
+<p>with:</p>
+<pre>The_Status := Green;      </pre>
+<p>or:</p>
+<pre>
+X := Status'(Green);
+raise Outer_Scope.Fatal_Error;
+delay 6.0 * Minute + 24.0 * Second;      </pre>
+<p>Replace:</p>
+<pre>if Is_Valid (The_Table (Index).Descriptor(Rank).all) then
+-- This is the current value for the iteration; if it is 
+-- valid we append to the list it contains.
+   Append (Item,           To_List =&gt; The_Table (Index).Descriptor(Rank).Ptr);|      </pre>
+<p>with:</p>
+<pre>declare
+    Current_Rank : Lists.List renames The_Table 
+                    (Index).Descriptor (Rank);
+begin
+    if Is_Valid (Current_Rank.all) then
+        Append (Item, To_List =&gt; Current_Rank.Ptr);
+    end if;
+end;      </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Take care
+with style, syntax, and spelling in comments. Do not use a telegraphic, cryptic
+style. Use a spelling checker. (On the Rational Environment invoke
+Speller.Check_Image).</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not use
+accented letters or other non-English characters. Non-English characters may be
+supported on some development systems and on some Ada compilers in comments
+only, according to Ada Issue AI-339. But this is not portable, and it is likely
+to fail on other systems.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For
+subprograms, document at least:
+<ul>
+  <li>the purpose of the subprogram, but only if it is not obvious from the name</li>
+  <li>which exceptions are raised and under which conditions</li>
+  <li>preconditions and postconditions on parameters, if any</li>
+  <li>additional data accessed, especially if it is modified; this includes
+    especially functions that have side-effects</li>
+  <li>any limitations or additional information needed to properly use the
+    subprogram.</li>
+</ul>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For types
+and objects, document any invariant, or additional constraints that cannot be
+expressed in Ada.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Avoid
+repetitions in comments. For example, the purpose section should be a brief
+answer to the question &quot;what does this do?&quot; and not &quot;how is it
+done?&quot; The overview should be a brief presentation of the design. The
+description should not describe the algorithms used, but should instead explain
+how the package is to be used.</p>
+<p>The Data_Structure and algorithm section should contain enough information to
+help understand the main implementation strategy (so that the package can be
+used properly), but does not have to provide all implementation details, or
+information that is not relevant to the proper use of this package.</p>
+<hr align="left">
+<h2><a name="anchor5158239"></a><i>Chapter 5</i></h2>
+<h1>Naming Conventions</h1>
+<h2>General</h2>
+<p>Choosing good names to designate Ada entities (program units, types,
+subtypes, objects, literals, exceptions) is one of the most delicate issues to
+address in all software applications. In medium-to-large applications, another
+problem arises: conflicts in names, or rather the difficulty in finding enough
+synonyms to designate distinct but similar notions about the same real-world
+concept (or to name a type, subtype, object, parameter). Here the rule not to
+use &quot;use&quot; clauses (or only in highly restricted conditions) can be
+exploited. In many situations, this will permit the shortening of a name and the
+reuse of the same descriptive words without risk of confusion.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Choose
+clear, legible, meaningful names.</p>
+<p>Unlike many other programming languages, Ada does not limit the length of
+identifiers to 6, 8, or 15 characters. Speed of typing is not an acceptable
+justification for short names. One-letter identifiers are usually an indication
+of poor choice or laziness. There might be a few exceptions, such as using E for
+the base of the natural logarithms, Pi, or a handful of other well-recognized
+cases.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Separate
+various words of a name by an underscore:</p>
+<p><code>Is_Name_Valid</code> rather than <code>IsNameValid</code></p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use full
+names rather than abbreviations.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use only
+project-approved abbreviations</p>
+<p>If abbreviations are used, either they must be very common to the application
+domain (for example, FFT for Fast Fourier Transform) or they should be taken out
+of a project-level list of recognized abbreviations. Otherwise, it is very
+likely that similar but not quite identical abbreviations will occur here and
+there, introducing confusion and errors later (for example, Track_Identification
+being abbreviated Tr_Id, Trck_Id, Tr_Iden, Trid, Tid, Tr_Ident, and so on).</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use
+sparingly suffixes indicating category of Ada construct. They do not improve
+legibility.</p>
+<p>Suffixes by category of Ada entities, such as _Package for packages, _Error
+for exceptions, _Type for type, and _Param for subprogram parameters are usually
+<i>not</i> very effective for the process of reading and understanding the code.
+This is even worse with suffixes such as _Array, _Record, and _Function. Both
+the Ada compiler and the human reader can distinguish an exception from a
+subprogram by the context: it is obvious that only an exception name can appear
+in a <i>raise</i> statement or in an exception handler. Such suffixes are useful
+in the following limited situations:
+<ul>
+  <li>When the choice of appropriate words is very limited; give the best name
+    to the object and use a suffix for the type</li>
+  <li>For generic units, which can always be suffixed by _Generic, thus allowing
+    the use of the same name without the suffix for some or most of the
+    instantiations</li>
+  <li>When it represents an application-domain concept: Aircraft_Type</li>
+  <li>When important design decisions need to be visible:</li>
+</ul>
+<p>Generic formal type suffixed by _Constrained</p>
+<p>Access type suffixed by _Pointer or other form of indirect reference: by
+_Handle, or _Reference</p>
+<p>Subprogram hiding a potentially blocking entry call by _Or_Wait</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Express
+names so that they look nice from the <i>usage</i> point of view.</p>
+<p>Try to think about the context in which an exported entity will be used, and
+choose the name from that point of view. An entity is declared once and used
+many times. This is especially true for subprogram names and their parameters:
+the resulting calls, using named associations, should be as close as possible to
+natural language. Remember that the absence of <i>use</i> clauses will make
+compulsory the qualified name of most declared entities. Good compromises have
+to be found for generic formal parameters, which may be used more in the generic
+unit than on its client side, but definitely give preference to a nice look on
+the client side for subprogram formal parameters.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use English
+words and spell them correctly.</p>
+<p>Language mixture (for example, French and English) makes the code difficult
+to read and sometimes introduces ambiguities in the meaning of identifiers.
+Since Ada keywords are already in English, English words are required. American
+spelling is preferred, in order to be able to use the built-in spelling checker
+on the Rational Environment.</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not
+redefine any entity from package Standard. This is absolutely forbidden.</p>
+<p>To do so leads to confusion and dramatic mistakes. The rule could be extended
+to other predefined library units: Calendar, System. And this includes the
+identifier <i>Standard</i> itself.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid the
+redefinition of identifiers from other predefined packages, such as System, or
+Calendar.</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not use
+as identifiers: <b>Wide_Character</b> and <b>Wide_String </b>which will be
+introduced in package Standard in Ada 95. Do not introduce a compilation unit
+named <b>Ada</b>.</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not use
+as identifiers the words: <b>abstract</b>, <b>aliased</b>,<b>protected</b>, <b>requeue</b>,
+<b>tagged</b> and <b>until</b>, which will become keywords in Ada 95.</p>
+<p>Some naming suggestions for various Ada entities follow. A generally
+&quot;object-flavored&quot; style of design is assumed. See Annex A for further
+explanations.</p>
+<h2><a name="anchor5419947"></a>Packages</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">When a
+package introduces some object class, give it the name of the object class,
+usually a common noun in singular form, with the suffix _Generic if necessary
+(that is, if a parameterized class is defined). Use the plural form only if the
+objects always come in groups. For example:</p>
+<pre>package Text is
+package Line is
+package Mailbox is
+package Message is
+package Attributes is
+package Subscriber is
+package List_Generic is      </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">When a
+package specifies an interface or some grouping of functionality, and does not
+relate to an object, express this in the name:</p>
+<pre>package Low_Layer_Interface is
+package Math_Definitions is      </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">When a
+&quot;logical&quot; package needs to be expressed as several packages, using a
+flat decomposition, use suffixes drawn from a list agreed upon at the project
+level. A logical package Mailbox, for example, could be implemented with:</p>
+<pre>package Mailbox_Definitions is
+package Mailbox_Exceptions is
+package Mailbox_Io is
+package Mailbox_Utilities is
+package Mailbox_Implementation is
+package Mailbox_Main is      </pre>
+<p>Other acceptable suffixes are:</p>
+<pre>_Test_Support 
+_Test_Main 
+_Log 
+_Hidden_Definitions 
+_Maintenance 
+_Debug      </pre>
+<h2><a name="anchor5420811"></a>Types</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">In a package
+defining an object class, use:</p>
+<pre>type Object is ...      </pre>
+<p>&nbsp;</p>
+<p>when copy semantics is implied-that is, when the type is instantiable and
+some form of assignment is feasible. Note that the name of the class should not
+be repeated in the identifier, since it will always be used in its fully
+qualified form:</p>
+<pre>Mailbox.Object
+Line.Object      </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">When shared
+semantics is implied-that is, the type is implemented with access values (or
+some other form of indirection), and assignment, if available, does not copy the
+object-indicate this fact by using:</p>
+<p>UL&gt;
+<ul>
+  <li><code>type Handle is </code>for an indirect reference</li>
+  <li><code>type Reference is </code>as a possible alternate</li>
+</ul>
+<p>&nbsp;</p>
+<p>The elements are used as suffixes when their use alone, prefixed by the
+package name, is unclear or ambiguous.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">When
+multiple objects are implied, use:
+<ul>
+  <li><code>type Set is </code>when uniqueness of elements is implied</li>
+  <li><code>type List is </code>when some ordering is implied</li>
+  <li><code>type Collection is</code> when neither set nor list semantics is
+    implied</li>
+  <li><code>type Iterator is</code> when the primitive Initialize, Value_Of,
+    Next, Is_Done are provided<br>
+    (cf. section 6.5).</li>
+</ul>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For some
+string designation of the object, use:</p>
+<p><code>type Name is</code></p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">The
+qualified name of the type should also be used throughout the defining package,
+for better legibility. On the Rational Environment, this also leads to better
+behavior when using the [Complete] function on a subprogram call.</p>
+<p>For example, note the full name Subscriber.Object below:</p>
+<pre>package Subscriber is
+    type Object is private;
+    type Handle is access Subscriber.Object;
+    subtype Name is String;
+    package List is new List_Generic (Subscriber.Handle);
+    Master_List : Subscriber.List.Handle;
+    procedure Create (The_Handle : out Subscriber.Handle;
+                      With_Name  : in  Subscriber.Name);
+    procedure Append (The_Subscriber : in     Subscriber.Handle;
+                      To_List        : in out Subscriber.List.Handle);
+    function Name_Of (The_Subscriber : Subscriber.Handle) return
+            Subscriber.Name;
+    ...
+private
+    type Object is
+        record
+            The_Name : Subscriber.Name (1..20);
+                    ...
+end Subscriber;    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">In other
+circumstances, use nouns or qualifier+noun for the name of a type. You might use
+the plural form for the type, leaving the singular for objects (variables):</p>
+<pre>type Point is record ...
+type Hidden_Attributes is ( ...
+type Boxes is array ...    </pre>
+<p>For enumeration types, use Mode, Kind, Code, and so on, alone or as a suffix.</p>
+<p>For array types, the suffix _Table can be used when the simple name is
+already used for the component type. Use names or suffixes like _Set and _List
+only when the array is maintained with the implied semantics. Reserve _Vector
+and _Matrix for the corresponding mathematical concepts.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Since
+singular task objects will be avoided (for reasons explained later), a task type
+should be introduced even when there is only one object of that type. This is a
+case where a simple-minded suffix strategy such as _Type is satisfactory:</p>
+<pre>task type Listener_Type is ...
+for Listener_Type'Storage_Size use ...
+Listener : Listener_Type;    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Similarly,
+when a conflict exists between using a noun (or noun phrase) for the name of the
+type, or in several places for the name of the object or parameter, then suffix
+that noun with _Kind for the type and keep the simple noun for the object:</p>
+<pre>type Status_Kind is (None, Normal, Urgent, Red);
+Status : Status_Kind := None;    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Or, for
+things that always come in multiples, use the plural form for the type.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Since access
+types have inherent dangers, the user should be made aware of them. They are
+called Pointer in general. Use the suffix _pointer if the name alone is
+ambiguous. As an alternate _Access is possible. ;</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Sometimes
+using a nested subpackage to introduce a secondary abstraction simplifies
+naming:</p>
+<pre>package Subscriber is    ...
+    package Status is
+        type Kind is (Ok, Deleted, Incomplete, Suspended, 
+                      Privileged);
+        function Set (The_Status    : Subscriber.Status.Kind;
+                      To_Subscriber : Subscriber.Handle);
+    end Status;
+    ...    </pre>
+<h2><a name="anchor5421958"></a>Exceptions</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Since
+exceptions must be used only to handle error situations, use a noun or a noun
+phrase that clearly conveys a negative idea:</p>
+<pre>Overflow, Threshold_Exceeded, Bad_Initial_Value    </pre>
+<p>When defined in a class package, it is useless for the identifier to contain
+the name of the class-for example, Bad_Initial_Subscriber_Value-since the
+exception will always be used as Subscriber.Bad_Initial_Value.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use one of
+the words Bad, Incomplete, Invalid, Wrong, Missing, or Illegal as part of the
+name rather than systematically using Error, which does not convey specific
+information:</p>
+<pre>Illegal_Data, Incomplete_Data    </pre>
+<h2><a name="anchor5422907"></a>Subprograms</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use verbs
+for procedures (and task entries). Use nouns with the attributes or
+characteristics of the object class for functions. Use adjectives (or past
+participles) for functions returning a Boolean (predicates). s</p>
+<pre>Subscriber.Create
+Subscriber.Destroy
+Subscriber.List.Append
+Subscriber.First_Name          -- Returns a string.
+Subscriber.Creation_Date       -- Returns a date.
+Subscriber.List.Next
+Subscriber.Deleted             -- Returns a Boolean.
+Subscriber.Unavailable         -- Returns a Boolean.
+Subscriber.Remote    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For
+predicates, it may be useful in some cases to add the prefix Is_ or Has_ before
+a noun; be accurate and consistent with respect to tense:</p>
+<pre>function Has_First_Name ...
+function Is_Administrator ...
+function Is_First...
+function Was_Deleted ...    </pre>
+<p>This is useful when the simple name is already used as a type name or an
+enumeration literal.</p>
+<p>Use predicates in the positive form, i.e., they should not contain
+&quot;Not_&quot;.</p>
+<p>For common operations, consistently use verbs drawn from a project list of
+choices (list to be expanded as we gain knowledge of the system):</p>
+<pre>Create
+Delete
+Destroy
+Initialize
+Append
+Revert
+Commit
+Show, Display    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Use positive
+names for predicate functions and boolean parameters. Using negative names can
+create double negations (e.g., Not Is_Not_Found), and can make the code more
+difficult to read.</p>
+<pre>function Is_Not_Valid (...) return Boolean
+procedure Find_Client (With_The_Name : in  Name;
+                       Not_Found     : out Boolean)    </pre>
+<p>should be defined as:</p>
+<pre>function Is_Valid (...) return Boolean;
+procedure Find_Client (With_The_Name: in Name;
+                       Found: out Boolean)    </pre>
+<p>which lets the client negate their expression as required (there is no
+runtime penalty for doing so):</p>
+<pre>if not Is_Valid (...) then ....    </pre>
+<p>In some cases, a negative predicate can also be made positive without
+changing its semantics by using an antonym, such as &quot;Is_Invalid&quot;
+instead of &quot;Is_Not_Valid.&quot; However, positive names are more readable:
+&quot;Is_Valid&quot; is easier to understand than &quot;not Is_Invalid.&quot;</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use the same
+word when the same general meaning is implied, rather than trying to find
+synonyms or variations. Overloading therefore is encouraged to enhance
+uniformity, in keeping with the principle of minimal surprise.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">If
+subprograms are used as &quot;skins&quot; or &quot;wrappers&quot; for entry
+calls, it may be useful that the name reflects this fact by suffixing the verb
+with _Or_Wait or by having a phrase such as Wait_For_ followed by a noun:</p>
+<pre>Subscriber.Get_Reply_Or_Wait
+Subscriber.Wait_For_Reply    </pre>
+<p>Some operations should always be consistently defined using the same names:</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For type
+conversions to and from strings, the symmetrical functions:</p>
+<pre>    function Image and function Value    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For type
+conversions to and from some low-level representation (such as Byte_String for
+data interchange):</p>
+<pre>    procedure Read and Write    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For
+allocated data:</p>
+<pre>    function Allocate (rather than Create)
+    function Destroy (or Release, to express that the object will disappear)    </pre>
+<p>When this is done systematically, using consistent naming, type composition
+is made much easier.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For active
+iterators, the following primitives must always be defined:</p>
+<pre>Initialize
+Next
+Is_Done
+Value_Of    </pre>
+<p>and, if feasible, <code>Reset</code>. If several iterator types are
+introduced in the same scope, these primitives should be overloaded rather than
+introducing a distinct set of identifiers for each iterator. Cf. <a href="#anchor250650">[BOO87]</a>.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">When using
+Ada predefined attributes as function names, make sure that they are used with
+the same general semantics: 'First, 'Last, 'Length, 'Image, 'Value, and so on.
+Note that several attributes (for example, 'Range and 'Delta) cannot be used as
+function names because they are reserved words.</p>
+<h2><a name="anchor5424181"></a>Objects and Subprogram (or Entry) Parameters</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">To indicate
+uniqueness, or to show that this entity is the main focus of the action, prefix
+the object or parameter name with The_ or This_. To indicate a side, temporary,
+auxiliary object, prefix it with A_ or Current_:</p>
+<pre>procedure Change_Name (The_Subscriber : in Subscriber.Handle;
+                       The_Name       : in Subscriber.Name );
+declare
+    A_Subscriber : Subscriber.Handle := Subscriber.First;
+begin
+    ...
+    A_Subscriber := Subscriber.Next (The_Subscriber);
+end;    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For Boolean
+objects, use a predicate clause, with the positive form:</p>
+<pre>Found_It
+Is_Available    </pre>
+<p>&nbsp;</p>
+<p>but:</p>
+<p><code>Is_Not_Available</code> must be avoided.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For task
+objects, use a noun or noun phrase that implies an active entity:</p>
+<pre>Listener
+Resource_Manager
+Terminal_Driver    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For
+parameters, prefixing the class name or some characteristic noun with a
+preposition also adds legibility, especially on the caller's side when named
+association is used. Other useful prefixes for auxiliary parameters have the
+form Using_ or, in the case of an <i>in out</i> parameter that is affected as
+some secondary effect, Modifying_:</p>
+<pre>procedure Update (The_List     : in out Subscriber.List.Handle;
+                  With_Id      : in     Subscriber.Identification;
+                  On_Structure : in out Structure;
+                  For_Value    : in     Value);
+procedure Change (The_Object   : in out Object;
+                  Using_Object : in     Object);    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">The <i>order</i>
+in which parameters are defined is also very important from the caller's point
+of view:
+<ul>
+  <li>First define the non-defaulted parameters (which therefore includes all <i>out</i>
+    and <i>in out</i> parameters) in order of decreasing importance. For an
+    operation of a class, this starts by the object being the main focus of the
+    operation.</li>
+  <li>Then define the parameters that have default values, with the most likely
+    to be modified first.</li>
+</ul>
+<p>This permits taking advantage of defaults without having to use named
+association for the main parameter(s).</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">The mode
+&quot;in&quot; must be explicitly indicated, even in functions.</p>
+<h2><a name="anchor5425191"></a>Generic Units</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Pick the
+best name you would use for a non-generic version: class name for a package or
+transitive verb (or verb phrase) for a procedure (see above) and suffix it with
+_Generic.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For generic
+formal types, when the generic package defines some abstract data structure, use
+<code>Item</code> or <code>Element</code> for the generic formal and <code>Structure</code>,
+or some other more appropriate noun, for the exported abstraction.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For passive
+iterators, use a verb such as <code>Apply</code>, <code>Scan</code>, <code>Traverse</code>,
+<code>Process</code>, or <code>Iterate</code> in the identifier:</p>
+<pre>generic
+		with procedure Act	(Upon : in out Element);
+procedure Iterate_Generic	(Upon : in out Structure);    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Names of
+generic formal parameters cannot be homographs.</p>
+<pre>generic
+    type Foo is private;
+    type Bar is private;
+    with function Image (X : Foo) return String;
+    with function Image (X : Bar) return String;
+package Some_Generic is ...    </pre>
+<p>shall be replaced by:</p>
+<pre>generic
+    type Foo is private;
+    type Bar is private;
+    with function Foo_Image (X : Foo) return String;
+    with function Bar_Image (X : Bar) return String;
+package Some_Generic is ...    </pre>
+<p>If needed, the generic formal parameters can be renamed in the generic unit:</p>
+<pre>function Image (Item : Foo) return String Renames Foo_Image;
+function Image (Item : Bar) return String Renames Bar_Image;    </pre>
+<h2><a name="anchor5426206"></a>Naming Strategies for Subsystems</h2>
+<p>When a large system is partitioned into Rational subsystems (or another form
+of interconnected program libraries), it is useful to define a naming strategy
+that allows:</p>
+<h3>Avoidance of name conflicts</h3>
+<p>In a system that comprises several hundred objects and sub-objects, some name
+conflicts are likely to occur at the library-unit level, and programmers will be
+short of synonyms for some very useful names like Utilities, Support,
+Definitions, and so on.</p>
+<h3>Easy location of Ada entities</h3>
+<p>Using browsing facilities on the Rational host, finding where an entity is
+defined is an easy task, but when code is ported to a target and uses target
+tools (debuggers, testing tools, and so on), the location of a procedure
+Utilities.Get among 2,000 units in 100 subsystems may be quite a challenge for a
+newcomer to the project.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Prefix
+library-level unit names with the four-letter abbreviation of the subsystem in
+which it is contained.</p>
+<p>The list of subsystems can be found in the Software Architecture Document
+(SAD). Exclude from this rule libraries of highly reusable components that are
+likely to be reused across numerous projects, COTS products, and standard units.</p>
+<p>Example:</p>
+<p>Comm Communication</p>
+<p>Dbms Database management</p>
+<p>Disp Displays</p>
+<p>Math Mathematical packages</p>
+<p>Driv Drivers</p>
+<p>For example, all library units exported from subsystem Disp will be prefixed
+with Disp_, allowing the team or company in charge of Disp to have otherwise
+complete freedom of naming. If both DBMS and Disp need to introduce an object
+class named Subscriber, this will result in packages such as :</p>
+<pre>Disp_Subscriber
+Disp_Subscriber_Utilities
+Disp_Subscriber_Defs
+Dbms_Subscriber
+Dbms_Subscriber_Interface
+Dbms_Subscriber_Defs    </pre>
+<hr align="left">
+<h2><a name="anchor5159726"></a><i>Chapter 6</i></h2>
+<h1>Declarations of Types, Objects, and Program Units</h1>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Ada's strong
+typing facility will be used to prevent mixing of different types. Conceptually
+different types must be realized as different user-defined types. Subtypes
+should be used to improve program readability and to enhance the effectiveness
+of the run-time checks generated by the compiler.</p>
+<h2><a name="anchor5428537"></a>Enumeration Types</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Whenever
+possible, introduce into the enumeration some extra literal value representing
+uninitialized, invalid, or no value at all:</p>
+<pre>type Mode  is (Undefined, Circular, Sector, Impulse);
+type Error is (None, Overflow, Invalid_Input_Value,Illformed_Name);    </pre>
+<p>This will support the rules for systematically initializing objects. Put this
+literal at the beginning rather than at the end of the list, to ease maintenance
+and to allow contiguous subranges of valid values such as:</p>
+<pre>subtype Actual_Error is Error range Overflow .. Error'Last;    </pre>
+<h2><a name="anchor5429626"></a>Numeric Types</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid the
+use of predefined numeric types.</p>
+<p>When a high degree of portability and reusability is the objective, or when
+control is needed over the memory space occupied by numeric objects, then
+predefined numeric types (from package Standard) must not be used. The reason
+for this requirement is that the characteristics of the predefined types Integer
+and Float are (deliberately) unspecified in the Reference Manual for the Ada
+Programming Language <a href="#anchor247944">[ISO87]</a>.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">A first
+systematic strategy is to introduce project-specific numeric types-in a package
+System_Types, for instance-with names that carry an indication of the accuracy
+or memory size:</p>
+<pre>package System_Types is
+        type Byte is range -128 .. 127;
+        type Integer16 is range -32568 .. 32567;
+        type Integer32 is range ...
+        type Float6 is digits 6; 
+        type Float13 is digits 13;
+...
+end System_Types;    </pre>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not
+redefine standard types (types from package Standard).</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not
+specify which base type they should be derived from; let the compiler choose.
+This following example is bad:</p>
+<pre>type Byte is new Integer range -128 .. 127;    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Float6 is a
+better name than Float32, even if on most machines 32-bit floats will achieve 6
+digits of accuracy.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">In the
+various parts of the project, derive types with more meaningful names than those
+in Baty_System_Types. Some of the most accurate types could be made private to
+support an eventual port to a target with limited precision support.</p>
+<p>This strategy is to be used when:
+<ul>
+  <li>several types must be correlated</li>
+  <li>we want to get some useful operations for the type by derivation, such as
+    conversions to external formats, or additional arithmetic or mathematic
+    functions.</li>
+</ul>
+<p>If this is not the case, then another simpler strategy is to always define
+new types, specifying the requested range and accuracy, but never specifying the
+base type they should be derived from. For example, declare:</p>
+<pre>type Counter is range 0 .. 100;
+type Length is digits 5;    </pre>
+<p>rather than:</p>
+<pre>type Counter is new Integer range 1..100; -- could be 64 bits
+type Length is new Float digits 5; -- could be digits 13    </pre>
+<p>This second strategy forces the programmer to think of the precise bounds and
+accuracy each type requires, rather than arbitrarily selecting a certain number
+of bits. Be aware, however, that if the range is not identical to that of a base
+type, systematic range checks will be applied by the compiler-for example, for
+type Counter above, if the base type is a 32-bit integer.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">If the range
+checks are becoming a problem, one way to avoid them is to declare:</p>
+<pre>type Counter_Min_Range is range 0 .. 10_000;
+type Counter is range Counter_Min_Range'Base'First .. Counter_Min_Range'Base'Last;    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid
+standard types leaking into the code through constructs such as loops, index
+ranges, and so on.</p>
+<p>Subtypes of the predefined numeric types are used only in the following
+circumstances:
+<ul>
+  <li>subtype Positive to index objects of type String</li>
+  <li>type Integer as exponent in integer exponentiation, and in several
+    standard elementary functions,</li>
+  <li>in arithmetic expressions, for scaling real values.</li>
+</ul>
+<p>Example:</p>
+<pre>for I in 1 .. 100 loop ...     
+-- I is of type Standard.Integer
+type A is array (0 .. 15) of Boolean; 
+-- index is Standard.Integer.    </pre>
+<p>Use instead the form: Some_Integer range L .. H</p>
+<pre>for I in Counter range 1 .. 100 loop ...
+type A is array (Byte range 0 .. 15) of Boolean;    </pre>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not try
+to implement unsigned types.</p>
+<p>Integer types with unsigned arithmetic do not exist in Ada. Under the
+language definition, all integer types are derived indirectly or not from the
+predefined types, and these in turn must be symmetrical about zero.</p>
+<h2><a name="anchor5430745"></a>Real Types</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For
+portability, rely only on real types having values in the ranges:</p>
+<pre>[-F'Large .. -F'Small]  [0.0]  [F'Small .. F'Large]    </pre>
+<p>Be aware that F'Last and F'First may not be model numbers and may even not be
+in any model interval. The relative location of F'Last and F'Large depends on
+the type definition and the underlying hardware. One particularly nasty example
+is the case where 'Last of a fixed-point type does not belong to the type, as
+in:</p>
+<pre>type FF is delta 1.0 range -8.0 .. 8.0;    </pre>
+<p>where, according to a strict reading of the Ada Reference Manual 3.5.9(6),
+FF'Last = 8.0 cannot belong to the type.</p>
+<p>To represent large or small real numbers, use attributes 'Large or 'Small
+(and their negative counterparts), not 'First and 'Last, as would be done for
+integer types.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For
+floating-point types, use only &lt;= and &gt;=, never =, &lt;, &gt;, /=.</p>
+<p>The semantics of absolute comparison are ill-defined (equality of
+representation and not equality within the required degree of accuracy). For
+example, X &lt; Y may not yield the same result as: not (X &gt;= Y). Tests for
+equality, A = B, should be expressed as:</p>
+<pre>abs (A - B) &lt;= abs(A)*F'Epsilon    </pre>
+<p>To improve readability and maintainability, consider providing an Equal
+operator that encapsulates the above expression.</p>
+<p>Note also that the simpler expression:</p>
+<pre>abs (A - B) &lt;= F'Small    </pre>
+<p>is valid only for small values of A and B, and therefore is not generally
+recommended.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid any
+reference to the predefined exception Numeric_Error. A binding interpretation of
+the Ada Board has made all cases that used to raise Numeric_Error now raise
+Constraint_Error. The exception Numeric_Error is obsolete in Ada 95.</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">If
+Numeric_Error is still raised by the implementation (this is the case of the
+Rational native compiler), then always check for Constraint_Error together with
+Numeric_Error in the same alternative in an exception handler:</p>
+<pre>when Numeric_Error | Constraint_Error =&gt; ...    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Be wary of
+underflow.</p>
+<p>Underflow is not detected in Ada. The result is 0.0 and no exception is
+raised. Note that a check for underflow can be explicitly achieved by testing
+the result of a multiplication or division against 0.0, when none of the
+operands is 0.0. Note also that you can implement your own operators to
+automatically perform such checking, although at some cost in efficiency.</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">The use of
+fixed-point types is restricted.</p>
+<p>Use floating-point types whenever possible. Uneven implementation of
+fixed-point types across an Ada implementation causes portability problems.</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">For
+fixed-point types, 'Small should be equal to 'Delta.</p>
+<p>The code should specify this. The fact that the default choice for 'Small is
+a power of 2 leads to all kinds of problems. One way to make the choice clear is
+to write:</p>
+<pre>Fx_Delta : constant := 0.01;
+type FX is delta Fx_Delta range L .. H;
+for FX'Small use Fx_Delta;    </pre>
+<p>If length clauses for fixed-point types are not supported, the only way to
+obey this rule is to specify explicitly a 'Delta that is a power of 2. Subtypes
+can have a 'Small different from 'Delta (the rule applies only to the type
+definition, or &quot;first named subtype&quot; in the terminology of the Ada
+Reference Manual).</p>
+<h2><a name="anchor5431859"></a>Record Types</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Wherever
+possible, provide simple, static initial values for the components of a record
+type (often values such as 'First or 'Last can be used).</p>
+<p>But do not apply this to discriminants. The rules of the language are such
+that discriminants always have values. Mutable records (that is, records with
+default values for discriminants) should be introduced only when mutability is a
+wanted characteristic. Otherwise, mutable records introduce extra overhead in
+memory space (often the largest variant is allocated) and time (variant checks
+are more complex to achieve).</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid
+function calls in default initial values of any component, since this may lead
+to an &quot;access before elaboration&quot; error (see &quot;Program Structure
+and Compilation Issues&quot;).</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For mutable
+records (records whose discriminants have default values), if a discriminant is
+used in the dimensioning of some other component, specify it to be of a
+reasonable small range.</p>
+<p>Example:</p>
+<pre>type Record_Type (D : Integer := 0) is 
+        record 
+            S : String (1 .. D);
+        end record;
+A_Record : Record_Type;    </pre>
+<p>is likely to raise a Storage_Error on most implementations. Specify a more
+reasonable range for the subtype of the discriminant D.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not
+assume anything about the physical layout of records.</p>
+<p>Especially, and unlike other programming languages, components need not be
+laid out in the order given in the definition.</p>
+<h2><a name="anchor5433114"></a>Access Types</h2>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of access types.</p>
+<p>This is especially true for applications that are meant to run permanently on
+small machines without virtual memory. Access types are dangerous, since small
+programming mistakes can lead to storage exhaustion and, even with good
+programming, can fragment memory. Access types are also <i>slower</i>. The use
+of access types must be part of a project wide strategy, and collections, their
+size, and points of allocation and deallocation should be tracked. To make
+clients of an abstraction aware that access values are manipulated, the name
+chosen should indicate this: Pointer or a name suffixed by _Pointer.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Allocate
+collections during program elaboration, and systematically specify the size of
+each collection.</p>
+<p>The value given (in storage units) can be static or computed dynamically
+(read from a file, for instance). The rationale for this rule is that the
+program should fail immediately at startup, rather than die mysteriously N days
+later. Generic packages may provide for this with an additional generic formal
+specifying the size.</p>
+<p>Note that there is often some overhead for each allocated object: it may be
+that the runtimes on the target system allocate some additional information with
+each memory chunk for internal housekeeping. So, to store N objects of size M
+storage units, it may be necessary to allocate more than N * M storage units for
+the collection-for example, N * (M + K). Obtain the value of this overhead K
+from Appendix F of <a href="#anchor247944">[ISO87]</a> or by conducting
+experiments.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Encapsulate
+the use of allocators (Ada primitive <i>new</i>) and release. If feasible,
+manage an internal free list, rather than relying on Unchecked_Deallocation.</p>
+<p>If an access type is used to implement some recursive data structure, then it
+is very likely to access a record type that has (as one component) that same
+access type. This allows recycling of free cells by chaining them in a free list
+with no additional space overhead (other than the pointer to the head of the
+list).</p>
+<p>Handle explicitly Storage_Error exceptions raised by <i>new</i>, and reexport
+a more meaningful exception, indicating exhaustion of the collection's maximum
+storage size.</p>
+<p>Having a single point of allocation and deallocation also allows easier
+tracing and debugging in case of a problem.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use
+deallocation only on allocated cells of the same size (hence same
+discriminants).</p>
+<p>This is important in order to avoid memory fragmentation.
+Unchecked_Deallocation is very unlikely to provide a memory-compaction service.
+You may want to check whether the runtime system provides coalescing of adjacent
+released blocks.</p>
+<p>P&gt;<img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Systematically
+provide a Destroy (or Free, or Release) primitive with access types.</p>
+<p>This is especially important for abstract data types implemented with access
+types, and it should be done systematically to achieve composability of multiple
+such types.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Release
+objects systematically.</p>
+<p>Try to map the calls to allocation and deallocation to make sure that all
+allocated data is deallocated. Try to deallocate data in the same scope in which
+it was allocated. Remember to deallocate also when exceptions occur. Note that
+this is one case for using a <i>when others</i> alternative, ending with a <i>raise</i>
+statement.</p>
+<p>The preferred strategy is to apply the pattern: Get-Use-Release. The
+programmer Gets the objects (which creates some dynamic data structure), then it
+Uses it, then it must Release it. Make sure that the three operations are
+clearly identified in the code, and that the release is done on all possible
+exits of the frame, including by exception.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Be careful
+to deallocate the temporary composite data structures which might be contained
+in records.</p>
+<p>Example:</p>
+<pre>type Object is
+record
+    Field1: Some_Numeric;
+    Field2: Some_String;
+    Field3: Some_Unbounded_List;
+end record;    </pre>
+<p>where 'Some_Unbounded_List' is a composite linked structure, that is, it is
+composed of a number of objects linked together. Consider now a typical
+attribute function, written as:</p>
+<pre>function Some_Attribute_Of(The_Object: Object_Handle) return 
+Boolean is Temp_Object: The_Object;
+begin
+    Temp_Object := Read(The_Object);
+    return Temp_Object.Field1 &lt; Some_Value;
+end Some_Attribute_Of;    </pre>
+<p>The composite structure implicitly created in the heap when the object is
+read into Temp_Object is never deallocated, but is now unreachable. This is a
+memory leak. The proper solution is to implement a Get-Use-Release paradigm for
+such expensive structures. In other words, your client should Get the object
+first, then Use it as needed, then Release it:</p>
+<pre>procedure Get (The_Object  : out Object;
+               With_Handle : in  Object_Handle);
+function Some_Attribute_Of(The_Object : Object) 
+                        return Some_Value;
+function Other_Attribute_Of(The_Object	: Object) 
+                        return Some_Value;
+...
+procedure Release(The_Object: in out Object);    </pre>
+<p>The client code might look like this:</p>
+<pre> declare
+    My_Object: Object;
+begin
+    Get (My_Object, With_Handle =&gt; My_Handle);
+    ...
+    Do_Something
+      (The_Value =&gt; Some_Attribute_Of(My_Object));
+      ...
+    Release(My_Object);
+end;    </pre>
+<h2><a name="anchor5434441"></a>Private Types</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Declare
+types as <i>private</i> whenever it is necessary to hide implementation details.</p>
+<p>Implementation details need to be hidden with a private type when:
+<ul>
+  <li>Some internal consistency in the complete type must be maintained.</li>
+  <li>The objects of the type are not monolithic objects (that is, are not
+    represented as a single contiguous segment of memory designated by one
+    single name).</li>
+  <li>Many auxiliary types that should not be exported need to be defined.</li>
+  <li>Some of the predefined or intrinsic operations need be altered-for
+    example, defining a type Angle where all arithmetic operations return a
+    value in [0, 2].</li>
+  <li>The accuracy of the corresponding numeric type is not likely to be
+    achieved directly on all potential targets.</li>
+</ul>
+<p>In the Rational Environment, private types, in conjunction with closed
+private parts and subsystems, greatly reduce the impact of an eventual interface
+design change.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">In
+contradiction to so-called &quot;pure&quot; object-oriented programming, do not
+use private types when the corresponding <i>complete</i> type is the best
+possible abstraction. Be pragmatic; ask if making the type private adds
+anything.</p>
+<p>For example, a mathematical vector is better represented as an array, or a
+point in a plane as a record, than as a private type:</p>
+<pre>type Vector is array (Positive range &lt;&gt;) of Float;
+Type Point is 
+    record
+        X, Y : Float := Float'Large;
+    end record;    </pre>
+<p>Array indexing, record component selection, and aggregate notation will be
+far more legible (and eventually more efficient) than a series of subprogram
+calls, as would be required were the type unnecessarily private.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Declare
+private types as <i>limited</i> when default assignment or comparison of the
+actual objects and values is meaningless, non-intuitive, or impossible.</p>
+<p>This is the case when:
+<ul>
+  <li>the complete type itself contains a limited component</li>
+  <li>the complete type is not monolithic-for example: recursive data types
+    implemented with access values.</li>
+</ul>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">A limited
+private type should be self-initializing.</p>
+<p>An object declaration of such a type must receive a reasonable initial value,
+since generally it will not be feasible to assign a later one, without risk of
+raising some exception during a subprogram call.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Whenever
+feasible or meaningful, provide for limited types a Copy (or Assign) procedure
+and a Destroy procedure.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">When
+designing a generic's formal types, specify <i>limited</i> private types as long
+as equality or assignment is not required internally, for greater usability of
+the corresponding generic unit.</p>
+<p>In line with the previous rule, you might then import a Copy and a Destroy
+generic formal procedure and an Are_Equal predicate, if meaningful.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For generic
+formal private types, indicate in the specification whether the corresponding
+actual must be constrained or not.</p>
+<p>This can be achieved by a naming convention and/or comment:</p>
+<pre>generic
+    --Must be constrained.
+    type Constrained_Element is limited private;
+package ...    </pre>
+<p>or by using the Rational-defined pragma <code>Must_Be_Constrained</code>:</p>
+<pre>generic
+    type Element is limited private;
+    pragma Must_Be_Constrained (Element);
+package ...    </pre>
+<h2><a name="anchor5435613"></a>Derived Types</h2>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Remember
+that deriving a type also derives all the subprograms that are declared in the
+same declarative part as the parent type: the derivable subprograms. It is
+therefore useless to redefine them all as skins in the declarative part of the
+derived type. But generic subprograms are not derivable and it may be necessary
+to redefine them as skins.</p>
+<p>Example:</p>
+<pre>package Base is
+    type Foo is
+        record
+            ...
+        end record;
+    procedure Put(Item: Foo);
+    function Value(Of_The_Image: String) return Foo;
+end Base;
+with Base;
+package Client is
+    type Bar is new Foo;
+    -- At this point, the following declarations are 
+    -- implicitly made:
+    -- 
+    -- function &quot;=&quot;(L,R: Bar) return Boolean;
+    -- 
+    -- procedure Put(Item: bar);
+    -- function Value(Of_The_Image: String) return Bar;
+    -- 
+end Client;    </pre>
+<p>It is therefore not necessary to redefine these operations as skins. Note,
+however, that generic subprograms (such as passive iterators) are not derived
+along with other operations, and must therefore be re-exported as skins.
+Subprograms defined elsewhere than the specification containing the base type
+declaration are also not derivable, and must also be re-exported as skins.</p>
+<h2><a name="anchor5436675"></a>Object Declarations</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Specify
+initial values in object declarations, unless the object is self-initializing or
+there is an implicit default initial value (for example, access types, task
+types, records with default values for nondiscriminant fields).</p>
+<p>P&gt;The value assigned must be a real, meaningful value, not just any
+valueof the type. If the actual initial value is available, such as for example
+one of the input parameters, then assign it. If it is not possible to compute a
+meaningful value, then consider declaring the object later, or assign any
+&quot;nil&quot; value if available.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">The name
+&quot;Nil&quot; is meant as &quot;Uninitialized&quot; and it is used to declare
+constants that can be used as a &quot;unusable but known value&quot; that can be
+rejected in a controlled fashion by algorithms.</p>
+<p>Whenever feasible, the Nil value should not be used for any other purpose
+than initialization, so that its appearance can always indicate an uninitialized
+variable error.</p>
+<p>Note that it is not always possible to declare a Nil value for all types,
+especially modular types, such as an angle. In this case choose the less likely
+value.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Note that
+code to initialize large records may be costly, especially if the record has
+variants and if some initial value is nonstatic (or, more precisely, if the
+value cannot be computed at compile time). It is sometimes more efficient to
+elaborate once and for all an initial value (perhaps in the package defining the
+type) and assign it explicitly:</p>
+<pre>R : Some_Record := Initial_Value_For_Some_Record;    </pre>
+<p>Note:</p>
+<p>Experience shows that uninitialized variables are one of the main sources of
+problems in porting code and one of the major sources of programming errors.
+This is aggravated when the development host tries to be &quot;nice&quot; to the
+programmer by providing default values for at least some of the objects (for
+example, type Integer on the Rational native compiler) or when the target system
+zeroes the memory before program loading (for example, on a DEC VAX). <i>To
+achieve portability, always assume the worst</i>.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Assigning an
+initial value in the declaration can be omitted when it is costly and when it is
+obvious that the object is assigned a value before being used.</p>
+<p>Example:</p>
+<pre>procedure Schmoldu is
+    Temp : Some_Very_Complex_Record_Type;
+ -- initialized later
+begin
+    loop
+        Temp := Some_Expression ...
+        ...    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid the
+use of literal values in the code.</p>
+<p>Use constants (with a type) when the value defined is bound to a type.
+Otherwise, use named numbers, especially for all dimensionless values (pure
+values):</p>
+<pre>Earth_Radius : constant Meter := 6366190.7;   -- In meters.
+Pi           : constant       := 3.141592653; -- No units.    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Define
+related constants with universal, static expressions:</p>
+<pre>Bytes_Per_Page :   constant := 512;
+Pages_Per_Buffer : constant := 10;
+Buffer_Size :      constant := Bytes_Per_Page * Pages_Per_Buffer;
+Pi_Over_2   :      constant := Pi / 2.0;    </pre>
+<p>This takes advantage of the fact that these expressions must be computed
+exactly at compile time.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not
+declare objects with anonymous types (cf. Ada Reference Manual 3.3.1)</p>
+<p>Maintainability is reduced, objects cannot be passed as parameters, and it
+often leads to type conflict errors.</p>
+<h2><a name="anchor5440697"></a>Subprograms and Generic Units</h2>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Subprograms
+can be declared as procedures or functions; here are some general criteria that
+can be used to choose which form to declare.</p>
+<p>Declare a function when:
+<ul>
+  <li>you define an operator, and this operator is the most readable way to
+    express the role of the subprogram</li>
+  <li>there is a well-defined &quot;algebra&quot; on this type (e.g., strings,
+    arithmetic, geometry)</li>
+  <li>most of the calls are likely to be in expressions (other than a trivial
+    expression such as Result := F (X);)</li>
+  <li>the body of the subprogram is small (less than 5 lines)</li>
+  <li>the type of the result is Boolean (calls are in while loops and if
+    statements)</li>
+  <li>most of the uses are likely to be in declarative parts</li>
+  <li>you simply return an attribute of some private object</li>
+  <li>there are no side-effects; no error can occur.</li>
+</ul>
+<p>Declare a procedure when:
+<ul>
+  <li>there are many parameters</li>
+  <li>the call is most likely to be in a statement part</li>
+  <li>the result is a composite type that is likely to be very large</li>
+  <li>errors can occur.</li>
+  <li>When in doubt, or if there is a very close tie, declare a procedure.</li>
+</ul>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid giving
+default values to generic formal parameters used for sizing structures (tables,
+collections, etc.)</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Write local
+procedures with as few side effects as possible, and functions with no side
+effects at all. Document the side effect.</p>
+<p>Side effects are usually modifications of global variables, and may only be
+noticed when reading the <i>body</i> of the subprogram. The programmer may not
+be aware of side effects at the call site.</p>
+<p>Passing in the required objects as parameters makes the code more robust,
+easier to understand and less dependent on its content.</p>
+<p>This rule applies mainly to local subprograms: exported subprograms often
+require legitimate access to global variables in the package body.</p>
+<hr align="left">
+<h2><a name="anchor5161086"></a><i>Chapter 7</i></h2>
+<h1>Expressions and Statements</h1>
+<h2>Expressions</h2>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Use
+redundant parentheses to make compound expressions clearer.</p>
+<p>The level of nesting of an expression is defined as the number of nested sets
+of parentheses required to evaluate an expression from left to right if the
+rules of operator precedence were ignored.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Limit the
+level of nesting of expressions to four.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Record
+aggregates should use named associations and should be qualified:</p>
+<pre>Subscriber.Descriptor'(Name    =&gt; Subscriber.Null_Name,
+                       Mailbox =&gt; Mailbox.Nil,
+                       Status  =&gt; Subscriber.Unknown,
+                   ...);    </pre>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">The use of a
+<i>when others</i> is forbidden for record aggregates.</p>
+<p>This is because, in contrast to arrays, records are naturally heterogeneous
+structures, and uniform assignment therefore is unreasonable.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Use simple
+Boolean expressions in place of &quot;if...then...else&quot; statements for
+simple predicates:</p>
+<p>PRE&gt;function Is_In_Range(The_Value: Value; The_Range: Range) return
+Boolean is begin if The_Value &gt;= The_Range.Min and The_Value &lt;=
+The_Range.Max; then return True; end if; end Is_In_Range;</p>
+<p>&nbsp;</p>
+<p>should be rewritten as:</p>
+<pre>function Is_In_Range(The_Value: Value; The_Range: Range)
+     return Boolean is
+begin
+    return The_Value &gt;= The_Range.Min 
+        and The_Value &lt;= The_Range.Max;
+end Is_In_Range;    </pre>
+<p>Complex expressions containing two or more if statements should not be
+changed in this manner if it affects readability.</p>
+<h2><a name="anchor5444672"></a>Statements</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Loop
+statements should have names:
+<ul>
+  <li>when they extend over more than 25 lines</li>
+  <li>when they are nested</li>
+  <li>when there is a meaningful name to designate what they perform</li>
+  <li>when the loop has no end:</li>
+</ul>
+<pre>Forever: loop
+   ...
+end loop Forever;    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">When a loop
+has a name, any exit statement it contains should specify it.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Loops which
+require a completion test at the beginning should use the &quot;while&quot; loop
+form. Loops which require a completion test elsewhere should use the general
+form and an exit statement.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Minimize the
+number of exit statements in a loop.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">In a
+&quot;for&quot; loop that iterates oven an array, use the 'Range attribute
+applied on the array object, rather than an explicit range or some other
+subtype.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Move any
+loop-independent code out of the loop. Although &quot;code hoisting&quot; is a
+common compiler optimization, it cannot be done when the invariant code makes
+calls to other compilation units.</p>
+<p>Example:</p>
+<pre>World_Search:
+while not World.Is_At_End(World_Iterator) loop
+    ...
+    Country_Search:
+    while not Nation.Is_At_End(Country_Iterator) loop
+    declare
+        City_Map: constant City.Map := City.Map_Of
+            (The_City =&gt; Nation.City_Of(Country_Iterator),
+             In_Atlas =&gt; World.Country_Of(World_Iterator).Atlas);
+    begin
+        ...    </pre>
+<p>In the above code, the call to &quot;World.Country_Of&quot; is
+loop-independent (i.e., the country remains unchanged in the inner loop).
+However, in most cases, the compiler is prohibited from moving the call out of
+the loop, since the call may have side effects that can affect the program
+execution. The code will therefore execute unnecessarily each time through the
+loop.</p>
+<p>The loop is more efficient and easier to understand and maintain if rewritten
+as:</p>
+<pre>Country_Search:
+while not World.Is_At_End(World_Iterator) loop
+    declare
+        This_Country_Atlas: constant Nation.Atlas 
+            := World.Country_Of
+                    (World_Iterator).Atlas;
+    begin
+        ...
+        City_Search:
+        while not Nation.Is_At_End (The_City_Iterator) loop
+            declare
+                City.Map_Of (
+                    The_City =&gt; Nation.City_Of
+                                        (Country_Iterator),
+                    In_Atlas =&gt; This_Country_Atlas );
+            begin
+                ...    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Subprogram
+and entry calls should use named associations.</p>
+<p>However, if it is clear that the first (or only) parameter is the main focus
+of the operation (for example, a direct object of a transitive verb), the name
+can be omitted for this parameter only:</p>
+<pre>Subscriber.Delete (The_Subscriber =&gt; Old_Subscriber);    </pre>
+<p>where Subscriber.Delete is the transitive verb, and Old_Subscriber is the
+direct object. The following expressions without the named association
+The_Subscriber =&gt; Old_Subscriber are acceptable:</p>
+<pre>Subscriber.Delete	(Old_Subscriber);
+Subscriber.Delete (Old_Subscriber, 
+                   Update_Database  =&gt; True,
+                   Expunge_Name_Set =&gt; False);
+if Is_Administrator (Old_Subscriber) then ...    </pre>
+<p>There are also cases where the meaning of parameters is so obvious that named
+association would just degrade legibility. This is true, for instance, when all
+parameters are of the same type and mode and have no default values:</p>
+<pre>if Is_Equal (X, Y) then ...
+Swap (U, B);    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">A <i>when
+others</i> should not be used in case statements or in record type definitions
+(for variants).</p>
+<p>Not using a <i>when others</i> will help during the maintenance phase by
+making these constructs invalid whenever the discrete type definition is
+modified, forcing the programmer to consider what should be done to handle he
+modification. However it is tolerated when the selector is a large integer
+range.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Use a case
+statement rather than a series of &quot;elsif&quot; when the branching condition
+is a discrete value.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Subprograms
+should have a single point of return.</p>
+<p>Try to exit from subprograms at the end of the statement part. Functions
+should have a single return statement. Return statements sprinkled freely over a
+function body are akin to <i>goto</i> statements, making the code difficult to
+read and to maintain.</p>
+<p>Procedures should have no return statements at all.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Multiple <i>returns</i>
+can be tolerated only in very small functions, when all <i>returns</i> can be
+seen simultaneously and when the code has a very regular structure:</p>
+<pre>function Get_Some_Attribute return Some_Type is
+begin
+    if Some_Condition then
+        return This_Value;
+    else
+        return That_Other_Value;
+    end if;
+end Get_Some_Attribute;    </pre>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">The use of <i>goto</i>
+statements is restricted.</p>
+<p>In defense of the &quot;goto&quot; statement;, it should be noted that the
+syntax of <i>goto</i> labels and the restricted conditions of the <i>goto</i>'s
+use in Ada makes this statement not as harmful as might be thought, and in many
+cases it is preferable and more legible and meaningful than some equivalent
+constructs (a fake <i>goto</i> built with an exception, for instance).</p>
+<h2><a name="anchor5446110"></a>Coding Hints</h2>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">When
+manipulating arrays, do not assume that their index starts at 1. Use the
+attributes 'Last, 'First, 'Range.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Define the
+most common constrained subtype of your unconstrained types-records mostly-and
+use those subtypes for parameters and return values to increase self-checking in
+the client code:</p>
+<pre>type Style is (Regular, Bold, Italic, Condensed);
+type Font (Variety: Style) is ...
+subtype Regular_Font is Font (Variety =&gt; Regular);
+subtype Bold_Font is Font (Variety =&gt; Bold);
+function Plain_Version (Of_The_Font: Font) return Regular_Font;
+procedure Oblique (The_Text   : in out Text;
+                   Using_Font : in     Italic_Font);
+...    </pre>
+<hr align="left">
+<h2><a name="anchor5162436"></a><i>Chapter 8</i></h2>
+<h1>Visibility Issues</h1>
+<h2>Overloading and Homographs</h2>
+<p>The following guidelines are recommended:</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Overload
+subprograms.</p>
+<p>Do make sure, however, when using the same identifier, that it is really
+implying the same kind of operation.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid the
+hiding of homograph identifiers in nested scopes.</p>
+<p>This leads to confusion for the reader and potential risks in maintenance. Be
+aware also of the existence and scope of &quot;for&quot; loop control variables.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not
+overload operations on subtypes, always on the type.</p>
+<p>Contrary to what the naive reader may be led to believe, the overloading will
+apply to the base type and all its subtypes.</p>
+<p>Example:</p>
+<pre>subtype Table_Page is Syst.Natural16 range 0..10;
+function &quot;+&quot;(Left, Right: Table_Page) return Table_Page;    </pre>
+<p>The compiler looks for the base type and not the subtype of a parameter when
+matching subprograms. Therefore, in the above example, &quot;+&quot; is actually
+redefined for <i>all</i> Natural16 values in the current package, not just
+Table_Page. Thus any expression &quot;Natural16 + Natural16&quot; would now be
+mapped to a call to &quot;+&quot;(Table_Page, Table_Page), which would probably
+return the wrong result or produce an exception.</p>
+<h2><a name="anchor5448097"></a>Context Clauses</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Minimize the
+number of dependencies introduced by &quot;with&quot; clauses.</p>
+<p>Where visibility is extended by the use of a &quot;with&quot; clause, the
+clause should cover as small a region of code as possible. Use a
+&quot;with&quot; clause only when necessary, ideally only on a body, or even on
+a large body stub.</p>
+<p>Use interface packages to re-export low-level entities, thus avoiding visibly
+&quot;with&quot;-ing a large number of low-level packages. To do so, use derived
+types, renaming, skin subprograms, and, perhaps, predefined types such as
+strings (as is done with Environment command packages).</p>
+<p>Use <i>soft</i> (weak) coupling between units by using generic formal
+parameters, rather than <i>hard</i> (strong) coupling by using &quot;with&quot;
+clauses.</p>
+<p>Example: To export a Put procedure on a composite type, import as generic
+formals some procedure Put for its components, instead of directly <i>with</i>ing
+Text_Io.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">&quot;Use&quot;
+clauses should not be used.</p>
+<p>Avoiding &quot;use&quot; clauses as much as possible increases readability
+and legibility, provided this rule is adequately supported by naming conventions
+that make effective use of the context and by appropriate renaming. (See
+&quot;Naming Conventions,&quot; above). It also helps prevent some visibility
+surprises, especially during the maintenance phase.</p>
+<p>For a package defining a character type, a &quot;use&quot; clause is
+necessary in any compilation unit that needs to define string literals based on
+this character type:</p>
+<pre>package Internationalization is
+    type Latin_1_Char is (..., 'A', 'B', 'C', ..., U_Umlaut, ...);
+    type Latin_1_String is array (Positive range &lt;&gt;) of 
+            Latin_1_Char;
+end Internationalization ;
+use Internationalization;
+Hello : constant Latin_1_String := &quot;Baba&quot;    </pre>
+<p>The absence of a &quot;use&quot; clause prevents the use of operators in
+infix form. Those can be renamed in the client unit:</p>
+<pre>function &quot;=&quot; (X, Y : Subscriber.Id) return Boolean 
+            renames Subscriber.&quot;=&quot;;
+function &quot;+&quot; (X, Y :Base_Types.Angle) return Base_Types.Angle
+            renames Base_Types.&quot;+&quot;;    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Since the
+absence of a &quot;use&quot; clause often leads to including the same set of
+renamings in numerous client units, all those renamings can be factorized in the
+defining package itself, by means of a package Operations nested in the defining
+package. A &quot;use&quot; clause on package Operations is then recommended in
+the client unit:</p>
+<pre>package Pack is
+    type Foo is range 1 .. 10;
+    type Bar is private;
+     ...
+    package Operations is
+        function &quot;+&quot; (X, Y : Pack.Foo) return Pack.Foo 
+                renames Pack.&quot;+&quot;;
+        function &quot;=&quot; (X, Y : Pack.Foo) return Boolean 
+                renames Pack.&quot;=&quot;;
+        function &quot;=&quot; (X, Y : Pack.Bar) return Boolean 
+                renames Pack.&quot;=&quot;;
+        ...
+    end Operations;
+private
+	...
+end Pack;
+with Pack;
+package body Client is
+    use Pack.Operations; -- Makes ONLY Operations directly visible.
+    ...
+    A, B : Pack.Foo;    -- Still need prefix Pack.
+    ...
+    A := A + B ;        -- Note that &quot;+&quot; is directly 
+                        -- visible.    </pre>
+<p>Package Operations should always have this name and should always be placed
+at the bottom of the visible part of the defining package. The &quot;use&quot;
+clause should be placed only where necessary-that is, it should be placed only
+in the body of Client if no operation is used in the specification, which is
+often the case.
+<ul>
+  <li>A &quot;use&quot; clause can be tolerated for global packages defining
+    scalar types, such as package Baty_System_Types or Baty_Physical_Unit_Types,
+    or for some widely used or standard mathematical packages.</li>
+  <li>A &quot;use&quot; clause can be tolerated to get rid of highly repetitive
+    prefixing over a short span of code. For instance, the definition of a large
+    aggregate, based on some enumeration type defined in another package, will
+    be easier to read without the systematic prefix on the enumeration literals.
+    When such a &quot;use&quot; clause is used, it should be placed so as to
+    minimize its scope. One way to achieve this is to have a nested package
+    specification or declare block:</li>
+</ul>
+<pre>with Defs;
+package Client is
+    ...
+    package Inner is
+        use Defs;
+        ...
+    end Inner;		-- The scope of the use clause ends here.
+    ...
+end Client;
+declare
+    use Special_Utilities;
+begin
+    ...
+end;                -- The scope of the use clause ends here.    </pre>
+<h2><a name="anchor5449655"></a>Renamings</h2>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Use renaming
+declarations.</p>
+<p>Renaming is recommended in conjunction with the restriction on
+&quot;use&quot; clauses to make the code easier to read. When a unit with a very
+long name is referred to several times, providing a very short name for it will
+enhance legibility:</p>
+<pre>with Directory_Tools;
+with String_Utilities;
+with Text_Io;
+package Example is
+    package Dt renames Directory_Tools;
+    package Su renames String_Utilities;
+    package Tio renames Text_Io;
+    package Dtn renames Directory_Tools.Naming;
+    package Dto renames Directory_Tools.Object;
+        ...    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">The choice
+of short names should be consistent throughout the project, in keeping with the
+minimal-surprise principle. The way to achieve this is to provide the short name
+in the package itself:</p>
+<pre>package With_A_Very_Long_Name is package Vln renames 
+            With_A_Very_Long_Name;
+    ...
+end
+with With_A_Very_Long_Name;
+package Example is package Vln renames With_A_Very_Long_Name;
+-- From here on Vln is an abbreviation.    </pre>
+<p>Be aware that a package renaming gives visibility only to the visible part of
+the renamed package.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Imported
+package renamings must be grouped at the beginning of the declarative part and
+alphabetically sorted.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Renaming can
+be used locally wherever it will enhance legibility (there is no runtime penalty
+for doing so). Types can be renamed as subtypes without restriction.</p>
+<p>As shown in the section on comments, renaming often provides an elegant and
+maintainable way to document the code-for example, to give a simple name to some
+complex object or to refine locally the meaning of a type. The scope of the
+renaming identifier should be chosen to avoid introducing confusion.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Renaming
+exceptions allows exceptions to be factorized among several units-for example,
+among all instantiations of a generic package. Note that, in a package deriving
+a type, exceptions potentially raised by the derived subprograms should be
+reexported together with the derived type to avoid the clients having to
+&quot;with&quot; the original package:</p>
+<p>PRE&gt;with Inner_Defs; package Exporter is ... procedure
+May_Raise_Exception; -- Raises exception Inner_Defs.Bad_Schmoldu when ... ...
+Bad_Schmoldu : exception renames Inner_Defs.Bad_Schmoldu; ...</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Renaming
+subprograms with different default values for &quot;in&quot; parameters may
+allow simple code factorization and enhance legibility:</p>
+<pre>procedure Alert (Message : String;
+                 Beeps   : Natural);
+procedure Bip (Message : String := &quot;&quot;;
+               Beeps   : Natural := 1) 
+        renames Alert;
+procedure Bip_Bip (Message : String := &quot;&quot;;
+                   Beeps   : Natural := 2) 
+        renames Alert;
+procedure Message (Message : String;
+                   Beeps   : Natural := 0)
+        renames Alert;
+procedure Warning (Message : String;
+                   Beeps   : Natural := 1)
+        renames Alert;    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid using
+the name of the renamed entity (the old name) within the immediate scope of the
+renaming declaration; use only the identifier or operator symbol introduced by
+the renaming declaration (the new name).</p>
+<h2><a name="anchor5450738"></a>Note about <i>Use</i> Clauses</h2>
+<p>For many years there has been a &quot;use&quot; clause controversy in the Ada
+community, verging sometimes on a religious war. Both parties have used various
+arguments that often do not scale well to large projects or examples that are
+far too unrealistic-or deliberately unfair.</p>
+<p>Advocates of the &quot;use&quot; clause claim that it increases legibility,
+and they provide examples of especially unreadable, long, and redundant names,
+which would benefit from being renamed if used several times. They also claim
+that an Ada compiler can resolve overloading, which is true, but a human being
+immersed in a large Ada program cannot do overloading resolution as reliably as
+a compiler, and certainly not as fast. They claim that sophisticated APSEs, such
+as the Rational Environment, make the explicit fully qualified names useless;
+but this is not true-the user should not have to press [Definition] for each
+identifier he or she is not sure of. The user should not have to guess, but
+should be able to see immediately which objects and which abstractions are used.
+Rosen advocates of the &quot;use&quot; clause deny its potential dangers in
+program maintenance and suggest giving an F grade to the programmer who creates
+such risks; we think that fully qualified names eliminate that risk.</p>
+<p>If the methods suggested above to alleviate the impact of the restriction on
+&quot;use&quot; clauses seem to require too much typing, consider the conclusion
+of Norman H. Cohen: &quot;Any time saved when a program is being typed will be
+lost many times over when the program is reviewed, debugged, and
+maintained.&quot;</p>
+<p>Finally, it has been shown that in large systems the absence of
+&quot;use&quot; clauses improves compilation time by reducing lookup overhead in
+symbol tables.</p>
+<p>The reader interested in learning more about the use clause controversy can
+consult the following sources:</p>
+<p>D. Bryan, &quot;Dear Ada,&quot; <i>Ada Letters</i>, 7, 1, January-February
+1987, pp. 25-28.</p>
+<p>J. P. Rosen, &quot;In Defense of the Use Clause,&quot; <i>Ada Letters</i>, 7,
+7, November-December 1987, pp. 77-81.</p>
+<p>G. O. Mendal, &quot;Three Reasons to Avoid the Use Clause,&quot; <i>Ada
+Letters</i>, 8, 1, January-February 1988, pp. 52-57.</p>
+<p>R. Racine, &quot;Why the Use Clause Is Beneficial,&quot; <i>Ada Letters</i>,
+8, 3, May-June 1988, pp. 123-127.</p>
+<p>N. H. Cohen, <i>Ada as a Second Language</i>, McGraw-Hill (1986), pp.
+361-362.</p>
+<p>M. Gauthier, <i>Ada-Un Apprentissage</i>, Dunod-Informatique, Paris (1989),
+pp. 368-370.]</p>
+<hr align="left">
+<h2><a name="anchor5163153"></a><i>Chapter 9</i></h2>
+<h1>Program Structure and Compilation Issues</h1>
+<h2>Decomposition of Packages</h2>
+<p>There are two fundamental ways to decompose a large &quot;logical&quot;
+package, resulting from an initial design phase into several smaller Ada library
+units that are easier to manage, compile, maintain, and understand:</p>
+<p>a) The <i>nested</i> decomposition</p>
+<p>This approach emphasizes the use of Ada subunits and/or subpackages. The
+major subprograms, task bodies, and inner package bodies are systematically
+separated. The process is recursively repeated within those
+subunits/subpackages.</p>
+<p>b) The <i>flat</i> decomposition</p>
+<p>The logical package is decomposed into a network of smaller packages that are
+interconnected by &quot;with&quot; clauses, and the original logical package is
+mostly a re-exporting skin (or a design artifact that no longer even exists).</p>
+<p>Each approach has its advantages and disadvantages. The nested decomposition
+requires less code to be written and leads to simpler naming (many identifiers
+do not need prefixing); and, on the Rational Environment at least, the structure
+is very visible in the library image and the structure is easier to transform
+(commands Ada.Make_Separate, Ada.Make_Inline). The flat decomposition often
+leads to less recompilation and better or cleaner structure (particularly at
+subsystem boundaries); it also fosters reuse. It is also easier to manage with
+automatic recompilation tools and configuration management. However, with the
+flat structure, there is a greater risk of violating the original design by
+&quot;with&quot;-ing some of the lower-level packages that have been created in
+the decomposition.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">The level of
+nesting should be limited to three for subprograms, and to two for packages; do
+not nest packages within subprograms.</p>
+<pre>package Level_1 is
+    package Level_2 is
+package body Level_1 is
+    procedure Level_2 is
+        procedure Level_3 is    </pre>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Use body
+stubs for nested units (&quot;separate bodies&quot;) when:</p>
+<p>the body is large (more than a page of printed text) or,</p>
+<p>the body has dependencies on other units that the rest of the package body
+does not, or</p>
+<p>multiple variant versions of the body exist (e.g., for the support of
+different hardware or operating system).</p>
+<h2><a name="anchor5452557"></a>Structure of Declarative Parts</h2>
+<h3>Package Specification</h3>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">The
+declarative part of a package specification contains declarations that should be
+arranged in the following sequence:</p>
+<p>1) Renaming declaration for the package itself</p>
+<p>2) Renaming declarations for imported entities
+<ul>
+  <li>first imported packages (in alphabetical order)</li>
+  <li>then other entities: subprograms, types, exceptions.<br>
+  </li>
+</ul>
+<p>3) &quot;Use&quot; clauses</p>
+<p>4) Named numbers</p>
+<p>5) Type and subtype declarations</p>
+<p>6) Constants</p>
+<p>7) Exception declarations</p>
+<p>8) Exported subprogram specifications</p>
+<p>9) Nested packages, if any</p>
+<p>10) Private part.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For a
+package that introduces several major types, it may be better to have several
+sets of related declarations:</p>
+<p>5) Type and subtype declarations for A</p>
+<p>6) Constants</p>
+<p>7) Exception declarations</p>
+<p>8) Exported subprogram specifications for operations on A</p>
+<p>5) Type and subtype declarations for B</p>
+<p>6) Constants</p>
+<p>7) Exception declarations</p>
+<p>8) Exported subprogram specifications for operations on B</p>
+<p>Etc.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">When the
+declarative part is large (&gt;100 lines) use small comment blocks to delimit
+the various sections.</p>
+<h3>Package Body</h3>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">The
+declarative part of a package body declarations contains declarations that
+should be arranged in the following sequence:</p>
+<p>1) Renaming declarations (for imported entities)</p>
+<p>2) &quot;Use&quot; clauses</p>
+<p>3) Named numbers</p>
+<p>4) Type and subtype declarations</p>
+<p>5) Constants</p>
+<p>6) Exception declarations</p>
+<p>7) Local subprogram specifications</p>
+<p>8) Local subprogram bodies</p>
+<p>9) Exported subprogram bodies</p>
+<p>10) Nested package bodies, if any.</p>
+<h3>Other Constructs</h3>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Other
+declarative parts, such as in subprogram bodies, task bodies and block
+statements follow the same general pattern.</p>
+<h2><a name="anchor5453895"></a>Context Clauses</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use one
+&quot;with&quot; clause per imported library unit. Sort the with clauses in
+alphabetical order. If a &quot;use&quot; clause on a &quot;with&quot;-ed unit is
+appropriate, then it should immediately follow the corresponding
+&quot;with&quot; clause. See below for the pragma Elaborate.</p>
+<h2><a name="anchor5455075"></a>Elaboration Order</h2>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not rely
+on the order of elaboration of library units to achieve any specific effect.</p>
+<p>Each Ada implementation is free to choose a strategy to compute the
+elaboration order, provided it satisfies the very simple rules stated in the Ada
+Reference Manual <a href="#anchor247944">[ISO87]</a>. Some implementations use
+smarter strategies than others (such as elaborating the bodies as soon as
+feasible after the corresponding spec), and some implementations do not bother
+to be this smart (especially for generic instantiations), leading to very severe
+portability problems.</p>
+<p>There are three main sources for the infamous &quot;access before
+elaboration&quot; error during program elaboration (which should normally raise
+the Program_Error exception):
+<ul>
+  <li>Attempting to instantiate a generic unit before its body has been
+    elaborated.</li>
+  <li>Attempting to call a subprogram before its body has been elaborated. This
+    is likely to occur when the elaboration of objects calls a function-for
+    instance, to return a constraint or an initial value. This may not be highly
+    visible if the object is a record whose (sub)components have default initial
+    values obtained by function calls.</li>
+  <li>Attempting to activate a task before its body has been elaborated. This
+    will occur, for instance, when there is a task object allocation between the
+    task type specification and the task body elaboration:</li>
+</ul>
+<pre>task type T;
+type T_Ptr is access T;
+SomeT : T_Ptr := new T; -- Access before elaboration.    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">To avoid
+problems in porting applications from one Ada compiler to another, the
+programmer should either eliminate the problems by restructuring the code (which
+is not always possible) or explicitly take control of elaboration order by means
+of pragma Elaborate, using the following strategy:</p>
+<p>In the context clause of a unit Q, a pragma Elaborate should be applied to
+each unit P that appears in a &quot;with&quot; clause:
+<ul>
+  <li>If P is or contains a generic unit that is instantiated in Q</li>
+  <li>If P exports a task type that is used to elaborate an object in Q.</li>
+</ul>
+<p>Moreover, if P exports a type T such that the elaboration of objects of type
+T calls a function in package R, then the context clause of Q should contain:</p>
+<pre>with R;
+pragma Elaborate (R);    </pre>
+<p>even if there are no direct references to R in Q!</p>
+<p>Practically, it may be easier (but not always possible) to state the rule
+that package P should include:</p>
+<p>PRE&gt;with R; pragma Elaborate (R);</p>
+<p>and the package Q must simply carry:</p>
+<pre>with P;
+pragma Elaborate (P);    </pre>
+<p>P&gt;therefore providing the right elaboration order by transitivity.</p>
+<hr align="left">
+<h2><a name="anchor5164826"></a><i>Chapter 10</i></h2>
+<h1>Concurrency</h1>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of tasks.</p>
+<p>Tasks are a very powerful feature, but they are delicate to use. Large
+overhead in space and time may be associated with the injudicious use of tasks.
+Small changes to some part of the system may completely jeopardize the liveness
+of a set of tasks, leading to starvation and/or deadlocks. Testing and debugging
+tasking programs is difficult. Therefore the use of tasks, their placement, and
+their interaction is a project-level decision. Tasks cannot be used in a hidden
+way or written by inexperienced programmers. The tasking model of an Ada program
+needs to be made visible and understandable.</p>
+<p>Unless there is effective support from parallel hardware, tasks should be
+introduced only when concurrency is truly necessary. This is the case when
+expressing actions that depend on time: periodic activities or introduction of
+time-outs, or actions that depend on an external event such as an interrupt or
+the arrival of an external message. Tasks also need to be introduced to decouple
+other activities, such as: buffering, queuing, dispatching, and synchronizing
+access to common resources.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Specify the
+task stack size with a 'Storage_Size length clause.</p>
+<p>For the same reasons and in the same circumstances that led to the
+requirement that collections have length clauses (&quot;Access Types&quot;
+section, above), the size of a task should be specified in cases where memory is
+a precious resource. To do so, always declare tasks of an explicitly declared
+type (since the length clause can be applied only to a type). A function call
+maybe used to dynamically size the stack.</p>
+<p>Note: It may be very difficult to guess how much stack each task requires. To
+facilitate this, the runtime system can be instrumented with a &quot;high-water
+mark&quot; mechanism.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Use an
+exception handler in the body of a task to avoid or at least report the
+unexplained death of a task.</p>
+<p>Tasks that do not handle exceptions die-usually silently. If at all feasible,
+try to report the nature of the death, especially Storage_Error. This will allow
+fine-tuning the stack size. Note that this requires allocation (primitive new)
+to be encapsulated in a subprogram that reexports an exception other than
+Storage_Error.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Create tasks
+during program elaboration.</p>
+<p>For the same reasons and in the same circumstances that led to the
+requirement that collections be allocated during program elaboration
+(&quot;Access Types&quot; section, above), the whole application tasking
+structure should be created very early at program startup. It is better to have
+the program not start at all because of memory exhaustion than to die a couple
+of days later.</p>
+<p>In subsequent rules, a distinction is made between <i>service</i> tasks and <i>application</i>
+tasks. Service tasks are small and algorithmically simple tasks that are used to
+provide the &quot;glue&quot; between application-related tasks. Examples of
+service tasks (or intermediary tasks) include buffers, transporters, relays,
+agents, monitors, and so on that usually provide synchronization, decoupling,
+buffering, and waiting services. Application tasks, as the name conveys, are
+more directly related to the primary functions of the application.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid hybrid
+tasks: application tasks should be made pure callers; service tasks should be
+made pure callees.</p>
+<p>A pure callee is a task that contains only accept statements or selective
+waits and no entry calls.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid
+circularities in the graph of entry calls.</p>
+<p>This will considerably reduce the risk of deadlocks. Avoid circularities at
+least in the system's steady-state, if they cannot be avoided completely. These
+two rules also make the structure easier to understand.</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of shared variables.</p>
+<p>Be particularly aware of <i>hidden</i> shared variables-that is, variables
+that are hidden in package bodies, for instance, and accessed by primitives
+visible to several tasks. Shared variables can be used in extreme cases for
+synchronization of access to common data structures, when the cost of rendezvous
+is too high. Check whether pragma Shared is effectively supported.</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of abort statements.</p>
+<p>The abort statement is universally recognized as one of the most dangerous
+and harmful primitives of the language. Its usage to terminate tasks
+unconditionally (and almost asynchronously) makes it almost impossible to reason
+about the behavior of a given tasking structure. However, there are very limited
+circumstances in which an abort statement is necessary.</p>
+<p>Example: Some low-level services are provided that have no facility for
+time-out. The only way to introduce a time-out is to have the service provided
+by some auxiliary agent task, to wait (with a time-out) for a reply from the
+agent, and then to kill the agent with an abort if the service has not been
+provided within the delay time.</p>
+<p>An abort is tolerable when it can be demonstrated that only the aborter and
+the abortee can be affected-for example, when no other task can possibly call
+the aborted task.</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of delay statements.</p>
+<p>Arbitrary suspension of a task may lead to severe scheduling problems, which
+are hard to track down and correct.</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of attributes 'Count, 'Terminated, and 'Callable.</p>
+<p>Attribute 'Count should be used only as a rough indication, and scheduling
+decisions should not be based on its value being zero or not, since the actual
+number of waiting tasks can change between the time the attribute is evaluated
+and the time its value is used.</p>
+<p>Use conditional entry calls (or the equivalent construct with accept) to
+reliably check the absence of waiting tasks.</p>
+<pre>select
+    The_Task.Some_Entry;
+else
+    -- do something else
+end select;    </pre>
+<p>rather than:</p>
+<pre>if The_Task.Some_Entry'Count &gt; 0 then
+    The_Task.Some_Entry;
+else
+    -- do something else
+end if;    </pre>
+<p>Attribute 'Terminated is meaningful only when it yields True and 'Callable
+when it yields False, thereby considerably limiting their usefulness. They
+should not be used to provide synchronization between tasks during system
+shutdown.</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of priorities.</p>
+<p>Priorities in Ada have a limited impact on scheduling. In particular,
+priorities of tasks waiting on entries are not taken into account for ordering
+the entry queues or for selecting the entry to serve in a selective wait. This
+may lead to priority inversion (see <a href="#anchor248569">[GOO88]</a>)
+Priorities are used by the scheduler only to select the next task to run among
+the tasks ready to run. Because of the risk of priority inversion, do not rely
+on priorities for mutual exclusion.</p>
+<p>By using families of entries, it is possible to split the entry queue into
+several subqueues, and with this it is often possible to introduce an explicit
+concept of urgency.</p>
+<p>If priorities are not necessary, do not assign any priority to any task.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Once a
+priority is assigned to one task, assign a priority to all tasks in the
+application.</p>
+<p>This rule is necessary because the priorities of tasks without a pragma
+Priority are undefined.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">For
+portability, keep the number of priority levels small.</p>
+<p>The range of the subtype System.Priority is implementation-defined, and
+experience shows that the actual range available varies enormously from system
+to system. Moreover, it is a good idea to centrally define the priorities,
+giving them names and definitions, rather than using integer literals in all
+tasks. Having such a central System_Priorities package eases portability and,
+together with the previous rule, allows easy location of all task
+specifications.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">To avoid
+drift in cyclic tasks, program the delay statement to take into account
+processing time, overhead, and task preemption:</p>
+<pre>Next_Time := Calendar.Clock;
+loop
+    -- Do the job.
+    Next_Time := Next_Time + Period;
+    delay Next_Time - Clock;
+end loop;    </pre>
+<p>Note that Next_Time - Clock may be negative, indicating that the cyclic task
+is running late. It may be possible to drop one cycle.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">To guarantee
+schedulability, assign priorities to cyclic tasks according to the Rate
+Monotonic Scheduling Algorithm-that is, the highest priority to the most
+frequent task. (See <a href="#anchor244436">[SHA90]</a> for more details.)</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Assign a
+higher priority to very fast intermediary servers: monitors, buffers.</p>
+<p>But then make sure that these servers do not block themselves by
+rendezvousing with other tasks. Document this priority in the code so that it
+can be respected during program maintenance.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">To minimize
+the effect of &quot;jitter,&quot; rely on time-stamping input samples or output
+data, rather than on the period itself.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid busy
+wait (polling).</p>
+<p>Make sure tasks wait with select or entry calls, or are delayed, rather than
+furiously checking for something to do.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">For each
+rendezvous, make sure that at least one side is waiting and that only one side
+has a conditional entry call or timed entry call or waits.</p>
+<p>Otherwise, notably in loops, there is the risk of the code running into a
+race condition, highly similar in result to a busy wait. This may be aggravated
+by poor use of priorities.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">When
+encapsulating tasks, be sure to leave some of their special characteristics
+highly visible.</p>
+<p>If entry calls are hidden in subprograms, make sure the reader of the
+specification of those subprograms is aware that the call to this subprogram may
+block. Additionally, specify whether the wait is bounded; if so, provide some
+estimate of the upper bound. Use a naming convention to indicate the potential
+wait (&quot;Subprograms&quot; section, above).</p>
+<p>If the elaboration of a package, the call of a subprogram, or the
+instantiation of a generic unit activates a task, make this fact visible to the
+client:</p>
+<pre>package Mailbox_Io is
+    -- This package elaborates an internal Control task
+    -- that synchronizes all access to the external 
+    -- mailbox 
+    procedure Read_Or_Wait
+        (Name: Mailbox.Name; Mbox: in out Mailbox.Object);
+        --
+        -- Blocking (unbounded wait).    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not rely
+on any specific order for entry selection in a selective wait.</p>
+<p>If some fairness is required in picking up tasks queued in entries, achieve
+this by explicitly checking the queues with no wait in the desired order and
+then wait on all entries. Do not use 'Count.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not rely
+on any specific activation order for tasks elaborated in the same declarative
+part.</p>
+<p>If a specific startup ordering is sought, this should be achieved by making
+rendezvous with special startup entries.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Implement
+tasks to terminate normally.</p>
+<p>Unless the nature of the application requires that tasks, once activated, run
+forever, tasks should terminate, either by reaching normal completion or through
+a terminate alternative. This may be impossible to achieve for tasks whose
+master is a library-level package, since the Ada Reference Manual does not
+specify under which condition they should terminate.</p>
+<p>If the master-dependent structure does not allow clean termination, then
+tasks should provide and wait for special shutdown entries, which are called
+during system shutdown.</p>
+<hr align="left">
+<h2><a name="anchor5165643"></a><i>Chapter 11</i></h2>
+<h1>Error Handling and Exceptions</h1>
+<p>The general philosophy is to use exceptions only for errors: logic and
+programming errors, configuration errors, corrupted data, resource exhaustion,
+etc. The general rule is that the systems in normal condition and in the absence
+of overload or hardware failure should not raise any exceptions.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Use
+exceptions to handle logic and programming errors, configuration errors,
+corrupted data, resource exhaustion. Report exceptions by the appropriate
+logging mechanism as early as possible, including at the point of raise.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Minimize the
+number of exceptions exported from a given abstraction.</p>
+<p>In large systems, having to handle a large number of exceptions at each level
+makes the code difficult to read and to maintain. Sometimes the exception
+processing dwarfs the normal processing.</p>
+<p>There are several ways to minimize the number of exceptions:
+<ul>
+  <li>Export only a few exceptions but provide &quot;diagnosis&quot; primitives
+    that allow querying the faulty abstraction or the bad object for more
+    detailed information about the nature of the problem that occurred.</li>
+  <li>Share exceptions between generic instantiations by defining the exceptions
+    in an auxiliary nongeneric package and renaming them in the generic package
+    for convenience.</li>
+  <li>Import, as generic formal procedures, the actions to be performed in the
+    case of errors, rather than raising exceptions.</li>
+  <li>Add &quot;exceptional&quot; states to the objects, and provide primitives
+    to check explicitly the validity of the objects.</li>
+</ul>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not
+propagate exceptions not specified in the design.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid a <i>when
+others</i> alternative in exception handlers, unless the caught exception is
+reraised.</p>
+<p>This allows some local housekeeping without interfering with exceptions that
+cannot be handled at this level:</p>
+<pre>exception
+    when others =&gt; 
+        if Io.Is_Open (Local_File) then
+            Io.Close (Local_File);
+        end if;
+        raise;
+end;    </pre>
+<p>Another place where a <i>when others</i> alternative may be used is at the
+bottom of a task body.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not use
+exceptions for frequent, anticipated events.</p>
+<p>There are several inconveniences in using exceptions to represent conditions
+that are not clearly errors:
+<ul>
+  <li>It is confusing.</li>
+  <li>It usually forces some disruption in the flow of control that is more
+    difficult to understand and to maintain.</li>
+  <li>It makes the code more painful to debug, since most source-level debuggers
+    flag all exceptions by default.</li>
+</ul>
+<p>For instance, do not use an exception as some form of extra value returned by
+a function (like Value_Not_Found in a search); use a procedure with an
+&quot;out&quot; parameter, or introduce a special value meaning Not_Found, or
+pack the returned type in a record with a discriminant Not_Found.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Do not use
+exceptions to implement control structures.</p>
+<p>This is a special case of the previous rule: exceptions should not be used as
+a form of &quot;goto&quot; statement.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">When
+catching predefined exceptions, place the handler in a very small frame
+surrounding the construct raising it.</p>
+<p>Predefined exceptions like Constraint_Error, Storage_Error, and so on can
+occur in many places. If one such exception needs to be caught for some specific
+reason, the handler must be as limited in scope as possible:</p>
+<pre>begin
+    Ptr := new Subscriber.Object;
+exception
+    when Storage_Error =&gt; 
+        raise Subscriber.Collection_Overflow;
+end;    </pre>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Terminate
+exception handlers in functions with either a &quot;return&quot; statement or a
+&quot;raise&quot; statement. Otherwise the Program_Error exception will be
+raised in the caller.</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+suppressing of checks.</p>
+<p>With today's Ada compilers, the potential reductions in code size and
+increases in performance obtained by suppressing checks have become marginal.
+Therefore, suppressing checks should be restricted to very limited pieces of
+code that have been identified (by doing measurements) as performance
+bottlenecks; it should never be applied widely to a whole system.</p>
+<p>As a corollary, do not add extra explicit range and discriminant checking
+just for the improbable case that someone will decide later to suppress checks.
+Rely on Ad's built-in constraint-checking facilities.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Do not
+propagate exceptions out of the scope of their declaration.</p>
+<p>This will make it impossible for client code to explicitly handle the
+exception, other than with a <i>when others</i> alternative, which may not be
+specific enough.</p>
+<p>A corollary to this rule is: when re-exporting a type by derivation, think of
+re-exporting the exceptions that the derived subprograms may raise-by renaming,
+for instance. Otherwise, the clients will have to &quot;with&quot; the original
+defining package.</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Always
+handle Numeric_Error and Constraint_Error together.</p>
+<p>The Ada Board has decided that all circumstances that would have raised
+Numeric_Error should raise Constraint_Error instead.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Make sure
+status codes have an appropriate value.</p>
+<p>When using status code returned by subprograms as an &quot;out&quot;
+parameter, always make sure a value is assigned to the &quot;out&quot; parameter
+by making this the first executable statement in the subprogram body.
+Systematically make all statuses a success by default or a failure by default.
+Think of all possible exits from the subprogram, including exception handlers.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Perform
+safety checks locally; do not expect your client to do so.</p>
+<p>That is, if a subprogram might produce erroneous output unless given proper
+input, install code in the subprogram to detect and report invalid input in a
+controlled manner. Do not rely on a comment that tells the client to pass proper
+values. It is virtually guaranteed that sooner or later that comment will be
+ignored, resulting in hard-to-debug errors if the invalid parameters are not
+detected.</p>
+<p>For further information, see <a href="#anchor247316">[KR90b]</a>.</p>
+<hr align="left">
+<h2><a name="anchor5166654"></a><i>Chapter 12</i></h2>
+<h1>Low-Level Programming</h1>
+<p>This section deals with Ada features that are a priori non-portable. They are
+defined in chapter 13 of the <i>Reference Manual for the Ada Programming
+Language</i><a href="#anchor247944"> [ISO87]</a>, and the compiler-specific
+features are described in the &quot;Appendix F&quot; provided by the Ada
+compiler vendors.</p>
+<h2><a name="anchor5458692"></a>Representation Clauses and Attributes</h2>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Study
+carefully Appendix F of the Ada Reference Manual (and conduct small experiments
+to ensure that it is well understood).</p>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of representation clauses.</p>
+<p>Representation clauses are not supported uniformly from implementation to
+implementation. Their use contains many traps. Therefore, they should not be
+used freely in a system.</p>
+<p>Representation clauses may be necessary:
+<ul>
+  <li>to interface with some specific hardware (peripheral chips,
+    instrumentation devices, and so on) or external software (operating system)</li>
+  <li>to guarantee interoperability with other software: freezing the
+    representation avoids running into problems when using different Ada
+    compilers or just different versions of the same compiler</li>
+  <li>in some limited cases, to provide space optimization (memory, disk,
+    transmission)</li>
+  <li>to defeat strong typing (in conjunction with unchecked conversions)</li>
+  <li>to constrain the size of task types and collections on systems with
+    limited memory</li>
+  <li>to force 'Small equal to 'Delta for fixed-point types.</li>
+</ul>
+<p>Representation clauses can be avoided in the following kinds of situations:
+<ul>
+  <li>when an enumeration clause is used to &quot;jump&quot; over a very few
+    missing values, the values might be introduced explicitly, with a name
+    conveying clearly the fact that those values do not exist</li>
+</ul>
+<p>Example:</p>
+<p>Replace:</p>
+<pre>type Foo is (Bla, Bli, Blu, Blo);
+for Foo use (Bla =&gt; 1, Bli =&gt;3, Blu =&gt; 4, Blo =&gt; 5);    </pre>
+<p>with:</p>
+<pre>type Foo is (Invalid_0, Bla, Invalid_2, Bli, Blu, Blo);    </pre>
+<ul>
+  <li>when the intent of a record representation clause is to have a more
+    compact storage, it may be sufficient to apply a length clause (or a pragma
+    Pack) to each component and subcomponent, and then apply a pragma Pack to
+    the record type.</li>
+</ul>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Group types
+that have representation clauses into packages clearly identified as containing
+implementation-dependent code.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Never assume
+a specific order in record layout.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">In a record
+representation clause, always specify the placement of all discriminants, and do
+so before specifying any components in the variants.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">Avoid
+alignment clauses.</p>
+<p>Trust the compiler to do a good job; it knows the target alignment
+constraints. programmer's use of alignment clauses is likely to lead to
+alignment conflicts later.</p>
+<p><img src="../images/cg_1.gif" naturalsizeflag="3" align="BOTTOM" width="23" height="28">Be aware of
+the existence of compiler-generated fields in unconstrained composite types:</p>
+<p>in records: offset of dynamic fields, variant clause index, constrained bit,
+and so on</p>
+<p>in arrays: dope vectors.</p>
+<p>Refer to the Appendix F for the compiler for details. Do not rely on what is
+written in chapter 13 of the Ada Reference Manual <a href="#anchor247944">[ISO87]</a>.</p>
+<h2><a name="anchor5460020"></a>Unchecked Conversions</h2>
+<p><img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">Restrict the
+use of Unchecked_Conversion.</p>
+<p>The extent of support for Unchecked_Conversion varies greatly from one Ada
+compiler to another, and its precise behavior may be slightly different,
+especially when applied to composite types and access types.</p>
+<p><img src="../images/cg_4.gif" naturalsizeflag="3" align="BOTTOM" width="30" height="37">In an
+instantiation of Unchecked_Conversion, ensure that both source and target types
+are constrained and have the same size.</p>
+<p>This is the only way to achieve some limited portability and to avoid running
+into problems with implementation-added information such as dope vectors. One
+way to make sure both types have the same size is to &quot;wrap&quot; them in a
+record type with a record representation clause.</p>
+<p>One way to make the type constrained is to do the instantiation within a
+&quot;skin&quot; function, where the constraint is computed beforehand.</p>
+<p><img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">Do not apply
+Unchecked_Conversion to access values or tasks.</p>
+<p>Not only is this not supported by all systems (for example, the Rational <i>native</i>
+compiler), but also it should not be assumed that:
+<ul>
+  <li>access values are isomorphic to a System.Address: access values may have
+    fewer bits than machine addresses .address;</li>
+  <li>integer arithmetic on access values produces the effect that may be
+    expected: storage may not be contiguous.</li>
+</ul>
+<hr align="left">
+<h2><a name="anchor5168080"></a><i>Chapter 13</i></h2>
+<h1>Summary</h1>
+<p>We recapitulate here the most important things to watch for:</p>
+<h3>Restricted features (<img src="../images/cg_2.gif" naturalsizeflag="3" align="BOTTOM" width="17" height="35">):</h3>
+<ul>
+  <li>access types</li>
+  <li>fixed-point types</li>
+  <li>unchecked deallocation</li>
+  <li>&quot;goto&quot; statements</li>
+  <li>&quot;use&quot; clauses</li>
+  <li>tasks</li>
+  <li>shared variables</li>
+  <li>&quot;abort&quot; statements</li>
+  <li>&quot;delay&quot; statements</li>
+  <li>attributes 'Count, 'Callable, and 'Terminated</li>
+  <li>priorities</li>
+  <li>pragma Suppress</li>
+  <li>representation clauses (except 'Small)</li>
+  <li>Unchecked_Conversion.</li>
+</ul>
+<h3>Absolute &quot;don't&quot;s (<img src="../images/cg_3.gif" naturalsizeflag="3" align="BOTTOM" width="35" height="17">)</h3>
+<ul>
+  <li>limited types that are not self-initializing</li>
+  <li>uninitialized variables</li>
+  <li>use of predefined numeric types</li>
+  <li>handling of Numeric_Error separately from Constraint_Error</li>
+  <li>dependency on order of elaboration, evaluation, or execution (for example,
+    subprogram parameters, aggregates, selective wait alternatives)</li>
+  <li>redefinition of identifiers from package Standard</li>
+  <li>using Ada 95 keywords or predefined identifiers</li>
+  <li>not using common sense.</li>
+</ul>
+<hr align="left">
+<h1><a name="anchor5169125"></a>References</h1>
+<p>This document is derived directly from <i>Ada Guidelines: Recommendations for
+Designer and Programmers</i>, Application Note #15, Rev. 1.1, Rational, Santa
+Clara, Ca., 1990. [KR90a]. However, many different sources have contributed to
+its elaboration.</p>
+<p><a name="anchor250207"></a>BAR88 B. Bardin &amp; Ch. Thompson,
+&quot;Composable Ada Software Components and the Re-export Paradigm&quot;, <i>Ada
+Letters</i>, VIII, 1, Jan.-Feb. 1988, p.58-79.</p>
+<p><a name="anchor250650"></a>BOO87 E. G. Booch, <i>Software Components with Ada</i>,
+Benjamin/Cummings (1987)</p>
+<p><a name="anchor250960"></a>BOO91 Grady Booch: <i>Object-Oriented Design with
+Applications</i>, Benjamin-Cummings Pub. Co., Redwood City, California, 1991,
+580p.</p>
+<p><a name="anchor249681"></a>BRY87 D. Bryan, &quot;Dear Ada,&quot; <i>Ada
+Letters</i>, 7, 1, January-February 1987, pp. 25-28.</p>
+<p><a name="anchor249419"></a>COH86 N. H. Cohen, <i>Ada as a Second Language</i>,
+McGraw-Hill (1986), pp. 361-362.</p>
+<p><a name="anchor249137"></a>EHR89 D. H. Ehrenfried, <i>Tips for the Use of the
+Ada Language</i>, Application Note #1, Rational, Santa Clara, Ca., 1987.</p>
+<p><a name="anchor248871"></a>GAU89 M. Gauthier, <i>Ada-Un Apprentissage</i>,
+Dunod-Informatique, Paris (1989), pp. 368-370.</p>
+<p><a name="anchor248569"></a>GOO88John B. Goodenough and Lui Sha: &quot;The
+Priority Ceiling Protocol,&quot; special issue of <i>Ada Letters</i>, Vol., Fall
+1988, pp. 20-31.</p>
+<p><a name="anchor248220"></a>HIR92 M. Hirasuna, &quot;Using Inheritance and
+Polymorphism with Ada in Government Sponsored Contracts&quot;, <i>Ada Letters</i>,
+XII, 2, March/April 1992, p.43-56.</p>
+<p><a name="anchor247944"></a>ISO87 <i>Reference Manual for the Ada Programming
+Language</i>, International Standard ISO 8652:1987.</p>
+<p><a name="anchor247603"></a>KR90a Ph. Kruchten, <i>Ada Guidelines:
+Recommendations for Designer and Programmers</i>, Application Note #15, Rev.
+1.1, Rational, Santa Clara, Ca., 1990.</p>
+<p><a name="anchor247316"></a>KR90b Ph. Kruchten, &quot;Error-Handling in Large,
+Object-Based Ada Systems,&quot; <i>Ada Letters</i>, Vol. X, No. 7, (Sept. 1990),
+pp. 91-103.</p>
+<p><a name="anchor246845"></a>MCO93 Steve McConnell, <i>Code Complete-A Practical 
+  Handbook of Software Construction</i>, Microsoft&reg; Press, Redmond, WA, 1993, 
+  857p.</p>
+<p><a name="anchor246566"></a>MEN88 G. O. Mendal, &quot;Three Reasons to Avoid
+the Use Clause,&quot; <i>Ada Letters</i>, 8, 1, January-February 1988, pp.
+52-57.</p>
+<p><a name="anchor246300"></a>PER88 E. Perez, &quot;Simulating Inheritance with
+Ada&quot;, <i>Ada letters</i>, VIII, 5, Sept.-Oct. 1988, p. 37-46.</p>
+<p><a name="anchor245999"></a>PLO92 E. Ploedereder, &quot;How to program in Ada
+9X, Using Ada 83&quot;, <i>Ada Letters</i>, XII, 6, November 1992, pp. 50-58.</p>
+<p><a name="anchor245703"></a>RAC88 R. Racine, &quot;Why the Use Clause Is
+Beneficial,&quot; <i>Ada Letters</i>, 8, 3, May-June 1988, pp. 123-127.</p>
+<p><a name="anchor245422"></a>RAD85 T. P. Bowen, G. B. Wigle &amp; J. T. Tsai, <i>Specification
+of Software Quality Attributes</i>, Boeing Aerospace Company, Rome Air
+Development Center, Technical Report RADC-TR-85-37 (3 volumes).</p>
+<p><a name="anchor245156"></a>ROS87 J. P. Rosen, &quot;In Defense of the Use
+Clause,&quot; <i>Ada Letters</i>, 7, 7, November-December 1987, pp. 77-81.</p>
+<p><a name="anchor244750"></a>SEI72 E. Seidewitz, &quot;Object-Oriented
+Programming with Mixins in Ada&quot;, <i>Ada Letters</i>, XII, 2, March/April
+1992, p.57-61.</p>
+<p><a name="anchor244436"></a>SHA90 Lui Sha and John B. Goodenough:
+&quot;Real-Time Scheduling Theory and Ada,&quot; <i>Computer</i>, Vol. 23, #4
+(April 1990), pp. 53-62.)</p>
+<p><a name="anchor244196"></a>SPC89 Software Productivity Consortium: <i>Ada
+Quality and Style-Guidelines for the Professional Programmer</i>, Van Nostrand
+Reinhold (1989)</p>
+<p><a name="anchor243927"></a>TAY92 W. Taylor, <i>Ada 9X Compatibility Guide</i>,
+Version 0.4, Transition Technology Ltd., Cwmbrân, Gwent, U.K., Nov. 1992.</p>
+<p><a name="anchor243652"></a>WIC89 B. Wichman: <i>Insecurities in the Ada
+Programming Language</i>, Report DITC137/89, National Physical Laboratory (UK),
+January 1989.</p>
+<hr align="left">
+<h1><a name="anchor5169786"></a>Glossary</h1>
+<p>Most terms used in this document are defined in Appendix D of the <i>Reference
+Manual for the Ada Programming Language</i>, <a href="#anchor247944">[ISO87]</a>.
+Additional terms are defined here:</p>
+<p>ADL: Ada as a Design Language; refers to the way Ada is used to express
+aspects of a design; a.k.a. PDL, or Program Design Language.</p>
+<p>Environment: The Ada software development environment in use.</p>
+<p>Library switch: In the Rational Environment, a compilation option that
+applies to a whole program library.</p>
+<p>Model world: In the Rational Environment, a special library that is used to
+capture uniform project-wide library switch settings.</p>
+<p>Mutable: Property of a record whose discriminants have default values; an
+object of a mutable type can be assigned any value of the type, even values that
+make it change its discriminants, hence its structure.</p>
+<p>Skin: A subprogram whose body acts solely as a relay. It ideally contains
+only one statement: a call to another subprogram, with an identical set of
+parameters, or parameters that convertible to and from the parameter.</p>
+<p>PDL: Program Design Language.</p>
+<br>
+<br>
+
+
+ 
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

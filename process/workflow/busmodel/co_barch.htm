@@ -1,0 +1,278 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Business Architecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Business Architecture</rpw><a name="XE_business_architecture"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Architectural Views">Introduction</a></li>
+  <li><a href="#Context of Business Architecture">Context of Business
+    Architecture</a></li>
+  <li><a href="#Business Architecture is a Framework for Change">Business Architecture 
+    as a Framework for Change</a></li>
+  <li><a href="#Architectural Views">Business Architectural Views</a></li>
+</ul>
+<h3><a name="Introduction">Introduction<img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>We define business architecture as an organized set of elements with clear 
+  relationships to one another, which together form a whole defined by its functionality. 
+  The elements represent the organizational and behavioral structure of a business 
+  system and show abstractions of the key processes and structures of the business 
+  [<a href="../../referenc.htm#NDL97">NDL97</a>], [<a href="../../referenc.htm#ERI00">ERI00</a>].</p>
+<h3><a name="Context of Business Architecture">Context of Business Architecture<img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Different people have different backgrounds and perspectives. When attempting 
+  to achieve a common understanding on something as complex as the organization—including 
+  its processes, structure, and strategy—we need a way to describe architecture 
+  and architecturally significant issues in a way that will be understood by each 
+  impacted group. This is done by describing three different-yet-related architectures 
+  as shown and described later in this document.</p>
+<p align="center"><img border="0" src="images/co_barc1.gif" width="683" height="334"></p>
+<p><b>Business architecture </b>is a description of the significant aspects of 
+  the organization. <b>Application architecture </b>is a description of the software 
+  applications that support the business, including how those applications are 
+  used and how they interact with each other. <b>Technical architecture</b> is 
+  a description of the hardware infrastructure that supports the software applications.</p>
+<p>The business architecture must govern the application architecture, which in 
+  turn must govern the technical architecture. This does not imply a hierarchical 
+  relationship wherein the business architecture prescribes to the application 
+  architecture, and the application architecture prescribes to technical architecture. 
+  Rather, it means that goals and constraints (called drivers) are communicated 
+  in one direction, and any architectural decisions (called tradeoffs) that affect 
+  the governing architecture must be made at the level of the governing architecture. 
+  An architectural goal implies a desired condition, while an architectural constraint 
+  implies mandatory compliance. However, even constraints can be intentionally 
+  ignored. For example, a constraint that requires the business to comply with 
+  certain legislation might be ignored because the cost of making the changes 
+  necessary to comply far exceed the penalties incurred by noncompliance.</p>
+<p>Architecting<b> </b>is about balancing forces and making tradeoffs to create 
+  a solution that optimally satisfies conflicting requirements. This means that 
+  the business architecture defines goals and constraints that describe the support 
+  that it requires from application architecture. The same applies to the application 
+  and the technical architecture. Where conflicts arise, as they always do, localized 
+  sub-optimal solutions must be found in order to ensure an optimum overall solution. 
+  When these decisions have a broad impact, they are termed <b>architectural issues</b> 
+  and must be formally agreed to by stakeholders represented by an architecture 
+  board.</p>
+<p>These different architectures must always be considered when communicating 
+  with stakeholders. Discussing only one of them with an individual who does not 
+  understand its form, application, or notation results in ineffective communication. 
+  Furthermore, it can cause that individual to misunderstand the consequences 
+  of his or her decisions <b> </b>regarding the other architectures. The impact 
+  of decisions in one of the architectures must be translated to the other ones. 
+  This helps stakeholders understand the benefits and disadvantages of tradeoffs, 
+  which leads to architectural alignment. Architectural alignment helps us understand 
+  the consequences of decisions.</p>
+<h3><a name="Business Architecture is a Framework for Change">Business Architecture 
+  as a Framework for Change<img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The business architecture is what we use to communicate with different stakeholders 
+  about the business to ensure a common, consistent understanding. We can describe 
+  the business architecture as the framework within which we make changes to the 
+  organization to enable the business to ultimately realize the business idea, 
+  as shown in the figure.</p>
+<p align="center"><img border="0" src="images/co_barc2.gif" width="473" height="300"></p>
+
+
+<h3><a name="Architectural Views">Business Architectural Views<img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Because business architecture is complex and difficult to measure, we divide 
+  it into a number of different views. Much as the software architecture is defined 
+  in <a href="../ana_desi/co_swarch.htm">Concepts: Software Architecture</a>, 
+  the architectural views of the business will be defined here. </p>
+<p>Each view describes one aspect of the entire business. It therefore contains 
+  an architecturally significant subset of what would be a complete definition. 
+  In other words, an architectural view contains the 20% that really matters to 
+  that aspect of the business [<a href="../../referenc.htm#ROY98">ROY98</a>].</p>
+<p>The architectural views are helpful in discussing the business architecture 
+  with different stakeholders. Because each stakeholder has one or several views 
+  that are of particular interest, he or she can focus on those aspects of the 
+  organization that are associated with those views without having to understand 
+  everything else as well. </p>
+<p>Note that not all views apply to all situations. Some views can be ignored 
+  when they add no value, and sometimes it might be necessary to define new views. 
+  Here are some typical business architectural views: </p>
+<ul>
+  <li><b>Market View</b> describes the markets in which the business operates, 
+    customer profiles and offerings, or the products and services that the business 
+    offers to customers in the target markets.</li>
+  <li><b>Business Process View</b> describes the significant goals of the business 
+    and outlines the key business use cases that support these goals.&nbsp;When 
+    business use cases are used to document business processes, this view is called 
+    the Business Use Case View. </li>
+  <li><b>Organization View</b> describes the groupings of roles and responsibilities 
+    within the business and the realization of business use cases.</li>
+  <li><b>Human Resource View</b> describes remuneration profiles and incentive 
+    mechanisms, key cultural characteristics and mechanisms, competence profiles, 
+    and education and training mechanisms.</li>
+  <li><b>Domain View</b> describes the major business concepts and information 
+    structures used by the business.</li>
+  <li><b>Geographic View</b> describes the distribution of organizational structure 
+    and function across physical locations such as cities and countries.</li>
+  <li><b>Communication View</b> describes the communication pathways within the 
+    business.</li>
+</ul>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Development Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Development Case</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Variable Elements in Software Engineering Processes">Variable
+    Elements in Software Engineering Processes</a></li>
+  <li><a href="#Difficult Configurations">Difficult Configurations</a></li>
+  <li><a href="#Delegating Process Responsibility">Delegating Process
+    Responsibility</a></li>
+  <li><a href="#Representing a Development Case Online">Representing a
+    Development Case Online</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Expressed in terms of business modeling, the software development process is 
+  a business process, whereas the Rational Unified Process (RUP) product is a 
+  generic business process for object-oriented software engineering. A project-specific 
+  process is a static configuration of the RUP product; that is, it's a business 
+  process for software engineering tailored to a specific project, product, and 
+  organization. The development case is a further refinement of this configured 
+  process, and focuses on what to do and how to do it.</p>
+<p>A development case shows how the generic RUP applies to
+the context of your organization. This means that you modify the process and
+adapt the terminology.</p>
+<p>A development case also provides an overview of the process to be followed, 
+  something understood by everyone on the project. For details, the development 
+  case should refer to the configured process and other guidelines or styleguides.</p>
+<p>The process engineer is responsible for configuring the process, deciding how 
+  the development process will look, deploying the process Website, and &quot;installing&quot; 
+  the development case in the development organization (team, project or company), 
+  and teaching the developers how to use it.</p>
+<p>Keep in mind that introducing a new development process, such as the RUP, into an organization is always a risk. You must continually
+weigh the advantages of a new technique against the cost of introducing the
+change. Consider introducing a change from both a managerial and a technical
+perspective.</p>
+<p>Once a development case is set up by the process engineer, the project
+manager instantiates and executes it for the given project. This is often called
+<b>process enactment</b>.</p>
+<p>As the process unfolds, lessons are learned during the process itself, which
+are used by the process engineer as feedback to improve the process.</p>
+<h3><a name="Variable Elements in Software Engineering Processes">Variable
+Elements in Software Engineering Processes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This section reviews the constituents of a process that are likely to be
+modified, customized, added or suppressed in a given development case.
+<ul>
+        <li>Disciplines<br>
+          A software project would rarely skip one of the disciplines, such as 
+          Analysis &amp; Design, Implementation, and so on, completely. In exceptional 
+          cases, some disciplines, such as Requirements or Deployment, 
+          may have been executed by other organizations. However, it's more likely 
+          that specific workflows within or across disciplines would 
+          be modified.&nbsp;&nbsp;<br>
+  </li>
+  <li>Artifacts<br>
+    Projects are far more likely to differ by the artifacts that they have to
+    produce, update, and deliver. At one extremity of the range, imagine a
+    totally paperless project that electronically maintains only a small number
+    of artifacts, is supported by tools such as spreadsheets, design tools,
+    programming tools, and testing tools, and only delivers software and
+    documentation electronically on disk, CD or over the World-Wide Web. At the
+    other extreme, there are projects that must produce and maintain a much
+    larger set of printed documents for contractual, regulatory or
+    organizational reasons. In some cases, complete models can be omitted.<br>
+  </li>
+  <li>Activities<br>
+    Activities are likely to vary for at least two reasons. Activities that use
+    artifacts as input and produce, or update, artifacts as output are affected
+    by the modification of these artifacts; in particular, if some artifact, or
+    some element of information in an artifact, is no longer necessary, the
+    corresponding steps maybe suppressed or significantly modified. Activities
+    are also modified to introduce specific techniques, methods, and tools that
+    pertain to the specific application domain or development expertise, such as
+    design steps, programming languages, automatic code generation tools,
+    measurement techniques, and so on.</li>
+</ul>
+<p>At a more detailed level, other elements of the process can be modified,
+added or suppressed:
+<ul>
+  <li>Steps in activities</li>
+  <li>Guidelines and guidance for activities</li>
+  <li>Notations, such as using subsets of the UML or using stereotypes to
+    address some specific need for some, or all, models</li>
+  <li>Checkpoints for inspections and reviews</li>
+  <li>Roles</li>
+  <li>Tool support to automate some activities</li>
+  <li>Terminology changes, for instance to adapt the process to the
+    organizational context</li>
+</ul>
+<p>In summary, the process engineer must make a wide range of decisions to
+create a well-adjusted development case out of the RUP. A
+development case may have to be adjusted to take advantage of certain
+well-established company practices and standards, such as documents,
+terminology, and so on.</p>
+<h3><a name="Difficult Configurations">Difficult Configurations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Certain configuration forms are difficult to implement and must be considered
+very carefully. For example:
+<ul>
+  <li>Change in process architecture<br>
+    Wide-ranging repackaging of the activities in another set of disciplines to 
+    match an existing process or organization may lead to a lot of effort for 
+    very little gain. Often, it's more practical to simply establish a mapping 
+    to assess whether all aspects are covered by the RUP. Remember that the disciplines 
+    are not phases sequentially executed&#151;they are containers for activities, 
+    and are executed again and again in each iteration, often concurrently within 
+    one iteration.<br>
+  </li>
+  <li>Changes in terminology<br>
+    Although substituting one word for another may sound like a trivial exercise
+    in word processing, such changes must be considered very carefully. In the
+    domain of software engineering, organizations often use the same word with
+    slightly different meanings, or different words that mean the same thing.
+    Making isolated changes in the RUP may lead to a
+    process that is very difficult to understand. One solution is to create a
+    &quot;translation table&quot; for the terminology that translates between
+    the RUP terminology and the organization's terminology.</li>
+</ul>
+<p>Examples of dangerous words are system, phase, role, activity, model, and
+document.</p>
+<p>If the process results are captured in a language other than English, the terminology 
+  issues are more complex where you must translate the descriptions of artifacts, 
+  documents, reports, and possibly other parts of the RUP to this other language.</p>
+<p>The extended RUP tool set provides automation in the area of RUP customization. 
+  Refer to the <a href="../res_processworkbench.htm">Rational Process Workbench&#153; 
+  product</a> for more information om recommended strategies for tailoring the 
+  RUP.</p>
+<h3><a name="Delegating Process Responsibility">Delegating Process
+Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The development case should not capture the entire process. In reality, a lot 
+  of responsibility, and decisions about the process, and the artifacts in particular, 
+  are delegated to members of the software development project. For example, if 
+  there is an experienced, good project manager, you may leave it to this individual 
+  to decide on what plans to produce and how to produce them. In the same way, 
+  many project managers aren't concerned about how each team member designs his 
+  or her part of the system, as long as they deliver the expected functionality 
+  on time and within a reasonable level of quality.</p>
+<p>One reason for having a process description at all is so several people can
+share information. If this is not the case, then the cost of maintaining the
+process description may be too high. Therefore, you may decide not to have, or
+maintain, the process description for one or several disciplines. This doesn't
+mean that you don't put effort into that particular discipline, nor does it mean
+that you don't think it's important. For example, you may employ an excellent
+test manager, provide all possible support, but leave it to that test manager to
+decide how to work and what artifacts to produce.</p>
+<h3><a name="XE_development_case__representing_online"></a><a name="Representing a Development Case Online">Representing
+a Development Case Online</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A development case can be represented in several different ways:
+<ul>
+  <li><a href="#One or several web pages">One or several web pages</a></li>
+  <li><a href="#A web site with navigational tools">A web site, with
+    navigational tools</a></li>
+  <li><a href="#Integrated with RUP online">Integrated with RUP online</a></li>
+</ul>
+<h4><a name="One or several web pages">One or Several Web pages</a></h4>
+<p>It's easiest to represent it as a Microsoft&#174; Word&#174; document, however, 
+  we recommend you represent the development case as one or several web pages 
+  with hyperlinks to the RUP configuration (project-specific or organizational) 
+  as needed. See <a href="../workflow/environm/co_polpr.htm">Concepts: RUP Tailoring</a> 
+  for more details.</p>
+<h4><a name="A web site with navigational tools">A Web Site with Navigational
+Tools</a></h4>
+<p>There are great benefits to represent your project-specific process like the 
+  RUP Website. By always publishing your project's process from the RUP Builder 
+  tool, you get all this for free. The resulting Website has the exact same functionality 
+  and look &amp; feel as the classic RUP Website.</p>
+<p>We recommend that you integrate the development case in your project web site, 
+  if you have one.</p>
+<h4><a name="Integrated with RUP online">Integrated with RUP Online</a></h4>
+<p>You can also integrate the development case in the RUP online. This can be 
+  done using the MyRUP feature on a server based RUP Website. This approach will 
+  add a new view into the process configuration, manifested as a separate tab 
+  in the RUP Treebrowser. In this view you can add nodes for the pages that constitutes 
+  the development case. 
+  See <a href="../../toolment/rup/tm_personalize_rup.htm">Tool Mentor: Personalize 
+  the RUP Website using MyRUP</a>, for detailed information on how to create Process 
+  Views inside the RUP Website.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Include-Relationship</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Include-Relationship</rpw><a name="Top"></a><a name="XE_include-relationship__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Executing the Inclusion">Executing the inclusion</a></li>
+  <li><a href="#Describing the Include-Relationship">Describing the
+    include-relationship</a></li>
+  <li><a href="#Example of Use">Example of use</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The include-relationship connects a base use case to an inclusion use case.
+The inclusion use case is always abstract. It describes a behavior segment that
+is inserted into a use-case instance that is executing the base use case. The
+base use case has control of the relationship to the inclusion and can depend on
+the result of performing the inclusion, but neither the base nor the inclusion
+may access each other's attributes. The inclusion is in this sense encapsulated,
+and represents behavior that can be reused in different base use cases.</p>
+<p>You can use the include-relationship to:
+<ul>
+  <li>Factor out behavior from the base use case that is not necessary for the
+    understanding of the primary purpose of the use case, only the result of it
+    is important.</li>
+  <li>Factor out behavior that is in common for two or more use cases.</li>
+</ul>
+<p class="exampleheading">Example:</p>
+<p class="example">In an ATM system, the use cases Withdraw Cash, Deposit Cash,
+and Transfer Funds all need to include how the customer is identified to the
+system. This behavior can be extracted to a new inclusion use case called
+Identify Customer, which the three base use cases include. The base use cases
+are independent of the method used for identification, and it is therefore
+encapsulated in the inclusion use case. From the perspective of the base use
+cases, it does not matter whether the method for identification is to read a
+magnetic bank card, or perform a retinal scan. They only depend on the result of
+Identify Customer, which is the identity of the customer. And vice versa, from
+the perspective of the Identify Customer use case, it does not matter how the
+base use cases use the customer identity or what has happened in them before the
+inclusion is executed – the method for identification is still exactly the
+same.</p>
+<p align="center"><img src="images/include1.gif" width="289" height="150"></p>
+<p class="picturetext">In the ATM system, the use cases Withdraw Cash, Deposit
+Cash, and Transfer Funds all include the use case Identify Customer.</p>
+<p>A base use case may have multiple inclusions. One inclusion use case may be
+included in several base use cases. This does not indicate any relationship
+between the base use cases. You may even have multiple include-relationships
+between the same inclusion use case and base use case, provided the inclusion is
+inserted at different locations of the base use case. The include-relationship
+defines what the location is. All additions may be nested, which means that an
+inclusion use case may serve as the base use case for another inclusion.</p>
+<p>Since the inclusion use case is abstract, it does not need to have an actor
+associated with it. A communication-association to an actor is only needed if
+the behavior in the inclusion explicitly involves interaction with an actor.</p>
+<h3><a name="Executing the Inclusion">Executing the Inclusion</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The behavior of the inclusion is inserted in one location in the base use
+case. When a use-case instance following the description of a base use case
+reaches a location in the base use case from which include-relationship is
+defined, it will follow the description of the inclusion use case instead. Once
+the inclusion is performed, the use-case instance will resume where it left off
+in the base use case.</p>
+<p align="center"><img src="images/include2.gif" width="307" height="224"></p>
+<p class="picturetext">A use-case instance following the description of a base
+use case including its inclusion.</p>
+<p>The include-relationship is not conditional: if the use-case instance reaches
+the location in the base use case for which it is defined, it is always
+executed. If you want to express a condition, you need to do that as part of the
+base use case. If the use-case instance never reaches the location for which the
+include-relationship is defined, it will not be executed.</p>
+<p align="center"><img src="images/include3.gif" width="307" height="224"></p>
+<p class="picturetext">Use-case instance #1 reaches the location in the base use
+case for which the include-relationship is defined, and the inclusion is
+performed. Use-case instance #2 does not reach that location, and the inclusion
+is therefore not performed as part of that instance.</p>
+<p>The inclusion use case is one continuous segment of behavior, all of which is
+included at one location in the base use case. If you have separate segments of
+behavior that need to be inserted at different locations, you should consider
+the extend-relationship (see <a href="md_exrel.htm">Guidelines:
+Extend-Relationship</a>) or the use-case-generalization (see <a href="md_ucgen.htm">Guidelines:
+Use-Case-Generalization</a>) instead.</p>
+<h3><a name="Describing the Include-Relationship">Describing the
+Include-Relationship</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For the include-relationship, you should define the location within in the
+behavior sequence of the base use case where the inclusion is to be inserted.
+The location can be defined by referring to a particular step or subflow within
+the flow of events of the base use case.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">In the ATM system, the use case Withdraw Cash includes the
+use case Identify Customer. The include-relationship from Withdraw Cash to
+Identify Customer can be described as follows:</p>
+<p class="example">Identify Customer is inserted between sections 1.1 Start of
+Use Case and 1.2 Ask for Amount in the flow of events of Withdraw Cash.</p>
+<p>For the sake of clarity, you should also mention the inclusion in the text
+describing the flow of events of the base use case.</p>
+<h3><a name="Example of Use">Example of Use</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If there is a behavior segment in a use case where you can see that the use
+case is not dependent on how things are done, but it is dependent on the result
+of the function, you can simplify the use case by extracting this behavior to an
+inclusion use case. The inclusion use case can be included in several base use
+cases, which means it lets you reuse behavior among use cases in the model.
+Consider the following step-by-step outlines to use cases for a simple phone
+system:</p>
+<h4>Place Call</h4>
+<ol>
+  <li>Caller lifts the receiver.</li>
+  <li>System presents a dial-tone.</li>
+  <li>Caller dials a digit.</li>
+  <li>System turns off dial-tone.</li>
+  <li>Caller enters remainder of number.</li>
+  <li>System analyzes the digits, and determines the network address of the
+    Receiving Party.</li>
+  <li><font color="#0000FF">System determines whether a virtual circuit can be
+    established between the Caller and the Receiving Party.</font></li>
+  <li><font color="#0000FF">System allocates all resources for virtual circuit
+    and establishes connection.</font></li>
+  <li>System rings Receiving Party’s phone.</li>
+  <li>And so on.</li>
+</ol>
+<b>
+<h4>Start System</h4>
+</b>
+<ol>
+  <li>Operator activates the system.</li>
+  <li>System performs diagnostic tests on all components.</li>
+  <li>System tests connections all adjacent systems. For each adjacent system,
+    the <font color="#0000FF">System determines whether a virtual circuit can be
+    established between itself and the adjacent system. The System allocates all
+    resources for the virtual circuit and establishes connection.</font></li>
+  <li>System responds that it is ready for operation.</li>
+  <li>And so on.</li>
+</ol>
+<p>The text listed in blue is very similar; in both cases we are performing the
+same behavior, although for very different reasons. This similarity can be
+exploited, and we can extract the common behavior into a new use case, Manage
+Virtual Circuits.</p>
+<p>Once common behavior has been extracted, the use cases become:</p>
+<b>
+<h4>Place Call</h4>
+</b>
+<ol>
+  <li>Caller lifts receiver.</li>
+  <li>System presents dial-tone.</li>
+  <li>Caller dials a digit.</li>
+  <li>System turns off dial-tone.</li>
+  <li>Caller enters remainder of number.</li>
+  <li>System analyzes digits, determines network address of the Receiving Party.</li>
+  <li>Include the Manage Virtual Circuit use case to establish connectivity
+    within the network.</li>
+  <li>System rings the Receiving Party’s phone.</li>
+  <li>And so on.</li>
+</ol>
+<b>
+<h4>Start System</h4>
+</b>
+<ol>
+  <li>Operator activates system.</li>
+  <li>System performs diagnostic tests on all components.</li>
+  <li>System tests connections all adjacent systems. For each adjacent system
+    (loop), include Manage Virtual Circuit to establish connectivity with the
+    network.</li>
+  <li>System responds that it is ready for operation.</li>
+  <li>And so on.</li>
+</ol>
+<p>In a use-case diagram, the include-relationship that is created will be
+illustrated as follows:</p>
+<p class="picturecenter" align="center"><img src="images/include4.gif" width="213" height="157"></p>
+<p class="picturetext">The use cases Place Call and Start System both include
+the behavior of the abstract use case Manage Virtual Circuit.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

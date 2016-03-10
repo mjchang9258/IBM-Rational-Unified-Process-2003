@@ -1,0 +1,227 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CREG Use Case - Submit Grades - Elaboration Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Example: Submit Grades Use Case Specification</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Microsoft Border" content="b, default">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b>
+<p align="RIGHT"><font face="Arial" size="5">Course Registration System</font></p><font face="Arial" size="5">
+<p align="RIGHT">Use-Case Specification</p>
+<p>&nbsp;</p>
+<i>
+<p align="RIGHT">Submit Grades Use Case</p></i></font></b>
+<p>&nbsp;</p>
+<font face="Arial" size="4"><b>
+<p align="RIGHT">Version 2.0</p></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Date</b></font></td>
+    <td width="12%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Version</b></font></td>
+    <td width="39%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Description</b></font></td>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Author</b></font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">21/Dec/98</font></td>
+    <td width="12%" valign="TOP"><font size="2">Draft</font></td>
+    <td width="39%" valign="TOP"><font size="2">Draft Version</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">15/Feb/1999</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 1.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Minor corrections based on
+    review.</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">19/Feb/1999</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 2.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Modify section on use case
+    extends. Final cleanup. Add alternate flows. Resolve outstanding issues.</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">&nbsp;</p>
+<p align="CENTER">Table of Contents</p></b></font>
+<ol>
+  <li><a href="#_Toc449508216"><font size="2">Brief Description</font></a></li>
+  <li><a href="#_Toc449508217"><font size="2">Flow of Events</font></a>
+    <dl compact>
+      <dd><font size="2">2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508218"><font size="2">Basic Flow – Submit Grades</font></a></dd>
+      <dd><font size="2">2.2&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508219"><font size="2">Alternative Flows</font></a>
+      </dd>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508220"><font size="2">No Courses Taught</font></a></dt>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508221"><font size="2">Course Cancelled</font></a></dt>
+    </dl>
+  </li>
+  <li><a href="#_Toc449508222"><font size="2">Special Requirements</font></a></li>
+  <li><a href="#_Toc449508223"><font size="2">Preconditions</font></a>
+    <dl>
+      <dd><font size="2">4.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508224"><font size="2">Login</font></a></dd>
+    </dl>
+  </li>
+  <li><a href="#_Toc449508225"><font size="2">Postconditions</font></a></li>
+  <li><a href="#_Toc449508226"><font size="2">Extension Points</font></a></li>
+</ol>
+<b><font face="Arial" size="5">
+<p align="CENTER"><a name="_Toc423410237"></a><a name="_Toc425054503">Submit
+Grades Use Case</a></p>
+</font>
+</b><ol><b>
+  <li><a name="_Toc449508216"><font face="Arial">Brief Description</font></a></li>
+</b><font size="2">
+<p>This use case allows a Professor to submit student grades for one or more
+classes completed in the previous semester.</p>
+<p>The actor in this use case is the Professor.</p>
+</font></ol><font size="2">
+<a name="_Toc423410239"></a><a name="_Toc425054505"></a></font><font face="Arial"><b>&nbsp;&nbsp;&nbsp;
+2.&nbsp;&nbsp;&nbsp; <a name="_Toc449508217">Flow
+of Events</a>
+</b></font>
+<ol>
+  <font size="2">
+<p>The use case begins when the Professor selects the &quot;submit grades&quot;
+activity from the Main Form.</p>
+</font>
+</ol>
+<blockquote>
+  <font size="2">
+  <p><font face="Arial"><b>2.1&nbsp;</b></font>&nbsp;&nbsp; <font face="Arial" size="2"><b><a name="_Toc449508218">Basic
+  Flow</a> – Submit Grades</b></font></p>
+  </font>
+</blockquote>
+<blockquote>
+  <ol>
+    <li><font size="2">The system displays a list of course offerings the
+      Professor taught in the previous semester.</font></li>
+    <li><font size="2">The Professor selects a course offering.</font></li>
+    <li><font size="2">The system retrieves a list of all students who were
+      registered for the course offering. The system also retrieves the grade
+      information for each student in the offering.</font></li>
+    <li><font size="2">The system displays each student and any grade that was
+      previously assigned for the offering.</font></li>
+    <li><font size="2">For each student on the list, the Professor enters a
+      grade: A, B, C, D, F, or I. The system records the student’s grade for
+      the course offering. If the Professor wishes to skip a particular student,
+      the grade information can be left blank and filled in at a later time. The
+      Professor may also change the grade for a student by entering a new grade.</font></li>
+  </ol>
+</blockquote>
+<blockquote>
+  <font size="2">
+  <p><font face="Arial"><b>2.2&nbsp;&nbsp;&nbsp;&nbsp;</b></font> <a name="_Toc423410241"></a><a name="_Toc425054507"></a><b><font face="Arial" size="2"><a name="_Toc449508219">Alternative
+  Flows</a></font></b></p>
+  </font>
+    <blockquote>
+    <font face="Arial" size="2">
+      2.2.1<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449508220">No Courses Taught</a>
+    </i></font>
+      <p><font size="2">
+      If in the basic flow, the Professor did not teach any course offerings
+      in the previous semester the system displays an error message and the use
+      case ends.
+      </font></p>
+    <font face="Arial" size="2">2.2.2<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449508221">Course Cancelled</a>
+      </i>
+</font>
+    <font size="2">
+    <p>If too many students withdrew from the course during the add/drop period
+    and the course was cancelled after the beginning of the semester, the system
+    displays an error message. If the Professor chooses to cancel the operation
+    the use case terminates, otherwise is restarted at step 2 of the basic flow.</p>
+    </font></blockquote>
+</blockquote><p>
+  <font size="2"><b><font face="Arial">&nbsp;</font>
+  </b></font>
+  <font face="Arial"><b>&nbsp;&nbsp; 3.</b>&nbsp;&nbsp;&nbsp; <b><a name="_Toc449508222">Special
+  Requirements</a></b></font>
+    <ol>
+  <font size="2">
+    <p><a name="_Toc423410252"></a><a name="_Toc425054511"></a>There are no special
+    requirements associated with this use case.</p>
+    </font>
+</ol>
+<p>
+<font size="2">&nbsp;&nbsp;&nbsp; </font><font face="Arial"><b>4.&nbsp;</b></font><font size="2">&nbsp;&nbsp;&nbsp;
+<a name="_Toc423410253"></a><a name="_Toc425054512"></a><a name="_Toc449508223"></a></font><font face="Arial"><b>Preconditions</b></font>
+  <b><font face="Arial">
+  <a name="_Toc423410254"></a><a name="_Toc425054513"></a></font>
+  <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  4.1&nbsp;&nbsp;&nbsp; <a name="_Toc449508224">Login</a>
+  </font></b><blockquote><b><font face="Arial" size="2">
+  </font></b><font size="2">
+  <p>Before this use case begins the Professor has logged onto the system.</p>
+  </font>
+    </blockquote>
+<p><font face="Arial"><b>&nbsp;&nbsp;&nbsp; 5.</b></font><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;
+<a name="_Toc423410255"></a><a name="_Toc425054514"></a></font><font face="Arial"><b><a name="_Toc449508225">Postconditions</a></b></font>
+<ol>
+  <font size="2">
+  <p><a name="_Toc423410256"></a><a name="_Toc425054515"></a>There are no
+  postconditions associated with this use case.</p>
+  </font>
+</ol>
+<p><b><font face="Arial">&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp; </font></b><font size="2"><a name="_Toc449508226"></a></font><font face="Arial"><b>Extension Points</b></font></p>
+
+<blockquote>
+  <font size="2">
+  <p>There are no extension points associated with this use case.</p></font>
+</blockquote>
+<br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+    <td width="56%" height="19"><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2003 Rational Software Corporation&nbsp;</small></small></a></font>
+    </td>
+    <td width="39%" height="19">
+<p align="right"><font face="Arial"><small><small>
+Course Registration Project Web Example<br>
+Version 2001.02</small></small></font>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

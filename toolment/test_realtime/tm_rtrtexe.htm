@@ -1,0 +1,335 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Executing Developer Tests Using Rational Test RealTime</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Executing 
+  Developer Tests Using Rational Test RealTime</rpw> </h2>
+
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to execute a test campaign created with Rational Test RealTime.</p>
+<p>This activity consists in building and executing the test campaign. Test RealTime 
+  automatically compiles and runs the test application from the implemented test 
+  components.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_exctstste.htm">Execute Test Suite</a></li>
+<li><a href="../../process/activity/ac_untst.htm">Execute Developer Tests</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>Every organizational entity (referred to as a &quot;node&quot;) supported by 
+  Test RealTime can be built and executed as if it were a single test.</p>
+<p>At the highest level, Rational Test RealTime supports the notion of a project. 
+  A project is not wedded to any particular notion - that is, the project can 
+  be put to use at the user's discretion. Projects can be linked to other projects, 
+  forming logically nested sub-projects.</p>
+<p>At the next level of detail is the Group node. This is an optional type of 
+  node that can be used to group related child nodes (discussed in a moment). 
+  The Group node, when built and executed, causes each associated child node to 
+  be sequentially built and executed.</p>
+<p>Within Project or Group nodes, a developer creates Application and Test nodes. 
+  These are the nodes that perform the actual work. An Application node is a node 
+  designed simply for the acquisition of runtime analysis information - that is, 
+  no Test RealTime tests are executed as part of an Application node. A Test node 
+  can be a component test for C, C++, Ada or Java or a system test for C.</p>
+<p>The code harness - that is, the code required to enable execution of an Application 
+  or Test node on the intended embedded target - is the responsibility of the 
+  selected Target Deployment Port (TDP) and is independent of the Test node. However, 
+  the Configuration Settings for an Application or Test node can be used to modify 
+  certain settings pertaining to the TDP. For more information, see the Tool Mentor 
+  &quot;Configuring the Test Environment in Rational Test RealTime&quot;.</p>
+<p>It should be noted that a third type of node does exist - referred to as an 
+  External Command. This node is used to launch executables that might be required 
+  for your test or runtime analysis efforts. Uses might include running external 
+  tests or running simulators</p>
+<p>&nbsp;</p>
+<p><img border="0" height="16" src="../../images/book.gif" width="16"> For detailed 
+  information refer to the <i>Rational Test RealTime User Guide</i>, the chapter 
+  Graphical User Interface-&gt;Activity Wizards-&gt;Component Testing Wizard.</p>
+<p>&nbsp;</p>
+<p>For information on implementing test components, refer to the Tool Mentor titled 
+  <a href="tm_rtrtimp.htm">Implementing Test Components Using Rational Test RealTime</a>.&nbsp;</p>
+
+
+<h4>Types of Reports</h4>
+<p>To execute any node within Rational Test RealTime, the developer can use one 
+  of two methods:</p>
+<ul>
+  <li><a href="#ExecutionViaGUI">Executing a Rational Test RealTime 
+    node using the GUI</a></li>
+  <li><a href="#ExecutionViaCMD">Executing a Rational Test RealTime 
+    node using the Command Line</a></li>
+</ul>
+
+
+<h3>1. <a name="ExecutionViaGUI">Executing a Rational Test RealTime 
+    node using the GUI</a> <font size="3"><b><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></b></font>
+</h3>
+<p>All nodes are located on the Project Browser tab of the Project Window located, 
+  by default, on the right-hand side of the GUI.</p>
+<p>The right-click menu of a Project, Group, Application and Test node lets the 
+  user Build, Rebuild, Clean and Execute that node. Each has a default definition:
+</p>
+<ul>
+  <li> Build: Recompile only those files who time stamp is later than preexisting 
+    object code, link all code, execute the resulting executable and then generate 
+    the applicable runtime analysis/test reports
+  <li> Rebuild: Recompile all source files, link all code, execute the resulting 
+    executable and then generate the applicable runtime analysis/test reports
+  <li> Clean: Remove all object code and executables
+  <li>Execute: Run the preexisting executable:
+</ul>
+<p></p>
+<p>Various methods exist for altering the default behavior of Build, Rebuild, 
+  Clean and Execute.</p>
+<ol>
+  <li>Select the menu item Build-&gt;Options.<br>
+    The user can select or deselect those phases of the Build process that should 
+    and should not occur. This also gives the user a quick method for shutting 
+    off some or all of the runtime analysis features.</li>
+  <li>Right-clicking a node and select Properties.<br>
+    This brings up a window that can be used to exclude that node from the build 
+    process. Thus, if one of ten child Test nodes of a Group node is excluded 
+    from the build process, then Building the Group node would result in the build 
+    and execution of nine Test nodes.<br>
+    This right-click menu also enables the execution of a node in the background. 
+    This setting is typically used with External Commands that may precede other 
+    nodes in the build chain. Since the build process also works sequentially, 
+    from the top to the bottom of the Project Browser, running an External Command 
+    in the background prevents subsequent Test, Application and External Command 
+    nodes from having to wait for its completion<br>
+  </li>
+</ol>
+<p>Once a node has been built and run, all resulting reports can then be reviewed.</p>
+
+<p>For information on implementing test components, refer to the <a href="tm_rtrteva.htm">Tool 
+  Mentor: Analyzing Test Results Using Rational Test RealTime</a>.&nbsp;</p>
+<p><img border="0" height="16" src="../../images/book.gif" width="16"> For detailed 
+  information refer to the <i>Rational Test RealTime User Guide</i>, the chapter 
+  Graphical User Interface-&gt;Working with Projects.</p>
+
+
+
+<h3>2. <a name="ExecutionViaCMD">Executing a Rational Test RealTime node using 
+  the Command Line</a> <font size="3"> <b> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></b></font></h3>
+<p>The simplest approach to executing a Rational Test RealTime node from the command 
+  line assumes that all configuration settings are set using the GUI, ensuring 
+  that the only phase left to perform is executing the node of interest. Under 
+  these circumstances, the syntax for running a node from the command line is:</p>
+  
+<blockquote><code>studio -r [node.node.node.&lt;&#133;.&gt;node] &lt;project file&gt;</code></blockquote>
+  
+<p> In this case, each child node of the project, include sub-projects., can be 
+  specified using a &quot;dot&quot; notation - that is, separating the name of 
+  each child node from its parent using a period. The project file must always 
+  be listed; if listed by itself, without any child node listed, then the entire 
+  project is built.</p>
+<p>When not using the <code><b>studio</b></code> command to execute a node, the 
+  user must create source files that can execute Test RealTime tests or acquire 
+  runtime analysis data without conflicting with the user's native compiler and 
+  linker. In both cases - that is, regardless of whether the user is attempting 
+  to execute a Test or Application node - the user's native compiler and linker 
+  do the true work. (In fact, all build activities performed by Test RealTime 
+  are simply command line activities triggered from the GUI.)</p>
+<p>For Test nodes, the following commands convert Test RealTime test scripts into 
+  source files supported by the user's native compiler and linker:</p>
+<ul>
+  <li>for the C language: <code>attolpreproC</code></li>
+  <li>for the C++ language: <code>atoprepro</code></li>
+  <li>for the Ada language: <code>attolpreproADA</code></li>
+</ul>
+<p>Java does not require a special command because the test scripts are already 
+  .java files</p>
+<p>For runtime analysis, the primary choice is whether or not the user wishes 
+  to perform source code insertion as an independent activity or as part of the 
+  compilation and linkage process. (Of course, if no runtime analysis is required, 
+  source code insertion is unnecessary and should not be performed.) To simply 
+  perform source code insertion, use the binaries:</p>
+<ul>
+  <li>for the C language: <code>attolcc1</code></li>
+  <li>for the C++ language: <code>attolccp</code></li>
+  <li>for the Ada language: <code>attolada</code></li>
+  <li>for the Java language: <code>javi</code></li>
+</ul>
+<p>However, if the user would like compilation and linkage to immediately follow 
+  source code insertion, use the binaries:</p>
+<ul>
+  <li>for the C and C++ languages: <code>attolcc</code></li>
+  <li>for the Java language for standard compilation: <code>javi</code><br>
+    inclusion of the javic.jar library, and calls to javic.jar classes, as part 
+    of an ant-facilitated build process</li>
+</ul>
+<p><img border="0" height="16" src="../../images/book.gif" width="16"> For detailed 
+  information refer to the <i>Rational Test RealTime User Guide</i>, the chapter 
+  Command Line Reference, and in the <i>Rational Test RealTime Reference Guide</i>, 
+  the chapters Command Line Reference-&gt;Component Testing and Command Line Reference-&gt;Runtime 
+  Analysis</p>
+<p>&nbsp;</p>
+
+<h3>For More Information</h3>
+<p>&nbsp;</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+</body>
+
+</html>
+

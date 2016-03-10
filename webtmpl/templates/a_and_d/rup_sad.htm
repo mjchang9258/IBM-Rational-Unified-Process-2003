@@ -1,0 +1,465 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+<rpw name="PresentationName">Software Architecture Document</rpw>
+-- RPW META DATA END -->
+<html>
+
+<head>
+<title>Software Architecture Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+<!--
+ 
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+
+h1
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;}
+h2
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;}
+h3
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:Arial;
+	font-weight:normal;
+	font-style:italic;}
+
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{
+	margin-top:12.0pt;
+	margin-right:.5in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{
+	margin-top:0in;
+	margin-right:.5in;
+	margin-bottom:0in;
+	margin-left:.3in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.6in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:18.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+
+a:link, span.MsoHyperlink
+	{color:blue;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;}
+
+p.Tabletext, li.Tabletext, div.Tabletext
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MainTitle, li.MainTitle, div.MainTitle
+	{
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+
+p.Body, li.Body, div.Body
+	{
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:10.0pt;
+	font-family:"Book Antiqua";}
+
+p.InfoBlue, li.InfoBlue, div.InfoBlue
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:blue;
+	font-style:italic;}
+-->
+</style>
+</head>
+<div class=Section1> 
+  <p class=MsoTitle align=right style='text-align:right'>&lt;Project Name&gt;</p>
+  <p class=MsoTitle align=right style='text-align:right'>Software Architecture 
+    Document</p>
+  <p class=MsoTitle align=right style='text-align:right'><span style='font-size:
+14.0pt;'>Version &lt;1.0&gt;</span></p>
+  <p class=InfoBlue align="left"><i>[Note: 
+    The following template is provided for use with the Rational Unified
+  Process.&nbsp; Text enclosed in square brackets and displayed in blue italics (style=InfoBlue) 
+    is included to provide guidance to the author and should be deleted before 
+    publishing the document. A paragraph entered following this style will automatically 
+    be set to normal (style=Body Text).]</i></p>
+  <p class=InfoBlue>&nbsp; </p>
+</div>
+<div class=Section2> 
+  <p class=MsoTitle>Revision History</p>
+  <table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;'>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Date</b></p>
+      </td>
+      <td width=77 valign=top style='width:.8in;border:solid windowtext .75pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Version</b></p>
+      </td>
+      <td width=250 valign=top style='width:2.6in;border:solid windowtext .75pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Description</b></p>
+      </td>
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Author</b></p>
+      </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;dd/mmm/yy&gt;</p>
+      </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;x.x&gt;</p>
+      </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;details&gt;</p>
+      </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;name&gt;</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+    </tr>
+  </table>
+  <b><span style='font-size:18.0pt;font-family:Arial;'><br clear=all style='page-break-before:always'>
+  </span></b> 
+  <p class=MsoTitle>Table of Contents</p>
+</div>
+<dl> 
+  <dt> 
+    <div class=Section2><a href="#1.                  Introduction">1.<span style='font-size:12.0pt'>       
+      </span>Introduction</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </div>
+  </dt>
+  <dd> 
+    <div class=Section2><a href="#1.1               Purpose">1.1<span
+style='font-size:12.0pt'>     </span>Purpose</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.2               Scope">1.2<span
+style='font-size:12.0pt'>     </span>Scope</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.3               Definitions, Acronyms and Abbreviations">1.3<span
+style='font-size:12.0pt'>     </span>Definitions, Acronyms and Abbreviations</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.4               References">1.4<span
+style='font-size:12.0pt'>     </span>References</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.5               Overview">1.5<span
+style='font-size:12.0pt'>     </span>Overview</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </dd>
+</dl>
+<div class=Section2> 
+  <p><a href="#2.                  Architectural Representation">2.<span style='font-size:12.0pt'>       
+    </span>Architectural Representation</a> </p>
+  <p><a href="#3.                  Architectural Goals and Constraints">3.<span style='font-size:12.0pt'>       
+    </span>Architectural Goals and Constraints</a>&nbsp;&nbsp;&nbsp; </p>
+</div>
+<dl> 
+  <dt> 
+    <div class=Section2><a href="#4.                  Use-Case View">4.<span style='font-size:12.0pt'>       
+      </span>Use-Case View</a> </div>
+  </dt>
+
+  <dt>&nbsp;</dt>
+  <dd> 
+    <div class=Section2></div>
+  </dd>
+  <dt> 
+    <div class=Section2><a href="#5.                  Logical View">5.<span style='font-size:12.0pt'>       
+      </span>Logical View</a></div>
+  </dt>
+  <dd> 
+    <div class=Section2><a href="#5.1               Overview">5.1<span
+style='font-size:12.0pt'>     </span>Overview</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2> 
+      <div class=Section2><a href="#5.2               Architecturally Significant Design Packages">5.2<span
+style='font-size:12.0pt'>     </span>Architecturally Significant Design Packages</a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class=Section2><a href="#5.3               Use-Case Realizations">5.3<span
+style='font-size:12.0pt'>     </span>Use-Case Realizations</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+  </dd>
+</dl>
+<div class=Section2> 
+  <p><a href="#6.                  Process View">6.<span style='font-size:12.0pt'>       
+    </span>Process View</a> </p>
+  <p><a href="#7.                  Deployment View">7.<span style='font-size:12.0pt'>       
+    </span>Deployment View</a> </p>
+</div>
+<dl>
+  <dt>
+    <div class=Section2><a href="#8.                  Implementation View">8.<span style='font-size:12.0pt'>       
+      </span>Implementation View</a> </div>
+  </dt>
+  <dd>
+    <div class=Section2><a href="#8.1               Overview">8.1<span
+style='font-size:12.0pt'>     </span>Overview</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#8.2               Layers">8.2<span
+style='font-size:12.0pt'>     </span>Layers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </dd>
+</dl>
+<div class=Section2> 
+  <p><a href="#9.                  Data View (optional)">9.<span style='font-size:12.0pt'>       
+    </span>Data View (optional)&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </p>
+  <p><a href="#10.             Size and Performance">10.<span style='font-size:12.0pt'>     </span>Size 
+    and Performance</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </p>
+  <a href="#11.             Quality">11.<span style='font-size:12.0pt'>      </span>Quality</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <p class=MsoTitle><br
+clear=all style='page-break-before:always'>
+    Software Architecture Document </p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="1.                  Introduction">1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Introduction</a></font></h4>
+  <p class=InfoBlue>[The introduction of the <b>Software Architecture Document</b> 
+    should provide an overview of the entire <b>Software Architecture Document</b>. 
+    It should include the purpose, scope, definitions, acronyms, abbreviations, 
+    references, and overview of the <b>Software Architecture Document</b>.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.1               Purpose">1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Purpose</a></font></h5>
+  <p class=MsoNormal>This document provides a comprehensive architectural overview 
+    of the system, using a number of different architectural views to depict different 
+    aspects of the system.  It is intended to capture and convey the significant 
+    architectural decisions which have been made on the system.</p>
+  <p class=InfoBlue>[This section defines the purpose of the <b>Software 
+    Architecture Document</b>, in the overall project documentation, and 
+    briefly describes the structure of the document. The specific audiences for 
+    the document should be identified, with an indication of how they are expected 
+    to use the document.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.2               Scope">1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Scope</a></font></h5>
+  <p class=InfoBlue>[A brief description of what the Software Architecture Document 
+    applies to; what is affected or influenced by this document.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.3               Definitions, Acronyms and Abbreviations">1.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Definitions, Acronyms and Abbreviations</a></font></h5>
+  <p class=InfoBlue>[This subsection should provide the definitions of all terms, 
+    acronyms, and abbreviations required to properly interpret the <b>Software 
+    Architecture Document</b>.&nbsp; This information may be provided by 
+    reference to the project Glossary.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.4               References">1.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>References</a></font></h5>
+  <p class=InfoBlue>[This subsection should provide a complete list of all documents 
+    referenced elsewhere in the <b>Software Architecture Document</b>.  
+    Each document should be identified by title, report number (if applicable), 
+    date, and publishing organization.  Specify the sources from which the references 
+    can be obtained. This information may be provided by reference to an appendix 
+    or to another document.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.5               Overview">1.5<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Overview</a></font></h5>
+  <p class=InfoBlue>[This subsection should describe what the rest of the <b>Software 
+    Architecture Document</b> contains and explain how the <b>Software 
+    Architecture Document</b> is organized.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="2.                  Architectural Representation">2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Architectural Representation</a> </font></h4>
+  <p class=InfoBlue>[This section describes what software architecture is for 
+    the current system, and how it is represented. Of the <b>Use-Case</b>, 
+    <b>Logical</b>, <b>Process</b>, <b>Deployment</b>, 
+    and <b>Implementation Views</b>, it enumerates the views that are 
+    necessary, and for each view, explains what types of model elements it contains.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="3.                  Architectural Goals and Constraints">3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Architectural Goals and Constraints</a> </font></h4>
+  <p class=InfoBlue>[This section describes the software requirements and objectives 
+    that have some significant impact on the architecture, for example, safety, 
+    security, privacy, use of an off-the-shelf product, portability, distribution, 
+    and reuse. It also captures the special constraints that may apply: design 
+    and implementation strategy, development tools, team structure, schedule, 
+    legacy code, and so on.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="4.                  Use-Case View">4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Use-Case View</a> </font></h4>
+  <p class=InfoBlue>[This section lists use cases or scenarios from the use-case 
+    model if they represent some significant, central functionality of the final 
+    system, or if they have a large architectural coverage - they exercise many 
+    architectural elements, or if they stress or illustrate a specific, delicate 
+    point of the architecture.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="5.                  Logical View">5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Logical View</a> </font></h4>
+  <p class=InfoBlue>[This section describes the architecturally significant parts 
+    of the design model, such as its decomposition into subsystems and packages. 
+    And for each significant package, its decomposition into classes and class 
+    utilities. You should introduce architecturally significant classes and describe 
+    their responsibilities, as well as a few very important relationships, operations, 
+    and attributes.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="5.1               Overview">5.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Overview</a></font></h5>
+  <p class=InfoBlue>[This subsection describes the overall decomposition of the 
+    design model in terms of its package hierarchy and layers.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="5.2               Architecturally Significant Design Packages">5.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Architecturally Significant Design Packages</a></font></h5>
+  <p class=InfoBlue>[For each significant package, include a subsection with its 
+    name, its brief description, and a diagram with all significant classes and 
+    packages contained within the package. </p>
+  <p class=InfoBlue>For each significant class in the package, include its name, 
+    brief description, and, optionally a description of some of its major responsibilities, 
+    operations and attributes.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="5.3               Use-Case Realizations">5.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Use-Case Realizations</a></font></h5>
+  <p class=InfoBlue>[This section illustrates how the software actually works 
+    by giving a few selected use-case (or scenario) realizations, and explains 
+    how the various design model elements contribute to their functionality.</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="6.                  Process View">6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Process View</a> </font></h4>
+  <p class=InfoBlue>[This section describes the system's decomposition into lightweight 
+    processes (single threads of control) and heavyweight processes (groupings 
+    of lightweight processes). Organize the section by groups of processes that 
+    communicate or interact. Describe the main modes of communication between 
+    processes, such as message passing, interrupts, and rendezvous.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="7.                  Deployment View">7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Deployment View</a> </font></h4>
+  <p class=InfoBlue>[This section describes one or more physical network (hardware) 
+    configurations on which the software is deployed and run. It is a view of 
+    the Deployment Model. At a minimum for each configuration it should indicate 
+    the physical nodes (computers, CPUs) that execute the software, and their 
+    interconnections (bus, LAN, point-to-point, and so on.) Also include a mapping 
+    of the processes of the <b>Process View</b> onto the physical nodes.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="8.                  Implementation View">8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Implementation View</a> </font></h4>
+  <p class=InfoBlue>[This section describes the overall structure of the implementation 
+    model, the decomposition of the software into layers and subsystems in the 
+    implementation model, and any architecturally significant implementation elements.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="8.1               Overview">8.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Overview</a></font></h5>
+  <p class=InfoBlue>[This subsection names and defines the various layers and 
+    their contents, the rules that govern the inclusion to a given layer, and 
+    the boundaries between layers. Include a component diagram that shows the 
+    relations between layers. ]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="8.2               Layers">8.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Layers</a></font></h5>
+  <p class=InfoBlue>[For each layer, include a subsection with its name, an enumeration 
+    of the subsystems located in the layer, and a component diagram.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="9.                  Data View (optional)">9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Data View (optional)</a></font></h4>
+  <p class=InfoBlue>[A description of the persistent data storage perspective 
+    of the system. This section is optional if there is little or no persistent 
+    data, or the translation between the Design Model and the Data Model is trivial.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="10.             Size and Performance">10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Size and Performance</a> </font></h4>
+  <p class=InfoBlue>[A description of the major dimensioning characteristics of 
+    the software that impact the architecture, as well as the target performance 
+    constraints.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="11.             Quality">11.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Quality</a> </font></h4>
+  <p class=InfoBlue>[A description of how the software architecture contributes 
+    to all capabilities (other than functionality) of the system: extensibility, 
+    reliability, portability, and so on. If these characteristics have special 
+    significance, for example safety, security or privacy implications, they should 
+    be clearly delineated.]</p>
+</div>
+</html>

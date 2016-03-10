@@ -1,0 +1,268 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Use-Case-Analysis Workshop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guideline:&nbsp;<rpw name="PresentationName">Use-Case-Analysis Workshop</rpw></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Competency">Competencies Needed</a></li>
+  <li><a href="#Equipment">Equipment Needed</a></li>
+  <li><a href="#Time">Time Needed</a></li>
+  <li><a href="#Roles">Roles</a></li>
+  <li><a href="#Running">Running the Workshop</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Performing Use-Case Analysis as a group activity is important in the early 
+  iterations as a team-building activity, and to establish a common vision of 
+  the architecture of the system. It represents an important transition point 
+  in the iteration, as it provides a bridge between the user’s view of the system 
+  (represented by use-cases) and the system designer’s view of the system (represented, 
+  at this point, by analysis classes).</p>
+<p>In later iterations, or with an experienced team, Use-Case Analysis may be 
+  performed more as an individual activity, if at all. When there is a well-formed 
+  existing Design model, there may be less value in looking for new objects, since 
+  existing classes in the design are likely to account for any system behaviors 
+  required by new use cases.</p>
+
+<h3><a name="Competency">Competencies Needed</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The workshop should be organized as a brain-storming session, during which 
+  a wide range of competence is needed from various areas:</p> 
+<ul>
+  <li>Requirements</li>
+  <li>Analysis &amp; Design</li>
+  <li>Architecture</li>
+  <li>Test</li>
+  <li>Domain issues</li>
+  <li>Methodology issues in general</li>
+</ul>
+<p>Keep the workshop small: more than 6-7 persons will inhibit the free and open 
+  participation of all members.</p>
+
+<h3><a name="Equipment">Equipment Needed</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>A large white board to sketch on</li>
+  <li>Plain A3 or legal paper; the size is depending on the largest format your 
+    copy machine can manage.</li>
+  <li>Tape</li>
+  <li>Sticky notes (in several different colors, if possible)</li>
+  <li>White board pens (red, green, blue).</li>
+  <li>Pencils (red, green, blue).</li>
+  <li>Walls to which papers can be attached</li>
+</ul>
+
+<h3><a name="Time">Time Needed</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Plan on at least a few hours per use case on average. Early on, they will take 
+  longer, but the time will go down as the number of new classes drops and the 
+  group gains experience.</p>
+
+<h3><a name="Roles">Roles</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The following responsibilities occur during the workshop. It is a good idea 
+  to rotate the responsibilities and let everybody try all responsibilities.</p>
+<ul>
+  <li><b>Leader:</b> leads the discussion, draws collaboration diagrams on the 
+    white-board. It is natural that the method consultant take on this responsibility 
+    at least at first, to get started; later the leader role should be rotated 
+    among team members to let them gain experience.</li>
+  <li><b>Class &quot;Owner&quot;:</b> records information about a set of assigned 
+    classes. There will likely be several people with this role, each with a set 
+    of classes.</li>
+  <li><b>Secretary:</b> makes a copy of the collaboration diagram sketched on 
+    the large white-board, using the same colors as on the white board.</li>
+</ul>
+
+<h3><a name="Running">Running the Workshop</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The team steps through the flow of events of the use case. For each behavior 
+  identified in the use case, an object is identified that provides the behavior. 
+  The object may be an instance of an existing class, or the class may need to 
+  be created.</p>
+<p>The leader draws the collaboration diagram on the white-board, and everybody 
+  participates in the discussion.</p>
+<p>When the use case has been diagrammed, a copy of it on an A3/Legal size paper 
+  should be made, using the same colors as the white-board diagram.</p>
+<p>At the same time, the responsibilities of the objects are documented using 
+  A3/Legal paper, in the format described in the section &quot;Tailoring&quot; 
+  in <a href="../artifact/ar_aclss.htm">Artifact: Analysis Class</a>. Record the 
+  responsibilities, events, and classes collaborated with on sticky notes; this 
+  will make it easier to move responsibilities around.</p>
+
+<h4>Drawing Collaboration Diagrams</h4>
+<p>The following conventions make the diagrams easier to read and work with during 
+  the workshop.</p>
+<ul>
+  <li>Draw all classes and links, and write object names, in blue.</li>
+  <li>Write the text of the messages and what kind of information is sent over 
+    the links, on sticky notes, in green. This makes it easier to read and easier 
+    to move the messages around between objects as the object responsibilities 
+    are balanced.</li>
+  <li>Write the numbering of the messages (i.e. the order of the flow of events) 
+    on separate sticky notes in red. This allows the sequence of events to be 
+    adjusted as the responsibilities of objects are re-balanced during the workshop.</li>
+</ul>
+<p>Draw one diagram for the basic flow of the use case, and additional diagrams 
+  for alternative flows. For simple use cases, a single view may suffice for all.</p>
+
+<p align="center"><img src="images/wg_ucan1.gif" alt="example collaboration diagram" width="481" height="397"></p>
+<p class="picturetext">Example Collaboration Diagram for Use Case<b> Authenticate 
+  User</b> in an Automatic Teller Machine.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,601 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Test Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Test Data</rpw><a name="XE_test_data__artifact_guidelines"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Depth">Depth</a></li>
+  <li><a href="#Breadth">Breadth</a></li>
+  <li><a href="#Scope">Scope</a></li>
+  <li><a href="#Architecture">Architecture</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In the test design activity, two significant artifacts were identified and
+described: Test Scripts and Test Cases. Without Test Data, these two
+artifacts cannot be implemented and executed. They are merely descriptions of
+conditions, scenarios, and paths without concrete values to succinctly identify
+them. Test Data, while not an artifact in its own, significantly impacts the
+success (or failure) of test. Testing cannot be implemented and executed without
+Test Data, as Test Data is required for the following:
+<ul>
+  <li>as input to create a condition</li>
+  <li>as output to evaluate a requirement</li>
+  <li>as support (as a precondition to the test)</li>
+</ul>
+<p>Therefore identifying the values is an important effort which is done when
+Test Cases are identified (see <a href="../artifact/ar_tstcs.htm">Artifacts:
+Test Case</a> and <a href="md_tstcs.htm">Guidelines: Test Case</a>).</p>
+<p>There are four attributes of Test Data that should be addressed when
+identifying the actual Test Data:
+<ul>
+  <li><a href="#Depth">depth</a> - the volume or amount of data in the Test Data</li>
+  <li><a href="#Breadth">breadth</a> - the degree of variation in the Test Data</li>
+  <li><a href="#Scope">scope</a> - the relevancy of the Test Data to the test
+    objective</li>
+  <li><a href="#Architecture">architecture</a> - the physical structure of the
+    Test Data</li>
+</ul>
+<p>Each of these characteristics are discussed in greater detail in the sections
+below:</p>
+<h3><a name="Depth">Depth</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Depth is the volume or amount of data used in testing. Depth is an important
+consideration in that too little data may not reflect real-life conditions,
+while too much data is hard to manage and maintain. Ideally, testing should
+begin with a small set of data that supports the critical Test Cases (usually
+the positive Test Cases). As confidence is gained during testing, the Test Data
+should be increased until the depth of data is representative of the deployed
+environment (or what is appropriate and feasible).</p>
+<h3><a name="Breadth">Breadth</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Breadth refers to the degree to which the Test Data values vary. One could
+increase the depth of Test Data by just creating more records. While this is
+often a good solution, it does not address the true variations in data that we
+would expect to see in actual data. Without these variations in our Test Data,
+we may fail to identify defects (after all, not every withdrawal from an ATM is
+for $50.00). Therefore, Test Data values should reflect the data values found in
+the deployed environment, such as withdrawing $10.00, or $120.00. Additionally,
+Test Data should reflect real-world information such as:
+<ul>
+  <li>Names including titles, numerical values, punctuation, and suffixes:
+    <ul>
+      <li>Dr. James Bandlin, Ms. Susan Smith, and Rev. Joseph P. Mayers</li>
+      <li>James Johnson III, Steven Wilshire 3rd, and Charles James Ellsworth,
+        Esq.</li>
+      <li>Ellen Jones-Smythe, Brian P. Tellstor</li>
+    </ul>
+  </li>
+  <li>Addresses with multiple address lines such as:
+    <ul>
+      <li>6500 Broadway Street<br>
+        Suite 175</li>
+      <li>1550 Broadway<br>
+        Floor 17<br>
+        Mailstop 75A</li>
+    </ul>
+  </li>
+  <li>City (and Country) Codes and Phone Numbers that are real and correspond
+    <ul>
+      <li>Lexington, MA, USA + 01 781 676 2400</li>
+      <li>Kista, Sweden +46 8 56 62 82 00</li>
+      <li>Paris, France <font size="3">+33 1 30 12 09 50</font></li>
+    </ul>
+  </li>
+</ul>
+<p>Test Data values can be either a physical representation or a statistical
+representation of the real data to obtain sufficient breadth. Both methods are
+valuable and suggested.</p>
+<p>To create Test Data based upon a physical representation of the deployed
+data, identify the allowable values (or ranges) for each data element in the
+deployed database and ensure that, for each data element, at least one record in
+the Test Data contains each allowable value.</p>
+<p>For example:</p>
+
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="19%" rowspan="2">&nbsp;</td>
+    <td width="29%" align="center">Account Number (range)</td>
+    <td width="16%" align="center">PIN number<br>
+    (integer)</td>
+    <td width="21%" align="center">Account Balance<br>
+    (decimal)</td>
+    <td width="16%" align="center">Account Type<br>
+    (string)</td>
+  </tr>
+  <tr>
+    <td width="29%" align="center">(S) 0812 0000 0000 to<br>
+    0812 9999 9999
+    <p>(C) 0829 0000 0000 to<br>
+    0829 9999 9999</p>
+    <p>(X) 0799 0000 0000 to<br>
+    0799 9999 9999</td>
+    <td width="16%" align="center">0000 - 9999</td>
+    <td width="21%" align="center">-999,999.99 to 999,999.99</td>
+    <td width="16%" align="center">S, C, X</td>
+  </tr>
+  <tr>
+    <td width="19%">record 1</td>
+    <td width="29%" align="right">0812 0837 0293</td>
+    <td width="16%" align="right">8493</td>
+    <td width="21%" align="right">-3,123.84</td>
+    <td width="16%" align="right">S</td>
+  </tr>
+  <tr>
+    <td width="19%">record 2</td>
+    <td width="29%" align="right">0812 6493 8355</td>
+    <td width="16%" align="right">3558</td>
+    <td width="21%" align="right">8,438.53</td>
+    <td width="16%" align="right">S</td>
+  </tr>
+  <tr>
+    <td width="19%">record 3</td>
+    <td width="29%" align="right">0829 7483 0462</td>
+    <td width="16%" align="right">0352</td>
+    <td width="21%" align="right">673.00</td>
+    <td width="16%" align="right">C</td>
+  </tr>
+  <tr>
+    <td width="19%">record 4</td>
+    <td width="29%" align="right">0799 4896 1893</td>
+    <td width="16%" align="right">4896</td>
+    <td width="21%" align="right">493,498.49</td>
+    <td width="16%" align="right">X</td>
+  </tr>
+</table>
+<br></div>
+<p>The above matrix contains the minimum number of records that would physically
+represent the acceptable data values. For the Account Number, there is one
+record for each of the three ranges, all the PIN numbers are within the range
+specified, there are several different Account Balances - including one that is
+negative, and there are records for each of the different Account Types. The
+matrix above is the minimum data, best practice would be to have data values at
+the limits of each range as well as inside the range (see <a href="md_tstcs.htm">Guidelines:
+Test Case</a>).</p>
+<p>The advantage of physical representation is that the Test Data is limited in
+size and manageable, focused on and targeting the acceptable values. The
+disadvantage however, is that actual, real-world data is not completely random.
+Real data tends to have statistical profiles that may affect performance, which
+when using physical representation, would not be observed.</p>
+<p>Statistical Test Data representation is Test Data that reflects a statistical
+sampling (of the same percentages) of the production data. For example, using
+the same data elements as above, if we analyzed the production database and
+discovered the following:
+<ul>
+  <li>Total number of records: 294,031</li>
+  <li>Total number of account type S: 141,135 (48 % of total)</li>
+  <li>Total number of account type C: 144,075 (49 %)</li>
+  <li>Total number of account type X: 8,821 (3 %)</li>
+  <li>Account numbers and PIN numbers are evenly distributed</li>
+</ul>
+<p>our Test Data, based upon statistical sampling would include 294 records (as
+compared to the four we noted above):</p>
+
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%" rowspan="2">&nbsp;</td>
+    <td width="40%" colspan="2" align="center">Test Data (at .1 percent of production)</td>
+  </tr>
+  <tr>
+    <td width="20%" align="right">Number of Records</td>
+    <td width="20%" align="right">Percent</td>
+  </tr>
+  <tr>
+    <td width="20%">Total Number of records</td>
+    <td width="20%" align="right">294</td>
+    <td width="20%" align="right">100</td>
+  </tr>
+  <tr>
+    <td width="20%">Account numbers<br>
+    (S) 0812 0000 0000 to<br>
+    0812 9999 9999</td>
+    <td width="20%" align="right">141</td>
+    <td width="20%" align="right">48</td>
+  </tr>
+  <tr>
+    <td width="20%">Account numbers<br>
+    (C) 0829 0000 0000 to<br>
+    0829 9999 9999</td>
+    <td width="20%" align="right">144</td>
+    <td width="20%" align="right">49</td>
+  </tr>
+  <tr>
+    <td width="20%">Account numbers<br>
+    (X) 0799 0000 0000 to<br>
+    0799 9999 9999</td>
+    <td width="20%" align="right">9</td>
+    <td width="20%" align="right">3</td>
+  </tr>
+</table>
+<br></div>
+<p>The above matrix only addresses the account types. In developing the best
+Test Data based upon statistical representation, you'd include the significant
+data elements. In the above example, that would include reflecting the actual
+account balances.</p>
+<p>A disadvantage of the statistical representation is that may not reflect the
+full range of acceptable values.</p>
+<p>Typically, both methods of identifying Test Data are used to ensure that the
+Test Data address all values and performance / population issues.</p>
+<p>Test Data breadth is relevant to the Test Data used as input as well as the
+Test Data used to support testing (in pre-existing data).</p>
+<h3><a name="Scope">Scope</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Scope is the relevancy of the Test Data to the test objective, and is related
+to depth and breadth. Having a lot of data does not mean its the right data. As
+with the breadth of Test Data, we must ensure that the Test Data is relevant to
+the test objective, that is, that there is Test Data to support our specific
+test objective.</p>
+<p>For example, in the matrix below, the first four Test Data records address
+the acceptable values for each data element. However, there are no records to
+evaluate negative balances for account types C and X. Therefore, although this
+Test Data correctly includes a negative balances (valid breadth), the data below
+would be insufficient in its scope to support any testing using negative account
+balances for each account type. Expanding this data to include additional
+records, including negative balances for each of the different account types
+would be necessary to address this oversight.</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%" rowspan="2">
+    <pre> </pre>
+    </td>
+    <td width="27%" align="center">Account Number (range)</td>
+    <td width="18%" align="center">PIN number<br>
+    (integer)</td>
+    <td width="22%" align="center">Account Balance<br>
+    (decimal)</td>
+    <td width="15%" align="center">Account Type<br>
+    (string)</td>
+  </tr>
+  <tr>
+    <td width="27%" align="center">(S) 0812 0000 0000 to<br>
+    0812 9999 9999
+    <p>(C) 0829 0000 0000 to<br>
+    0829 9999 9999</p>
+    <p>(X) 0799 0000 0000 to<br>
+    0799 9999 9999</td>
+    <td width="18%" align="center">0000 - 9999</td>
+    <td width="22%" align="center">-999,999.99 to 999,999.99</td>
+    <td width="15%" align="center">S, C, X</td>
+  </tr>
+  <tr>
+    <td width="20%">record 1</td>
+    <td width="27%" align="right">0812 0837 0293</td>
+    <td width="18%" align="right">8493</td>
+    <td width="22%" align="right">-3,123.84</td>
+    <td width="15%" align="right">S</td>
+  </tr>
+  <tr>
+    <td width="20%">record 2</td>
+    <td width="27%" align="right">0812 6493 8355</td>
+    <td width="18%" align="right">3558</td>
+    <td width="22%" align="right">8,438.53</td>
+    <td width="15%" align="right">S</td>
+  </tr>
+  <tr>
+    <td width="20%">record 3</td>
+    <td width="27%" align="right">0829 7483 0462</td>
+    <td width="18%" align="right">0352</td>
+    <td width="22%" align="right">673.00</td>
+    <td width="15%" align="right">C</td>
+  </tr>
+  <tr>
+    <td width="20%">record 4</td>
+    <td width="27%" align="right">0799 4896 1893</td>
+    <td width="18%" align="right">4896</td>
+    <td width="22%" align="right">493,498.49</td>
+    <td width="15%" align="right">X</td>
+  </tr>
+  <tr>
+    <td width="20%">New Record 1</td>
+    <td width="27%" align="right">0829 3491 4927</td>
+    <td width="18%" align="right">0352</td>
+    <td width="22%" align="right">-995,498.34</td>
+    <td width="15%" align="right">C</td>
+  </tr>
+  <tr>
+    <td width="20%">New Record 2</td>
+    <td width="27%" align="right">0799 6578 9436</td>
+    <td width="18%" align="right">4896</td>
+    <td width="22%" align="right">-64,913.87</td>
+    <td width="15%" align="right">X</td>
+  </tr>
+</table>
+<br></div>
+<p>Test Data scope is relevant to the Test Data used as input as well as the
+Test Data used to support testing (in pre-existing data).</p>
+<h3><a name="Architecture">Architecture</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The physical structure of Test Data is relevant only to any pre-existing data
+used by the target-of-test to support testing, such as an application's database
+or rules table.</p>
+<p>Testing is not executed once and finished. Testing is repeated within and
+between iterations. In order to consistently, confidently, and efficiently
+execute testing, the Test Data should be returned to its initial state prior to
+the execution of test. This is especially true when the testing is to be
+automated.</p>
+<p>Therefore, for to ensure the integrity, confidence, and efficiency of
+testing, it is critical that Test Data be free of all external influences, and
+it state be known at the start, during, and end of the test execution. There are
+two issues that must be addressed in order to achieve this test objective:
+<ul>
+  <li><a href="#Instability / Segregation">instability / segregation</a> -
+    isolating Test Data external influences</li>
+  <li><a href="#Initial State">initial state</a> - knowledge of the specific
+    initial state of the data, and ability to return to this state</li>
+</ul>
+<p>Each of these issues will affect how you manage your test database, design 
+  your test model, and interact with other roles.</p>
+<h4><a name="Instability / Segregation">Instability / Segregation</a></h4>
+<p>Test Data may become unstable for the following reasons:
+<ul>
+  <li>external, non-test related influences modify the data</li>
+  <li>other testers are not aware of what data is used by others</li>
+</ul>
+<p>To maintain the confidence and integrity of testing, the Test Data should be
+highly controlled and isolated from these influences. Strategies to insure the
+Test Data is isolated include:
+<ul>
+  <li>separate test environments&#151testers have their own test
+    environment, physically separate from others. The testers share nothing,
+    that is, they have their own target-of-test and data. This may be
+    accomplished for example with each tester having his or her own PC.<br>
+  </li>
+  <li>separate Test Data base instances&#151testers have their own
+    instance of data, isolated from all other influences. The physical
+    environment, perhaps even the target-of-test, are shared, but with each
+    tester having his or her own instance of data, there is little risk of
+    contaminating the Test Data.<br>
+  </li>
+  <li>Test Data / database partitioning&#151all testers share the
+    database and are knowledgeable about the data others are using (and avoid
+    using other tester's data). For example, one tester may use records 0 - 99,
+    and another tester may use records 100 - 199, or someone uses customers with
+    last names Aa - Kz, while another tester uses patients named La - Zz.</li>
+</ul>
+<h4><a name="Initial State">Initial State</a></h4>
+<p>The other Test Data architecture issue that must be addressed is that of the
+initial state of the Test Data at the beginning of test execution. This is
+especially true when test automation is being used. Just as the target-of-test
+must begin the execution of test in a known, desired state, so to must the Test Data. This contributes to the repeatability and confidence that each test
+execution is the same as the previous.</p>
+<p>Four strategies are commonly used to address this issue:
+<ul>
+  <li>data refresh</li>
+  <li>data re-initialize</li>
+  <li>data reset</li>
+  <li>data roll forward</li>
+</ul>
+<p>Each is described in greater detail below.</p>
+<p>The method used will depend upon several factors, including the physical
+characteristics of the database, the technical competence of the testers,
+the availability of external (non-test) roles, and the target-of-test.</p>
+<h5><a name="Data Refresh">Data Refresh</a></h5>
+<p>The most desirable method of returning Test Data to its initial state is Data 
+  Refresh. This method involves creating a copy of the data base in its initial 
+  state and storing it. Upon the completion of test execution (or prior to the 
+  execution of test), the archived copy of the test database is copied into the 
+  test environment for use. This ensures that the initial state of the Test Data 
+  is the same at the start of each test execution.</p>
+<p>An advantage of this method is that data can be archived in several different
+initial states. For example, Test Data maybe archived at end-of-day state,
+end-of-week state, end-of-month state, etc. This provides the tester a method of
+quickly refreshing the to a given state to support a test, such as testing of
+the end of month use case(s).</p>
+<h5><a name="Data Re-initialize">Data Re-initialize</a></h5>
+<p>If data cannot be refreshed, the next best method is to restore the data to
+its initial state through some programmatic means. Data re-initialize relies on
+special use cases and tools to return the Test Data to its initial values.</p>
+<p>Care must be taken to ensure all data, relationships, and key values are
+returned to their appropriate initial value to ensure that no errors are
+introduced into the data.</p>
+<p>On advantage of this method is that it can support the testing of the invalid
+values in the database. Under normal conditions, invalid data values would be
+trapped not allowed entry into the data (for example by a validation rule in the
+client). However, another actor may affect the data (for example an electronic
+update from another system). Testing needs to verify that invalid data is
+identified and handled appropriately, independent of how it occurs.</p>
+<h5><a name="Data Reset">Data Reset</a></h5>
+<p>A simple method of returning data to its initial state is to &quot;reverse
+the changes&quot; made to the data during the test. This method relies upon
+using the target-of-test to enter reversing entries, that is, adding records /
+values that were deleted, un-modifying modified records / values, and deleting
+data that was added.</p>
+<p>There are risks associated with this method however, including:
+<ul>
+  <li>all the actions must be reversed, not just some</li>
+  <li>relies upon use cases in the target-of-test (which must be tested to
+    verify proper functionality before they can be used for data reset).</li>
+  <li>database keys, indices, and points may not or cannot be reset</li>
+</ul>
+<p>If this is the only method available in your test environment, avoid using
+database keys, indices and pointers as the primary targets for verification.
+That is, for example, use the Patient Name field to determine if the patient was
+added to the database instead of using a system generated Patient ID number.</p>
+<h5><a name="Data Roll Forward">Data Roll Forward</a></h5>
+<p>Data roll forward is the least desirable method of addressing the initial
+state of the Test Data. In fact, it doesn't really address the issue. Instead,
+the state of the data at the completion of test execution becomes the new
+initial state of the Test Data. Typically, this requires modifying the Test Data
+used for input and / or the Test Cases and Test Data used for the evaluation of
+the results.</p>
+<p>There are some instances when when this is necessary, for example at month-end. 
+  If no archive of the data, just prior to month's end, then the Test Data and 
+  Test Scripts from each day and week must be executed to &quot;roll forward&quot; 
+  the data to the state needed for the test of the month end processing.</p>
+<p>Risks associated with this method include:
+<ul>
+  <li>database keys, indices, and points cannot be reset (and cannot be used for
+    verification)</li>
+  <li>data is constantly changing</li>
+  <li>requires additional effort to certify verification of results</li>
+</ul>
+<p></p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

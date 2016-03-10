@@ -1,0 +1,316 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Interface</rpw><a name="XE_interface__as_artifact"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_if.jpg" width="46" height="23">&nbsp;
+	  </td>
+      <td width="80%">A model element which defines a set of behaviors (a set 
+        of operations) offered by a <b>classifier</b><i> </i>model element (specifically, 
+        a class, subsystem or component). A classifier may <b>realize </b>one 
+        or more interfaces. An interface may be realized by one or more classifiers. 
+        Any classifiers which realize the same interfaces may be substituted for 
+        one another in the system. Each interface should provide an unique and 
+        well-defined set of operations.&nbsp;</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_desmd.htm">Design Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_archt.htm">Software Architect</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Used in conjuction with Design Subsystems. Elaboration phase.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Interface&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_if.htm">Guideline: Interface</a></li>
+<li><a href="../workflow/ana_desi/co_sysif.htm">Guideline: Representing Interfaces to External Systems</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+<li><a href="../activity/ac_tst_idntstids.htm">Identify Test Ideas</a></li>
+<li><a href="../activity/ac_subds.htm">Subsystem Design</a></li>
+<li><a href="../activity/ac_ucdes.htm">Use-Case Design</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_iddes.htm">Identify Design Elements</a></li>
+<li><a href="../activity/ac_incds.htm">Incorporate Existing Design Elements</a></li>
+<li><a href="../activity/ac_subds.htm">Subsystem Design</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>  
+
+
+<h3><a name="XE_interface__purpose_of"></a><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An interface declares a set of operations, including their signatures and
+parameters, that are use to specify the services offered by a classifier model
+element (e.g. a class, component or subsystem).</p>
+<h3><a name="XE_interface__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="21%"><p class="tableheading">Property Name &nbsp;</td>
+    <td width="41%"><p class="tableheading">Brief Description &nbsp;</td>
+    <td width="38%"><p class="tableheading">UML Representation &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">name &nbsp;</td>
+    <td width="41%">the name of the interface &nbsp;</td>
+    <td width="38%">attribute &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">description &nbsp;</td>
+    <td width="41%">a short description of the interface &nbsp;</td>
+    <td width="38%">attribute &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">operations&nbsp;</td>
+    <td width="41%">the operations of the interface&nbsp;</td>
+    <td width="38%">operations&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Interfaces are created in the elaboration phase, and define the important
+'seams' in the system. All interfaces are architecturally significant.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A <a href="../workers/wk_archt.htm">Software Architect</a> is responsible for
+the integrity of the Interface, ensuring that:
+<ul>
+  <li>it defines a unique set of operations which do not overlap with those of
+    another interface.</li>
+  <li>it provides a logical grouping of related operations which is easy to
+    comprehend.</li>
+</ul>
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Interfaces are typically used in conjunction with <a href="ar_dsub.htm">Artifact: 
+  Design Subsystem</a>; it is usually not necessary or desirable to use interfaces 
+  in conjunction with <a href="ar_class.htm">Artifact: Design Classes</a>, where 
+  using public operations is usually sufficient. Interfaces are typically used 
+  in cases where there is a need to define the behavior (in the form of operation 
+  signatures) independently from the elements that realize those operations. This 
+  implies the existence of larger-grained abstractions of behavior or replaceability, 
+  modeled as design subsystems. For projects that do not have these attributes, 
+  interfaces can be omitted.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Tool Mentor:&nbsp;Identifying Design Elements Using Rational XDE Developer - .NET Edition</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Identifying
+  Design Elements Using Rational XDE Developer - .NET Edition</rpw><a name="Top"></a></h2>
+
+
+<h3>Purpose</h3>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_iddes.htm">Identify Design Elements</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity. Links to topics
+  in the Rational XDE&#153; online Help are marked with <img src="../../images/helpbook.gif" width="16" height="16">.
+
+
+<h3>Overview</h3>
+
+<p>In the tool mentor, the following steps are performed for the use cases to
+  be designed in the current iteration:
+</p>
+
+<ul>
+  <li><a href="#Identify and Specify Events">Identify Events and Signals</a></li>
+  <li><a href="#Identify Classes, Active Classes and Subsystems">Identify Classes,
+    Active Classes and Subsystems</a></li>
+  <li><a href="#Identify Interfaces">Identify Subsystem Interfaces</a></li>
+
+ 
+
+  <li><a href="#Identify Capsule Protocols">Identify Capsule Protocols</a></li>
+
+ 
+</ul>
+
+<p>Architecturally significant design elements may be documented in a separate
+  Logical View, that is maintained as design elements are identified. See <a href="model_structure_guidelines.htm">Rational
+  XDE Model Structure Guidelines</a>.</p>
+
+
+<h3><a name="Identify and Specify Events">Identify Events and Signals</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The characteristics of events should be captured as needed to drive the
+  identification of the design elements that handle them. This information
+  can be captured informally, such as in a separate document, rather than
+  as part of a Rational XDE model.</p>
+
+<p>Asynchronous communication events can be modeled as signals to express
+  the data that they carry, or to express relationships between signals, such
+  as a generalization relationship. The following substeps describe how to
+  model signals:</p>
+
+<ol>
+  <li>Create class diagrams as needed. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Add signals. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add a brief description to each design element. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Add generalization relationships between signals, if applicable. See
+    <script language=javascript>ReferenceHelpTopic("Adding Generalization Relationships","rs","rs_t_add_genrlztn_relshp");</script>.
+  </li>
+</ol>
+
+<p> For more information about class diagrams, see
+  <script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>.
+  For more information about signals, see
+  <script language=javascript>ReferenceHelpTopic("Signals","rs","rs_c_signals");</script>.
+</p>
+
+
+<h3><a name="Identify Classes, Active Classes and Subsystems">Identify Classes,
+  Active Classes and Subsystems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Design elements are generally created in the following three ways: </p>
+
+<ul>
+  <li>modeling (by adding to a class diagram)
+  </li>
+  <li>expanding a pattern
+  </li>
+  <li>coding and reverse engineering
+  </li>
+</ul>
+
+<p>These approaches are explained in the sections that follow.</p>
+
+
+<h4>Expanding a Pattern</h4>
+
+<p>You can use design patterns to identify design elements. See
+  <script language=javascript>ReferenceHelpTopic("Implementing Design Patterns","ea","ea_o_rat_xde_pttrn");</script>
+  in the Rational XDE online Help.</p>
+
+<p>Identify candidate patterns that may be useful. Refer to the following topics
+  in the Rational XDE online Help:</p>
+
+<ul>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Applying the Gang of Four Sample Patterns","ea","ea_t_apply_gang_four_smpl_pttrn");</script>
+  </li>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Store and Retrieve Patterns","ea","ea_o_stor_retriev_pttrn");</script>
+  </li>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Pattern Libraries","ea","ea_o_pttrn_lib");</script>
+  </li>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Import Patterns from RAS Assets","ea","ea_c_imp_pttrn_assets");</script>
+  </li>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Import and Export Pattern Libraries","ea","ea_c_imp_exp_pttrn_libs");</script>
+  </li>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Apply Patterns","ea","(ea_o_apply_pttrn");</script>
+  </li>
+</ul>
+
+
+<h4>Modeling</h4>
+
+<p>Create class diagrams in the Design Model to capture design elements. If you
+  decide to maintain the analysis classes, then you may want to establish traceability
+  dependencies to the analysis classes.</p>
+
+<ol>
+  <li>Create class diagrams as needed. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.
+  </li>
+  <li>Add subsystems and classes. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.
+  </li>
+  <li>Add a brief description to each design element. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>(optional) Add traceability to analysis classes. See
+    <script language=javascript>ReferenceHelpTopic("Adding Abstraction Relationships","rs","rs_t_add_abstrctn_relshp");</script>.
+  </li>
+  <li>Organize the design elements into packages. See
+    <script language=javascript>ReferenceHelpTopic("Grouping Model Elements in Packages","rs","rs_t_group_mod_ele_package");</script>.
+    Also refer to the white paper <a href="model_structure_guidelines.htm">Rational
+    XDE Model Structure Guidelines</a>.
+  </li>
+</ol>
+
+<p> For more information about class diagrams, see
+  <script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>. </p>
+
+<!-- begin - wsw -->
+
+<!-- end - wsw -->
+
+
+<h4>Coding and Reverse Engineering</h4>
+
+<p>Another approach is to sketch out the design in code form, reverse engineer
+  it to create a skeletal implementation model, and then drag and drop these classes
+  onto diagrams in the Design Model. Once you have made the decision
+  that a design class will map to an implementation-specific class
+
+<!-- begin - wsw -->
+ 
+<!-- end - wsw -->
+
+  this approach has the following advantages:
+</p>
+
+<ul>
+  <li>As an optional alternative, a code editor can be used to sketch out interfaces,
+    methods, and attributes using reverse engineering to reflect these elements
+    in the model.
+  </li>
+  <li>Existing code assets can be reverse engineered and contribute to the Design
+    Model.
+  </li>
+  <li>Selected elements can be prototyped to validate a complex
+    concept, while using round-trip engineering to keep those prototypes
+    consistent with the Design Model.
+  </li>
+</ul>
+
+<!-- begin - wsw -->
+
+<!-- end - wsw -->
+
+<p>For more information, refer to the following topics in Rational XDE online
+  Help:</p>
+
+<ul>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>
+  </li>
+  <li>
+    <script language=javascript>ReferenceHelpTopic("Subsystems","rs","rs_c_subsystems");</script>
+  </li>
+
+<!-- begin - wsw -->
+ 
+<!-- end - wsw -->
+</ul>
+
+
+<h3><a name="Identify Interfaces">Identify Subsystem Interfaces</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<!-- begin - wsw -->
+
+<!-- end - wsw -->
+
+
+
+
+<p></p>
+
+<ol>
+  <li>For each subsystem, identify a set of candidate interfaces. Add interfaces
+    to an existing class diagram, or create new class diagrams as needed. (See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.)
+
+<!-- begin - wsw -->
+   
+<!-- end - wsw -->
+
+  </li>
+  <li>Add interface dependencies. See
+    <script language=javascript>ReferenceHelpTopic("Adding Dependency Relationships","rs","rs_t_add_depend_relshp");</script>.
+  </li>
+  <li>Map subsystems to interfaces by adding a realization relationship from the
+    subsystem to the interface. See
+    <script language=javascript>ReferenceHelpTopic("Adding Realization Relationships","rs","rs_t_add_realztn_relshp");</script>.
+  </li>
+  <li>Document the interface, including required behavior. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Add methods to the interface. See
+    <script language=javascript>ReferenceHelpTopic("Adding Operations to Classifiers","rs","rs_t_add_oper_clssfr");</script>.
+  </li>
+  <li>Add a description to each operation. See
+    <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+  </li>
+  <li>Add parameters to each method. See
+    <script language=javascript>ReferenceHelpTopic("Adding Parameters to Operations","rs","rs_t_add_param_op");</script>.
+  </li>
+  <li>Organize the interfaces into packages. See
+    <script language=javascript>ReferenceHelpTopic("Grouping Model Elements in Packages","rs","rs_t_group_mod_ele_package");</script>.
+  </li>
+</ol>
+
+<!-- begin - wsw -->
+
+<!-- end - wsw -->
+
+
+
+
+<h3 class="reactive"><a name="Identify Capsule Protocols">Identify
+  Capsule Protocols</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a><br>
+</h3>
+
+<p class="reactive">Capsule and protocol modeling is not supported by Rational XDE.</p>
+
+
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>  
+
+</body>
+
+</html>

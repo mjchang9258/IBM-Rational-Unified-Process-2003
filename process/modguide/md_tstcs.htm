@@ -1,0 +1,1242 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Test Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Test 
+  Case</rpw> <a name="XE_test_case__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#DerivingTestCasesFromUseCases">Deriving Test Cases from Use
+    Cases</a></li>
+  <li><a href="#DerivingTestCasesFromSupplementarySpecifications">Deriving
+    Test Cases from Supplementary Specifications</a>
+    <blockquote>
+      <ul>
+        <li><a href="#DerivingTestCasesForPerformanceTests">Deriving Test
+          Cases for Performance Tests</a></li>
+        <li><a href="#DerivingTestCasesForSecurityAccessTests">Deriving
+          Test Cases for Security / Access Tests</a></li>
+        <li><a href="#DerivingTestCasesForConfigurationTests">Deriving Test
+          Cases for Configuration Tests</a></li>
+        <li><a href="#DerivingTestCasesForInstallationTests">Deriving Test
+          Cases for Installation Tests</a></li>
+        <li><a href="#DerivingTestCasesForOtherNon-functionalTests">Deriving
+          Test Cases for other Non-Functional Tests</a></li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+<ul>
+  <li><a href="#DerivingTestCasesForAcceptanceTests">Deriving Test Cases for
+    Product Acceptance Tests</a></li>
+  <li><a href="#BuildVerificationTestCasesForRegressionTests">Build Verification Test Cases for
+    Regression Tests</a></li>
+  <li><a href="#DefiningTestDataForTestCases">Defining Test Data for Test Cases</a></li>
+</ul>
+
+
+<h3><a name="Explanation">Explanation</a> <a href="#top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Nothing has a greater influence on the project teams ability to ensure the 
+  stakeholder's satisfaction with the software, than the availability of a clear 
+  specification of what the stakeholders expectations are. With or without a good 
+  enough set of requirements specifications, test cases are one artifact that 
+  helps to reflect the expectations of the stakeholders, enabling those expectations 
+  to be verified and validated.</p>
+<p>When a useful set of requirements are available, the test team needs to plan 
+  tests that will appropriately validate those requirements. Note that validating 
+  the software against the requirements may be done differently depending on the 
+  type of requirement. For example, executing the software to validate its functional 
+  and performance requirements may be done by a tester using automated test techniques, 
+  while verifying a configuration requirement such as the shutdown of the host 
+  computer system may need to be done using manual testing techniques.</p>
+<p>Since you may not be able (or be responsible) to verify all requirements, it 
+  is important to focus on the most appropriate or critical requirements for the 
+  scope of the current work effort. The requirements you choose to verify will 
+  be a balance between the cost, risk, and necessity of having the requirement 
+  verified, and will generally be limited by the scope of the current iteration.</p>
+<p>While requirements are an important source from which tests can be derived, 
+  they are not the only information source. In fact, in many cases they will be 
+  insufficient to provide a complete basis from which tests are developed. Test 
+  Cases should also be considered that are based on information sources such as 
+  risks, constraints, technologies, change requests (defects), faults and so on.<br>
+  See <a href="../workflow/test/co_tstidslst.htm">Concept: Test Ideas</a> for 
+  more information on how to come up with ideas from which tests can be derived. 
+</p>
+<p>Identifying test cases is useful for several reasons.</p>
+<ul>
+  <li>Test cases can be used as the foundation on which to design and implement 
+    the actual tests. Time spent considering the test case helps to understand 
+    the design and implementation requirements better, and has the potential to 
+    save time in design and implementation activities.</li>
+  <li>Some tests are particularly complex or detailed. Tests of this nature can 
+    benefit from careful consideration in advance before starting implementation 
+    of the test, and test case and test design artifacts are good tools for exploring 
+    those considerations. </li>
+  <li>The &quot;depth&quot; of the testing is typically regarded as proportional 
+    to the number of tests. Greater confidence in the test process itself is often 
+    gained when the potential &quot;depth&quot; of testing can be reasoned about 
+    based on the number of test cases identified.</li>
+  <li>One measure of the completeness of the test effort is based on monitoring 
+    coverage against some set of motivating elements. Coverage reporting can be 
+    based on measures such as the number test cases identified, and the number 
+    of tests implemented and / or executed against each test case, or the amount 
+    of effort expended against each test case.</li>
+  <li>The scale and complexity of the test effort is to some extent proportional 
+    to the number of test cases. With a breakdown of test cases, the test effort 
+    can be reasoned about at a finer level of granularity.</li>
+  <li>The kinds of test design and development, and the resources needed are in 
+    part governed by the number and complexity of the test cases.</li>
+</ul>
+<p>However, there are some concerns worth considering regarding test cases:</p>
+<ul>
+  <li>Not every test is complex enough to warrant the overhead of creating a test 
+    case artifact that needs to be reviewed and maintained: the test is simple 
+    enough that a short textual description is enough to convey what is required. 
+    In fact, the majority of test cases may fall in the category. Time spent documenting 
+    a vast number of simple test cases may result in time lost from more important 
+    testing activities.</li>
+  <li>Some of the initial ideas you have for tests are subsequent proven to be 
+    flawed in some respect. This means that some of the test cases you initially 
+    identified based on those ideas will be abandoned. This reality means that 
+    any work you do documenting test cases in detail may be subsequently abandoned, 
+    and any reporting of coverage based on test cases needs to consider that situation. 
+    As such, it may be better to base test coverage reporting on the basis of 
+    higher-level concerns than test cases, and to treat test cases as internal 
+    test team artifacts used as required.</li>
+</ul>
+<p>Test cases are often categorized or classified by the type of test or requirement 
+  for test they are associated with, and will vary accordingly. One heuristic 
+  for identifying test cases is to start by considering the following two perspectives:</p>
+<ul>
+  <li>demonstrating the requirement has been achieved, often referred to as a 
+    positive test case,</li>
+  <li>demonstrating the requirement is <b>only</b> achieved under the desired 
+    conditions, referred to as a negative test. This test case reflects unacceptable, 
+    abnormal, or unexpected conditions or data that the software may reasonably 
+    be subjected to.</li>
+</ul>
+
+
+<h3><a name="DerivingTestCasesFromUseCases">Deriving Test Cases from Use Cases</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Test cases for functional testing are derived from the target-of-test's use 
+  cases (see <a href="../artifact/ar_uc.htm">Artifact: Use Case</a>). Test cases 
+  should be developed for each use-case scenario. The use-case scenarios are identified 
+  by describing the paths through the use case that traverse the basic flow and 
+  alternate flows start to finish through the use case.</p>
+<p>In the diagram below, for example, each of the different paths through a use 
+  case reflecting the basic and alternate flows, are represented with the arrows. 
+  The basic flow, represented by the straight, black-line is the simplest path 
+  through the use case. Each alternate flow begins with the basic flow and then, 
+  dependent upon a specific condition, the alternate flow is executed. Alternate 
+  flows may rejoin the basic flow (alternate flows 1 and 3), may originate from 
+  another alternate flow (alternate flow 2), or may terminate the use case without 
+  rejoining a flow (alternate flows 2 and 4).</p>
+<p align="center"><img border="0" src="images/tstcs_1.gif" width="400" height="347"></p>
+<p align="center" class="picturetext">Sample Flows of Events for a use case</p>
+
+<p align="left">Following each possible path through the use case in the above 
+  diagram, the different use-case scenarios can be identified. Beginning with 
+  the basic flow and then combining the basic flow with alternate flows, the following 
+  use-case scenarios can be identified:&nbsp;</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="14%">Scenario 1</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">&nbsp;</td>
+    <td width="23%">&nbsp;</td>
+    <td width="22%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 2</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">Alternate Flow 1</td>
+    <td width="23%">&nbsp;</td>
+    <td width="22%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 3</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">Alternate Flow 1</td>
+    <td width="23%">Alternate Flow 2</td>
+    <td width="22%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 4</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">Alternate Flow 3</td>
+    <td width="23%">&nbsp;</td>
+    <td width="22%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 5</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">Alternate Flow 3</td>
+    <td width="23%">Alternate Flow 1</td>
+    <td width="22%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 6</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">Alternate Flow 3</td>
+    <td width="23%">Alternate Flow 1</td>
+    <td width="22%">Alternate Flow 2</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 7</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">Alternate Flow 4</td>
+    <td width="23%">&nbsp;</td>
+    <td width="22%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 8</td>
+    <td width="18%">Basic Flow</td>
+    <td width="23%">Alternate Flow 3</td>
+    <td width="23%">Alternate Flow 4</td>
+    <td width="22%">&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+<p>NOTE:&nbsp;For simplicity, Scenarios 5, 6, and 8 only depict a single execution 
+  of the loop indicated by Alternate flow 3.&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p>Deriving the test cases for each scenario is done by identifying the specific 
+  condition that will cause that specific use-case scenario to be executed.</p>
+<p>For example, suppose the use case depicted in the diagram above stated the 
+  following for Alternate Flow 3:</p>
+<blockquote>&quot;This flow of events occurs if the dollar amount entered in Step 2 above, 
+  &quot;Enter Withdraw Amount&quot; is greater than the current account balance. 
+  The system displays a warning message and then rejoins the basic flow at Step 
+  2 &quot;Enter Withdraw Amount&quot; above, where the bank customer can enter 
+  a new withdrawal amount.&quot;</blockquote>
+
+<p>With this information, you can begin to identify the test cases needed to execute 
+  the alternate flow 3:</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="14%">Test Case ID</td>
+    <td width="23%">Scenario</td>
+    <td width="64%">Condition</td>
+    <td width="88%">Expected Result</td>
+  </tr>
+  <tr>
+    <td width="14%">TC x</td>
+    <td width="23%">Scenario 4</td>
+    <td width="64%">Step 2 - Withdraw Amount &gt; Account Balance</td>
+    <td width="88%">Rejoin basic flow at Step 2</td>
+  </tr>
+  <tr>
+    <td width="14%">TC y</td>
+    <td width="23%">Scenario 4</td>
+    <td width="64%">Step 2 - Withdraw Amount &lt; Account Balance</td>
+    <td width="88%">Does not execute Alternate Flow 3, takes basic flow</td>
+  </tr>
+  <tr>
+    <td width="14%">TC z</td>
+    <td width="23%">Scenario 4</td>
+    <td width="64%">Step 2 - Withdraw Amount = Account Balance</td>
+    <td width="88%">Does not execute Alternate Flow 3, takes basic flow</td>
+  </tr>
+</table>
+<br></div>
+<p>NOTE: the test cases shown above are very simplistic since no other information 
+  was provided. Test cases are rarely this simple.</p> 
+
+<p>A more realistic example of deriving test cases from use cases is provided 
+  below:</p>
+<p class="exampleheading">Example:</p>
+<p class="picturetext"><img src="images/tstcs002.gif" align="middle" width="354" height="226"></p>
+<p class="picturetext">Actors and use cases in an ATM machine.</p>
+
+<p>The following table contains the basic flow and some alternate flows for Cash 
+  Withdrawal use case in the diagram above:</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="17%"><font size="2">Basic Flow</font></td>
+    <td width="83%"><font size="2">This Use Case begins with the ATM in the
+    Ready State.</font>
+    <ol>
+      <li><font size="2">Initiate Withdraw - Customer inserts bank card in the
+        card reader on the ATM machine<br>
+        </font></li>
+      <li><font size="2">Verify Bank Card - The ATM reads the account code from
+        the magnetic strip on the bank card&nbsp; and checks if it is an
+        acceptable bank card.<br>
+        </font></li>
+      <li><font size="2">Enter PIN - The ATM asks for the customer's PIN code (4
+        digits)<br>
+        </font></li>
+      <li><font size="2">Verify account code and PIN - The account code and PIN
+        are verified to determine if the account is valid and if the PIN entered
+        is the correct PIN for the account. For this flow, the account is a
+        valid account and the PIN is the correct PIN associated with this
+        account.<br>
+        </font></li>
+      <li><font size="2">ATM Options - The ATM displays the different
+        alternatives available at this ATM.&nbsp; In this flow, the bank
+        customer always selects &quot;Cash Withdraw.&quot;<br>
+        </font></li>
+          <li><font size="2">Enter Amount - The ATM the amount to withdraw. For this 
+            flow the customer selects a preset amount ($10, $20, $50, or $100).<br>
+        </font></li>
+      <li><font size="2">Authorization - The ATM initiates the verification
+        process with the Banking System by sending the Card ID, PIN, Amount, and
+        Account information as a transaction.&nbsp; For this flow, the Banking
+        System is online and replies with the authorization to complete the cash
+        withdrawal successfully and updates the account balance accordingly.<br>
+        </font></li>
+      <li><font size="2">Dispense - The Money is dispensed.<br>
+        </font></li>
+      <li><font size="2">Return Card - The Bank Card is returned.<br>
+        </font></li>
+      <li><font size="2">Receipt - The receipt is printed and dispensed.&nbsp;
+        The ATM also updates the internal log accordingly.&nbsp;</font></li>
+    </ol>
+    <p><font size="2">Use Case ends with the ATM in the Ready State.<br>
+    </font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow 1 - Not a valid Card</font></td>
+    <td width="83%"><font size="2">In Basic Flow Step 2 - Verify Bank Card, if
+    the card is not valid, it is ejected with an appropriate message.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow 2 - ATM out of Money&nbsp;</font></td>
+    <td width="83%"><font size="2">At Basic Flow Step 5 - ATM Options, if the
+    ATM is out of money, the &quot;Cash Withdraw&quot; option will not be
+    available.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow 3 - Insufficient funds in
+    ATM&nbsp;</font></td>
+    <td width="83%"><font size="2">At Basic Flow Step 6 - Enter Amount, if the
+    ATM contains insufficient funds to dispense the requested amount, an
+    appropriate message will be displayed, and rejoins the basic flow at Step 6
+    - Enter Amount.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow 4 - Incorrect PIN&nbsp;</font></td>
+    <td width="83%"><font size="2">At Basic Flow Step 4 - Verify Account and
+    PIN, the customer has three tries to enter the correct PIN.&nbsp;&nbsp;<br>
+    <br>
+    If an incorrect PIN is entered, the ATM displays the appropriate message and
+    if there are still tries remaining, this flow rejoins Basic Flow at Step 3 -
+    Enter PIN.&nbsp;<br>
+    <br>
+    If, on the final try the entered PIN number is incorrect, the card is
+    retained, ATM returns to Ready State, and this use case terminates.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow 5 - No Account&nbsp;</font></td>
+    <td width="83%"><font size="2">At Basic Flow Step 4 - Verify Account and
+    PIN, if the Banking system returns a code indicating the account could not
+    be found or is not an account which allows withdrawals, the ATM displays the
+    appropriate message and rejoins the Basic Flow at Step 9 - Return Card.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow 6 - Insufficient Funds in
+    Account</font></td>
+    <td width="83%"><font size="2">At&nbsp; Basic Flow Step 7 - Authorization,
+    the Banking system returns a code indicating the account balance is less
+    than the amount entered in Basic Flow Step 6 - Enter Amount, the ATM
+    displays the appropriate message and rejoins the Basic Flow at Step 6 -
+    Enter Amount.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow 7 - Daily maximum withdrawal
+    amount reached&nbsp;</font></td>
+    <td width="83%"><font size="2">At Basic Flow Step 6 - Authorization, the
+    Banking system returns a code indicating that, including this request for
+    withdrawal, the customer has or will have exceeded the maximum amount
+    allowed in a 24 hour period, the ATM displays the appropriate message and
+    rejoins the Basic Flow at Step 6 - Enter Amount.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow x - Log Error</font></td>
+    <td width="83%"><font size="2">If at the Basic Flow Step 10 - Receipt, the
+    log cannot be updated, the ATM enters the &quot;secure mode&quot; in which
+    all functions are suspended. An appropriate alarm is sent to the Bank System
+    to indicate the ATM has suspended operation.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow y - Quit</font></td>
+    <td width="83%"><font size="2">The customer can, at any time, decide to
+    terminate the transaction (quit). The transaction is stopped and the card
+    ejected.</font></td>
+  </tr>
+  <tr>
+    <td width="17%"><font size="2">Alternate Flow z - &quot;Tilt&quot;</font></td>
+      <td width="83%"><font size="2">The ATM contains numerous sensors which monitor 
+        different functions, such as power, pressure exerted on the various doors 
+        and gates, and motion detectors.&nbsp; If at any time a sensor is activated, 
+        an alarm signal is sent to the Police and the ATM enters a &quot;secure 
+        mode&quot; in which all functions are suspended until the appropriate 
+        restart / reinitialize actions are taken.</font></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+    <p class="example"><br>
+    <font size="2">In the first iteration, according to the iteration plan, we
+    need to verify that the Cash Withdrawal use case has been implemented
+    correctly. The whole use case has not yet been implemented, only the
+    following flows have been implemented:</font></p>
+    <blockquote>
+      <ul>
+            <li>Basic Flow - Withdrawal of a preset amount ($10, $20, $50, $100)</li>
+            <li>Alternate Flow 2 - ATM out of Money</li>
+            <li>Alternate Flow 3 - Insufficient funds in ATM</li>
+            <li>Alternate Flow 4 - Incorrect PIN</li>
+            <li>Alternate Flow 5 - No Account / Incorrect Account Type</li>
+            <li>Alternate Flow 6 - Insufficient funds in Account</li>
+      </ul>
+    </blockquote>
+    &nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<p>The following scenarios can be derived from this use case:</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="14%">Scenario 1 - Successful cash withdraw</td>
+    <td width="15%">Basic Flow&nbsp;</td>
+    <td width="15%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 2 - ATM out of money</td>
+    <td width="15%">Basic Flow</td>
+    <td width="15%">Alternate Flow 2</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 3 - Insufficient Funds in ATM</td>
+    <td width="15%">Basic Flow</td>
+    <td width="15%">Alternate Flow 3</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 4 - Incorrect PIN (tries left)</td>
+    <td width="15%">Basic Flow</td>
+    <td width="15%">Alternate Flow 4&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 5 - Incorrect PIN (no tries left)</td>
+    <td width="15%">Basic Flow</td>
+    <td width="15%">Alternate Flow 4&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 6 - No Account / incorrect account
+    type</td>
+    <td width="15%">Basic Flow</td>
+    <td width="15%">Alternate Flow 5</td>
+  </tr>
+  <tr>
+    <td width="14%">Scenario 7 - Insufficient Account Balance&nbsp;</td>
+    <td width="15%">Basic Flow</td>
+    <td width="15%">Alternate Flow 6</td>
+  </tr>
+</table>
+<br></div>
+
+<p align="left">NOTE:&nbsp; For simplicity the loops in Alternate flows 3 and 
+  6 (Scenarios 3 and 7), and combinations of loops have not been included in the 
+  table above.</p>
+<p>For each of these seven scenarios, test cases need to be identified. Test cases 
+  can be identified and managed using matrices or decision tables. A common format 
+  is shown below, where each row represent an individual test case, and the columns 
+  identify test case information.&nbsp; In this example, for each test case, there 
+  is a test case ID, Condition (or description), and all the data elements participating 
+  in the test case (as input or already in the database), and expected result.</p>
+<p>To begin developing the matrix, start by identifying what data elements are 
+  required to execute the use-case scenarios. Then, for each scenario, identify 
+  at least test case that contains the appropriate condition to execute the scenario. 
+  For example, in the matrix below, V (valid) is used to indicate this condition 
+  must be VALID for the basic flow to execute and I (invalid) is used to indicate 
+  the condition which will invoke the desired alternate flow.&nbsp;In the table 
+  below, &quot;n/a&quot; indicates that this condition is not applicable to the 
+  test case.</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="6%" align="center">TC ID#</td>
+    <td width="17%" align="center">Scenario / Condition</td>
+    <td width="6%" align="center">PIN
+    <p>&nbsp;</p>
+    </td>
+    <td width="11%" align="center">Account #
+    <p>&nbsp;</p>
+    </td>
+    <td width="11%" align="center">Amount Entered
+    <p>(or chosen)</p>
+    <p>&nbsp;</p>
+    </td>
+    <td width="12%" align="center">Amount in Account
+    <p>&nbsp;</p>
+    </td>
+    <td width="11%" align="center">Amount in ATM
+    <p>&nbsp;</p>
+    </td>
+    <td width="16%" align="center">Expected Result</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW1.</td>
+    <td width="17%">Scenario 1 - Successful Cash Withdraw</td>
+    <td width="6%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="12%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="16%">Successful cash withdrawal.</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW2.</td>
+    <td width="17%">Scenario 2 - ATM out of Money</td>
+    <td width="6%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center" bgcolor="#C0C0C0">I</td>
+    <td width="16%">Cash Withdraw option unavailable, end of use
+    case</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW3.</td>
+    <td width="17%">Scenario 3 - Insufficient funds in ATM</td>
+    <td width="6%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center" bgcolor="#C0C0C0">I</td>
+    <td width="16%">Warning message, return to Basic Flow Step 6 -
+    Enter Amount</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW4.</td>
+    <td width="17%">Scenario 4 - Incorrect PIN (&gt; 1 left)</td>
+    <td width="6%" align="center" bgcolor="#C0C0C0">I&nbsp;
+    <p>&nbsp;</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">n/a</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="16%">Warning message, return to Basic Flow Step 4,
+    Enter PIN</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW5.</td>
+    <td width="17%">Scenario 4 - Incorrect PIN (= 1 try left)</td>
+    <td width="6%" align="center" bgcolor="#C0C0C0">I&nbsp;
+    <p>&nbsp;</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">n/a</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="16%">Warning message, return to Basic Flow Step 4,
+    Enter PIN</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW6.</td>
+    <td width="17%">Scenario 4 - Incorrect PIN (= 0&nbsp; tries
+    left)</td>
+    <td width="6%" align="center" bgcolor="#C0C0C0">I&nbsp;
+    <p>&nbsp;</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">n/a</td>
+    <td width="11%" align="center">V</td>
+    <td width="11%" align="center">V</td>
+    <td width="16%">Warning message, card retained, end of use case</td>
+  </tr>
+</table>
+<br></div>
+
+<p>In the matrix above, the six test cases execute the four scenarios. For the 
+  Basic Flow, test case CW1 above is known as a positive test case. It executes 
+  the Basic Flow path through the use case without any deviations. Comprehensive 
+  testing of the Basic Flow must include negative test cases to ensure that the 
+  Basic Flow is taken only when the conditions are correct. These negative test 
+  cases are represented by test cases CW2 - 6 (the shaded cell indicates the condition 
+  needed to execute the alternate flows).&nbsp;While CW2 - 6 are negative test 
+  cases for the Basic Flow, they are positive test cases for Alternate flows 2 
+  - 4, and there is at least one negative test case each of these Alternate Flows 
+  (CW1 - the Basic Flow).</p>
+<p>Scenario 4 is an example where having just one positive and one negative test 
+  case per scenario is not sufficient. To thoroughly test Scenario 4 - Incorrect 
+  PIN, at least three positive test cases (to invoke Scenario 4) are needed:</p>
+<ul>
+  <li>the incorrect PIN is entered and there are tries left and this Alternate 
+    Flow rejoins the Basic Flow Step 3 - Enter PIN)</li>
+  <li>the incorrect PIN is entered and there are no remaining tries left and
+    this Alternate Flow then retains the card and terminates the use case.</li>
+  <li>the CORRECT PIN is entered when there are no remaining tries left.&nbsp;
+    This Alternate Flow rejoins the Basic Flow at Step 5 - Enter Amount.&nbsp;</li>
+</ul>
+<p>Notice, that in the above matrix, no actual values were entered for the conditions 
+  (data). An advantage of creating the test case matrix in this manner is that 
+  it is easy to see what conditions are being tested. It is also very easy to 
+  determine if sufficient test cases have been identified, since you only need 
+  to look at Vs and Is (or as done here - shaded cells). Looking at the above 
+  table, there are several conditions for which there is no shaded cell, therefore, 
+  we are missing test cases, such as for Scenario 6 - No Account or Incorrect 
+  Account Type and Scenario 7 - Insufficient Account Balance.</p>
+<p>One all the test cases have been identified, they should be reviewed and validated 
+  to ensure accuracy, appropriateness, and eliminate redundant or equivalent test 
+  cases. See <a href="../activity/chklists/ck_tstcs.htm">Checkpoints: Test Case</a> 
+  for more details. Also see the section <a href="#DefiningTestDataForTestCases">Defining 
+  Test Data for Test Cases</a> for additional details.</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="6%" align="center">TC ID#</td>
+    <td width="17%" align="center">Scenario / Condition</td>
+    <td width="6%" align="center">PIN
+    <p>&nbsp;</p>
+    </td>
+    <td width="11%" align="center">Account #
+    <p>&nbsp;</p>
+    </td>
+    <td width="11%" align="center">Amount Entered
+    <p>(or chosen)</p>
+    <p>&nbsp;</p>
+    </td>
+    <td width="12%" align="center">Amount in Account
+    <p>&nbsp;</p>
+    </td>
+    <td width="11%" align="center">Amount in ATM
+    <p>&nbsp;</p>
+    </td>
+    <td width="16%" align="center">Expected Result</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW1.</td>
+    <td width="17%">Scenario 1 - Successful Cash Withdraw</td>
+    <td width="6%" align="center">4987</td>
+    <td width="11%" align="center">809 - 498</td>
+    <td width="11%" align="center">50.00</td>
+    <td width="12%" align="center">500.00</td>
+    <td width="11%" align="center">2,000</td>
+    <td width="16%">Successful cash withdrawal. Account balance
+    updated to 450.00</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW2.</td>
+    <td width="17%">Scenario 2 - ATM out of Money</td>
+    <td width="6%" align="center">4987</td>
+    <td width="11%" align="center">809 - 498</td>
+    <td width="11%" align="center">100.00</td>
+    <td width="12%" align="center">500.00</td>
+    <td width="11%" align="center">0.00</td>
+    <td width="16%">Cash Withdraw option unavailable, end of use
+    case</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW3.</td>
+    <td width="17%">Scenario 3 - Insufficient funds in ATM</td>
+    <td width="6%" align="center">4987</td>
+    <td width="11%" align="center">809 - 498</td>
+    <td width="11%" align="center">100.00</td>
+    <td width="12%" align="center">500.00</td>
+    <td width="11%" align="center">70.00</td>
+    <td width="16%">Warning message, return to Basic Flow Step 6 -
+    Enter Amount</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW4.</td>
+    <td width="17%">Scenario 4 - Incorrect PIN (&gt; 1 left)</td>
+    <td width="6%" align="center">49<u>78</u>&nbsp;
+    <p>&nbsp;</td>
+    <td width="11%" align="center">809 - 498</td>
+    <td width="11%" align="center">n/a</td>
+    <td width="12%" align="center">500.00</td>
+    <td width="11%" align="center">2,000</td>
+    <td width="16%">Warning message, return to Basic Flow Step 4,
+    Enter PIN</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW5.</td>
+    <td width="17%">Scenario 4 - Incorrect PIN (= 1 try left)</td>
+    <td width="6%" align="center">49<u>78</u>
+    <p>&nbsp;</td>
+    <td width="11%" align="center">809 - 498</td>
+    <td width="11%" align="center">n/a</td>
+    <td width="12%" align="center">500.00</td>
+    <td width="11%" align="center">2,000</td>
+    <td width="16%">Warning message, return to Basic Flow Step 4,
+    Enter PIN</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">CW6.</td>
+    <td width="17%">Scenario 4 - Incorrect PIN (= 0&nbsp; tries
+    left)</td>
+    <td width="6%" align="center">49<u>78</u>&nbsp;
+    <p>&nbsp;</td>
+    <td width="11%" align="center">809 - 498</td>
+    <td width="11%" align="center">n/a</td>
+    <td width="12%" align="center">500.00</td>
+    <td width="11%" align="center">2,000</td>
+    <td width="16%">Warning message, card retained, end of use case</td>
+  </tr>
+</table>
+<br></div>
+
+<p>The test cases above are only a few of the test cases needed to verify the 
+  Cash Withdraw Use Case for this iteration. Other test cases needed include:</p>
+<ul>
+  <li>Scenario 6 - No Account or Incorrect Account Type: Account not found or
+    available</li>
+  <li>Scenario 6 - No Account or Incorrect Account Type: Account does not allow
+    withdraws</li>
+  <li>Scenario 7 - Insufficient Account Balance: Amount requested greater than
+    amount in account.</li>
+</ul>
+<p>In future iterations, when other flows are implemented, test cases will be 
+  needed for:</p>
+<ul>
+  <li>Invalid cards (card is reported lost, stolen, is not from an accepted
+    bank, has a damaged stripe, etc.)</li>
+  <li>Inability to read a card (card reader is jammed, off-line, or
+    malfunctioning)</li>
+  <li>Account is closed, frozen, or otherwise unavailable</li>
+  <li>Amount in ATM is insufficient or incapable of creating requested amount
+    (different than CW3, in that one denomination is out, but not all)</li>
+  <li>Incapable of contacting banking system for approval</li>
+  <li>Bank network goes off line, or power failure mid-transaction</li>
+</ul>
+<p>When identifying functional test cases, ensure the following:</p> 
+<ul>
+  <li>sufficient test cases, positive and negative, have been identified for
+    each use-case scenario&nbsp;</li>
+  <li>test cases address any business rules implemented by the use cases,
+    ensuring that there are test cases inside, outside, and at the boundary
+    condition / value for the business rule</li>
+  <li>test cases address any sequencing of events or actions, such as those
+    identified in the sequence diagrams in the design model, or user interface
+    object states or conditions.</li>
+  <li>test cases address any special requirements defined for the use case, such
+    minimum/maximum performance, sometimes combined with minimum/maximum loads
+    or data volumes during the execution of the use cases.</li>
+</ul>
+<p>See the section <a href="#DefiningTestDataForTestCases">Defining Test Data 
+  for Test Cases</a> for additional guidance.</p>
+
+
+<h3><a name="DerivingTestCasesFromSupplementarySpecifications">Deriving Test Cases 
+  from Supplementary Specifications</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Not all requirements for a target-of-test will be reflected in functional requirements 
+  artifacts such as use-case specifications. Non-functional requirements, such 
+  as performance, security and access, and configuration requirements specify 
+  additional behaviors or characteristics of the target-of-test, and are often 
+  documented separately from the functional requirements. The Supplementary Specification 
+  is one of the primary sources for deriving test cases for these additional requirements.</p>
+<p>Below are described guidelines for deriving these additional test cases:</p>
+<ul>
+  <li><a href="#DerivingTestCasesForPerformanceTests">Deriving Test Cases
+    for Performance Tests</a></li>
+  <li><a href="#DerivingTestCasesForSecurityAccessTests">Deriving Test
+    Cases for Security / Access Tests</a></li>
+  <li><a href="#DerivingTestCasesForConfigurationTests">Deriving Test Cases
+    for Configuration Tests</a></li>
+  <li><a href="#DerivingTestCasesForInstallationTests">Deriving Test Cases
+    for Installation Tests</a></li>
+  <li><a href="#DerivingTestCasesForOtherNon-functionalTests">Deriving Test Cases 
+    for other Non-functional Tests</a></li>
+</ul>
+<h4><a name="DerivingTestCasesForPerformanceTests">Deriving Test Cases for Performance 
+  Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The primary input for performance test cases are the Supplementary Specifications 
+  which contain the non-functional requirements (see <a href="../artifact/ar_sspec.htm">Artifact: 
+  Supplementary Specifications</a>). Use the following guidelines when deriving 
+  test cases for performance test:</p>
+<ul>
+  <li>ensure there is at least one test case identified for each statement in
+    the supplementary specification which states a performance criteria.
+    Performance criteria are usually expressed as time per transaction, number
+    of transactions / users, or percentiles.</li>
+  <li>ensure there is at least one test case identified for each critical use 
+    case. Critical use cases are those identified in the above statements and 
+    / or in the workload analysis document that must be evaluated using performance 
+    measures.<br>
+	
+    (see <a href="../artifact/ar_wlmod.htm">Artifact:
+    Workload Analysis Document</a>) 
+	</li>
+</ul>
+<p>As with test cases for functional tests, there will typically be more than 
+  one test case per usage scenario or requirement. It is common to define multiple 
+  test cases - for example, one that is below the performance threshold value 
+  (average transaction rate), another at the threshold value (high transaction 
+  rate), and a third test case above the threshold value (peak transaction rate).</p>
+<p>In addition to the above performance criteria, ensure that you identify the 
+  specify conditions that affect response times, including:</p>
+<ul>
+  <li>Size of the database - how many records exist?</li>
+  <li>Workload - transaction patterns:
+    <ul>
+      <li>type, number and frequency of simultaneous end-user actions,</li>
+      <li>type, number, frequency and duration of simultaneous transactions being 
+        performed</li>
+    </ul>
+  </li>
+  <li>Environment characteristics (hardware, netware, software configuration)</li>
+</ul>
+<p>A common practice is to capture test cases for performance tests in tabular 
+  matrices similar to those used for function test.</p>
+<p>See the section <a href="#DefiningTestDataForTestCases">Defining Test Data 
+  for Test Cases</a> for additional details.</p>
+<p>Below are some examples for the different types of Performance Tests:</p>
+
+<p>For Load Test:</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="1%" align="center">TC ID#</td>
+    <td width="9%" align="center">Workload</td>
+    <td width="24%" align="center">Condition</td>
+    <td width="24%" align="center">Expected Result</td>
+  </tr>
+  <tr>
+    <td width="1%" align="right">PCW1.</td>
+    <td width="9%">
+    <p align="center">1</p>
+    <p align="center">(single ATM)</td>
+    <td width="24%" align="center">
+    <p align="left">Complete Withdraw Transaction</td>
+    <td width="24%">Complete transaction (non-actor dependent
+    timing) occurs &lt; 20 seconds</td>
+  </tr>
+  <tr>
+    <td width="1%" align="right">PCW2.</td>
+    <td width="9%">
+    <p align="center">2</p>
+    <p align="center">(1,000 simultaneous ATMs)</td>
+    <td width="24%" align="center">
+    <p align="left">Complete Withdraw Transaction</td>
+    <td width="24%">Complete transaction (non-actor dependent
+    timing) occurs &lt; 30 seconds</td>
+  </tr>
+  <tr>
+    <td width="1%" align="right">PCW3.</td>
+    <td width="9%">
+    <p align="center">3</p>
+    <p align="center">(10,000 simultaneous ATMs)</td>
+    <td width="24%" align="center">
+    <p align="left">Complete Withdraw Transaction</td>
+    <td width="24%">Complete transaction (non-actor dependent
+    timing) occurs &lt; 50 seconds</td>
+  </tr>
+</table>
+<br></div>
+
+<p>For Stress Test:</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="1%" align="center">TC ID#</td>
+    <td width="14%" align="center">Workload</td>
+    <td width="19%" align="center">Condition</td>
+    <td width="24%" align="center">Expected Result</td>
+  </tr>
+  <tr>
+    <td width="1%" align="right">SCW1.</td>
+    <td width="14%">
+    <p align="center">2</p>
+    <p align="center">(1,000 simultaneous ATMs)</td>
+    <td width="19%" align="center">
+    <p align="left">Database lock - 2 ATMs requesting same account</td>
+    <td width="24%">ATM requests queued</td>
+  </tr>
+  <tr>
+    <td width="1%" align="right">SCW2.</td>
+    <td width="14%">
+    <p align="center">2</p>
+    <p align="center">(1,000 simultaneous ATMs)</td>
+    <td width="19%" align="center">
+    <p align="left">Bank System communication is unavailable</td>
+    <td width="24%">Transaction is queued or times out</td>
+  </tr>
+  <tr>
+    <td width="1%" align="right">SCW3.</td>
+    <td width="14%">
+    <p align="center">2</p>
+    <p align="center">(1,000 simultaneous ATMs)</td>
+    <td width="19%" align="center">
+    <p align="left">Bank System communication is terminates during transaction</td>
+    <td width="24%">Warning message is displayed</td>
+  </tr>
+</table>
+<br></div>
+
+<h4><a name="DerivingTestCasesForSecurityAccessTests">Deriving Test Cases for 
+  Security / Access Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Actors and use cases describe the interaction between external users of the 
+  system and the actions performed by the system to yield a value to a particular 
+  actor. Complex systems contain many actors and it is critical that we develop 
+  test cases to ensure that only those actors specified to execute the use cases 
+  can do so. This is especially true if there are differences in the use case 
+  flow of events based upon actor type.</p>
+<p>For example, in the ATM use cases, different use case flow of events may be 
+  executed for the actor &quot;Bank Customer&quot; if their card and account is 
+  from the bank that owns the ATM versus the &quot;Bank Customer&quot; who uses 
+  a bank card (and account) from a competing bank, or tries to use a non-participating 
+  bank card.</p>
+<p>Follow the same guidelines as listed above for functional test cases.</p>
+<p>See the section <a href="#DefiningTestDataForTestCases">Defining Test Data 
+  for Test Cases</a> for additional guidance.</p>
+
+<p>Example test cases for Security and Access:</p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="6%" align="center">TC ID#</td>
+    <td width="11%" align="center">Condition</td>
+    <td width="12%" align="center">Card
+    <p><font size="-2">(V indicates valid card)</font></td>
+    <td width="12%" align="center">Card Reader
+    <p><font size="-2">(V indicates reader working properly)</font></td>
+    <td width="12%" align="center">Bank's Network</td>
+    <td width="16%" align="center">Expected Result</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">ACW1.</td>
+    <td width="11%">In Bank Network</td>
+    <td width="12%" align="center">V</td>
+    <td width="12%" align="center">V</td>
+    <td width="12%" align="center">V</td>
+    <td width="16%">All Use Cases available</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">ACW2.</td>
+    <td width="11%">Out of bank network</td>
+    <td width="12%" align="center">V</td>
+    <td width="12%" align="center">V</td>
+    <td width="12%" align="center">I</td>
+    <td width="16%">Cash withdrawal use case only</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">ACW3.</td>
+    <td width="11%">Can't read card</td>
+    <td width="12%" align="center">I</td>
+    <td width="12%" align="center">V</td>
+    <td width="12%" align="center">V</td>
+    <td width="16%">Warning Message, Card is ejected</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">ACW4.</td>
+    <td width="11%">Card reported as stolen</td>
+    <td width="12%" align="center">I</td>
+    <td width="12%" align="center">V</td>
+    <td width="12%" align="center">V</td>
+    <td width="16%">Warning Message, card is retained</td>
+  </tr>
+  <tr>
+    <td width="6%" align="right">ACW5.</td>
+    <td width="11%">Card expired</td>
+    <td width="12%" align="center">I</td>
+    <td width="12%" align="center">V</td>
+    <td width="12%" align="center">V</td>
+    <td width="16%">Warning message, card is retained</td>
+  </tr>
+</table>
+<br></div>
+
+<h4><a name="DerivingTestCasesForConfigurationTests">Deriving Test Cases for Configuration 
+  Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In typical distributed systems there can be many allowed combinations of hardware 
+  and software that will be supported. Testing should be performed to verify that 
+  the target-of-test functions or performs acceptably in different configurations, 
+  such as with different operating systems, browsers, or CPU speeds. Furthermore, 
+  testing also needs to cover combinations of components to uncover defects that 
+  come from interactions of the different components, for example, ensuring that 
+  the version of DLLs installed by one application do not conflict the versions 
+  of the same DLLs expected by another application.</p>
+<p>To derive test cases for configuration testing, use the following guidelines:</p>
+<ul>
+  <li>Ensure there is at least one test case identifying each critical
+    configuration. This is done by identifying the required hardware and
+    software configurations for the target-of-test's environment and
+    prioritizing the configurations, ensuring the most common ones are tested
+    first, including:
+    <ul>
+      <li>Printer support</li>
+      <li>Network connections - local and wide area networks</li>
+      <li>Server configurations - server drivers, server hardware</li>
+      <li>Other software installed on the desktop and / or servers</li>
+      <li>Software versions for all installed software</li>
+    </ul>
+  </li>
+  <li>Ensure there is at least one test case for each configuration likely to 
+    have problems. These may include:
+    <ul>
+      <li>Hardware with the lowest performance.</li>
+      <li>Co-resident software that has a history of compatibility problems.</li>
+      <li>Clients accessing the server over slowest possible LAN/WAN connection.</li>
+      <li>Insufficient resources (slow CPU speed, minimum memory or resolution,
+        disk space, etc.)</li>
+    </ul>
+  </li>
+</ul>
+
+
+<h4><a name="DerivingTestCasesForInstallationTests">Deriving Test Cases for Installation 
+  Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Installation testing needs to verify that the target-of-test can be installed 
+  under all possible installation scenarios. Installation scenarios may include 
+  installing the target-of-test for the first time, or installing a newer version 
+  or build of the target-of-test (onto a machine containing the older version). 
+  Install testing should also ensure that the target-of-test performs acceptably 
+  when abnormal conditions are encountered, such as insufficient disk space.</p>
+<p>The test cases should cover installation scenarios for the software including:</p>
+<ul>
+  <li>Distribution media, for example, diskettes, CD-ROM, or file server.</li>
+  <li>New installation.</li>
+  <li>Complete installation.</li>
+  <li>Custom installations.</li>
+  <li>Upgrade installations.</li>
+</ul>
+<p>Installation programs for client-server software have a specialized set of 
+  test cases. Unlike host-based systems, the installation program is typically 
+  divided between the server and the client. Therefore, it is important that installation 
+  testing perform the installation of all components of the target-of-test, including 
+  the client, middle tiers, and servers.</p>
+
+
+<h4><a name="DerivingTestCasesForOtherNon-functionalTests">Deriving Test Cases 
+  for other Non-Functional Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Ideally, you should find all the necessary input to derive test cases in the 
+  Use-Case Model, the Design Model, and the Supplementary Specification artifacts. 
+  It is, however, not uncommon that you at this point need to complement what 
+  is found there.</p>
+<p>Examples would be:</p>
+<ul>
+  <li>Test cases for Operational Tests (to verify that the software works when 
+    in use for a &quot;long time&quot; between failures).</li>
+  <li>Test cases that investigate performance bottlenecks, volume capabilities
+    of the system, or stress the target-of-test to failure.</li>
+</ul>
+<p>In most cases, you can find these test cases by creating variants or aggregates 
+  of the test cases you've derived from those previously identified.</p>
+
+
+<h3><a name="DerivingTestCasesForAcceptanceTests">Deriving Test Cases for 
+  Product Acceptance Tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Product acceptance testing is the final test action prior to deploying the 
+  software. The goal of acceptance testing is to verify that the software is ready 
+  and can be used by the end-users to perform those functions and tasks the software 
+  was built to do. Product acceptance testing often involves more than execution 
+  of the software for readiness, it also involves all product artifacts delivered 
+  to the customer(s), such as training, documentation, and packaging.&nbsp;</p>
+<p>Deriving test cases for the software artifact(s) is done in the manner described 
+  in the sections above. Depending upon the degree and of formality of the product 
+  acceptance test, the test cases will either be the same or similar to those 
+  identified above (formal), or a subset (informal). Independent of the depth 
+  of the test cases, agreement on the test cases and product acceptance criteria 
+  should be reached at before product testing is implemented and executed.</p>
+<p>Evaluating the non-software artifact(s) varies greatly dependent upon the artifact 
+  being evaluated. Refer to each specific non-software artifact’s Guidelines and 
+  Checklists for information regarding what / how to evaluate it.</p>
+
+
+<h3><a name="BuildVerificationTestCasesForRegressionTests">Build Verification Test Cases for
+    Regression Tests</a><a name="XE_test_case__prioritizing_based_on_risk"></a><a name="XE_prioritizing__test_cases"></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Regression testing compares two builds or versions of the same target-of-test
+and identifies differences as potential defects. It thus assumes that a new
+version should behave like an earlier one and ensures that defects have not been
+introduced as a result of the changes.</p>
+<p>Ideally, you would like all the test cases in one iteration to be used as test 
+  cases in the later iterations. The following guidelines should be used to identify, 
+  design, and implement test cases that maximize the value of regression testing 
+  and reuse, while minimizing maintenance: 
+<ul>
+  <li>Ensure the test case identify only the critical data elements (those
+    needed to create / support the condition being tested</li>
+  <li>Ensure each test case describes or represents a unique set of inputs or
+    sequence of events that results in a unique behavior by the target-of-test</li>
+  <li>Eliminate redundant or equivalent test cases</li>
+  <li>Group together test cases which have the same target-of-test initial state
+    and state of the test data</li>
+</ul>
+
+
+<h3><a name="DefiningTestDataForTestCases">Defining Test Data for Test Cases</a><a name="XE_test_case__defining_test_data_for"></a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Once the test cases have been discussed and their is general agreement/ approval 
+  for them, the actual data values can be identified in more detail (e.g. in the 
+  test case implementation matrix), and the test data artifacts created.</p>
+<p>See <a href="md_tstdta.htm">Guidelines: Test Data</a> for additional information 
+  regarding defining and maintaining test data.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

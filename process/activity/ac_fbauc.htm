@@ -1,0 +1,512 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Find Business Actors and Use Cases</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Find Business Actors 
+  and Use Cases</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To define the boundaries of the business to be modeled.</li>
+      <li>To define who and what will interact with the business.</li>
+      <li>To outline the processes in the business.</li>
+      <li>To create diagrams of the business use-case model.</li>
+      <li>To develop a survey of the business use-case model.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#Find Business Actors">Find business actors</a>.</li>
+          <li><a href="#Find Business Use Cases">Find business use cases</a>.</li>
+          <li><a href="#Consider Business Goals">Consider business goals</a>.</li>
+          <li><a href="#Prioritize Business Use Cases">Prioritize business use 
+            cases</a>.</li>
+          <li><a href="#Develop an Outline to the Workflow of Business Use Case">Develop 
+            an outline of the workflow of business use cases</a>.</li>
+          <li><a href="#Describe How Business Actors and Use Cases Interact">Describe 
+            how business actors and use cases interact</a>.</li>
+          <li><a href="#Package Business Use Cases and Actors">Package business 
+            use cases and actors</a>.</li>
+          <li><a href="#Present the Business Use-Case Model in Use-Case Diagrams">Present 
+            the Business Use-Case Model in use-case diagrams</a>.</li>
+          <li><a href="#Develop a Survey of the Business Use-Case Model">Develop 
+            a survey of the Business Use-Case Model</a>.</li>
+          <li><a href="#Evaluate Your Results">Evaluate your results</a>.</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_bvsio.htm">Business Vision</a></li>
+<li><a href="../artifact/ar_gloss.htm">Glossary</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bact.htm">Business Actor</a></li>
+<li><a href="../artifact/ar_buc.htm">Business Use Case</a></li>
+<li><a href="../artifact/ar_bucm.htm">Business Use Case Model</a></li>
+<li><a href="../artifact/ar_sbs.htm">Supplementary Business Specification</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_bpan.htm">Business-Process Analyst</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/rose/tm_fbau2.htm">Finding Business Actors and Use Cases Using Rational Rose</a></li>
+</ul>
+   
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_bact.htm">Guideline: Business Actor</a></li>
+<li><a href="../modguide/md_bgoal.htm">Guideline: Business Goal</a></li>
+<li><a href="../modguide/md_buc.htm">Guideline: Business Use Case</a></li>
+<li><a href="../modguide/md_bcomm.htm">Guideline: Communicate-Association in the Business Use-Case Model</a></li>
+<li><a href="../modguide/md_bucdg.htm">Guideline: Use-Case Diagram in the Business Use-Case Model</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_busm.htm">Business Modeling</a>
+<ul>
+<li><a href="../workflow/busmodel/wfs_dcur.htm">Describe Current Business</a></li>
+<li><a href="../workflow/busmodel/wfs_idbm.htm">Identify Business Processes</a></li>
+</ul>
+</li>
+</ul>
+
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="XE_business_actor__finding"></a><a name="Find Business Actors">Find
+Business Actors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A business actor candidate is any individual, group, organization, company, 
+  or machine that interacts with the business such as: 
+<ul>
+  <li>customers</li>
+  <li>partners</li>
+  <li>suppliers</li>
+  <li>authorities (legal, regulatory, and so forth)</li>
+  <li>subsidiaries</li>
+  <li>owners and investors (Decide whether the board of directors should be part 
+    of the business or modeled as an actor.)</li>
+  <li>information systems outside of the business</li>
+</ul>
+<p>If the business you are going to model is part of a large company, these categories 
+  may also contain business actors such as:
+<ul>
+  <li>other parts of the company</li>
+  <li>individual roles within other departments</li>
+</ul>
+<p>It is very important to consider the scope of business modeling and the boundaries 
+  of what you are defining as the &quot;target organization.&quot; If you have 
+  chosen only a part of the business as the target organization, then the other 
+  parts of the same company also will be business actors.</p>
+<p>Name each business actor in such a way that its name denotes its role in the 
+  business. Define each business actor by writing a brief description that takes 
+  into account its responsibility and why it interacts with the business, including 
+  the types of added value that the business actor wants from the business. See 
+  <a href="../modguide/md_bact.htm">Guidelines: Business Actor</a>.</p>
+<h3><a name="XE_business_use_case__finding"></a><a name="Find Business Use Cases">Find
+Business Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To find the primary business use cases, consider what value each business actor 
+  receives from the business. Ask yourself what services the business actor expects 
+  to receive from the business. It might help to start with the core business 
+  use cases—those that serve the customer or the equivalent of the customer in 
+  cases in which there is no commercial interaction. For more information on categories 
+  of business use cases, see <a href="../modguide/md_bucm.htm">Guidelines: Business 
+  Use-Case Model</a>. 
+<p>It is helpful to study the business actor's lifecycle to determine the answers 
+  to questions such as:</p>
+<ul>
+  <li>What was the business actor's first
+contact with the business?&nbsp;</li>
+  <li>What stages or states does the business actor go through in relation to the business?</li>
+  <li>What does the business actor regard as a meaningful interaction with the
+    business?</li>
+  <li>When is the business actor satisfied?</li>
+  <li>What events does the business actor expect to be notified of?</li>
+</ul>
+<p>From a perspective of supporting the business, processes can also be represented 
+  as business use cases. Ask yourself what is required in order to deliver products 
+  and services to customers. Of course, the scope of business modeling and the 
+  defined business modeling objectives will determine the granularity of supporting 
+  business use cases, if you are going to consider them at all. Look for the following 
+  kinds of processes: 
+<ul>
+  <li>development and maintenance of the staff</li>
+  <li>development and maintenance of the IT within the business</li>
+  <li>development and maintenance of the office and facilities</li>
+  <li>security</li>
+  <li>legal advice</li>
+  <li>partner and contract management</li>
+  <li>accounting</li>
+  <li>logistics</li>
+  <li>purchasing</li>
+  <li>marketing analysis and research</li>
+  <li>product development</li>
+</ul>
+<p>From the perspective of managing the business, processes can be represented 
+  as business use cases, although they are seldom as interesting from an information-system 
+  aspect. To identify management processes, look for activities associated with 
+  managing the business as a whole, as well as ones that normally interact with 
+  the owner actors. Consider what the owner actors receive from the business. 
+  Search for activities that: 
+<ul>
+  <li>Develop and provide information about the business to owners and investors.</li>
+  <li>Set up long-term goals.</li>
+  <li>Coordinate and prioritize between the other business use cases in the business.</li>
+  <li>Create new processes in the business.</li>
+  <li>Plan and execute improvements.</li>
+  <li>Monitor the processes in the business.</li>
+</ul>
+<p>The lifecycle of a process of this kind often spans one fiscal year.</p>
+<p>Another way to identify business use cases is to have domain experts describe 
+  every activity in the existing business. These activities are then grouped into 
+  business use cases, which are named and briefly described. </p>
+<p>You also must consider any defined business goals. Investigating these business 
+  goals sometimes discloses a business use case that otherwise would have remained 
+  undiscovered.</p>
+<p>See <a href="../modguide/md_bucm.htm">Guidelines: Business Use-Case
+Model</a> and <a href="../modguide/md_buc.htm">Guidelines: Business Use Case</a>
+for additional information.</p>
+<h3><a name="XE_business_actor__finding"></a><a name="Consider Business Goals">Consider
+Business Goals<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Review any business goals that have already been described, and consider whether 
+  they will be supported by business use cases. If you discover that a business 
+  use case supports two completely different goals, you might consider splitting 
+  it into two. If a business use case supports very different business goals, 
+  you will find it difficult to measure or improve its performance. Business use 
+  cases that support none of the already-identified business goals may be unnecessary. 
+  Further investigation of these business use cases, on the other hand, may reveal 
+  undiscovered business goals.</p>
+<p>Business goals must also be considered in comparison to the business actors. 
+  Do the identified business goals drive the business toward the business actors 
+  that they intend to embrace? Are any business actors not addressed by the business 
+  goals? New business goals also might be discovered during this analysis. See 
+  <a href="../modguide/md_bgoal.htm">Guidelines: Business Goals</a> for more information.</p>
+<h3><a name="XE_business_use_case__prioritizing"></a><a name="Prioritize Business Use Cases">Prioritize
+Business Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Once you have identified the business actors and business use cases, you must 
+  prioritize those business use cases that are of high interest and therefore 
+  must be described in detail. (See <a href="ac_debuc.htm">Activity: Detail a 
+  Business Use Case</a>.) To determine high-priority business use cases: 
+<ul>
+  <li>Determine the business use cases that will be of interest to the intended 
+    system if you perform business engineering to find the requirements of information 
+    systems. </li>
+  <li>Develop a step-by-step description before deciding whether or not to include 
+    any business use cases that are not clearly relevant from an information-system 
+    perspective.</li>
+  <li>Look for the business use cases that support the most important business 
+    goals.</li>
+</ul>
+<p>Refer to <a href="../modguide/md_bad.htm">Guidelines: Business Architecture
+Document</a> for more criteria for identifying architecturally significant
+business use cases.</p>
+<h3><a name="XE_business_use_case__outlining"></a><a name="Develop an Outline to the Workflow of Business Use Case">Develop
+an Outline of the Workflow of Business Use Case</a>s <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To understand the purpose of a business use case, you often need a step-by-step 
+  outline of the workflow. The person who will later specify the business use 
+  case also will require this step-by-step description.</p>
+<p>For example, the first draft of a step-by-step workflow description of the 
+  business use case &quot;Individual Check-In&quot; might look like this:</p>
+<blockquote>
+  <ul>
+    <li>Passenger enters the queue to check-in counter.</li>
+    <li>Passenger gives ticket to check-in agent.</li>
+    <li>Check-in agent validates ticket.</li>
+    <li>Check-in agent registers baggage.</li>
+    <li>Check-in agent reserves seat for passenger.</li>
+    <li>Boarding card is printed.</li>
+    <li>Check-in agent gives passenger boarding card.</li>
+    <li>Passenger leaves check-in counter.</li>
+  </ul>
+</blockquote>
+<font size="3">
+<p class="example">Note that this is a first draft, so it may lack activities 
+  that will be discovered later. You may also include alternative flows in this 
+  initial set of steps. </p>
+<p class="example">The first draft provides a clear picture of what the business 
+  use case does, when it starts, when it stops, and what value it provides. You 
+  normally will not need more than an hour to define a rough step-by-step outline 
+  for a business use case. (Exceptions are outlines for supporting and management 
+  business use cases&#151they are not usually clear-cut.)</p>
+<p>Concentrate on the most important business use cases&#151that is, those that 
+  represent the highest improvement potential. Can the business use case's scope 
+  be increased so that work originally done by the customer, or by no one, will 
+  now be done by the target organization? Can the scope be diminished so that 
+  the customer will now work on tasks previously done by the target organization? 
+  A business use case is improved if it serves the customer better, which implies 
+  that it becomes simpler, produces better products, offers shorter lead times, 
+  and so on. &quot;Customers should be able to penetrate right to the heart of 
+  the business&quot; [<a href="../referenc.htm#SEY98">SEY98</a>].</p>
+<p>For each business use case, set measurable goals that can be used to verify 
+  whether or not you have succeeded. These business goals can later be refined 
+  and translated into other business goals, as well as into the business strategy. 
+  When the new target organization is established, business goals can be used 
+  to continuously measure how the business use cases are functioning and being 
+  improved.&nbsp;</p>
+</font>
+<p><font size="3">See <a href="../modguide/md_buc.htm">Guidelines: Business
+Use Case</a>.</font></p>
+<h3><a name="Describe How Business Actors and Use Cases Interact">Describe How
+Business Actors and Use Cases Interact</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Establish those business actors that interact with the business use case by 
+  defining a communicates-association between them. If it is important to show 
+  who initiated the communication, you can add navigability to the association. 
+  If it improves the readability of the model, you can also name the association.</p>
+<p>See <a href="../modguide/md_bcomm.htm">Guidelines:
+Communicates-Association in the Business Use-Case Model</a>.</p>
+<h3><a name="Package Business Use Cases and Actors">Package Business Use Cases
+and Actors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If you have many business use cases, you can divide them into packages to make 
+  the documentation easier to understand. For example, business actors can be 
+  packaged according to type such as Market, Regulatory Bodies, and Partners. 
+  Business use cases can be grouped according to purpose, such as Sales and Marketing, 
+  Product Development, and Management. Alternatively, they can be grouped according 
+  to business actor such as Shareholders and Investors or Direct Customers.</p>
+<h3><a name="XE_business_use-case_model__presenting_in_diagrams"></a><a name="Present the Business Use-Case Model in Use-Case Diagrams">Present
+the Business Use-Case Model in Use-Case Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Use-case diagrams illustrate the combination of business actors, business use
+cases, and their relationships. A diagram may contain any of the following:
+<ul>
+  <li>all the business actors within a package</li>
+  <li>a business actor and all other business actors that specialize in the first 
+    one </li>
+  <li>a business actor and all the business use cases with which it interacts</li>
+  <li>business use cases that interact with the same business actors</li>
+  <li>business use cases that are usually performed in a sequence</li>
+  <li>business use cases that belong to the same use-case package</li>
+  <li>the most important business use cases</li>
+</ul>
+<p>Note that the diagram of the most important business use cases can function 
+  as a summary of the complete Business Use-Case Model and thus prove helpful 
+  in reviewing it. See <a href="../modguide/md_bucdg.htm">Guidelines: Use-Case 
+  Diagram in the Business Use-Case Model</a>.</p>
+<h3><a name="XE_business_use-case_model__developing_a_survey_of"></a><a name="Develop a Survey of the Business Use-Case Model">Develop
+a Survey of the Business Use-Case Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Survey Description (<a href="../reports/re_bucm.htm">Report: Business Use-Case 
+  Model Survey</a>) of the Business Use-Case Model needs to convey the following 
+  information: 
+<ul>
+  <li>the purpose of the business being described</li>
+  <li>the typical sequences in which the business use cases are employed</li>
+  <li>the parts of the business that are not included in the Business Use-Case 
+    Model</li>
+</ul>
+<h3><a name="Evaluate Your Results">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>At this state, be sure to check the Business Use-Case Model to verify that 
+  your work is on track. Do not, however, review the model in detail. You must 
+  also consider the checkpoints for the Business Use-Case Model while you are 
+  working on it. The interested parties must determine if: 
+<ul>
+  <li> All necessary business use cases are identified.</li>
+  <li> Any unnecessary business use cases are identified.</li>
+  <li> The behavior of each business use case is described in the right order.</li>
+  <li>Each business use case's workflow is as complete as possible at this stage.</li>
+  <li> The Survey Description of the Business Use-Case Model makes it understandable.</li>
+</ul>
+<p>For more issues to review, see <a href="chklists/ck_bucm.htm">Checkpoints: 
+  Business Use-Case Model</a>, <a href="chklists/ck_buc.htm">Checkpoints: Business 
+  Use Cases</a>, <a href="chklists/ck_bgoal.htm">Checkpoints: Business Goal</a>, 
+  and&nbsp; <a href="chklists/ck_sbs.htm">Checkpoints: Supplementary Business 
+  Specifications</a>.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

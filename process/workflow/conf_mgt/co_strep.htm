@@ -1,0 +1,252 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Configuration Status Reporting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Configuration Status 
+  Reporting</rpw><a name="XE_configuration_status_reporting__introduction_to"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Overview">Overview</a></li>
+  <li><a href="#ChangeRequests">Change Requests</a></li>
+  <li><a href="#BuildReports">Build Reports</a></li>
+  <li><a href="#VersionDescriptions">Version Descriptions</a></li>
+  <li><a href="#Audits">Audits</a></li>
+</ul>
+
+<h3><a name="Overview">Overview</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Tracking the progress of a software project is a difficult task. One of the 
+  main problems you face is finding a means by which an objective measurement 
+  of actual progress and associated status can be assessed. One approach you should 
+  consider is tracking the trends in actual change metrics from your change control 
+  system: this approach to measuring progress is referred to as configuration 
+  status accounting, and the reporting derived from it is often called configuration 
+  status reporting.</p>
+<p><a name="XE_configuration_status_accounting__definition"></a><b>Configuration 
+  Status Accounting</b> (Measurement) – is used to describe the &quot;state&quot; 
+  of the product based on the type, number, rate and severity of defects found, 
+  and fixed, during the course of product development. Metrics derived under this 
+  aspect of Configuration Management are useful in determining the overall status 
+  of completeness of the project.</p>
+<p>Four principal sources for software Configuration Status Reports are: 
+<ul>
+  <li>Change Requests,</li>
+  <li>Software Builds,</li>
+  <li>Version Descriptions, and</li>
+  <li>Audits.</li>
+</ul>
+
+<h3><a name="ChangeRequests">Change Requests</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A Change Request (CR) is a general term for a request to change an artifact 
+  or process. The general process associated with CRs is described in <a href="co_revno.htm">Concepts: 
+  Change Request Management</a>.</p>
+<p>The status &#145;tags&#146; provide the basis for reporting CR (aging, distribution 
+  or trend) statistics as described in the CRM process steps.</p>
+<p>Change Request based defect reports fall under the following categories: 
+<ul>
+  <li>Aging (Time Based Reports)</li>
+  <p>How long have Change Requests of the various kinds been open? What is the 
+    &#145;lag time&#146; of when in the lifecycle defects are found, versus when 
+    are they being fixed?</p>
+  <li>Distribution (Count Based Reports)</li>
+  <p>How many Change Requests are there in the various categories by owner, priority 
+    or state of fix?</p>
+  <li>Trend (Time and Count Related Reports)</li>
+  <p>What is the cumulative number of defects being found and fixed over time? 
+    What is the rate of defect discovery and fix? What is the &#145;quality gap&#146; 
+    in terms of open versus closed defects? What is the average defect resolution 
+    time?</p>
+  <p align="center"><img src="images/co_strep.gif" width="458" height="311"></p>
+</ul>
+
+<h3><a name="BuildReports">Build Reports</a><a name="XE_build__report"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Build Reports list all the files, their location, and incorporated changes 
+  that make up a build for a specific version of the software.</p>
+<p>Build Reports can be maintained both at the system and subsystem level.</p>
+
+<h3><a name="VersionDescriptions">Version Descriptions</a><a name="XE_version__descriptions"></a><a name="XE_configuration_status_reporting__version_descriptions"></a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Similar to Release Notes, Version Descriptions describe the details of a software 
+  release. As a minimum the description needs to include the following:</p>
+  <ul>
+    <li>Inventory of material released (physical media and documents),</li>
+    <li>Inventory of software contents (file listings),</li>
+    <li>All unique-to-site &#145;adaptation&#146; data,</li>
+    <li>Installation instructions, and</li>
+    <li>Possible problems and known errors.</li>
+  </ul>
+
+<h3><a name="Audits">Audits</a><a name="XE_configuration_management__audits_in"></a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There two kinds of audits that are covered in the context of Configuration 
+  Management:</p>
+  <ul>
+    <li>Physical Configuration Audits, and</li>
+    <li>Functional Configuration Audits.</li>
+  </ul>
+
+<p>A Physical Configuration Audit (PCA) identifies the elements of a product to 
+  be deployed from the Project Repository. 
+<p>A Functional Configuration Audit (FCA) confirms that a baseline meets the requirements 
+  targeted for the baseline.</p>
+
+<p>The detailed activity for performing Audits is described in <a href="../../activity/ac_pfmca.htm">Perform 
+  Configuration Audit</a>.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

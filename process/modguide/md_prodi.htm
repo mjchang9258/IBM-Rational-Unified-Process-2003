@@ -1,0 +1,467 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Process Discriminants</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Process Discriminants</rpw><a name="Top"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Overview">Overview</a></li>
+  <li><a href="#Business_Context">The Business Context</a></li>
+  <li><a href="#The Size of the Software Development Effort">The Size of the
+    Software Development Effort</a></li>
+  <li><a href="#Degree_of_Novelty">The Degree of Novelty</a></li>
+  <li><a href="#Type of Application">Type of Application</a></li>
+  <li><a href="#Type of Development">Type of Development</a></li>
+  <li><a href="#The Current Development Process">The Current Development Process</a></li>
+  <li><a href="#Problems and Root Causes">Problems and Root Causes</a></li>
+  <li><a href="#Organizational Factors">Organizational Factors</a></li>
+  <li><a href="#Attitudes">Attitudes</a></li>
+  <li><a href="#Technical_and_Managerial">Technical and Managerial Complexity</a></li>
+</ul>
+<h3><a name="Overview">Overview</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The software-development process is influenced by the following factors:
+<ul>
+  <li>Domain factors such as application domain, business process to support,
+    user community, and offerings available from competitors.</li>
+  <li>Lifecycle factors such as time-to-market, expected life span of the
+    software, and planned future releases.</li>
+  <li>Technical factors such as programming language, development tools,
+    database, components frameworks, and existing software systems.</li>
+  <li>Organizational factors.</li>
+</ul>
+<p>These factors are not equally important. The following sections describe some
+of the main factors&#151;those most likely to affect the overall shape of the
+development case, and how you implement the process and tools in the development
+organization.</p>
+<h3><a name="Business_Context"></a><a name="XE_process_discriminants__business_context">The 
+  Business Context</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are different types of business contexts that affect how to best
+configure the process. Examples of business contexts are:
+<ul>
+  <li>Contract work where the developer produces software to a given customer
+    specification and for this customer only.</li>
+  <li>Speculative or commercial development where the developer produces and
+    covers the cost of putting the software on the market.</li>
+  <li>Internal projects where customer and developer are in the same
+    organization.</li>
+</ul>
+<p>There are many intermediate situations; for example, those where only part of
+the software development is subcontracted, those where the geographical
+dispersion is an additional factor, and so on. The total number of distinct
+stakeholders is a good indicator of the business context.</p>
+<p>The business context affects the level of ceremony, the level of formality,
+and the rigidity of the process. The more stakeholders&#151;buyers, customers,
+subcontractors, regulatory bodies, and so on&#151;involved, the more likely the
+project will need to produce formal evidence, such as documents, reports, and
+prototypes, at major project milestones.</p>
+<h3><a name="The Size of the Software Development Effort">The Size of the
+Software Development Effort</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The size of the software development effort as defined by certain metrics
+such as Source Lines of Code (SLOC), Delivered Source Instructions or Functions
+Points, number of person-months or merely the cost.</p>
+<p>The effort's size will affect the level of ceremony, the level of formality,
+and the rigidity of the process. The larger the project, the larger the
+development team and, regardless of the business context, the more formality and
+visibility the various teams and management need to have in requirements,
+interfaces, and progress indicators. Communication issues on large projects are
+further aggravated by geographically dispersed teams.</p>
+<h3><a name="Degree_of_Novelty"></a><a name="XE_process_discriminants__degree_of_novelty">The 
+  Degree of Novelty</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The degree of novelty is based on what has preceded this software effort <b>relative
+to the development organization</b> and, in particular, whether the
+development is in a second or subsequent cycle. This includes the maturity of
+the organization and its process, its assets, its current skill set, and issues
+such as assembling and training a team, acquiring tools, and other resources.</p>
+<p>A project's degree of novelty affects the process in a completely different
+way. A new project&#151;the first of its kind&#151;significantly affects the dynamic
+configuration: the inception and elaboration phases will be longer, and may span
+several iterations. Also more emphasis will be put on eliciting and capturing
+requirements, on use-case modeling, on architecture, and on mitigating risk. For
+a project that is an <b>evolution cycle</b> from a previous system,
+change management is more crucial and incorporating legacy code poses some
+technical challenges.</p>
+<p>Novelty is not only relative to the system being developed, it's also
+relative to the maturity of the performing organizations because introducing new
+techniques or tools affects the process. In particular, introducing the Rational
+Unified Process (RUP) itself to an organization must be phased in careful steps. An
+organization will present some inertia to the adoption of a new process and the
+development case must take into account a smooth transition from existing
+practices to new ones.</p>
+<h3><a name="Type of Application">Type of Application</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are different types of applications, for example, embedded real-time
+systems, distributed information systems, telecom systems, Computer-Aided
+Software Engineering (CASE) tools, and so
+on. The type of application will affect the process, especially with respect to
+specific constraints the domain may impose on the development such as safety,
+performance, internationalization, memory constraints, and so forth.</p>
+<p>The type of application may affect the process if the application is
+mission-critical; for example, the flight-control system in an airplane. A
+mission-critical system requires a higher level of ceremony in general, both to
+trace requirements and to assure the quality of the product. A mission-critical
+application also requires that more resources are spent on testing.</p>
+<p>The type of development, or the target domain, bring in process issues such
+as:
+<ul>
+  <li>Techniques and tools to support specific activities; for example,
+    automatic code generation for finite-state machines.</li>
+  <li>Certification procedures; for example, for medical instrumentation.</li>
+  <li>Compliance to standards; for example, for accounting or fiscal issues, and
+    for telecommunication equipment.</li>
+</ul>
+<h3><a name="Type of Development">Type of Development</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are various types of development, such as:
+<ul>
+  <li><b>Contract work</b> where you develop a product for a specific customer. 
+    You have more stakeholders to manage and negotiate with hen you perform contract 
+    work. There is often a need for more formal-external artifacts  (see <a href="md_uclaar.htm">Guidelines: 
+    Classifying Artifacts</a>) because the customer, or representatives, want 
+    to monitor progress and be kept informed. Make sure that the artifacts the 
+    customer reviews are easy to understand. Sometimes, there's a need to have 
+    a milestone where the project can offer a fixed-price on the rest of the project. 
+    In that case, you may need to add a new milestone or adjust the existing milestones. 
+    In other cases, you may have to adjust to the lifecycle model the customer 
+    is using with other milestones and phases.</li>
+  <li><b>Speculative development</b> where you develop a product for a
+    mass-market. In speculative development, a marketing (product) manager,
+    within the organization itself, acts as the customer. Time-to-market is
+    often more important than the functionality in speculative development and
+    there is less need for formal reviews.</li>
+  <li><b>Internal development</b> where you develop a product that is
+    delivered to another department within the company. You may have to adjust
+    to another lifecycle model if you deliver to another project that does not
+    use the RUP. It may be acceptable to be more technical
+    when describing artifacts because most artifacts will be reviewed by peers.</li>
+  <li><b>Pre-studies</b> where you do not normally develop a product.
+    The purpose of a pre-study project is to find out whether it's possible to
+    build a product. A pre-study project doesn't have the same milestones as a
+    regular one.</li>
+</ul>
+<h3><a name="The Current Development Process">The Current Development Process</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In most cases, you won't replace the software-development process currently
+in practice in the organization because, in most cases, you'll implement the new
+development process step-by-step, focusing on the more critical and important
+areas first. Some of the current software-development process may even continue
+to exist for some time, perhaps forever.</p>
+<h3><a name="Problems and Root Causes">Problems and Root Causes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An important aspect of understanding a software-development organization is
+to understand the problems in the existing software-development process. This
+influences those areas of the process you will concentrate on in the beginning
+of the process implementation. It's important to note that, if there is no
+established way of working in the organization, it may be pointless to find
+problems. See <a href="../workflow/environm/co_iproj.htm">Concepts: Implementing
+a Process in a Project</a>. Instead, you may need to identify the root causes of
+the problems. To eliminate the problems, you will tackle the root causes by
+improving their process, introducing tools to automate the process, and training
+people.&nbsp;
+<h5>Examples of common problems</h5>
+<p>The following are examples of some common problems:
+<ul>
+  <li>Inability to manage scope&#151;the organization routinely tries to do more
+    than they actually do in the end.</li>
+  <li>Inability to capture requirements&#151;they have difficulty specifying
+    requirements.</li>
+  <li>Inability to manage changing requirements.</li>
+  <li>Inability to manage requirements&#151;requirements do not make it to the
+    final product.</li>
+  <li>Inability to estimate&#151;they are routinely too optimistic about their
+    ability to deliver on schedule.</li>
+  <li>Design deficiency&#151;they are good at meeting requirements, yet poor at
+    designing systems. What kinds of design problems do they have? Are the
+    systems difficult to maintain and enhance? Do they have performance
+    problems, usability problems, capacity problems, and so on?</li>
+  <li>Inability to produce quality products&#151;the product has too many defects
+    which may be due to lack of testing, but usually is also related to an
+    inability to capture and manage requirements, as well as design deficiency.</li>
+  <li>Unacceptable software performance.</li>
+  <li>Low usability.</li>
+  <li>Colliding developers&#151;there is a lack of control over ownership and
+    configuration management, so that developers make conflicting changes and
+    work is lost.</li>
+  <li>Late discovery of problems.&nbsp;</li>
+  <li>Trouble going from use cases to design.</li>
+</ul>
+<h5>Examples of root causes</h5>
+<p>A problem is often a symptom that something is wrong. You need to identify
+the root causes of the problems. The following are examples of some common root
+causes:&nbsp;&nbsp;</p>
+<ul>
+  <li>Insufficient requirements management</li>
+  <li>Ambiguous and imprecise communications</li>
+  <li>Brittle architectures</li>
+  <li>Overwhelming complexity</li>
+  <li>Undetected inconsistencies among requirements, designs, and
+    implementations</li>
+  <li>Insufficient testing</li>
+  <li>Subjective project status assessment</li>
+  <li>Delayed risk reduction due to waterfall development</li>
+  <li>Uncontrolled change propagation</li>
+  <li>Insufficient automation</li>
+  <li>No systematic way to build user interfaces</li>
+  <li>No way to go from use cases to a design</li>
+</ul>
+<h3><a name="Organizational Factors">Organizational Factors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To implement the process in an organization, it depends on organizational factors 
+  such as organizational structure, culture in the project's organization and 
+  management, competencies and skills available, previous experiences, and current 
+  attitudes. </p>
+<p>The organizational factors also affect how the process is configured. For
+example, if the people in the organization have previously been using a
+software-development process description, then it will be easier to start using
+the RUP. On the other hand, if the people have not used a
+software-development process description, then you may decide to limit the scope
+of the process description. You could also put extra effort into making the
+development case easy to understand and use, making sure that it points to
+exactly those parts of the RUP that will provide the
+greatest value.</p>
+<p>If there are some areas that are new to many of the people, then developing
+the best guidelines possible will make the transition easier. For example, if
+the programming language is new to many people, then you'll want to have very
+good Programming Guidelines and Design Guidelines to assist their learning.</p>
+<h3><a name="Attitudes">Attitudes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Negative attitudes among an organization's personnel toward changing to a new
+technology, a new process or new tools is probably the biggest threat toward the
+successful implementation of process and tools. Over-enthusiasm toward process
+can also be a problem, because it can cause people to focus too much on the
+process.</p>
+<p>To assess people's attitudes towards the new technology, process, and tools
+ask questions like:</p>
+<ul>
+  <li>What benefits do you see with the new technology? Will the new technology
+    solve any of today's problems? What problems do you see with the new
+    technology?</li>
+  <li>What benefits do you see with the new process? Will the new process solve
+    any of today's problems? What problems do you see with the new process?</li>
+  <li>What benefits do you see with the new tools? Will the new tools solve any
+    of today's problems? What problems do you see with the new tools?</li>
+</ul>
+<p>To assess people's motivation, find answers to questions like:</p>
+<ul>
+  <li>Does everybody in the organization see why change is needed?</li>
+  <li>Is everybody aware of what their competition is doing and how that affects
+    the business?</li>
+  <li>Is everybody aware of technology changes in the industry and how they
+    affect the business?&nbsp;&nbsp;</li>
+</ul>
+<p>Signs of a negative attitude may include statements like these:
+<ul>
+  <li>&quot;Process doesn't help, it hinders.&quot;</li>
+  <li>&quot;Process means producing a lot of documents.&quot;</li>
+  <li>&quot;The process is overwhelming.&quot;</li>
+</ul>
+<p>Some ways to handle negative attitudes are:
+<ul>
+  <li>Motivate people by pointing at today's problems.</li>
+  <li>Explain that a process doesn't dictate what you should do. The process
+    must primarily be looked upon as a &quot;help system&quot;, where you look
+    for guidance, definitions, and so on.</li>
+  <li>Explain that you only use small sections of the process. Nobody can master
+    the entire process, and that is not the purpose. Compare the process to a
+    bookshelf of books you read as you need their information.</li>
+  <li>Run a successful pilot project where you show that the new process and
+    tools work. Include one or two skeptics in the pilot project.&nbsp;</li>
+</ul>
+<p>Signs of over-enthusiasm include these:
+<ul>
+  <li>People rely completely on the process and think it will solve all of their
+    problems.</li>
+  <li>Process is the <i>silver bullet</i> or magic formula that, if followed,
+    will guarantee success.</li>
+  <li>The project team wants to spend a lot of time and effort tailoring the
+    process without first assessing the process-related problems that need
+    resolution.&nbsp;</li>
+</ul>
+<p>Some ways to handle over-enthusiasm are:
+<ul>
+  <li>Set expectations. The process will help, but it will not solve the
+    problems. People solve problems.</li>
+  <li>Talk people out of spending a lot of time tailoring the process.</li>
+  <li>Focus people on developing the software products.</li>
+</ul>
+<h3><a name="Technical_and_Managerial"></a><a name="XE_process_discriminants__technical_complexity">Technical 
+  and Managerial Complexity</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_process_discriminants__managerial_complexity"></a>Different types
+of systems, and their projects, can be classified in terms of the <b>technical
+complexity </b>of the system and the <b>managerial complexity</b>.
+The following figure illustrates one concept of how different systems can be
+classified. For example, a typical small business spreadsheet application is
+often of low technical complexity and is easy to manage. The other extreme is a
+typical weapon system project, which is often both technically complex, and
+complex to manage.</p>
+<p>Usually increasing system size, project duration or business context also
+increases the managerial complexity. Increasing the novelty, in either the
+problem domain or the solution space, increases the technical complexity. There
+is an interaction between managerial and technical complexity as well&#151;many
+large projects are also technically complex. This results in:
+<ul>
+  <li>Increased managerial complexity that leads to more ceremony, including
+    more formal reviews and milestones, and more artifacts.</li>
+  <li>Increased technical complexity that leads to the introduction of specific
+    techniques, roles and tools, and, therefore, more activities.</li>
+</ul>
+<p align="center"><img src="images/complex.gif" width="467" height="390"></p>
+<p class="picturetext">Systems are classified in terms of technical complexity
+and managerial complexity</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

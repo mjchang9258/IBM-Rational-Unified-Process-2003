@@ -1,0 +1,354 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Design Subsystem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Design Subsystem</rpw><a name="XE_design_subsystem__as_artifact"></a><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/subsys.jpg" width="53" height="40">&nbsp;
+	  </td>
+      <td width="80%">
+        <p>A part of a system that encapsulates behavior, exposes a set of interfaces, 
+          and packages other model elements.</p>
+        <p>From the outside, a subsystem is a single design model element that 
+          collaborates with other model elements to fulfill its responsibilities. 
+          The externally visible interfaces and their behaviour is referred to 
+          as the subsystem specification.</p>
+        <p>On the inside, a subsystem is a collection of model elements (design 
+          classes and other subsystems) that realize the interfaces and behavior 
+          of the subsystem specification. This is referred to as the subsystem 
+          realization.</p>
+     </td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_desmd.htm">Design Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_dsgnr.htm">Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Optional for simple systems composed only of classes and 
+        packages.&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          <li><a href="../reports/re_dspkg.htm">Design Package/Subsystem</a></li>
+&nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Design Subsystems may be modeled as UML subsystems or as 
+        UML components. See <a href="../modguide/md_dsub.htm">Guidelines: Design 
+        Subsystem</a> for guidance on selecting the best representation.&nbsp; 
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../reports/re_dspkg.htm">Report: Design Package/Subsystem</a></li>
+<li><a href="../activity/chklists/ck_dsubs.htm">Checklist: Design Subsystem</a></li>
+<li><a href="../modguide/md_dsub.htm">Guideline: Design Subsystem</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_subds.htm">Subsystem Design</a></li>
+<li><a href="../activity/ac_ucdes.htm">Use-Case Design</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_iddes.htm">Identify Design Elements</a></li>
+<li><a href="../activity/ac_dsmec.htm">Identify Design Mechanisms</a></li>
+<li><a href="../activity/ac_incds.htm">Incorporate Existing Design Elements</a></li>
+<li><a href="../activity/ac_subds.htm">Subsystem Design</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_design_subsystem__purpose_of"></a><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A Design Subsystem encapsulates behavior, providing explicit and formal interfaces, 
+  and does not (by convention) expose its internal contents. This provides the 
+  ability to completely encapsulate the interactions of a number of classes and/or 
+  subsystems. The 'encapsulation' ability of design subsystems is contrasted by 
+  that of the <a href="ar_despk.htm">Artifact: Design Package</a>, which does 
+  not realize interfaces. Packages are used primarily for configuration management 
+  and model organization, where subsystems provide additional behavioral semantics.</p>
+<h3><a name="XE_design_subsystem__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="21%"><p class="tableheading">Property Name&nbsp;</td>
+    <td width="41%"><p class="tableheading">Brief Description&nbsp;</td>
+    <td width="38%"><p class="tableheading">UML Representation&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Name &nbsp;</td>
+    <td width="41%">The name of the subsystem&nbsp;</td>
+    <td width="38%">attribute&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Brief Description &nbsp;</td>
+    <td width="41%">The short description of the role and purpose, or the &quot;theme&quot; of the subsystem.&nbsp;</td>
+    <td width="38%">attribute&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Interfaces&nbsp;</td>
+    <td width="41%">associations to realized interfaces&nbsp;</td>
+    <td width="38%">realization association&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Contents&nbsp;</td>
+    <td width="41%">aggregation associations to contained model elements&nbsp;</td>
+    <td width="38%">Owned via the meta-aggregation &quot;owns&quot;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Dependencies&nbsp;</td>
+    <td width="41%">dependency associations to interfaces, packages, or subsystems on which the subsystem depends&nbsp;</td>
+    <td width="38%">dependency&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Diagrams&nbsp;</td>
+    <td width="41%">Any diagrams local to the subsystem, such as class diagrams or statechart diagrams.&nbsp;</td>
+    <td width="38%">Owned via the meta-aggregation &quot;owns&quot;&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Design Subsystem is created during Elaboration Phase, as major
+functionality is partitioned into 'chunks' which can be developed.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A <a href="../workers/wk_dsgnr.htm">Designer</a> is responsible for the
+integrity of the design subsystem, ensuring that:
+<ul>
+  <li>The subsystem encapsulates its contents, only exposing contained behavior
+    through interfaces it realizes.</li>
+  <li>The operations of the interfaces the Subsystem realizes are distributed to
+    contained classes or subsystems.</li>
+  <li>The subsystem properly implements its interfaces.</li>
+</ul>
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Design Subsystems are an important means of decomposing large systems into 
+  understandable parts. They are particularly useful in component-based development 
+  to specify components (see <a href="../workflow/ana_desi/co_component.htm">Concepts: 
+  Component</a>) expected to be independently developed, re-used, or replaced.</p>
+<p>Some important tailoring decisions related to Design Subsystems include:</p>
+<ul>
+  <li>whether to model as UML components or UML subsystems (see <a href="../modguide/md_dsub.htm">Guidelines: 
+    Design Subsystem</a>)</li>
+  <li>whether and when to separate specification from realization (see <a href="../modguide/md_dsub.htm">Guidelines: 
+    Design Subsystem</a>)</li>
+</ul>
+<p> These tailoring decisions should be captured in <a href="ar_projspecgls.htm">Artifact: 
+  Project Specific Guidelines</a>.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

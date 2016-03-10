@@ -1,0 +1,228 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Implementation Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Implementation 
+  Model</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Use">Use</a></li>
+</ul>
+<h3><a name="XE_implementation_model__explanation_of"></a><a name="Explanation"></a>Explanation
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In the programming environment, an implementation is composed of Implementation 
+  Elements, including source code files, binary files, and data files, organized 
+  in directories. In addition to these low level elements, there is often the 
+  need to create higher level units of management, the Implementation Subsystems, 
+  that group Implementation Elements and other Implementation Subsystems.</p>
+<p>The Implementation Model principally models the Implementation Subsystems, 
+  including dependencies and other management information. It may also model key 
+  elements of an Implementation Subsystem, such as deployable files, or directory 
+  structures.</p>
+<p class="picturecenter" align="center"><img src="images/md_impm2.gif" width="163" height="195"></p>
+<p class="picturetext">The notation in the Implementation Model. The arrows show 
+  possible ownership.</p>
+<p>There is optionally a package that serves as the top-level (root) node in the 
+  Implementation Model. Packages, stereotyped as &laquo;implementation subsystem&raquo; 
+  group the Implementation Elements (files and directories) and other Implementation 
+  Subsystems.</p>
+<h5>Example:</h5>
+<p class="example">In a banking system the implementation subsystems are
+organized as a flat structure in the top-level node of the implementation model.
+Another way of viewing the subsystems in the implementation model is in layers.
+(See <a href="md_impid.htm">Guidelines: Import Dependency</a>).</p>
+<p class="picturecenter" align="center"><img src="images/md_impm3.gif" width="477" height="155"></p>
+<p class="picturetext">The implementation model for a banking system, showing 
+  the ownership hierarchy.</p>
+<p>The Implementation Model not only defines the basic structure of the implementation 
+  in terms of hierarchy of Implementation Subsystems, but may also show import 
+  dependencies between Implementation Subsystems, compilation dependencies between 
+  Implementation Elements, and diagrams that show dependencies between Implementation 
+  Model elements and Design Model elements.</p>
+<p>For more information see:</p>
+<ul>
+  <li><a href="md_impid.htm">Guidelines: Import Dependency in Implementation</a></li>
+  <li><a href="md_impcd.htm">Guidelines: Compilation Dependency in Implementation</a></li>
+  <li><a href="md_impdep.htm">Guidelines: Implement Dependency</a></li>
+</ul>
+<h3><a name="Use"></a>Use <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Implementation Model focusses on the concern of the physical organization 
+  of the software in terms of Implementation Subsystems and Implementation Elements. 
+  You may optionally create a single model that addresses both the physical implementation 
+  and the logical design in a single model. This is common in a round-trip engineering 
+  approach that synchronizes source code files with a combined Implementation/Design 
+  Model.</p>
+<p>The organization of Implementation Subsystems can be more or less close to 
+  the Design Model, depending on how you decide to map between these two models. 
+  This is an process decision that should be captured in the design guidelines 
+  specific to the project. When the mapping is exact, that is, each Implementation 
+  Subsystem is also a Design Subsystem, then you can create diagrams that focus 
+  on a single Design Subsystem, summarizing both its design and its implementation. 
+</p>
+<p>For more information, about how to structure the Implementation Model, and 
+  map between Design and Implementation Models, refer to the <a href="../workflow/implemen/co_mdesc.htm">Concepts: 
+  Mapping Design to Code</a>, <a href="../activity/ac_strim.htm">Activity: Structure 
+  the Implementation Model</a>, and <a href="md_comp.htm">Guidelines: Implementation 
+  Element</a>.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+  
+
+</body>
+
+</html>

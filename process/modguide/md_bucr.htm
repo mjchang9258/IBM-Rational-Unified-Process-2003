@@ -1,0 +1,297 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Business Use-Case Realization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business Use-Case Realization</rpw><a name="Top"></a><a name="XE_business_use-case_realization__presenting_business_use-case_relationships"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Using Activity Diagrams">Using activity diagrams</a></li>
+  <li><a href="#Using Collaboration and Sequence Diagrams">Using collaboration
+    and sequence diagrams</a></li>
+  <li><a href="#Using Class Diagrams">Using class diagrams</a></li>
+  <li><a href="#How to Map Use-Case Relationships">How to map use-case
+    relationships</a></li>
+  <li><a href="#Characteristics of Good Business Use-Case Realizations">Characteristics
+    of good business use-case realizations</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A business use-case model describes a business in terms of business actors
+and business use cases corresponding to customers and business processes. The
+business use-case model includes workflow descriptions that identify <b>what</b>
+is done. <b>How</b> the work is performed in each business use case is
+described in the business analysis model.</p>
+<p>A set of individuals who perform the work of a business use case,
+together with the business objects they access and manipulate as part of the
+job, is called the business use-case realization. Objects of the same class can
+participate in several different business use-case realizations, reflecting that
+the same kind of resource from one time to another works in different processes.</p>
+<h3><a name="Using Activity Diagrams">Using Activity Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The first choice to document the realization of a business use case is to
+draw an activity diagram, where swimlanes (or partitions) represent the
+participating business workers. For each business use-case realization, there
+may be one or more activity diagrams to illustrate the workflow. A common way to
+organize is to have one overview diagram without swimlanes that cover the whole
+workflow, and where you show &quot;macro activity&quot; that are at a high
+level. Then, for each such macro activity there is a more detailed activity
+diagram that shows the swimlanes and the activities at the business worker
+level. For readability reasons, a goal should be that each diagram fit on a
+page.</p>
+<p>See also <a href="md_bactdbom.htm#ActivityDiagrams">Guidelines: Activity Diagram in the
+Business Analysis Model</a>.</p>
+<h3><a name="Using Collaboration and Sequence Diagrams">Using Collaboration and
+Sequence Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each business use-case realization there can be one or more interaction
+diagrams depicting its participating business workers and business entities, and
+their interactions. There are two types of interaction diagrams: Sequence
+diagrams and collaboration diagrams. They express similar information, but show
+it in different ways:
+<ul>
+  <li>Sequence diagrams show and explicit sequence of events and are better than
+    activity diagrams for more complex scenarios.</li>
+  <li>Collaboration diagrams show the communication links and messages between
+    objects and are better for understanding all of the effects on a given
+    object.</li>
+  <li>If alternative flows are few, but there are many business entities
+    involved, interaction diagrams are often a better choice than the activity
+    diagram to show the realization of the workflow.</li>
+</ul>
+<p>See <a href="md_bactdbom.htm#SequenceDiagrams">Guidelines: Sequence Diagram in the Business
+Analysis Model</a> and <a href="md_bactdbom.htm#CollaborationDiagrams">Guidelines: Collaboration Diagram in
+the Business Analysis Model</a> for more information.</p>
+<h3><a name="Using Class Diagrams">Using Class Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each business use-case realization there may be one or more class
+diagrams depicting its participating business workers and business entities. A
+diagram of this kind can be a useful help when coordinating all the requirements
+on a business worker or business entity that participates in several business
+use-case realizations. See Guidelines: <a href="md_bactdbom.htm#ClassDiagrams">Class Diagram in
+the Business Analysis Model</a>.</p>
+<h3><a name="How to Map Use-Case Relationships">How to Map Use-Case
+Relationships</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Relationships between business use cases correspond to relationships in the
+business analysis model. By studying what happens in the business, you can
+understand how to map the business use-case relationships to links between
+objects of the business use-case realizations. For more on use-case
+relationships, see <a href="md_bucm.htm">Guidelines: Business Use-Case Model</a>.</p>
+<p>Suppose a business use case (base) includes another business use case
+(inclusion). At a given moment, the employees will need to cease following the
+instructions of the base and switch to following the instructions of the
+inclusion as described in the documentation of the respective business use-case
+realizations. The following happens:
+<ul>
+  <li>An identifiable state is reached in the execution of a process according
+    to the base use case&#151a business worker has finished a certain task for example.</li>
+  <li>A change in state is noticed by someone who is ready to start working
+    according to the realization of the inclusion. Either the person sees some
+    phenomenon, or is informed by someone in the inclusion.</li>
+</ul>
+<p>A business worker in the realization of the base interacts with the business
+workers in the realization of the inclusion to inform them of what is going on.
+The most natural modeling approach is:
+<ul>
+  <li>A realization of the inclusion has one object for each base it is included
+    by. The objects originating from the base each have a link to the business
+    worker individual that starts the work in the inclusion.</li>
+</ul>
+<p align="CENTER"><img src="images/bucr1.gif" width="455" height="160"></p>
+<p class="picturetext">Each business worker in the realization of the base
+business use cases needs a link to the business worker that starts the work
+according the inclusion business use case.
+<ul>
+  <li>A realization of the base business use case does not have objects
+    representing the inclusion.</li>
+</ul>
+<p>In the case of a business use case being extended by an another business use
+case, you will end up with a similar solution. In the realization of the
+extension, you will have one object representing the base, that has a link to an
+object initiating the work described within the extension.</p>
+<p align="CENTER"><img src="images/bucr2.gif" width="328" height="167"></p>
+<p class="picturetext">Each business worker in the base business use cases needs
+a link to the business worker that starts the extension.</p>
+<p>For use-case-generalization, the solution is again similar. In the
+realization of the parent use case, you will see an object representing the
+child.</p>
+<p align="center"><img src="images/bucr3.gif" width="439" height="177"></p>
+<p class="picturetext">There are business workers representing the child use
+cases in the realization of the parent.</p>
+<p>The use-case relationships have different interpretations. When it comes to
+their representations in the business analysis model, the difference is found in
+why the work defined in the inclusion, the extension or the parent business use
+case is initiated and how the business worker interprets the information. How the
+objects in the business use-case realizations interact follow the same structure
+in all cases.</p>
+<h3><a name="XE_business_use-case_realization__characteristics_of_a_good"></a><a name="Characteristics of Good Business Use-Case Realizations">Characteristics
+of Good Business Use-Case Realizations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>The participating business workers and business entities perform the
+    business use-case’s workflow, including all alternative and optional
+    subflows.</li>
+  <li>Workflow description covers all the activities described.</li>
+  <li>The business workers and business entities have all the relationships
+    needed to perform the business use-case’s workflow.</li>
+  <li>At least one business worker handling the interaction between the business
+    actors and the business.</li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

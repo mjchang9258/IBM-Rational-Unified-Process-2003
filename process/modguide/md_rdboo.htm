@@ -1,0 +1,776 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Reverse-engineering Relational Databases</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Reverse-engineering 
+  Relational Databases</rpw><a name="Top"></a><a name="XE_relational_databases__reverse_engineering"></a><a name="XE_design_model__reverse-engineering_relational_databases"></a><a name="XE_data_model__reverse-engineering_relational_databases"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li>
+  <a href="#Introduction">Introduction</a></li>
+  <li>
+  <a href="#Reverse Engineering RDBMS Database or DDL script to Generate a Data Model">
+  Reverse 
+  Engineering RDBMS Database or DDL Script to Generate a Data Model</a> 
+    </li>
+  <li><a href="#Transforming Data Model to Design Model">Transforming Data Model 
+  Elements
+    to Design Model Elements</a>
+    <ul>
+      <li><a href="#Transform a Table to a Class">Transform a Table to a Class</a></li>
+    </ul>
+    <ul>
+      <li><a href="#Identify Embedded or Implicit Classes">Identify Embedded or
+        Implicit Classes</a></li>
+      <li><a href="#Handle Foreign-Key Relationships">Handle Foreign-Key
+        Relationships</a></li>
+      <li><a href="#Handle Many-to-Many Relationships">Handle Many-to-Many
+        Relationships</a></li>
+      <li><a href="#Introduce Generalization">Introduce Generalization</a></li>
+    </ul>
+  </li>
+  <li><a href="#Replicating RDBMS Behavior in the Design Model">Replicating 
+  RDBMS Behavior in the Design Model</a></li>
+  <li><a href="#Organize Elements in the Design Model">Organize Elements in the 
+  Design Model</a></li>
+</ul>
+<h3>
+<a name="Introduction">Introduction</a><a href="#Top"><font color="#FF0000"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h3>
+<p>This guideline describes the steps involved in reverse engineering a database 
+and mapping the resulting <a href="../artifact/ar_datmd.htm">Data Model</a> tables to
+<a href="../artifact/ar_class.htm">Design Classes</a> in the
+<a href="../artifact/ar_desmd.htm">Design Model</a>.&nbsp;&nbsp; This process 
+may be used by the <a href="../workers/wk_dbdsr.htm">Database Designer</a> to 
+seed the development of modifications to the database as part of an evolution 
+development cycle. The Database Designer will need to manage the reverse 
+engineering process throughout the development lifecycle of the project.&nbsp; 
+In many cases, the reverse engineering process is performed early in the project 
+lifecycle and then changes to the data design are managed incrementally without 
+the need to perform subsequent reverse engineering of the database. </p>
+<p>The major steps in the process for reverse engineering a database and 
+transforming the resulting Data Model elements into Design Model elements are as follows:</p>
+<ul>
+  <li>Create a physical Data Model containing tables to represent the physical 
+  layout of persistent data in the database.&nbsp; This step may be performed automatically using 
+  tools supplied with the Relational Database Management System (RDBMS) or 
+  through most modern visual modeling tools. </li>
+  <li>Transform the tables in the physical Data Model 
+  into Design Classes in the Design Model.&nbsp; This step can be performed 
+  through a combination of automated tool support for the initial transformation 
+  followed by manual adjustments.</li>
+  <li>Define  associations between the classes in the Design Model. </li>
+  <li>Define appropriate operations on the classes in the Design Model based on 
+  the actions performed on the corresponding Data Model elements.</li>
+  <li>Group the classes in the Design Model into subsystems and packages as 
+  needed. </li>
+</ul>
+<h3>
+<a name="Reverse Engineering RDBMS Database or DDL script to Generate a Data Model">
+Reverse Engineering RDBMS Database or DDL script to Generate a Data Model</a><a href="#Top"><font color="#FF0000"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h3>
+<p>The database or Data Definition Language (DDL) script reverse engineering 
+process typically yields a set of model elements (tables, views, stored 
+procedures, etc.) into one or more system defined packages in the Data Model. 
+Depending on the complexity of the database, the database designer may need to 
+partition the reverse engineered model elements into subject area packages that 
+contain logically related sets of tables.</p>
+<h3><a name="Transforming Data Model to Design Model">Transforming Data Model to 
+Design Model</a> <a href="#Top">
+<font color="#FF0000">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h3>
+<p>The following procedure can be followed to produce Design Classes from model 
+elements in the Data Model. Replicating the structure of the database in a class model is relatively
+straight-forward. The process listed below describes the algorithm for transforming  
+Data Model 
+elements to Design Model elements. </p>
+<p>The  table below shows a summary of the general mapping between  Design Model elements and 
+Data Model elements.</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="50%"><p class="Text"><b>Data Model Element</b>&nbsp;</td>
+      <td width="50%"><p class="Text"><b>Corresponding Design Model Element</b>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="50%">Table&nbsp;</td>
+      <td width="50%"><a href="../artifact/ar_class.htm">Class</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="50%">Column&nbsp;</td>
+      <td width="50%">Attribute&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="50%"><p class="Text">Non-Identifying Relationship&nbsp;</td>
+      <td width="50%"><p class="Text"><a href="md_assoc.htm">Association</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="50%"><p class="Text">Intersection Table</p>&nbsp;</td>
+      <td width="50%">
+	    <p class="Text">Association Class</p>
+		<p class="Text">Many-to-Many Association</p>
+	    <p class="Text">Qualified Association&nbsp;</p>
+	  </td>
+    </tr>
+    <tr>
+      <td width="50%"><p class="Text">Identifying Relationship&nbsp;</td>
+      <td width="50%"><p class="Text"><a href="md_aggrg.htm">Composite Aggregation</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="50%"><p class="Text">Cardinality&nbsp;</p>&nbsp;</td>
+      <td width="50%"><p class="Text">Multiplicity&nbsp;</p>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="50%">Check Constraint with an enumerated clause&nbsp;</td>
+      <td width="50%">&lt;&lt;ENUM&gt;&gt; Class&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="50%">Schema&nbsp;</td>
+      <td width="50%"><a href="../artifact/ar_despk.htm">Package</a>&nbsp;</td>
+    </tr>
+  </table>
+  <br>
+</div>
+<p>There are some model elements in the Data Model that have 
+no direct correlation in the Design Model.&nbsp; These elements include the Tablespaces and the Database itself, which model the physical storage 
+characteristics of the database and are represented as components.&nbsp; Another item 
+is database views, which are &quot;virtual&quot;  tables and have no meaning in 
+the Design Model.&nbsp; Finally, indexes on primary keys of tables and database 
+trigger functions, which are used to optimize the operation of the database have 
+meaning only in the context of the database and the Data Model. </p>
+<h4><a name="Transform a Table to a Class">Transform a Table to a Class</a> <a href="#Top">
+<font color="#FF0000">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h4>
+<p>For each table  you wish to transform, create a class to represent
+the table. For each column, create an attribute on the class with the
+appropriate data type. Try to match the data type of the attribute and the data
+type of the associated column as closely as possible.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the database table <b>Customer</b>, with
+the following structure, shown in the following figure:</p>
+<div align="center">
+
+<table border="1" width="40%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="55%"><u><b>Column Name</b></u></td>
+    <td width="45%"><u><b>Data Type</b></u></td>
+  </tr>
+  <tr>
+    <td width="55%">Customer_ID</td>
+    <td width="45%">Number</td>
+  </tr>
+  <tr>
+    <td width="55%">Name</td>
+    <td width="45%">Varchar</td>
+  </tr>
+  <tr>
+    <td width="55%">Street</td>
+    <td width="45%">Varchar</td>
+  </tr>
+  <tr>
+    <td width="55%">City</td>
+    <td width="45%">Varchar</td>
+  </tr>
+  <tr>
+    <td width="55%">State/Province</td>
+    <td width="45%">Char(2)</td>
+  </tr>
+  <tr>
+    <td width="55%">Zip/Postal Code</td>
+    <td width="45%">Varchar</td>
+  </tr>
+  <tr>
+    <td width="55%">Country</td>
+    <td width="45%">Varchar</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p class="picturetext">Table definition for <b>Customer </b>table</p>
+<p class="example">Starting from this point, we create a class, <b>Customer,
+</b>with the structure shown in the following figure:</p>
+      <p class="example" align="center">
+      <img src="images/rdb-oo1.gif" alt="Customer class definition" width="147" height="154"></p>
+<p class="picturetext">Initial <b>Customer</b> class</p>
+<p class="example">In this initial <b>Customer</b> class, there is an
+attribute for each column in the <b>Customer</b> table. Each attribute
+has <b>public</b> visibility, since any of the columns in the
+originating table may be queried.</p>
+<p class="example">Note, the &quot;+&quot; icon
+listed to the left of the attribute indicates that the attribute is 'public'; by
+default, all attributes derived from RDBMS tables should be public, since the
+RDBMS generally allows any column to be queried without restriction.</p>
+<h3><a name="Identify Embedded or Implicit Classes">Identify Embedded or
+Implicit Classes</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The class that results from the direct table-class mapping will often contain
+attributes that can be separated into a separate class, especially in cases
+where the attributes appear in a number of translated classes. These 'repeated
+attributes' may have resulted from denormalization of tables for performance
+reasons, or may have been the result of an oversimplified Data Model. In these
+cases, split the corresponding class into two or more classes to represent a
+normalized view of the tables.</p>
+<p class="exampleheading">Example</p>
+<p class="example">After defining the <b>Customer</b>
+class above, we can define an <b>Address </b>class which
+contains all address information (assuming that there will be other things with
+addresses in our system), leaving us with the following classes:</p>
+      <p class="example" align="center"><img src="images/rdb-oo2.gif" width="433" height="150"></p>
+<p class="picturetext">revised <b>Customer</b> class, with extracted <b>Address
+</b>class</p>
+<p class="example">The association drawn between these two is an <b>aggregation</b>,
+since the customer's address can be thought of as being <b>part-of</b>
+the customer.</p>
+<h3><a name="Handle Foreign-Key Relationships">Handle Foreign-Key Relationships</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each foreign-key relationship in the table, create an association between
+the associated classes, removing the attribute from the class which mapped to
+the foreign-key column. If the foreign-key column was represented initially as
+an attribute, remove it from the class.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Assume the structure for the <b>Order</b> table listed below:</p>
+<div align="center">
+
+<table border="1" width="35%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><u><b>Column Name&nbsp;</b></u></td>
+    <td width="50%"><u><b>Data Type&nbsp;</b></u></td>
+  </tr>
+  <tr>
+    <td width="50%">Number&nbsp;</td>
+    <td width="50%">Number&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%">Customer_ID&nbsp;</td>
+    <td width="50%">Varchar&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p class="picturetext">Structure for the <b>Order</b> table</p>
+<p class="example">In the <b>Order </b>table listed above, the <b>Customer_ID</b>
+column is a <b>foreign-key reference</b>; this column contains the
+primary key value of the Customer associated with the Order. We would represent
+this in the Design Model as shown below:</p>
+      <p class="example" align="center"><img src="images/rdb-oo3.gif" width="156" height="209"></p>
+<p class="picturetext">Representation of foreign-key Relationships in the Design 
+Model</p>
+<p class="example">The foreign-key is represented as an association between the
+classes <b>Order </b>and <b>Item</b>.</p>
+<h3><a name="Handle Many-to-Many Relationships">Handle Many-to-Many
+Relationships</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>RDBMS data models represent many-to-many relationships with what has been
+called a <b>join table</b>, or an <b>association table</b>.
+These tables enable many-to-many relationships to be represented using an
+intermediate table which contains the primary keys of two different tables which
+may be joined together. The reason join tables are needed is because a foreign
+key reference can only contain a reference to a single foreign key value; when a
+single row may relate to many other rows in another table, a join table is
+needed to associate them.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the case of <b>Products</b>, which may be
+provided by any one of a number of <b>Suppliers</b>, and any <b>Supplier</b>
+may provide any number of <b>Products</b>. The <b>Product </b>and
+<b>Supplier </b>tables have the structure defined below:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%"><b>Product
+    Table</b></td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%"><b>Supplier
+    Table</b></td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%"><u><b>Column
+    Name</b></u></td>
+    <td width="20%"><u><b>Data
+    Type</b></u></td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%"><u><b>Column
+    Name</b></u></td>
+    <td width="20%"><u><b>Data
+    Type</b></u></td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Product_ID</td>
+    <td width="20%">Number</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%">Supplier_ID</td>
+    <td width="20%">Number</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Name</td>
+    <td width="20%">Varchar</td>
+    <td width="10%">&nbsp;</td>
+    <td width="20%">Name</td>
+    <td width="20%">Varchar</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Description</td>
+    <td width="20%">Varchar</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%">Street</td>
+    <td width="20%">Varchar</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Price</td>
+    <td width="20%">Number</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%">City</td>
+    <td width="20%">Varchar</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%">State/Province</td>
+    <td width="20%">Char(2)</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%">Zip/Postal
+    Code</td>
+    <td width="20%">Varchar</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="10%">&nbsp;
+    
+    </td>
+    <td width="20%">Country</td>
+    <td width="20%">Varchar</td>
+    <td width="10%">&nbsp;
+    
+    </td>
+  </tr>
+</table>
+<br></div>
+
+<p class="picturetext">Product and Supplier Table Definitions</p>
+<p class="example" align="left">In order to link these two tables together to
+find the products offered by a particular supplier, we need a <b>Product-Supplier
+</b>table, which is defined in the table below.</p>
+<div align="center">
+
+<table border="1" width="45%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="100%" colspan="2" align="center"><b>Product-Supplier Table</b></td>
+  </tr>
+  <tr>
+    <td width="60%"><u><b>Column Name&nbsp;</b></u></td>
+    <td width="40%"><u><b>Data Type&nbsp;</b></u></td>
+  </tr>
+  <tr>
+    <td width="60%">Product_ID&nbsp;</td>
+    <td width="40%">Number&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="60%">Supplier_ID&nbsp;</td>
+    <td width="40%">Number&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<p class="picturetext">Product-Supplier Table Definition</p>
+<p class="example">This <b>join table</b> contains the primary keys of
+products and suppliers, linking them together. A row in the table would
+indicate that a particular supplier offers a particular product. All rows whose Supplier_ID column matches a particular supplier ID would provide a listing of
+all products offered by that supplier.</p>
+<p class="example">In the Design Model, this intermediate table is redundant,
+since an object model can represent many-to-many associations directly. The <b>Supplier</b>
+and <b>Product</b> classes and their relationships are shown in Figure
+8, along with the <b>Address</b> class, which is extracted from the <b>Supplier</b>,
+according to the previous discussion.</p>
+      <p class="example" align="center"><img src="images/rdb-oo4.gif" width="409" height="301"></p>
+<p class="picturetext">Product and Supplier Class Representation</p>
+<h3><a name="Introduce Generalization">Introduce Generalization</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Often, you will find tables which have some similar structure. In the
+<a href="../artifact/ar_datmd.htm">Data Model</a>, there is no concept of 
+generalization, so there is no way to represent that two or more tables have 
+some structure in common. Sometimes common structure results from 
+denormalization for performance, such as was the case above with the 'implicit' <b>
+Address </b>table which we extracted into a separate class. In other cases, 
+tables share more fundamental characteristics which we can extract into a 
+generalized parent class with two or more sub-classes. To find generalization 
+opportunities, look for repeated columns in several tables, where the tables are 
+more similar than they are different.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the following tables, <b>SoftwareProduct</b>
+and <b>HardwareProduct</b>, as shown below:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%"><b>SoftwareProduct Table</b></td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%"><b>HardwareProduct Table</b></td>
+    <td width="20%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="20%"><u><b>Column Name&nbsp;</b></u></td>
+    <td width="20%"><u><b>Data Type&nbsp;</b></u></td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%"><u><b>Column Name&nbsp;</b></u></td>
+    <td width="20%"><u><b>Data Type&nbsp;</b></u></td>
+  </tr>
+  <tr>
+    <td width="20%"><font color="#0000FF">Product_ID&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Number&nbsp;</font></td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="20%"><font color="#0000FF">Product_ID&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Number&nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="20%"><font color="#0000FF">Name&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Varchar&nbsp;</font></td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="20%"><font color="#0000FF">Name&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Varchar&nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="20%"><font color="#0000FF">Description&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Varchar&nbsp;</font></td>
+    <td width="20%">&nbsp;
+    
+    </td>
+    <td width="20%"><font color="#0000FF">Description&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Varchar&nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="20%"><font color="#0000FF">Price&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Number&nbsp;</font></td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%"><font color="#0000FF">Price&nbsp;</font></td>
+    <td width="20%"><font color="#0000FF">Number&nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="20%">Version&nbsp;</td>
+    <td width="20%">Number&nbsp;</td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%">Assembly&nbsp;</td>
+    <td width="20%">Number&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<p class="picturetext">SoftwareProduct and HardwareProduct Tables</p>
+<p class="example">Notice that the columns highlighted in blue are identical;
+these two tables share most of their definition in common, and only differ
+slightly. We can represent this by extracting a common <b>Product</b>
+class, with <b>SoftwareProduct</b> and <b>HardwareProduct</b>
+as sub-classes of the <b>Product</b>, as shown in the following
+figure:</p>
+      <p class="example" align="center"><img src="images/rdb-oo5.gif" width="320" height="231"></p>
+<p class="picturetext">SoftwareProduct and HardwareProduct Classes, showing
+generalization to the Product class</p>
+<p class="example">Putting all of the class definitions together, figure below
+shows a consolidated class diagram for the Order Entry system (major classes
+only).</p>
+      <p class="example"><img src="images/rdb-oo6.gif" width="643" height="588"></p>
+<p class="picturetext">Consolidated Class diagram for the Order Entry System</p>
+<h3><a name="Replicating RDBMS Behavior in the Design Model">Replicating RDBMS 
+Behavior in the Design Model</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Replicating behavior is more difficult, since typically relational databases
+are not object-oriented and do not appear to have anything analogous to
+operations on a class in the object model. The following steps can help
+re-construct the behavior of the classes identified above:
+<ol>
+  <li><b>Create operations to get and set each attribute. </b>There
+    needs to be a way to set, change and query the values of the attributes of
+    objects. Since the only way to access the attributes of an object is through
+    operations the class provides, such operations must be defined on the class.
+    When creating the operations that set the value of an attribute, be sure to
+    incorporate any validation constraints that may operate on the associated
+    column. If there are no validation constraints, one may choose to simply
+    represent the fact that the attributes can be <b>get</b> and <b>set</b>
+    by marking them as having &quot;public&quot; visibility, as this has been
+    done in the diagrams above (with the icon to the left of the attribute
+    name).</li>
+  <li><b>Create an operation on the class for each stored procedure which
+    operates upon the associated table.</b> Stored procedures are
+    executable subroutines which execute within the DBMS itself. This logic
+    needs to be translated into the Design Model. If a stored procedure operates
+    only on one class, create an operation on the class with the same parameters
+    and the same return type as the stored procedure. Document the behavior of
+    the stored procedure in the operation, making sure to note in the <b>method</b>
+    description that the operation is implemented by the stored procedure.</li>
+  <li><b>Create operations to manage associations between classes. </b>When
+    there is an association between two classes, there must be a way to create,
+    manage and remove associations. Associations between objects are managed
+    through object references, so to create an association between an <b>Order</b>
+    and a <b>LineItem </b>(i.e. to add the <b>LineItem</b>
+    to the <b>Order</b>), an operation on <b>Order</b> would
+    be invoked, passing the <b>LineItem </b>as an argument (i.e. <b>Order.add(aLineItem)</b>).
+    There must also be ways to remove and update the association as well (i.e. <b>Order.remove(aLineItem)
+    </b>and <b>Order.change(aLineItem,aNewLineItem)</b>).</li>
+  <li><b>Handle Object Deletion. </b>If the target language supports
+    explicit deletion, add behavior to the class's destructor which implements
+    referential integrity checking. In cases where there are referential
+    integrity constraints in the database, such as <b>cascade delete</b>,
+    the behavior needs to be replicated in the appropriate classes. For example,
+    the database may define a constraint that says that whenever an <b>Order</b>
+    is deleted, all associated <b>LineItems</b> should be deleted as
+    well. If the target language supports garbage collection, create a mechanism
+    by which rows can be removed from tables when the associated object is
+    garbage-collected. Note that this is harder than it sounds (and it sounds
+    hard), because you will need to implement a mechanism for ensuring that no
+    database client has any references to the object which is to be garbage
+    collected; it is not enough to rely upon the garbage collection capabilities
+    of the execution environment/virtual machine since this is simply one
+    client's view of the world.</li>
+  <li><b>Handle Behavior Implied by Queries. </b>Examine Select
+    statements which access the table to see how information is retrieved and
+    manipulated. For each column directly returned by a Select statement, set
+    the <b>public </b>property of the associated attribute to <b>true</b>;
+    all other attributes should be <b>private</b>. For each computed
+    column in a Select statement, create an operation on the associated class to
+    compute and return the value. When considering Select statements, also
+    include the Select statements embedded in View definitions.</li>
+</ol>
+<h3><a name="Organize Elements in the Design Model">Organize Elements in the 
+Design Model</a> <a href="#Top">
+<font color="#FF0000">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h3>
+<p>The Design Classes created from the table-to-class transformations should be 
+organized into appropriate <a href="../artifact/ar_despk.htm">design packages</a> 
+and/or <a href="../artifact/ar_dsub.htm">design subsystems</a> in the Design 
+Model, as needed, based on the overall architectural structure of the application.&nbsp; 
+Refer to <a href="../workflow/ana_desi/co_layer.htm">Concepts: Layering</a> and
+<a href="../workflow/ana_desi/co_swarch.htm">Concepts: Software Architecture</a> 
+for an overview of application architecture.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

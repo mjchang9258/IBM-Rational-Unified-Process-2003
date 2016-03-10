@@ -1,0 +1,394 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Test Automation Architecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Test 
+  Automation Architecture</rpw> <a name="XE_test_automation_architecture__artifact_definition"></a><a name="XE_test_automation__architecture_of"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/doc_artf.jpg" width="37" height="48">&nbsp;
+	  </td>
+      <td width="80%">A composition of various test automation design and implementation 
+        elements and their specifications that embody the fundamental characteristics 
+        of the test automation software system.&nbsp;</td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_tstds.htm">Test Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">This artifact is particularly useful when the automated 
+        execution of software tests must be maintained and extended through multiple 
+        test cycles. This artifact is most useful as single artifact per project. 
+        &nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Some aspects of the Test Automation Architecture can optionally 
+        be described using a UML model, stereotyped as &laquo;test automation 
+        architecture&raquo;.&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../workflow/test/co_tstau.htm">Concept: Test Automation and Tools</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_agrmsn.htm">Agree on the Mission</a></li>
+<li><a href="../activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+<li><a href="../activity/ac_tst_dfntstapr.htm">Define Test Approach</a></li>
+<li><a href="../activity/ac_tst_dfntstenvcnf.htm">Define Test Environment Configurations</a></li>
+<li><a href="../activity/ac_tst_idntstmch.htm">Identify Testability Mechanisms</a></li>
+<li><a href="../activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+<li><a href="../activity/ac_tst_obttstcmt.htm">Obtain Testability Commitment</a></li>
+<li><a href="../activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+<li><a href="../activity/ac_tst_idntstmch.htm">Identify Testability Mechanisms</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a name="XE_test_automation_architecture__purpose_of"></a><a href="#Top"><img src="../../images/top.gif" border="0" alt="To top of page" width="26" height="20"></a> 
+</h3>
+<p>The Test Automation Architecture provides a comprehensive architectural overview of the test-automation 
+  system, using a number of different architectural views to depict different 
+  aspects of the system. It serves as a means of reasoning about, managing and 
+  communicating the fundamental characteristics and features of the test-automation 
+  software system. It provides a governing focus for the test-automation software 
+  that enables the required system to be realized in respect to key aspects such 
+  as: maintainability, extensibility, reliability, concurrency, distribution, 
+  security and recovery.</p>
+
+
+<h3><a name="BriefOutline">Brief Outline</a> <a name="XE_test_automation_architecture__brief_outline_of"></a><a href="#Top"><img src="../../images/top.gif" border="0" alt="To top of page" width="26" height="20"></a> 
+</h3>
+<p>See the <a href="ar_sadoc.htm">Artifact: Software Architecture Document</a> 
+  for an example outline of the areas that should be covered by the Test Automation 
+  Architecture.</p>
+
+
+<h3><a name="Properties">Properties</a><a name="XE_test_automation_architecture__properties_of"></a>
+<a href="#Top"><img src="../../images/top.gif" border="0" alt="To top of page" width="26" height="20"></a> 
+</h3>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <th width="21%" align="left">Property Name&nbsp;</th>
+    <th width="41%" align="left">Brief Description&nbsp;</th>
+    <th width="38%" align="left">UML Representation&nbsp;</th>
+  </tr>
+  <tr>
+    <td width="21%">Introduction &nbsp;</td>
+    <td width="41%">A textual description that serves as a brief introduction to the model. &nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Packages &nbsp;</td>
+    <td width="41%">The Packages used for organizational grouping 
+        purposes, usually representing a hierarchy. &nbsp;</td>
+    <td width="38%">Owned via the association &quot;represents&quot;, 
+	     or recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%">Interfaces &nbsp;</td>
+    <td width="41%">The interfaces in the model, owned by the packages. &nbsp;</td>
+    <td width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+      <td width="21%">Key Events and Signals &nbsp;</td>
+      <td width="41%">The relevant Events and Signals in the model, 
+        owned by the Packages. &nbsp;</td>
+    <td  width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+      <td width="21%">Key Test Suites and Test Scripts. &nbsp;</td>
+      <td width="41%">The relevant Test Suites and Test Scripts in 
+        the model, owned by the Packages. &nbsp;</td>
+    <td  width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+      <td width="21%">Key Relationships &nbsp;</td>
+      <td width="41%">The relevant relationships in the model, owned 
+        by the Packages. &nbsp;</td>
+    <td width="38%">Owned recursively via the aggregation &quot;owns&quot;. &nbsp;</td>
+  </tr>
+  <tr>
+      <td width="21%">Key Diagrams &nbsp;</td>
+      <td width="41%">The key diagrams in the model, owned by the 
+        Packages. &nbsp;</td>
+      <td width="38%">There are various UML diagram representations. &nbsp;</td>
+  </tr>
+  <tr>
+      <td width="21%">Key Use-Case Realizations &nbsp;</td>
+      <td width="41%">The relevant Use-Case Realizations in the model, 
+        owned by the Packages. &nbsp;</td>
+      <td width="38%">Interaction and Class Diagrams supplemented with textual 
+        documents. &nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+<br>
+</div>
+
+
+<h3><a name="Timing">Timing</a>
+ <a href="#Top"><img src="../../images/top.gif" border="0" alt="To top of page" width="26" height="20"></a> 
+</h3>
+<p>The Test Automation Architecture should be outlined as early as practical, 
+  preferably by the end of the Inception phase. By the end of the Elaboration 
+  phase, the Test Automation Architecture should be well-formed, proven, evaluated, 
+  and baselined.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> 
+<a href="#Top"><img src="../../images/top.gif" border="0" alt="To top of page" width="26" height="20"></a> 
+</h3>
+<p>The <a href="../workers/wk_tstds.htm">Test Designer</a> role is primarily responsible for this 
+  artifact. Those responsibilities include:</p>
+<ul>
+  <li>Approving all changes to architecturally significant elements, such as major 
+    Interfaces, common-code libraries, and the like.</li>
+  <li>Ensuring that changes are implemented, validated, and communicated to affected 
+    roles.</li>
+  <li>Resolving issues that arise from conflicts between the test automation tools 
+    and the planned Test Approach.</li>
+</ul>
+
+
+<h3><a name="Tailoring">Tailoring</a>
+<a href="#Top"><img src="../../images/top.gif" border="0" alt="To top of page" width="26" height="20"></a> 
+</h3>
+<p>Where available, you may be able to make use of some part of the existing Test 
+  Automation Architectures with little need to tailor them. However, usually each project requires some variation in approach, techniques, and 
+  tools, which ultimately affects the Test Automation Architecture itself. In 
+  many cases, tailoring or creating an appropriate Test Automation Architecture 
+  will occur during the Elaboration phase, and will be fine-tuned and extended 
+  with each subsequent iteration in both the Construction and Transition phases.</p>
+<p>For the definition of Test Automation Architecture, we recommend using a single 
+  source that maintains an outline description of the main characteristics of 
+  the architecture. <b>Note</b>: you should avoid excessive and unnecessary detail 
+  in the architectural description.</p>
+<p>Optionally the Test Automation Architecture can be enclosed within the <a href="ar_sadoc.htm">Software 
+  Architecture Document</a>, either described in its own section or as a set of 
+  concerns detailed throughout.</p>
+<p>As an alternative to formal documentation, you might choose to simply record 
+  this information as a set of informal architectural notes accompanied by a minimal 
+  set of explanatory diagrams, possibly maintained on a white-board readily visible 
+  to the test team.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

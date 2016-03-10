@@ -1,0 +1,386 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Artifact:&nbsp;Business System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Business System</rpw><a name="Top"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_bsys.jpg" width="74" height="63">&nbsp;
+	  </td>
+      <td width="80%">A <b>Business System </b>encapsulates a set of roles and 
+        resources that together fulfill a specific purpose and defines a set of 
+        responsibilities with which that purpose can be achieved.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_bom.htm">Business Analysis Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_bpan.htm">Business-Process Analyst</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Can be excluded. Business systems are usually used only 
+        in large, complex business models.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Package in the business analysis model, either its top-level 
+        package, or stereotyped as &laquo;business system&raquo;.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_orgun.htm">Guideline: Business System</a></li>
+<li><a href="../activity/chklists/ck_orgu.htm">Checklist: Business System</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dent.htm">Detail a Business Entity</a></li>
+<li><a href="../activity/ac_dewk.htm">Detail a Business Worker</a></li>
+<li><a href="../activity/ac_rvbom.htm">Review the Business Analysis Model</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_barc.htm">Define the Business Architecture</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_class__purpose_of"></a><a name="Purpose">Purpose</a> 
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The purpose of a Business System is to reduce and manage the complex web of 
+  interdependencies and interactions within a business. This is done by defining 
+  a set of capabilities so that those dependent on these capabilities need have 
+  no knowledge of how those capabilities are performed. In this way, Business 
+  Systems are used in much the same manner that hardware and software components 
+  are used. They define a unit of structure that encapsulates the structural elements 
+  that they contain and are characterized by their externally visible properties. 
+<p>Business Systems are used by business-process analysts to determine whether 
+  the capabilities required within the organization are present and to ensure 
+  that the business model is anticipating change or is at least resilient to change. 
+  Business designers use Business Systems to form collections of related business 
+  workers and business entities and explicitly define and manage dependencies 
+  within the organization. Project managers also use Business Systems for scheduling 
+  work in parallel. 
+<h3><a name="XE_class__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%"><p class="tableheading"><b>Property Name</b></td>
+    <td width="40%"><p class="tableheading"><b>Brief Description</b></td>
+    <td width="40%"><p class="tableheading"><b>UML Representation</b></td>
+  </tr>
+  <tr>
+    <td width="20%">Name</td>
+    <td width="40%">The name of the package.</td>
+    <td width="40%">The attribute &quot;Name&quot; on model element.</td>
+  </tr>
+  <tr>
+    <td width="20%">Brief Description</td>
+    <td width="40%">A brief description of the role and purpose of the package.</td>
+    <td width="40%">Tagged value, of type &quot;short text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Interfaces</td>
+      <td width="40%">The specified capabilities or responsibilities of the Business 
+        System.</td>
+      <td width="40%">Realization relationship.</td>
+  </tr>
+  <tr>
+    <td width="20%">Business Workers</td>
+      <td width="40%">The Business Workers directly contained in the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Business Entities</td>
+      <td width="40%">The Business Entities directly contained in the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Business Events</td>
+      <td width="40%">The Business Events directly contained in the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Business Rules</td>
+      <td width="40%">The Business Rules directly contained in the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Relationships</td>
+    <td width="40%">The relationships directly contained in the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Business Use Case Realizations</td>
+      <td width="40%">The Business Use-Case Realizations directly contained in 
+        the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Diagrams</td>
+    <td width="40%">The diagrams directly contained in the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Business Systems</td>
+    <td width="40%">The packages directly contained in the package.</td>
+      <td width="40%">Owned via the aggregation &quot;owns&quot;.</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Timing">Timing</a>
+ <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+Business Systems and their capabilities are identified during the Inception phase.
+Their contained elements and responsibilities are detailed
+during the Elaboration phase.
+
+
+<h3><a name="Responsibility">Responsibility</a> 
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>A business-process analyst is responsible for identifying candidate Business 
+  Systems, but is not responsible for a Business System in itself. A business 
+  designer is responsible for the integrity of a specific Business System, ensuring 
+  that its intent purpose is clear and that contained elements contribute toward 
+  achieving that purpose. 
+<h3><a name="Tailoring">Tailoring</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p> Business Systems should be used to manage dependencies within the organization 
+  by explicitly defining the capabilities (or services) that each Business System 
+  provides. This implies that the Business System encapsulates its contained elements 
+  so that users of its services do not depend on <b>how</b> it provides its services 
+  but rather on <b>what</b> services it provides. </p>
+<p> This rule can be relaxed when encapsulation is not important. In this case, 
+  Business Systems may directly interact with or be dependent on elements contained 
+  within other Business Systems. Explicitly defining the responsibilities that 
+  must be provided by each Business System will serve no purpose in this case. 
+  This variation regards the Business System simply as a packaging (structuring) 
+  mechanism, rather than as a concept in itself.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

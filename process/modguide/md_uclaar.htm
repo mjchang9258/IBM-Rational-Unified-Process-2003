@@ -1,0 +1,355 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Classifying Artifacts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Classifying Artifacts</rpw><a name="Top"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Impact">Impact of classification</a></li>
+  <li><a href="#Examples">Examples of usage</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p class="banner">These classifications are used when you describe how to use
+each artifact (and reports) in the Development Case. You can extend or customize
+the classification scheme to reflect your organization's individual culture. These values are complemented with a separate classifier to
+define the review procedures for the artifact. See <a href="md_review.htm">Guidelines:
+Review Levels</a> for details.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="10%"><p class="tableheading">Classification</p></td>
+    <td width="90%"><p class="tableheading">Explanation</p></td>
+  </tr>
+  <tr>
+    <td width="10%">
+    <p class="tabletext"><a name="XE_artifact__classification_of__must_have"></a>Must have</td>
+    <td width="90%">You must use this artifact. It is a key artifact
+    and may cause problems later in development if it's not produced.</td>
+  </tr>
+  <tr>
+    <td width="10%">
+    <p class="tabletext"><a name="XE_artifact__classification_of__should_have"></a>Should have</td>
+    <td width="90%">You should have this artifact, if at all possible,
+    but it is negotiable. If you do not produce this artifact, you should be able
+    to justify why not.</td>
+  </tr>
+  <tr>
+    <td width="10%">
+    <p class="tabletext"><a name="XE_artifact__classification_of__could_have"></a>Could have</td>
+    <td width="90%">Could have means that this artifact doesn't have to be
+    produced. It's only produced if it adds value and if there's enough
+    time.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10%">
+    <p class="tabletext"><a name="XE_artifact__classification_of__won't_have"></a>Won't have</td>
+    <td width="90%">This means you won't use this artifact. This may occur where
+      a Rational Unified Process artifact is replaced by a local artifact.</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Impact">Impact</a> of Classification <a href="#Top"><img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>All artifacts classified as <i>Must have</i> or <i>Should have</i> must have
+their review procedures, tools, templates and configuration management practices
+defined.&nbsp;&nbsp;
+<p> The specification of these procedures is optional for artifacts
+classified as <i>Could have</i>&#151these decisions could be left to the developers
+or projects that decide to produce these artifacts.
+<p>All artifacts classified as <i>Won't have</i> must have their omission
+justified.
+<p>The major benefit of adopting this classification scheme is that it allows
+the development case to clearly denote how the process has been specialized, and
+where there are options for negotiation and local decision making.</p>
+
+
+<h3><a name="Examples">Examples </a>of Usage <a href="#Top"><img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>One way to think about the artifact classification scheme is that
+it enables the development case to set constraints on how the elements of the
+process are used.</p>
+<p>For example, if you decide that the project could have an Analysis Model,
+then the process engineer would fine tune these values by deciding that the
+project:</p>
+<ul>
+  <li>Must have an Analysis Model, or</li>
+  <li>Won't have an Analysis Model, or even&nbsp;</li>
+  <li>Will leave things as they are; that is, could have an Analysis Model.</li>
+</ul>
+<p>The classification scheme can even be used dynamically&#151allowing the status
+of the artifact to change depending upon which phase the project is in.</p>
+<p>The following table shows different ways of treating the Analysis
+Model.&nbsp; The <b>How to use</b> column defines how the artifact
+is used in each of the phases.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="middle">
+    <tr>
+      <td rowspan="2" width="19%"><p><b>Artifact</b></p></td>
+      <td colspan="4" width="31%"><p><b>How to use</b></p></td>
+      <td rowspan="2" width="37%"><p><b>Comment</b></p></td>
+    </tr>
+    <tr>
+      <td width="8%"><p><b>Incep</b></p></td>
+      <td width="8%"><p><b>Elab</b></p></td>
+      <td width="8%"><p><b>Const</b></p></td>
+      <td width="8%"><p><b>Trans</b></p></td>
+    </tr>
+    <tr>
+      <td width="19%"><p><a href="../artifact/ar_amdl.htm" target="ory_doc">Analysis Model</a></p></td>
+      <td width="8%"><p>Won't</p></td>
+      <td width="8%"><p>Won't</p></td>
+      <td width="8%"><p>Won't</p></td>
+      <td width="8%"><p>Won't</p></td>
+      <td width="37%"><p>No Analysis Model is developed</p></td>
+    </tr>
+    <tr>
+      <td width="19%"><p><a href="../artifact/ar_amdl.htm" target="ory_doc">Analysis Model</a></p></td>
+      <td width="8%"><p>Could</p></td>
+      <td width="8%"><p>Could</p></td>
+      <td width="8%"><p>Could</p></td>
+      <td width="8%"><p>Could</p></td>
+      <td width="37%"><p>Normal</p></td>
+    </tr>
+    <tr>
+      <td width="19%">
+      <p><a href="../artifact/ar_amdl.htm" target="ory_doc">Analysis Model</a></p>
+      </td>
+      <td width="8%">
+      <p>Could</p>
+      </td>
+      <td width="8%">
+      <p>Should</p>
+      </td>
+      <td width="8%">
+      <p>Won't</p>
+      </td>
+      <td width="8%">
+      <p>Won't</p>
+      </td>
+      <td width="37%">
+      <p>An evolutionary approach where the Analysis Model is replaced by the
+      Design Model</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">
+      <p><a href="../artifact/ar_amdl.htm" target="ory_doc">Analysis Model</a></p>
+      </td>
+      <td width="8%">
+      <p>Must</p>
+      </td>
+      <td width="8%">
+      <p>Won't</p>
+      </td>
+      <td width="8%">
+      <p>Won't</p>
+      </td>
+      <td width="8%">
+      <p>Won't</p>
+      </td>
+      <td width="37%">
+      <p>An evolutionary approach where the Analysis Model is mandatory during
+      the Inception phase to help scope the project but is replaced by the Design
+      Model during Elaboration</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">
+      <p><a href="../artifact/ar_amdl.htm" target="ory_doc">Analysis Model</a></p>
+      </td>
+      <td width="8%">
+      <p>Should</p>
+      </td>
+      <td width="8%">
+      <p>Must</p>
+      </td>
+      <td width="8%">
+      <p>Must</p>
+      </td>
+      <td width="8%">
+      <p>Must</p>
+      </td>
+      <td width="37%">
+      <p>A formal process where the Analysis Model is a mandatory, preserved
+      artifact that is optional in the inception phase</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+
+<p>Another good example is to consider ways that the Business Use-Case Model
+is used within the Business Modeling discipline. It describes different
+possible artifact sets required to support different problem frames. The <a href="../workflow/busmodel/co_scobm.htm" target="ory_doc">Concepts:
+Scope of Business Modeling</a>  discusses domain modeling versus business
+modeling versus business process re-engineering, each of which requires the
+production of a
+different set of artifacts.</p>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

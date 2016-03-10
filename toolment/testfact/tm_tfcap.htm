@@ -1,0 +1,291 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Structuring the Test Implementation with Rational TestFactory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Structuring 
+  the Test Implementation with Rational TestFactory</rpw></h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational TestFactory to to begin structuring 
+  the test implementation to to enable generated tests to be implemented.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+<li><a href="../../process/activity/ac_tst_imptst.htm">Implement Test</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>In Rational TestFactory, you start to structure the test implementation using 
+  the &#147;application map&#148; feature.</p>
+<p>A well-developed application map reflects an accurate representation of the 
+  user interface in the application-under-test (AUT). Each window and control 
+  in the AUT is represented by a &#147;UI object&#148; in the application map. 
+  For information about developing the application map, see <a href="tm_tfenv.htm">Tool 
+  Mentor:&nbsp;Setting Up the Test Environment in Rational TestFactory</a>.</p>
+<p>This tool mentor is applicable when running Windows 98/2000/NT 4.0.</p>
+<p>To use Rational TestFactory to capture the results of the test model for automated 
+  testing: </p>
+<ol>
+  <li><a href="#ID test locations">Identify the parts of the application that you 
+  want to test</a></li>
+  <li><a href="#Set up interaction objects">Set up interaction objects to reflect 
+    Test Script requirements</a></li>
+  <li><a href="#Supply test data">Supply Test Data for objects that represent 
+    text controls</a></li>
+  <li><a href="#Restrict object testing">Restrict testing of specific objects</a></li>
+</ol>
+
+<h3>1.&nbsp;&nbsp; <a name="ID test locations">Identify the parts of the application 
+  that you want to test</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>After you have developed the application map, you can determine the areas of 
+  the AUT that are appropriate for testing in Rational TestFactory.</p>
+<p>A &#147;Pilot&#148; is the Rational TestFactory tool that automatically generates 
+  test scripts. The locations at which you place Pilots in the application map 
+  determine the controls in the AUT that they can test. A Pilot can test all the 
+  available UI objects in the map that are in the branch under the Pilot's parent 
+  object. If a control is represented by a UI object in that branch of the map 
+  and the object is available, the Pilot will test it.</p>
+<p>Review the test procedures created during the Design Test activity, with the 
+  objective of identifying:</p>
+<ul>
+  <li>The controls that must be exercised in a specific order.</li>
+  <li>The controls for which Test Data must be provided.</li>
+  <li>The windows or dialog boxes in which the controls are displayed.</li>
+</ul>
+<p>The UI objects in the application map that correspond to the windows, dialog 
+  boxes, and controls that you identify are good candidates for testing by Pilots 
+  in Rational TestFactory. You can specify how TestFactory must test a control 
+  in the AUT by setting the property values of its corresponding UI object.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; 
+  Refer to the following topics in Rational TestFactory Help: 
+<p><i>Pilots: What they are and how they work</i></p>
+<p><i>Effective Pilot placement</i></p>
+<h3>2.&nbsp;&nbsp; <a name="Set up interaction objects">Set up interaction objects 
+  to reflect Test Script requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A Test Script in which all the controls are located in the same window is a 
+  good candidate for testing in Rational TestFactory. An &#147;interaction object&#148; 
+  is the TestFactory feature that lets you specify the Test Script interaction 
+  method for such controls.</p>
+<p>An interaction object is a container to which you can add one or more UI objects 
+  as &#147;components.&#148; The interaction object components represent the controls 
+  that need to be exercised to take a specific path or perform a specific task 
+  in the AUT. After you add the components for the interaction, you can configure 
+  them to meet the Test Script requirements.</p>
+<p>If you have more than one Test Script that tests controls in the same window, 
+  you can specify the requirements for each Test Script in a separate interaction 
+  object. The Pilot feature of TestFactory can test multiple interaction objects 
+  in the same window during a single Test Suite execution or Pilot run.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; 
+  Refer to the <i>Using interaction objects to set up specific tests</i> topic 
+  in Rational TestFactory Help: 
+<h3>3.&nbsp;&nbsp; <a name="Supply test data">Supply Test Data for objects that 
+  represent input controls</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Pilot feature of TestFactory performs many tests on as many of the available 
+  UI objects as possible in the specific area of the map to which it has access. 
+  By default, a Pilot exercises the objects in a random order, and supplies random 
+  data values to objects that require input.</p>
+<p>If there are controls in your Test Script that require specific Test Data as 
+  input, you can use a &#147;data entry style&#148; to supply the necessary input 
+  information. A data entry style is a group of the UI object properties that 
+  specify test input for a UI object: 
+<ul>
+  <li>A required string case that a TestFactory Pilot must use.</li>
+  <li>A list of string cases that act as a datapool that a Pilot can pick from 
+    randomly.</li>
+  <li>A list of mask cases for which Rational TestFactory generates string values 
+    that a Pilot can pick from randomly.</li>
+  <li>Options that let a Pilot generate random integer, floating point, and string 
+    values.</li>
+</ul>
+<p>Rational TestFactory provides a set of predefined <i>system</i> data entry 
+  styles that reflect standard types of input. You can create additional <i>custom</i> 
+  data entry styles that are based either on system styles or on existing custom 
+  styles. You can also override the settings in a system style or a custom style 
+  for an individual object.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; 
+  Refer to the <i>Using data entry styles for input-type objects</i> topic in 
+  Rational TestFactory Help: 
+<h3>4.&nbsp;&nbsp; <a name="Restrict object testing">Restrict testing of specific 
+  objects</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>By default, all the controls in the AUT that are represented by UI objects 
+  in the application map are eligible for testing. If a Pilot encounters a UI 
+  object as it follows a path through the application map, the Pilot can include 
+  the UI object in a generated Test Script. However, your AUT might contain mapped 
+  controls that you do not want Pilots to test. Some examples are: 
+<ul>
+  <li>An unstable control</li>
+  <li>A control whose functionality causes a destructive action<br>
+    (for example, a control that deletes a database)</li>
+  <li>A control that you do not want to test<br>
+    (for example, a print control or a control that opens Help)</li>
+</ul>
+<p>If your AUT contains such controls, you can exclude its associated UI object 
+  from testing. You can also limit the test actions that a Pilot performs on a 
+  control. The properties of the UI object associated with a control reflect the 
+  possible actions that a user can perform on the control.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; 
+  Refer to the following topics in Rational TestFactory Help: 
+<p><i>Excluding UI objects from testing</i></p>
+<p><i>Change UI object test actions</i></p>
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+  
+</body>
+
+</html>
+

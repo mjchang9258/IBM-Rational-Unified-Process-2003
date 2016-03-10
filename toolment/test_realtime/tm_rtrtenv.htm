@@ -1,0 +1,298 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Configuring the Test Environment in Rational Test RealTime</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Configuring the Test Environment in Rational Test RealTime</rpw> </h2>
+
+
+<h3>Purpose</h3>
+
+<p>Every combination of compiler, linker, debugger and execution environment requires a customized Target Deployment Port (TDP). Additional modifications can be made to this TDP on a node-by-node basis within a Test RealTime project</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_dfntstenvcnf.htm">Define Test Environment Configurations</a></li>
+<li><a href="../../process/activity/ac_sudev.htm">Support Development</a></li>
+<li><a href="../../process/activity/ac_setup.htm">Set Up Tools</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>The Rational Test RealTime Target Deployment Port Technology ensures virtually 
+  unlimited build environment and target support. Such flexibility is crucial 
+  because the test and runtime analysis functionality of Test RealTime could not 
+  be considered valid unless they use the same compiler, linker, debugger and 
+  execution architecture used by the application under test.</p>
+<p>Basic TDP adaptations are accomplished via the TDP Editor. This separate utility 
+  enables the specification of information crucial for Test RealTime support of 
+  a particular build and execution environment. Proper TDP adaptation can only 
+  be accomplished by a developer well acquainted with the characteristics and 
+  intricacies of the targeted development environment and execution platform. 
+  Adaptations can be everything from simply listing paths to standard compiler 
+  include files to defining heap management functions to ensure the memory profiling 
+  feature of Test RealTime can track nonstandard memory allocation functions.</p>
+<p>Although this basic adaptation is sufficient for use of both the Component 
+  Testing and Runtime Analysis functionality of Test RealTime, additional modifications 
+  can be performed to accommodate particular execution requirements, such as modifying 
+  the level and type of instrumentation to be used for runtime analysis. By default, 
+  each Test RealTime project is assigned a base Configuration derived from the 
+  TDP selected in the Project Creation Wizard. Child nodes inherit this configuration 
+  from the project. However, a custom configuration can be created for each child 
+  node; in fact, this custom configuration can be based on a completely different 
+  TDP.</p>
+<p>Basic adaptation of a Target Deployment Port, combined with individual Configurations, 
+  ensures a properly configured test environment.</p>
+
+<h4>Tool Steps</h4>
+<p>To configure your test environment to ensure successful usage of Test RealTime:</p>
+<ol>
+  <li><a href="#CustomizeTDP">Use the TDP Editor to customize a Target Deployment 
+    Port</a></li>
+  <li><a href="#MakeNode-SpecificModifications">Use the Test RealTime Configuration 
+    Settings to make node-specific modifications</a></li>
+</ol>
+
+
+<h3><a name="CustomizeTDP">Use the TDP Editor to customize a Target Deployment 
+  Port</a></h3>
+<p>The TDP Editor lets you modify the default settings of Target Deployment Ports 
+  shipped with Test RealTime, as well as to create brand new TDPs for as yet unsupported 
+  development and execution environments.</p>
+<p>TDPs are stored in XML-based files with a .xdp extension; these files are located 
+  in the folder &#133;.\Rational\TestRealTime\targets\xml. The TDP Editor graphically 
+  organizes the .xdp contents in an orderly, well-documented fashion to ensure 
+  easy maneuverability and comprehension. The left-hand side of the TDP Editor 
+  lists the various categories for which customization may be required. The upper 
+  right-hand window contains Help information. The lower right-hand window is 
+  used for actual data entry.</p>
+<p>Once the TDP has been properly configured, pressing the Save button automatically 
+  creates a variety of customized files and folders in the folder &#133;\Rational\TestRealTime\targets. 
+  Changes made to the .xdp file can be saved within the TDP Editor, at which time 
+  the target files will be properly overwritten.</p>
+<p>To configure an existing TDP or create a new one:</p>
+<ol>
+  <li>In Test RealTime, select the menu item Tools-&gt;Target Deployment Port 
+    Editor-&gt;Start</li>
+  <li>Select the menu item File-&gt;Open - the contents of the folder &#133;\Rational\TestRealTime\targets\xml 
+    are displayed</li>
+  <li>If you wish to configure an existing Target Deployment Port, select the 
+    corresponding .xdp file and Open it.<br>
+    If you wish to create a new Target Deployment Port, select the menu item File-&gt;New, 
+    then select the appropriate language.</li>
+  <li>Modify the various Basic Settings, Build Settings, Library Settings and 
+    Parser Settings to accommodate your environment. Left-click those items you 
+    wish to modify in the left-hand window, then enter the appropriate values 
+    in the lower right-hand window. Use the upper right-hand window for guidance.</li>
+  <li> When you have finished configuring your TDP, press the Save button or select 
+    the menu item File-&gt;Save.</li>
+</ol>
+<p><img border="0" height="16" src="../../images/book.gif" width="16"> For detailed 
+  information refer to the <i>Rational Test RealTime Target Deployment Guide</i>.</p>
+
+
+<h3><a name="MakeNode-SpecificModifications">Use the Test RealTime Configuration 
+  Settings to make node-specific modifications</a></h3>
+<p>When creating a project in Test RealTime, you must select a Target Deployment 
+  Port. This TDP becomes the basis for a project's Configuration Settings. The 
+  project Configuration file lets the user define node-specific settings that:</p>
+<ul>
+  <li>override basic settings entered via the TDP Editor, OR</li>
+  <li>modify runtime analysis parameters that can only be set within Test RealTime 
+    itself</li>
+</ul>
+<p>Using Configuration Settings, one could assign a different TDP to each Test 
+  node within a group node, or different levels of instrumentation to multiple 
+  Application nodes. Such flexibility gives you the freedom to test and analyze 
+  multiple languages at the same time or acquire different levels of information 
+  during a single run.</p>
+<p>To access and modify a Test RealTime project's Configuration Settings:</p>
+<ol>
+  <li>After opening a project in Test RealTime, select the menu item Project-&gt;Settings.</li>
+  <li>Move and resize the resulting window, entitled &quot;&lt;Project Name&gt; 
+    Configuration Setting&quot; so that you can freely view the Project Browser 
+    window on the right-hand side of the screen.</li>
+  <li>Left-click any node in the Project Browser to access the Configuration Settings 
+    for that particular node.</li>
+  <li>Use the Configuration Settings window to define and/or override existing 
+    settings. Anytime a setting is overridden, the setting name and its category 
+    name are listed in bold-faced letters.</li>
+  <li>Press the Apply button to save your modifications.</li>
+</ol>
+<p>Additional areas of interest in Configuration Setting modification:</p>
+<ul>
+  <li>General-&gt;Host Configuration-&gt;Target Deployment Port<br>
+    Used to select which TDP will be used with each Group, Application or Test 
+    Node.<br>
+  </li>
+  <li>General->Target Deployment Port->Name<br>
+    Used to create a custom name for the Configuration file, whose default name 
+    was the active TDP selected during project creation.</li>
+  <li>Runtime Analysis<br>
+    Various settings used to specify the exact type and level of runtime analysis 
+    to be used for each node.<br>
+  </li>
+</ul>
+<p><img border="0" height="16" src="../../images/book.gif" width="16"> For detailed 
+  information refer to the <i>Rational Test RealTime User Guide</i>, under the 
+  topic Graphical User Interface-&gt; Configurations and Settings.</p>
+<br>
+<br>
+
+
+  
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>  
+</body>
+
+</html>
+

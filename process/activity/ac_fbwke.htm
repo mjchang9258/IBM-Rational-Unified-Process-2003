@@ -1,0 +1,417 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Find Business Workers and Entities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Find Business Workers 
+  and Entities</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+          <li>To identify all roles, deliverables, and events in the business.</li>
+          <li>To describe how the business use-case realizations are performed 
+            by business workers and business entities.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#Identify Business Workers">Identify business workers</a>. 
+          </li>
+          <li><a href="#Identify Business Entities">Identify business entities</a>. 
+          </li>
+          <li><a href="#Identify Business Events">Identify business events</a>. 
+          </li>
+          <li><a href="#Define Business Use Case Realizations">Define business 
+            use-case realizations</a>. </li>
+          <li><a href="#Structure the Business Analysis Model">Structure the Business 
+            Analysis Model</a>. </li>
+          <li><a href="#Evaluate Your Results">Evaluate your results</a>. </li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_badoc.htm">Business Architecture Document</a></li>
+<li><a href="../artifact/ar_bgloss.htm">Business Glossary</a></li>
+<li><a href="../artifact/ar_bucm.htm">Business Use Case Model</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sbs.htm">Supplementary Business Specification</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bom.htm">Business Analysis Model</a></li>
+<li><a href="../artifact/ar_bent.htm">Business Entity</a></li>
+<li><a href="../artifact/ar_bevnt.htm">Business Event</a></li>
+<li><a href="../artifact/ar_bucr.htm">Business Use-Case Realization</a></li>
+<li><a href="../artifact/ar_bwk.htm">Business Worker</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_bdes.htm">Business Designer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/rose/tm_fbwke.htm">Finding Business Workers and Entities Using Rational Rose</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_baggr.htm">Guideline: Aggregation in the Business Analysis Model</a></li>
+<li><a href="../modguide/md_basso.htm">Guideline: Association in the Business Analysis Model</a></li>
+<li><a href="../modguide/md_bom.htm">Guideline: Business Analysis Model</a></li>
+<li><a href="../workguid/wg_bomws.htm">Guideline: Business Analysis Modeling Workshop</a></li>
+<li><a href="../modguide/md_bucr.htm">Guideline: Business Use-Case Realization</a></li>
+<li><a href="../modguide/md_bactdbom.htm">Guideline: Diagrams in the Business Analysis Model</a></li>
+<li><a href="../modguide/md_bgen.htm">Guideline: Generalization in the Business Analysis Model</a></li>
+<li><a href="../workguid/wg_rlpl.htm">Guideline: Role Playing</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_busm.htm">Business Modeling</a>
+<ul>
+<li><a href="../workflow/busmodel/wfs_dcur.htm">Describe Current Business</a></li>
+<li><a href="../workflow/busmodel/wfs_fbom.htm">Design Business Process Realizations</a></li>
+<li><a href="../workflow/busmodel/wfs_dm.htm">Develop a Domain Model</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="XE_business_worker__identifying"></a><a name="Identify Business Workers">Identify
+Business Workers</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each role (human or system) in the organization, identify a business worker 
+  and give it a brief description. Employment positions are a good place to start, 
+  but be aware that a person in a specific position is usually required to fulfill 
+  more than one role and that various roles are often filled by people in different 
+  positions. You can also look at the software systems currently being used. However, 
+  you must be aware that—like people—many software systems perform multiple roles 
+  within the organization. This integration of sometimes completely different 
+  roles is one of the factors that makes software maintenance so difficult and 
+  locks a business in to a system.</p>
+<p>After you have identified your business workers, walk through each business 
+  use case and state which business workers are involved in which steps. This 
+  ensures that no business workers have been missed and that the ones that you 
+  have listed are all &quot;inside&quot; the part of the business you are modeling. 
+</p>
+<p>For more information on business workers, see <a href="../modguide/md_bwk.htm">Guidelines:
+Business Worker</a>.</p>
+<h3><a name="XE_business_entity__identifying"></a><a name="Identify Business Entities">Identify
+Business Entities</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To find candidate business entities, consider what information each business 
+  worker handles. The information that must be queried, validated, created, or 
+  communicated is a good starting point. Only significant, persistent information 
+  should be considered as a business entity.</p>
+<p>To show how business entities need to &quot;know about&quot; one another, use 
+  associations (see <a href="../modguide/md_basso.htm">Guidelines: Associations 
+  in the Business Analysis Model</a>). Give the associations role names for clarification.</p>
+<p>If business entities have clear whole-part relationships, show that fact with 
+  aggregation-relationships (see <a href="../modguide/md_baggr.htm">Guidelines: 
+  Aggregations in the Business Analysis Model</a>).</p>
+<p>If business entities are specializations or generalizations of one another, 
+  use generalization-relationships to show this (see <a href="../modguide/md_bgen.htm">Guidelines: 
+  Generalizations in the Business Analysis Model</a>). It is often wise to wait 
+  to establish generalizations until after you have worked on describing the business 
+  entities (see <a href="ac_dent.htm">Activity: Detail a Business Entity</a>).</p>
+<p>Document the relationships in class diagrams (see <a href="../modguide/md_bactdbom.htm#ClassDiagrams">Guidelines:
+Class Diagram in the Business Analysis Model</a>).</p>
+<p>Walk through the workflow of each business use case to ensure that no business 
+  entities have been forgotten. Also, make sure that the ones you have identified 
+  are actually participating in a workflow.</p>
+<p>For more information on business entities, see <a href="../modguide/md_bent.htm">Guidelines:
+Business Entity</a>.</p>
+<h3><a name="XE_business_entity__identifying"></a><a name="Identify Business Events">Identify
+Business Events<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Inspect the interactions between business actors, business workers, and business 
+  entities. Business actors may initiate a business use case by sending a business 
+  event. Business workers may send business events to business actors or to each 
+  other. If a message between two business workers has one of the following characteristics, 
+  it might be a business event:</p>
+<ul>
+	
+  <li>The sender of the message does not need to wait for the receiver to process 
+    the message.</li>
+	
+  <li>There is a significant lapse of time between when the message is sent and 
+    when it is received.</li>
+	
+  <li>There is a significant physical distance between sender and receiver.</li>
+	
+  <li>The receiver is in another business system. In this case, the business event 
+    must be sent to the business system and not directly to the business worker 
+    within it.&nbsp;</li>
+</ul>
+<p>Business events may also be used to send signals between business systems and business use cases.</p>
+<p>For more information on business events, see <a href="../modguide/md_bevnt.htm">Guidelines:
+Business Event</a>.</p>
+<h3><a name="XE_business_use-case_realization__defining"></a><a name="Define Business Use Case Realizations">Define 
+  Business Use-Case Realizations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each business use case, create a Business Use-Case Realization in the Business 
+  Analysis Model. The name of the Business Use-case Realization must be the same 
+  as the associated business use case. Furthermore, a realization-relationship 
+  should be established from the business use case realization to its associated 
+  business use case.</p>
+<p>Identify which business workers and business entities participate in the execution 
+  of each business use case. They form the business use-case realization of the 
+  business use case.</p>
+<p>Present the business workers and business entities of the business use-case 
+  realization in a sequence diagram (see <a href="../modguide/md_bactdbom.htm#SequenceDiagrams">Guidelines: 
+  Sequence Diagram in the Business Analysis Model</a>). Show only those interactions 
+  that are necessary an understanding of how the business workers and entities 
+  perform this business use-case realization workflow. There should be at least 
+  one interaction (sequence diagram) for every flow described in the business 
+  use case.</p>
+<p>Instead of using a sequence diagram, you can present the participating business 
+  workers and business entities in a collaboration diagram (see <a href="../modguide/md_bactdbom.htm#CollaborationDiagrams">Guidelines: 
+  Collaboration Diagram in the Business Analysis Model</a>). Sequence diagrams 
+  are superior for large and complex interactions, while collaboration diagrams 
+  provide a better overview of relationships between participants.</p>
+<p>To clarify the meaning of the collaboration diagrams, you can describe the 
+  workflow of each business use-case realization in terms of its elements—the 
+  interacting business workers handling business entities. This is optional, and 
+  it only adds value for more complex workflows or parts of workflows. To perform 
+  this activity:
+<ul>
+  <li>Describe the normal workflow of the business use-case realization.</li>
+  <li>Describe any alternative and optional workflows.</li>
+  <li>Define performance goals in terms of cost and lead times for business
+    workers and business entities.</li>
+</ul>
+<p>For more information on business use-case realizations, see <a href="../modguide/md_bucr.htm">Guidelines: 
+  Business Use Case Realization</a>.</p>
+<h3><a name="XE_business_object_model__structuring"></a><a name="Structure the Business Analysis Model">Structure
+the Business Analysis Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Analyze the lifecycle of each business entity. Each one should be created and 
+  removed by someone during the life of a business. Make sure that each business 
+  entity is accessed and used by a business worker or another business entity. 
+  Do this by creating a matrix or generating a report showing which business workers 
+  create and use the business entities.</p>
+<p>Reduce the number of workers. As you develop your models, it is likely that 
+  you will find one or more too many workers per use-case realization. Make sure 
+  that each business worker corresponds to a set of tasks that one person typically 
+  would do, even though those tasks are divided among more than one business use 
+  case. You can do this by deriving and examining the responsibilities required 
+  of the business worker from all business use-case realizations in which the 
+  business worker participates.</p>
+<p>Each business entity should have an owner—that is, someone who is responsible 
+  for it. You can model this with an association from the business worker to the 
+  business entities for which the business worker is responsible. Some business 
+  entities might be owned by people outside the business. If that is the case, 
+  make sure that it is mentioned in the brief description of the business entity.</p>
+<p>For very large or complex business models, you can use <a href="../artifact/ar_orgu.htm">Business 
+  Systems</a> for structuring and partitioning. In this case, you can assign business 
+  workers, business entities, and business events to a business system. Make sure 
+  that the relationships and responsibilities defined by the business systems 
+  support the interactions between the business workers, entities, and events. 
+  If necessary, the business systems must be slightly adjusted (in consultation 
+  with the business process analyst), or the interactions must be refined.</p>
+<p>For guidelines on structuring the Business Analysis Model and naming business
+workers and business entities, see <a href="../modguide/md_bom.htm">Guidelines:
+Business Analysis Model</a>.</p>
+<h3><a name="Evaluate Your Results">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Evaluate the business use-case realization workflow, along with the text and 
+  diagrams documenting it. One way to do this is to conduct a walkthrough. In 
+  this method of evaluation, the person responsible for the business use-case 
+  realization leads some of the members of the team through the business use-case 
+  realization workflow. Another technique is to do <a href="../workguid/wg_rlpl.htm">role-playing</a>, 
+  in which team members act as business actors, business workers, and business 
+  entities.</p>
+<p>See also checkpoints for Business Analysis Model and Business Use-Case Realizations 
+  in <a href="ac_rvbom.htm">Activity: Review Business Analysis Model</a>.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

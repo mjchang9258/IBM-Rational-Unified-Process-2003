@@ -1,0 +1,401 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Best Practice: Continuously Verify Quality</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  <h2 class="banner"><a name="Top"></a>Best Practice: Continuously Verify 
+        Quality</h2>
+<p align="center"><img src="images/quality.gif" width="410" height="199"></p>
+<p class="picturetext">Software problems are 100 to 1000 times more costly to
+find and repair after deployment. Verifying and managing quality throughout the
+project's lifecycle is essential to achieving the right objectives at the right
+time.</p>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#What do we mean by Quality Verification throughout the Lifecycle">What
+    Do We Mean by Quality Verification Throughout the Lifecycle?</a></li>
+  <li><a href="#What is Quality">What is Quality?</a>
+    <ul>
+      <li><a href="#Introduction">Introduction</a></li>
+      <li><a href="#Definition of Quality">Definition of Quality</a></li>
+      <li><a href="#Who Owns Quality?">Who Owns Quality?</a></li>
+      <li><a href="#Common Misconceptions about Quality">Common Misconceptions
+        about Quality</a></li>
+      <li><a href="#Management of Quality in the Rational Unified Process">Management
+        of Quality in the RUP</a></li>
+    </ul>
+  </li>
+</ul>
+<h2><a name="What do we mean by Quality Verification throughout the Lifecycle">What 
+  Do We Mean by Quality Verification Throughout the Lifecycle</a>? <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>It's important that the quality of all artifacts are assessed at several
+points in the project's lifecycle as they mature. Artifacts should be evaluated as the
+activities that produce them complete and at the conclusion of each iteration.
+In particular, as executable software is produced, it should be subjected to
+demonstration and test of important scenarios in each iteration, which provides a
+more tangible understanding of design trade-offs and earlier elimination of
+architectural defects. This is in contrast to a more traditional approach that leaves the testing of integrated software until late in the
+project's lifecycle.</p>
+<h2><a name="What is Quality">What is Quality</a>? <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Quality is something we all strive for in our products, processes, and
+services. Yet when asked, &quot;What is Quality?&quot;, everyone has a different
+opinion. Common responses include one or the other of these:</p>
+<ul>
+  <li>&quot;Quality ... I'm not sure how to describe it, but I'll
+    know it when I see it.&quot;</li>
+  <li>&quot;... meeting requirements.&quot;</li>
+</ul>
+
+<p>Perhaps the most frequent reference to quality, specifically related to
+software, is this
+remark regarding its absence:</p>
+<blockquote>
+
+<p>&quot;How could they release something like this with such
+    low quality!?&quot;</p>
+</blockquote>
+
+<p>These commonplace responses are telling, but they offer little room to
+rigorously examine quality and improve upon its execution. These comments all
+illustrate the need to define quality in a manner in which it can be measured
+and achieved.</p>
+<p>Quality, however, is not a singular characteristic or attribute. It's
+multi-dimensional and can be possessed by a product or a process.
+Product quality is concentrated on building the right product, whereas process
+quality is focused on building the product correctly. See <a href="../../process/workflow/test/co_rqlty.htm">Concepts:
+Product Quality</a> and <a href="../../process/workflow/environm/co_sqlty.htm">Concepts:
+Process Quality</a> for additional information.</p>
+<h3><a name="Definition of Quality">Definition of Quality</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The definition of quality, taken from The American Heritage Dictionary of
+the English Language, 3rd Edition, Houghton Mifflin Co.,&#169 1992, 1996, is:</p>
+<blockquote>
+<p><b>Quality</b>  (kwol'i-te) n., pl. <b>-ties</b>.
+    Abbr. <b>qlty</b>. <b>1.a.</b> An inherent or
+    distinguishing characteristic; a property. <b>b.</b> A personal
+    trait, especially a character trait. <b>2.</b> Essential
+    character; nature. <b>3.a.</b> Superiority of kind. <b>b.</b>
+    Degree or grade of excellence.</p>
+</blockquote>
+
+<p>As demonstrated by this definition, quality is not a single dimension, but
+many. To use the definition and apply it to software
+development, the definition must be refined. Therefore, for the purposes of the Rational Unified
+Process (RUP), quality is defined
+as:</p>
+<blockquote>
+
+<p>&quot;...the characteristic of having demonstrated the achievement of
+producing a product that meets or exceeds agreed-on requirements&#151as measured by
+agreed-on measures and criteria&#151and that is produced by an agreed-on
+process.&quot;</p>
+</blockquote>
+
+<p>Achieving quality is not simply &quot;meeting requirements&quot;,
+or producing a product that meets user needs and expectations. Rather,
+quality also includes identifying the measures and criteria to demonstrate the
+achievement of quality, and the implementation of a process to ensure that the
+product created by the process has achieved the desired degree of quality, and
+can be repeated and managed.</p>
+<p>See also the following pages for additional information on how the RUP defines the idea of quality:
+<ul>
+  <li><a href="../../process/workflow/test/co_rqlty.htm">Concept: Product Quality</a></li>
+  <li><a href="../../process/workflow/environm/co_sqlty.htm">Concept: Process Quality</a></li>
+  <li><a href="../../process/workflow/manageme/co_meqlty.htm">Concept: Measuring Quality</a></li>
+  <li><a href="../../process/workflow/manageme/co_ckqlty.htm">Concept:
+    Evaluating Quality</a></li>
+</ul>
+<h3><a name="Who Owns Quality?">Who Owns Quality?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A common misconception is that quality is owned by, or is the responsibility
+of, one group. This myth is often perpetuated by creating a group, sometimes
+called Quality Assurance&#151other names include Test, Quality Control, and Quality
+Engineering&#151and giving them the charter and the responsibility for quality.</p>
+<p>Quality is, and should be, the responsibility of everyone. Achieving quality
+must be integral to almost all process activities, instead of a separate
+discipline, thereby making everyone responsible for the quality of the products
+(or artifacts) they produce and for the implementation of the process in which they
+are involved.</p>
+<p>Each role contributes to the achievement of quality in the following ways:
+<ul>
+  <li>Product quality&#151the contribution to the overall achievement of quality
+    in each artifact being produced.</li>
+  <li>Process quality&#151the achievement of quality in the process activities for
+    which they are involved.</li>
+</ul>
+<p>Everyone shares in the responsibility and glory for achieving a
+high-quality product, or in the shame of a low-quality product. But only those directly
+involved in a specific process component are responsible for the glory, or
+shame,
+for the quality of those process components (and the artifacts). Someone,
+however, must take the responsibility for managing quality; that is, providing
+the supervision to ensure that quality is being managed, measured, and achieved.
+The role responsible for managing quality is the <a href="../../process/workers/wk_projm.htm">Project
+Manager</a>.</p>
+<h3><a name="Common Misconceptions about Quality">Common Misconceptions about 
+  Quality</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are many misconceptions regarding quality and the most common include:
+<ul>
+  <li><a href="#Quality can be added to, or tested into a product:">Quality can
+    be added to or &quot;tested&quot; into a product</a></li>
+  <li><a href="#Quality is a single dimension, attribute, or characteristic and means the same thing to everyone">Quality
+    is a single dimension, attribute, or characteristic and means the
+    same thing to everyone</a></li>
+  <li><a href="#Quality happens on its own:">Quality happens on its own</a></li>
+</ul>
+<h4><a name="Quality can be added to, or tested into a product:">Quality can be
+added to or &quot;tested&quot; into a product</a></h4>
+<p>Just as a product cannot be produced if there is no description of what it
+is, what it needs to do, who uses it and how it's used, and so on, quality and its
+achievement
+cannot be attained if it's not described, measured, and part of the process of
+creating the product.</p>
+<p>See <a href="../../process/workflow/manageme/co_meqlty.htm">Concepts:
+Measuring Quality</a> and the section of this document titled <a href="#Quality happens on its own:">Quality
+happens on its own</a>.</p>
+<h4><a name="Quality is a single dimension, attribute, or characteristic and means the same thing to everyone">Quality
+is a single dimension, attribute, or characteristic and means the same
+thing to everyone</a></h4>
+<p>Quality is not a single dimension, attribute, or characteristic. Quality is
+measured in many ways&#151quality metrics and criteria are established to meet the
+needs of project, organization, and customer.</p>
+<p>Quality can be measured along several dimensions&#151some apply to process
+quality; some to product quality; some to both. Quality can be measured for:
+<ul>
+  <li>Progress&#151such as use cases demonstrated or milestones completed</li>
+  <li>Variance&#151differences between planned and actual schedules, budgets,
+    staffing requirements, and so forth</li>
+  <li>Reliability&#151resistance to failure (crashing, hanging, memory leaks,
+    and so on) during execution</li>
+  <li>Function&#151the artifact implements and executes the required use cases as
+    intended</li>
+  <li>Performance&#151the artifact executes and responds in a timely and
+    acceptable manner, and continues to perform acceptably when subjected to
+    real-world operational characteristics such as load, stress, and lengthy
+    periods of operation</li>
+</ul>
+<p>See <a href="../../process/workflow/test/co_qtydm.htm">Concepts: Quality
+Dimensions</a>, <a href="../../process/workflow/test/co_rqlty.htm">Concepts:
+Product Quality</a>, and <a href="../../process/workflow/environm/co_sqlty.htm">Concepts:
+Process Quality</a> for additional information.</p>
+<h4><a name="Quality happens on its own:">Quality happens on its own</a></h4>
+<p>Quality cannot happen by itself. For quality to be achieved, a process is
+must be implemented, adhered to, and measured. The purpose of the RUP is to provide a disciplined approach to assigning tasks and
+responsibilities within a development organization. Our goal is to ensure the
+production of high-quality software that meets the needs of our end users,
+within a predictable schedule and budget. The RUP captures
+many of the best practices in modern software development in a form that can be
+tailored for a wide range of projects and organizations. The <a href="../../process/workflow/ovu_env.htm">Environment</a>
+discipline gives you guidance about how to best configure the process to your needs.</p>
+<p>Processes can be configured and quality&#151criteria for acceptability&#151can be
+negotiated, based upon several factors. The most common factors are:
+<ul>
+  <li>Risk (including liability)</li>
+  <li>Market opportunities</li>
+  <li>Revenue requirements</li>
+  <li>Staffing or scheduling issues</li>
+  <li>Budgets</li>
+</ul>
+<p>Changes in the process and criteria for acceptability should be identified
+and agreed upon at the outset of the project.</p>
+<h3><a name="Management of Quality in the Rational Unified Process">Management 
+  of Quality in the RUP</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Managing quality is done for these purposes:
+<ul>
+  <li>To identify appropriate indicators (metrics) of acceptable quality</li>
+  <li>To identify appropriate measures to be used in evaluating and assessing
+    quality</li>
+  <li>To identify and appropriately address issues affecting quality as early
+    and effectively as possible</li>
+</ul>
+<p>Managing quality is implemented throughout all disciplines, workflows, phases, and
+iterations in the RUP. In general, managing quality
+throughout the lifecycle means you implement, measure, and assess both process
+quality and product quality. Some of the efforts expended to manage quality
+in each discipline are highlighted in the following list:
+<ul>
+  <li>Managing quality in the <a href="../../process/workflow/ovu_req.htm"><b>Requirements</b></a>
+    discipline includes analyzing the requirements artifact set for
+    consistency (between artifact standards and other artifacts), clarity
+    (clearly communicates information to all shareholders, stakeholders, and
+    other roles), and precision (the appropriate level of detail and accuracy).</li>
+  <li>In the <a href="../../process/workflow/ovu_and.htm"><b>Analysis &amp;
+    Design</b></a><i>  </i>discipline, managing quality includes assessing
+    the design artifact set, including the consistency of the design model, its
+    translation from the requirements artifacts, and its translation into the
+    implementation artifacts.</li>
+  <li>In the <a href="../../process/workflow/ovu_impl.htm"><b>Implementation</b></a>
+    discipline, managing quality includes assessing the implementation artifacts
+    and evaluating the source code or executable artifacts against the
+    appropriate requirements, design, and test artifacts.</li>
+  <li>The <a href="../../process/workflow/ovu_test.htm"><b>Test</b></a><i>
+    </i>discipline is highly focused toward managing quality, as most of
+    the efforts expended in this discipline address the three purposes of managing
+    quality, identified previously.</li>
+  <li>The <a href="../../process/workflow/ovu_env.htm"><b>Environment</b></a><i>
+    </i>discipline, like the Test discipline, includes many efforts addressing the purposes of
+    managing quality. Here you can find guidance on how to best configure your
+    process to meet your needs.</li>
+  <li>Managing quality in 
+    the <a href="../../process/workflow/ovu_dep.htm"><b>Deployment</b></a><i> 
+    </i>discipline includes assessing the implementation 
+    and deployment artifacts, and evaluating the executable and deployment artifacts 
+    against the appropriate requirements, design, and test artifacts needed to 
+    deliver the product to your customer.</li>
+  <li>The <a href="../../process/workflow/ovu_mgm.htm"><b>Project
+    Management</b></a><i>  </i>discipline includes an overview of many
+    efforts for managing quality, including the reviews and audits required to assess the
+    implementation, adherence, and progress of the development process.</li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,356 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Test Ideas for Statechart and Flow Diagrams</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Test 
+  Ideas for Statechart and Flow Diagrams</rpw><a name="XE_state_machine__test_ideas_for"></a><a name="XE_test_idea__for_state_machine"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Implementation">Testing the Implementation</a></li>
+  <li><a href="#Design">Testing the Design</a></li>
+  <li><a href="#Interactions">Testing Interactions</a></li>
+</ul>
+
+<h3><a name="Introduction">Introduction</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>This guideline shows how to identify <a href="../workflow/test/co_tstidslst.htm#TestIdeas">test 
+  ideas</a> from statecharts and other design structures that consist mainly of 
+  nodes connected by arcs and that show something of the possible control flows 
+  of a program. The main goal of this testing is to traverse every arc in some 
+  test. If you've never exercised an arc, why do you think it will work when a 
+  customer does?</p>
+
+
+<h3><a name="Implementation">Testing the Implementation</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Consider this statechart:</p>
+
+<p align="center"><img src="../workflow/test/images/tstfrsdsg-img3.gif" width="567" height="253"></p>
+<p class="picturetext">Fig1: HVAC Statechart</p>
+
+<p>Here's a first list of test ideas:</p>
+<ul>
+  <li>Idle state receives Too Hot event</li>
+  <li>Idle state receives Too Cool event</li>
+  <li>Cooling/Startup state receives Compressor Running event</li>
+  <li>Cooling/Ready state receives Fan Running event</li>
+  <li>Cooling/Running state receives OK event</li>
+  <li>Cooling/Running state receives Failure event</li>
+  <li>Failure state receives Failure Cleared event</li>
+  <li>Heating state receives OK event</li>
+  <li>Heating state receives Failure event</li>
+</ul>
+
+<p>These test ideas could all be exercised in a single test, or you could create 
+  several tests that each exercise a few. As with all test design, strive for 
+  a balance between the ease of implementation of many simple tests and the additional 
+  defect-finding power of complex tests. (See <a href="../workflow/test/co_tstidslst.htm#TestDesignUsingTheList">"test 
+  design using the list"</a> in the <a href="../workflow/test/co_tstidslst.htm">Concept: 
+  Test Ideas List</a> page.) If you have use case scenarios that describe certain 
+  paths through the statechart, you should favor tests that take those paths.</p>
+
+<p>In any case, the tests should check that all actions required by the statechart 
+  actually take place. For example, is the alarm started on entry to the Failure 
+  state, then stopped upon exit?</p>
+
+<p>The test should also check that the transition leads to the correct next state. 
+  That can be a difficult problem when the states are invisible from the outside. 
+  The only way to detect an incorrect state is to inject some sequence of events 
+  that leads to incorrect output. More precisely, you would need to construct 
+  a follow-on sequence of events whose externally-visible results for the <i>correct</i> 
+  state differ from those that the same sequence would provoke from each possible 
+  <i>incorrect</i> state.</p>
+
+<p>In the example above, how would you know that the Failure Cleared event in 
+  the Failure state correctly led to the Idle state, instead of staying in the 
+  Failure state? You might trust that the stopping of the Alarm meant that transition 
+  had been made, but it might be better to check by lowering the temperature enough 
+  to make the heater start or raising it enough to turn on cooling. If something 
+  happens, you're more confident that the transition was correct. If nothing happens, 
+  it's likely the device stayed in the Failure state.</p>
+
+<p>At the very least, determining whether the resulting state is correct complicates 
+  test design. It is often better to make the state machine explicit and make 
+  its states visible to the tests.</p>
+
+<h4>Other statechart constructs<a href="#Top"> <img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Statecharts consist of more than arcs and arrows. Here is a list of statechart 
+  constructs and the effect they have on the test idea list.</p>
+
+<h5>Event actions, entry actions, and exit actions<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>These do not generate test ideas per se. Rather, the tests should check that 
+  the actions behave as specified. If the actions represent substantial programs, 
+  those programs must be tested. The test ideas for the programs might be combined 
+  with test ideas from the statechart, but it's probably more manageable to separate 
+  them. Make the decision based on the effort involved and on your suspicion that 
+  there might be interactions between events. That is, if a particular action 
+  on one arc cannot possibly share data with an action on another arc, there is 
+  no reason to exercise the two actions in the same test (as you would if they 
+  were part of the same path through a statechart test).</p>
+
+<h5>Guard conditions<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>Guard conditions are boolean expressions. The test ideas for guard conditions 
+  are derived as described in <a href="../modguide/md_tstidsblnbnd.htm">Guideline: 
+  Test Ideas for Booleans and Boundaries</a>. </p>
+
+<p>In the example above, the Too Cool transition from the Idle state is guarded 
+  with [restart time &gt;= 5 mins]. That leads to two separate test ideas:</p>
+<ul>
+    <li>Idle state receives Too Cool event when restart time is
+        five minutes (transition taken)</li>
+    <li>Idle state receives Too Cool event when restart time is
+        just less than five minutes (transition blocked)</li>
+</ul>
+<p>In both cases, any test that uses the test idea should check that the correct 
+  state is reached.</p>
+
+<h5>Internal transitions<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>An internal transition adds the same sort of ideas to a test idea list as an 
+  external transition does. It's merely that the next state is the same as the 
+  original state. It would be prudent to set up the test such that the state's 
+  entry and exit actions would cause an observable effect if they were incorrectly 
+  triggered.</p>
+
+<h5>Nested states<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>When constructing tests, set them up such that entry and exit events of the 
+  composite state have observable effects. You want to notice if they're skipped.</p>
+
+<h5>Concurrent substates<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>Testing of concurrency falls outside of the scope of developer testing.</p>
+
+<h5>Deferred events<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>If you suspect an event might be handled differently depending on whether it 
+  was deferred and queued rather than generated while the program was actually 
+  in the receiving state, you might test those two cases.</p>
+<p>If the event in the receiving state has a guard condition, consider the ramifications 
+  of changes to the condition's variables between the time the event is generated 
+  and the time it is received. </p>
+<p>If more than one state can handle a deferred event, consider testing deferral 
+  to each of the possible receiving states. Perhaps the implementation assumes 
+  that the &quot;obvious&quot; state will handle the event.</p>
+
+<h5>History states<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>Here is an example of a history state:</p>
+
+<p align="center"><img src="images/md_state3.gif" width="412" height="211"></p>
+<p class="picturetext">Fig2: History State Example</p>
+
+<p>The transition into the history state represents three real transitions, and 
+  thus three test ideas:</p>
+<ul>
+    <li>BackupUp event in Command state leads to Collecting state</li>
+    <li>BackupUp event in Command state leads to Copying state</li>
+    <li>BackupUp event in Command state leads to CleaningUp state</li>
+</ul>
+
+<h5>Chain states<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="18" height="14"></a></h5>
+<p>Chain states do not seem to have any implications for test design, except that 
+  they introduce more actions that need to be checked.</p>
+
+<h3><a name="Design">Testing the Design</a> 
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The preceding discussion focuses on checking whether the implementation matches 
+  the design. But the design might also be wrong. While examining the design to 
+  find test ideas, also check for two types of problems:</p>
+
+<p><b>Missing events.</b> The statechart shows a state's response to events <i>that 
+  the designer anticipated could arrive in that state</i>. It's not unknown for 
+  designers to overlook events. For example, in this statechart (repeated from 
+  the top of the page), perhaps the designer forgot that a failure can occur in 
+  the Ready substate of Cooling, not just when the fan is Running.</p>
+
+<p align="center"><img src="../workflow/test/images/tstfrsdsg-img3.gif" width="567" height="253"></p>
+<p class="picturetext">Fig3: HVAC Statechart</p>
+
+<p>For this reason, it's wise to ask, for each state, whether any of the events 
+  that apply to other states might apply to this one. If you discover that one 
+  does, correct your design.</p>
+
+<p><b>Incomplete or missing guard conditions.</b> Similarly, perhaps guard conditions 
+  on one transition will suggest guard conditions on others. For example, the 
+  above statechart takes care not to restart the heater too often, but there is 
+  no such restriction on the cooling system. Should there be? </p>
+<p>It is also possible that variables used on one guard condition will suggest 
+  that other guard conditions are too simple.</p>
+
+<h3><a name="Interactions">Testing Interactions</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Testing each arc in a graph is by no means complete testing. For example, suppose 
+  the start state initializes a variable to 0, state Setter sets it to 5, and 
+  state Divider divides it into 100 (100/variable). If there's a path from the 
+  start state to Divider that does not pass through Setter, you have a divide-by-zero 
+  exception. If the statechart has many states, simply exercising each arc might 
+  miss that path.</p>
+<p>Except for very simple statecharts, testing every path is infeasible. In practice, 
+  tests that are complex and correspond to use case scenarios are often sufficient. 
+  If you desire stronger tests, consider requiring a path from each state where 
+  a datum is given a value to each state that uses it.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

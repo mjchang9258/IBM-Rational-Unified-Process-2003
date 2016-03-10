@@ -1,0 +1,373 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Conceptual Data Modeling </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Conceptual Data Modeling </rpw><a name="Concepts: Conceptual Data Modeling"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Conceptual Data Model Elements">Conceptual Data  Modeling Elements</a><ul>
+  <li><a href="#Business Models">Business Models</a></li>
+  <li><a href="#Requirements and Analysis Models">Requirements and Analysis Models</a></li>
+</ul>
+
+  </li>
+</ul>
+
+<h3><a name="Introduction"></a>Introduction
+<a href="#Top">
+<img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p> As defined in &nbsp;[<font color="#FF0000"><a href="../../referenc.htm#NBG01">NBG01</a></font>], 
+  conceptual data modeling represents the initial stage in the development of 
+  the design of the persistent data and persistent data storage for the system.&nbsp;In 
+  many cases, the persistent data for the system are managed by a relational database 
+  management system (RDBMS). The business and system entities identified at a 
+  conceptual level from the business models and system requirements will be evolved 
+  through the use-case analysis, use-case design, and database design activities 
+  into detailed physical table designs that will be implemented in the RDBMS.&nbsp; 
+  Note that the Conceptual Data Model discussed in this concept document is not 
+  a separate artifact. Instead it consists of a composite view of information 
+  contained in existing Business Modeling, Requirements, and Analysis and Design 
+  Disciplines artifacts that is relevant to the development 
+  of the <a href="../../artifact/ar_datmd.htm">Data Model</a>.&nbsp; </p>
+
+<p> The <a href="../../artifact/ar_datmd.htm">Data Model</a> typically evolves 
+  through the following three general stages:</p>
+
+<ul>
+  <li><b>Conceptual</b>—This stage involves the identification of the high level 
+    key business and system entities and their relationships that define the scope 
+    of the problem to be addressed by the system. These key business and system 
+    entities are defined using the modeling elements of the UML profile for business 
+    modeling included in the Business Analysis Model and the <a href="../../artifact/ar_aclss.htm">Analysis 
+    Class</a> model elements of the Analysis Model. </li>
+  <li><b>Logical</b>—This stage involves the refinement of the conceptual high 
+    level business and system entities into more detailed logical entities. These 
+    logical entities and their relationships can be optionally defined in a Logical 
+    Data Model using the modeling elements of the UML profile for database design 
+    as described in <a href="../../modguide/md_datmd.htm">Guidelines: Data Model</a>. 
+    This optional Logical Data Model is part of the <a href="../../artifact/ar_datmd.htm">Artifact: 
+    Data Model</a> and not a separate RUP artifact. </li>
+  <li><b>Physical</b>—This stage involves the transformation of the logical class 
+    designs into detailed and optimized physical database table designs.&nbsp;The 
+    physical stage also includes the mapping of the database table designs to 
+    tablespaces and to the database component in the database storage design. 
+  </li>
+</ul>
+
+<p> The activities related to database design span the entire software development 
+  lifecycle, and the initial database design activities might start during the 
+  <a href="../../itrwkfls/iwf_iii.htm">inception phase</a>.&nbsp; For projects 
+  that use business modeling to describe the business context of the application, 
+  database design may start at a conceptual level with the identification of Business 
+  Actors and Business Use Cases in the Business Use-Case Model, and the Business 
+  Workers and Business Entities in the Business Analysis Model.&nbsp; For projects 
+  that do not use business modeling, the database design might start at the conceptual 
+  level with the identification of System Actors and System Use Cases in the Use-Case 
+  Model, and the identification of <a href="../../artifact/ar_aclss.htm">Analysis 
+  Classes</a> in the <a href="../../artifact/ar_amdl.htm">Analysis Model</a> from 
+  the Use-Case Realizations. </p>
+
+<p> The figure below shows the set of Conceptual Data Model elements that reside 
+  in the Business Models, Requirements Models, and the Analysis Model. </p>
+
+<p align="center">
+<img border="0" src="images/co_concdatmd1.gif" width="704" height="433"></p>
+
+<p> The following sections describe the elements of the Business Models, Use-Case 
+  Model, and Analysis Model that can be used to define the initial Conceptual 
+  Data Model for persistent data in the system. </p>
+
+
+<h3><a name="Conceptual Data Model Elements"></a>Conceptual Data  Modeling Elements<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<h4>
+<a name="Business Models"></a>Business Models
+<a href="#Top">
+<img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+
+<p>
+<b><u>Business Use-Case Model</u></b></p>
+
+<p> The Business Use-Case Model consists of Business Actors and Business Use Cases.&nbsp;The 
+  Business Use Cases represent key business processes that are used to define 
+  the context for the system to be developed.&nbsp;Business Actors represent key 
+  external entities that interact with the business through the Business Use Cases.&nbsp;The 
+  figure below shows a very simple example Business Use-Case Model for an online 
+  auction application. </p>
+
+<p>&nbsp;
+</p>
+
+<p align="center">
+<img border="0" src="images/co_concdatmd2.gif" width="529" height="109"></p>
+
+<p> As entities of significance to the problem of space for the system, Business 
+  Actors are candidate entities for the Conceptual Data Model.&nbsp; In the example 
+  above, the Buyer and Seller Business Actors are candidate entities for which 
+  the online auction application must store information. </p>
+
+<p>
+<b><u>Business Analysis Model</u></b></p>
+
+<p> The Business Analysis Model contains classes that model the Business Workers 
+  and Business Entities identified from analysis of the workflow in the Business 
+  Use Case. Business Workers represent the participating workers that perform 
+  the actions needed to carry out that workflow.&nbsp; Business Entities are &quot;things&quot; 
+  that the Business Workers use or produce during that workflow.&nbsp;In many 
+  cases, the Business Entities represent types of information that the system 
+  must store persistently.&nbsp; </p>
+
+<p> The figure below shows an example sequence diagram that depicts Business Workers 
+  and Business Entities from one scenario of the Business Use Case titled &quot;Provide 
+  Online Auction&quot; for managing an auction.</p>
+
+<p align="center">
+<img border="0" src="images/co_concdatmd3.gif" width="624" height="465"></p>
+
+<p> In this simplified example, the Auction Manager object represents a Business 
+  Worker role that will likely be performed by the online auction management system 
+  itself.&nbsp; The Auction and Auction Item objects are Business Entities that 
+  are used or produced by the Auction Manager worker acting as an agent for the 
+  Seller and Buyer Business Actors.&nbsp; From a database design perspective, 
+  the Auction and Auction Item Business Entities are candidate entities for the 
+  Conceptual Data Model.&nbsp; </p>
+
+<h4>
+<a name="Requirements and Analysis Models"></a>Requirements and Analysis Models
+<a href="#Top">
+<img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+
+<p> For projects that do not perform business modeling, the Requirements (System 
+  Use Case) and Analysis Models contain model elements that can be used to develop 
+  an initial Conceptual Data Model.&nbsp; For projects that use business modeling, 
+  the business entities and relationships identified in the Business Analysis 
+  Models are refined and detailed in the Analysis Model as Entity Classes.&nbsp;&nbsp; 
+</p>
+
+<p>
+<u><b>System Use-Case Model</b></u></p>
+
+<p> The System Use-Case Model contains System Actors and System Use Cases 
+  that define the primary interactions of the users with the system. 
+  The System Use Cases define the functional requirements for the system. </p>
+
+<p> From a conceptual data modeling perspective, the System Actors represent entities 
+  external to the system for which the system might need to store persistent information. 
+  This is important in cases where the System Actor is an external system that 
+  provides data to and/or receives data from the system under development.&nbsp; 
+  System Actors can be derived from the Business Actors in the Business Use-Case 
+  Model and the Business Workers in the Business Analysis Model.&nbsp; </p>
+
+<p> The figure below depicts the Business Use-Case Model for the online auction 
+  system.&nbsp;In this model, the Buyer and Seller Business Actors are now derived 
+  from a generic User Business Actor. A new System Actor named Credit Service 
+  Bureau has been added to reflect the need to process payments through an external 
+  entity.&nbsp;This new System Actor is another candidate entity for the Conceptual 
+  Data Model. </p>
+
+<p>&nbsp;
+</p>
+<p align="center">
+<img border="0" src="images/co_concdatmd4.gif" width="732" height="552"></p>
+
+
+<p>
+
+<p align="center">&nbsp;
+</p>
+
+<p>
+<u><b>Analysis Model</b></u></p>
+
+<p>The <a href="../../artifact/ar_amdl.htm">Analysis Model</a> contains the <a href="../../artifact/ar_aclss.htm">Analysis 
+  Classes</a> identified in the Use-Case Realizations for the System Use Cases. The types of Analysis Classes that 
+  are of primary interest from a conceptual data modeling perspective are the 
+  Entity Analysis Classes. As defined in <a href="../../modguide/md_acls2.htm">Guidelines: 
+  Analysis Class</a>, Entity Analysis Classes represent information managed by 
+  the system that must be stored in a persistent manner.&nbsp;The Entity Analysis 
+  Classes and their relationships form the basis of the initial Data Model for 
+  the application.&nbsp; 
+<p>The conceptual Entity Analysis Classes in the Analysis Model might be refined 
+  and detailed into logical Persistent Design Classes in the Design Model.&nbsp;These 
+  design classes represent candidate tables in the Data Model.&nbsp;The attributes 
+  of the classes are candidate columns for the tables and also represent candidate 
+  keys for them. <a href="../../modguide/md_rdbforw.htm">See Guidelines: Forward-Engineering 
+  Relational Databases</a> for a description of how elements in the Design Model 
+  can be mapped to Data Model elements.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

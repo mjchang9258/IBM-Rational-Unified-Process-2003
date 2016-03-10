@@ -1,0 +1,243 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Quality in the Test Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Quality in the 
+  Test Plan</rpw></h2>
+
+
+
+
+
+<h3><a name="GEQDynamicView">A Dynamic View of Good Enough</a> <a href="#Top"><img src="../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<p>Let's look more closely at the view of Good Enough Quality (GEQ) that sees 
+  quality as a dynamic tradeoff. The concept goes like this: <i>The quality of 
+  any product lies somewhere between terrible and ideal. Terrible quality is much 
+  less expensive to produce than ideal quality (how expensive is a blank disk?), 
+  and much less valuable. A product is good enough when it has enough value without 
+  costing too much. Exactly how good that is changes throughout the project, depending 
+  on business conditions and other factors.</i> &quot;Cost&quot; in this case 
+  might mean actual money or something that substitutes for money, such as time, 
+  materials, or staff. &quot;Value&quot; means value in the opinion of <i>someone 
+  who matters</i>. What one person considers sufficiently valuable, another person 
+  may not value at all, so the analysis of quality always begins with identifying 
+  the people who get to decide how good is good.</p>
+<p>In a general sense, Tradeoff GEQ is an ancient idea. It's part of basic economics 
+  and engineering and, therefore, it's embedded in the very DNA of any business 
+  that involves engineering. What's new about the tradeoff idea is the public 
+  admission that, practically speaking, we don't have a choice about releasing 
+  a product that has problems. The product will have problems, whether or not 
+  we know about them. However, if we work at it, we might be able to choose the 
+  kind of problems that we ship with. Let's ship with the right bugs, instead 
+  of the wrong ones. In 1996, James Bach created a heuristic model of good enough 
+  tradeoffs, based on his experiences at Borland International and Apple Computer. 
+  Bach developed the model to provide a set of talking points for successfully 
+  arguing that a product was not good enough. Originally, the model was used to 
+  persuade management to allow incremental improvements of products prior to release. 
+  However, the model also proved useful to motivate process improvement, and has 
+  been used in court cases to attack or defend the quality of software.</p>
+<p>Let's go back to how a manager or CEO might argue, under deadline pressure. 
+  &quot;Perfection would be nice, but we have to be practical. We're running a 
+  business. Quality is good, but not quality <i>at any cost</i>. As you know, 
+  all software has bugs.&quot; A Tradeoff GEQ advocate will agree that practicality 
+  is vital to the business and agree that the product will have problems no matter 
+  when it's shipped. But he will also go on to argue (if the situation merits 
+  it) that the manager should not yet think that the product has reached a point 
+  where it <i>would</i> be practical to release. A GEQ argument is based on specific 
+  risks faced or specific benefits missing. It may also be based on a concern 
+  that there is not enough information on which to base a responsible decision 
+  about quality. GEQ directs attention to satisfiable (though not necessarily 
+  quantifiable) concerns that encompass economic factors as well as quality factors.</p>
+<p><i>Low</i> quality might be good enough. <i>High</i> quality might <i>not</i> 
+  be good enough. In the dynamic view, good enough is whatever satisfies these 
+  four criteria:</p>
+<ol>
+  <li>It has sufficient benefits.</li>
+  <li>It has no critical problems.</li>
+  <li>The benefits sufficiently outweigh the problems.</li>
+  <li>In the present situation, and all things considered, further improvement 
+    would be more harmful than helpful.</li>
+</ol>
+<p>Each point is critical. If any one of them is not satisfied, then the product, 
+  although perhaps good, cannot be good enough. The first two seem fairly obvious, 
+  but notice that they are not exact opposites of each other. The complete absence 
+  of problems cannot guarantee infinite benefits, nor can infinite benefits guarantee 
+  the absence of problems. Benefits and problems do offset each other, but it's 
+  important to consider the product from both perspectives.</p>
+<p>The third criterion reminds us that benefits must not merely outweigh problems, 
+  they must do so to a sufficient degree. In a medical device, for instance, we 
+  may want a large margin of safety. This criterion also reminds us that even 
+  in the absence of any individual critical problem, there may be patterns of 
+  non-critical problems that more than negate the benefits of the product.</p>
+<p>The fourth criterion introduces the important matter of logistics and side 
+  effects. If high quality is too expensive to achieve, or if achieving it would 
+  cause other unacceptable problems, then we either have to accept lower quality 
+  as being good enough or we have to accept that a good enough product is impossible.</p>
+<p>These criteria form the basis of a case that a product is or is not good enough, 
+  but we can do better.</p>
+
+
+
+
+
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

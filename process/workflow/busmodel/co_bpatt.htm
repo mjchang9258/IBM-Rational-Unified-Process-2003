@@ -1,0 +1,408 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Business Patterns</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Business Patterns</rpw><a name="Top"></a><a name="XE_business_patterns"></a></h2>
+<p>We define a business pattern as generalized solutions that can be implemented
+and applied in a problem situation (a context), and thereby eliminate one or
+more of the inherent problems. Patterns can be considered prototypes for
+production. [<a href="../../referenc.htm#ERI00">ERI00</a>]&nbsp;</p>
+<p>Patterns are part of how you define your business architecture:&nbsp;</p>
+<ul>
+  <li>They reflect common solutions to common problems.</li>
+  <li>Patterns help maintain an architectural style throughout the organization.</li>
+  <li>They are a simple way of capturing experiences.&nbsp;</li>
+</ul>
+<p>We present a few patterns that can be useful as a baseline:&nbsp;</p>
+<ul>
+  <li>
+    <p class="MsoBodyText"><a href="#Process Evaluation Pattern">Process
+    evaluation pattern</a></li>
+  <li>
+    <p class="MsoBodyText"><a href="#Process Feedback Pattern">Process feedback
+    pattern</a></li>
+  <li>
+    <p class="MsoBodyText"><a href="#Activity Interaction Pattern">Activity
+    interaction pattern</a></li>
+  <li>
+    <p class="MsoBodyText"><a href="#Business Event-Result History Pattern">Business
+    event-result history pattern</a></li>
+</ul>
+<p>All of these patterns are based on the extensive pattern collection in [<a href="../../referenc.htm#ERI00">ERI00</a>].&nbsp;
+<h3><a name="Process Evaluation Pattern">Process Evaluation Pattern</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="MsoBodyText"><b>Context</b>: This pattern is a sibling to the process
+feedback pattern. It reflects a need to plan for more strategic and long-term
+investments when improving a process.<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;
+</span><o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Problem</b>: The process evaluation pattern can be
+applied to all situations where the business process results must be evaluated
+to provide a competitive edge. Manufacturing, marketing, and sales processes are
+examples of the different business processes that must be evaluated each time
+they are executed.<span style="mso-spacerun: yes">&nbsp;&nbsp; </span><o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Solution</b>: A solution to this problem is to have an
+evaluation process in place that continuously monitors and suggests
+improvements, both long-term and short term, to a business process. <o:p>
+</o:p>
+</p>
+<p align="center"><img src="images/co_bpa4.gif" v:shapes="_x0000_i1025" width="378" height="312">
+<o:p>
+</o:p>
+</p>
+<p class="picturetext">Participants of the process evaluation pattern</p>
+<p><b>List of participants:&nbsp;</b></p>
+<p>aBusiness Actor&#151;A consumer of the business.&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>Core Process&#151;A business process which has the primary purpose to fulfill a
+need of the consumer.&nbsp;</p>
+<p>Evaluate Core Process(es)&#151;A business process whit the primary purpose of
+monitoring one or more core processes to propose improvements to make them more
+efficient. 
+</p>
+<p align="center"><img src="images/co_bpa5.gif" v:shapes="_x0000_i1026" width="290" height="201">
+<o:p>
+</o:p>&nbsp;<o:p>
+</o:p>
+</p>
+<p class="picturetext">Dynamic view of the process evaluation pattern. For each
+core business process, a supporting business process that evaluates and improves
+it should exist. This evaluation process needs to interact with the business
+actor involved in the basic process. <o:p>
+ &nbsp;</p>
+<p>This pattern has no static view. </o:p>
+</p>
+<h3><a name="Process Feedback Pattern">Process Feedback Pattern</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="MsoBodyText"><b>Context</b>: The process feedback pattern can be
+applied to all situations where the business process results must be evaluated
+to provide a competitive edge. Manufacturing, marketing, and sales processes are
+examples of the different business processes that must be evaluated each time
+they are executed. For example, if the sales process is evaluated each time <span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">it’s</span>
+executed, the sales budget can be increased or decreased based on feedback from
+the sales channels.<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Problem</b>: A process starts with an input and ends
+with an output. The process uses and consumes resources to create and refine
+other resources that become the output. A process also has a certain goal to
+achieve, which can be expressed in the number of resources that are output from
+the process. If resources are not used effectively, it may become too expensive
+to produce the outputs of the process, which would enable competitors to gain
+market shares.<span style="mso-spacerun: yes">&nbsp; </span><o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Solution</b>: A solution to this problem is to measure
+the effectiveness of the process, and at each initiation of a new instance of
+the process, perform a few steps to evaluate how the process can be improved the
+next time. <o:p>
+</o:p>
+</p>
+<p class="MsoBodyText">&nbsp;<o:p>
+</o:p>
+</p>
+      <p align="center"><img src="images/co_bpa1.gif" v:shapes="_x0000_i1025" width="364" height="320"> 
+        <o:p> </o:p> </p>
+<p class="picturetext">Participants of the process feedback pattern</p>
+<p><b>List of participants:&nbsp;</b></p>
+<p>aBusiness Worker&#151;A role including the set of responsibilities needed to
+refine the process deliverable.&nbsp;</p>
+<p>aDeliverable&#151;This is the deliverable of the process, which changes state as
+the business worker manipulates it.</p>
+<p>Metrics of aDeliverable&#151;This is the metrics collected to show the state
+changes of the process deliverable, and also how the business worker performs. <o:p>
+</p>
+<p>&nbsp;
+</o:p>
+</p>
+      <p class="MsoBodyText" align="center"><img src="images/co_bpa2.gif" v:shapes="_x0000_i1026" width="292" height="268"> 
+        <o:p> </o:p> </p>
+<p class="picturetext">Static view of the process feedback pattern</p>
+<p class="MsoBodyText">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoBodyText" align="center"><img src="images/co_bpa3.gif" v:shapes="_x0000_i1027" width="329" height="297">
+<o:p>
+</o:p>
+</p>
+<p class="picturetext">Dynamic view of the process feedback pattern</p>
+<h3><a name="Activity Interaction Pattern">Activity Interaction Pattern</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="MsoBodyText"><b>Context</b>: The activity interaction pattern can be
+used wherever complex interactions between activities within a business process
+are modeled. <o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Problem</b>: Activities may share resources with one
+another, typically by way of data transmission.<span style="mso-spacerun: yes">&nbsp;
+</span><o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Solution</b>: The activity interaction pattern can be
+used to model and organize complex interactions between business resources. <o:p>
+</o:p>
+</p>
+      <p class="MsoBodyText" align="center"><img border="0" src="images/co_bpa6.gif" width="420" height="355"> 
+        <o:p> </o:p> </p>
+<p class="picturetext">Participants of the activity interaction pattern</p>
+<p><b>List of participants:&nbsp;</b></p>
+<p>aBusinessWorker&#151;One of the business workers participating in the
+realization of the process.&nbsp;</p>
+<p>anotherBusinessWorker&#151;Another of the business workers participating in the
+realization of the process.&nbsp;</p>
+<p>doThing&#151;Activity performed by an instance of aBusinessWorker.</p>
+<p>doOtherThing&#151;Activity performed by an instance of anotherBusinessWorker.</p>
+<p>aDeliverable&#151;What is produced or maintained by the process. <o:p>
+</p>
+<p align="center" style="text-align:center"><span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><img src="images/co_bpa7.gif" v:shapes="_x0000_i1025" width="474" height="415"></span><o:p>
+</o:p>
+</p>
+<p class="picturetext">Dynamic view of the activity interaction pattern<span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">&#151;</span>Resource
+A and resource B use the same shared object. <o:p>
+ &nbsp;</p>
+<p>This pattern has no static view. </o:p>
+</p>
+<h3><a name="Business Event-Result History Pattern">Business Event-Result
+History Pattern</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="MsoBodyText"><b>Context</b>: The business event-result history pattern
+is suitable for problem domains where you need to maintain a history of business
+events and their results. It is most often used to model financial systems and
+enterprise resource planning (ERP) systems. <o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Problem</b>: The business event-result history pattern
+is use to track significant business events and then to connect these events to
+their results. Capturing the different business events, along with their results&#151;such
+as decisions, contracts, statements, or products&#151;helps you make better
+business decisions. The goal of this pattern is to enable you to keep a record
+of all important business events, which are typically described with attributes
+such as description, purpose, and result.<o:p>
+</o:p>
+</p>
+<p class="MsoBodyText"><b>Solution</b>: Using the business event-results history
+pattern ensures that models produced to track important business events and
+their causes are extensible. Extensible means that new kinds of events and
+causes can be added at a later date to the same overall structure. Using this
+pattern makes it possible to record business events and, at a later point in
+time, to analyze these events and draw conclusions. These conclusions typically
+lead to activities or decisions in the business, such as to discontinue a
+relationship with a customer or vendor because of poor payment history. If no
+record of business events is maintained, no history is available to learn from
+and the same mistakes may be repeated over and over again. One potential problem
+with this pattern is when too many low-level business events are recorded, the
+amount of detail makes the record hard to analyze and evaluate. Events should be
+defined so they’re easy to understand in a business context; for example,
+order placed, product delivered, invoice paid, and so on. <o:p>
+</o:p>
+</p>
+<p align="center"><img src="images/co_bpa8.gif" v:shapes="_x0000_i1025" width="399" height="352">
+<o:p>
+</o:p>
+</p>
+<p class="picturetext">Participants of the business event-result history pattern<o:p>
+</o:p>
+</p>
+<p class="MsoBodyText">&nbsp;<o:p>
+ </o:p>
+</p>
+<p><b>List of participants:&nbsp;</b></p>
+<p>Business Event&#151;This business entity describes significant occurrences to
+the business. Examples of attributes to a Business Event could be date,
+priority, description, and type. Common types are delivery, contract signing,
+and purchase.&nbsp;</p>
+<p>Product&#151;This business entity represents the deliverables. Products can be
+abstract objects, such as a service, business effort or market share or physical
+objects such as software and hardware. Common attributes are identifier and
+name. Common types of products are computer program, support, consultation, and
+installation.&nbsp;</p>
+<p>Party&#151;This business entity may represent either individuals or companies.
+The parties play a role in the context of a Contract. Typical roles are seller
+and buyer. Party typically has the attributes name and address.&nbsp;</p>
+<p>Contract&#151;This business entity represents a deal or a decision. The Contract
+defines the circumstances of a delivery, where the delivery is a Product. The
+Contract is usually between a seller and a buyer, but it can also be between
+other parties. Common attributes are description, date and until-date. Contracts
+can be associated with each other; for example, one contract can be
+complimentary to another contract. This is also shown with the recursive
+association. Examples of types of contracts are skeleton contract or lease
+contract.&nbsp;</p>
+<p>Statement&#151;A Statement expresses a Contract. A Statement can express many
+contracts and a contract can be stated many times. Typical attributes are
+description and date. Statements can also be associated with each other. This is
+shown with the recursive association. Examples of types of statements are
+written statements and verbal statements. </o:p><o:p>
+</p>
+<p align="center" style="margin-left:0cm;text-align:center"><img src="images/co_bpa9.gif" v:shapes="_x0000_i1026" width="377" height="308">
+<o:p>
+</o:p>
+</p>
+<p class="picturetext">The static view of the business event-result history
+pattern</p>
+<p class="MsoBodyText">This pattern has no dynamic view.&nbsp; <o:p>
+</o:p>
+</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

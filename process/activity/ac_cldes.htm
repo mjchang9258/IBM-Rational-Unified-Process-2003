@@ -1,0 +1,880 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Class Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Class Design</rpw><a name="Top"></a><a name="XE_class__designing"></a></h2>
+
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To ensure that the class provides the behavior the use-case
+        realizations require.</li>
+      <li>To ensure that sufficient information is provided to unambiguously
+        implement the class.</li>
+      <li>To handle non-functional requirements related to the class.</li>
+      <li>To incorporate the design mechanisms used by the class.</li>
+    </ul>
+	</td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#Use Design Patterns and Mechanisms">Use Design Patterns and Mechanisms</a></li>
+          <li><a href="#Create Initial Design Classes">Create Initial Design Classes</a></li>
+          <li><a href="#Define Persistent Classes">Identify Persistent Classes</a></li>
+          <li><a href="#Define Class Visibility">Define Class Visibility</a></li>
+          <li><a href="#Define Operations">Define Operations</a></li>
+          <li><a href="#Define Methods">Define Methods</a></li>
+          <li><a href="#Define States">Define States</a></li>
+          <li><a href="#Define Attributes">Define Attributes</a></li>
+          <li><a href="#Define Dependencies">Define Dependencies</a></li>
+          <li><a href="#Define Associations">Define Associations</a></li>
+          <li><a href="#Define Generalizations">Define Generalizations</a></li>
+          <li><a href="#Resolve Use-Case Collisions">Resolve Use-Case Collisions</a></li>
+          <li><a href="#Handle Non-Functional Requirements">Handle Non-Functional 
+            Requirements in General</a></li>
+          <li><a href="#Evaluate Your Results">Evaluate Your Results</a></li>
+        </ul>
+	</td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_aclss.htm">Analysis Class</a></li>
+<li><a href="../artifact/ar_class.htm">Design Class</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_event.htm">Event</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_signa.htm">Signal</a></li>
+<li><a href="../artifact/ar_storyboard.htm">Storyboard</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+<li><a href="../artifact/ar_uiprt.htm">User-Interface Prototype</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_class.htm">Design Class</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+      <a href="../workers/wk_dsgnr.htm">Designer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/xde_vsnet/tm_cldes.htm">Designing Classes Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_cldes.htm">Designing Classes Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/rose/tm_class.htm">Managing Classes Using Rational Rose</a></li>
+</ul>
+&nbsp;
+    </td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_aggrg.htm">Guideline: Aggregation</a></li>
+<li><a href="../modguide/md_assoc.htm">Guideline: Association</a></li>
+<li><a href="../modguide/md_clsdm.htm">Guideline: Class Diagram</a></li>
+<li><a href="../modguide/md_gener.htm">Guideline: Generalization</a></li>
+<li><a href="../modguide/md_stadm.htm">Guideline: Statechart Diagram</a></li>
+<li><a href="../modguide/md_sbscr.htm">Guideline: Subscribe-Association</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and7.htm">Design the Database</a></li>
+<li><a href="../workflow/ana_desi/wfs_and4.htm">Design Components</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+    </td>
+  </tr>
+</table>
+  <!-- Linked to Workflow End -->
+</div>
+
+<p>Classes are the work-horses of the design effort&#151they actually perform 
+  the real work of the system. Other design elements, such as subsystems, packages, 
+  and collaborations, describe how classes are grouped or how they interoperate.</p>
+
+<p class="reactive">Capsules are also stereotyped classes, used to represent concurrent 
+  threads of execution in real-time systems. In such cases, other design classes 
+  are passive classes, used within the execution context provided by the active 
+  capsules. When the software architect and designer choose not to use a design 
+  approach based on capsules, it's still possible to model concurrent behavior 
+  using active classes.</p>
+
+<p>Active classes are design classes that coordinate and drive the behavior of 
+  the passive classes&#151an active class is a class whose instances are active 
+  objects, owning their own thread of control.</p>
+<h3><a name="XE_patterns__using"></a><a name="XE_mechanisms__using"></a><a name="Use Design Patterns and Mechanisms">Use 
+  Design Patterns and Mechanisms</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Use design patterns and mechanisms as suited to the class or capability being 
+  designed, and in accordance with project design guidelines.</p>
+<p>Incorporating a pattern and/or mechanism is effectively performing many of 
+  the subsequent steps in this activity (adding new classes, operations, attributes, 
+  and relationships), but in accordance with the rules defined by the pattern 
+  or mechanism.</p>
+<p>Note that patterns and mechanisms are typically incorporated as the design 
+  evolves, and not just as the first step in this activity. They are also frequently 
+  applied across a set of classes, rather than only to a single class.</p>
+<h3><a name="XE_class__creating_design_classes_initially"></a><a name="Create Initial Design Classes"></a>Create
+Initial Design Classes <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Create one or several initial design classes for the analysis class given as 
+  input to this activity and assign trace dependencies. The design classes created 
+  in this step will be refined, adjusted, split, or merged in subsequent steps 
+  when assigned various design properties&#151such as operations, methods, and a 
+  state machine&#151that describe how the analysis class is designed.</p>
+<p>Depending on the type of the analysis class (boundary, entity, or control) 
+  being designed, there are specific strategies you can use to create initial 
+  design classes.</p>
+<h4><a name="XE_boundary_class__designing"></a><a name="Designing boundary classes">Designing 
+  boundary classes</a></h4>
+<p>Boundary classes either represent interfaces to users or to other systems.</p>
+<p>Typically, boundary classes that represent interfaces to other systems are 
+  modeled as subsystems, because they often have complex internal behavior. If 
+  the interface behavior is simple (perhaps acting as only a pass-through to an 
+  existing API to the external system), you might choose to represent the interface 
+  with one or more design classes. If you choose this route, use a single design 
+  class per protocol, interface, or API and note special requirements about standards 
+  you used in the special requirements of the class.</p>
+<p>Boundary classes that represent interfaces to users generally follow the rule 
+  of one boundary class for each window, or one for each form, in the user interface. 
+  Consequently the responsibilities of the boundary classes can be on a fairly 
+  high-level, and need to be refined and detailed in this step. Additional models 
+  or prototypes of the user interface can be another source of input to be considered 
+  in this step.</p>
+<p>The design of boundary classes depends on the user interface (UI) development 
+  tools available to the project. Using current technology, it's common that the 
+  UI is visually constructed directly in the development tool. This automatically 
+  creates UI classes that need to be related to the design of control and entity 
+  classes. If the UI development environment automatically creates the supporting 
+  classes it needs to implement the UI, there is no need to consider them in design. 
+  You design only what the development environment does not create for you.</p>
+<h4><a name="XE_entity_class__designing"></a><a name="Designing Entity Classes">Designing 
+  entity classes</a></h4>
+<p>During analysis, entity classes represent manipulated units of information. 
+  They are often passive and persistent, and might be identified and associated 
+  with the analysis mechanism for persistence.  
+  The details of designing a database-based persistence mechanism are covered 
+  in <a href="ac_dbdes.htm">Activity: Database Design</a>. Performance considerations 
+  could force some refactoring of persistent classes, causing changes to the Design 
+  Model that are discussed jointly between the <a href="../workers/wk_dbdsr.htm">Role: 
+  Database Designer</a> and the <a href="../workers/wk_dsgnr.htm">Role: Designer</a>. 
+  </p>
+<p>A broader discussion of design issues for persistent classes is presented later 
+  under the heading <a href="#Define Persistent Classes">Identify Persistent Classes</a>.</p>
+<h4><a name="XE_control_class__designing"></a><a name="Designing Control Classes">Designing 
+  control classes</a></h4>
+<p>A control object is responsible for managing the flow of a use case and, therefore, 
+  coordinates most of its actions; control objects encapsulate logic that is not 
+  particularly related to user interface issues (boundary objects) or to data 
+  engineering issues (entity objects). This logic is sometimes called <b>application 
+  logic</b> or <b>business logic</b>.</p>
+<p>Take the following issues into consideration when control classes are designed:</p> 
+<ul>
+  <li><b>Complexity</b> &#151 You can handle uncomplicated controlling 
+    or coordinating behavior using boundary or entity classes. As the complexity 
+    of the application grows, however, significant drawbacks to this approach 
+    surface, such as:</li>
+</ul>
+<blockquote>
+  <ul>
+    <li>the use-case coordinating behavior becomes imbedded in the UI, making 
+      it more difficult to change the system</li>
+    <li>the same UI cannot be used in different use-case realizations without 
+      difficulty</li>
+    <li>the UI becomes burdened with additional functionality, degrading its performance</li>
+    <li>the entity objects might become burdened with use-case specific behavior, 
+      reducing their generality</li>
+  </ul>
+</blockquote>
+<blockquote>
+  <p>To avoid these problems, control classes are introduced to provide behavior 
+    related to coordinating flows-of-events.</p>
+</blockquote>
+<ul>
+  <li><b>Change probability</b> &#151 If the probability of changing 
+    flows of events is low or the cost is negligible, the extra expense and complexity 
+    of additional control classes might not be justified.</li>
+  <li><b>Distribution and performance</b> &#151 The need to run parts 
+    of the application on different nodes, or in different process spaces, introduces 
+    the need to specialize design model elements. This specialization is often 
+    accomplished by adding control objects and distributing behavior from the 
+    boundary and entity classes onto the control classes. In doing this, the boundary 
+    classes migrate toward providing purely UI services, the entity classes move 
+    toward providing purely data services, and the control classes provide the 
+    rest.</li>
+  <li><b>Transaction management</b> &#151 Managing transactions is a 
+    classic coordination activity. Without a framework to handle transaction management, 
+    one or more <b>transaction manager</b> classes would have to interact 
+    to ensure that you maintain the integrity of the transactions.</li>
+</ul>
+<p>In the latter two cases, if the control class represents a separate thread 
+  of control, it may be more appropriate to use an active class to model the thread 
+  of control.</p>
+<rpw name="VariantContent" tag="rup_rt_design" class="reactive">
+<p class="reactive">In a real-time system, the use of <a href="../../process/artifact/ar_cpsl.htm">Artifact: 
+  Capsule</a>s is the preferred modeling approach.</p>
+ 
+<h3><a name="XE_persistent_class__identifying"></a><a name="XE_entity_class__define_persistent_classes"></a><a name="Define Persistent Classes">Identify 
+  Persistent Classes</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Classes that need to store their state on a permanent medium are referred to 
+  as persistent. The need to store their state might be for permanent recording 
+  of class information, for back-up in case of system failure, or for exchange 
+  of information. A persistent class might have both persistent and transient 
+  instances; labeling a class persistent means merely that some instances of the 
+  class might need to be persistent.</p>
+<p>Incorporate design mechanisms corresponding to persistency mechanisms found 
+  during analysis. For example, depending on what is required by the class, the 
+  analysis mechanism for persistency might be realized by one of these design 
+  mechanisms:</p>
+<ul>
+  <li>In-memory storage</li>
+  <li>Flash card</li>
+  <li>Binary file</li>
+  <li>Database Management System (DBMS)</li>
+</ul>
+<p>Persistent objects might not be derived from entity classes only; persistent 
+  objects could also be needed to handle nonfunctional requirements in general. 
+  Examples are persistent objects needed to maintain information relevant to process 
+  control or to maintain state information between transactions.</p>
+
+
+<p>Identifying persistent classes serves to notify the <a href="../workers/wk_dbdsr.htm">Role: 
+  Database Designer</a> that the class requires special attention to its physical 
+  storage characteristics. It also notifies the <a href="../workers/wk_archt.htm">Role: 
+  Software Architect</a> that the class needs to be persistent and the <a href="../workers/wk_dsgnr.htm">Role: 
+  Designer</a> responsible for the persistence mechanism that instances of the 
+  class need to be made persistent.</p>
+<p>Due to the need for a coordinated persistence strategy, the <a href="../workers/wk_dbdsr.htm">Role: 
+  Database Designer</a> is responsible for mapping persistent classes into the 
+  database, using a persistence framework. If the project is developing a persistence 
+  framework, the framework developer will also be responsible for understanding 
+  the persistence requirements of design classes. To provide these people with 
+  the information they need, it's sufficient at this point to indicate that the 
+  class is persistent or, more precisely, that the instances of the class are 
+  persistent.</p>
+  
+
+  <h3><a name="Define Class Visibility">Define Class Visibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each class, determine the class visibility within the package in which 
+  it resides. A <i>public</i> class can be referenced outside of the containing 
+  package. A <i>private</i> class (or one whose visibility is <i>implementation</i>) 
+  might only be referenced by classes within the same package.</p>
+<h3><a name="XE_operation__defining_on_classes"></a><a name="Define Operations">Define
+Operations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li><a href="#Identifying operations">Identifying operations</a></li>
+  <li><a href="#Naming and describing the operations">Naming and describing 
+    the operations</a></li>
+  <li><a href="#Defining operation visibility">Defining operation visibility</a></li>
+  <li><a href="#Defining class operations">Defining class operations</a></li>
+</ul>
+<h4><a name="Identifying operations">Identifying operations</a></h4>
+<p>To identify operations on design classes: </p>
+<ul>
+  <li>Study the responsibilities of each corresponding analysis class, creating 
+    an operation for each responsibility. Use the description of the responsibility 
+    as the initial description of the operation.</li>
+  <li>Study the use-case realizations in the class <i>participates</i> to see 
+    how the operations are used by the use-case realizations. Extend the operations, 
+    one use-case realization at the time, refining the operations, their descriptions, 
+    return types, and parameters. Each use-case realization's requirements pertaining 
+    to classes are described textually in the Flow of Events of the use-case realization.</li>
+  <li>Study the Special Requirements use case to be sure that you do not miss 
+    implicit requirements on the operation that might be stated there.</li>
+</ul>
+<p>Operations are required to support the messages that appear on sequence diagrams 
+  because scripts&#151temporary message specifications that have not yet been 
+  assigned to operations&#151describe the behavior the class is expected to perform. 
+  Figure 1 illustrates an example of a sequence diagram.</p>
+<p align="center"><img src="images/seqdiag1.gif" width="672" height="417"></p>
+<p class="caption" align="center"><b>Figure 1: Messages Form the Basis for Identifying 
+  Operations</b></p>
+<p>Use-case realizations cannot provide enough information to identify all
+operations. To find the remaining operations, consider the following:</p>
+<ul>
+  <li>Is there a way to initialize a new instance of the class, including
+    connecting it to instances of other classes to which it is associated?</li>
+  <li>Is there a need to test to see if two instances of the class are equal?</li>
+  <li>Is there a need to create a copy of a class instance?</li>
+  <li>Are any operations required on the class by mechanisms that they use? For 
+    example, a <i>garbage collection</i> mechanism might require that an object 
+    is able to drop all of its references to all other objects so that any unused 
+    resources can be freed up.</li>
+</ul>
+<p>Do not define operations that merely get and set the values of public attributes 
+  (see <a href="#Define Attributes">Define Attributes</a> and <a href="#Define Associations">Define 
+  Associations</a>). Usually these are generated by code-generation facilities 
+  and do not need to be defined explicitly.</p>
+<h4><a name="XE_operation__naming"></a><a name="Naming and describing the operations">Naming
+and describing the operations</a></h4>
+<p>Use naming conventions for the implementation language when you're naming operations, 
+  return types, and parameters and their types.  These 
+  are described in the <a href="../artifact/ar_projspecgls.htm">Project 
+  Specific Guidelines</a>.</p>
+<p>For each operation, you should define the following:</p>
+<ul>
+  <li><b>The operation name</b> &#151 keep the name short and descriptive 
+    of the result the operation achieves. 
+    <ul>
+      <li>The names of operations should follow the syntax of the implementation
+        language. Example: <b>find_location</b> would be acceptable
+        for C++ or Visual Basic, but not for Smalltalk (in which underscores are
+        not used); a better name for all would be <b>findLocation</b>.</li>
+      <li>Avoid names that imply how the operation is performed. For example, 
+        <b>Employee.wages()</b> is better than <b>Employee.calculateWages()</b>, 
+        since the latter implies a calculation is performed. The operation may 
+        simply return a value in a database.</li>
+      <li>The name of an operation should clearly show its purpose. Avoid unspecific 
+        names, such as <b>getData</b>, that are not descriptive about 
+        the result they return. Use a name that shows exactly what is expected, 
+        such as <b>getAddress</b>. Better yet, simply let the operation 
+        name be the name of the property that is returned or set. If it has a 
+        parameter, it sets the property. If it has no parameter, it gets the property. 
+        Example: the operation <b>address </b>returns the address of 
+        a <b>Customer</b>, whereas <b>address(aString)</b> 
+        sets or changes the address of the <b>Customer</b>. The <i>get</i> 
+        and <i>set</i> nature of the operation are implicit from the signature 
+        of the operation.</li>
+      <li>Operations that are conceptually the same should have the same name 
+        even if different classes define them, if they are implemented in entirely 
+        different ways, or if they have a different number of parameters. An operation 
+        that creates an object, for example, should have the same name in all 
+        classes.</li>
+      <li>If operations in several classes have the same signature, the operation 
+        must return the same kind of result appropriate for the receiver object. 
+        This is an example of the concept of <b>polymorphism</b>, which 
+        says that different objects should respond to the same message in similar 
+        ways. Example: the operation <b>name</b> should return the name 
+        of the object, regardless of how the name is stored or derived. Following 
+        this principle makes the model easier to understand.</li>
+    </ul>
+  </li>
+  <li><b>The return type</b> &#151 The return type should be the class of
+    object that is returned by the operation.</li>
+  <li><b>A short description</b> &#151 As meaningful as you try to make 
+    it, the name of the operation is often only vaguely useful when trying to 
+    understand what the operation does. Give the operation a short description 
+    consisting of a couple of sentences, written from the operation <b>user's</b> 
+    perspective.</li>
+  <li><b>The parameters</b> &#151 For each parameter, create a short 
+    descriptive name, decide on its class, and give it a brief description. As 
+    you specify parameters, remember that fewer parameters mean better reusability. 
+    A small number of parameters makes the operation easier to understand and, 
+    therefore, there is a higher likelihood of finding similar operations. You 
+    may need to divide an operation with many parameters into several operations. 
+    The operation must be understandable to those who want to use it. The brief 
+    description should include: 
+    <ul>
+      <li>the meaning of the parameters, if not apparent from their names</li>
+      <li>whether the parameter is passed <b>by value</b> or <b>by 
+        reference</b></li>
+      <li>parameters that must have values supplied</li>
+      <li>parameters that can be optional and their default values, if no value 
+        is provided</li>
+      <li>valid ranges for parameters, if applicable</li>
+      <li>what is done in the operation</li>
+      <li>what <b>by reference </b>parameters are changed by the operation</li>
+    </ul>
+  </li>
+</ul>
+<p align="left">Once you've defined the operations, complete the sequence diagrams 
+  with information about what operations are invoked for each message.</p>
+<p align="left">Refer to the section titled <a href="../modguide/md_class.htm#Class Operations"><i>Class 
+  Operations</i> in Guidelines: Design Class</a> for more information.</p>
+<h4 align="left"><a name="Defining operation visibility">Defining operation 
+  visibility</a></h4>
+<p align="left">For each operation, identify the export visibility of the operation 
+  from these choices:</p>
+<ul>
+  <li><b>Public</b> &#151 the operation is visible to model elements 
+    other than the class itself.</li>
+  <li><b>Implementation</b> &#151 the operation is visible only within 
+    the class itself.</li>
+  <li><b>Protected</b> &#151 the operation is visible only to the class 
+    itself, to its subclasses, or to <i>friends</i> of the class (language-dependent).</li>
+  <li><b>Private</b> &#151 the operation is visible only to the class 
+    itself and to <i>friends</i> of the class</li>
+</ul>
+<p>Choose the most restricted visibility possible that can still accomplish the 
+  objectives of the operation. To do this, look at the sequence diagrams and, 
+  for each message, determine whether the message is coming from a class outside 
+  of the receiver's package (requires <b>public</b> visibility), from 
+  inside of the package (requires <b>implementation</b> visibility), 
+  from a subclass (requires <b>protected </b>visibility), or from the 
+  class itself or a friend (requires <b>private</b> visibility).</p>
+<h4><a name="Defining class operations">Defining class operations</a></h4>
+<p>For the most part, operations are instance operations; that is, they are performed 
+  on instances of the class. In some cases, however, an operation applies to all 
+  instances of the class and, therefore, is a <b>class-scope</b> operation. The 
+  class operation receiver is actually an instance of a <b>metaclass</b>&#151the 
+  description of the class itself&#151rather than any specific instance of the 
+  class. Examples of class operations include messages that create (instantiate) 
+  new instances, which return <b>allInstances</b> of a class, and so 
+  on.</p>
+<p>The operation string is underlined to denote a class-scope operation.</p>
+<h3><a name="XE_method__defining_on_class"></a><a name="Define Methods"></a>Define
+Methods <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A method specifies the implementation of an operation. In many cases where 
+  the behavior required by the operation is sufficiently defined by the operation 
+  name, description, and parameters, methods are implemented directly in the programming 
+  language. Where the implementation of an operation requires the use of a specific 
+  algorithm or more information than is presented in the operation's description, 
+  a separate <b>method</b> description is required. The <b>method</b> 
+  describes how the operation works, not just what it does.</p>
+<p>If described, the method should discuss how: </p>
+<ul>
+  <li> operations will be implemented</li>
+  <li> attributes will be implemented and used to implement operations</li>
+  <li> relationships will be implemented and used to implement operations</li>
+</ul>
+<p>The requirements will vary from case to case, however, the method specifications 
+  for a class should always state: </p>
+<ul>
+  <li>what will be done according to the requirements</li>
+  <li>what other objects and their operations will be used</li>
+</ul>
+<p>More specific requirements might concern: </p>
+<ul>
+  <li>how parameters will be implemented</li>
+  <li>what, if any, special algorithms will be used</li>
+</ul>
+<p>Sequence diagrams are an important source for this. From these it's clear what 
+  operations will be used in other objects when an operation is performed. A specification 
+  of what operations will be used in other objects is necessary for the full implementation 
+  of an operation. The production of a complete method specification, therefore, 
+  requires that you identify the operations for the objects involved and inspect 
+  the corresponding sequence diagrams.</p>
+<h3><a name="XE_state__defining_on_classes"></a>Define States<a name="Define States"></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For some operations, the behavior of the operation depends upon the state the 
+  receiver object is in. A state machine is a tool that describes the states an 
+  object can assume and the events that cause the object to move from one state 
+  to another (see <a href="../modguide/md_stadm.htm">Guidelines: Statechart Diagram)</a>. 
+  State machines are most useful for describing active classes.</p>
+
+<p class="reactive">Using state machines is particularly important for defining 
+  the behavior of <a href="../../process/artifact/ar_cpsl.htm">Artifact: 
+  Capsule</a>s.</p>
+
+<p>An example of a simple state machine is shown in Figure 2.</p>
+<p align="center"><img src="images/statedg.gif" width="439" height="363"></p>
+<p class="picturetext"><b>Figure 2:  A Simple Statechart Diagram for a Fuel Dispenser</b></p>
+<p>Each state transition event can be associated with an operation. Depending 
+  on the object's state, the operation may have a different behavior and the transition 
+  events describe how this occurs.</p>
+<p>The <b>method</b> description for the associated operation should 
+  be updated with the state-specific information, indicating for each relevant 
+  state what the operation should do. States are often represented using <b>attributes</b>; 
+  the statechart diagrams serve as input into the attribute identification step.</p>
+<p>For more information, see <a href="../modguide/md_stadm.htm">Guidelines:
+Statechart Diagram</a>.</p>
+<h3><a name="XE_attribute_on_object__defining_on_classes"></a><a name="Define Attributes">Define
+Attributes</a><a name="Define Attributes"></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>During the definition of <b>methods</b> and the identification of 
+  <b>states</b>, attributes needed by the class to carry out its operations 
+  are identified. Attributes provide information storage for the class instance 
+  and are often used to represent the state of the class instance. Any information 
+  the class itself maintains is done through its <b>attributes</b>. 
+  For each attribute, define: </p>
+<ul>
+  <li>its <b>name</b>, which should follow the naming conventions of 
+    both the implementation language and the project</li>
+  <li>its <b>type</b>, which will be an elementary data type supported 
+    by the implementation language</li>
+  <li>its <b>default or initial value</b>, to which it is initialized
+    when new instances of the class are created</li>
+  <li>its <b>visibility</b>, which will take one of the following
+    values:
+    <ul>
+      <li><b>Public</b>: the attribute is visible both inside and outside 
+        of the package containing the class</li>
+      <li><b>Protected</b>: the attribute is visible only to the class 
+        itself, to its subclasses, or to friends of the class 
+        (language-dependent)</li>
+      <li><b>Private</b>: the attribute is only visible to the class 
+        itself and to friends of the class</li>
+      <li><b>Implementation</b>: the attribute is visible only to the 
+        class itself</li>
+    </ul>
+  </li>
+  <li>for <b>persistent classes</b>, whether the attribute is persistent (the 
+    default) or transient&#151even though the class itself may be persistent, 
+    not all attributes of the class need to be persistent</li>
+</ul>
+<p>Check to make sure all attributes are needed. Attributes should be justified&#151it's 
+  easy for attributes to be added early in the process and survive long after 
+  they're no longer needed due to shortsightedness. Extra attributes, multiplied 
+  by thousands or millions of instances, can have a detrimental effect on the 
+  performance and storage requirements of a system.</p>
+<p>Refer to the section titled <i>Attributes</i> in <a href="../modguide/md_class.htm">Guidelines: 
+  Design Class</a> for more information on attributes.</p>
+<h3><a name="Define Dependencies">Define Dependencies</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each case where the communication between objects is required, ask these 
+  questions: </p>
+<ul>
+  <li>Is the reference to the receiver passed as a parameter to the operation? 
+    If so, establish a <b>dependency </b>between the sender and receiver 
+    classes in a class diagram containing the two classes. Also, if the <b>collaboration 
+    diagram</b> format for interactions is used, then qualify the link visibility 
+    and set it to <b>parameter</b>.</li>
+  <li>Is the receiver a global? If so, establish a <b>dependency </b>between 
+    the sender and receiver classes in a class diagram containing the two classes. 
+    Also, if the <b>collaboration diagram</b> format for interactions 
+    is used, qualify the link visibility and set it to <b>global</b>.</li>
+  <li>Is the receiver a temporary object created and destroyed during the operation 
+    itself? If so, establish a <b>dependency </b>between the sender 
+    and receiver classes in a class diagram containing the two classes. Also, 
+    if the <b>collaboration diagram</b> format for interactions is used, 
+    qualify the link visibility and set it to <b>local</b>.</li>
+</ul>
+<p>Note that links modeled this way are transient links, existing only for a limited 
+  duration in the specific context of the collaboration&#151in that sense, they 
+  are instances of the association role in the collaboration. However, the relationship 
+  in a class model (that is, independent of context) should be a dependency, as 
+  previously stated. As [<a href="../referenc.htm#RUM98">RUM98</a>] states, in 
+  the definition of <b>transient link</b>: &quot;It is possible to model all such 
+  links as associations, but then the conditions on the associations must be stated 
+  very broadly, and they lose much of their precision in constraining combinations 
+  of objects.&quot; In this situation, the modeling of a dependency is less important 
+  than the modeling of the relationship in the collaboration, because the dependency 
+  does not describe the relationship completely; only that it exists.</p>
+<h3><a name="Define Associations">Define Associations</a><a name="Define Attributes and Relationships"></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Associations provide the mechanism for objects to communicate with one another. 
+  They provide objects with a conduit along which messages can flow. They also 
+  document the dependencies between classes, highlighting that changes in one 
+  class could be felt among many other classes.</p>
+<p>Examine the <b>method</b> descriptions for each operation to understand 
+  how instances of the class communicate and collaborate with other objects. To 
+  send a message to another object, an object must have a reference to the receiver 
+  of the message. A collaboration diagram (an alternative representation of a 
+  sequence diagram) will show object communication in terms of links, as illustrated 
+  in Figure 3.</p>
+<p align="center"><img src="images/collabd.gif" width="610" height="493"></p>
+<p class="picturetext"><b>Figure 3: An Example of a Collaboration Diagram</b></p>
+<h4><a name="Defining associations and aggregations">Defining associations and aggregations</a></h4>
+<p>The remaining messages use either <b>association</b> or <b>aggregation</b> 
+  to specify the relationship between instances of two classes that communicate. 
+  See <a href="../modguide/md_assoc.htm">Guidelines: Association</a> and <a href="../modguide/md_aggrg.htm">Guidelines: 
+  Aggregation</a> for information on choosing the appropriate representation. 
+  For both of these associations, set the link visibility to <b>field</b> 
+  in collaboration diagrams. Other tasks include: </p>
+<ul>
+  <li>Establish the navigability of associations and aggregations. You can do 
+    this by considering what navigabilities are required on their link instantiations 
+    in the interaction diagrams. Because navigability is <b>true</b> 
+    by default, you only need to find associations (and aggregations) where all 
+    opposite link roles of all objects of a class in the association do not require 
+    navigability. In those cases, set the navigability to <b>false</b> 
+    on the role of the class.</li>
+  <li>If there are attributes on the association itself (represented by association 
+    classes), create a design class to represent the association class, with the 
+    appropriate attributes. Interpose this class between the other two classes, 
+    and establish associations with appropriate multiplicity between the association 
+    class and the other two classes.</li>
+  <li>Specify whether <i>association ends</i> should be <b>ordered</b> 
+    or not; this is the case when the objects associated with an object at the 
+    other end of the association have an ordering that must be preserved.</li>
+  <li>If the associated (or aggregated) class is only referenced by the current 
+    class, consider whether the class should be nested. Advantages of nesting 
+    classes include faster messaging and a simpler design model. Disadvantages 
+    include having the space for the nested class statically allocated regardless 
+    of whether there are instances of the nested class, a lack of object identity 
+    separate from the enclosing class, or an inability to reference nested class 
+    instances from outside of the enclosing class.</li>
+</ul>
+<p>Associations and aggregations are best defined in a class diagram that depicts 
+  the associated classes. The class diagram should be <b>owned</b> by 
+  the package that contains the associated classes. Figure 4 illustrates an example 
+  of a class diagram, depicting associations and aggregations.</p>
+      <p align="center"><img src="images/classdg.gif" width="469" height="396"></p>
+<p class="picturetext"><b>Figure 4: Example of a Class Diagram showing Associations, 
+  Aggregations, and Generalizations between Classes</b></p>
+<h4><a name="Handling Subscribe-Associations between Analysis Classes">Handling 
+  subscribe-associations between analysis classes</a></h4>
+<p>Subscribe-associations between <b>analysis classes </b>are used to 
+  identify event dependencies between classes. In the Design Model you must handle 
+  these event dependencies explicitly, either by using available event-handler 
+  frameworks or by designing and building your own event-handler framework. In 
+  some programming languages&#151such as Visual Basic&#151this is straightforward; 
+  you declare, raise, and handle the corresponding events. In other languages, 
+  you might have to use some additional library of reusable functions to handle 
+  subscriptions and events. If the functionality can't be purchased, it will need 
+  to be designed and built. See also <a href="../modguide/md_sbscr.htm">Guidelines: 
+  Subscribe-Association</a>.</p>
+<h3><a name="Define Generalizations">Define Generalizations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Classes might be organized into a generalization hierarchy to reflect common 
+  behavior and common structure. A common <b>superclass</b> can be defined, 
+  from which <b>subclasses </b>can inherit both behavior and structure. 
+  Generalization is a notational convenience that allows you to define common 
+  structure and behavior in one place, and to reuse it where you find repeated 
+  behavior and structure. Refer to <a href="../modguide/md_gener.htm">Guidelines: 
+  Generalization</a> for more information on generalization relationships.</p>
+<p>When you find a generalization, create a common superclass to contain the common 
+  attributes, associations, aggregations, and operations. Remove the common behavior 
+  from the classes that will become subclasses of the common superclass. Define 
+  a <b>generalization relationship</b> from the subclass to the superclass.</p>
+<h3><a name="XE_concurrency_conflicts__identifying"></a><a name="Resolve Use-Case Collisions">Resolve
+Use-Case Collisions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The purpose of this step is to prevent concurrency conflicts caused when two 
+  or more use cases could potentially access instances of the design class simultaneously, 
+  in possibly inconsistent ways.</p>
+<p>One of the difficulties with proceeding use-case-by-use-case through the design 
+  process is that two or more use cases could attempt to invoke operations simultaneously 
+  on design objects in potentially conflicting ways. In these cases, concurrency 
+  conflicts must be identified and resolved explicitly.</p>
+<p>If synchronous messaging is used, executing an operation will block subsequent 
+  calls to the objects until the operation completes. Synchronous messaging implies 
+  a first-come, first-served ordering to message processing. This might resolve 
+  the concurrency conflict, especially in cases where all messages have the same 
+  priority or where every message runs within the same execution thread. In cases 
+  where an object might be accessed by different threads of execution (represented 
+  by active classes), explicit mechanisms must be used to prevent or resolve the 
+  concurrency conflict.</p>
+
+<p class="reactive"> In real-time systems where threads are represented by <a href="../../process/artifact/ar_cpsl.htm">Artifact: 
+  Capsule</a>s, this problem still has to be solved for multiple concurrent access 
+  to passive objects, whereas the capsules themselves provide a queuing mechanism 
+  and enforce run-to-completion semantics to handle concurrent access. A recommended 
+  solution is to encapsulate passive objects within capsules, which avoids the 
+  problem of concurrent access through the semantics of the capsule itself.</p>
+
+<p>It might be possible for different operations on the same object to be invoked 
+  simultaneously by different threads of execution without a concurrency conflict; 
+  both the name and address of a customer could be modified concurrently without 
+  conflict. It's only when two different threads of execution attempt to modify 
+  the same property of the object that a conflict occurs.</p>
+<p>For each object that might be accessed concurrently by different threads of 
+  execution, identify the code sections that must be protected from simultaneous 
+  access. Early in the Elaboration phase, identification of specific code segments 
+  will be impossible; operations that must be protected will suffice. Next, select 
+  or design appropriate access control mechanisms to prevent conflicting simultaneous 
+  access. Examples of these mechanisms include message queuing to serialize access, 
+  use of semaphores or tokens to allow access only to one thread at a time, or 
+  other variants of locking mechanisms. The choice of mechanism tends to be highly 
+  implementation-dependent, and typically varies with the programming language 
+  and operating environment. 
+  See the <a href="../artifact/ar_projspecgls.htm">Project-Specific Guidelines</a> 
+  for guidance on selecting concurrency mechanisms.</p>
+<h3><a name="XE_nonfunctional_requirements__handling_of"></a><a name="Handle Non-Functional Requirements">Handle 
+  Non-Functional Requirements</a> in General <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Design Classes are refined to handle general, nonfunctional requirements  
+  as stated in the <a href="../artifact/ar_projspecgls.htm">Project-Specific Guidelines</a>. 
+  Important input to this step include the nonfunctional requirements on an analysis 
+  class that may already be stated in its special requirements and responsibilities. 
+  Such requirements are often specified in terms of what architectural (analysis) 
+  mechanisms are needed to realize the class; in this step, the class is then 
+  refined to incorporate the design mechanisms corresponding to these analysis 
+  mechanisms.</p>
+<p>The available design mechanisms are identified and characterized by the software 
+  architect in 
+  the <a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a>. 
+  For each design mechanism needed, qualify as many characteristics as possible, giving ranges 
+  where appropriate. Refer to <a href="ac_dsmec.htm">Activity: Identify Design Mechanisms</a>, 
+  <a href="../workflow/ana_desi/co_amech.htm">Concepts: Analysis Mechanisms</a>, and 
+  <a href="../workflow/ana_desi/co_dmech.htm">Concepts: Design and Implementation Mechanisms</a> 
+  for more information on design mechanisms.</p>
+<p>There can be several general design guidelines and mechanisms that need to 
+  be taken into consideration when classes are designed, such as how to: </p>
+<ul>
+  <li>use existing products and components</li>
+  <li>adapt to the programming language</li>
+  <li>distribute objects</li>
+  <li>achieve acceptable performance</li>
+  <li>achieve certain security levels</li>
+  <li>handle errors</li>
+  <li>and so on</li>
+</ul>
+<h3><a name="Evaluate Your Results"></a>Evaluate Your Results <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Check the design model at this stage to verify that your work is headed in 
+  the right direction. There is no need to review the model in detail, but you 
+  should consider the following checkpoints: </p>
+<ul>
+  <li><a href="chklists/ck_dmdl.htm">Checkpoints for the Design Model</a></li>
+  <li><a href="chklists/ck_dclss.htm">Checkpoints for Design Classes</a></li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

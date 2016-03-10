@@ -1,0 +1,247 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Structure Testing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Structure Testing</rpw></h2>
+
+<p>The concept of structural testing is used in two main contexts. Although different 
+  in nature, the root concept or idea behind structure testing is arguably the 
+  same in both cases.</p>
+<H5>Topics</H5>
+<ul>
+  <li><a href="#StructureofCode">Structure Testing of Code Internals</a></li>
+  <li><a href="#StructureofWebSites">Structure Testing of Web Sites</a></li>
+</ul>
+
+<h4><a name="StructureofCode">Structure Testing of Code Internals</a></h4>
+<p>The older reference and perhaps more established use of the term &quot;structure 
+  testing&quot; relates to testing the internal structure of the software source 
+  code. Most often, this form of structure testing is performed as a &quot;static&quot; 
+  as opposed to a &quot;dynamic&quot; test, in that the software itself is not 
+  executed to perform the test. Diagnostic tools parse the source code, looking 
+  for structural errors and weaknesses, typically providing a list to enable subsequent 
+  corrective action to be taken. This type of test and evaluation is conducted 
+  by developers, rather than system testers.</p>
+
+<h4><a name="StructureofWebSites">Structure Testing of Web Sites</a></h4>
+<p>Web-based applications&#151those employing Internet application technology&#151are 
+  increasingly more prevalent. This movement has been encouraged by the fact that 
+  this software development and deployment method offers organizations the ability 
+  to take advantage of several technology-enabled business benefits, such as:</p>
+<ul>
+  <li><b>Developed audience of customers, prospects, and business partners without 
+    sending out a single piece of software or paper<i>.</i></b> Anyone with a 
+    browser and access to the &quot;net&quot; (Internet or Intranet) can simply 
+    point their browser to the published URL and immediately run the application.</li>
+  <li><b>Centralized control and maintenance.</b> The &quot;thin-client/fat-server&quot; 
+    model of Web-based applications places the application components and logic 
+    on the Web server, which centralizes and simplifies control and maintenance. 
+    This also enables developers to distribute the software automatically. Once 
+    the application is on the server, it is immediately available for all users.</li>
+</ul>
+<p>Although this offers advantages to those who employ this technology, Web-based 
+  applications increase the demands of testing. Testing these Web-based applications, 
+  like their non-Web counterparts (client/server, legacy, and so forth), requires 
+  testing to address the function and performance characteristics of the applications. 
+  In addition, Web-based applications have the added need for tests that focus 
+  on the structure of the application, ensuring it's well-formed and that all 
+  links are valid.</p>
+
+<p>Typically Web-based applications are constructed using a series of documents 
+  (both HTML text documents and GIF/JPEG graphics) connected by many static links 
+  and a few active, or program-controlled, links. These applications may also 
+  include &quot;active content&quot;, such as forms, Java scripts, plug-in-rendered 
+  content, or Java applications. Frequently this active content is used for output 
+  only, such as for audio or video presentation. However, it may also be used 
+  as a navigation aid, to help the user navigate the application (Web site). The 
+  freeform nature of the Web-based applications (through its links) is a great 
+  strength, but it's also a tremendous weakness because structural integrity can 
+  be easily damaged.</p>
+
+<p>Structure testing is implemented and executed to verify that
+all links (static or active) are properly connected. These tests include:</p>
+<ul>
+  <li><b>Verifying that the proper content (text, graphics, and so on) for each 
+    link is displayed.</b> Different types of links are used to reference target-content 
+    in Web-based applications, such as bookmarks, hyperlinks to other target content 
+    (in the same or different Web site), or hot spots. Each link needs to be verified 
+    to ensure that the correct target-content is presented to the user.</li>
+  <li><b>Ensuring there are no broken links.</b> Broken links are those links 
+    for which the target content cannot be found. Links may be broken for many 
+    reasons, including moving, removing, or renaming the target-content files. 
+    Links may also be broken because of improper syntax use, including missing 
+    slashes, colons, or letters.</li>
+  <li><b>Verifying there is no orphaned content.</b> Orphaned content are those 
+    files for which there is no &quot;inbound&quot; link in the current Web site; 
+    that is, there is no way to access or present the content. Care must be taken 
+    to investigate orphaned content to determine the cause:
+    <ul>
+      <li>Is it orphaned because it is truly no longer needed? </li>
+      <li>Is it orphaned due to a broken link? </li>
+      <li>Or is it accessed by a link external to the current Web site?</li>
+    </ul>
+  </li>
+</ul>
+<p>Once determined, the appropriate action should be taken, such as remove the 
+  content file, repair the broken link, or ignore the orphan, respectively.</p>
+	<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

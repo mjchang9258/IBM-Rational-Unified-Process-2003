@@ -1,0 +1,760 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Implementing an Automated Component Test using Rational QualityArchitect</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Implementing an Automated Component Test using Rational QualityArchitect</rpw>
+</h2>
+
+<h3>Purpose</h3>
+
+<p>This tool mentor provides an overview of the four primary unit
+testing tasks performed with Rational QualityArchitect:</p>
+
+<ul>
+  <li>Unit Testing</li>
+  <li>Scenario Testing</li>
+  <li>Stub Generation</li>
+  <li>EJB Session Recording</li>
+</ul>
+
+<p>Related Rational Unified Process information:</p>
+<ul>
+  <li> <a href="../../process/activity/ac_tst_imptst.htm">Activity: Implement 
+    Test</a></li>
+</ul>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_impdvltst.htm">Implement Developer Test</a></li>
+<li><a href="../../process/activity/ac_untst.htm">Execute Developer Tests</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+
+<p>A development process that puts off testing until all components can be
+assembled into a completed system is a risky proposition. Defects found so late
+in the lifecycle will be more difficult to fix and more likely to cause serious
+schedule delays, particularly if they are architectural problems that may
+require an extensive redesign to correct. </p>
+
+<p>Even if a team has reasonably high confidence in the quality of its system's
+components, the overall confidence of the system can still be unacceptably low.
+For example, consider a simple system comprised of five components, each of
+which is rated (either by test coverage metrics or by less quantitative methods)
+to be 95% reliable. Because system reliability is cumulative, the overall rating
+is 95% x 95% x 95% x 95%x 95%, or just over 77%. Whereas the potential for
+problems in any one component may be just 1 in 20, for the overall system it
+approaches 1 in 4&#151and that's for a system with relatively few components. </p>
+
+<p>In contrast, a development process that incorporates component testing
+throughout an iterative development process offers several significant
+advantages: </p>
+
+<ul>
+  <li>Problems can be found and fixed in an isolated context, making them not
+    only easier to repair, but also easier to detect and diagnose.</li>
+  <li>Because testing and development are tightly coupled through the lifecycle,
+    progress measurements are more believable&#151progress can now be viewed in
+    terms of how much of the project is coded and working, not just coded.</li>
+  <li>Disruptions to the schedule caused by unforeseen problems are minimized,
+    which makes the overall schedule more realistic and reduces project risk.</li>
+</ul>
+<p>Although there are tremendous benefits to early testing, the practice is far
+from commonplace especially when it comes to testing middle-tier, GUI-less
+components. </p>
+
+<p>Why? Because it's time-consuming and tedious, and in the past the costs of
+overcoming these practical issues have frequently outweighed the benefits. Also,
+since most tests are tailored for a particular component, there's little
+opportunity for re-use. Many organizations recognize the wastefulness of
+building test harnesses and stubs from scratch, using them, and then throwing
+them away project after project. They prefer to focus their limited resources in
+other areas. </p>
+
+<p>With QualityArchitect, early testing truly becomes feasible because test
+harnesses and stubs are generated automatically: not just once, but
+incrementally as the model evolves throughout development. The entire
+development process becomes more structured, measured, and visible as results
+from component tests facilitate stronger entry criteria to prevent premature
+system testing. QualityArchitect enables developers to focus on the creative
+aspects of defining tests, so they can spend time thinking about the best way to
+exercise a component, instead of writing and debugging test drivers and stubs.
+Developers and architects work closely together with the shared visual models,
+so they naturally develop a more productive relationship with each other. </p>
+
+<p>This tool mentor is applicable when running Windows 98/2000/NT 4.0.</p>
+
+<h4>Tool Steps</h4>
+
+<p>This tool mentor covers these main tasks associated with implementing an
+automated component test using QualityArchitect: 
+
+<ol>
+  <li><a href="#Prerequisite steps for unit testing">Prerequisite steps for unit
+    testing</a></li>
+  <li><a href="#Implement a unit test">Implement a unit test</a></li>
+  <li><a href="#Implement a scenario test">Implement a scenario test</a></li>
+  <li><a href="#Create a stub component">Create a stub component</a></li>
+  <li><a href="#Using the EJB session recorder">Use EJB Session Recorder</a></li>
+</ol>
+
+<h3>1.&nbsp;&nbsp; <a name="Prerequisite steps for unit testing">Prerequisite
+steps for unit testing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To generate any tests using QualityArchitect, whether they're for COM of EJB
+components, a Rational Project must be created and configured using the Rational
+Administrator. This project must contain a Test Datastore to hold all of the
+testing assets, such as test results and datapools. This is described in <a href="../admin/tm_raconf.htm">Tool
+Mentor: Configuring Projects Using Rational Administrator</a>.</p>
+
+<h3>2.&nbsp;&nbsp; <a name="Implement a unit test">Implement a unit test</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The objective of a unit test is to validate that a given operation on a given
+component provides the correct return value for a given set of inputs. Unit
+tests are created off of the class specification in the logical view. The
+process of creating and executing a unit test is comprised of three steps:</p>
+
+<ul>
+  <li>Generating unit test code</li>
+  <li>Generating unit test data</li>
+  <li>Executing the test and examining the results</li>
+</ul>
+<h4>Generating unit test code</h4>
+
+<p>The unit test code contains all instructions necessary to instantiate the
+component, call the operation under test, and examine the returned result
+against a baseline.</p>
+
+<h5>For COM components</h5>
+
+<ol>
+  <li>Select the operation to test under the component interface in the Logical
+    View.</li>
+  <li>Right-click on the operation listed under the component's interface and
+    select <b>Rational Test &gt; Generate Unit Test</b>. If prompted, during
+    this process you may have to log into a Rational Project.</li>
+</ol>
+<blockquote>
+
+<p>QualityArchitect generates Visual Basic 6 compatible code as output from this
+process.</p>
+
+</blockquote>
+<p>From Visual Basic, you need to first attempt to compile the code. Any
+compilation errors need to be examined. Under certain circumstances,
+QualityArchitect will not be able to generate code to test operations that make
+extensive use of complex datatypes. When this is the case, QualityArchitect will
+insert invalid code, which at compile time will highlight the segments of code
+where manual coding is required. Once the code compiles, you can proceed to the
+next step, <a href="#GeneratingUnitTestData">Generating unit test data</a>.</p>
+
+<h5>For EJB components</h5>
+
+<ol>
+  <li>Select the operation to test from the remote interface in the Logical
+    View.</li>
+  <li>Right-click on the operation and select <b>Rational Test &gt; Select Unit
+    Test Template</b>.</li>
+  <li>Navigate to the appropriate template for your EJB server. For WebSphere,
+    select the websphere_remote.template in the EJB\WebSphere\Business Methods
+    folder. For Web Logic, select the weblogic_remote.template in the EJB\Web
+    Logic\Business Methods folder.</li>
+  <li>Select <b>Rational Test &gt; Generate Unit Test</b>. If prompted during
+    this process, you may have to log into a Rational Project.&nbsp;</li>
+</ol>
+<blockquote>
+  <p>QualityArchitect will generate Java code as the output from this process.</p>
+
+  <p>You can use the IDE or editor of your choice to examine the Java code.
+  Rational Rose ships with the R2 editor, which can be used for this purpose.</p>
+
+</blockquote>
+<p>Once in your editor, you can first attempt to compile the code. Any compilation 
+  errors need to be examined. Under certain circumstances, QualityArchitect will 
+  not be able to generate code that makes extensive use of complex datatypes. 
+  When this is the case, QualityArchitect will insert invalid code that will not 
+  compile to flag lines of code where manual coding will be required. Once the 
+  code compiles, you can proceed to the next step, <a href="#GeneratingUnitTestData">Generating 
+  unit-test data</a>.</p>
+<h4><a name="GeneratingUnitTestData">Generating unit-test data</a></h4>
+
+<p>The true measure of a successful unit test is the test data. The test code
+itself is completely disposable, as QualityArchitect can regenerate the code at
+any point in time. While QualityArchitect can create the test code, it cannot
+create meaningful test data. This is the responsibility of the analyst or the
+implementer. Care should be taken to create test data that validates
+representative positive and negative tests. Test data that focuses on the
+boundary conditions of the component's logic are excellent candidates for unit
+test data.</p>
+
+<h5>For COM components</h5>
+
+<ol>
+  <li>Select the operation to test under the component's interface in the
+    Logical View.</li>
+  <li>Right-click on the operation and select <b>Rational Test &gt; Create
+    Datapool</b>.</li>
+  <li>Once you've selected <b>Create Datapool</b>, a Datapool Properties dialog
+    displays. At this point, you can either select <b>Edit Datapool Data</b> to
+    begin entering data or select <b>Define Datapool Fields</b> to have
+    QualityArchitect generate test data for you.</li>
+</ol>
+<h5>For EJB components</h5>
+
+<ol>
+  <li>Select the operation to test from the remote interface in the Logical
+    View.</li>
+  <li>Right-click on the operation listed under the remote interface and select
+    Rational Test &gt; Create Datapool.</li>
+  <li>Once you've selected <b>Create Datapool</b>, a Datapool Properties dialog
+    displays. At this point, you can either select <b>Edit Datapool Data</b> to
+    begin entering data or select <b>Define Datapool Fields</b> to have
+    QualityArchitect generate test data for you.</li>
+</ol>
+<h5><a name="Working with Datapools">Working with Datapools</a></h5>
+
+<p>If you select <b>Define Datapool Fields</b>, you'll have the ability to use
+QualityArchitect's test data generation capabilities. QualityArchitect can
+generate various types of generic data, which are specified in the datatypes
+drop-down list in the <b>Type</b> field.&nbsp;</p>
+
+<p>When you've selected the appropriate types, select the number of rows to
+generate and click <b>Generate Data</b>. It's quite likely that QualityArchitect
+will not be able to generate all of the data for you. As an example,
+QualityArchitect will be able to generate a generic list of U.S. cities, but
+will not have the ability to generate a list of valid, system-specific invoice
+numbers for an ordering system. This data must be manually entered as a datatype
+or directly entered into a datapool. The value of creating a datatype with
+custom data is that QualityArchitect, from that point on, will be able to
+generate this type of data from the Define Datapool Fields interface. If you
+enter the data directly into the datapool, it will only be available to that
+specific datapool.</p>
+
+<p>When you select <b>Edit Datapool Data</b>, you'll directly enter in
+meaningful test data. There is one field for each argument, as well as one
+field for an expected return and one field for an expected error. When you
+specify an error, both error number and textual error messages are valid
+entries. If you operation requires a complex object as an argument, or if it
+should return a complex object, you won't be able to insert that object
+reference in the datapool. Instead, break the object down to the simple argument
+types required to construct an instance of the object. Use the <b>Insert Before</b>
+and <b>Insert After</b> buttons to add fields to the datapool for this purpose.
+You'll have to modify the test code to construct an instance of the object with
+the data provided.</p>
+
+<h4>Executing the test and examining the results</h4>
+
+<p>Once you've created both the test code and the test data, you're ready to run
+your test. You can run your test from the IDE or schedule the test in a
+TestManager Suite. See <a href="../testmgr/tm_extstsuite.htm"> Tool Mentor: Executing a Test Suite using Rational
+TestManager</a> for more information on this topic.</p>
+
+<ol>
+  <li>As the test begins to run, you are prompted to provide a location for the
+    test log results. Once you specify a location, TestManager takes places the
+    results of the test run in there.</li>
+  <li>At the end of the run, TestManager displays the Test Log. To view the
+    results of your test, select the <b>Detailed View</b> tab of the Log Viewer
+    window. Expand the tree view of the results to see the details of the test
+    run. Further information can be accessed by right-clicking on any line and
+    selecting <b>Properties</b>.</li>
+</ol>
+<h3>3.&nbsp;&nbsp; <a name="Implement a scenario test">Implement a scenario test</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The objective of a scenario test is to validate that a given series of
+operations across a given series of components combine to correctly perform a
+collective task. Scenario tests are created from interaction diagrams,
+specifically sequence and collaboration diagrams. The process of creating and
+executing a unit test is comprised of these three steps:</p>
+
+<ul>
+  <li>Generating scenario test code</li>
+  <li>Generating scenario test data</li>
+  <li>Executing the test and examining the results</li>
+</ul>
+
+<h4>Generating scenario test code</h4>
+
+<p>The scenario test code will comprise all of the test driver code necessary to
+instantiate the components, call the operations under test, and evaluate the
+results of these operations using verification points. Verification points are a
+mechanism by which the test code can run SQL statements against a database to
+verify proper manipulation of the underlying data.</p>
+
+<h5>For EJB components</h5>
+
+<ol>
+  <li>Select the collaboration diagram in the browser.</li>
+  <li>Right-click on the diagram and select <b>Rational Test &gt; Select
+    ScenarioTest Template</b>.</li>
+  <li>Navigate to the appropriate template for your EJB server. For WebSphere,
+    select the websphere<sub>_</sub>scenario.template in the
+    EJB\WebSphere\Scenario folder. For Web Logic, select the
+    weblogic_scenario.template in the \EJB\Web Logic\Scenario folder.</li>
+  <li>Open the given sequence or collaboration diagram that models the scenario
+    under test. It's important that the messages to the components be specified
+    for the components on the diagram that will be tested. Messages are
+    specified by double-clicking on the message line and specifying a name in
+    the droop-down list box on the <b>General</b> tab. The name needs to
+    correspond to the operation being tested. Further, these specifications can
+    be modified to include test case data.<br>
+    <br>
+    As an example, by default, Rose will expose the message specification as:<br>
+    <font face="Courier New" size="2">getTransactions(customerID : String)</font><br>
+    <br>
+    This specification can be modified to include a single data case as follows:<br>
+    <font face="Courier New" size="2">getTransactions(customerID : String=&quot;BBryson&quot;)<br>
+    <br>
+    </font>
+    
+    For every scenario test, QualityArchitect automatically generates a datapool
+    for test case data. The data in the diagram will be populated in the first
+    row. You can add additional rows from this point on.
+    
+    </li>
+  <li>To begin the test, right-click on the diagram in the browser and select <b>Rational
+    Test &gt; Generate Scenario Test</b>. If you're prompted to log into your
+    project, do so.&nbsp;
+    
+    </li>
+  <li>A dialog displays to prompt you to select the scenario test targets.
+    Select all of the components on the diagram that will take part in the test.
+    For each component selected, the corresponding operation specified in that
+    component's message will be invoked.&nbsp;
+    
+    </li>
+</ol>
+<h5>For COM components</h5>
+
+<ol>
+  <li>Open the given sequence or collaboration diagram that models the scenario
+    under test. It's important that the messages to the components be specified
+    for the components on the diagram that will be tested. Messages are
+    specified by double-clicking on the message line and specifying a name in
+    the droop-down list box on the <b>General</b> tab. The name needs to
+    correspond to the operation being tested. Further, these specifications can
+    be modified to include test case data.<br>
+    <br>
+    As an example, by default, Rose will expose the message specification as:<br>
+    <font face="Courier New" size="2">getTransactions(customerID : String)</font><br>
+    <br>
+    This specification can be modified to include a single data case as follows:<br>
+    <font face="Courier New" size="2">getTransactions(customerID : String=&quot;BBryson&quot;)<br>
+    <br>
+    </font>
+    
+    For every scenario test, QualityArchitect automatically generates a datapool
+    for test case data. The data in the diagram will be populated in the first
+    row. You can add additional rows from this point on.
+    
+    </li>
+  <li>To begin the test, right-click on the diagram in the browser and select <b>Rational
+    Test &gt; Generate Scenario Test</b>. If you're prompted to log into your
+    project, do so.&nbsp;
+    
+    </li>
+  <li>A dialog displays to prompt you to select the scenario test targets.
+    Select all of the components on the diagram that will take part in the test.
+    For each component selected, the corresponding operation specified in that
+    component's message will be invoked.&nbsp;
+    
+    </li>
+</ol>
+<h5>Verification points</h5>
+
+<p>For each operation that will be invoked and again at the end of the test,
+you'll be prompted to insert a verification point. Verification points are used
+by QualityArchitect to validate that the operations took place correctly.
+Although the verification point architecture is open and extensible, currently
+only the database verification point is implemented. The database verification
+point allows you to enter some SQL to run a query. The query created will be executed at test
+time to validate the correct manipulation of the database by the
+component.&nbsp;</p>
+
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;You
+can implement your own verification points, using the steps found in QualityArchitect online Help.</p>
+
+<ol>
+  <li>Select <b>Yes</b> to insert a verification point.</li>
+  <li>Select the appropriate type of verification point to insert. Unless you've
+    implemented your own verification points, you must select the <b>Database VP</b>.</li>
+  <li>You are presented with a Query Builder, which you'll use to establish the
+    connection parameters to your database and build the query that will be
+    executed to validate the correct functioning of the operation being invoked.
+    Basic knowledge of the underlying database and SQL syntax is necessary to
+    establish this connection and to create this query.</li>
+</ol>
+
+<p>The code necessary to instantiate all components, call all operations, and
+run the inserted verification points is output at this stage.</p>
+
+<h4>Generating scenario test data</h4>
+
+<p>For every scenario test generated, QualityArchitect automatically creates a
+datapool to contain the test data. If there was data specified in the diagram,
+then the first row of this datapool will already be populated with that information,
+as well as the information relating to any inserted verification points. If not,
+the datapool will contain only information relating to verification points.</p>
+
+<p>To view and edit this information, follow these steps:</p>
+
+<ol>
+  <li>From Rose, select Tools &gt; Rational Test &gt; Toolbar.</li>
+  <li>On the Toolbar, select the second toolbar item to edit your datapool.
+    QualityArchitect will have created a datapool that contains the name of the
+    scenario diagram, which ends with a _D. The algorithm used to name the
+    datapool is sufficiently complex that it's too difficult to predict every
+    datapool's name in this documentation.</li>
+</ol>
+<p>To edit this data, follow the same basic steps outlined in <a href="#Working with Datapools">Working
+with datapools</a>.</p>
+
+<h4>Executing the test and examining the results</h4>
+
+<p>Once you've created both the test code and the test data, you're ready to run
+your test. You can run your test from the IDE or schedule the test in a
+TestManager Suite. See <a href="../testmgr/tm_extstsuite.htm"> Tool Mentor: Executing a Test Suite using Rational
+TestManager</a> for more information on this topic.</p>
+
+<ol>
+  <li>As the test begins to run, you are prompted to provide a location for the
+    test log results. Once you specify a location, TestManager takes places the
+    results of the test run in there.</li>
+  <li>At the end of the run, TestManager displays the Test Log. To view the
+    results of your test, select the <b>Detailed View</b> tab of the Log Viewer
+    window. Expand the tree view of the results to see the details of the test
+    run. Further information can be accessed by right-clicking on any line and
+    selecting <b>Properties</b>.</li>
+</ol>
+<p>For verification points, no <b>Pass</b> or <b>Fail</b> indication is given on
+the first run, which is used to capture a snapshot of the query results to be
+used as baseline data for future test runs.</p>
+
+<p>Double-click on the verification points to display a comparator that presents
+the results of the query. These results can be edited, so if the query didn't
+return the correct results, you can modify this data. All subsequent runs of
+this test will compare their query results to those captured in this first run.</p>
+
+<h3>4.&nbsp;&nbsp; <a name="Create a stub component">Create a stub component</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Often the components being tested in a unit or scenario test rely on other
+components to complete their tasks. Problems arise when these secondary
+components are not operational. Sometimes they're still in development;
+sometimes they're buggy. Regardless, testing the primary component doesn't have
+to be halted until the secondary components become available. Instead a stub or
+temporary component can replace any non-operational components for testing
+purposes. The stub doesn't implement the functionality of the real component; it
+merely reacts to inputs. Stubs return a programmed response for a given set of
+values without implementing any logic. It's a simple stimulus response
+relationship. </p>
+
+<p>QualityArchitect can easily create stubs for both COM and EJB components.
+These stubs rely on lookup tables to replicate the business logic of the
+components they're replacing. The table, implemented as a datapool, determines
+what the returned value should be for a given set of inputs. </p>
+
+<p>The process of creating and deploying a stub is made up of these three steps: </p>
+
+<ul>
+  <li>Generating a stub component</li>
+  <li>Generating a stub lookup table</li>
+  <li>Deploying the stub</li>
+</ul>
+
+<h4>Generating a stub component </h4>
+
+<p>When you generate a stub, you must generate a complete component. The, for
+the operations being stubbed, you need to create a lookup table. A stubbed
+component, which contains stub code for all operations of that component, is the
+output of the stub generation process. You cannot stub a single operation. </p>
+
+<h5>For Com components </h5>
+
+<ol>
+  <li>Select the component interface in the Logical View.</li>
+  <li>Right-click on the interface and select <b>Rational Test &gt; Generate
+    Stub</b>. You are prompted for the location of where you want to place the
+    generated stub code. Select this location and the code will be generated.</li>
+</ol>
+<h5>For EJB components </h5>
+
+<ol>
+  <li>Select the bean implementation class in the Logical View.&nbsp;</li>
+  <li>Right-click on the class and select <b>Rational Test &gt; Generate Stub</b>.
+    You are prompted for the location of where you want to place the generated
+    stub code. Select this location and the code will be generated.</li>
+</ol>
+<h4>Generating a stub lookup table </h4>
+
+<p>To replicate the logic of the real component, the stub must know how the real
+component would react when given a set of arguments. This logic is maintained in
+a lookup table, which specifies what value or error to return for a given set of
+arguments. You create one lookup table for each operation on the component that
+is being stubbed. </p>
+
+<h5>For Com components </h5>
+
+<ol>
+  <li>Select the operation below the component interface in the Logical View.</li>
+  <li>Right-click on the interface and select <b>Rational Test &gt; Create
+    Lookup Table</b>. This displays the Datapool Properties dialog.</li>
+  <li>To create this lookup table, follow the same basic steps outlined in <a href="#Working with Datapools">Working
+    with datapools</a>. You'll use the table to specify the values or exceptions
+    to return for a given set of arguments.</li>
+</ol>
+<h5>For EJB components </h5>
+
+<ol>
+  <li>Select the operation off of the bean implementation class in the Logical
+    View.&nbsp;</li>
+  <li>Right-click on the class and select&nbsp;</li>
+  <li><b>Rational Test &gt; Create Lookup Table</b>. This displays the Datapool
+    Properties dialog.</li>
+  <li>To create this lookup table, follow the same basic steps outlined in <a href="#Working with Datapools">Working
+    with datapools</a>. You'll use the table to specify the values or exceptions
+    to return for a given set of arguments.</li>
+</ol>
+<h4>Deploying the stub</h4>
+<p>When the stub and lookup table have been generated, the stub must be deployed
+in place of the existing component. This processes is environment-specific and
+guidance for this task is provided under the heading in QualityArchitect online Help. </p>
+
+<h3>5.&nbsp;&nbsp; <a name="Using the EJB session recorder">Use the EJB session recorder</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The EJB session recorder is a Java application that allows you to interact
+with live, deployed EJB components. This functionality is only available for
+Enterprise JavaBeans, not for COM components.</p>
+
+<p>The process for using the EJB session recorder involves these
+steps:</p>
+
+<ul>
+  <li>Starting an XML recording session</li>
+  <li>Connecting to the EJB server</li>
+  <li>Creating an instance of the bean under test</li>
+  <li>Invoking operation on the bean</li>
+  <li>Inserting verification points and java code</li>
+  <li>Generating test code from the EJB session recording</li>
+</ul>
+<p>The EJB session recorder can be used in two modes: recording and
+non-recording. When recording, all action taken is recorded to an XML log that
+the EJB session recorder will convert into executable java code. The code
+contains all method calls, any inserted java code, and verification points. When
+operating in non-recording mode, the tool will be limited to creating instances
+of EJBs and invoking their operations.</p>
+
+<ol>
+  <li>To connect to the EJB server, you need to provide the Provider URL and the
+    InitialContextFactory to connect to the EJB server. This information should
+    be the same as that used by your client code to connect to the server.
+    Default connection information for WebSphere and Web Logic can be found in
+    the online product documentation.&nbsp;</li>
+  <li>When you've supplied your connection information, select <b>Connect</b>
+    and you're presented with a list of beans deployed on that server. You can
+    interact with one-to-many beans during a session, and you need to select the
+    first bean to interact with at this point.</li>
+  <li>Here you create an instance of the first bean under test. Select the
+    appropriate creation method from the top half of the Methods window. If the
+    create method requires specific parameters, specify them in the <b>Parameters</b>
+    section. Once complete, select <b>Invoke</b> to create an instance of the
+    bean.</li>
+  <li>With the instance of the bean created, the EJB session recorder presents
+    you with the various operations available on that bean. You'll see the
+    bean's own operations in the top half of the Methods window, inherited
+    operations in the bottom half. As a general rule, you won't be testing the
+    inherited operations. Once you've selected the operation to test, you can
+    supply the required parameters for this operation in the Parameters window.</li>
+  <li>If the parameter is a complex object, there will be a button called New.
+    This opens a subsequent window where you're presented with a dialog that
+    allows you to create an instance of the required object. The window shows
+    all constructors and the required arguments to construct an instance of the
+    object. When you've supplied the constructor information, you need to name
+    the object so it can be referenced later during the recording, if
+    necessary.&nbsp;</li>
+  <li>There is value in assigning names to parameters if these values will be
+    used again during the session recording. If you provide a name,
+    QualityArchitect will be able to populate the value in any parameter field
+    when you right-click that field.</li>
+  <li>When you click <b>Invoke</b>, the operation is called with the provided
+    parameters. The return value is shown in the <b>Last Return Value</b> field.
+    If this value is required as the input to a subsequent call, it can be
+    dragged and dropped into the required field. You can also right-click it
+    when the mouse is pointing at the parameter field where the value will be
+    inserted. To determine what values to present on the right-click menu, the
+    EJB session recorder matches the type of the parameter to the previous types
+    that have been used during testing.&nbsp;</li>
+  <li>At any point in the session, you can insert java code or verification
+    points from the <b>Insert</b> menu. The verification points are the same as
+    those used when generating scenario test code. Similarly, java code can be
+    inserted to perform any additional processing.</li>
+  <li>If you are in record mode, you can convert the XML-based recording to java
+    code when all steps of your test are complete. Click <b>Stop</b> to perform
+    this action. You are prompted to convert the XML code to java code, and
+    you'll need to provide a session name and a script name. Java code, which
+    you can execute to replicate the steps taken during your recording, is the
+    output of this process.&nbsp;</li>
+</ol>
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

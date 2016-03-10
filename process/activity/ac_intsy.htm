@@ -1,0 +1,285 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Integrate System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Integrate System</rpw><a name="Top"></a><a name="XE_system__integrating"></a><a name="XE_integration__of_system"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr> 
+    <td colspan="2"><b>Purpose</b> 
+          <ul>
+            <li>To integrate the implementation subsystems piecewise into a build.</li>
+          </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Steps</b> 
+          <ul>
+            <li><a href="#Accept Subsystems and Produce Intermediate Builds">Accept 
+              Subsystems and Produce Intermediate Builds</a></li>
+            <li><a href="#Promote Baselines">Promote Baselines</a></li>
+          </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_impss.htm">Implementation Subsystem</a></li>
+<li><a href="../artifact/ar_intbp.htm">Integration Build Plan</a></li>
+</ul>
+ &nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_build.htm">Build</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Frequency:&nbsp;</b>At least once per build.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_syint.htm">Integrator</a>&nbsp;
+	</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+	  <ul>
+<li><a href="../../toolment/rose/tm_usingmi.htm">Comparing and Merging Rational Rose Models Using Model Integrator</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td  colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_impl.htm">Implementation</a>
+<ul>
+<li><a href="../workflow/implemen/wfs_insy.htm">Integrate the System</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Accept Subsystems and Produce Intermediate Builds">Accept
+Subsystems and Produce Intermediate Builds</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>When this activity begins, implementation subsystems have been delivered to
+satisfy the requirements of the next (the 'target') build described in the <a href="../artifact/ar_intbp.htm">Artifact:
+Integration Build Plan</a>, recalling that the Integration Build Plan may define
+the need for several builds in an iteration. Depending on the complexity and
+number of subsystems to be integrated, it is often more efficient to produce the
+target build in a number of steps, adding more subsystems with each step, and
+producing a series of intermediate 'mini' builds - thus, each build planned for
+an iteration may, in turn, have its own sequence of transient intermediate
+builds. These are subjected to a minimal integration test (usually a subset of
+the tests described in the Integration Build Plan for this target build) to
+ensure that what is added is compatible with what already exists in the system
+integration workspace. It should be easier to isolate and diagnose problems
+using this approach.&nbsp;</p>
+<p>The integrator accepts delivered subsystems incrementally into the system
+integration workspace, in the process resolving any merge conflicts.&nbsp;It is
+recommended that this be done bottom-up with respect to the layered structure,
+making sure that the versions of the subsystems are consistent, taking imports
+into consideration. The increment of subsystems is compiled and linked into an
+intermediate build, which is then provided to the tester to execute a minimal
+system integration test.</p>
+<p class="picturelarge" align="center"><img src="images/ac_intsy.gif" alt width="501" height="172"></p>
+<p class="picturetext" align="left">This diagram shows a build produced in three
+increments. Some subsystems are only needed as stubs, to make it possible to
+compile and link the other subsystems, and provide the essential minimal
+run-time behavior.</p>
+<p align="left">The final increment of a sequence produces the target build, as
+planned in the Integration Build Plan. When this has been minimally tested, an
+initial or provisional baseline is created for this build
+ - invoking the <a href="ac_baspj.htm">Activity: Create Baselines</a> in the Configuration Management discipline. The build is now
+made available to the tester for complete system testing. The nature and depth
+of this testing will be as planned in the Integration Build Plan, with the final
+build of an iteration being subjected to all the tests defined in the Iteration
+Test Plan.</p>
+<h3 align="left"><a name="Promote Baselines">Promote Baselines</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>As a build passes various levels of test, the associated baselines are
+promoted accordingly. This is done 
+by invoking the <a href="ac_buildp.htm">Activity: Promote Baselines</a> in the Configuration Management 
+discipline. Promotion is a means of marking baselines as having passed or failed a certain level of
+testing. The names of the promotion levels are defined by the <a href="../workers/wk_cmmgr.htm">Role:
+Configuration Manager</a> as part of defining project configuration policies
+ (in
+the <a href="../artifact/ar_cmpln.htm">Artifact: Configuration Management Plan</a>).
+The promotion levels are important to consumers of the baseline: for example, an
+implementer will want to know that a baseline is stable and tested before
+updating (or 'rebaselining') a private development workspace to be consistent
+with a baseline in the system integration workspace.</p><br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

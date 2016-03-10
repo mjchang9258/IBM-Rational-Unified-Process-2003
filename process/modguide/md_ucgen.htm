@@ -1,0 +1,304 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Use-Case Generalization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Use-Case Generalization</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Executing the Use-Case-Generalization">Executing the use-case
+    generalization</a></li>
+  <li><a href="#Describing the Use-Case Generalization">Describing the use-case
+    generalization</a></li>
+  <li><a href="#Example of Use">Example of use</a></li>
+</ul>
+
+
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A parent use case may be specialized into one or more child use cases that 
+  represent more specific forms of the parent. Neither parent nor child is necessarily 
+  abstract, although the parent in most cases is abstract. A child inherits all 
+  structure, behavior, and relationships of the parent. Children of the same parent 
+  are all specializations of the parent. This is generalization as applicable 
+  to use cases (see also <a href="md_gener.htm">Guidelines: Generalization</a>).</p>
+<p>Generalization is used when you find two or more use cases that have commonalities 
+  in behavior, structure, and purpose. When this happens, you can describe the 
+  shared parts in a new, often abstract, use case, that is then specialized by 
+  child use cases.</p>
+<p class="exampleheading">Example:</p>
+<p align="center"><img src="images/ucgen1.gif" width="259" height="301"></p>
+<p class="picturetext">The use cases Phone Order and Internet Order are specializations 
+  of the abstract use case Place Order.</p>
+<p class="example">In an Order Management system, the use cases Phone Order and 
+  Internet Order share a lot in structure and behavior. A general use case Place 
+  Order is defined where that structure and common behavior is defined. The abstract 
+  use case Place Order need not be complete in itself, but it provides a general 
+  behavioral framework that the child use cases can then make complete.</p>
+<p>The parent use case is not always abstract.</p>
+<p class="exampleheading">Example:</p>
+<p class="example">Consider the Order Management system in the previous example. 
+  Say that we want to add an Order Registry Clerk actor, who can enter orders 
+  into the system on behalf of a customer. This actor would initiate the general 
+  Place Order use case, which now must have a complete flow of events described 
+  for it. The child use cases can add behavior to the structure that the parent 
+  use case provides, and also modify behavior in the parent.</p>
+<p align="center"><img src="images/ucgen2.gif" width="325" height="306"></p>
+<p class="picturetext">The actor Order Registry Clerk can instantiate the general 
+  use case Place Order. Place Order can also be specialized by the use cases Phone 
+  Order or Internet Order.</p>
+<p>The child use case is dependent on the structure (see <a href="md_uc.htm">Guidelines: 
+  Use Case</a>, the discussion on structure of flow of events) of the parent use 
+  case. The child use case may add additional behavior to the parent by inserting 
+  segments of behavior into the inherited behavior, or by declaring include- and 
+  extend-relationships to the child use case. The child may modify behavior segments 
+  inherited from the parent, although it must be done with care so that the intent 
+  of the parent is preserved. The structure of the parent use case is preserved 
+  by the child. This means that all behavior segments, described as steps or subflows 
+  of the parent’s flow of events, must still exist, but the contents of these 
+  behavior segments may be modified by the child.</p>
+<p>If the parent is an abstract use case, it may have behavior segments that are 
+  incomplete. The child must then complete those behavior segments and make them 
+  meaningful to the actor.</p>
+<p>A parent use case need not have a relationship to an actor if it is an abstract 
+  use case.</p>
+<p>If two child use cases are specializing the same parent (or base), the specializations 
+  are independent of one another, meaning they are executed in separate use-case 
+  instances. This is unlike the extend- or include-relationships, where several 
+  additions implicitly or explicitly modify one use-case instance executing the 
+  same base use case.</p>
+
+
+<p>Both use-case-generalization and include can be used to reuse behavior among 
+  use cases in the model. The difference is that with use-case-generalization, 
+  the execution of the children is dependent on the structure and behavior of 
+  the parent (the reused part), while in an include-relationship the execution 
+  of the base use case depends only on the result of the function that the inclusion 
+  use case (the reused part) performs. Another difference is that in a generalization 
+  the children share similarities in purpose and structure, while in the include-relationship 
+  the base use cases that are reusing the same inclusion can have completely different 
+  purposes, but they need the same function to be performed.</p>
+<h3><a name="Executing the Use-Case-Generalization">Executing the Use-Case
+Generalization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A use-case instance executing a child use case will follow the flow of events
+described for the parent use case, inserting additional behavior and modifying
+behavior as defined in the flow of events of the child use case.</p>
+<p align="center"><img src="images/ucgen3.gif" width="273" height="240"></p>
+<p class="picturetext">The use-case instance follows the parent use case, with 
+  behavior inserted or modified as described in the child use case.</p>
+
+
+<h3><a name="Describing the Use-Case Generalization">Describing the Use-Case
+Generalization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In general, you do not describe the generalization-relationship itself. Instead, 
+  in the flow of events of the child use case you will specify how new steps are 
+  inserted into the inherited behavior, and how inherited behavior is modified.</p>
+<p>If the child is specializing more than one parent (multiple inheritance), you 
+  must in the specification of the child explicitly state how the behavior sequences 
+  from the parents are interleaved in the child.</p>
+
+
+<h3><a name="Example of Use">Example of Use</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Consider the following step-by-step outlines to use cases for a simple phone 
+  system:</p>
+
+<h4>Place Local Call</h4>
+<ol>
+  <li><font color="#008080">Caller lifts receiver.</font></li>
+  <li><font color="#008080">System presents dial-tone.</font></li>
+  <li><font color="#008080">Caller dials a digit.</font></li>
+  <li><font color="#008080">System turns off dial-tone.</font></li>
+  <li><font color="#008080">Caller enters remainder of number.</font></li>
+  <li><font color="#008080">System analyzes the number.</font></li>
+  <li>System finds corresponding party.</li>
+  <li>System connects the parties.</li>
+  <li><font color="#008080">Parties disconnect.</font></li>
+</ol>
+<b>
+
+<h4>Place Long-Distance Call</h4>
+</b>
+<ol>
+  <li><font color="#008080">Caller lifts receiver.</font></li>
+  <li><font color="#008080">System presents dial-tone.</font></li>
+  <li><font color="#008080">Caller dials a digit.</font></li>
+  <li><font color="#008080">System turns off dial-tone.</font></li>
+  <li><font color="#008080">Caller enters remainder of number.</font></li>
+  <li><font color="#008080">System analyzes the number.</font></li>
+  <li>System sends number to other system.</li>
+  <li>System connect the lines.</li>
+  <li><font color="#008080">Parties disconnect.</font></li>
+</ol>
+<p>The text in <font color="#008080">blue</font> is very similar in the two use cases. If the two use cases 
+  are so similar, we should consider merging them into one, where alternative 
+  subflows show the difference between local calls and long-distance calls.</p>
+<p>If, however, the difference between them is of some significance, and there 
+  is a value in clearly showing in the use-case model the relationship between 
+  local call and long-distance call, we can extract common behavior into a new, 
+  more general use case, called Place Call.</p>
+<p>In a use-case diagram, the generalization-relationship created will be illustrated 
+  as follows:</p>
+<p class="picturecenter" align="center"><img src="images/ucgen4.gif" width="260" height="155"></p>
+<p class="picturetext">The use cases Place Local Call and Place Long-Distance 
+  Call are inheriting from the abstract use case Place Call.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

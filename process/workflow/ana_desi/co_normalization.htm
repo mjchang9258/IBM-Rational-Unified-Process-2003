@@ -1,0 +1,224 @@
+<!-- RPW META DATA START -
+
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Concepts:&nbsp;Normalization</title>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Normalization</rpw><a name="Top"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Levels of Normalization">Levels of Normalization</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<p>This concept document provides a brief discussion of the topic of data normalization 
+  as it applies to the development of the <a href="../../artifact/ar_datmd.htm"> 
+  Artifact: Data Model</a>.&nbsp;It does not provide a full treatment of normalization, 
+  because the subject is quite broad and has been documented in many texts on 
+  database design.&nbsp;In [<a href="../../referenc.htm#NBG01">NBG01</a>], normalization 
+  is defined as &quot;an analytic technique used to produce a correct relational 
+  database design.&quot; In practice, normalization is a procedure for eliminating 
+  redundancy in the Data Model by means of applying restrictive rules. Elimination 
+  of data redundancy in the tables of the Data Model helps enforce referential 
+  integrity of the data in the database.&nbsp; </p>
+
+
+
+<p>Normalization is usually performed on the Data Model after an initial version 
+  of the tables and their relationships has been developed in the model.&nbsp;The 
+  exact timing of when to apply normalization depends on the specific project 
+  situation and is up to the <a href="../../workers/wk_dbdsr.htm">database designer</a>.&nbsp;The 
+  normalization process is applied to the tables in the Data Model in series of 
+  steps in which each step applies rules that are stricter than the last.&nbsp; 
+</p>
+<h3><a name="Levels of Normalization"></a>Levels of Normalization<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<p>Normalization is hierarchically classified into numeric forms, with the most 
+  common being first, second, and third normal form. Each level of normalization 
+  is more restrictive than the previous. The first three hierarchical levels of 
+  normalization are:</p>
+
+<ul>
+  <li><b>First Normal Form</b>—Repeating groups of data columns in tables have 
+    been eliminated such that data is organized into atomic units.</li>
+  <li><b>Second Normal Form</b>—Data is in first normal form, and redundancy on 
+    primary key fields has been eliminated such that column values are wholly 
+    dependent on the primary key field.</li>
+  <li><b>Third Normal Form</b>—Data is in second normal form, and each column 
+    is not dependent on any other non-key column.</li>
+</ul>
+<p>Other levels of normalization are possible but are not covered in this discussion.&nbsp; 
+  Information on additional levels of normalization can be found in [<a href="../../referenc.htm#DAT99">DAT99</a>].&nbsp;The 
+  exact level of normalization to apply to the Data Model is a decision that the 
+  database designer must make based on the specifics of the project situation. 
+</p>
+
+<p align="left"><br>
+  <br>
+    <hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>   
+</body>
+
+</html>

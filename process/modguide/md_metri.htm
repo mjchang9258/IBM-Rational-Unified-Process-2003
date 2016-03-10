@@ -1,0 +1,1467 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Metrics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Metrics</rpw><a name="Top"></a><a name="XE_metrics__guidelines_for"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Principles">Principles</a></li>
+  <li><a href="#A Taxonomy of Metrics">A Taxonomy of Metrics</a></li>
+  <li><a href="#A Minimal Set of Metrics">A Minimal Set of Metrics</a></li>
+  <li><a href="#A Small Set of Metrics">A Small Set of Metrics</a></li>
+  <li><a href="#A Complete Metrics Set">A Complete Metrics Set</a> 
+    <ul>
+      <li><a href="#What Should be Measured?">What Should be Measured?</a></li>
+      <li><a href="#The Process">The Process</a></li>
+      <li><a href="#The Product">The Product</a></li>
+      <li><a href="#The Project">The Project</a></li>
+      <li><a href="#The Resources">The Resources</a></li>
+    </ul>
+  </li>
+</ul>
+<h3><a name="XE_metrics__principles"></a><a name="Principles">Principles </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>Metrics must be simple, objective, easy to collect, easy to interpret, and
+    hard to misinterpret.</li>
+  <li>Metrics collection must be automated and non-intrusive, that is, not
+    interfere with the activities of the developers.</li>
+  <li>Metrics must contribute to quality assessment early in the lifecycle, when
+    efforts to improve software quality are effective.</li>
+  <li>Metric absolute values and trends must be actively used by management
+    personnel and engineering personnel for communicating progress and quality
+    in a consistent format.</li>
+  <li>The selection of a minimal or more extensive set of metrics will depend on
+    the project's characteristics and context: if it is large or has stringent
+    safety or reliability requirements and the development and assessment teams
+    are knowledgeable about metrics, then it may be useful to collect and
+    analyze the technical metrics. The contract may require certain metrics to
+    be collected, or the organization may be trying to improve it skills an
+    processes in particular areas. There is no simple answer to fit all
+    circumstances, the Project Manager must select what is appropriate when the
+    Measurement Plan is produced. When introducing a metrics program for the
+    first time though, it is sensible to err on the side of simplicity.</li>
+</ul>
+<h3><a name="XE_metrics__taxonomy_of"></a><a name="A Taxonomy of Metrics">A
+Taxonomy of Metrics </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Metrics for certain aspects of the project, include:
+<ul>
+  <li>Progress in terms of size and complexity.</li>
+  <li>Stability in terms of rate of change in the requirements or
+    implementation, size, or complexity.</li>
+  <li>Modularity in terms of the scope of change.</li>
+  <li>Quality in terms of the number and type of errors.</li>
+  <li>Maturity in terms of the frequency of errors.</li>
+  <li>Resources in terms of project expenditure versus planned expenditure</li>
+</ul>
+<p><b>Trends </b>are important, and somewhat more important to monitor
+than any absolute value in time.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%"><b>Metric</b></td>
+    <td width="25%"><b>Purpose</b></td>
+    <td width="55%"><b>Sample measures/perspectives</b></td>
+  </tr>
+  <tr>
+    <td width="20%"><b>Progress</b></td>
+    <td width="25%">Iteration planning<br>Completeness</td>
+    <td width="55%">
+    <ul>
+      <li>Number of classes</li>
+      <li>SLOC</li>
+      <li>Function points</li>
+      <li>Scenarios</li>
+      <li>Test cases</li>
+    </ul>
+    <p>These measures may also be collected by class and by package
+    <ul>
+      <li>Amount of rework per iteration (number of classes)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%"><b>Stability</b></td>
+    <td width="25%">Convergence</td>
+    <td width="55%">
+    <ul>
+      <li>Number and type of changes (bug versus enhancement; interface versus implementation)</li>
+    </ul>
+    <p>This measure may also be collected by iteration and by package
+    <ul>
+      <li>Amount of rework per iteration</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%"><b>Adaptability</b></td>
+    <td width="25%">Convergence<br>Software &quot;rework&quot;</td>
+    <td width="55%">
+    <ul>
+      <li>Average person-hours/change</li>
+    </ul>
+    <p>This measure may also be collected by iteration and by package</td>
+  </tr>
+  <tr>
+    <td width="20%"><b>Modularity</b></td>
+    <td width="25%">Convergence<br>Software &quot;scrap&quot;</td>
+    <td width="55%">
+    <ul>
+      <li>Number of classes/categories modified per change</li>
+    </ul>
+    <p>This measure may also be collected by iteration</td>
+  </tr>
+  <tr>
+    <td width="20%"><b>Quality</b></td>
+    <td width="25%">Iteration planning<br>
+      Rework indicator<br>
+      Release criterion</td>
+    <td width="55%">
+    <ul>
+      <li>Number of errors</li>
+      <li>Defect discovery rate</li>
+      <li>Defect density</li>
+      <li>Depth of inheritance</li>
+      <li>Class coupling</li>
+      <li>Size of interface (number of operations)</li>
+      <li>Number of methods overridden</li>
+      <li>Method size</li>
+    </ul>
+    <p>These measures may also be collected by class and by package</td>
+  </tr>
+  <tr>
+    <td width="20%"><b>Maturity</b></td>
+    <td width="25%">Test coverage/adequacy<br>Robustness for use</td>
+    <td width="55%">
+    <ul>
+      <li>Test hours/failure and type of failure</li>
+    </ul>
+    <p>This measure may also be collected by iteration and by package</td>
+  </tr>
+  <tr>
+    <td width="20%"><b>Expenditure profile</b></td>
+    <td width="25%">Financial insight<br>
+      Planned versus actual</td>
+    <td width="55%">
+    <ul>
+      <li>Person-days/class</li>
+      <li>Full-time staff per month</li>
+      <li>% budget expended</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<div align="center">
+  <center>
+  </center>
+</div>
+<h3><a name="XE_metrics__minimal_set_of_metrics"></a><a name="A Minimal Set of Metrics">A 
+  Minimal Set of Metrics</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Even the smallest projects will want to track progress to determine if the 
+  project is on schedule and on budget, and if not, to re-estimate and determine 
+  if scope changes are needed. This minimal metrics set will therefore focus on 
+  progress metrics.</p>
+<ul>
+  <li> Earned Value. This is used to re-estimate the schedule and budget for the 
+    remainder of the project, and/or to identify need for scope changes.</li>
+  <li>Defect Trends. This is used to help project the effort required to work 
+    off defects.</li>
+  <li>Test Progress Trend. This is used to determine how much functionality is 
+    actually complete.</li>
+</ul>
+<ul>
+</ul>
+<p> These are described in more detail below.</p>
+<p> 
+<h4><a name="earned_value"></a>Earned Value</h4>
+<p>The most commonly used method ([<a href="../referenc.htm#PMI96">PMI96</a>]) 
+  to measure progress is Earned Value Analysis.</p>
+<p>The simplest way to measure earned value is to take the sum of the original 
+  estimated effort for all completed tasks. A &quot;percent complete&quot; for 
+  the project can be computed as the earned value divided by the total original 
+  estimated effort for the project. Productivity (or Performance Index) is the 
+  earned value divided by the actual effort spend on the complete tasks.</p>
+<p>For example, suppose the coding effort has been divided into several tasks, 
+  many of which are now complete. The original estimate for the completed tasks 
+  was 30 effort days. The total estimated effort for the project was 100 days, 
+  so we can project that the project is roughly 30% complete.</p>
+<p align="center"><img src="images/metrics2.gif" ></p>
+<p>Suppose the tasks were completed under budget - requiring only 25 days to complete. 
+  The Performance Index is 30 / 25 = 1.2 or 120%.<br>
+  We can project that the project will complete 20% under budget, and reduce our 
+  estimates accordingly.</p>
+<p> </p>
+<p> 
+<p> 
+<h5>Considerations</h5>
+<ul>
+  <li> The Performance Index must only be used to adjust estimates for similar 
+    tasks. Early completion of requirements gathering tasks does not suggest that 
+    coding will complete more quickly. So, compute the Performance Index only 
+    for similar kinds of tasks, and adjust estimates only for similar tasks.</li>
+  <li>Consider other factors. Will future tasks be performed by similarly skilled 
+    staff under similar conditions? Has the data been contaminated by &quot;outliers&quot; 
+    - tasks which were severely over-estimated or under-estimated? Is time being 
+    reported consistently (for example, overtime should be included even if not 
+    paid)?</li>
+  <li>Are estimates for newer tasks already accounting for the Performance Index? 
+    If so, then estimates for new tasks will tend to be closer to the target, 
+    pushing the performance index closer to 100%. You should either consistently 
+    re-estimate all incomplete tasks, or adopt the following practice from Extreme 
+    Programming (XP)[<a href="../referenc.htm#JEF01">JEF01</a>] - refer to the 
+    original estimates as &quot;points&quot;, and measure new tasks in terms of 
+    these same &quot;points&quot; without adjusting for actual performance . The 
+    advantage of &quot;points&quot; is that increases (or decreases) in performance 
+    can be tracked (&quot;project velocity&quot; in XP terminology). </li>
+</ul>
+<p></p>
+<p>If tasks are large (more than 5 days), or there are a lot of tasks which are 
+  partially complete, you may wish to factor them into your analysis. Apply a 
+  subjective &quot;percent completion&quot;, multiply this by the task's effort 
+  estimate, and include this in the earned value. Greater consistency in results 
+  is obtained if there are clear rules for assigning the percent complete. For 
+  example, one rule could be that a coding task is assigned no more than 80% complete 
+  until the code has passed a code review.</p>
+<p>Earned value is discussed further under the <a href="#project_plan">A Complete 
+  Metrics Set: Project Plan section</a> below.<br>
+</p>
+<h4>Defect Trend</h4>
+<p> It is often useful to track the trend of open and closed defects. This provides 
+  a rough indication as to whether there is a significant backlog of defect fixing 
+  work to be completed and how quickly they are being closed.</p>
+<p align="center"><img src="images/metrics1.gif"  ></p>
+<p>Defect trends are just one of the metrics provided by Rational ProjectConsole.</p>
+<h5>Considerations</h5>
+<ul>
+  <li>All change requests should not have equal weight, whether they affect one 
+    line of code or cause major re-design. This can be addressed by some of the 
+    following techniques: 
+    <ul>
+      <li>Be aware of outliers. Change Requests which require substantial work 
+        should be identified as such and be tracked as separate tasks, not bundled 
+        into a bucket of general bug fixing. If lots of tiny fixes are dominating 
+        the trend, then consider grouping them so that each Change Request represents 
+        a more consistent unit of work.</li>
+      <li>You can record more information, such as a subjective &quot;effort category&quot; 
+        of &quot;less than 1 day&quot; &quot;1 day&quot; &quot;less than 5 days&quot; 
+        &quot;more than 5 days&quot;.</li>
+      <li>You can record estimated SLOCs and actual SLOCs for each Change Request. 
+        See <a href="#A Small Set of Metrics">A Small Set of Metrics</a> 
+        below.<br>
+      </li>
+    </ul>
+  </li>
+  <li>A lack of defects being recorded may imply a lack of testing. Be aware of 
+    the level of test effort occurring when examining defect trends. </li>
+</ul>
+<p></p>
+<h4>Test Progress Trend</h4>
+<p>The ultimate measure of completeness is how much functionality has been integrated. 
+  <br>
+  If each of your development tasks represents a set of integrated functionality, 
+  then an earned value trend chart may be sufficient.</p>
+<p>A very simple way to communicate progress is with a Test Progress Trend.<br>
+</p>
+<p align="center"><img src="images/metrics3.gif" ></p>
+<h5>Considerations</h5>
+Some test cases may represent significantly more value or effort than others. 
+Don't read too much into this graph - it just provides some assurance that there 
+is progress towards completed functionality.<br>
+<p>
+<div align="center">
+  <center>
+  </center>
+</div>
+<h3><a name="XE_metrics__small_set_of_metrics"></a><a name="A Small Set of Metrics">A 
+  Small Set of Metrics</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="center">
+  <center>
+  </center>
+</div>
+<p>The minimal set of metrics described previously is not enough for many projects.</p>
+<p><i>Software Project Management, a Unified framework </i>[<a href="../referenc.htm#ROY98">ROY98</a>], 
+  recommends the following set of metrics for all projects. Note that these metrics 
+  require Source Lines of Code (SLOC) estimates and actuals for each change request, 
+  which requires some additional effort to gather.</p>
+<h4>Metrics and Primitives metrics</h4>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="30%">Total SLOC</td>
+	<td width="70%">SLOCt = Esimated total size of the code. This may change significantly as requirements are better 
+	  understood and as design solutions mature. Include reused software which is subject to change by the team.</td>
+  </tr>
+  <tr>
+    <td width="30%">SLOC under configuration<br>control</td>
+    <td width="70%">SLOCc = Current baseline</td>
+  </tr>
+  <tr>
+    <td width="30%">Critical defects</td>
+    <td width="70%">SCO0 = number of type 0 SCO (where SCO is a Software Change Order - another term for Change Request)</td>
+  </tr>
+  <tr>
+    <td width="30%">Normal defects</td>
+    <td width="70%">SCO1 = number of type 1 SCO</td>
+  </tr>
+  <tr>
+    <td width="30%">Improvement requests</td>
+    <td width="70%">SCO2 = number of type 2 SCO</td>
+  </tr>
+  <tr>
+    <td width="30%">New features</td>
+    <td width="70%">SCO3 = number of type 3 SCO</td>
+  </tr>
+  <tr>
+    <td width="30%">Number of SCO</td>
+    <td width="70%">N = SCO0 + SCO1 + SCO2</td>
+  </tr>
+  <tr>
+    <td width="30%">Open Rework (breakage)</td>
+    <td width="70%">B = cumulative broken SLOC due to SCO1 and SCO2</td>
+  </tr>
+  <tr>
+    <td width="30%">Closed rework (fixes)</td>
+    <td width="70%">F = cumulative fixed SLOC</td>
+  </tr>
+  <tr>
+    <td width="30%">Rework effort</td>
+    <td width="70%">E = cumulative effort expended fixing type 0/1/2 SCO</td>
+  </tr>
+  <tr>
+    <td width="30%">Usage time</td>
+    <td width="70%">UT = hours that a given baseline has been operating under realistic usage scenarios</td>
+  </tr>
+</table>
+<br></div>
+
+<h4>Quality Metrics for the End-Product</h4>
+<p>From this small set of metrics, some more interesting metrics can be derived:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="30%">Scrap ratio</td>
+    <td width="70%">B/SLOCt, percentage of product scrapped</td>
+  </tr>
+  <tr>
+    <td width="30%">Rework ratio</td>
+    <td width="70%">E/Total effort, percentage of rework effort</td>
+  </tr>
+  <tr>
+    <td width="30%">Modularity</td>
+    <td width="70%">B/N, average breakage per SCO</td>
+  </tr>
+  <tr>
+    <td width="30%">Adaptability</td>
+    <td width="70%">E/N, average effort per SCO</td>
+  </tr>
+  <tr>
+    <td width="30%">Maturity</td>
+    <td width="70%">UT/(SCO0 + SCO1), Mean time between defects</td>
+  </tr>
+  <tr>
+    <td width="30%">Maintainability</td>
+    <td width="70%">(scrap ratio)/(rework ratio), maintenance productivity</td>
+  </tr>
+</table>
+<br></div>
+
+<h4>In-progress Indicators</h4>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="30%">Rework stability</td>
+    <td width="70%">B - F, breakage versus fixes over time</td>
+  </tr>
+  <tr>
+    <td width="30%">Rework backlog</td>
+    <td width="70%">(B-F)/SLOCc, currently open rework</td>
+  </tr>
+  <tr>
+    <td width="30%">Modularity trend</td>
+    <td width="70%">Modularity, over time</td>
+  </tr>
+  <tr>
+    <td width="30%">Adaptability trend</td>
+    <td width="70%">Adaptability, over time</td>
+  </tr>
+  <tr>
+    <td width="30%">Maturity trend</td>
+    <td width="70%">Maturity, over time</td>
+  </tr>
+</table>
+  <br>
+</div>
+<h3><a name="A Complete Metrics Set">A Complete Metrics Set</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4><a name="What Should be Measured?">What Should be Measured?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The things to be measured are:</p>
+<blockquote>
+  <ul>
+    <li>the Process <b> &#151 </b> the sequence of activities invoked to produce the software
+      product (and other artifacts);</li>
+    <li>the Product <b> &#151 </b> the artifacts of the process, including software,
+      documents and models;</li>
+    <li>the Project <b> &#151 </b> the totality of project resources, activities and
+      artifacts;</li>
+    <li>the Resources <b> &#151 </b> the people, methods and tools, time, effort and budget,
+      available to the project.</li>
+  </ul>
+</blockquote>
+<h4><a name="The Process">The Process</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>To completely characterize the process, measurements should be made at the
+lowest level of formally planned activity. Activities will be planned by the
+Project Manager using an initial set of estimates. A record should then be kept
+of actual values over time and any updated estimates that are made.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%">
+    <p align="center"><b>Metrics</b></td>
+    <td width="60%">
+    <p align="center"><b>Comments</b></td>
+  </tr>
+  <tr>
+    <td width="40%">Duration</td>
+    <td width="60%">Elapsed time for the activity</td>
+  </tr>
+  <tr>
+    <td width="40%">Effort</td>
+    <td width="60%">Staff effort units (staff-hours, staff-days, ...)</td>
+  </tr>
+  <tr>
+    <td width="40%">Output</td>
+    <td width="60%">Artifacts and their size and quantity (note this will
+    include defects as an output of test activities)</td>
+  </tr>
+  <tr>
+    <td width="40%">Software development environment usage</td>
+    <td width="60%">CPU, storage, software tools, equipment (workstations, PCs),
+    disposables. Note that these may be collected for a project by the Software
+    Engineering Environment Authority (SEEA).</td>
+  </tr>
+  <tr>
+    <td width="40%">Defects, discovery rate, correction rate.</td>
+    <td width="60%">Total repair time/effort and total scrap/rework (where this
+    can be measured) also needs to be collected; will probably come from
+    information collected against the defects (considered as artifacts).</td>
+  </tr>
+  <tr>
+    <td width="40%">Change requests, imposition rate, disposal rate.</td>
+    <td width="60%">Comments as above on time/effort.</td>
+  </tr>
+  <tr>
+    <td width="40%">Other incidents that may have a bearing on these metrics
+    (freeform text)</td>
+    <td width="60%">This is a metric in that it is a record of an event that
+    affected the process.</td>
+  </tr>
+  <tr>
+    <td width="40%">Staff numbers, profile (over time) and characteristics</td>
+    <td width="60%">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="40%">Staff turnover</td>
+    <td width="60%">A useful metric which may explain at a post-mortem review
+    why a process went particularly well, or badly.</td>
+  </tr>
+  <tr>
+    <td width="40%">Effort application</td>
+    <td width="60%">The way effort is spent during the performance of the
+    planned activities (against which time is formally recorded for cost account
+    management) may help explain variations in productivity: some subclasses of
+    effort application are, for example:
+    <ul>
+      <li>training</li>
+      <li>familiarization</li>
+      <li>management (by team lead, for example)</li>
+      <li>administration</li>
+      <li>research</li>
+      <li>productive work&#151it's helpful to record this by artifact, and attempt
+        a separation of 'think' time and capture time, particularly for
+        documents. This will tell the Project manager how much of an imposition
+        the documentation process is on the engineer's time.</li>
+      <li>lost time</li>
+      <li>meetings</li>
+      <li><font size="3">inspections, walkthroughs, reviews – preparation and
+        meeting effort (some of these will be separate activities and time and
+        effort for them will be recorded against a specific review activity)</font></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="40%">Inspections, walkthroughs, reviews (during an activity - not
+    separately scheduled reviews)</td>
+    <td width="60%">Record the numbers of these and their duration, and the
+    numbers of issues raised.</td>
+  </tr>
+  <tr>
+    <td width="40%">Process deviations (raised as non-compliances, requiring <b>project
+    </b>change)</td>
+    <td width="60%">Record the numbers of these and their severity. This is an
+    indicator that more education may be required, that the process is being
+    misapplied, or that the way the process was configured was incorrect</td>
+  </tr>
+  <tr>
+    <td width="40%">Process problems (raised as process defects, requiring <b>process</b> change)</td>
+    <td width="60%">Record the number of these and their severity. This will be
+    useful information at the post-mortem reviews and is essential feedback for
+    the Software Engineering Process Authority (SEPA).</td>
+  </tr>
+</table>
+<br></div>
+
+<h4><a name="The Product">The Product</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The products in the Rational Unified Process (RUP) are the <a href="../artifact/ovu_arts.htm">artifacts</a>,
+which are documents, models or model elements. The models are collections of
+like things (the model elements) so the recommended metrics are listed here with
+the models to which they apply: it is usually obvious if a metric applies to the
+model as a whole, or an element. Explanatory text is provided where this is not
+clear.</p>
+<h5>Artifact Characteristics</h5>
+<p>In general, the characteristics we are interested in measuring are the
+following:</p>
+<blockquote>
+  <ul>
+    <li><b>Size &#151 </b>a measure of the number of things in a model,
+      the length of something, the extent or mass of something</li>
+    <li><b>Quality</b>
+      <ul>
+        <li>Defects <b> &#151 </b> indications that an artifact does not perform as specified
+          or is not compliant with its specification, or has other undesirable
+          characteristics</li>
+        <li>Complexity <b> &#151 </b> a measure of the intricacy of a structure or algorithm:
+          the greater the complexity, the more difficult a structure is to
+          understand and modify, and there is evidence that complex structures
+          are more likely to fail</li>
+        <li>Coupling <b> &#151 </b> a measure of the how extensively elements of a system are
+          interconnected</li>
+        <li>Cohesion <b> &#151 </b> a measure of how well an element or component meets the
+          requirement of having a single, well-defined, purpose</li>
+        <li>Primitiveness <b> &#151 </b> the degree to which operations or methods of a class
+          can be composed from others offered by the class</li>
+      </ul>
+    </li>
+    <li><b>Completeness</b> <b> &#151 </b> a measure of the extent to which an
+      artifact meets all requirements (stated and implied<b>&#151</b>the Project Manager
+      should strive to make explicit as much as possible, to limit the risk of
+      unfulfilled expectations). We have not chosen here to distinguish between <i>sufficient</i>
+      and <i>complete</i>.</li>
+    <li><b>Traceability &#151 </b>an indication that the requirements at
+      one level are being satisfied by artifacts at a lower level, and, looking
+      the other way, that an artifact at any level has a reason to exist</li>
+    <li><b>Volatility &#151 </b>the degree of change or inconclusiveness in an
+      artifact because of defects or changing requirements</li>
+    <li><b>Effort &#151 </b>a measure of the work (staff-time units) that
+      is required to produce an artifact</li>
+  </ul>
+</blockquote>
+<p>Not all of these characteristics apply to all artifacts: the relevant ones
+are elaborated with the particular artifact in the following tables. Where
+several metrics are listed against a characteristic, all are potentially of
+interest, because they give a complete description of the characteristic from
+several viewpoints. For example, when considering the traceability of Use Cases,
+ultimately all have to be traceable to a (tested) implementation model: in the
+interim, it will still be of interest to the Project Manager to know how many
+Use Cases can be traced to the Analysis Model, as a measure of progress.</p>
+<h5>Documents</h5>
+<p>The recommended metrics apply to all the RUP documents.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%">
+    <p align="center"><b>Characteristic</b></td>
+    <td width="60%">
+    <p align="center"><b>Metrics</b></td>
+  </tr>
+  <tr>
+    <td width="40%">Size</td>
+    <td width="60%">Page count</td>
+  </tr>
+  <tr>
+    <td width="40%">Effort</td>
+    <td width="60%">Staff-time units for production, change and repair</td>
+  </tr>
+  <tr>
+    <td width="40%">Volatility</td>
+    <td width="60%">Numbers of changes, defects, opened, closed; change pages</td>
+  </tr>
+  <tr>
+    <td width="40%">Quality</td>
+    <td width="60%">Measured directly through defect count</td>
+  </tr>
+  <tr>
+    <td width="40%"><i>Completeness</i></td>
+    <td width="60%"><i>Not measured directly: judgment made through review</i></td>
+  </tr>
+  <tr>
+    <td width="40%"><i>Traceability</i></td>
+    <td width="60%"><i>Not measured directly: judgment made through review</i></td>
+  </tr>
+</table>
+<br></div>
+
+<h5>Models</h5>
+<h6>Requirements</h6>
+<blockquote>
+
+  <p><a href="../artifact/ar_rattr.htm">Requirements Attributes</a></p>
+
+  <p>This is actually a model element.</p>
+<div align="center">
+  
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="19%" align="center"><b>Characteristic</b></td>
+      <td width="81%" align="center"><b>Metrics</b></td>
+    </tr>
+    <tr>
+      <td width="19%">Size</td>
+      <td width="81%">
+      <ul>
+        <li>number of requirements in total (= Nu+Nd+Ni+Nt)</li>
+        <li>number to be traced to use cases ( = Nu)</li>
+        <li>number to be traced to design, implementation, test only ( = Nd)</li>
+        <li>number to be traced to implementation, test only ( = Ni)</li>
+        <li>number to be traced to test only ( = Nt)</li>
+      </ul>
+      <p>Note that this partitions requirements into those that will be modeled
+      by Use Cases and those that will not. The expectation is that Use-Case
+      traceability will account for those requirements assigned to Use Cases, to
+      track design, implementation and test.</td>
+    </tr>
+    <tr>
+      <td width="19%">Effort</td>
+      <td width="81%">
+      <ul>
+        <li>Staff-time units (with production, change and repair separated)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Volatility</td>
+      <td width="81%">
+      <ul>
+        <li>Number of defects and change requests (open, closed)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Quality</td>
+      <td width="81%">
+      <ul>
+        <li>Defects <b> &#151 </b> number of defects, by severity (open, closed)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Traceability</td>
+      <td width="81%">
+      <ul>
+        <li><a name="Requirements-to-UC Traceability">Requirements-to-UC
+          Traceability</a> = Traceable to Use-Case Model/Nu</li>
+        <li><a name="Design Traceability in Requirements Attributes">Design
+          Traceability</a> = Traceable to Design Model/Nd</li>
+        <li><a name="Implementation Traceability in Requirements Attributes">Implementation
+          Traceability</a> = Traceable to Implementation Model/(Nd+Ni)</li>
+        <li><a name="Test Traceability in Requirements Attributes">Test
+          Traceability</a> = Traceable to test model/(Nd+Ni+Nt)</li>
+      </ul>
+      </td>
+    </tr>
+  </table>
+  <br></div>
+
+</blockquote>
+<blockquote>
+  <p><a href="../artifact/ar_ucmod.htm"><font size="3">Use-Case Model</font></a></p>
+</blockquote>
+<blockquote>
+  <div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="19%" align="center"><b>Characteristic</b></td>
+      <td width="81%" align="center"><b>Metrics</b></td>
+    </tr>
+    <tr>
+      <td width="19%">Size</td>
+      <td width="81%">
+      <ul>
+        <li>Number of Use Cases</li>
+        <li>Number of Use Case Packages</li>
+        <li>Reported Level of Use Case (see white paper<i>,</i> &quot;The
+          Estimation of Effort and Size based on Use Cases&quot; from the
+          <a href="http://www.rational.net/rupcenter" target="_blank">RUP Knowledge Center 
+  on RDN<sup><font size="2">SM</font></sup></a>)</li>
+        <li>Number of scenarios, total and per use case</li>
+        <li>Number of actors</li>
+        <li>Length of Use Case (pages of event flow, for example)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Effort</td>
+      <td width="81%">
+      <ul>
+        <li>Staff-time units (with production, change and repair separated)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Volatility</td>
+      <td width="81%">
+      <ul>
+        <li>Number of defects and change requests (open, closed)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Quality</td>
+      <td width="81%">
+      <ul>
+        <li>Reported complexity (0-5, by analogy with COCOMO [<a href="../referenc.htm#BOE81">BOE81</a>],
+          at class level; complexity range is narrower at higher levels of
+          abstraction - see white paper, &quot;The Estimation of Effort and Size
+          based on Use Cases&quot; from the <a href="http://www.rational.net/rupcenter" target="_blank">RUP Knowledge Center 
+  on RDN<sup><font size="2">SM</font></sup></a>)</li>
+        <li>Defects <b> &#151 </b> number of defects, by severity, open, closed</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Completeness</td>
+      <td width="81%">
+      <ul>
+        <li>Use Cases completed (reviewed and under configuration management
+          with no defects outstanding)/use cases identified (or estimated number
+          of use cases)</li>
+        <li><a href="#Requirements-to-UC Traceability">Requirements-to-UC
+          Traceability</a> (from Requirements Attributes)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Traceability</td>
+      <td width="81%">
+      <ul>
+        <li><a name="Analysis Traceability in Use case model">Analysis</a>
+          <ul>
+            <li>Scenarios realized in analysis model/total scenarios</li>
+          </ul>
+        </li>
+        <li><a name="Design traceability in Use case model">Design</a>
+          <ul>
+            <li>Scenarios realized in design model/total scenarios</li>
+          </ul>
+        </li>
+        <li><a name="Implementation traceability in Use Case Model">Implementation</a>
+          <ul>
+            <li>Scenarios realized in implementation model/total scenarios</li>
+          </ul>
+        </li>
+        <li><a name="Test Traceability in Use Case model">Test</a>
+          <ul>
+            <li>Scenarios realized in test model (test cases)/total scenarios</li>
+          </ul>
+        </li>
+      </ul>
+      </td>
+    </tr>
+</table>
+<br></div>
+
+</blockquote>
+<h6>Design</h6>
+<blockquote>
+  <p><a href="../artifact/ar_amdl.htm">Analysis Model</a></p>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <td width="19%" align="center"><b>Characteristic</b></td>
+      <td width="81%" align="center" colspan="2"><b>Metrics</b></td>
+    </tr>
+    <tr>
+      <td width="19%">Size</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of classes</li>
+        <li>Number of subsystems</li>
+        <li>Number of subsystems of subsystems …</li>
+        <li>Number of packages</li>
+        <li>Methods per class, internal, external</li>
+        <li>Attributes per class, internal, external</li>
+        <li>Depth of inheritance tree</li>
+        <li>Number of children</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Effort</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Staff-time units (with production, change and repair separated)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Volatility</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of defects and change requests (open, closed)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" rowspan="4">Quality</td>
+      <td width="28%">Complexity</td>
+      <td width="53%">
+      <ul>
+        <li>Response For a Class (RFC): this may be difficult to calculate
+          because a complete set of interaction diagrams is needed.</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Coupling</td>
+      <td width="53%">
+      <ul>
+        <li>Number of children</li>
+        <li>Coupling between objects (class fan-out)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Cohesion</td>
+      <td width="53%">
+      <ul>
+        <li>Number of children</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Defects</td>
+      <td width="53%">
+      <ul>
+        <li>Number of defects, by severity, open, closed</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Completeness</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of classes completed/number of classes estimated (identified)</li>
+        <li><a href="#Analysis Traceability in Use case model">Analysis
+          traceability</a> (in Use-Case model)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Traceability</td>
+      <td width="81%" colspan="2">Not applicable<b>&#151</b>the analysis model becomes
+      the design model.</td>
+    </tr>
+</table>
+<br></div>
+
+</blockquote>
+<p>Here we see some OO-specific technical metrics that may be unfamiliar<b>&#151</b>depth
+of inheritance tree, number of children, response for a class, coupling between
+objects, and so on. See [<a href="../referenc.htm#HEND96">HEND96</a>] for
+details of the meaning and history of these metrics. Several of these metrics
+were originally suggested by Chidamber and Kemerer (see &quot;A metrics suite
+for object oriented design&quot;, IEEE Transactions on Software Engineering,
+20(6), 1994), but we have applied them here as suggested in [<a href="../referenc.htm#HEND96">HEND96</a>]
+and have preferred the definition of LCOM (lack of cohesion in methods)
+presented in that work.</p>
+<blockquote>
+  <p><a href="../artifact/ar_desmd.htm">Design Model</a></p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="19%" align="center"><b>Characteristic</b></td>
+      <td width="81%" align="center" colspan="2"><b>Metrics</b></td>
+    </tr>
+    <tr>
+      <td width="19%">Size</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of classes</li>
+        <li>Number of design subsystems</li>
+        <li>Number of subsystems of subsystems …</li>
+        <li>Number of packages</li>
+        <li>Methods per class, internal, external</li>
+        <li>Attributes per class, internal, external</li>
+        <li>Depth of inheritance tree</li>
+        <li>Number of children</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Effort</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Staff-time units (with production, change and repair separated)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Volatility</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of defects and change requests (open, closed)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" rowspan="4">Quality</td>
+      <td width="28%">Complexity</td>
+      <td width="53%">
+      <ul>
+        <li>Response For a Class (RFC): this may be difficult to calculate
+          because a complete set of interaction diagrams is needed.</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Coupling</td>
+      <td width="53%">
+      <ul>
+        <li>Number of children</li>
+        <li>Coupling between objects (class fan-out)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Cohesion</td>
+      <td width="53%">
+      <ul>
+        <li>Number of children</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Defects</td>
+      <td width="53%">
+      <ul>
+        <li>Number of defects, by severity (open, closed)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Completeness</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of classes completed/number of classes estimated (identified)</li>
+        <li><a href="#Design traceability in Use case model">Design traceability</a>
+          (in Use-Case model)</li>
+        <li><a href="#Design Traceability in Requirements Attributes">Design
+          traceability</a> (in Requirements Attributes)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Traceability</td>
+      <td width="81%" colspan="2">Number of classes in Implementation
+      Model/number of classes</td>
+    </tr>
+</table>
+<br></div>
+
+</blockquote>
+<h6>Implementation</h6>
+<blockquote>
+  <p><a href="../artifact/ar_impmd.htm">Implementation Model</a></p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="19%" align="center"><b>Characteristic</b></td>
+      <td width="81%" align="center" colspan="2"><b>Metrics</b></td>
+    </tr>
+    <tr>
+      <td width="19%">Size</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of classes</li>
+              <li>Number of files</li>
+        <li>Number of implementation subsystems</li>
+        <li>Number of subsystems of subsystems …</li>
+        <li>Number of packages</li>
+        <li>Methods per class, internal, external</li>
+        <li>Attributes per class, internal, external</li>
+        <li>Size of methods*</li>
+        <li>Size of attributes*</li>
+        <li>Depth of inheritance tree</li>
+        <li>Number of children</li>
+        <li>Estimated size* at completion</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Effort</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Staff-time units (with production, change and repair separated)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Volatility</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of defects and change requests (open, closed)</li>
+        <li>Breakage* for each corrective or perfective change, estimated (prior
+          to fix) and actual (upon closure)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" rowspan="4">Quality</td>
+      <td width="28%">Complexity</td>
+      <td width="53%">
+      <ul>
+        <li>Response For a Class (RFC)</li>
+        <li>Cyclomatic complexity of methods**</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Coupling</td>
+      <td width="53%">
+      <ul>
+        <li>Number of children</li>
+        <li>Coupling between objects (class fan-out)</li>
+        <li>Message passing coupling (MPC)***</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Cohesion</td>
+      <td width="53%">
+      <ul>
+        <li>Number of children</li>
+        <li>Lack of cohesion in methods (LCOM)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Defects</td>
+      <td width="53%">
+      <ul>
+        <li>Number of defects, by severity, open, closed</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Completeness</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Number of classes unit tested/number of classes in design model</li>
+        <li>Number of classes integrated/number of classes in design model</li>
+        <li><a href="#Implementation traceability in Use Case Model">Implementation
+          traceability</a> (in Use-Case model)</li>
+        <li><a href="#Implementation Traceability in Requirements Attributes">Implementation
+          traceability</a> (in Requirements Attributes)</li>
+        <li><a href="#Traceability in Test model">Test model traceability</a>
+          multiplied by <a href="#Completeness in Test model">Test Completeness</a></li>
+        <li>Active integration and system test time (accumulated from test
+          process), that is, time with system operating (used for maturity
+          calculation)</li>
+      </ul>
+      </td>
+    </tr>
+</table>
+<br></div>
+
+</blockquote>
+<p>* Some method of measuring code size should be chosen and then consistently
+applied, for example non-comment, non-blank. See [<a href="../referenc.htm#ROY98">ROY98</a>]
+for a discussion of the merits and application of 'lines of code' as a metric.
+Also see the same reference for the definition of 'breakage'.</p>
+<p>** The use of cyclomatic complexity is not universally accepted -
+particularly when applied to the methods of a class. See [<a href="../referenc.htm#HEND96">HEND96</a>]
+for a discussion of this metric.</p>
+<p>*** Originally from Li and Henry, &quot;Object-oriented metrics that predict
+maintainability&quot;, J. Systems and Software, 23(2), 1993, and also described
+in [<a href="../referenc.htm#HEND96">HEND96</a>].</p>
+<h6>Test</h6>
+<blockquote>
+  <p>Test Model</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="19%" align="center"><b>Characteristic</b></td>
+      <td width="81%" align="center"><b>Metrics</b></td>
+    </tr>
+    <tr>
+      <td width="19%">Size</td>
+      <td width="81%">
+      <ul>
+        <li>Number of Test Cases, Test Procedures, Test Scripts</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="38">Effort</td>
+      <td width="81%" height="38">
+      <ul>
+        <li>Staff-time units (with production, change and repair separated) for
+          production of test cases, and so on</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Volatility</td>
+      <td width="81%">
+      <ul>
+        <li>Number of defects and change requests (open, closed)<b>&#151</b>against the
+          test model</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Quality</td>
+      <td width="81%">
+      <ul>
+        <li>Defects <b> &#151 </b> number of defects by severity, open, closed (these are
+          defects raised against the test model itself, not defects raised by
+          the test team against other software)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%"><a name="Completeness in Test model">Completeness</a></td>
+      <td width="81%">
+      <ul>
+        <li>Number of test cases written/number of test cases estimated</li>
+        <li><a href="#Test Traceability in Use Case model">Test traceability </a>(in
+          Use-Case model)</li>
+        <li><a href="#Test Traceability in Requirements Attributes">Test
+          traceability</a> (in Requirements Attributes)</li>
+        <li>Code coverage</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%"><a name="Traceability in Test model">Traceability</a></td>
+      <td width="81%">
+      <ul>
+        <li>Number of Test Cases reported as successful in Test Evaluation
+          Summary/Number of test cases</li>
+      </ul>
+      </td>
+    </tr>
+  </table>
+  <br></div>
+
+</blockquote>
+<h6>Management</h6>
+<blockquote>
+  <p>Change Model<b>&#151</b>this is a notional model for consistent presentation<b>&#151</b>the
+  metrics will be collected from whatever system is used to manage Change
+  Requests.</p>
+  <div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="19%" align="center"><b>Characteristic</b></td>
+      <td width="81%" align="center"><b>Metrics</b></td>
+    </tr>
+    <tr>
+      <td width="19%">Size</td>
+      <td width="81%">
+      <ul>
+        <li>Number of defects, change requests by severity and status, also
+          categorized as number of perfective changes, number of adaptive
+          changes and number of corrective changes.</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="38">Effort</td>
+      <td width="81%" height="38">
+      <ul>
+        <li>Defect repair effort, change implementation effort in staff-time
+          units</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Volatility</td>
+      <td width="81%">
+      <ul>
+        <li>Breakage (estimated, actual) for the implementation model subset.</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Completeness</td>
+      <td width="81%">
+      <ul>
+        <li>Number of defects discovered/number of defects predicted (if a
+          reliability model is used)</li>
+      </ul>
+      </td>
+    </tr>
+  </table>
+
+<br></div>
+
+</blockquote>
+<blockquote>
+  <p>      <a name="project_plan"></a><a href="../artifact/ar_sdp.htm">Project Plan</a> (section 4.2 of the
+  Software Development Plan)</p>
+  <p>These are measures that come from the application of Earned Value Techniques 
+    to project management; together they are called Cost/Schedule Control Systems 
+    Criteria (C/SCSC). A simple earned value technique is described above as part 
+    of <a href="#A Minimal Set of Metrics">A Minimal Set of Metrics</a>. 
+    More detailed analyses can be performed using related metrics, including:</p>
+  <blockquote>
+    <ul>
+      <li>BCWS, Budgeted Cost for Work Scheduled</li>
+      <li>BCWP, Budgeted Cost for Work Performed</li>
+      <li>ACWP, Actual Cost of Work Performed</li>
+      <li>BAC, Budget at Completion</li>
+      <li>EAC, Estimate at Completion</li>
+      <li>CBB, Contract Budget Base</li>
+      <li>LRE, Latest Revised Estimate (EAC)</li>
+    </ul>
+  </blockquote>
+  <p>and derived factors for cost variance, schedule variance and so on. See [<a href="../referenc.htm#ROY98">ROY98</a>]
+  for a discussion of the application of an earned value approach to software
+  project management.</p>
+</blockquote>
+<h4><a name="The Project">The Project</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The project needs to be characterized in terms of type, size, complexity and
+formality (although type, size and complexity usually determine formality),
+because these aspects will condition expectations about various thresholds for
+lower level measures. Other constraints should be captured in the contract (or
+specifications). Metrics derived from the process, product and resources will
+capture all other project level metrics. Project type and domain can be recorded
+using a text description, making sure that there is enough detail to accurately
+characterize the project. Record the project size by cost, effort, duration,
+size of code to be developed, function points to be delivered. The project's
+complexity can be described - somewhat subjectively<b>&#151</b>by placing the project on
+a chart showing technical and management complexity relative to other completed
+projects. [<a href="../referenc.htm#ROY98">ROY98</a>], Figure 14-1 shows such a
+diagram.</p>
+<p>The derived metrics described in [<a href="../referenc.htm#ROY98">ROY98</a>],
+which are the Project Manager's main indicators, can be obtained from the
+metrics gathered for product and process. These are:
+<ul>
+  <li><b>Modularity</b> = average breakage (NCNB*) per perfective or corrective
+    change on implementation model</li>
+  <li><b>Adaptability</b> = average effort per perfective or corrective change
+    on implementation model</li>
+  <li><b>Maturity</b> = active test time/number of corrective changes</li>
+  <li><b>Maintainability</b> = Maintenance Productivity/Development Productivity
+    = [actual cumulative fixes/cumulative effort for perfective and corrective
+    changes]/[estimated number of NCNB at completion/estimated production effort
+    at completion]</li>
+  <li><b>Rework stability</b> = cumulative breakage-cumulative fixes</li>
+  <li><b>Rework backlog</b> = [cumulative breakage-cumulative fixes]/NCNB unit
+    tested</li>
+</ul>
+<p>* NCNB is non-comment, non-blank code size.</p>
+<p>Progress should be reported from the project plan, which is statused using
+artifact completion metrics - with particular weight (from an earned value
+perspective) being given to the production of working software.</p>
+<p>If an estimation model such as COCOMO (see [<a href="../referenc.htm#BOE81">BOE81</a>]
+is used, the various scale factors and cost drivers should be recorded. These
+actually form a quite detailed characterization of the project.</p>
+<h4><a name="The Resources">The Resources</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The items to be measured include people (experience, skills, cost,
+performance), methods and tools (in terms of effect on productivity and quality,
+cost), time, effort, budget (resources consumed, resources remaining).</p>
+<p>The staffing profile should be recorded over time, showing type (analyst,
+designer, and so on), grade (which implies cost), and team to which it's allocated. Both
+actuals and plan should be recorded.</p>
+<p>Again, the COCOMO model requires the characterization of personnel experience
+and capability and software development environment, and is a good framework in
+which to keep these metrics.</p>
+<p>Expenditure, budget, and schedule information will come from the Project Plan.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

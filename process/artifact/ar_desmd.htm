@@ -1,0 +1,424 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Design Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Design Model</rpw><a name="XE_design_model__as_artifact"></a><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/desmod.jpg" width="81" height="53">&nbsp;
+	  </td>
+      <td width="80%">The design model is an object model describing the realization 
+        of use cases, and serves as an abstraction of the implementation model 
+        and its source code. The design model is used as essential input to activities 
+        in implementation and test.&nbsp; </td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Contains
+<ul>
+<li><a href="ar_prot.htm">Protocol</a></li>
+<li><a href="ar_cpsl.htm">Capsule</a></li>
+<li><a href="ar_ucrea.htm">Use-Case Realization</a></li>
+<li><a href="ar_signa.htm">Signal</a></li>
+<li><a href="ar_event.htm">Event</a></li>
+<li><a href="ar_dsub.htm">Design Subsystem</a></li>
+<li><a href="ar_despk.htm">Design Package</a></li>
+<li><a href="ar_if.htm">Interface</a></li>
+<li><a href="ar_class.htm">Design Class</a></li>
+<li><a href="ar_tstcl.htm">Testability Class</a></li>
+<li><a href="ar_tstdsg.htm">Test Design</a></li>
+</ul>
+
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_archt.htm">Software Architect</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Required. Elaboration and Construction phases.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          <li><a href="../reports/re_desms.htm">Design-Model Survey</a></li>
+<li><a href="../reports/re_ucrrp.htm">Use-Case Realization   <use-case name></a></li>
+<li><a href="../reports/re_dspkg.htm">Design Package/Subsystem</a></li>
+<li><a href="../reports/re_clrep.htm">Class Report <class name></a></li>
+&nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%"><li>Examples<ul>
+<li><a href="../../examples/creg/elaboration_e1/design_model.htm">Design Model </a></li>
+<li><a href="../../examples/csports/root.html">CSPS Rose Model</a></li>
+</ul>
+</li>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Model, stereotyped as &#171;designModel&#187;.&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../workflow/ana_desi/co_component.htm">Concept: Component</a></li>
+<li><a href="../modguide/md_cncry.htm">Guideline: Concurrency</a></li>
+<li><a href="../activity/chklists/ck_dmdl.htm">Checklist: Design Model</a></li>
+<li><a href="../modguide/md_desmd.htm">Guideline: Design Model</a></li>
+<li><a href="../reports/re_desms.htm">Report: Design-Model Survey</a></li>
+<li><a href="../modguide/md_layer.htm">Guideline: Layering</a></li>
+<li><a href="../workflow/ana_desi/co_sysif.htm">Guideline: Representing Interfaces to External Systems</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_arcan.htm">Architectural Analysis</a></li>
+<li><a href="../activity/ac_cldes.htm">Class Design</a></li>
+<li><a href="../activity/ac_archpoc.htm">Construct Architectural Proof-of-Concept</a></li>
+<li><a href="../activity/ac_dbdes.htm">Database Design</a></li>
+<li><a href="../activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+<li><a href="../activity/ac_distr.htm">Describe Distribution</a></li>
+<li><a href="../activity/ac_concr.htm">Describe the Run-time Architecture</a></li>
+<li><a href="../activity/ac_iddes.htm">Identify Design Elements</a></li>
+<li><a href="../activity/ac_dsmec.htm">Identify Design Mechanisms</a></li>
+<li><a href="../activity/ac_tst_idntstids.htm">Identify Test Ideas</a></li>
+<li><a href="../activity/ac_impcl.htm">Implement Design Elements</a></li>
+<li><a href="../activity/ac_impdvltst.htm">Implement Developer Test</a></li>
+<li><a href="../activity/ac_incds.htm">Incorporate Existing Design Elements</a></li>
+<li><a href="../activity/ac_mgdep.htm">Manage Dependencies</a></li>
+<li><a href="../activity/ac_rvdes.htm">Review the Design</a></li>
+<li><a href="../activity/ac_strim.htm">Structure the Implementation Model</a></li>
+<li><a href="../activity/ac_subds.htm">Subsystem Design</a></li>
+<li><a href="../activity/ac_ucana.htm">Use-Case Analysis</a></li>
+<li><a href="../activity/ac_ucdes.htm">Use-Case Design</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_arcan.htm">Architectural Analysis</a></li>
+<li><a href="../activity/ac_cldes.htm">Class Design</a></li>
+<li><a href="../activity/ac_concr.htm">Describe the Run-time Architecture</a></li>
+<li><a href="../activity/ac_iddes.htm">Identify Design Elements</a></li>
+<li><a href="../activity/ac_dsmec.htm">Identify Design Mechanisms</a></li>
+<li><a href="../activity/ac_incds.htm">Incorporate Existing Design Elements</a></li>
+<li><a href="../activity/ac_subds.htm">Subsystem Design</a></li>
+<li><a href="../activity/ac_ucdes.htm">Use-Case Design</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_design_model__purpose_of"></a><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The design model is an abstraction of the implementation of the system. It 
+  is used to conceive as well as document the design of the software system. It 
+  is a comprehensive, composite artifact encompassing all design classes, subsystems, 
+  packages, collaborations, and the relationships between them.</p>
+<h3><a name="Properties">Properties</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr> 
+    <td width="21%"><p class="tableheading"><b>Property Name</b>&nbsp;</td> 
+    <td width="41%"><p class="tableheading"><b>Brief Description</b>&nbsp;</td>    
+    <td width="38%"><p class="tableheading"><b>UML Representation</b>&nbsp;</td>     
+  </tr>
+  <tr> 
+    <td width="21%">Introduction&nbsp;</td>
+    <td width="41%">A textual description that serves as a brief introduction to the model.&nbsp;</td>
+    <td width="38%">Tagged value, of type &quot;short text&quot;.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="21%">Design Packages <p>Design Subsystems&nbsp;</td>
+    <td width="41%">The packages and subsystems in the model, representing a hierarchy. &nbsp;</td>
+    <td width="38%">Owned via the association &quot;represents&quot;, or recursively via the aggregation &quot;owns&quot;.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="21%">Classes&nbsp;</td>
+    <td width="41%">The classes in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">Owned recursively via the aggregation &quot;owns&quot;.&nbsp;</td>
+  </tr>
+   
+  <tr class="reactive"> 
+    <td width="21%">Capsules&nbsp;</td>
+    <td width="41%">The capsules in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">Owned recursively via the aggregation &quot;owns&quot;.&nbsp;</td>
+  </tr>
+   
+  <tr> 
+    <td width="21%">Interfaces&nbsp;</td>
+    <td width="41%">The interfaces in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">Owned recursively via the aggregation &quot;owns&quot;.&nbsp;</td>
+  </tr>
+   
+  <tr class="reactive"> 
+    <td width="21%">Protocols&nbsp;</td>
+    <td width="41%">The protocols in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">Owned recursively via the aggregation &quot;owns&quot;.&nbsp;</td>
+  </tr>
+   
+  <tr> 
+    <td width="21%">Events and Signals&nbsp;</td>
+    <td width="41%">The events and signals in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">Owned recursively via the aggregation &quot;owns&quot;.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="21%">Relationships&nbsp;</td>
+    <td width="41%">The relationships in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">- &quot; -&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="21%">Use-Case Realizations&nbsp;</td>
+    <td width="41%">The use-case realizations in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">- &quot; -&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="21%">Diagrams&nbsp;</td>
+    <td width="41%">The diagrams in the model, owned by the packages.&nbsp;</td>
+    <td width="38%">- &quot; - &nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The design model primarily sets the architecture, but is also used as a vehicle 
+  for analysis during the elaboration phase. It is then refined by detailed design 
+  decisions during the construction phase.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A software architect is responsible for the integrity of the design model, ensuring
+the following:
+<ul>
+  <li>The design model as a whole is correct, consistent, and readable. The
+    design model is correct when it realizes the functionality described in the
+    use-case model, and only this behavior.</li>
+  <li>The architecture in the design model fulfills its purpose, including the
+    logical, process, and deployment views. These views are collected in a
+    separate artifact, see <a href="ar_sadoc.htm">Artifact: Software
+    Architecture Document</a>.</li>
+</ul>
+<p>Note that the software architect is not responsible for the packages, classes,
+relationships, use-case realizations, and the diagrams themselves; instead,
+these are under the corresponding designers and use-case designer's
+responsibilities.
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Decide on the following:</p>
+<ul>
+  <li>properties to include</li>
+  <li> whether or not any extensions to the Unified Modeling Language (UML) are 
+    needed; for example, your project may require additional stereotypes</li>
+  <li> the level of formality applied to the model</li>
+  <li>tailoring applicable to individual sub-artifacts</li>
+  <li> how the model is mapped to the analysis model (see <a href="../modguide/md_desmd.htm">Guidelines: 
+    Design Model</a>)</li>
+  <li> whether a single model or multiple models will be used</li>
+  <li>whether the model will be an abstract specification, a detailed specification, 
+    a detailed design, or some combination (see <a href="../modguide/md_desmd.htm">Guidelines: 
+    Design Model</a>)</li>
+  <li>how the model is mapped to the implementation model (this is very much affected 
+    by the decision to use reverse-engineering, code generation, or round-trip 
+    engineering); see <a href="../workflow/implemen/co_mdesc.htm">Guidelines: 
+    Mapping from Design to Code</a></li>
+</ul>
+<p> Document tailoring decisions in your project's design guidelines
+ 
+(see <a href="ar_projspecgls.htm">Artifact: Project-specific Guidelines</a>) 
+.</p>
+
+<br><br>
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

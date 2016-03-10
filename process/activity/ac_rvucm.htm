@@ -1,0 +1,369 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Review Requirements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Review Requirements</rpw><a name="Top"></a><a name="XE_requirements__reviewing"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To formally verify that the results of Requirements conform to the
+        customer's view of the system.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+	  <li><a href="#GeneralRecommendations">General Recommendations</a></li>
+      <li><a href="#RecommendedReviewMeetings">Recommended Review Meetings</a></li>
+	  <li><a href="#PrepareReviewRecord">Prepare Review Record and Document Defects</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_bcase.htm">Business Case</a></li>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+<li><a href="../artifact/ar_gloss.htm">Glossary</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_srs.htm">Software Requirements Specification</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_uc.htm">Use Case</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_ucpkg.htm">Use-Case Package</a></li>
+<li><a href="../artifact/ar_uiprt.htm">User-Interface Prototype</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_tchrvw.htm">Technical Reviewer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/soda/tm_actor.htm">Creating an Actor Report Using Rational SoDA</a></li>
+<li><a href="../../toolment/soda/tm_ucmsv.htm">Creating a Use-Case Model Survey Using Rational SoDA</a></li>
+<li><a href="../../toolment/soda/tm_ucrep.htm">Creating a Use-Case Report Using Rational SoDA</a></li>
+<li><a href="../../toolment/rose/tm_webpubmod.htm">Publishing Web-based Rational Rose Models Using Web Publisher</a></li>
+<li><a href="../../toolment/reqpro/tm_review.htm">Reviewing Requirements Using Rational RequisitePro</a></li>
+<li><a href="../../toolment/reqpro/tm_rhist.htm">Viewing Requirement History Using Rational RequisitePro</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="chklists/ck_srs.htm">Checklist: Software Requirements Specification</a></li>
+<li><a href="chklists/ck_sspec.htm">Checklist: Supplementary Specifications</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_req.htm">Requirements</a>
+<ul>
+<li><a href="../workflow/requirem/wfs_mnch.htm">Manage Changing Requirements</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="GeneralRecommendations">General Recommendations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">General recommendations for each review.</td>
+  </tr>
+</table>
+<br>
+</div>
+<p>The following guidelines are helpful when reviewing the results of
+Requirements:
+<ul>
+  <li>Always conduct reviews in a meeting format, although the meeting
+    participants might prepare some reviews on their own.</li>
+  <li>Continuously check what is produced to make sure the product quality is as
+    high as possible. Checkpoints are provided for this purpose; refer to the
+    checkpoints for each analysis activity. You can use them for informal review
+    meetings or in daily work.</li>
+</ul>
+<p>The following roles will participate in the review meetings - a person acting as a 
+requirements reviewer has some essential knowledge of the business or technology domain 
+and detailed knowledge of the applied facilitation and modeling techniques:
+<ul>
+  <li><a href="../workers/wk_tchrvw.htm">Requirements Reviewer</a></li>
+  <li><a href="../workers/wk_ucaut.htm">Requirements Specifier</a></li>
+  <li><a href="../workers/wk_sysan.htm">System Analyst</a></li>
+</ul>
+<p>You should also consider the following roles for participation in review
+meetings, possibly at milestones such as the beginning or end of a Phase:
+<ul>
+  <li><a href="../workers/wk_sthld.htm">Stakeholders - customers and end-users</a> 
+    (Where possible)</li>
+  <li><a href="../workers/wk_ccmgr.htm">Change Control Manager</a> 
+    (Where reviewing Change Requests)</li>
+  <li><a href="../workers/wk_tstds.htm">Test Designer</a> (Optional)</li>
+  <li><a href="../workers/wk_archt.htm">Software Architect</a> (Optional,
+    usually in Inception and Elaboration)</li>
+  <li><a href="../workers/wk_projm.htm">Project Manager</a> (Optional,
+    usually at Phase Start)</li>
+</ul>
+<p>It is important to find the right balance between including the desired
+review participants and keeping the review manageable and productive. Care
+should be taken to include only those participants who will contribute to achieving
+the objectives of the review. It is usually more productive to hold several
+focused review sessions with a smaller number of participants, than to hold one
+review involving many.</p>
+
+<h3><a name="RecommendedReviewMeetings">Recommended Review Meetings</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">To define the scope and the goals of the review.<br>
+        To define the approaches used for each specific scope/goal combination.&nbsp; 
+      </td>
+  </tr>
+</table>
+<br>
+</div>
+<p>Normally, you should divide the review into the following meetings:
+<ul>
+  <li>A review of <a href="../artifact/ar_crqst.htm">change requests</a> which
+    impact the existing requirements set.</li>
+  <li>A review of the entire <a href="../artifact/ar_ucmod.htm">use-case model</a>.</li>
+  <li>A review of the <a href="../artifact/ar_uc.htm">use cases</a> (for each
+    use case), along with their diagrams. If the system is large, break this
+    review into several meetings, possibly one per <a href="../artifact/ar_ucpkg.htm">Use-Case
+    Package</a>.</li>
+</ul>
+<p>Even if you can review everything at the same meeting, you probably won't get
+approval of your conclusions the first time. Be prepared to carry out new
+reviews for each new version of the use-case model.</p>
+<p>It is recommended that you arrange one review of the use-case model per <a href="../itrwkfls/iwf_iwfs.htm">iteration</a>
+in the <a href="../itrwkfls/iwf_iii.htm">Inception</a> and <a href="../itrwkfls/iwf_iie.htm">Elaboration</a>
+phases, where you review the work in progress; this is initially done and signed
+off by the users prior to developing any of the use cases in detail, and is a
+very important milestone so that resources are not spent on developing incorrect
+use cases. Then, at the end of the Elaboration phase, you should arrange a
+detailed review of the use-case model. Remember that at the end of the
+Elaboration phase, you should have a use-case model, and possibly a domain model
+representing the glossary, that is 80% complete. You should also arrange one
+review of the use-case model per iteration in the <a href="../itrwkfls/iwf_lic.htm">Construction</a>
+and <a href="../itrwkfls/iwf_lit.htm">Transition</a> phases when the use-case model is
+refined. The review should concentrate on the part of the use case model being
+developed for the iteration.</p>
+
+<h3><a name="PrepareReviewRecord">Prepare Review Record and Document Defects</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To document the review results.<br>
+      To ensure that identified defects are documented.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>
+  Following each review meeting, the results of the meeting are documented in 
+  a <a href="../artifact/ar_rvrec.htm">Review Record</a>. In addition, any defects 
+  are documented in accordance with the project's change management process. </p>
+<h5><a name="FurtherReading">Further Reading</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h5>
+<p>See: [<a href="../referenc.htm#BIT03">BIT03</a>] Chapter11.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

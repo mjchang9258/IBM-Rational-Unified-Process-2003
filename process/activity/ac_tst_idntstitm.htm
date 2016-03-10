@@ -1,0 +1,421 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Identify Targets of Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Identify Targets of Test</rpw><a name="XE_system_test__targets_of_test"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b> 
+      <ul>
+          <li>To identify the individual system elements, both hardware and software, 
+            that need to be tested.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b> 
+      <ul>
+          <li><a href="#DetermineSoftwareImplemented">Determine what software will be implemented</a></li>
+          <li><a href="#IdentifyCandidateElementsToTest">Identify candidate system 
+            elements to be tested</a></li>
+          <li><a href="#RefineCandidateTargetList">Refine the candidate list 
+            of target items</a></li>
+          <li><a href="#DefineTargetItemList">Define the list of target items</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+      </ul>
+    </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_datmd.htm">Data Model</a></li>
+<li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+<li><a href="../artifact/ar_impmd.htm">Implementation Model</a></li>
+<li><a href="../artifact/ar_intbp.htm">Integration Build Plan</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstanl.htm">Test Analyst</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/testmgr/tm_tstpln.htm">Creating a Test Plan Using Rational TestManager</a></li>
+<li><a href="../../toolment/testmgr/tm_tstmn.htm">Performing Test Activities Using Rational TestManager</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_dfnevlmsn.htm">Define Evaluation Mission</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="DetermineSoftwareImplemented">Determine what software will be implemented</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To understand the main deliverables of the development team 
+        in the forthcoming schedule.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the Iteration Plan and other available sources, identify the individual 
+  software items that the development team plan to produce for the forthcoming 
+  Iteration. Where the development effort is distributed to teams in various locations, 
+  you may need to discuss the development plans with each team directly. Check 
+  to see whether any development is subcontracted and use whatever channels are 
+  available to you to gather details of the subcontractors development effort.</p>
+<p>As well as new software, also note changes to infrastructure and shared components. 
+  These changes may effect other dependent or associated software elements produced 
+  in previous development cycles, making it necessary to test the effect of these 
+  changes on those elements. For similar reasons, you should identify any changes 
+  and additions to third-party components that the development effort intends 
+  to make use of. This includes shared components, base or common code libraries, 
+  GUI widgets, persistence utilities etc. Review the the software architecture 
+  to determine what mechanism are in use that may be effected by third-party component 
+  changes.</p>
+
+
+<h3><a name="IdentifyCandidateElementsToTest">Identify candidate system elements 
+  to be tested</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To identify target items that the testing effort should 
+        exercise.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>For each identified test motivator, examine the list of software items to delivered 
+  as part this development cycle. Make an initial list that excludes any items 
+  that cannot be justified as useful in terms of satisfying the test motivators. 
+  Remember to include third-party software as well as that to be developed directly 
+  by the project development team.</p>
+<p>You will also need to consider what impact the various target deployment environments 
+  will have on the elements to be tested. Your list of candidate system elements 
+  should be expanded to include both the software being developed and the candidate 
+  elements of the target environment. These elements will include hardware devices, 
+  device-driver software, operating systems, network and communications software, 
+  third-party base software components (e.g. eMail client software, Internet Browsers, 
+  etc.) and various configurations and settings related to the possible combinations 
+  of all these elements.</p>
+<p>Where you have identified important target deployment environments, you should 
+  consider recording this information by creating or updating one or more outlined 
+  Test Environment Configurations; this outline should provide a name, brief description 
+  and enumerate the main requirements or features of the configuration. Avoid 
+  spending a lot of time on these outlines; the list of requirements and features 
+  will be subsequently detailed in <a href="ac_tst_dfntstenvcnf.htm">Activity: 
+  Define Test Environment Configurations</a>.</p>
+
+
+<h3><a name="RefineCandidateTargetList">Refine the candidate list of target items</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To eliminate unnecessary targets from&#151;and add missing 
+        elements to&#151;the test effort work plan.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the evaluation mission and scope of the test effort agreed with the evaluation 
+  stakeholders, examine the list of target items and identify items that do not 
+  satisfy the evaluation mission and are obviously out of the test effort scope.</p>
+<p>As an opposing check, critically examine the items again and challenge whether 
+  the evaluation mission and test effort scope will really be satisfied by the 
+  refined list of target items. It may be necessary to add additional elements 
+  to the list of target items to ensure appropriate scope and the ability to achieve 
+  the evaluation mission.</p>
+
+
+<h3><a name="DefineTargetItemList">Define the list of target items</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To communicate the decisions made about the target test 
+        items for the forthcoming work.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you've decided on the target test items, you need to communicate your 
+  choices to the test team and other stakeholders in the test effort. Arguably 
+  the most common method is to document the decisions about the target items in 
+  the Iteration Test Plan. </p>
+<p>An alternative is to simply record this information in some form of table or 
+  spreadsheet and make use of it to govern work and responsibility assignment. 
+  During test implementation and execution individual testers will make use of 
+  this information to make tactical decisions regarding the specific tests to 
+  implement, and what test results to capture in relation to these target items.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

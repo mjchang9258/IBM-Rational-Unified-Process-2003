@@ -1,0 +1,265 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+<HTML>
+ <HEAD>
+  <title>Tool Mentor:&nbsp;Publishing Web-based Rational Rose Models Using Web Publisher</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <LINK REL="StyleSheet" HREF="../../rop.css" TYPE="text/css">
+</HEAD>
+ <BODY>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<H2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Publishing Web-based Rational Rose Models Using Web Publisher</rpw><A NAME="Top" msnavigation></A></H2>
+
+<H3>Purpose</H3>
+
+<p>This tool mentor describes how to use Rational Rose Web Publisher to create a web-based
+(HTML) version of a Rose model that others can view using a browser such as
+Microsoft Internet Explorer or Netscape Navigator.</p>
+
+<p>Related Rational Unified Process information: 
+<ul>
+
+  <li> <a href="../../process/activity/ac_rvbuc.htm">Activity: Review the Business Use-Case Model</a></li>
+
+
+  <li> <a href="../../process/activity/ac_rvbom.htm">Activity: Review the Business Analysis Model</a></li>
+
+</ul>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_arcan.htm">Architectural Analysis</a></li>
+<li><a href="../../process/activity/ac_rvdes.htm">Review the Design</a></li>
+<li><a href="../../process/activity/ac_rvucm.htm">Review Requirements</a></li>
+</ul>
+<br>
+   
+</p>
+
+<H3>Overview</H3>
+
+<p>By publishing web-based versions of your Rose models, you enable others to
+non-sequentially browse, search, and navigate your models. For example, you can
+publish successive iterations of an evolving model for review or to share
+information. Rose Web Publisher recreates Rose model elements, including
+diagrams, classes, packages, relationships, attributes, and operations. Once
+published, hypertext links enable you to traverse the model much as you would in
+Rose. You can control what Rose Web Publisher includes by setting a variety of
+options. For example, you can select which views of a model are published, the
+amount of detail to include, the notation to use, and the graphics format for
+Rose diagrams. Note, too, that if your model's use cases have RequisitePro use-case
+documents attached, Rose Web Publisher retains the documents and displays HTML
+versions of them on the published Web pages. 
+
+<h3>Tool Steps  </h3>
+
+<p>There are two ways to publish a model:
+<ol>
+<li><a href="#Using Web Publisher dialogs">Using Web Publisher dialogs</a></li>
+<li><a href="#Using a command line batch interface">Using a command line batch interface</a></li>
+</ol>
+
+ <h4>1.&nbsp; <a name="Using Web Publisher dialogs">Using Web Publisher dialogs</a> 
+<A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></h4>
+
+<p>The easiest way to generate a Web-based model is to use the Web Publisher add-in available from the
+Rational Rose Tools menu. A Web Publisher dialog provides a browser that 
+enables you select which model elements to publish. In addition, you can specify whether or not the classes you publish should include superclass information and
+which graphics format to use for diagrams (such as .jpg or .gif). The Preview feature lets you launch your default browser and view the published model directly from Rose Web Publisher.&nbsp;<p>To
+publish a model, follow these steps:
+<ol>
+  <li>In Rational Rose, open the model you want to publish.</li>
+  <li>From the <b> Tools</b> menu, click <b> Web Publisher</b>.</li>
+  <li>Use the browser to select model elements to publish; select the
+    publishing options you want to apply.</li>
+  <li>	Click <b> Publish</b> when you’re ready to publish the model.&nbsp;</li>
+  <li>Click <b>Preview</b> to open your default web browser and view the published model.&nbsp;</li>
+</ol>
+
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">
+For
+more information on Web Publisher, see the online Help.</p>
+
+ <h4>2.&nbsp; <a name="Using a command line batch interface">Using a command
+ line batch interface</a> 
+<A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></h4>
+
+<p>Rational Rose Web Publisher has a command line interface that enables you to publish models using a batch processor. This is especially useful if you want to automatically publish models on a
+routine schedule. You control how much detail to publish by defining publishing parameters in an initialization file. When you call the
+Web Publisher processor, you supply the name of the initialization file. 
+The processor, <font size="2" face="Courier New">rosewpbatch.exe</font>, is located in the
+<font face="Courier New" size="2"> rosewp</font> subdirectory of your Rose installation directory. The syntax for calling the batch processor is:&nbsp;</p>
+
+ <blockquote>
+
+<p>
+<font face="Courier New" size="2">
+rosewpbatch.exe</font> <i>your_initialization_filename</i><font face="Courier New" size="2">.ini</font>&nbsp;</p>
+
+ </blockquote>
+
+<p>
+Example: <font face="Courier New" size="2">c:\rose\rosewp\rosewpbatch.exe c:\mybatchfiles\testbatch.ini</font></p>
+
+<p>
+Where <i>your_initialization_filename</i><font face="Courier New" size="2">.ini</font> is the name of the initialization file you create.
+Include the complete path to the <font face="Courier New" size="2">.ini</font> file in your call to the
+processor. If the processor encounters errors, the errors are logged in the <font face="Courier New" size="2"> rosewpbatch.err</font> file located in the same directory as the processor. You can use any text editor to display the contents.
+</p>
+<img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16"> Refer to the Web Publisher online
+ Help for the parameters and syntax you supply in the initialization file.
+      <P>
+       
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,257 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Best Practice: Model Visually (UML)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Best Practice: Model Visually (UML)</h2>
+<p align="center"><img src="images/visual.gif" width="447" height="229"></p>
+<p class="picturetext">Visual modeling raises the level of abstraction</p>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#What is Visual Modeling">What is Visual Modeling?</a></li>
+  <li><a href="#Why Do We Model">Why Do We Model?</a></li>
+</ul>
+<h2><a name="What is Visual Modeling">What is Visual Modeling</a>? <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Visual modeling is the use of semantically rich, graphical and textual design
+notations to capture software designs. A notation, such as UML, allows the level
+of abstraction to be raised, while maintaining rigorous syntax and semantics. In
+this way, it improves communication in the design team, as the design is formed and
+reviewed, allowing the reader to reason about the design, and it provides an
+unambiguous basis for implementation.</p>
+<h2><a name="Why Do We Model">Why Do We Model</a>? <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>A model is a simplified view of a system.&nbsp; It shows the essentials of
+the system from a particular perspective and hides the non-essential
+details.&nbsp; Models can help in the following ways:</p>
+<ul>
+  <li><a href="#Aiding understanding of complex systems">aiding understanding of complex systems</a></li>
+  <li><a href="#Exploring and comparing design alternatives at a low cost">exploring and
+    comparing design alternatives at a low cost</a></li>
+  <li><a href="#Forming a foundation for implementation">forming a foundation for implementation</a></li>
+  <li><a href="#Capturing requirements precisely">capturing requirements precisely</a></li>
+  <li><a href="#Communicating decisions unambiguously">communicating decisions unambiguously</a></li>
+</ul>
+<h3><a name="Aiding understanding of complex systems">Aiding understanding of complex systems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The importance of models increases as systems become more complex.&nbsp; For
+example, a doghouse can be constructed without blueprints.&nbsp; However, as one
+progresses to houses, and then to skyscrapers, the need for blueprints becomes
+pronounced.</p>
+<p>Similarly, a small application built by one person in a few days may be
+easily understood in its entirety.&nbsp; However, an e-commerce system with tens
+of thousands of source lines of code (SLOCs)&#151or an air traffic control system
+with hundreds of thousands of SLOCs&#151can no longer be easily understood by one
+person.&nbsp; Constructing models allows a developer to focus on the big
+picture, understand how components interact, and identify fatal flaws.&nbsp;</p>
+<p>&nbsp;Some examples of&nbsp; models are:</p>
+<ul>
+  <li>Use Cases to unambiguously specify behavior</li>
+  <li>Class Diagrams and Data Model Diagrams to capture design</li>
+  <li>State Transition Diagrams to model dynamic behavior</li>
+</ul>
+<p>Modeling is important because it helps the team visualize, construct, and
+document the structure and behavior of the system, without getting lost in
+complexity.</p>
+<h3><a name="Exploring and comparing design alternatives at a low cost">Exploring
+and comparing design alternatives at a low cost</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Simple models can be created and modified at a low cost to explore design
+alternatives.&nbsp; Innovative ideas can be captured and reviewed by other
+developers before investing in costly code development.&nbsp; When coupled with
+iterative development, visual modeling helps developers to assess design changes
+and communicate these changes to the entire development team.</p>
+<h3><a name="Forming a foundation for implementation">Forming a foundation for implementation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Today many projects employ object-oriented programming languages to obtain
+reusable, change-tolerant, and stable systems. To obtain these benefits, it's
+even more important to use object technology in design. The Rational Unified
+Process (RUP) produces an object-oriented design model that is the basis for
+implementation.</p>
+<p>With the support of appropriate tools, a design model can be used to generate
+an initial set of code for implementation.&nbsp; This is referred to as
+&quot;forward engineering&quot; or &quot;code generation&quot;.&nbsp; Design
+models may also be enhanced to include enough information to build the system.</p>
+<p>Reverse engineering may also be applied to generate design models from
+existing implementations.&nbsp; This may be used to evaluate existing
+implementations.&nbsp;&nbsp;</p>
+<p> &quot;Round trip engineering&quot; combines both forward
+and reverse engineering techniques to ensure consistent design and code.&nbsp;Combined with an iterative process, and the right tools,
+round-trip
+engineering allows design and code to be synchronized during each
+iteration.</p>
+<h3><a name="Capturing requirements precisely">Capturing requirements precisely</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Before building a system, it's critical to capture the requirements.&nbsp;
+Specifying the requirements using a precise and unambiguous model helps to
+ensure that all stakeholders can understand and agree on the
+requirements.&nbsp;&nbsp;</p>
+<p>A model that separates the external behavior of the system from the
+implementation helps you focus on the intended use of the system, without getting
+bogged down in implementation details.</p>
+<h3><a name="Communicating decisions unambiguously">Communicating decisions unambiguously</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The RUP uses the Unified Modeling Language (UML), a consistent
+notation that can be applied for system engineering as well as business
+engineering.&nbsp;&nbsp; A standard notation serves the following roles (see [<a href="../../process/referenc.htm#BOO95">BOO95</a>]):</p>
+<ul>
+  <li>&quot;It serves as a language for communicating decisions that are not
+    obvious or cannot be inferred from the code itself.&quot;</li>
+  <li>&quot;It provides semantics that are rich enough to capture all important
+    strategic and tactical decisions.&quot;</li>
+  <li>&quot;It offers a form concrete enough for humans to reason and for tools to
+    manipulate.&quot;</li>
+</ul>
+<p>UML represents the convergence of the best
+practice in software modeling throughout the object-technology industry.&nbsp; For more information on the UML, visit
+our Web site at <a href="http://www.rational.com/uml/index.jsp" target="_blank">http://www.rational.com/uml</a>.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

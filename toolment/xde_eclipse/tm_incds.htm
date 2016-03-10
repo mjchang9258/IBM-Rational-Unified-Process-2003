@@ -1,0 +1,257 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<title>Tool Mentor:&nbsp;Incorporating Existing Design Elements Using Rational XDE Developer - Java Platform Edition</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Incorporating
+  Existing Design Elements Using Rational XDE Developer - Java Platform Edition</rpw><a name="Top"></a></h2>
+
+
+<h3>Purpose</h3>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_incds.htm">Incorporate Existing Design Elements</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity.  Links to topics in XDE online help are marked with <img src="../../images/helpbook.gif" width="16" height="16">.
+
+
+<h3>Overview</h3>
+
+<p> The following steps are performed in this tool mentor:</p>
+
+    <ul>
+      <li><a href="#Identify Reuse Opportunities">Identify Reuse Opportunities</a></li>
+      <li><a href="#Reverse Engineer Components and Databases">Reverse-Engineer Components
+        and Databases</a></li>
+      <li><a href="#Update the Organization of the Design Model">Update the
+        Organization of the Design Model</a></li>
+      <li><a href="#Update the Logical View">Update
+        the Logical View</a></li>
+    </ul>
+
+
+<h3><a name="Identify Reuse Opportunities">Identify
+Reuse Opportunities</a>
+ <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Look for existing subsystems or components that offer similar interfaces. Some assets may have been packaged for intentional reuse using the Reusable Asset Specification (RAS). If created with Rational XDE, such assets can be browsed and loaded in XDE. See
+ <script language=javascript>ReferenceHelpTopic("Getting Started with RAS Assets","ras","ras_o_getstart_rasset");</script>
+in XDE online Help.
+</p>
+
+
+<h3><a name="Reverse Engineer Components and Databases">Reverse-Engineer
+Components and Databases</a>
+ <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>For assets that do not include an XDE model, it may be useful to reverse
+  engineer a model to better understand the design. If the asset proves to be
+  usable, the XDE model then becomes part of your overall Design Model.
+
+<!-- begin - wsw -->
+
+
+See
+ <script language=javascript>ReferenceHelpTopic("Reverse Engineering","j","j_c_rev_eng");</script>
+in XDE online Help.
+
+
+<!-- end - wsw -->
+
+<!-- begin - vsnet -->
+
+<!-- end - vsnet -->
+
+</p>
+
+<p>
+For an asset that your company controls, there may be opportunities to make minor changes to a candidate interface which will improve its conformance to the desired interface. For assets that your company does not control, you can create adapter or bridge design elements that map your desired interface onto interfaces provided by the assets reused. See <a href="tm_iddes.htm">Tool Mentor: Identify Design Elements</a>
+for guidelines on creating and modifying interfaces and classes.
+</p>
+
+
+<h3><a name="Update the Organization of the Design Model">Update
+the Organization of the Design Model</a>
+ <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Reorganize the design elements into packages as necessary. See
+ <script language=javascript>ReferenceHelpTopic("Grouping Model Elements in Packages","rs","rs_t_group_mod_ele_package");</script>
+ in XDE online Help.
+ Also see the white paper <a href="model_structure_guidelines.htm">Rational
+  XDE Model Structure Guidelines</a>.</p>
+
+
+<h3><a name="Update the Logical View">Update the Logical View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a><br>
+</h3>
+
+<p>If there is a separate logical view, it needs to be maintained. See the white paper <a href="model_structure_guidelines.htm">Rational XDE Model Structure Guidelines</a>.</p>
+
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+<p></p>
+
+</body>
+
+</html>

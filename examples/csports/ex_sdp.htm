@@ -1,0 +1,697 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Software Development Plan - Elaboration Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Software Development Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body>
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Software Development Plan</p>
+</font><font face="Arial" size="4">
+<p align="RIGHT">Version 1.0</p>
+</font></b><font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP"><b>
+    <p align="CENTER">Version</b></td>
+    <td width="39%" valign="TOP"><b>
+    <p align="CENTER">Description</b></td>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 5, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial release</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<h4><b>Table of Contents</b></h4>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Project Overview">Project Overview</a></li>
+  <li><a href="#Project Organization">Project Organization</a></li>
+  <li><a href="#Management Process">Management Process</a></li>
+  <li><a href="#Technical process plans">Technical process plans</a></li>
+  <li><a href="#Supporting process plans">Supporting process plans</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Purpose</h4>
+<p>The purpose of this Software Development Plan is to define the development
+activities in terms of the phases and iterations required for implementing a
+Collegiate Sports Paging Service for WebNewsOnLine.</p>
+<h4>Scope</h4>
+<p>This Software Development Plan describes the overall plan to be used by the
+team for developing the system for . The details of the individual iterations
+will be described in the Iteration Plans.</p>
+<h4>Definitions, Acronyms and Abbreviations</h4>
+<p>None.</p>
+<h4>References</h4>
+<ol>
+  <li>CSPS Requirements Management Plan</li>
+  <li>CSPS Risk List</li>
+  <li>CSPS Development Case</li>
+  <li>CSPS Creative Design Brief</li>
+</ol>
+<h3><a name="Project Overview">Project Overview</a> <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Project purpose, scope and objectives</h4>
+<p>This project will implement a customized for WebNewsOnline. This will deliver
+notification of updated content to subscribers via pagers, cellular phones, or
+electronic mail. The subscribers will then be able to view their customized
+content via the World Wide Web.</p>
+<h4>Assumptions and constraints</h4>
+<p>The system must be available in time for &quot;March Madness&quot; in the
+year 2000 (NCAA Championship Tournament).</p>
+<h4>Project deliverables</h4>
+<p>The following deliverables will be produced during the project:
+<ul>
+  <li>Business Use Cases</li>
+  <li>Business Use Case Survey</li>
+  <li>Glossary</li>
+  <li>Supplementary Specifications</li>
+  <li>Creative Design Briefs</li>
+  <li>Navigation Map</li>
+  <li>User Interface Prototype</li>
+  <li>Use Case Survey</li>
+  <li>Data Model</li>
+  <li>Design Model</li>
+  <li>Database Design</li>
+  <li>Software Architecture Document</li>
+  <li>Implementation Subsystem</li>
+  <li>Test Package</li>
+  <li>Change Requests</li>
+  <li>Test Summary</li>
+</ul>
+<h4>Evolution of the Software Development Plan</h4>
+<p>This plan will be updated prior to be start of each subsequent phase or
+iteration. The target dates for the end of each phase are shown below.</p>
+<p align="center"><img src="images/ex_phsdates.gif" width="409" height="116"></p>
+<h3><a name="Project Organization">Project Organization</a> <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Organizational Structure</h4>
+<p>The project team for the Inception and Elaboration phases will be organized
+as follows:</p>
+<p align="center"><img src="images/ex_prjorg2.gif" width="383" height="138"></p>
+<h4>External Interfaces</h4>
+<p>The project team will work with the Editing staff, Advertising staff, and
+Field Representative staff to gather requirements, review prototypes, and test
+various functions within the system. The primary contact for WebNewsOnLine will
+be Donna Cram, Director of Business Operations.</p>
+<h4>Roles and Responsibilities</h4>
+<p>The following table shows the roles represented in the project diagram above
+and their primary responsibilities.</p>
+
+<table border="1" cellspacing="1" cellpadding="7" width="480">
+  <tr>
+    <td width="33%" valign="TOP" bgcolor="#ffffff"><b>Role</b></td>
+    <td width="67%" valign="TOP" bgcolor="#ffffff"><b>Responsibility</b></td>
+  </tr>
+  <tr>
+    <td width="33%" valign="TOP">Project Manager</td>
+    <td width="67%" valign="TOP">The Project Manager allocates resources, shapes
+    priorities, coordinates interactions with the customers and users, and
+    generally tries to keep the project team focused on the right goal. The
+    Project Manager also establishes a set of practices that ensure the
+    integrity and quality of project artifacts.</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="TOP">Architect</td>
+    <td width="67%" valign="TOP">The Architect leads and coordinates technical
+    activities and artifacts throughout the project. The Architect establishes
+    the overall structure for each architectural view: the decomposition of the
+    view, the grouping of elements, and the interfaces between these major
+    groupings. Thus, in contrast with the other workers, the Architect's view is
+    one of breadth, as opposed to depth.</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="TOP">Business Analyst</td>
+    <td width="67%" valign="TOP">The business analyst leads and coordinates
+    business use-case modeling, by outlining and delimiting the organization
+    being modeled. For example, establishing what business actors and business
+    use cases exist and how they interact.</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="TOP">Designer</td>
+    <td width="67%" valign="TOP">The designer defines the responsibilities,
+    operations, attributes, and relationships of one or several classes and
+    determines how they should be adjusted to the implementation environment. In
+    addition, the designer may have responsibility for one or more design
+    packages or design subsystems, including any classes owned by the packages
+    or subsystems.</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="TOP">Creative Designer</td>
+    <td width="67%" valign="TOP">The creative designer leads and coordinates the
+    prototyping and design of the Web interface, by capturing requirements on
+    the Web interface, including usability requirements, building Web page
+    prototypes, involving other stakeholders of the Web interface, such as
+    end-users, in usability reviews and use testing sessions, and reviewing and
+    providing the appropriate feedback on the final implementation of the Web
+    interface (as created by other developers, i.e. designers and implementers).</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="TOP">Tester</td>
+    <td width="67%" valign="TOP">The Tester is responsible for executing
+    testing, including test set-up and execution, evaluation of test execution
+    and recovery from errors, and assessing the results of test and logging
+    identified defects</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="TOP">Requirements Specialist</td>
+    <td width="67%" valign="TOP">The Requirements Specialist captures the
+    specification of a part of the system's functionality by describing the
+    Requirements aspect of one or several use cases and other supporting
+    software requirements. The Requirements Specialist is also responsible for a
+    use-case package, and maintaining the integrity of that package.</td>
+  </tr>
+</table>
+<h3><a name="Management Process">Management Process</a> <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Project Estimates</h4>
+<p>The Inception phase of this project will take 3 weeks. Initial estimates of
+subsequent phases can be seen in section 2.4 above.</p>
+<h4>Project Plan</h4>
+<p>The Inception phase of the project can be viewed as follows:</p>
+
+<table border="1" cellspacing="1" cellpadding="7" width="583">
+  <tr>
+    <td width="64%" valign="TOP" bgcolor="#ffffff"><b>
+    <p align="CENTER">Task</b></td>
+    <td width="17%" valign="TOP" bgcolor="#ffffff"><b>
+    <p align="CENTER">Start</b></td> 
+    <td width="19%" valign="TOP" bgcolor="#ffffff"><b>
+    <p align="CENTER">End</b></td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">INCEPTION</td>
+    <td width="17%" valign="TOP">Fri 10/1/99</td>
+    <td width="19%" valign="TOP">Mon 10/25/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Begin Inception</td>
+    <td width="17%" valign="TOP">Fri 10/1/99</td>
+    <td width="19%" valign="TOP">Fri 10/1/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Kick-off</td>
+    <td width="17%" valign="TOP">Mon 10/4/99</td>
+    <td width="19%" valign="TOP">Wed 10/6/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Add tasks to project plan for specific project
+    technology using ContextWISE cartridges</td>
+    <td width="17%" valign="TOP">Mon 10/4/99</td>
+    <td width="19%" valign="TOP">Mon 10/4/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Assemble Change Control Board</td>
+    <td width="17%" valign="TOP">Mon 10/4/99</td>
+    <td width="19%" valign="TOP">Tue 10/5/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Create and baseline Change Control Plan</td>
+    <td width="17%" valign="TOP">Tue 10/5/99</td>
+    <td width="19%" valign="TOP">Tue 10/5/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Obtain Sign-off</td>
+    <td width="17%" valign="TOP">Tue 10/5/99</td>
+    <td width="19%" valign="TOP">Tue 10/5/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Kick-off Meeting</td>
+    <td width="17%" valign="TOP">Tue 10/5/99</td>
+    <td width="19%" valign="TOP">Wed 10/6/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Prepare for inception kick-off meeting</td>
+    <td width="17%" valign="TOP">Tue 10/5/99</td>
+    <td width="19%" valign="TOP">Wed 10/6/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Hold Inception Kick-off Meeting</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Wed 10/6/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Kick-off Completed</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Wed 10/6/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Deliverables</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Thu 10/14/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Hold Requirements Workshop</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Thu 10/7/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Project Vision created, reviewed, and signed
+    off</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Thu 10/7/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Use Case Model (10-20% complete)
+    created and placed under revision control</td>
+    <td width="17%" valign="TOP">Thu 10/7/99</td>
+    <td width="19%" valign="TOP">Mon 10/11/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Use Case Survey created, reviewed,
+    and signed off</td>
+    <td width="17%" valign="TOP">Mon 10/11/99</td>
+    <td width="19%" valign="TOP">Tue 10/12/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Supplementary Specifications
+    created, reviewed, and signed off</td>
+    <td width="17%" valign="TOP">Tue 10/12/99</td>
+    <td width="19%" valign="TOP">Tue 10/12/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Business Case created, reviewed, and signed off</td>
+    <td width="17%" valign="TOP">Tue 10/12/99</td>
+    <td width="19%" valign="TOP">Tue 10/12/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Project Glossary created, reviewed,
+    and signed off</td>
+    <td width="17%" valign="TOP">Tue 10/12/99</td>
+    <td width="19%" valign="TOP">Tue 10/12/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Creative Design Brief created,
+    reviewed, and signed off</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Thu 10/7/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Site Map &amp; Use-Case Navigation
+    Mapping created, reviewed, and signed off</td>
+    <td width="17%" valign="TOP">Thu 10/7/99</td>
+    <td width="19%" valign="TOP">Fri 10/8/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Creative Design Comps created, reviewed, and
+    signed off</td>
+    <td width="17%" valign="TOP">Fri 10/8/99</td>
+    <td width="19%" valign="TOP">Mon 10/11/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Content Plan created, reviewed, and
+    signed off (if applicable)</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Wed 10/6/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">User Interface Prototype (optional) created,
+    reviewed, and signed off</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Wed 10/6/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Reports Prototype (optional) created, reviewed,
+    and signed off</td>
+    <td width="17%" valign="TOP">Tue 10/12/99</td>
+    <td width="19%" valign="TOP">Thu 10/14/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Develop Preliminary Technology Alternatives</td>
+    <td width="17%" valign="TOP">Wed 10/6/99</td>
+    <td width="19%" valign="TOP">Thu 10/7/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Establish contact with appropriate Context
+    Gurus</td>
+    <td width="17%" valign="TOP">Tue 10/12/99</td>
+    <td width="19%" valign="TOP">Wed 10/13/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Preliminary Knowledge Transfer Plan &amp;
+    Schedule created, reviewed, and signed off</td>
+    <td width="17%" valign="TOP">Wed 10/13/99</td>
+    <td width="19%" valign="TOP">Wed 10/13/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Validate/Invalidate Assumption from Inception
+    proposal</td>
+    <td width="17%" valign="TOP">Wed 10/13/99</td>
+    <td width="19%" valign="TOP">Thu 10/14/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Obtain Sign-off</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Thu 10/14/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Deliverables Complete</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Thu 10/14/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Wrap-up</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Mon 10/25/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Conduct Quality Check Meeting with Client</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Thu 10/14/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Conduct Quality Assurance</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Fri 10/15/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Hold Context Lessons Learned Meeting</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Thu 10/14/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">First project estimates created, reviewed, and
+    signed off (+75%, -60%)</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Mon 10/18/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Full Project Iterative Delivery Plan created,
+    reviewed, and signed off</td>
+    <td width="17%" valign="TOP">Mon 10/18/99</td>
+    <td width="19%" valign="TOP">Tue 10/19/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Create proposal for Elaboration Phase</td>
+    <td width="17%" valign="TOP">Thu 10/14/99</td>
+    <td width="19%" valign="TOP">Fri 10/15/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Create Software Project Log</td>
+    <td width="17%" valign="TOP">Fri 10/15/99</td>
+    <td width="19%" valign="TOP">Fri 10/15/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Prepare for Inception Checkpoint</td>
+    <td width="17%" valign="TOP">Fri 10/15/99</td>
+    <td width="19%" valign="TOP">Mon 10/18/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Have team, including client project manager,
+    complete the work release sign-off form</td>
+    <td width="17%" valign="TOP">Mon 10/18/99</td>
+    <td width="19%" valign="TOP">Tue 10/19/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Deliver proposal for Elaboration Phase</td>
+    <td width="17%" valign="TOP">Tue 10/19/99</td>
+    <td width="19%" valign="TOP">Thu 10/21/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Checkpoint Review and Go/No Go
+    Decision</td>
+    <td width="17%" valign="TOP">Thu 10/21/99</td>
+    <td width="19%" valign="TOP">Fri 10/22/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Move appropriate deliverables from Project
+    Homepage to IAN Artifacts</td>
+    <td width="17%" valign="TOP">Fri 10/22/99</td>
+    <td width="19%" valign="TOP">Mon 10/25/99</td>
+  </tr>
+  <tr>
+    <td width="64%" valign="TOP">Inception Complete</td>
+    <td width="17%" valign="TOP">Mon 10/25/99</td>
+    <td width="19%" valign="TOP">Mon 10/25/99</td>
+  </tr>
+</table>
+<h4>Phase Plan</h4>
+<p>The development of the will be conducted using a phased approach where
+multiple iterations occur within a phase. The phases and the relative timeline
+is shown in the table below:</p>
+
+<table border="1" cellspacing="1" cellpadding="7" width="390">
+  <tr>
+    <td width="32%" valign="TOP" bgcolor="#ffffff"><b>Phase</b></td>
+    <td width="31%" valign="TOP" bgcolor="#ffffff"><b>No. of Iterations</b></td>
+    <td width="19%" valign="TOP" bgcolor="#ffffff"><b>Start</b></td>
+    <td width="18%" valign="TOP" bgcolor="#ffffff"><b>End</b></td>
+  </tr>
+  <tr>
+    <td width="32%" valign="TOP">Inception Phase</td>
+    <td width="31%" valign="TOP">1</td>
+    <td width="19%" valign="TOP">Week 1</td>
+    <td width="18%" valign="TOP">Week 4</td>
+  </tr>
+  <tr>
+    <td width="32%" valign="TOP">Elaboration Phase</td>
+    <td width="31%" valign="TOP">1</td>
+    <td width="19%" valign="TOP">Week 5</td>
+    <td width="18%" valign="TOP">Week11</td>
+  </tr>
+  <tr>
+    <td width="32%" valign="TOP">Construction Phase</td>
+    <td width="31%" valign="TOP">3</td>
+    <td width="19%" valign="TOP">Week 12</td>
+    <td width="18%" valign="TOP">Week 27</td>
+  </tr>
+  <tr>
+    <td width="32%" valign="TOP">Transition Phase</td>
+    <td width="31%" valign="TOP">1</td>
+    <td width="19%" valign="TOP">Week 28</td>
+    <td width="18%" valign="TOP">Week 31</td>
+  </tr>
+</table>
+<p>The milestones that mark the end of each phase can be seen in the table
+below.</p>
+
+<table border="1" cellspacing="1" cellpadding="7" width="583">
+  <tr>
+    <td width="20%" valign="TOP" bgcolor="#ffffff"><b>Description</b></td>
+    <td width="80%" valign="TOP" bgcolor="#ffffff"><b>Milestone</b></td>
+  </tr>
+  <tr>
+    <td width="20%" valign="TOP">Inception Phase</td>
+    <td width="80%" valign="TOP">The Inception Phase will develop the product
+    requirements and establish the business case for the . The major use cases
+    will be developed as well as the high level Project Plan. At the end of the
+    Inception Phase will decide whether to fund and proceed with the project
+    based upon the business case. Business Case Review Milestone at the end of
+    the phase marks the Go/No Go decision for the project.</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="TOP">Elaboration Phase</td>
+    <td width="80%" valign="TOP">The Elaboration Phase will analyze the
+    requirements and will develop the architectural prototype. At the completion
+    of the Elaboration Phase all use cases selected for Release 1.0 will have
+    completed analysis and design. In addition, the high risk use cases for
+    Release 2.0 will have been analyzed and designed. The architectural
+    prototype will test the feasibility and performance of the architecture that
+    is required for Release 1.0. The Architectural Prototype Milestone marks the
+    end of the Elaboration Phase. This prototype signifies verification of the
+    major architectural components that comprise the R1.0 Release.</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="TOP">Construction Phase</td>
+    <td width="80%" valign="TOP">During the Construction Phase, remaining use
+    cases will be analyzed and designed. The Beta version for Release 1.0 will
+    be developed and distributed for evaluation. The implementation and test
+    activities to support the R1.0 and R2.0 releases will be completed. The R2.0
+    Operational Capability Milestone marks the end of the Construction Phase.
+    Release 2.0 software is ready for packaging.</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="TOP">Transition Phase</td>
+    <td width="80%" valign="TOP">The Transition Phase will prepare the R1.0 and
+    R2.0 releases for distribution. It provides the required support to ensure a
+    smooth installation including user training. The R2.0 Release Milestone
+    marks the end of the Transition Phase. At this point all capabilities, as
+    defined in the Vision Document, are installed and available for the users.</td>
+  </tr>
+</table>
+<h4>Iteration Objectives</h4>
+
+<table border="1" cellspacing="1" cellpadding="7" width="552">
+  <tr>
+    <td width="15%" valign="TOP" bgcolor="#ffffff"><b>Phase</b></td>
+    <td width="16%" valign="TOP" bgcolor="#ffffff"><b>Iteration</b></td>
+    <td width="27%" valign="TOP" bgcolor="#ffffff"><b>Description</b></td>
+    <td width="16%" valign="TOP" bgcolor="#ffffff"><b>Associated Milestones</b></td>
+    <td width="25%" valign="TOP" bgcolor="#ffffff"><b>Risks Addressed</b></td>
+  </tr>
+  <tr>
+    <td width="15%" valign="TOP">Inception</td>
+    <td width="16%" valign="TOP">Preliminary Iteration</td>
+    <td width="27%" valign="TOP">Defines business model, product requirements,
+    project plan, and business case.</td>
+    <td width="16%" valign="TOP">Business Case Review</td>
+    <td width="25%" valign="TOP">Clarifies user requirements up front.
+    <p>Develops realistic project plans and scope.</p>
+    <p>Determines feasibility of project from a business point of view</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="TOP">Elaboration Phase</td>
+    <td width="16%" valign="TOP">Develop Architectural Prototype</td>
+    <td width="27%" valign="TOP">Completes analysis &amp; design for all use
+    cases. Develops the architectural prototype.</td>
+    <td width="16%" valign="TOP">Architectural Prototype</td>
+    <td width="25%" valign="TOP">Architectural issues clarified.
+    <p>Technical risks mitigated.</p>
+    <p>Early prototype for user review.</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="TOP">Construction Phase</td>
+    <td width="16%" valign="TOP">C1 Iteration – Develop Beta</td>
+    <td width="27%" valign="TOP">Implement and test use cases to provide the
+    Beta Version.</td>
+    <td width="16%" valign="TOP">Beta</td>
+    <td width="25%" valign="TOP">All key features from a user and architectural
+    prospective implemented in the Beta.
+    <p>User feedback prior to release of software.</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="TOP">&nbsp;</td>
+    <td width="16%" valign="TOP">C2 Iteration – Develop initial Release</td>
+    <td width="27%" valign="TOP">Implement and test remaining use cases, fix
+    defects from Beta, and incorporate feedback from Beta.
+    <p>Develops the initial system.</td>
+    <td width="16%" valign="TOP">Software</td>
+    <td width="25%" valign="TOP">Software fully reviewed by user community.
+    <p>Product quality should be high.</p>
+    <p>Defects minimized.</p>
+    <p>Cost of quality reduced.</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="TOP">&nbsp;</td>
+    <td width="16%" valign="TOP">C3 Iteration – Develop full Release</td>
+    <td width="27%" valign="TOP">Incorporate enhancements and defects from
+    initial release.
+    <p>Develops the full system.</td>
+    <td width="16%" valign="TOP">Software</td>
+    <td width="25%" valign="TOP">Quick release addresses customer satisfaction.
+    <p>All key functionality provided in System by full Release.</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="TOP">Transition phase</td>
+    <td width="16%" valign="TOP">Software Release</td>
+    <td width="27%" valign="TOP">Package, distribute, and install Release.</td>
+    <td width="16%" valign="TOP">Software Released</td>
+    <td width="25%" valign="TOP">&nbsp;</td>
+  </tr>
+</table>
+<h4>Releases</h4>
+<p>At this point in time, two releases are planned. The first must be complete
+in time for March Madness, and its scope will be determined during the
+Elaboration Phase. Any functionality remaining will be included in a subsequent
+release (if required).</p>
+<h4>Project Schedule</h4>
+<p>The preliminary project schedule can be seen in section 2.4. Updated plans
+will be made available on the dates specified in that section</p>
+<h4>Project Resourcing</h4>
+<ol>
+  <li>Staffing Plan</li>
+  <p>The individuals on this project are provided by Context Integration and and
+  are named in section 3.1.</p>
+  <li>Resource Acquisition Plan</li>
+  <p>Not Applicable.</p>
+  <li>Training Plan</li>
+  <p>The staff assigned to this project have appropriate skills at this point. A
+  Knowledge Transfer Plan will be developed during the Inception Phase to ensure
+  that staff acquire the skills needed to support the system following the
+  Transition Phase.</p>
+</ol>
+<h4>Budget</h4>
+<p>The budget for the Inception Phase is $150,000.00. A price for the
+Elaboration Phase will be developed during the Inception Phase.</p>
+<h4>Iteration Plans</h4>
+<p>This document contains the Iteration Plan for Inception. Iteration plans for
+subsequent phases will be delivered at the end of the preceding phase or
+iteration.</p>
+<h4>Project Monitoring and control</h4>
+<ol>
+  <li>Requirements management plan</li>
+  <p>See reference [1].</p>
+  <li>Schedule control plan</li>
+  <p>Project status reports will be issued weekly and will include Milestone
+  Tracking detail to ensure that the project stays on track. Changes in the
+  schedule will be escalated to the project sponsors, who will then decide
+  whether to alter scope in order to preserve target completion dates.</p>
+  <li>Budget control plan</li>
+  <p>Project status reports will be issued weekly and will include Milestone
+  Tracking detail to ensure that the project stays on track. Changes in the
+  schedule will be escalated to the project sponsors, who will then decide
+  whether to alter scope in order to preserve target completion dates.</p>
+  <li>Quality control plan</li>
+  <p>Formal reviews will be executed for each design and implementation
+  subsystem. This will ensure that the objects under review meet the specified
+  requirements.</p>
+  <li>Reporting Plan</li>
+  <p>Weekly project status reports will be issued. Phase and Iteration summary
+  reports will also be issued at the appropriate times.</p>
+  <li>Measurement Plan</li>
+  <p>Effort and time will be used to track progress of the project. Planned vs.
+  Actual reports will be used by the project manager to measure progress.</p>
+  <li>Risk Management plan</li>
+  <p>See reference [2].</p>
+  <li>Close-out plan</li>
+  <p>At the end of the project, a Lessons Learned meeting will be held to
+  capture new techniques, tools, or methods. Project deliverables will be
+  archived to the Knowledge Management repository for future reference.</p>
+</ol>
+<h3><a name="Technical process plans">Technical process plans</a> <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Development Case</h4>
+<p>See reference [3].</p>
+<h4>Methods, tools and techniques</h4>
+<p>The standard guidelines in the RUP will be used.</p>
+<h4>Infrastructure plan</h4>
+<p>This project will be developed at a Context Solution Center which has
+appropriate servers and software already installed.</p>
+<h4>Product acceptance plan</h4>
+<p>To be developed.</p>
+<h3><a name="Supporting process plans">Supporting process plans</a><a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Configuration management plan</h4>
+<p>See reference [3].</p>
+<h4>Evaluation plan</h4>
+<p>To be developed.</p>
+<h4>Documentation plan</h4>
+<p>Documents to be developed are listed in reference [3].</p>
+<h4>Quality assurance plan</h4>
+<p>See reference [3].</p>
+<h4>Problem resolution plan</h4>
+<p>To be developed.</p>
+<h4>Subcontractor management plan</h4>
+<p>N/A - no subcontractors will be used.</p>
+<h4>Process improvement plan</h4>
+<p>At completion of each phase, a Lessons Learned session will be held to
+capture improvements to the process.<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td><!--msnavigation--><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

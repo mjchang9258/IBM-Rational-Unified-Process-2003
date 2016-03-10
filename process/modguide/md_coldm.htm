@@ -1,0 +1,259 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Collaboration Diagram</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Collaboration 
+  Diagram</rpw><a name="Top"></a><a name="XE_collaboration_diagram__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Contents">Contents of Collaboration Diagrams</a>
+    <ul>
+      <li><a href="#Objects">Objects</a></li>
+      <li><a href="#Actors">Actors</a></li>
+      <li><a href="#Links">Links</a></li>
+      <li><a href="#Messages">Messages</a></li>
+    </ul>
+  </li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+      <p>Collaboration diagrams are used to show how objects interact to perform the 
+        behavior of a particular use case, or a part of a use case. Along with 
+        sequence diagrams, collaborations are used by designers to define and 
+        clarify the roles of the objects that perform a particular flow of events 
+        of a use case. They are the primary source of information used to determining 
+        class responsibilities and interfaces.</p>
+<p>Unlike a sequence diagram, a collaboration diagram shows the relationships
+among the objects. Sequence diagrams and collaboration diagrams express similar
+information, but show it in different ways. Collaboration diagrams show the
+relationships among objects and are better for understanding all the effects on
+a given object and for procedural design.</p>
+<p>Because of the format of the collaboration diagram, they tend to better
+suited for analysis activities (see <a href="../activity/ac_ucana.htm">Activity:
+Use-Case Analysis</a>). Specifically, they tend to be better suited to depicting
+simpler interactions of smaller numbers of objects. As the number of objects and
+messages grows, the diagram becomes increasingly hard to read. In addition, it
+is difficult to show additional descriptive information such as timing, decision
+points, or other unstructured information that can be easily added to the notes
+in a sequence diagram.</p>
+<h3><a name="Contents">Contents</a> of Collaboration Diagrams <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can have objects and actor instances in collaboration diagrams, together
+with links and messages describing how they are related and how they interact.
+The diagram describes what takes place in the participating objects, in terms of
+how the objects communicate by sending messages to one another. You can make a
+collaboration diagram for each variant of a use case's flow of events.</p>
+<p class="picturelarge" align="center"><img src="images/collab1.gif" width="502" height="297"></p>
+<p class="picturetext">A collaboration diagram that describes part of the flow
+of events of the use case <b>Receive Deposit Item</b> in the <b>Recycling-Machine
+System</b>.</p>
+<h4><a name="Objects">Objects</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>An object is represented by an object symbol showing the name of the object
+and its class underlined, separated by a colon:</p>
+<p>objectname : classname</p>
+<p>You can use objects in collaboration diagrams in the following ways:
+<ul>
+  <li>An object's class can be unspecified. Normally you create a collaboration
+    diagram with objects first and specify their classes later.</li>
+  <li>The objects can be unnamed, but you should name them if you want to
+    discriminate different objects of the same class.</li>
+  <li>An object's class can itself be represented in a collaboration diagram, if
+    it actively participates in the collaboration.</li>
+</ul>
+<h4><a name="Actors">Actors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Normally an actor instance occurs in the collaboration diagram, as the
+invoker of the interaction. If you have several actor instances in the same
+diagram, try keeping them in the periphery of the diagram.</p>
+<h4><a name="Links">Links</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Links are defined as follows:
+<ul>
+  <li>A link is a relationship among objects across which messages can be sent.
+    In collaboration diagrams, a link is shown as a solid line between two
+    objects.</li>
+  <li>An object interacts with, or navigates to, other objects through its links
+    to these objects.</li>
+  <li>A link can be an instance of an association, or it can be <b>anonymous</b>,
+    meaning that its association is unspecified.</li>
+  <li>Message flows are attached to links, see <b>Messages</b>.</li>
+</ul>
+<h4><a name="Messages">Messages</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A message is a communication between objects that conveys information with
+the expectation that activity will ensue. In collaboration diagrams, a message
+is shown as a labeled arrow placed near a link. This means that the link is used
+to transport, or otherwise implement the delivery of the message to the target
+object. The arrow points along the link in the direction of the target object
+(the one that receives the message). The arrow is labeled with the name of the
+message, and its parameters. The arrow may also be labeled with a sequence
+number to show the sequence of the message in the overall interaction. Sequence
+numbers are often used in collaboration diagrams, because they are the only way
+of describing the relative sequencing of messages.</p>
+<p>A message can be unassigned, meaning that its name is a temporary string that
+describes the overall meaning of the message. You can later assign the message
+by specifying the operation of the message's destination object. The specified
+operation will then replace the name of the message.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

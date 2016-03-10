@@ -1,0 +1,412 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Protocol</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+<h2 class="reactivebanner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Protocol</rpw><a name="XE_protocol__as_artifact"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_prot.jpg" width="78" height="45">&nbsp;
+	  </td>
+      <td width="80%">A common specification for a set of <a href="ar_cpsl.htm">Artifact: 
+        Capsule</a> ports.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_desmd.htm">Design Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_archt.htm">Software Architect</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Used only if capsules are used.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Class, stereotyped &laquo;protocol&raquo;.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../activity/chklists/ck_prot.htm">Checklist: Protocol</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_cpdes.htm">Capsule Design</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_cpdes.htm">Capsule Design</a></li>
+<li><a href="../activity/ac_iddes.htm">Identify Design Elements</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3 class="reactive"><a name="XE_protocol__purpose_of"></a><a name="Purpose">Purpose</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p  class="reactive">Protocols allow the specification for a set of
+<a href="ar_cpsl.htm">Artifact: Capsule</a> ports to be defined and
+reused. The protocol defines a set of incoming and outgoing messages types (e.g.
+operations, signals), and optionally a collaboration (usually consisting of a
+set of sequence diagrams, see <a href="../../process/modguide/md_seqdm.htm">Guidelines:
+Sequence Diagram</a>) which defines the required ordering of messages and a
+state machine (described by a set of statechart diagrams, see <a href="../../process/modguide/md_stadm.htm">Guidelines:
+Statechart Diagram</a>) which specifies the abstract behavior that the
+participants in a protocol must provide.</p>
+<p  class="reactive">A protocol is a specification of <b>desired</b> 
+  behavior that can take place over a connector&#151; an explicit specification 
+  of the contractual agreement between the participants in the protocol. It is 
+  pure behavior and does not specify any structural elements. A protocol comprises 
+  a set of participants, each of which plays a specific role in the protocol.</p>
+<p  class="reactive">Each such <b>protocol role</b> is
+specified by a unique name and a set of signals that are received by that role
+as well as the set of signals that are sent by that role (either set could be
+empty). As an option, a protocol can also have a specification of the valid
+communication sequences; a state machine may specify this. Finally, a protocol
+may also have a set of prototypical interaction sequences (these can be shown as
+sequence diagrams). These must conform to the protocol state machine, if one is
+defined.</p>
+<p  class="reactive"><b>Binary protocols</b>, involving just two
+participants, are by far the most common and the simplest to specify. One
+advantage of these protocols is that only one role, called the <b>base role</b>,
+needs to be specified. The other, called the <b>conjugate</b>, can be
+derived from the base role simply by inverting the incoming and outgoing signal
+sets. This inversion operation is known as <b>conjugation</b>.</p>
+<p align="center" class="reactive"><img src="images/ar_prot1.gif" width="436" height="277"></p>
+<p align="center" class="reactivepicturetext">Composition of &laquo;protocol&raquo; 
+  class.</p>
+<p align="left" class="reactive">As noted in above figure, a protocol typically contains one or
+more sequence diagrams which illustrate the valid message exchange sequences
+specified by the protocol. The protocol also consists of a set of incoming
+(request) messages and a set of outgoing (response) messages. An optional state
+machine can be used to specify the behavior that participants in the protocol
+must support.</p>
+<h3 class="reactive"><a name="Properties">Properties</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">In addition to the relationships defined above, the following properties are
+defined:</p>
+<div align="left">
+
+
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td valign="top" width="102" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+    <p class="reactive"><b>Property Name</b></td>
+    <td valign="top" width="195" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+    <p class="reactive"><b>Brief Description</b></td>
+    <td valign="top" width="183" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+    <p class="reactive"><b>UML Representation</b></td>
+  </tr>
+  <tr>
+    <td valign="top" width="102" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+      <p class="reactive">Name</p>
+    </td>
+    <td valign="top" width="195" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+      <p class="reactive">The
+    name of the protocol.</p>
+    </td>
+    <td valign="top" width="183" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+      <p class="reactive">The
+    attribute &quot;Name&quot; on model element.</p>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" width="102" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+      <p class="reactive">Brief
+    Description</p>
+    </td>
+    <td valign="top" width="195" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+      <p class="reactive">A
+    brief description of the role and purpose of the protocol.</p>
+    </td>
+    <td valign="top" width="183" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+      <p class="reactive">Tagged
+    value, of type &quot;short text&quot;.</p>
+    </td>
+  </tr>
+</table>
+<br></div>
+
+<h4 class="reactive"><font size="3"><a name="Protocol Role">Protocol Role</a> </font><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<font size="3"> 
+<p  class="reactive">A protocol role is modeled in UML by the &laquo;<i>protocolRole</i>&raquo; 
+  stereotype of ClassifierRole. This stereotype has two dependencies to Signal: 
+  one for incoming and one for outgoing signals. (This is a property of UML classes 
+  in general). Like any classifier, it may also have an associated state machine 
+  that captures the local behavior of the protocol role. This state machine has 
+  to be compliant with the protocol state machine.</p>
+<p  class="reactive">A protocol is modeled in UML by the &laquo;<i>protocol</i>&raquo; 
+  stereotype of Collaboration with a composition relationship to each of its protocol 
+  roles representing the standard relationship that a collaboration has with its 
+  &quot;owned elements&quot;. This collaboration does not have any internal structural 
+  aspects (i.e., it has no association roles). Like all generalizable elements, 
+  a protocol can be refined using standard inheritance. The state machine and 
+  collaborations associated with a protocol are inherited directly from Classifier.</p>
+</font> 
+<p align="left" class="reactive">Protocol roles can be shown using the standard
+notation for classifiers with an explicit stereotype label and two optional
+specialized list compartments for incoming and outgoing signal sets, as shown in
+the figure below. The state machine and interaction diagrams of a protocol role
+are represented using the standard UML notation.</p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p align="CENTER" class="reactive"><font face="Arial" size="2" color="#c0c0c0"><img src="images/ar_prot2.gif" width="155" height="199"></font></p>
+        </blockquote>
+      
+      <p align="CENTER" class="reactivepicturetext">Protocol role notation - class
+      diagram.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p  class="reactive">A special shorthand notation is provided for
+binary protocols since they are by far the most common. As noted earlier, for
+binary protocols, only the base role needs to be specified. Furthermore, since
+the role state machine and the protocol state machine are the same in this case,
+only the protocol state machine needs to be defined. For this reason, the
+notation for binary protocols combines elements of the protocol role notation by
+including directly the incoming and outgoing signal lists with the protocol
+class. The protocol stereotype and its corresponding icon&nbsp; help to
+differentiate this from the protocol role notation.</p>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <p align="CENTER" class="reactive"><font face="Arial" size="2"><img src="images/ar_prot3.gif" width="193" height="212"></font></p>
+        </blockquote>
+      
+      <p align="CENTER" class="reactivepicturetext">Notation for binary protocols &#151; class diagram</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p  class="reactive">Finally, a protocol usage may also be
+indicated with a standard collaboration use diagram represented by a dashed oval
+with dashed lines for each of its roles.</p>
+<p align="center" class="reactive"><img src="images/ar_prot4.gif" alt="ar_protocol4.gif (4259 bytes)" width="370" height="174"></p>
+<p align="center" class="reactivepicturetext">Example of Protocol for Receiver; a
+Connector links Sender and Receiver.</p>
+<h3 class="reactive"><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">The protocols are architecturally significant, so all protocols should be
+identified and described during the elaboration phase. Adjustments to the
+protocols may occur during the construction phase, but proposed changes are
+cause for concern and should be examined closely.</p>
+<h3 class="reactive"><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">The software architect is responsible for the integrity of the protocol, ensuring that
+the protocol definition is complete and consistent.</p>
+<h3 class="reactive"><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Protocols are a part of the 'capsule' pattern (see <a href="ar_cpsl.htm">Artifact:
+Capsule</a>), a specific pattern for representing and resolving thread of
+control issues. They are most useful in the context of a system in which
+concurrency concerns are dominant design issues.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Maintaining Automated Test Suites</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Maintaining Automated Test Suites</rpw><a name="XE_test__developer_testing__maintaining_automated_tests"></a><a name="XE_developer_testing__automated_tests__maintanence_of"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#AbstractionManagesComplexity">Abstraction helps manage complexity</a></li>
+  <li><a href="#AnotherExample">Another example</a></li>
+  <li><a href="#FocusingImprovement">Focusing test improvement</a></li>
+  <li><a href="#ThrowingAwayTests">Throwing away tests</a></li>
+</ul>
+
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Like physical objects, tests can break. It's not that they wear down, it's 
+  that something's changed in their environment. Perhaps they've been ported to 
+  a new operating system. Or&#151;more likely&#151;the code they exercise has 
+  changed in a way that <i>correctly</i> causes the test to fail. Suppose you're 
+  working on version 2.0 of an e-banking application. In version 1.0, this method 
+  was used to log in:</p>
+
+<blockquote>
+    <p align="left"><font face="Courier New">public boolean login
+    (String username);</font></p>
+</blockquote>
+
+<p>In version 2.0, the marketing department has realized that password protection 
+  might be a good idea. So the method is changed to this:</p>
+
+<blockquote>
+    <p align="left"><font face="Courier New">public boolean login
+    (String username<i><b>, String password</b></i>);</font></p>
+</blockquote>
+
+<p>Any test that uses <font face="Courier New">login</font> will fail. It won't 
+  even compile. Since not much useful work can be done without logging in, not 
+  many useful tests can be written that don't use <font face="Courier New">login</font>. 
+  You might be faced with hundreds or thousands of failing tests.</p>
+
+<p>These tests can be fixed by using a global search-and-replace tool that finds 
+  every instance of <font face="Courier New">login(<i>something</i>)</font>and 
+  replaces it with <font face="Courier New">login(<i>something</i>, &quot;dummy 
+  password&quot;)</font>. Then arrange for all the testing accounts to use that 
+  password, and you're on your way. </p>
+
+<p>Then, when marketing decides that passwords should not be allowed to contain 
+  spaces, you get to do it all over again. </p>
+
+<p>This kind of thing is a wasteful burden, especially when&#151;as is often the 
+  case&#151;the test changes aren't so easily made. There is a better way.</p>
+
+<p>Suppose that the tests originally did not call the product's <font face="Courier New">login</font> 
+  method. Rather, they called a library method that does whatever it takes to 
+  get the test logged in and ready to proceed. Initially, that method might look 
+  like this:</p>
+
+<blockquote>
+<pre>
+public boolean testLogin (String username) {
+  return product.login(username);
+}
+</pre>
+</blockquote>
+
+<p>When the version 2.0 change happens, the utility library is changed to match:</p>
+<blockquote>
+  <pre>
+public Boolean testLogin (String username) {
+  return  product.login(username<b><i>, "dummy password"</i></b>);
+}
+</pre>
+</blockquote>
+
+<p>Instead of a changing a thousand tests, you change one method.</p>
+<p>Ideally , all the needed library methods would be available at the beginning 
+  of the testing effort. In practice, they can't all be anticipated&#151;you might 
+  not realize you need a <font face="Courier New">testLogin</font> utility method 
+  until the first time the product <font face="Courier New">login</font> changes. 
+  So test utility methods are often &quot;factored out&quot; of existing tests 
+  as needed. It is <i>very</i> important that you perform this ongoing test repair, 
+  even under schedule pressure. If you do not, you will waste much time dealing 
+  with an ugly and un-maintainable test suite. You might well find yourself throwing 
+  it away, or being unable to write the needed numbers of new tests because all 
+  your available testing time is spent maintaining old ones.</p>
+<p><b>Note</b>: the tests of the product's <font face="Courier New">login</font> 
+  method will still call it directly. If its behavior changes, some or all of 
+  those tests will need to be updated. (If none of the <font face="Courier New">login</font> 
+  tests fail when its behavior changes, they're probably not very good at detecting 
+  defects.)</p>
+
+<h3><a name="AbstractionManagesComplexity">Abstraction helps manage complexity</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The previous example showed how tests can abstract away from the concrete application. 
+  Most likely you can do considerably more abstraction. You might find that a 
+  number of tests begin with a common sequence of method calls: they log in, set 
+  up some state, and navigate to the part of the application you're testing. Only 
+  then does each test do something different. All this setup could&#151;and should&#151;be 
+  abstracted into a single method with an evocative name such as <font face="Courier New">readyAccountForWireTransfer</font>. 
+  By doing that, you're saving considerable time when new tests of a particular 
+  type are written, and you're also making the intent of each test much more understandable.</p>
+<p>Understandable tests are important. A common problem with old test suites is 
+  that no one knows what the tests are doing or why. When they break, the tendency 
+  is to fix them in the simplest possible way. That often results in tests that 
+  are weaker at finding defects. They no longer test what they were originally 
+  intended to test.</p>
+
+<h3><a name="AnotherExample">Another example</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Suppose you're testing a compiler. Some of the first classes written define 
+  the compiler's internal parse tree and the transformations made upon it. You 
+  have a number of tests that construct parse trees and test the transformations. 
+  One such test might look like this:</p>
+<blockquote> 
+<pre>
+/* 
+ * Given
+ *   while (i&lt;0) { f(a+i); i++;}
+ * "a+i" cannot be hoisted from the loop because 
+ * it contains a variable changed in the loop.
+ */
+
+loopTest = new LessOp(new Token("i"), new Token("0"));
+aPlusI = new PlusOp(new Token("a"), new Token("i"));
+statement1 = new Statement(new Funcall(new Token("f"), aPlusI));
+statement2 = new Statement(new PostIncr(new Token("i"));
+loop = new While(loopTest, new Block(statement1, statement2));
+
+expect(false, loop.canHoist(aPlusI))
+</pre>
+</blockquote>
+<p>This is a difficult test to read. Suppose that time passes. Something changes 
+  that requires you to update the tests. At this point, you have more product 
+  infrastructure to draw upon. In particular, you might have a parsing routine 
+  that turns strings into parse trees. It would be better at this point to completely 
+  rewrite the tests to use it:</p>
+<blockquote> 
+<pre>
+loop=Parser.parse("while (i&lt;0) { f(a+i); i++; }");
+// Get a pointer to the "a+i" part of the loop. 
+aPlusI = loop.body.statements[0].args[0];
+
+expect(false, loop.canHoist(aPlusI));
+</pre>
+</blockquote>
+
+<p>Such tests will be much easier to understand, which will save time immediately 
+  and in the future. In fact, their maintenance costs are so much lower that it 
+  might make sense to defer most of them until the parser is available.</p>
+<p>There's a slight downside to this approach: such tests might discover a defect 
+  in either the transformation code (as intended) or in the parser (by accident). 
+  So problem isolation and debugging may be somewhat more difficult. On the other 
+  hand, finding a problem that the parser tests miss isn't such a bad thing.</p>
+<p>There is also a chance that a defect in the parser might mask a defect in the 
+  transformation code. The chance of this is rather small, and the cost from it 
+  is almost certainly less than the cost of maintaining the more complicated tests.</p>
+
+<h3><a name="FocusingImprovement">Focusing test improvement</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A large test suite will contain some blocks of tests that don't change. They 
+  correspond to stable areas in the application. Other blocks of tests will change 
+  often. They correspond to areas in the application where behavior is changing 
+  often. These latter blocks of test will tend to make heavier use of utility 
+  libraries. Each test will test specific behaviors in the changeable area. The 
+  utility libraries are designed to allow such a test to check its targeted behaviors 
+  while remaining relatively immune to changes in untested behaviors. </p>
+<p>For example, the &quot;loop hoisting&quot; test shown above is now immune to 
+  the details of how parse trees are built. It is still sensitive to the structure 
+  of a <font face="Courier New">while</font> loop's parse tree (because of the 
+  sequences of accesses required to fetch the sub-tree for <font face="Courier New">a+i</font>). 
+  If that structure proves changeable, the test can be made more abstract by creating 
+  a <font face="Courier New">fetchSubtree</font> utility method:</p>
+<blockquote> 
+<pre>
+loop=Parser.parse("while (i&lt;0) { f(a+i); i++; }");
+<b><i>aPlusI = fetchSubtree(loop, "a+i");</i></b>
+
+expect(false, loop.canHoist(aPlusI));
+</pre>
+</blockquote>
+
+<p>The test is now sensitive only to two things: the definition of the language 
+  (for example, that integers can be incremented with <font face="Courier New">++</font>), 
+  and the rules governing loop hoisting (the behavior whose correctness it's checking).</p>
+
+<h3><a name="ThrowingAwayTests">Throwing away tests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Even with utility libraries, a test might periodically be broken by behavior 
+  changes that have nothing to do with what it checks. Fixing the test doesn't 
+  stand much of a chance of finding a defect due to the change; it's something 
+  you do to preserve the test's chance of finding some other defect someday. But 
+  the cost of such a series of fixes might exceed the value of the test's hypothetically 
+  finding a defect. It might be better to simply throw the test away and devote 
+  the effort to creating new tests with greater value.</p>
+<p>Most people resist the notion of throwing away a test&#151;at least until they're 
+  so overwhelmed by the maintenance burden that they throw <i>all</i> the tests 
+  away. It is better to make the decision carefully and continuously, test by 
+  test, asking:</p>
+<ol>
+  <li>How much work will it be to fix this test well, perhaps adding to the utility 
+    library?</li>
+  <li>How else might the time be used?</li>
+  <li>How likely is it that the test will find serious defects in the future? 
+    What's been the track record of it and related tests?</li>
+  <li>How long will it be before the test breaks again?</li>
+</ol>
+<p>The answers to these questions will be rough estimates or even guesses. But 
+  asking them will yield better results than simply having a policy of fixing 
+  all tests.</p>
+<p>Another reason to throw away tests is that they are now redundant. For example, 
+  early in development, there might be a multitude of simple tests of basic parse-tree 
+  construction methods (the <font face="Courier New">LessOp</font> constructor 
+  and the like). Later, during the writing of the parser, there will be a number 
+  of parser tests. Since the parser uses the construction methods, the parser 
+  tests will also indirectly test them. As code changes break the construction 
+  tests, it's reasonable to discard some of them as being redundant. Of course, 
+  any new or changed construction behavior will need new tests. They might be 
+  implemented directly (if they're hard to test thoroughly through the parser) 
+  or indirectly (if tests through the parser are adequate and more maintainable).</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

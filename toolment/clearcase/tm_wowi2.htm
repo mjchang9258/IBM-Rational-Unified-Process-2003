@@ -1,0 +1,248 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Creating a Development Workspace Using Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Creating a Development Workspace Using Rational ClearCase</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to create a private workspace for individual
+work. A &quot;private workspace&quot; is isolated from the workspaces of other team
+members. It provides a place for a developer to make changes to the system
+without seeing or affecting other developers' changes.&nbsp;</p>
+  
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_crpws.htm">Create Development Workspace</a></li>
+</ul>
+<br>
+    
+</p>
+  
+<h3>Overview</h3>
+<p>In the UCM model of ClearCase, private workspaces, called development
+workspaces, allow you to work on UCM activities in isolation from the rest of&nbsp;
+the project. Generally, each project member creates their own development work
+area at the time they join a UCM project. Private work areas can also be created
+at any time in the course of working on a UCM project.</p>
+<p>UCM development workspaces are made up of a stream and an associated view.
+UCM streams determine which versions of elements appear in any view configured
+by that stream. Streams also maintain a list of&nbsp; UCM baselines and
+activities. Views provide work areas for tasks such as editing and compiling
+source files, document formatting, and so on. &nbsp;</p>
+<p>This tool mentor is applicable when running Microsoft Windows.&nbsp;</p>
+<h4>Tool Steps</h4>
+<p>The following steps describe how to create a development workspace when you
+join a UCM project. The general steps are:&nbsp;</p>
+<ol>
+  <li><a href="#Start the Join Project Wizard">Start the Join Project Wizard</a>
+  <li><a href="#Specify stream and view information">Specify stream and view
+    information</a>
+  <li><a href="#Attach a view to a stream">Attach a view to a stream</a></li>
+</ol>
+&nbsp;<b><img src="../../images/helpbook.gif" width="16" height="16"> </b> See the
+topic <i>Join Project Wizard</i> 
+ in ClearCase online Help for an overview of the wizard. Detailed help for each
+step of the wizard is also available from the Help topic for each screen.&nbsp;
+<p>For more information on UCM views and streams, see these topics in ClearCase online Help.</p>
+<ul>
+  <li>&nbsp;<i>About streams</i>&nbsp;</li>
+  <li><i>About views</i></li>
+</ul>
+<h3>1.&nbsp;<a name="Start the Join Project Wizard">Start the Join Project
+Wizard</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ol>
+  <li>From the Windows task bar, select <b>Start</b> &gt; <b>Programs </b>&gt; <b>Rational
+ClearCase</b> &gt; <b>Project Explorer</b>.</li>
+  <li>From ClearCase Project Explorer, click <b>Toolbox</b> tab <b>&gt; UCM &gt;
+    Join Project</b>. The Join Project Wizard appears.&nbsp;
+  <li>Select the project you want to join and click <b>Next</b> to proceed to
+    the next step of the wizard.</li>
+</ol>
+<h3>2.&nbsp;<a name="Specify stream and view information">Specify stream and
+view information</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Specify a stream name, a view name, a storage location for the view, and the
+view type (snapshot) for your development work area.&nbsp; The ClearCase Join Project
+Wizard provides default information for these values.&nbsp;&nbsp;</p>
+<p><b>Note</b>: The Join Project Wizard also prompts you for information
+required to create your view for the project's integration work area.&nbsp;</p>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"> </b> For more
+information on view storage, see the topic <i>To choose a location for a snapshot
+view directory</i> in&nbsp; ClearCase
+online Help.&nbsp;
+<h3>
+
+3. <a name="Attach a view to a stream">Attach a view to a stream</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+
+</h3>
+
+<p>The Join Project Wizard prompts you to confirm the choices you have made, and
+attaches the development view and stream you specified. Click <b>OK</b> to
+confirm your choices and proceed.</p>
+<p>
+
+<b><img src="../../images/helpbook.gif" width="16" height="16"> </b> For more
+information on associating views and streams, see the topic <i>To attach a new
+view to
+an existing stream</i> in ClearCase online Help.</p>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

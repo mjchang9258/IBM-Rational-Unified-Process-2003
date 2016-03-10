@@ -1,0 +1,277 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Updating Your Project Work Area Using Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Updating Your Project Work Area Using Rational ClearCase</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to update development work areas with work that 
+has been integrated, tested, and approved for general use.&nbsp;</p>
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_upwks.htm">Update Workspace</a></li>
+</ul>
+<br>
+    
+</p>
+  
+<h3>Overview</h3>
+<p>The following diagram illustrates the UCM workflow. Shaded areas are
+discussed in this tool mentor.<b>&nbsp;</b></p>
+<p><img border="0" src="images/wflow_rebase.gif" width="332" height="129"></p>
+In the UCM model, activities (work) delivered from multiple sources are
+integrated and organized into baselines. Usually, baselines go through a cycle
+of testing and bug fixing until they reach a satisfactory level of stability.
+When a baseline reaches this level, your project manager designates it as a
+recommended baseline for the stream.
+<p align="left">To work with the set of versions in the recommended baseline,
+rebase your development work area. To minimize the amount of merging necessary
+while you deliver activities, rebase your development work area with each new
+recommended baseline as it becomes available.&nbsp;
+<p>This tool mentor is applicable when running Microsoft Windows.</p>
+<h4>Tool Steps</h4>
+A rebase operation involves the following tasks:
+<ol>
+  <li><a href="#Prepare your development view">Prepare your development view</a>
+  <li><a href="#Start the rebase operation">Start the rebase operation</a>
+  <li><a href="#Merge files">Merge files</a>
+  <li><a href="#Test your development work area">Test your development work area</a>
+  <li><a href="#Complete the rebase operation">Complete the rebase operation</a></li>
+</ol>
+<p>
+<b><img src="../../images/helpbook.gif" width="16" height="16"> </b>Refer to the following ClearCase online Help topics for detailed information on the
+steps for this procedure:&nbsp;</p>
+<ul>
+  <li> <i>Comparing files, directories, and versions</i></li>
+  <li> <i> Merging files, directories, and versions</i></li>
+</ul>
+
+<h3>1.&nbsp;<a name="Prepare your development view">Prepare your development view</a> <a href="#Top"><img alt="To top of page" border="0" height="20" src="../../images/top.gif" width="20" NOSAVE></a></h3>
+
+<ol>
+  <li>Check in all work before beginning a rebase operation. ClearCase updates
+    only checked-in files and directories. The ClearCase <b>Find Checkouts</b>
+    utility finds checked out versions in your view.</li>
+  <li>Navigate to your development work area. In the left pane, right-click the <b>view</b>
+    directory, and click <b>ClearCase &gt; Find Checkouts</b>.</li>
+</ol>
+  <p><img height="16" src="../../images/helpbook.gif" width="15" NOSAVE>  Refer to the topic
+  titled <i> Finding checked out elements</i> in ClearCase online Help for detailed instructions on finding and
+  checking out work.</p>
+
+<h3>2.&nbsp;<a name="Start the rebase operation">Start the rebase operation</a> <a href="#Top"><img alt="To top of page" border="0" height="20" src="../../images/top.gif" width="20" NOSAVE></a></h3>
+
+  <ol>
+    <li>Begin the rebase operation from a view attached to your development stream.&nbsp;</li>
+    <li>The Rebase Stream Preview dialog box displays the project's recommended baselines for
+rebasing. When the rebase operation begins, it performs file merges and informs you of
+file conflicts that must be resolved manually.&nbsp;</li>
+  </ol>
+
+<p><img height="16" src="../../images/helpbook.gif" width="15" NOSAVE>   Refer to the
+topic titled&nbsp; <i>To start a rebase operation</i> in ClearCase online Help for detailed instructions on this
+procedure. </p>
+
+<h3>3.&nbsp;<a name="Merge files">Merge files</a>&nbsp;<a href="#Top"><img alt="To top of page" border="0" height="20" src="../../images/top.gif" width="20" NOSAVE></a></h3>
+
+  <ol>
+    <li> ClearCase merges the work in your development stream with the work from the integration
+stream, completing trivial merges automatically.&nbsp;&nbsp;</li>
+    <li> If non-trivial merge conflicts
+occur, the rebase operation starts the <b> DiffMerge</b> utility and prompts you to resolve the
+conflicts.&nbsp;</li>
+  </ol>
+
+<p><img height="16" src="../../images/helpbook.gif" width="15">   Refer to the
+topic titled <i>
+Merging files, directories, and versions</i> in ClearCase online Help for detailed information on the steps in this
+procedure. </p>
+
+<h3>4.&nbsp;<a name="Test your development work area">Test your development work area</a>
+<a href="#Top"><img alt="To top of page" border="0" height="20" src="../../images/top.gif" width="20" NOSAVE></a></h3>
+
+  <ol>
+    <li>Build and test the source files in your development view to verify that your
+undelivered activities were built successfully with the versions in the baseline.&nbsp;</li>
+    <li>After you rebase, build and test the source files in your development view to verify
+that your undelivered activities were built successfully with the versions in the baseline.</li>
+  </ol>
+
+<h3>5.&nbsp;<a name="Complete the rebase operation">Complete the rebase
+operation</a>&nbsp;<a href="#Top"><img alt="To top of page" border="0" height="20" src="../../images/top.gif" width="20" NOSAVE></a></h3>
+
+<p>Completing a rebase operation consists of two tasks: checking in any merge results and
+changing the state of the operation to complete.&nbsp; </p>
+
+  <ol>
+    <li> After testing your work, click <b> Complete </b> 
+in the Rebase Status dialog box.&nbsp;</li>
+    <li> ClearCase checks in any versions checked out to your
+development view and notifies your development stream that the rebase operation is
+complete.</li>
+    <li>Click <b>Close</b> to dismiss the dialog box.</li>
+  </ol>
+<p>
+
+<IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15">
+ See &quot;Rebasing Your Work Area&quot; in the ClearCase manual <i>Developing Software</i>
+for detailed information on each step.&nbsp;</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

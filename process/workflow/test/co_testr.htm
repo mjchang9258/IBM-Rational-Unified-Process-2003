@@ -1,0 +1,360 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Test Strategy</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Test Strategy</rpw><a name="XE_test_strategy__introduction_to"></a></h2>
+<p>A strategy for the testing portion of a project describes the general approach 
+  and objectives of the test activities. It includes those stages of testing (unit, 
+  integration, and system) to be addressed and the kinds of testing (function, 
+  performance, load, stress) to be performed.</p>
+<p>The strategy defines:
+<ul>
+  <li>Testing techniques and tools to be used.</li>
+  <li>What test completion and success criteria will be used. For example, the 
+    criteria might allow the software to progress to acceptance testing when 95% 
+    of the test cases have been successfully executed. Another criterion is code 
+    coverage. This criterion may, in a safety-critical system, be that 100% of 
+    the code should be covered by tests.</li>
+  <li>Special considerations affect resource requirements or have schedule implications 
+    such as:</li>
+</ul>
+
+<ul>
+ <ul>
+      <li> testing all interfaces to external systems</li>
+      <li>simulating physical damage or security threat</li>
+    </ul>
+  </ul>
+
+<p>Some organizations have defined corporate test strategies, in which case you 
+  work to apply those strategies to your specific project.</p>
+<p>The most important dimensions around which you should plan your test activities 
+  are: 
+<ul>
+  <li>What iteration you are you in and what are the goals of that iteration?</li>
+  <li>What stage of test (unit test, integration test, system test) are you are 
+    performing? You might work all stages of test in one iteration.</li>
+</ul>
+<p>Now take a look at how the characteristics of your test activities can change 
+  depending on where you are in the previously mentioned test dimensions. There 
+  are many characteristics you could look at, such as resources needed and time 
+  spent, but, at this point, focus on what is important to defining your test 
+  strategy such as: 
+<ul>
+  <li>types of test (functional, stress, volume, performance, usability, distribution, 
+    and so on)</li>
+  <li>evaluation criteria used (code-based test coverage, requirements-based test 
+    coverage, number of defects, mean-time-between-failure, and so on)</li>
+  <li>testing techniques used (manual and automated)</li>
+</ul>
+<p>There is no general pattern for how the types of tests are distributed over 
+  the test cycles. You focus on different types of tests depending on the number 
+  of iterations, the size of the iteration, and what kind of project this is that 
+  you're testing.</p>
+<p>You will find that the system test stage has a strong focus on making sure 
+  you are covering all testable requirements expressed in terms of a set of test 
+  cases. This means your completion criteria will focus on requirements-based 
+  test coverage. In the integration and unit test stages, you will find code-based 
+  test coverage is a more appropriate completion criterion. The next figure shows 
+  how the use of these two types of test coverage measures can change as you develop 
+  new iterations of your software. 
+<ul>
+  <li>The test plan should define sets of completion criteria for unit test, integration 
+    test, and system test.</li>
+  <li>You may have different sets of completion criteria defined for individual
+    iterations.</li>
+</ul>
+<p align="center"><img src="images/testr001.gif" alt="testr001.gif (3438 bytes)" width="307" height="183"></p>
+<p>On your project, consider automating your tests as much as possible, specifically 
+  the kind of tests you repeat several times (regression tests). Keep in mind 
+  that it costs time and resources to create and maintain automated tests. There 
+  will always be some amount of manual testing on each project. The following 
+  figure illustrates when and in what stages of testing you'll probably perform 
+  manual tests.</p>
+<p align="center"><img src="images/testr002.gif" width="307" height="183"></p>
+<p><b>Example</b></p>
+<p>The following tables show when the different types of tests are identified 
+  and provide an example of the completion criteria to define. The first table 
+  shows a &quot;typical&quot; MIS project.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="9%"><b>Iteration test</b></td>
+    <td width="45%"><b>System test</b></td>
+    <td width="28%"><b>Integration test</b></td>
+    <td width="18%"><b>Unit test</b></td>
+  </tr>
+  <tr>
+    <td width="9%">Iteration 1</td>
+    <td width="45%">Automated performance testing for all
+    use cases.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1 defects have been addressed.<br>
+          · All planned tests have been re-executed and no new severity 1 defects 
+          have been identified.</td>
+    <td width="28%">None</td>
+    <td width="18%">Informal testing</td>
+  </tr>
+  <tr>
+    <td width="9%">Iteration 2</td>
+    <td width="45%">Automated performance and
+    functionality testing for all new use cases and the previous as regression
+    test.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1 and 2 defects have been addressed.<br>
+          · All planned tests have been re-executed and no new severity 1 or 2 
+          defects have been identified.</td>
+    <td width="28%">None</td>
+    <td width="18%">Informal testing</td>
+  </tr>
+  <tr>
+    <td width="9%">Iteration 3</td>
+    <td width="45%">Automated functionality and negative 
+          testing for all new use cases, and all the previous as regression test; 
+         95% of test cases have to pass.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1, 2, and 3 defects identified.</td>
+    <td width="28%">Automated testing, 70% code coverage.</td>
+    <td width="18%">Informal testing</td>
+  </tr>
+  <tr>
+    <td width="9%">Iteration 4</td>
+    <td width="45%">Automated functionality and negative 
+          testing for all use cases, manual testing for all parts that are not 
+          automated, and all the previous as regression test. 100% of test cases 
+          have to pass.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1, 2, and 3 defects have been addressed.<br>
+          · All planned tests have been re-executed and no new severity 1 or 2 
+          defects have been identified.</td>
+    <td width="28%">Automated testing, 80% code coverage.</td>
+    <td width="18%">Informal testing</td>
+  </tr>
+</table>
+<br></div>
+
+<p>The second table shows the types of test and completion criteria applied for 
+  a <i>typical</i> safety-critical system.</p>
+
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="9%"><b>Iteration test</b></td>
+    <td width="45%"><b>System test</b></td>
+    <td width="28%"><b>Integration test</b></td>
+    <td width="18%"><b>Unit test</b></td>
+  </tr>
+  <tr>
+    <td>Iteration 1</td>
+        <td>Automated performance testing for 
+          all use cases; 100% test-case coverage.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1 defects have been addressed.<br>
+          · All planned tests have been re-executed and no new defects have been 
+          identified.</td>
+    <td>None</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Iteration 2</td>
+        <td>Automated performance, functionality, 
+          and negative testing for all use cases; 100% test-case coverage.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1 or 2 defects have been addressed.<br>
+          · All planned tests have been re-executed and no new defects have been 
+          identified.</td>
+    <td>Automated performance testing</td>
+    <td>Informal testing</td>
+  </tr>
+  <tr>
+    <td>Iteration 3</td>
+        <td>Automated performance, functionality, 
+          negative usability, and documentation testing for all use cases; 100% 
+          test-case coverage.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1, 2, and 3 defects have been addressed.<br>
+          · All planned tests have been re-executed and no new defects have been 
+          identified.</td>
+    <td>Automated performance testing and the
+    previous as regression test</td>
+    <td>Automated testing, 70% code coverage</td>
+  </tr>
+  <tr>
+    <td>Iteration 4</td>
+        <td>Automated performance, functionality, 
+          negative usability, and documentation testing for all use cases; 100% 
+          test-case coverage.<br>
+    · All planned tests have been executed.<br>
+    · All severity 1, 2, and 3 defects have been addressed.<br>
+          · All planned tests have been re-executed and no defects have been identified.</td>
+    <td>Automated performance testing and the
+    previous as regression testing</td>
+    <td>Automated testing, 80% code coverage</td>
+  </tr>
+</table>
+</div>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

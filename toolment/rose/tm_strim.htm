@@ -1,0 +1,234 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<HTML>
+ <HEAD>
+  <title>Tool Mentor:&nbsp;Structuring the Implementation Model Using Rational Rose</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <LINK REL="StyleSheet" HREF="../../rop.css" TYPE="text/css">
+</HEAD>
+ <BODY>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<H2 CLASS="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Structuring the Implementation Model Using Rational Rose</rpw><A NAME="Top" msnavigation></A></H2>
+      <H3>
+       Purpose</H3>
+      <P>
+       This tool mentor describes how to create and structure the model 
+       elements that represent the implementation model of a system.</P>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_strim.htm">Structure the Implementation Model</a></li>
+</ul>
+<br>
+   
+</p>
+
+      <H3>
+       Overview</H3>
+      
+<P> Component diagrams provide a physical view of the current model. A component 
+  diagram shows the organizations and dependencies among implementation elements, 
+  including source code files, binary code files, and executable files, modeled 
+  as components.</P>
+      <P>
+       <IMG SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16">
+       For
+        more information about Component Diagrams, see the Component 
+       Diagrams (Overview) topic in the Rational Rose online help.</P>
+      <P>
+       The following is a summary of the steps you perform to structure the 
+       implementation model:</P>
+      <OL>
+       <LI CLASS="mvd-P">
+       <P>
+        <A HREF="#Step1">Create a component diagram in the Component View</a>
+        <LI CLASS="mvd-P"><A HREF="#Step2">Create a subsystem structure that 
+        mirrors the Design Model structure</a>
+       </OL>
+      <H3>
+       1. <A NAME="Step1"></a>Create a component diagram in the Component 
+       View <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       In this step, you should:</P>
+      <UL>
+       <LI CLASS="mvd-P">
+       <P>
+        Rename the Main component diagram using a more descriptive title.
+        <LI CLASS="mvd-P">Create additional component diagrams.
+       </UL>
+      <H3>
+       2. <A NAME="Step2"></a>Create a subsystem structure that mirrors the 
+       Design Model structure <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       Subsystems are modeled as packages. In this step you:</P>
+      <UL>
+       <LI CLASS="mvd-P">
+       <P>
+        Create a package structure in your Component View that mirrors the 
+        package structure you created for your design model in the Logical View.
+        <LI CLASS="mvd-P">Create the actual components and assign their 
+        stereotypes and Language.
+        <LI CLASS="mvd-P">Assign classes (or interfaces) to components.
+        <LI CLASS="mvd-P">Optionally create a component from an existing 
+        software module.<p></P>
+       </UL>
+      
+<P> You can drag executables (.exe), ActiveX (.ocx), Data Link Libraries (.dll), 
+  and Type Libraries (.tlb) from a source such as Explorer and drop them in a 
+  component package (either in the browser or a diagram). You should limit the 
+  elements you include to those that are external to your model or elements that 
+  are used by the modeled system only. These elements are not intended to be reverse 
+  engineered into the model since they rarely contain the complete source code. 
+  They are only necessary when building your system.</P>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

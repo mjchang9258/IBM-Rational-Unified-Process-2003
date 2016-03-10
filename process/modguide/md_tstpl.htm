@@ -1,0 +1,1220 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Test Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Test Plan</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Overview">Overview</a></li>
+  <li><a href="#Identifying Requirements for Test">Identifying Requirements for
+    Tests</a>
+    <ul>
+      <li><a href="#Requirements for Functional Tests">Requirements for
+        Functional Tests</a></li>
+      <li><a href="#Requirements for System Performance Tests">Requirements for
+        Performance Tests</a></li>
+      <li><a href="#Requirements for Reliability Tests">Requirements for
+        Reliability Tests</a></li>
+    </ul>
+  </li>
+  <li><a href="#Assess Risk and Establish Test Priorities">Assess Risk and
+    Establish Test Priorities</a>
+    <ul>
+      <li><a href="#Assess Risk">Assess Risk</a></li>
+      <li><a href="#Determine Operational Profile">Determine Operational Profile</a></li>
+      <li><a href="#Establish Test Priority">Establish Test Priorities</a></li>
+    </ul>
+  </li>
+  <li><a href="#Test Strategy">Test Strategy</a>
+    <ul>
+      <li><a href="#Type of Test and Objective">Type of Test and Objective</a></li>
+      <li><a href="#Test Stage">Test Stage</a></li>
+      <li><a href="#Technique">Technique</a></li>
+      <li><a href="#Completion Criteria">Completion Criteria</a></li>
+      <li><a href="#Special Considerations">Special Considerations</a></li>
+    </ul>
+  </li>
+</ul>
+<h3><a name="Overview">Overview</a> <map name="FPMap0">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap0" width="26" height="20"></h3>
+<p>The purpose of the test plan is to communicate the intent of the testing
+activities. It is critical that this document be created as early as possible.
+Generating this artifact early in one of the first iterations of the Elaboration
+phase would not be too early. It may be desirable to develop the test plan
+iteratively, adding sections as the information is available.</p>
+<p>Care should be taken in clearly communicating the scope of testing, the
+requirements for test, the test strategies, and the resource needs. This
+information identifies the purpose and boundaries of the test effort, what will
+be tested, how it will be tested, and what resources are needed for testing.
+Stating this information clearly, will expedite the review, feedback, and
+approval of the test effort.</p>
+<p>At the outset of the project, a test plan identifying the overall intended
+testing for the project should be created, called the &quot;Master Test
+Plan.&quot; As each iteration is planned, a more precise &quot;Iteration Test
+Plan&quot; is created (or several test plans, organized by type of test),
+containing only the data (requirements for test, test strategies, resources,
+etc.) that pertain to the iteration. Alternately, this information may be
+included in the <a href="../artifact/ar_itpln.htm">Iteration Plan</a>, if it
+does not make the iteration plan too difficult to manage or use.&nbsp;</p>
+<p>Below are some guidelines to better identify and communicate the requirements
+for test, test risks and priorities, and test strategies.</p>
+<h3><a name="Identifying Requirements for Test">Identifying Requirements for
+Test</a> <map name="FPMap1">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap1" width="26" height="20"></h3>
+<p>Requirements for test identify what will be tested. They are the specific
+target of a test. There are a few general rules to apply when deriving
+requirements for test:
+<ul>
+  <li>The requirement for test must be an observable, measurable behavior. If
+    the requirement for test cannot be observed or measured, it can't can be
+    assessed to determine if the requirement has been satisfied.</li>
+  <li>There is not a one-to-one relationship between each use case or
+    supplemental requirement of a system and a requirement for test. Use cases
+    will often have more than one requirement for test, while some supplemental
+    requirements will derive one or more requirements for test and others will
+    derive none (such as marketing or packaging requirements).</li>
+</ul>
+<p>The requirements for test may be derived from many sources, including use
+cases, use-case models, supplemental specifications, design requirements,
+business cases, interviews with end-users, and the software architecture
+document. All of these should be reviewed to gather information that is used to
+identify the requirements for test.</p>
+<h4><a name="Requirements for Functional Tests">Requirements for Functional
+Tests</a> <map name="FPMap2">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap2" width="26" height="20"></h4>
+<p>Functional requirements for test, as their name implies, are derived from
+descriptions of the target-of-test's functional behaviors. At a minimum, each
+use case should derive at least one requirement for test. A more detailed list
+of requirements for test would include at least one requirement for test for
+each use case flow of events.</p>
+<h4><a name="Requirements for System Performance Tests">Requirements for
+Performance Tests</a> <map name="FPMap3">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap3" width="26" height="20"></h4>
+<p>Performance requirements for test are derived from the target-of-test's
+specified performance behaviors. Typically, performance is stated as a measure
+of response time and/or resource usage, as measured under various conditions,
+including
+<ul>
+  <li>different workloads and/or system conditions</li>
+  <li>different use cases</li>
+  <li>different configurations</li>
+</ul>
+<p>Requirements for performance are described in the Supplementary
+Specifications. Review these materials, paying especial attention to statements
+that include the following:</p>
+<ul>
+  <li>statements of time, such as response time or timing profiles</li>
+  <li>statements indicating that a number of events or use cases must occur in a
+    stated period of time</li>
+  <li>statements comparing the behavior of one item to another</li>
+  <li>statements comparing the application behavior on one configuration to that
+    of another</li>
+  <li>operational reliability (mean time to failure or MTTF) over a period of
+    time</li>
+  <li>configurations or constraints</li>
+</ul>
+<p>You should derive at least one requirement for test for each statement in the
+specification which reflects information such that listed above.</p>
+<h4><a name="Requirements for Reliability Tests">Requirements for Reliability
+Tests</a> <map name="FPMap5">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap5" width="26" height="20"></h4>
+<p>Reliability requirements for test are derived several sources, typically
+described in Supplementary Specifications, User-Interface Guidelines, Design
+Guidelines, and Programming Guidelines.</p>
+<p>Review these artifacts and pay especial attention to statements that include
+the following:
+<ul>
+  <li>statements reliability or resistance to failure, run-time errors (such as
+    memory leaks)</li>
+  <li>statements indicating code integrity and structure (compliance to language
+    and syntax)</li>
+  <li>statements regarding resource usage</li>
+</ul>
+<p>At least one requirement for test should be derived from each statement in
+the artifacts that reflects information listed above.</p>
+<p>Successful testing requires that the test effort successfully balance factors
+such as resource constraints and risks. To accomplish this, the test effort
+should be prioritized so that the most important, significant, or riskiest use
+cases or components are tested first. To prioritize the test effort, a risk
+assessment and operational profile are performed and used as the basis for
+establishing the test priority.</p>
+<p>The following sections describe how to determine test priority.</p>
+<h3><a name="Assess Risk and Establish Test Priorities">Assess Risk and
+Establish Test Priorities</a> <map name="FPMap6">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap6" width="26" height="20"></h3>
+<p>Identifying the requirements for test is only part of identifying what will
+be tested. Prioritizing what will be tested and in what order should also be
+performed. This step is done for several reasons, including:
+<ul>
+  <li>ensure the test efforts are focused on the most appropriate requirements
+    for test</li>
+  <li>ensure the most critical, significant, or riskiest requirements for test
+    are addressed as early as possible</li>
+  <li>ensure that any dependencies (sequence, data, etc.) are accounted for in
+    the testing</li>
+</ul>
+<p>There are three steps to assessing risk and establishing the test priorities:
+<ul>
+  <li><a href="#Assess Risk">Assess Risk</a></li>
+  <li><a href="#Determine Operational Profile">Determine Operational Profile</a></li>
+  <li><a href="#Establish Test Priority">Establish Test Priority</a></li>
+</ul>
+<p>Guidelines for each of these three steps are provided below:</p>
+<h4><a name="Assess Risk">Assess Risk</a> <map name="FPMap7">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap7" width="26" height="20"></h4>
+<p>Establishing the priority for test begins with the assessment of risk. Use
+cases or components that pose the greatest risk due to failure or have a high
+probability of failure should be amongst the first use cases tested.</p>
+<p>Begin by identifying and describing the risk magnitude indicators that will
+be used, such as:
+<ul>
+  <li>H - high risk, not tolerable. Severe external exposure. The company will
+    suffer great financial losses, liability, or un-recoverable loss of
+    reputation.</li>
+  <li>M - medium risk, tolerable, but not desirable. Minimal external exposure,
+    the company may suffer financially, but there is limited liability or loss
+    of reputation.</li>
+  <li>L - low risk, tolerable. Little or no external exposure, company has
+    little or no financial loss or liability. Company's reputation unaffected.</li>
+</ul>
+<p>After identifying the risk magnitude indicators, list each use case or
+component in the target-of-test. For each use case or component in your list,
+identify a risk magnitude indicator, and justify (in a brief statement) the
+value you selected.</p>
+<p>There are three perspectives that can be used for assessing risk:
+<ul>
+  <li><a href="#Effect">Effect</a> - the impact or consequence of a specified
+    use case (requirement, etc.) failing</li>
+  <li><a href="#Cause">Cause</a> - an undesirable outcome caused by the failure
+    of a use case</li>
+  <li><a href="#Likelihood">Likelihood</a> - the probability of a use case
+    failing.</li>
+</ul>
+<p>Select one perspective, identify a risk magnitude indicator and justify your
+selection. It is not necessary to identify an indicator for each risk
+perspective. However, it suggested that, if a low indicator was identified, try
+evaluating the item from a different risk perspective to ensure the item is
+really a low risk.</p>
+<p>Below are greater details on assessing risk by these three perspectives.</p>
+<h5><a name="Effect">Effect</a> <map name="FPMap8">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap8" width="26" height="20"></h5>
+<p>To assess risk by Effect, identify a condition, event, or action and try to
+determine its impact. Ask the question:</p>
+<blockquote>
+  <p>&quot;What would happen if ___________?&quot;</p>
+</blockquote>
+<p>For example:
+<ul>
+  <li>&quot;What would happen if while installing the new software, the system
+    runs out of disk space?&quot;</li>
+  <li>&quot;What would happen if the Internet connection is lost during an
+    inquiry transaction?&quot;</li>
+  <li>&quot;What would happen if the Internet connection was lost during a
+    purchase transaction?&quot;</li>
+  <li>&quot;What would happen if the user enters an unexpected value?&quot;<br>
+  </li>
+</ul>
+<p>Below is a sample justification matrix for these items:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td align="center" width="20%">Description</td>
+    <td align="center" width="20%">Risk Mitigation Factor</td>
+    <td align="center" width="60%">Justification</td>
+  </tr>
+  <tr>
+    <td width="20%">Insufficient disk space during
+    install</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Installing the software provides the user with
+    the first impression of the product. Any undesirable outcomes, such as those
+    listed below would degrade the user's system, the installed software, and
+    communicate a negative impression to the user:
+    <ul>
+      <li>software is partially installed (some files, some registry entries),
+        which leaves the installed software in an unstable condition, or</li>
+      <li>the installation halts leaving the system in an unstable state</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Internet connection lost during
+    inquiry</td>
+    <td align="center" width="20%">L</td>
+    <td width="60%">No damage resulting from the lost
+    connection is done to the data or database. It is recognized that a lost
+    connection may communicate a negative impression to the user.</td>
+  </tr>
+  <tr>
+    <td width="20%">Internet connection lost during
+    purchase</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Any lost connections or transactions that
+    result in the outcomes listed below are unacceptable, as they increase the
+    overhead costs and decrease profits:
+    <ul>
+      <li>corrupted database</li>
+      <li>partial order</li>
+      <li>lost data or order</li>
+      <li>multiple orders (replicated)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Unexpected value entered</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Any transactions that result in the outcomes
+    listed below are unacceptable:
+    <ul>
+      <li>corrupted database</li>
+      <li>inaccurate data</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<br></div>
+
+<h5><a name="Cause">Cause</a> <map name="FPMap9">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap9" width="26" height="20"></h5>
+<p>Assessing risk by Cause is the opposite of by Effect. Begin by stating an
+undesirable event or condition, and identify the set of events that could have
+permitted the condition to exist. Ask a question such as:</p>
+<blockquote>
+  <p>&quot;How could ___________ happen?</p>
+</blockquote>
+<p>For example:
+<ul>
+  <li>&quot;How could only some of the files be on the system and not all the
+    registry entries made?&quot;</li>
+  <li>&quot;How could a transaction not be reflected properly in the central
+    database?</li>
+  <li>&quot;How could the billing cycle statement reflect only some of records
+    in the database that fulfill the desired criteria?&quot;</li>
+</ul>
+<p>Below is a sample justification matrix for these items:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td align="center" width="20%">Description</td>
+    <td align="center" width="20%">Risk Mitigation Factor</td>
+    <td align="center" width="60%">Justification</td>
+  </tr>
+  <tr>
+    <td width="20%">Missing / application files and
+    registry entries</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Renders the application (and potentially the
+    system) un-usable. Installation is the first view of the application seen by
+    the users. If installation fails, for any reason, the user views the
+    software unfavorably.<br>
+    <p>Possible causes of this condition include:
+    <ul>
+      <li>the installation process did not install all the files and update the
+        registry correctly</li>
+      <li>the installation process halted due to user intervention (cancel or
+        exit)</li>
+      <li>the installation process halted due to software / hardware
+        intervention (insufficient disk space, unsupported configuration, etc.)</li>
+      <li>the installation process halted due to unknown conditions</li>
+      <li>the user deleted files / registry entries</li>
+    </ul>
+    <p>Of these causes, only the last one cannot be detected and handled by the
+    installation process.</td>
+  </tr>
+  <tr>
+    <td width="20%">Partial order</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Partial orders cannot be fulfilled, resulting
+    in lost revenue and lost customers.
+    <p>Possible causes include:
+    <ul>
+      <li>Internet connection lost due to user action (disconnect modem, turn
+        off PC, etc.)</li>
+      <li>Internet connection lost due to IP</li>
+      <li>Internet connect lost due to employee action (disconnect modem, turn
+        off power to servers, etc.)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Corrupt data / database</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Corrupt data cannot be tolerated for any
+    reason.
+    <p>Possible causes include:
+    <ul>
+      <li>Transaction that writes to the database not completed / committed due
+        to user intervention</li>
+      <li>Transaction that writes to the database not completed / committed due
+        to lost Internet connection</li>
+      <li>User enters invalid data in transaction</li>
+      <li>Database access methods / utilities</li>
+      <li>Database not properly populated (when initially instantiated)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Replicated orders</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Replicated orders increase the company overhead
+    and diminish profits via the costs associated with shipping, handling, and
+    restocking.
+    <p>Possible causes include:
+    <ul>
+      <li>Transaction that writes order to the database replicated due to user
+        intervention, user enters order twice - no confirmation of entry</li>
+      <li>Transaction that writes order to the database replicated due to
+        non-user intervention (recovery process from lost Internet connection,
+        restore of database)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Inaccurate data for an order</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Any orders that cannot be completed or incur
+    additional overhead costs are not acceptable.
+    <p>Possible causes include:
+    <ul>
+      <li>Order transaction is not completed / committed due to user
+        intervention</li>
+      <li>Order transaction is not completed / committed due to lost Internet
+        connection</li>
+      <li>User enters invalid data</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="20%">Wrong number of records reflected
+    in statement</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Business decisions and accounts
+    receivable are dependent upon the accuracy of these reports.
+    <p>Possible causes include:
+    <ul>
+      <li>Incorrect search / select criteria</li>
+      <li>Incorrect SQL statement</li>
+      <li>Corrupt data in database</li>
+      <li>Incorrect data in database</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<br></div>
+
+<h5><a name="Likelihood">Likelihood</a> <map name="FPMap10">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap10" width="26" height="20"></h5>
+<p>Assessing risk by Likelihood is to determine the probability that a use case
+(or component implementing a use case) will fail. The probability is usually
+based on an external factors such as:
+<ul>
+  <li>Failure rate(s) and / or density</li>
+  <li>Rate of change</li>
+  <li>Complexity</li>
+  <li>Origination / Originator</li>
+</ul>
+<p>It should be noted, that when using this risk perspective, the risk magnitude
+indicators are related to the probability of a failure, not the effect or impact
+the failure has on the organization as was used in assessing risk by Effect and
+Cause.</p>
+<p>Correlations between these factors and the probability of a failure exist, as
+identified below:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td align="center" width="35%">External Factor</td>
+    <td align="center" width="65%">Probability</td>
+  </tr>
+  <tr>
+    <td width="35%">Failure discovery rate<br>
+    and / or density</td>
+    <td width="65%">The probability of a failure increases as the
+    failure discovery rates or density increases. Defects tend to congregate,
+    therefore, as the rate of discovery or the number of defects (density)
+    increases in a use case or component, the probability of finding another
+    defect also increases. Discovery rates and density from previous releases
+    should also be considered when assessing risk using this factor, as previous
+    high discovery rates or densities indicate a high probability of additional
+    failures.</td>
+  </tr>
+  <tr>
+    <td width="35%">Rate of change</td>
+    <td width="65%">The probability of a failure increases as the
+    rate of change to the use case or component increases. Therefore, as the
+    number of changes increases, so too does the probability that a defect has
+    been introduced. Every time a change is made to the code, there is the risk
+    of &quot;injecting&quot; another defect it.</td>
+  </tr>
+  <tr>
+    <td width="35%">Complexity</td>
+    <td width="65%">The probability of a failure increases as the
+    measure of complexity of the use case or component increases.</td>
+  </tr>
+  <tr>
+    <td width="35%">Origination / Originator</td>
+    <td width="65%">Knowledge and experience of where the code
+    originated and by whom can increase or decrease the probability of a
+    failure.<br>
+    The use of third party components typically decreases the probability of
+    failure. However, this is only true if the third party component has been
+    certified (meets your requirements, either through formal test or
+    experience).<br>
+    The probability of failure typically decreases with the increased knowledge
+    and skills of the implementer. However, such factors as the use of new
+    tools, technologies, or acting in multiple roles may increase the
+    probability of a failure even by the best team members.</td>
+  </tr>
+</table>
+<br></div>
+
+<p>&nbsp;</p>
+<p>For example:
+<ul>
+  <li>Installing the new software</li>
+  <li>&quot;Historically we've found many defects in the components used to
+    implement use cases 1, 10, and 12, and our customers requested many changes
+    in use case 14 and 19.&quot;</li>
+</ul>
+<p>Below is a sample justification matrix for these items:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td align="center" width="20%">Description</td>
+    <td align="center" width="20%">Risk Mitigation Factor</td>
+    <td align="center" width="60%">Justification</td>
+  </tr>
+  <tr>
+    <td width="20%">Installing new software</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">We are writing our own installation utility.
+    <p>Renders the use of the application un-usable. Installation is the first
+    view of the application seen by the users. If installation fails, for any
+    reason, the user views the software unfavorably.</td>
+  </tr>
+  <tr>
+    <td width="20%">Installing new software</td>
+    <td align="center" width="20%">L</td>
+    <td width="60%">We are using a commercially successful
+    installation utility.
+    <p>While failed installation renders the use of the application un-usable,
+    the installation utility selected is from a vendor that has achieved the
+    number one market share with their product and has been in business for over
+    four years. Our evaluation of their indicates that the product meets our
+    needs and clients are satisfied with their product, the vendor, and their
+    level of service and support.</td>
+  </tr>
+  <tr>
+    <td width="20%">High failure discovery rates /
+    defect densities in use cases 1, 10, 12.</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Due to the previous high failure
+    discovery rates and defect density use cases 1, 10, and 12 are considered
+    high risk.</td>
+  </tr>
+  <tr>
+    <td width="20%">Change Requests in use cases 14
+    and 19.</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">A high number of changes to these
+    use cases increases the probability of injecting defects into the code.</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Determine Operational Profile">Determine Operational Profile</a> <map name="FPMap11">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap11" width="26" height="20"></h3>
+<p>The next step in assessing risk and establishing a test priority is to
+determine the target-of-test's operational profile.</p>
+<p>Begin by identifying and describing the operational profile magnitude
+indicators that will be used, such as:
+<ul>
+  <li>H - used quite frequently, many times per period or by many actors or use
+    cases.</li>
+  <li>M - used frequently, several times per period or by several actors or use
+    cases.</li>
+  <li>L - infrequently used or used by very few actors or use cases.</li>
+</ul>
+<p>The operational profile indicator you select should be based upon the
+frequency a use case or component is executed, including:
+<ul>
+  <li>the number of times ONE actor (or use case) executes the use case (or
+    component) in a given period of time, or</li>
+  <li>the number of ACTORS (or use cases) that execute the use case (or
+    component)</li>
+</ul>
+<p>Typically, the greater the number of times a use case or component is used,
+the higher the operational profile indicator.</p>
+<p>After identifying the operational profile magnitude indicators to be used,
+list each use case or component in the target-of-test. Determine an operational
+profile indicator for each item in your list and a state your justification for
+the indicator value. Information from the workload analysis document (See <a href="../artifact/ar_wlmod.htm">Artifact:
+Workload Analysis Document</a>) may be used for this assessment.</p>
+<p>Examples:
+<ul>
+  <li>Installing new software</li>
+  <li>Ordering items from the on-line catalog</li>
+  <li>Customers inquiring about their order on-line after order is placed</li>
+  <li>Item selection dialog</li>
+</ul>
+
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td align="center" width="20%">Description</td>
+    <td align="center" width="20%">Operational Profile Factor</td>
+    <td align="center" width="60%">Justification</td>
+  </tr>
+  <tr>
+    <td width="20%">Installing new software</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">Performed once (typically), but by
+    many users. Without installation however, application is unusable.</td>
+  </tr>
+  <tr>
+    <td width="20%">Ordering items from the catalog</td>
+    <td align="center" width="20%">H</td>
+    <td width="60%">This is the most common use case
+    executed by users.</td>
+  </tr>
+  <tr>
+    <td align="left" width="20%">Customers inquiring about orders</td>
+    <td align="center" width="20%">L</td>
+    <td align="left" width="60%">Few customers inquire about their orders after they are placed</td>
+  </tr>
+  <tr>
+    <td align="left" width="20%">Item selection dialog</td>
+    <td align="center" width="20%">H</td>
+    <td align="left" width="60%">This dialog is used by customers for placing orders and by inventory clerks to replenish stock.</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Establish Test Priority">Establish Test Priority</a> <map name="FPMap12">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap12" width="26" height="20"></h3>
+<p>The last step in the assessing risk and establishing a test priority is to
+establish the test priority.</p>
+<p>Begin by identifying and describing the test priority magnitude indicators
+that will be used, such as:
+<ul>
+  <li>H - must be tested</li>
+  <li>M - should be tested, will test only after all H items are tested</li>
+  <li>L - might be tested, but not until all H and M items have been tested</li>
+</ul>
+<p>After identifying the test priority magnitude indicators to be used, list
+each use case or component in the target-of-test. Determine a test priority
+indicator for each item in your list and a state your justification. Below are
+some guidelines for determining a test priority indicator.</p>
+<p>Consider the following when determining the test priority indicators for each
+item:
+<ul>
+  <li>the risk magnitude indicator value you identified earlier</li>
+  <li>the operational profile magnitude value you identified earlier</li>
+  <li>the actor descriptions (are the actors experienced?, tolerant of
+    work-arounds?, etc.)</li>
+  <li>contractual obligations (will the target-of-test be acceptable if a use
+    case or component is not delivered?)</li>
+</ul>
+<p>Strategies for establishing a test priority include:
+<ul>
+  <li>Use the highest assessed factor (risk, operational profile, etc.) value
+    for each item as the overall priority.</li>
+  <li>Identify one assessed factor (risk, operational profile, other) as being
+    the most significant and use that factor's value as the priority.</li>
+  <li>Use a combination of assessed factors to identify the priority.</li>
+  <li>Using a weighting schema where individual factors are weighed, and their
+    values and priority calculated based upon the weight.</li>
+</ul>
+<p>Examples:
+<ul>
+  <li>Installing new software</li>
+  <li>Ordering items from the on-line catalog</li>
+  <li>Customers inquiring about their order on-line after order is placed</li>
+  <li>Item Selection Dialog</li>
+</ul>
+<h4>Priority when the highest assessed value is used to determine priority:</h4>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="18%" align="center">Item</td>
+    <td width="16%" align="center">Risk</td>
+    <td width="17%" align="center">Operational Profile</td>
+    <td width="16%" align="center">Actor</td>
+    <td width="16%">Contract</td>
+    <td width="17%">Priority</td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">Installing new software</td>
+    <td width="16%" align="center">H</td>
+    <td width="17%" align="center">H</td>
+    <td width="16%" align="center">L</td>
+    <td width="16%" align="center">H</td>
+    <td width="17%" align="center">H</td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">Ordering items from catalog</td>
+    <td width="16%" align="center">H</td>
+    <td width="17%" align="center">H</td>
+    <td width="16%" align="center">H</td>
+    <td width="16%" align="center">H</td>
+    <td width="17%" align="center">H</td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">Customer Inquiries</td>
+    <td width="16%" align="center">L</td>
+    <td width="17%" align="center">L</td>
+    <td width="16%" align="center">L</td>
+    <td width="16%" align="center">L</td>
+    <td width="17%" align="center">L</td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">Item Selection Dialog</td>
+    <td width="16%" align="center">L</td>
+    <td width="17%" align="center">H</td>
+    <td width="16%" align="center">L</td>
+    <td width="16%" align="center">L</td>
+    <td width="17%" align="center">H</td>
+  </tr>
+</table>
+<br></div>
+
+<h4>Priority when the highest assessed value for one factor (Risk) is used to
+determine priority:</h4>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="18%" align="center">Item</td>
+    <td width="16%" align="center">Risk</td>
+    <td width="17%" align="center">Operational Profile</td>
+    <td width="16%" align="center">Actor</td>
+    <td width="16%" align="center">Contract</td>
+    <td width="17%" align="center">Priority</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Installing new software</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">H</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Ordering items from catalog</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">H</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Customer Inquiries</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">L</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Item Selection Dialog</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">H</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">L</td>
+    <td width="20%" align="center">L</td>
+  </tr>
+</table>
+<br></div>
+
+<h4>Priority when a weighting value is used to calculate the priority:</h4>
+<p>(Note: in the matrix below, H = 5, M = 3, and L = 1. A Total Weighted value
+greater than 30 is a High priority test item, values between 20 and 30 inclusive
+are a Medium priority, and values less than 20 are Low).</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%" align="center">Item</td>
+    <td width="20%" align="center">Risk (x 3)</td>
+    <td width="20%" align="center">Operational Profile (x 2)</td>
+    <td width="20%" align="center">Actor (x 1)</td>
+    <td width="20%" align="center">Contract (x 3)</td>
+    <td width="20%" align="center">Weighted Value</td>
+    <td width="20%" align="center">Priority</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Installing new software</td>
+    <td width="20%" align="center">5 (15)</td>
+    <td width="20%" align="center">5 (10)</td>
+    <td width="20%" align="center">1 (1)</td>
+    <td width="20%" align="center">5 (15)</td>
+    <td width="20%" align="center">41</td>
+    <td width="20%" align="center">H (2)</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Ordering items from catalog</td>
+    <td width="20%" align="center">5 (15)</td>
+    <td width="20%" align="center">5 (10)</td>
+    <td width="20%" align="center">5 (5)</td>
+    <td width="20%" align="center">5 (15)</td>
+    <td width="20%" align="center">45</td>
+    <td width="20%" align="center">H (1)</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Customer Inquiries</td>
+    <td width="20%" align="center">1 (3)</td>
+    <td width="20%" align="center">1 (2)</td>
+    <td width="20%" align="center">1 (1)</td>
+    <td width="20%" align="center">1 (3)</td>
+    <td width="20%" align="center">9</td>
+    <td width="20%" align="center">L (4)</td>
+  </tr>
+  <tr>
+    <td width="20%" align="center">Item Selection Dialog</td>
+    <td width="20%" align="center">1 (3)</td>
+    <td width="20%" align="center">5 (10)</td>
+    <td width="20%" align="center">1 (1)</td>
+    <td width="20%" align="center">1 (3)</td>
+    <td width="20%" align="center">17</td>
+    <td width="20%" align="center">L (3)</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Test Strategy">Test Strategy</a> <map name="FPMap13">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap13" width="26" height="20"></h3>
+<p>The Test Strategy describes the general approach and objectives of a specific
+test effort.</p>
+<p>A good test strategy should contain the following:
+<ul>
+  <li><a href="#Type of Test and Objective">type of test to be implemented and
+    its objective</a></li>
+  <li><a href="#Test Stage">stage in which test will be implemented</a></li>
+  <li><a href="#Technique">technique</a></li>
+  <li><a href="#Completion Criteria">measurement and criteria used to assess
+    test results and test completion</a></li>
+  <li><a href="#Special Considerations">any special considerations that affect
+    the test effort described in the test strategy</a></li>
+</ul>
+<h4><a name="Type of Test and Objective">Type of Test and Objective</a> <map name="FPMap14">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap14" width="26" height="20"></h4>
+<p>State clearly the type of test being implemented and the objective of the
+test. Explicitly stating this information reduces confusion and minimizes
+misunderstandings (especially since some tests may look very similar). The
+objective should state clearly why the test is being executed.</p>
+<p>Examples:</p>
+<blockquote>
+  <p>&quot;Functional Test. The functional test focuses on executing the
+  following use cases implemented in the target-of-test, from the user
+  interface.&quot;</p>
+</blockquote>
+<blockquote>
+  <p>&quot;Performance Test. The performance test for the system will focus on
+  measuring response time for use cases 2, 4, and 8 - 10. For these tests, a
+  workload of one actor, executing these use cases without any other workload on
+  the test system will be used.&quot;</p>
+  <p>&quot;Configuration Test. Configuration testing will be implemented to
+  identify and evaluate the behavior of the target-of-test on three different
+  configurations, comparing the performance characteristics to our benchmark
+  configuration.&quot;</p>
+</blockquote>
+<h4><a name="Test Stage">Test Stage</a> <map name="FPMap15">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap15" width="26" height="20"></h4>
+<p>Clearly state the stage in which the test will be executed. Identified below
+are the stages in which common test are executed:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%">&nbsp;</td>
+    <td width="80%" colspan="4" align="center">Stage of Test</td>
+  </tr>
+  <tr>
+    <td width="20%">Type of Tests</td>
+    <td width="20%" align="center">Unit</td>
+    <td width="20%" align="center">Integration</td>
+    <td width="20%" align="center">System</td>
+    <td width="20%" align="center">Acceptance</td>
+  </tr>
+  <tr>
+    <td width="20%">Functional Tests
+    <p>(Configuration, Function, Installation, Security, Volume)</td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">X</td>
+  </tr>
+  <tr>
+    <td width="20%">Performance Tests
+    <p>(performance profiles of individual components)</p>
+    </td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">(X)
+    <p align="left">optional or when system performance tests disclose defects</td>
+    <td width="20%" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="20%">Performance Tests <p>(Load, Stress, Contention)</td>
+    <td width="20%" align="center">&nbsp;</td>
+    <td width="20%" align="center">&nbsp;</td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">X</td>
+  </tr>
+  <tr>
+    <td width="20%">Reliability
+    <p>(Integrity, Structure)</td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">X</td>
+    <td width="20%" align="center">(X)
+    <p align="left">optional or when others tests disclose defects</td>
+    <td width="20%" align="center">&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h4><a name="Technique">Technique</a> <map name="FPMap16">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap16" width="26" height="20"></h4>
+<p>The technique should describe how testing will be implemented and executed.
+Include what will be tested, the major actions to be taken during test
+execution, and the method(s) used to evaluate the results.</p>
+<p>Example:</p>
+<blockquote>
+  <p>Functional Test:</p>
+</blockquote>
+<blockquote>
+  <ul>
+    <li>For each use case flow of events, a representative set of transactions
+      will identified, each representing the actions taken by the actor when the
+      use case is executed.</li>
+    <li>A minimum of two test cases will be developed for each transaction; one
+      test case to reflect the positive condition and one to reflect the
+      negative (unacceptable) condition.</li>
+    <li>In the first iteration, use cases 1 - 4, and 12 will be tested, in the
+      following manner:
+      <ul>
+        <li>Use Case 1:
+          <ul>
+            <li>Use Case 1 begins with the actor already logged into the
+              application and at the main window, and terminates when the user
+              has specified SAVE.</li>
+            <li>Each test case will be implemented and executed using Rational
+              Robot.</li>
+            <li>Verification and assessment of execution for each test case will
+              be done using the following methods:
+              <ul>
+                <li>Test script execution (did each test script execute
+                  successfully and as desired?)</li>
+                <li>Window Existence, or Object Data verification methods
+                  (implemented in the test scripts) will be used to verify that
+                  key windows display and specified data is captured / displayed
+                  by the target-of-test during test execution.</li>
+                <li>The target-of-test's database (using Microsoft Access) will
+                  be examined before the test and again after the test to verify
+                  that the changes executed during the test are accurately
+                  reflected in the data.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>Performance Test:
+  <ul>
+    <li>For each use case, a representative set of transactions, as identified
+      in the workload analysis document will be implemented and executed using
+      Rational Suite PerformanceStudio (vu scripts) and Rational Robot (GUI scripts).</li>
+    <li>At least three workloads will be reflected in the test scripts and test
+      execution schedules including the following:
+      <ul>
+        <li>Stressed workload: 750 users (15 % managers, 50 % sales, 35 %
+          marketing)</li>
+        <li>Peak workload: 350 users (10 % managers, 60 % sales, 30 % marketing)</li>
+        <li>Nominal workload: 150 users (2 % managers, 75% sales, 23 %
+          marketing)</li>
+      </ul>
+    </li>
+    <li>Test scripts used to execute each transaction will include the
+      appropriate timers to capture response times, such as total transaction
+      time (as defined in the workload analysis document), and key transaction
+      activity or process times.</li>
+    <li>The test scripts will execute the workloads for one hour (unless noted
+      differently by the workload analysis document).</li>
+    <li>Verification and assessment of execution for each test execution (of a
+      workload) will include:
+      <ul>
+        <li>Test execution will be monitored using state histograms (to verify
+          that the test and workloads are executing as expected and desired)</li>
+        <li>Test script execution (did each test script execute successfully and
+          as desired?)</li>
+        <li>Capture and evaluation of the identified response times using the
+          following reports:
+          <ul>
+            <li>Performance Percentile</li>
+            <li>Response Time</li>
+          </ul>
+          <p>&nbsp;</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+<h4><a name="Completion Criteria">Completion Criteria</a> <map name="FPMap17">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap17" width="26" height="20"></h4>
+<p>Completion criteria are stated to for two purposes:
+<ul>
+  <li>identify acceptable product quality</li>
+  <li>identify when the test effort has been successfully implemented</li>
+</ul>
+<p>A clear statement of completion criteria should include the following items:
+<ul>
+  <li>function, behavior, or condition being measured</li>
+  <li>method of measurement</li>
+  <li>criteria or degree of conformance to measurement</li>
+</ul>
+<p>Example 1
+<ul>
+  <li>All planned test cases have been executed</li>
+  <li>All identified defects have been addressed to an agreed upon resolution</li>
+  <li>All planned test cases have been re-executed and all known defects have
+    been addressed as agreed upon, and no new defects have been discovered</li>
+</ul>
+<p>Example 2
+<ul>
+  <li>All high priority test cases have been executed.</li>
+  <li>All identified defects have been addressed to an agreed upon resolution.</li>
+  <li>All Severity 1 or 2 defects have been resolved (status = fixed or
+    postponed).</li>
+  <li>All high priority test cases have been re-executed and all known defects
+    have addressed as agreed upon, and no new defects have been discovered.</li>
+</ul>
+<p>Example 3
+<ul>
+  <li>All planned test cases have been executed.</li>
+  <li>All identified defects have been addressed to an agreed upon resolution.</li>
+  <li>All Severity 1 or 2 defects have been resolved (status = verified or
+    postponed).</li>
+  <li>All high priority test cases have been re-executed and all known defects
+    have addressed as agreed upon, and no new defects have been discovered.</li>
+</ul>
+<h4><a name="Special Considerations">Special Considerations</a> <map name="FPMap18">
+<area href="#Top" shape="default" coords>
+<area href="#Top" shape="rect" coords="0, 1, 25, 19"></map><img src="../../images/top.gif" alt="top.gif (974 bytes)" border="0" usemap="#FPMap18" width="26" height="20"></h4>
+<p>This section should identify any influences or dependencies which may impact
+or influence the test effort describe in the test strategy. Influences might
+include:
+<ul>
+  <li>human resources (such as availability or need for non-test resources to
+    support / participate in test)</li>
+  <li>constraints, (such as equipment limitations or availability, or the need /
+    lack of special equipment)</li>
+  <li>special requirements, such as test scheduling or access to systems</li>
+</ul>
+<p>Examples:
+<ul>
+  <li>Test databases will require the support of a database designer /
+    administrator to create, update, and refresh test data.</li>
+  <li>System performance testing will use the servers on the existing network
+    (which supports non-test traffic). Testing will need to be scheduled after
+    hours to ensure no non-test traffic on the network.</li>
+  <li>The target-of-test must synchronize the legacy system (or synchronization
+    simulated) for full functional testing to be implemented and executed</li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,700 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>Development Case : Artifacts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+<h1 class="banner"><a name="top"></a>Small Project Development Case : 
+<rpw name="PresentationName">Artifacts</rpw></h1>
+<p> 
+<table width="100%" border="0" cellpadding="5">
+  <tr> 
+    <td width="25%" valign="top"  bgcolor="#CCCCCC" height="204"> 
+      <p><b>Table of Contents</b></p>
+      <ul>
+        <li><a href="dc_index.htm">Introduction</a></li>
+        <li><a href="general_tailoring.htm">General Tailoring</a></li>
+        <li><a href="project_lifecycle.htm">Project Lifecycle</a> 
+          <ul>
+            <li><a href="sip_iii.htm">Inception</a></li>
+            <li><a href="sip_iie.htm">Elaboration</a></li>
+            <li><a href="sip_lic.htm">Construction</a></li>
+            <li><a href="sip_lit.htm">Transition</a></li>
+          </ul>
+        </li>
+        <li><b>Artifacts</b></li>
+      </ul>
+    </td>
+    <td width="75%" height="204"> 
+      <p> This section of the development case lists the artifacts that are part 
+        of the process, along with guidance on the tools used to create them, 
+        comments (which may include tailoring), and whether or not the artifact 
+        is a formal deliverable.
+      <p>Formal deliverables are provided to the customer and must be approved 
+        by the customer. Other artifacts are project-internal.
+      <p><br>
+      <h4>Topics <font size="-1">(on this page)</font></h4>
+      <h5></h5>
+      <ul>
+        <li><a href="#Requirements">Requirements</a></li>
+        <li><a href="#Analysis &amp; Design">Analysis &amp; Design</a></li>
+        <li><a href="#Implementation">Implementation</a></li>
+        <li><a href="#Testing">Testing</a></li>
+        <li><a href="#Deployment">Deployment</a></li>
+        <li><a href="#Configuration &amp; Change Management">Configuration &amp; 
+          Change Management</a></li>
+        <li><a href="#Project Management">Project Management</a></li>
+        <li><a href="#Environment">Environment</a></li>
+      </ul>
+      </td>
+  </tr>
+</table>
+<h3><a name="Requirements"></a>Requirements<a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+      
+<h5>Workflow</h5>
+<p>For details on the workflow, see the <a href="../../process/workflow/ovu_req.htm">Requirements 
+  Overview</a>.</p>
+<h5>Artifacts</h5>
+<center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+            <td width="18%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+            <td width="16%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+            <td width="55%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+            <td width="11%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+          </tr>
+          <tr> 
+            <td width="18%" valign="TOP"><a href="../../process/artifact/ar_vsion.htm">Vision</a></td>
+            
+      <td width="16%" valign="TOP"> 
+        <p><a href="../../toolment/reqpro/reqpro.htm">Rational RequisitePro</a>, 
+          Microsoft&reg; Word&#174;</p>
+            </td>
+            <td width="55%" valign="TOP">&nbsp;</td>
+            <td width="11%" valign="TOP">Yes</td>
+          </tr>
+          <tr> 
+            <td width="18%" valign="TOP"><a href="../../process/artifact/ar_stnds.htm">Stakeholder 
+              Requests</a></td>
+            <td width="16%" valign="TOP"><a href="../../toolment/clearquest/c_quest.htm">Rational 
+              ClearQuest</a></td>
+            <td width="55%" valign="TOP">Stakeholder requests are logged and managed 
+              as Rational ClearQuest Change Requests.</td>
+            <td width="11%" valign="TOP">No</td>
+          </tr>
+          <tr> 
+            <td width="18%" valign="TOP"><a href="../../process/artifact/ar_ucmod.htm">Use-Case 
+              Model</a> (<a href="../../process/artifact/ar_actor.htm">Actors</a>, 
+              <a href="../../process/artifact/ar_uc.htm">Use Cases</a>)</td>
+            <td width="16%" valign="TOP"><a href="../../toolment/rose/rose.htm">Rational 
+              Rose</a>, <a href="../../toolment/reqpro/reqpro.htm">Rational RequisitePro</a></td>
+            <td width="55%" valign="TOP">Important actors and use cases identified 
+              and flows of events will be outlined for only the most critical 
+              use cases.&nbsp; Descriptions will be captured as Word documents.</td>
+            <td width="11%" valign="TOP">
+        <p>No</p>
+        <p>(however the Use-Case Survey report is deliverable)</p>
+      </td>
+          </tr>
+          <tr> 
+            <td width="18%" valign="TOP"><a href="../../process/artifact/ar_gloss.htm">Glossary</a></td>
+            <td width="16%" valign="TOP"><a href="../../toolment/reqpro/reqpro.htm">Rational 
+              RequisitePro</a></td>
+            <td width="55%" valign="TOP">&nbsp;</td>
+            <td width="11%" valign="TOP">Yes</td>
+          </tr>
+          <tr> 
+            <td width="18%" valign="TOP"><a href="../../process/artifact/ar_sspec.htm">Supplementary 
+              Specifications</a></td>
+            <td width="16%" valign="TOP">&nbsp;</td>
+            <td width="55%" valign="TOP">Captured as part of the Vision document.</td>
+            <td width="11%" valign="TOP">Yes</td>
+          </tr>
+          <tr> 
+            <td width="18%" valign="TOP"><a href="../../process/artifact/ar_uiprt.htm">User 
+              Interface Prototype</a></td>
+            
+      <td width="16%" valign="TOP">&nbsp;</td>
+            <td width="55%" valign="TOP">&nbsp;</td>
+            <td width="11%" valign="TOP">No</td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+      </center>
+      <h3>Reports</h3>
+      
+<p>The following reports are generated from the Use-Case Model.</p>
+      
+<table border="1" cellspacing="0" cellpadding="7" width="85%" align="center">
+  <tr> 
+          <td width="41%" valign="TOP" bgcolor="#ffffff"><b>Report</b></td>
+          <td width="33%" valign="TOP" bgcolor="#ffffff"> 
+            <div align="center"><b>Tools Used</b></div>
+          </td>
+          <td width="26%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+        </tr>
+        <tr> 
+          
+    <td width="41%" valign="TOP">Use-Case Survey</td>
+          <td width="33%" valign="TOP"><a href="../../toolment/soda/soda.htm">Rational 
+            Soda</a></td>
+          <td width="26%" valign="TOP">Yes</td>
+        </tr>
+      </table>
+      <h3><a name="Analysis &amp; Design"></a>Analysis &amp; Design<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+      <h5>Workflow</h5>
+      <p>For details on the workflow, see the <a href="../../process/workflow/ovu_and.htm">Analysis 
+        &amp; Design Overview</a>.&nbsp;</p>
+      <h5>Artifacts</h5>
+      <center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+            <td width="21%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+            <td width="17%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+            <td width="49%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+            <td width="13%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_archpoc.htm">Architectural 
+              Proof of Concept</a>, <a href="../../process/workflow/manageme/co_proto.htm">Prototypes</a></td>
+            
+      <td width="17%" valign="TOP">&nbsp;</td>
+            <td width="49%" valign="TOP">Project risks will be addressed as early 
+              as possible using executable architectural prototypes.</td>
+            <td width="13%" valign="TOP">No</td>
+          </tr>
+          <tr> 
+            
+      <td width="21%" valign="TOP" height="34"><a href="../../process/artifact/ar_desmd.htm">Design 
+        Model</a> (and all constituent artifacts)</td>
+            
+      <td width="17%" valign="TOP" height="34"><a href="../../toolment/rose/rose.htm">Rational 
+        Rose</a></td>
+            
+      <td width="49%" valign="TOP" height="34">The Design Model is expected to 
+        evolve over a series of brainstorming sessions. No separate Analysis Model 
+        is created. The Design Model will only be maintained as long as the developers 
+        find it useful.</td>
+            
+      <td width="13%" valign="TOP" height="34"> 
+        <p>No</p>
+        <p>&nbsp;</p>
+      </td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_datmd.htm">Data 
+              Model</a></td>
+            <td width="17%" valign="TOP"><a href="../../toolment/rose/rose.htm">Rational 
+              Rose</a></td>
+            <td width="49%" valign="TOP">&nbsp;</td>
+            <td width="13%" valign="TOP">No</td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_sadoc.htm">Software 
+              Architecture Document</a></td>
+            <td width="17%" valign="TOP"><a href="../../toolment/soda/soda.htm">Rational 
+              Soda</a>, Microsoft Word</td>
+            
+      <td width="49%" valign="TOP">A description of the architecture will be captured 
+        that briefly describes the architecturally significant use cases (use-case 
+        view), identification of key mechanisms and design elements (logical view), 
+        plus definition of the process view and the deployment view.</td>
+            <td width="13%" valign="TOP">Yes</td>
+          </tr>
+        </table>
+      </center>
+      <h3><a name="Implementation"></a>Implementation<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+      <h5>Workflow</h5>
+      
+<p>For details see the <a href="../../process/workflow/ovu_impl.htm">Implementation 
+  Overview.</a> This project is small enough that no separate subsystem integration 
+  is performed (elements are directly integrated into the overall system). High 
+  level integration planning is described in the project schedule. Detailed integration 
+  planning is done informally and as-needed.</p>
+      <h5>Artifacts</h5>
+      <center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+            <td width="21%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+            <td width="17%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+            <td width="49%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+            <td width="13%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+          </tr>
+          <tr> 
+            
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_impmd.htm">Implementation 
+        Model</a> (and all constituent artifacts, including <a href="../../process/artifact/ar_comp.htm">Implementation 
+        Elements </a> and <a href="../../process/artifact/ar_build.htm">Builds</a>)</td>
+            <td width="17%" valign="TOP"> 
+              <p>&lt;development tools &#151; compiler, debugger, and so on&gt;</p>
+              
+        <p><a href="../../toolment/rose/rose.htm">Rational Rose</a>, <a href="../../toolment/testmgr/testmgr.htm">Rational 
+          Test Manager</a>, <a href="../../toolment/testfact/testfact.htm">Rational 
+          Test Factory</a>, <a href="../../toolment/robot/robot.htm">Rational 
+          Robot</a>, <a href="../../toolment/purify_plus/tm_prfpls_exctstste.htm">Rational PurifyPlus </a>.</p>
+            </td>
+            <td width="49%" valign="TOP"> 
+              
+        <p>Rational Rose will be used to generate the initial code. Unit Tests 
+          will be scripted using Rational Robot and organized into suites using 
+          Rational Test Manager. Scripts generated by Rational Test Factory will 
+          supplement hand-generated tests.</p>
+              
+        <p>Rational PurifyPlus will be used to help determine if component testing 
+          is adequate.</p>
+            </td>
+            <td width="13%" valign="TOP">Yes</td>
+          </tr>
+        </table>
+      </center>
+      <h3><a name="Testing"></a>Test<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+      <h5>Workflow</h5>
+      <p>For details on the process, see the <a href="../../process/workflow/ovu_test.htm">Test 
+        Overview</a>.</p>
+      <h5>Artifacts</h5>
+      <center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+      <td width="21%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+      <td width="17%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+      <td width="49%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+      <td width="13%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_tstpl.htm">Test 
+        Plan</a></td>
+      <td width="17%" valign="TOP">Microsoft Word</td>
+      <td width="49%" valign="TOP">&nbsp;</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_tstsc.htm">Test 
+        Script</a>, <a href="../../process/artifact/ar_tstdta.htm">Test Data</a></td>
+      <td width="17%" valign="TOP"> 
+        <p><a href="../../toolment/rqa/rqa.htm">Rational QualityArchitect</a>, 
+          <a href="../../toolment/testfact/testfact.htm">Rational Test Factory</a>, 
+          <a href="../../toolment/robot/robot.htm">Rational Robot</a>, <a href="../../toolment/purify_plus/purifyplus.htm">
+		  Rational PurifyPlus</a>,&lt;database 
+          tool used by the application&gt;</p>
+      </td>
+      <td width="49%" valign="TOP"> 
+        <p>User Interface (UI) component test scripts and test data are created 
+          using Rational Robot and Rational Test Factory. Non-UI components test 
+          scripts and test data are created using Rational QualityArchitect.</p>
+        <p>&nbsp;</p>
+      </td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_tstste.htm">Test 
+        Suite</a>, <a href="../../process/artifact/ar_tstlog.htm">Test Log</a></td>
+      <td width="17%" valign="TOP"><a href="../../toolment/testmgr/testmgr.htm">Rational 
+        Test Manager</a></td>
+      <td width="49%" valign="TOP">Rational Test Manager is used to create Test 
+        Suites and execute them to produce Test Logs and reports.</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"> <a href="../../process/artifact/ar_tstidslst.htm">Test 
+        Ideas List </a><br>
+      </td>
+      <td width="17%" valign="TOP">Microsoft Word</td>
+      <td width="49%" valign="TOP">These will primarily be harvested from previous 
+        projects.</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_tstcs.htm">Test 
+        Case</a></td>
+      <td width="17%" valign="TOP"><a href="../../toolment/testmgr/testmgr.htm">Rational 
+        Test Manager</a></td>
+      <td width="49%" valign="TOP">&nbsp;</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_tstev.htm">Test 
+        Evaluation Summary</a></td>
+      <td width="17%" valign="TOP">Microsoft Word</td>
+      <td width="49%" valign="TOP">&nbsp;</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_tstenv.htm">Test 
+        Environment Configuration</a></td>
+      <td width="17%" valign="TOP">Microsoft Word</td>
+      <td width="49%" valign="TOP"> 
+        <p>Documented informally.</p>
+      </td>
+      <td width="13%" valign="TOP">No.</td>
+    </tr>
+  </table>
+      </center>
+      <h3><a name="Deployment"></a>Deployment<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+      <h5>Workflow</h5>
+      <p>For details on the process, see the <a href="../../process/workflow/ovu_dep.htm">Deployment 
+        Overview</a>.</p>
+      <h5>Artifacts</h5>
+      <center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+            <td width="21%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+            <td width="17%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+            <td width="49%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+            <td width="13%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_pduct.htm">Product</a> 
+              (including <a href="../../process/artifact/ar_prdct.htm">Deployment 
+              Unit</a> and <a href="../../process/artifact/ar_insta.htm">Installation 
+              Artifacts</a>)</td>
+            <td width="17%" valign="TOP">&nbsp;</td>
+            
+      <td width="49%" valign="TOP">&nbsp;</td>
+            <td width="13%" valign="TOP">Yes</td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_eusm.htm">End-User 
+              Support Material</a> (including <a href="../../process/artifact/ar_rlsnt.htm">Release 
+              Notes</a>)</td>
+            <td width="17%" valign="TOP">&nbsp;</td>
+            <td width="49%" valign="TOP">Are built into the online help.</td>
+            <td width="13%" valign="TOP">Yes</td>
+          </tr>
+        </table>
+      </center>
+	  <p>&nbsp;</p>
+      <h3><a name="Configuration &amp; Change Management"></a>Configuration &amp; 
+        Change Management<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+      <h5>Workflow</h5>
+      <p>For a general description of the process, see the <a href="../../process/workflow/ovu_cm.htm">Configuration 
+        &amp; Change Management Overview</a>.</p>
+      <h5>Artifacts</h5>
+      <center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+      <td width="21%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+      <td width="17%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+      <td width="49%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+      <td width="13%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_crqst.htm">Change 
+        Request</a></td>
+      <td width="17%" valign="TOP"><a href="../../toolment/clearquest/c_quest.htm">Rational 
+        ClearQuest</a></td>
+      <td width="49%" valign="TOP">&nbsp;</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_repos.htm">Project 
+        Repository</a>, <a href="../../process/artifact/ar_wkspc.htm">Workspace</a></td>
+      <td width="17%" valign="TOP"><a href="../../toolment/clearcase/c_case.htm">Rational 
+        ClearCase LT</a></td>
+      <td width="49%" valign="TOP">&nbsp;</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+  </table>
+      </center>
+	  <p>&nbsp;</p>
+      <h3><a name="Project Management"></a>Project Management<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+      <h5>Workflow</h5>
+      <p>For details, see <a href="../../process/workflow/ovu_mgm.htm">Project 
+        Management Overview</a>.</p>
+      <h5>Artifacts</h5>
+      <center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+            <td width="21%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+            <td width="17%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+            <td width="49%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+            <td width="13%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_bcase.htm">Business 
+              Case</a></td>
+            <td width="17%" valign="TOP">Microsoft Word</td>
+            <td width="49%" valign="TOP">The business case is produced and approved 
+              by company management. It is not expected to be maintained.</td>
+            <td width="13%" valign="TOP">No</td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_sdp.htm">Software 
+              Development Plan</a> (including <a href="../../process/artifact/ar_rskls.htm">Risk 
+              List</a>, and <a href="../../process/artifact/ar_itpln.htm">Iteration 
+              Plan)</a></td>
+            <td width="17%" valign="TOP"> 
+              <p>Microsoft Word,</p>
+              <p>Microsoft&#174; Project&#174;</p>
+            </td>
+            <td width="49%" valign="TOP">The schedule and resource information 
+              will be generated as reports out of Microsoft Project.</td>
+            <td width="13%" valign="TOP">No</td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"><a href="../../process/artifact/ar_rvrec.htm">Review 
+              Record</a></td>
+            <td width="17%" valign="TOP">Microsoft Word</td>
+            <td width="49%" valign="TOP">This is mandatory and deliverable only 
+              for customer reviews.</td>
+            <td width="13%" valign="TOP">Yes</td>
+          </tr>
+          <tr> 
+            <td width="21%" valign="TOP"> 
+              <p><a href="../../process/artifact/ar_itass.htm">Iteration Assessment</a>, 
+                <a href="../../process/artifact/ar_stass.htm">Status Assessment</a></p>
+              <p>&nbsp;</p>
+            </td>
+            <td width="17%" valign="TOP">Microsoft Word, email</td>
+            <td width="49%" valign="TOP"> 
+              <p>Status Assessment is be combined with the Iteration Assessment 
+                because the iterations are frequent (one or more each month).</p>
+              <p>The Project Manager will meet with each project team member on 
+                a weekly basis to determine progress, and help identify and resolve 
+                issues.</p>
+              <p>At the end of each iteration, the team will meet to discuss the 
+                project status and brainstorm improvements.&nbsp; The intent is 
+                to capture lessons learned. This is followed by a review with 
+                the Management Reviewer.</p>
+            </td>
+            <td width="13%" valign="TOP">No</td>
+          </tr>
+        </table>
+      </center>
+      <p>&nbsp;</p>
+      <center>
+      </center>
+      <h3><a name="Environment"></a>Environment<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+      <h5>Workflow</h5>
+      <p>The environment for this project is already set up. The process is assessed 
+        each iteration, and improvements are implemented accordingly.</p>
+      <h5>Artifacts</h5>
+      <center>
+        
+  <table border="1" cellspacing="0" cellpadding="7" width="85%">
+    <tr> 
+      <td width="21%" valign="TOP" bgcolor="#ffffff"><b>Artifact</b></td>
+      <td width="17%" valign="TOP" bgcolor="#ffffff"><b>Tools Used</b></td>
+      <td width="49%" valign="TOP" bgcolor="#ffffff"><b>Comments</b></td>
+      <td width="13%" valign="TOP" bgcolor="#ffffff"><b>Formal Deliverable?</b></td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_devcs.htm">Development 
+        Case </a></td>
+      <td width="17%" valign="TOP">[HTML editor]</td>
+      <td width="49%" valign="TOP">This project Development Case was created by 
+        minor tailoring of the <a href="dc_index.htm">RUP Example Development 
+        Case For Small Projects</a>.</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../manuals/ucmgl/ucmgl.htm">Use-Case 
+        Modeling Guidelines</a></td>
+      <td width="17%" valign="TOP">Microsoft Word</td>
+      <td width="49%" valign="TOP">This project follows the <a href="../../manuals/ucmgl/ucmgl.htm">RUP 
+        Example Use-Case Modeling Guidelines</a> without further tailoring.</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP" height="48"> 
+        <p><a href="../../process/artifact/ar_projspecgls.htm">Programming Guidelines</a></p>
+      </td>
+      <td width="17%" valign="TOP" height="48">Microsoft Word</td>
+      <td width="49%" valign="TOP" height="48"> 
+        <p>The Programming Guidelines for the project already exist. They are 
+          a slightly tailored version of the example provided in RUP.</p>
+      </td>
+      <td width="13%" valign="TOP" height="48">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_projspecgls.htm">Design 
+        Guidelines</a></td>
+      <td width="17%" valign="TOP">Microsoft Word</td>
+      <td width="49%" valign="TOP">The Design Guidelines for the project already 
+        exist (harvested from a similar, previous project).</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_projspecgls.htm">Test 
+        Guidelines</a></td>
+      <td width="17%" valign="TOP"> 
+        <p>Microsoft Word</p>
+      </td>
+      <td width="49%" valign="TOP">The Test Guidelines for the project already 
+        exist (harvested from a similar, previous project).</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+    <tr> 
+      <td width="21%" valign="TOP"><a href="../../process/artifact/ar_projspecgls.htm">User 
+        Interface Guidelines</a></td>
+      <td width="17%" valign="TOP"> 
+        <p>Microsoft Word</p>
+      </td>
+      <td width="49%" valign="TOP">The User Interface Guidelines for the project 
+        already exist (harvested from a similar, previous project).</td>
+      <td width="13%" valign="TOP">No</td>
+    </tr>
+  </table>
+      </center>
+<p>&nbsp;</p>
+ 
+     
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

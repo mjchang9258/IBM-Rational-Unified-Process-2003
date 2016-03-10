@@ -1,0 +1,406 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Guidelines:&nbsp;Equivalence Class Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines: <rpw name="PresentationName">Equivalence 
+  Class Analysis</rpw> <a name="XE_runtime_observation_&amp;_analysis__concept"></a> 
+</h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Strategies">Strategies</a>
+    <ul>
+      <li><a href="#EquivalenceClassPartition">Equivalence Class Partition</a></li>
+      <li><a href="#BoundaryValueAnalysis">Boundary Value Analysis</a></li>
+      <li><a href="#SpecialValues">Special Values</a></li>
+      <li><a href="#CategoryPartition">&quot;Category-Partition&quot; Method</a></li>
+    </ul>
+  <li><a href="#FurtherReading">Further Reading and References</a></li>
+</ul>
+
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Except for the most trivial of software applications, it is generally considered 
+  impossible to test all the input combinations logically feasible for a software 
+  system. Therefore, selecting a good subset that has the highest probability 
+  of finding the most errors, is a worthwhile and important task for testers to 
+  undertake.</p>
+<p>Testing based on equivalence class analysis (synonyms: <i>equivalence partitioning</i>, 
+  <i>domain analysis</i>) is a form of black-box test analysis that attempts to 
+  reduce the total number of potential tests to a minimal set of tests that will 
+  uncover as many errors as possible [<a href="../../process/referenc.htm#MYE79">MYE79</a>]. 
+  It is a method that partitions the set of inputs and outputs into a finite number 
+  of <i><a href="../glossary.htm#equivalence_class">equivalence classes</a></i> 
+  that enable the selection of a representative test value for each class. The 
+  test that results from the representative value for a class is said to be &quot;equivalent&quot; 
+  to the other values in the same class. If no errors were found in the test of 
+  the representative value, it is reasoned that all the other &quot;equivalent&quot; 
+  values wouldn't identify any errors either.</p>
+<p>The power of Equivalence Classes lies in their ability to guide the tester 
+  using a sampling strategy to reduce the combinatorial explosion of potentially 
+  necessary tests. The technique provides a logical bases by which a subset of 
+  the total conceivable number of tests can be selected. Here are some categories 
+  of problem areas for large numbers of tests that can be benefit from the consideration 
+  of equivalence classes:</p>
+<ol>
+  <li>Combinations of independent variables</li>
+  <li>Dependent variables based on hierarchical relationship</li>
+  <li>Dependent variables based on temporal relationship</li>
+  <li>Clustered relationships based on market exemplars</li>
+  <li>Complex relationships that can be modeled</li>
+</ol>
+
+
+<h3><a name="Strategies">Strategies</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>There are different strategies and techniques that can be used in equivalence 
+  partition testing. Here are some examples:</p>
+
+
+<h4><a name="EquivalenceClassPartition">Equivalence Class Partition</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h4>
+<p>Equivalence partition theory as proposed by Glenford Myers [<a href="../../process/referenc.htm#MYE79">MYE79</a>]. 
+  attempts to reduce the total number of test cases necessary by partitioning 
+  the input conditions into a finite number of equivalence classes. Two types 
+  of equivalence classes are classified: the set of valid inputs to the program 
+  is regarded as the<i> valid equivalence class</i>, and all other inputs are 
+  included in the <i>invalid equivalence class</i>.</p>
+<p>Here are a set of guidelines to identify equivalence classes:</p>
+<ol>
+  <li>If an input condition specifies a range of values (such as, program &quot;accepts 
+    values from 10 to 100&quot;), then one valid equivalence class (from 10 to 
+    100) and two invalid equivalence classes are identified (less than 10 and 
+    greater than 100).</li>
+  <li> If an input condition specifies a set of values (such as, &quot;cloth can 
+    be many colors: RED, WHITE, BLACK, GREEN, BROWN &quot;), then one valid equivalence 
+    class (the valid values) and one invalid equivalence class (all the other 
+    invalid values) are identified. Each value of the valid equivalence class 
+    should be handled distinctly.</li>
+  <li> If the input condition is specified as a &quot;must be&quot; situation 
+    (such as, &quot;the input string must be upper case&quot;), then one valid 
+    equivalence class (uppercase characters) and one invalid equivalence (all 
+    the other input except uppercase characters) class are identified.</li>
+  <li> Everything finished &quot;long&quot; before the task is done is an equivalence 
+    class. Everything done within some short time interval before the program 
+    is finished is another class. Everything done just before program starts another 
+    operation is another class.</li>
+  <li> If a program is specified to work with memory size from 64M to 256M. Then 
+    this size range is an equivalence class. Any other memory size, which is greater 
+    than 256M or less than 64M, can be accepted.</li>
+  <li>The partition of output event lies in the inputs of the program. Even though 
+    different input equivalence classes could have same type of output event, 
+    you should still treat the input equivalence classes distinctly.</li>
+</ol>
+
+
+<h4><a name="BoundaryValueAnalysis">Boundary Value Analysis</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h4>
+<p>In each of the equivalence classes, the boundary conditions are considered 
+  to have a higher rate of success identifying resulting failures than non-boundary 
+  conditions. Boundary conditions are the values at, immediately above or below 
+  the boundary or &quot;edges&quot; of each equivalence classes.</p>
+<p>Tests that result from boundary conditions make use of values at the minimum 
+  (min), just above minimum (min+), just below the maximum (max-), and the maximum 
+  (max) of the range that needs be tested. When testing boundary values, testers 
+  choose a few test cases for each equivalence class. For the relatively small 
+  sample of tests the likelihood of failure discovery is high. The Tester is given 
+  some relief from the burden of testing a huge population of cases in an equivalent 
+  class of values that are unlikely to produce large differences in testing results.</p>
+<p>Some recommendations when choosing boundary values:</p>
+<ol>
+  <li>For a floating variable, if the valid condition of it is from <code>-1.0</code> 
+    to <code>1.0</code>, test<code> -1.0</code>, <code>1.0</code>, <code>-1.001</code> 
+    and <code>1.001</code>.</li>
+  <li>For an integer, if the valid range of input is <code>10</code> to <code>100</code>, 
+    test <code>9</code>, <code>10</code>, <code>100</code>, <code>101</code>.</li>
+  <li>If a program expects an uppercase letter, test the boundary A and Z. Test 
+    <code>@</code> and <code>[</code> too, because in ASCII code, <code>@</code> 
+    is just below A and <code>[</code> is just beyond the Z.</li>
+  <li>If the input or output of a program is an ordered set, pay attention on 
+    the first and the last element of the set.</li>
+  <li>If the sum of the inputs must be a specific number (<code>n</code>), test 
+    the program where the sum is <code>n-1</code>, <code>n</code>, or <code>n+1</code>.</li>
+  <li>If the program accepts a list, test values in the list. All the other values 
+    are invalid.</li>
+  <li>When reading from or writing to a file, check the first and last characters 
+    in the file.</li>
+  <li>The smallest denomination of money is one cent or equivalent. If the program 
+    accepts a specific range, from a to b, test a <code>-0.01</code> and b<code> 
+    +0.01</code>.</li>
+  <li>For a variable with multiple ranges, each range is an equivalence class. 
+    If the sub-ranges are not overlapped, test the values on the boundaries, beyond 
+    the upper boundary, and below the lower boundary.</li>
+</ol>
+
+
+<h4><a name="SpecialValues">Special Values</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h4>
+<p>After attempting the two previous boundary analysis strategies, an experienced 
+  tester will observe the program inputs to discovery any &quot;special value&quot; 
+  cases, which are again potentially rich sources for uncovering software failures. 
+  Here are some examples:</p>
+<ol>
+  <li>For an integer type, zero should always be tested if it is in the valid 
+    equivalence class.</li>
+  <li>When testing time (hour, minute and second), 59 and 0 should always be tested 
+    as the upper and lower bound for each field, no matter what constraint the 
+    input variable has. Thus, except the boundary values of the input, -1, 0, 
+    59 and 60 should always be test cases.</li>
+  <li>When testing date (year, month and day), several test cases, such as number 
+    of days in a specific month, the number of days in February in leap year, 
+    the number of days in the non-leap year, should be involved.</li>
+</ol>
+
+<h4><a name="CategoryPartition">&quot;Category-Partition&quot; Method</a>
+ <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h4>
+<p><a href="#OstrandBalcer">Ostrand and Balcer</a> [16] developed a partition method that helps testers to analyze 
+  the system specification, write test scripts, and manage them. Different from 
+  common strategies that mostly focuses on the code, their method is based on 
+  the specification and design information too.</p>
+<p>The main benefit of this method is its ability to expose errors before the 
+  code has been written because the input source is the specification and the 
+  tests result from the analysis of that specification. Faults in the specifications 
+  will be discovered early, often well before they are implemented in code.</p>
+<p>The strategy for the &quot;category-partition&quot; method follows:</p>
+<ol>
+  <li>Analyze the specification: decompose the system functionality into functional 
+    units, which can be tested independently both by specification and implementation.<br>
+    From there;<br>
+    <br>
+    <ol>
+      <li>Identify the parameters and the environment conditions that will influence 
+        the function's execution. Parameters are the inputs of the function unit. 
+        Environment conditions are the system states, which will effect the execution 
+        of the function unit.</li>
+      <li>Identify the characteristics of the parameters and the environment conditions.</li>
+      <li>Classify the characteristics into categories, which effect the behavior 
+        of the system.<br>
+        <br>
+      </li>
+    </ol>
+    Ambiguous, contradictory, and missing descriptions of behavior will be discovered 
+    in this stage.<br>
+    <br>
+  </li>
+  <li>Partition the categories into choices: Choices are the different possible 
+    situations that might occur and not be expected. They represent the same type 
+    of information in a category.<br>
+    <br>
+  </li>
+  <li>Determine the relations and the constraints among choices. The choices in 
+    different categories influence with each other, which also have an influence 
+    of building the test suite. Constraints are added to eliminate the contradiction 
+    of between choices of different parameters and environments.<br><br></li>
+  <li>Design test cases according to the categories, choices and constraint information. 
+    If a choice causes an error, don't combine it with other choices to create 
+    the test case. If a choice can be &quot;adequately&quot; tested by one single 
+    test, it is either the representative of the choice or a special value.</li>
+</ol>
+
+<h3><a name="FurtherReading">Further Reading and References</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<ol>
+  <li>Glenford J. Myers, The Art of Software Testing, John Wiley &amp; Sons, Inc., 
+    New York, 1979.</li>
+  <li>White L. J. and Cohen E. I., A domain strategy for computer program testing, 
+    IEEE Transaction on Software Engineering, Vol. SE-6, No. 3, 1980.</li>
+  <li>Lori A. Clarke, Johnhette Hassell, and Debra J Richardson, A Close Look 
+    at Domain Testing, IEEE Transaction on Software Engineering, 8-4, 1992.</li>
+  <li>Steven J. Zeil, Faten H. Afifi and Lee J. White, Detection of Linear Detection 
+    via Domain Testing, ACM Transaction on Software Engineering and Methodology, 
+    1-4, 1992.</li>
+  <li>BingHiang Jeng, Elaine J. Weyuker, A Simplified Domain-Testing Strategy, 
+    ACM Transaction on Software Engineering and Methodology, 3-3, 1994.</li>
+  <li>Paul C. Jorgensen, Software Testing - A Craftsman's Approach, CRC Press 
+    LLC, 1995.</li>
+  <li>Martin R. Woodward and Zuhoor A. Al-khanjari, Testability, fault, and the 
+    domain-to-range ratio: An eternal triangle, ACM Press New York, NY, 2000.</li>
+  <li>Dick Hamlet, On subdomains: Testing, profiles, and components, SIGSOFT: 
+    ACM Special Interest Group on Software Engineering, 71-16, 2000.</li>
+  <li>Cem Kaner, James Bach, and Bret Pettichord, Lessons learned in Software 
+    Testing, John Wiley &amp; Sons, Inc., New York, 2002.</li>
+  <li>Andy Podgurski and Charles Yang, Partition Testing, Stratified Sampling, 
+    and Cluster Analysis, SIGSOFT: ACM Special Interest Group on Software Engineering, 
+    18-5, 1993.</li>
+  <li>Debra J. Richardson and Lori A. Clarke, A partition analysis method to increase 
+    program reliability, SIGSOFT: ACM Special Interest Group on Software Engineering, 
+    1981.</li>
+  <li>Lori A. Clarke, Johnette Hassell, and Debra J Richardson, A system to generate 
+    test data and symbolically execute programs, IEEE Transaction on Software 
+    Engineering, SE-2, 1976.</li>
+  <li>Boris Beizer, Black-Box Testing - Techniques for Functional testing of Software 
+    and System, John Wiley &amp; Sons, Inc., 1995.</li>
+  <li>Steven J. Zeil, Faten H. Afifi and Lee J. White, Testing for Liner Errors 
+    in Nonlinear computer programs, ACM Transaction on Software Engineering and 
+    Methodology, 1-4, 1992.</li>
+  <li>William E. Howden, Functional Program Testing, IEEE Transactions on Software 
+    Engineering, Vol. SE-6, No. 2, 1980.</li>
+  <li><a name="OstrandBalcer">Thomas J. Ostrand and Marc J. Balcer</a>, The Category-Partition method for 
+    specifying and generating functional tests, Communications of ACM 31, 1988.</li>
+  <li>Cem Kaner, Jack Falk and Hung Quoc Nguyen, Testing Computer Software, John 
+    Wiley &amp; Sons, Inc., 1999.</li>
+</ol>
+<p>&nbsp;</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

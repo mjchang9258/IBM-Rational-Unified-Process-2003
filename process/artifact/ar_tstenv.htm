@@ -1,0 +1,422 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Test Environment Configuration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Test Environment Configuration</rpw><a name="XE_test_environment_configuration__artifact_definition"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_tstenv.jpg" width="65" height="58">&nbsp;
+	  </td>
+      <td width="80%">The specification for an arrangement of hardware, software, 
+        and associated environment settings that are required to enable accurate 
+        tests to be conducted that will evaluate one or more target test items.</td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_tstds.htm">Test Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">One or more artifacts. Where possible, there should be one 
+        Test Environment Configuration created and maintained for each specific 
+        combination of hardware, software, and environment settings.&nbsp; </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Not applicable.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+		  <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstapr.htm">Define Test Approach</a></li>
+<li><a href="../activity/ac_tst_dfntstenvcnf.htm">Define Test Environment Configurations</a></li>
+<li><a href="../activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+<li><a href="../activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+<li><a href="../activity/ac_sudev.htm">Support Development</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstapr.htm">Define Test Approach</a></li>
+<li><a href="../activity/ac_tst_dfntstenvcnf.htm">Define Test Environment Configurations</a></li>
+<li><a href="../activity/ac_mgacc.htm">Manage Acceptance Test</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a><a name="XE_test_environment_configuration__purpose_of"></a>
+<a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20" alt="To top of page"></a> 
+</h3>
+<p>Each Test Environment Configuration specificies an appropriate, controlled 
+  setting in which to conduct the required test and evaluation activities. Providing 
+  a controlled environment built from a known configuration in which to conduct 
+  these activities, helps to assure the results of these efforts are accurate, 
+  valid, and have a higher likelihood of being systematically reproduced. A well-controlled 
+  Test Environment is an important aspect of efficient failure analysis and fault 
+  resolution.</p>
+
+
+<h3><a name="BriefOutline">Brief Outline</a><a name="XE_test_environment_configuration__brief_outline_of"></a>
+ <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20" alt="To top of page"></a> 
+</h3>
+<p>Each Test Environment Configuration should consider various aspects including 
+  the following: </p>
+<ul>
+  <li>The basic computer hardware requirements; for example, Processors, Memory Storage, 
+    Hard-disk Storage, Input/Output Interface Devices</li>
+  <li>The basic underlying software environment; for example, Operating System
+    and the basic 
+    productivity tools such as e-mail, calendar system, and so forth</li>
+  <li>Additional specialized Input/Output peripheral hardware; for example, Bar-code 
+    scanners, receipt printers, cash draws, sensor devices, and so on</li>
+  <li>The required software for the specialized Input/Output peripheral hardware;
+    for example, drivers, interface and gateway software</li>
+  <li>The minimal set of software tools necessary to facilitate test, evaluation, 
+    and diagnostic activities; for example, memory diagnostics, automated test execution,
+    and so forth</li>
+  <li>The required configuration settings of both hardware and software options;
+    for example, video-display resolution, resource allocation, environment variables,
+    and so on</li>
+  <li>The required &quot;pre-existing&quot; consumables; for example, populated data sets, receipt 
+    printer dockets, and the like</li>
+</ul>
+
+
+<h3><a name="Properties">Properties</a><a name="XE_test_environment_configuration__properties_of"></a>
+<a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20" alt="To top of page"></a> 
+</h3>
+<p>There are no UML representations for these properties. 
+</p>
+<div align="left">
+
+ 
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top"> 
+    <tr> 
+      <th width="20%">Property Name&nbsp;</th>
+      <th width="80%">Brief Description&nbsp;</th>
+    </tr>
+  <tr> 
+      <td width="20%">Name&nbsp;</td>
+      <td width="80%">An unique name used to identify this Test Environment Configuration.&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Description&nbsp;</td>
+    <td width="80%">A short description of the contents of the Test Environment Configuration, typically giving some 
+	    high-level indication of complexity and scope.&nbsp;
+	</td>
+  </tr>
+  <tr> 
+    <td width="20%">Purpose &nbsp;</td>
+    <td width="80%">An explanation of what this Test Environment Configuration 
+      represents and why it is important; for example, representative production end-user 
+      environment, minimal configuration, resource constrained environment,
+      and so forth. &nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="20%">Dependent Test and Evaluation Items &nbsp;</td>
+    <td width="80%">Some form of traceability or dependency mapping to specific 
+      test and evaluation tasks or elements that need to be conducted under 
+      this Test Environment Configuration. &nbsp;</td>
+  </tr>
+    <tr> 
+      <td width="20%">Hardware Inventory &nbsp;</td>
+      <td width="80%">An inventory of the required hardware, both in terms of 
+        the environment being emulated, and in terms of test and evaluation specific 
+        requirements. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Software Inventory &nbsp;</td>
+      <td width="80%">An inventory of the required software, both in terms of 
+        the environment being emulated, and in terms of test and evaluation specific 
+        requirements. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Configuration Settings &nbsp;</td>
+      <td width="80%">A definition of the required hardware and software configuration 
+        settings. &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Consumables Inventory &nbsp;</td>
+      <td width="80%">An inventory of the required items that will be consumed
+        when performing the specific test and evaluation tasks&#151;this covers 
+        both <i>soft</i> items (such as existing Test Data) and <i>hard</i> items 
+        (such as unique stationery). &nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Restoration and Recovery Procedures &nbsp;</td>
+      <td width="80%">The procedures required to achieve restoration or recovery 
+        of the Test Environment Configuration. &nbsp;</td>
+  </tr>
+ </tbody> 
+</table>
+<br>
+</div>
+
+
+<h3><a name="Timing">Timing</a>
+ <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20" alt="To top of page"></a> 
+</h3>
+<p>The primary Test Environment Configuration should be outlined as early as practical, 
+  and can often be defined and established by the end of the Inception phase. 
+  Addressing this early helps to address the inherent risks in establishing a 
+  recoverable Test Environment Configuration by allowing sufficient time to
+resolve issues. By the end of the Elaboration phase, a range of Test Environment 
+  Configurations necessary to perform realistic and complete testing should be 
+  identified, outlined, and, where possible, established.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> 
+<a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20" alt="To top of page"></a> 
+</h3>
+<p>The <a href="../workers/wk_tstds.htm">Test Designer</a> role is primarily responsible for this 
+  artifact. The responsibilities are split into two main areas of concern.</p>
+<p>The primary set of responsibilities covers the following definition and management 
+  issues:</p>
+<ul>
+  <li>Defining each Test Environment Configuration and approving all subsequent 
+    changes to that configuration.</li>
+  <li>Ensuring that changes to the Test Environment Configuration are implemented, 
+    validated, and communicated to affected roles.</li>
+  <li>Verifying that Test Environment Configuration restoration and recovery procedures, 
+    and their supporting mechanisms, work.</li>
+  <li>Managing access to and availability of each installed Test Environment Configuration.</li>
+</ul>
+<p>The secondary set of responsibilities covers the following implementation issues:</p>
+<ul>
+  <li>Implementing each Test Environment Configuration and the investigation, 
+    reporting, and, where possible, resolution of failures in the Test Environment 
+    Configuration.</li>
+  <li>Implementing restoration and recovery mechanisms, especially related to 
+    software build images and consumable <i>soft</i> items such as Test Data.</li>
+  <li>Monitoring for and advising on the availability of version upgrades to both 
+    hardware and software.</li>
+  <li>Implementing required changes to each Test Environment Configuration and
+    its recovery procedures in a coordinated manner.</li>
+</ul>
+
+
+<h3><a name="Tailoring">Tailoring</a>
+<a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20" alt="To top of page"></a> 
+</h3>
+<p>Where possible, attempt to keep the total number of unique Test 
+  Environment Configurations to a minimum and to a&nbsp; manageable level. This can be achieved 
+  by consolidating similar environments, typically where similar base-hardware 
+  and software profiles are used with only minor differences existing in the configuration 
+  settings. However, be careful not to consolidate Test Environment Configurations 
+  to the point of invalidating the integrity and purpose of each configuration.</p>
+<p>We recommend the use of hard-disk imaging tools that allow Test Environment 
+  Configurations to be backed-up and easily restored. Also consider using 
+  removable or swappable hard drives to further improve accuracy and efficiency.</p>
+<p>Optionally the Test Environment Configuration can be enclosed within the <a href="ar_sdp.htm">Software 
+  Development Plan</a>.&nbsp; </p>
+<p><br>
+  <br>
+</p>
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

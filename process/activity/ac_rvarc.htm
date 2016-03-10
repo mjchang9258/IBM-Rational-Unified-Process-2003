@@ -1,0 +1,417 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Review the Architecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Review the Architecture</rpw><a name="XE_reviewing__architecture"></a><a name="XE_architecture__reviewing"></a><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To uncover any unknown or perceived risks in the schedule or budget.</li>
+      <li>To detect any architectural design flaws. Architectural flaws are
+        known to be the hardest to fix, the most damaging in the long run.</li>
+      <li>To detect a potential mismatch between the requirements and the
+        architecture: over-design, unrealistic requirements, or missing
+        requirements. In particular the assessment may examine some aspects
+        often neglected in the areas of operation, administration and
+        maintenance. How is the system installed? Updated? How do we transition
+        the current databases?</li>
+      <li>To evaluate one or more specific architectural qualities: performance,
+        reliability, modifiability, security, safety.</li>
+      <li>To identify reuse opportunities</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#GeneralRecommendations">General Recommendations</a></li>
+	  <li><a href="#RecommendedReviewMeetings">Recommended Review Meetings</a></li>
+      <li><a href="#Allocate Defect Resolution Responsibilities">Allocate Defect
+        Resolution Responsibilities</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_tchrvw.htm">Technical Reviewer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/rose/tm_usingmi.htm">Comparing and Merging Rational Rose Models Using Model Integrator</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="chklists/ck_sad.htm">Checklist: Software Architecture Document</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and2.htm">Refine the Architecture</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="GeneralRecommendations">General Recommendations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">General recommendations for each review.</td>
+  </tr>
+</table>
+<br>
+</div>
+<p>Seen from 20,000 feet there is not much that distinguishes a software
+architecture assessment from any other assessment or review.</p>
+<p>However, one important characteristic of the software architecture is the
+lack of specific measurements for many architectural quality attributes&#151;only a
+few architectural qualities can be objectively measured. Performance is an
+example where measurement is possible. Other qualities are more qualitative or
+subjective: conceptual integrity for example. Moreover, it is often hard to
+decide what a metric means in absence of other data or reference for comparison.
+If a reference system is available and understood by the target audience, it is
+often convenient to express some of the results of the review <b>relative</b>
+to this reference system. This may happen in a context where the system under
+design can be compared to an earlier design.</p>
+<p>When in the life-cycle this assessment takes place also affects its purpose
+or usefulness.</p>
+<p align="center"><img src="images/ac_rvarc.gif" width="660" height="210"></p>
+<ol>
+  <li>At the end of the inception phase in an initial development cycle, there 
+    is usually little of a concrete architecture in place. But a review may uncover 
+    some unrealistic objectives, missing pieces, missed opportunity for reusing 
+    existing products, etc.</li>
+  <li>The most natural place for a software architecture assessment is at the 
+    end of the elaboration phase. This phase is primarily focused on exploring 
+    the requirements in details, and baselining an architecture. An architecture 
+    review is mandated by our process at this milestone. This is the case where 
+    a broad range of architectural qualities are examined.</li>
+  <li>More focused assessments may take place during the construction phase to 
+    examine specific quality attributes, such as performance or safety, and at 
+    the end of the construction phase for any lingering issues that may make the 
+    product unfit to be put in the hands of its end-users.</li>
+  <li>Damage-control assessments may take place late in the construction or even 
+    transition phases, when things have gone really wrong: construction does not 
+    complete, or an unacceptable level of problems arise in the installed base 
+    during the transition.</li>
+  <li>Finally as assessment may take place at the end of the transition phase, 
+    in particular to inventory reusable assets for an eventual new product or 
+    evolution cycle.</li>
+</ol>
+<p>The &quot;peer&quot; reviewer has the same staffing profile as that of the 
+  Role: <a href="../workers/wk_archt.htm">Software Architect</a>, although with a more narrow focus on the technical 
+  issues. Leadership, maturity, pragmatism, and result-orientation are important 
+  to lesser degrees, but still important&#151;a reviewer may uncover architectural 
+  defects that are likely to be unpopular if they threaten the schedule of the 
+  project. Still, it's better to raise critical issues early, when they can be 
+  resolved, rather than blindly following a schedule that leads the project team 
+  down the wrong path. The architecture reviewer needs to balance risks against 
+  costs, remaining sensitive to the broader issues of project success. The architecture 
+  reviewer also needs to be a persuasive communicator who can raise and discuss 
+  sensitive issues.<br>
+</p>
+<h3><a name="RecommendedReviewMeetings">Recommended Review Meetings</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">To define the scope and the goals of the review.<br>
+        To define the approaches used for each specific scope/goal combination.&nbsp; 
+      </td>
+  </tr>
+</table>
+<br>
+</div>
+<p>Diverse approaches can be used to do the review:
+<ul>
+  <li>representation driven</li>
+  <li>information driven</li>
+  <li>scenario driven</li>
+</ul>
+<h5>Representation-driven review</h5>
+<p>Obtain (or build) a representation of the architecture, then ask questions
+and reason based on this representation.</p>
+<p>There is a wide range of situations here, from the organization that are very
+architecture-literate and will provide some intelligible description to start
+with, to organizations where you need to identify who is the software architect (even
+hidden under some other name), and need to extract the information from that
+person, to the place where software architecture is a totally unknown concept.
+This process is then called &quot;mining the architecture,&quot; and in practice
+looks literally like that: digging it out the software or its documentation with
+a pickax, looking at source code, interfaces, configuration data, etc.</p>
+<p>One model that can be used to organize the representation is in the format of
+the architectural views presented in the Software Architecture Document: the
+logical view organizes the main classes (the object model), the process view
+describes the main threads of control and how they communicate, the development
+view shows the various subsystems and their dependencies, the physical view
+describes the mapping of elements of the other views onto one or several
+physical configuration. Organize issues alongside the various views.</p>
+<h5>Information-driven review</h5>
+<p>Establish the list of information&#151;data, measurements&#151;that is needed for
+the reasoning, get the information, and compare this information to either the
+requirements or some accepted reference standard. This applies well for
+investigating certain quality attributes, such as performance, or robustness.</p>
+<h5>Scenario-driven review</h5>
+<p>This is the systematic &quot;what if&quot; approach. Transform the general
+questions being asked into a set of scenarios the system should go through and
+ask questions based on the scenarios. Example of such scenarios are:
+<ul>
+  <li>The system runs on platforms X and Y. (The real quality attribute probed
+    is portability.)</li>
+  <li>The system does this (additional) function F. (The real quality attribute
+    is extensibility.)</li>
+  <li>The system processes 200 requests per hour. (The real quality attribute is
+    scalability.)</li>
+  <li>The system is being installed on this kind of site by the end user. (The
+    real quality attribute is completeness or usability.)</li>
+</ul>
+<p>The advantage of such an approach is that it puts the task in a very concrete
+perspective, understandable by all parties. It also allows to probe into
+omissions or flaws into the requirements, especially when the requirements are
+informal or unwritten or very general and terse. The disadvantage is that it
+does not grab the architecture itself as the object being reviewed, but takes
+the system as a black box into which we are only sending some probes.</p>
+<p>In practice, things are not so clearly separated, and we end up doing a bit
+of all three approaches.</p>
+<h5>Identifying issues</h5>
+<p>Uncovering potential issues is mostly done by human judgment based upon
+knowledge and experience. Certain failure patterns are repeated from project to
+project, from organization to organization. Certain heuristics can be used to
+uncover problem areas. Check-lists can be useful (some very generic ones are
+proposed later), as well as results from previous reviews, if any.</p>
+<p>Capture <b>potential</b> issues as they appear, describing them in
+a neutral tone&#151;no finger pointing, no &quot;catastrophism’. You may use
+little cardboard cards as do AT&amp;T reviewers, or as we do with CRC cards, to
+help prioritizing, organizing, eliminating.</p>
+<p>Later, sort the candidate issues by decreasing scope or impact, and if there
+are many, tackle first the ones that are directly related to the question at
+hand, leaving the &quot;other suggestions&quot; for later if time permits. Then
+assert the reality of the problem: very often one can perceive a problem, but it
+may not be. We just have not spoken to the right person, looked at the right
+piece of information. Sort again. Ensure multiple data points to verify the
+reality of a problem. (Inexperienced assessors tend to be too single-threaded.)</p>
+<p>When the problem has been confirmed, rapidly examine what could eliminate the
+problem, without necessary trying to do on-the-fly redesign of the system. Write
+down potential simplifications, reuse, alternatives: buy vs. build.</p>
+<h3><a name="Allocate Defect Resolution Responsibilities">Allocate Defect
+Resolution Responsibilities</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To take action on the defects identified.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>After the review, allocate responsibility for each defect identified.
+&quot;Responsibility&quot; in this case may not be to fix the defect, but to
+coordinate additional investigation of alternatives, or to coordinate the
+resolution of the defect if it is far-reaching or broad in scope.</p><br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

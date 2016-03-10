@@ -1,0 +1,298 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Analysis Mechanisms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Analysis Mechanisms</rpw><a name="Top"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Examples of Analysis Mechanisms">Examples of Analysis Mechanisms</a></li>
+  <li><a href="#Describing Analysis Mechanisms">Describing Analysis Mechanisms</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> to Analysis Mechanisms <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<font size="3">
+<p>An analysis mechanism represents a pattern that constitutes a common solution
+to a common problem. They may show patterns of structure, patterns of behavior,
+or both. They are used during analysis to reduce the complexity of analysis, and
+to improve its consistency by providing designers with a short-hand
+representation for complex behavior. Mechanisms allow the analysis effort to
+focus on translating the functional requirements into software concepts without
+bogging-down in the specification of relatively complex behavior needed to
+support the functionality but not central to it. Analysis mechanisms often
+result from the instantiation of one or more <b><a href="../../glossary.htm#architectural_pattern">architectural</a>
+</b>or <b><a href="../../glossary.htm#analysis_pattern">analysis
+patterns</a>.</b>&nbsp;</p>
+<p>Analysis mechanisms are primarily used to represent 'placeholders' for
+complex technology in the middle and lower layers of the architecture. By using
+the mechanisms as 'placeholders' in the architecture, the architecting effort is
+less likely to become distracted by the details of mechanism behavior. As an
+example, the need to have object lifetimes span use cases, process lifetimes, or
+system shutdown and start-up defines the need for object persistence.
+Persistence is a particularly complex mechanism, and during analysis we do not
+want to be distracted by the details of how we are going to achieve persistence.
+This gives rise to a 'persistence' analysis mechanism which allows us to speak
+of persistent objects and capture the requirements we will have on the
+persistence mechanism without worrying about what exactly the persistence
+mechanism will do or how it will work.</p>
+</font>
+<p>Analysis mechanisms are typically, but not necessarily, unrelated to the problem 
+  domain, but instead are &quot;computer science&quot; concepts; as a result they 
+  typically occupy the middle and lower layers of the architecture. They provide 
+  specific behaviors to a domain-related class or subsystem, or correspond to 
+  the implementation of cooperation between classes and/or subsystems. They may 
+  be implemented as a <a href="../../glossary.htm#framework"><b>framework</b></a>, 
+  Examples include mechanisms to handle persistence, inter-process communication, 
+  error or fault handling, notification, and messaging, to name a few.&nbsp;</p>
+<p>However, as more <a href="../../glossary.htm#analysis_pattern"><b>analysis
+patterns</b></a> are established in various domains, the partial or complete
+instantiation of these in analysis mechanisms will lead to these mechanisms
+appearing in the upper layers of the architecture.</p>
+<h3><a name="XE_analysis_mechanisms__examples_of"></a><a name="Examples of Analysis Mechanisms">Examples
+of Analysis Mechanisms</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li><b>Persistency</b><br>
+    <br>
+    For all classes whose instances may become persistent, we need to identify:
+    <ul>
+      <li><b>Granularity</b>: Range of size of the objects to keep persistent.</li>
+      <li><b>Volume</b>: Number of objects to keep persistent.</li>
+      <li><b>Duration</b>: How long does the object typically need to be kept.</li>
+      <li><b>Retrieval mechanism</b>: How is a given object uniquely identified
+        and retrieved?</li>
+      <li><b>Update frequency</b>: Are the objects more or less constant; are
+        they permanently updated?</li>
+      <li><b>Reliability</b>: Shall the objects survive a crash of the process;
+        the processor; or the whole system?</li>
+    </ul>
+  </li>
+  <br>
+  <li><b>Inter-process Communication</b><br>
+    <br>
+    For all model elements which need to communicate with components or services 
+    executing in other processes or threads, we need to identify: 
+    <ul>
+  <li><b>Latency</b>: How fast must processes communicate with another?</li>
+  <li><b>Synchronicity</b>: Asynchronous communication</li>
+  <li><b>Size of message</b>: A spectrum might be more appropriate than a single
+    number.</li>
+  <li>Protocol, flow control, buffering, and so on.</li>
+  </ul>
+</ul>
+<p>Other typical mechanisms include:
+<ul>
+  <li>Message routing</li>
+  <li>Process control and synchronization</li>
+  <li>Transaction management</li>
+  <li>Information Exchange</li>
+  <li>Security</li>
+  <li>Redundancy</li>
+  <li>Error reporting</li>
+  <li>Format conversion</li>
+</ul>
+<h3><a name="XE_analysis_mechanisms__describing"></a><a name="Describing Analysis Mechanisms">Describing
+Analysis Mechanisms</a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The process for describing analysis mechanisms is:
+<ol>
+  <li><b>Collect all analysis mechanisms in a list<br>
+    <br>
+    </b>The same analysis mechanism may appear under several different names 
+    across different use-case realizations, or different designers. For example, 
+    <b>storage</b>, <b>persistency</b>, <b>database</b>, 
+    and <b>repository</b> might all refer to a persistency mechanism. 
+    Or <b>inter-process communication</b>, <b>message passing</b>, 
+    or <b>remote invocation</b> might all refer to and inter-process 
+    communication mechanism.<br>
+  </li>
+  <br>
+  <li><b>Draw a map of the client classes to the analysis mechanisms</b></li>
+  <p align="center"><img src="images/ac_amech.gif" width="332" height="296"></p>
+  <p class="picturetext">The classes and subsystems identified need to be mapped 
+    onto the identified Analysis Mechanisms: the arrows indicate that the class 
+    utilizes the mechanism. It is not uncommon for a client class to require the 
+    services of several mechanisms.</p>
+  <li><b>Identify Characteristics of the Analysis Mechanisms</b><br>
+    <br>
+    To discriminate across a range of potential designs, identify the key characteristics 
+    used to qualify each analysis mechanism. These characteristics are part functionality, 
+    and part size and performance.<br>
+  </li>
+  <br>
+  <li> 
+    <p><b>Model Using Collaborations</b></p>
+    <p>Having identified and named the analysis mechanisms, they should, ultimately, 
+      be modeled through the collaboration of a 'society of classes' (see [<a href="../../referenc.htm#BOO98">BOO98</a>]), 
+      some of which do not directly deliver application functionality, but exist 
+      only to support it. Very often, these 'support classes' are located in the 
+      middle or lower layers of a layered architecture, thus providing a common 
+      support service to all application level classes.</p>
+    <p>If the identified mechanism is common enough, perhaps<a href="../../glossary.htm#pattern"> 
+      <b>patterns</b></a> exist from which the mechanism can be instantiated - 
+      by binding existing classes and implementing new ones as required by the 
+      pattern. An analysis mechanism so produced will be abstract, and require 
+      further refinement through design and implementation.</p>
+  </li>
+</ol>
+<p>Analysis mechanisms are documented in the <a href="../../artifact/ar_sadoc.htm">Artifact: 
+  Software Architecture Document</a>. As the software architecture matures, the 
+  <a href="../../artifact/ar_sadoc.htm">Artifact: Software Architecture Document</a> 
+  includes a relationship (or mapping) of analysis mechanisms to design mechanisms 
+  to implementation mechanisms, and the associated rationale for these choices.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

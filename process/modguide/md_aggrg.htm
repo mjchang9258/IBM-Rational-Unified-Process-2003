@@ -1,0 +1,306 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Aggregation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Aggregation</rpw><a name="XE_aggregation__guidelines_for"></a><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Aggregation</a></li>
+  <li><a href="#Shared Aggregation">Shared Aggregation</a></li>
+  <li><a href="#Composition">Composition</a></li>
+  <li><a href="#Using Composition to Model Attributes">Using Composition to Model Class Properties</a></li>
+  <li><a href="#Aggregation or Association?">Aggregation or Association?</a></li>
+  <li><a href="#Self-Aggregations">Self-Aggregations</a></li>
+</ul>
+<h3><a name="Introduction">Aggregation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Aggregation is used to model a compositional relationship between model
+elements. There are many examples of compositional relationships: a <b>Library</b>
+contains <b>Books</b>, within a company <b>Departments</b>
+are made-up of <b>Employees</b>, a <b>Computer</b> is
+composed of a number of <b>Devices</b>. To model this, the aggregate (<b>Department</b>)
+has an <b>aggregation</b> association to the its constituent parts (<b>Employee</b>).</p>
+<p>A hollow diamond is attached to the end of an association path on the side of
+the aggregate (the whole) to indicate aggregation.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In this example an <b>Customer </b>has an <b>Address</b>.
+We use aggregation because the two classes represent part of a larger whole. We
+have also chosen to model <b>Address </b>as a separate class, since
+many other kinds of things have addresses as well.</p>
+<p class="picturecenter" align="center"><img src="images/aggr0.gif" alt="example of aggregation" width="395" height="115"></p>
+<p class="picturetext">An aggregate object can hold other objects together.</p>
+<h3><a name="Shared Aggregation">Shared Aggregation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An aggregation relationship that has a multiplicity greater than one
+established for the aggregate is called <b>shared</b>, and destroying
+the aggregate does not necessarily destroy the parts. By implication, a shared
+aggregation forms a graph, or a tree with many roots. Shared aggregations are
+used in cases where there is a strong relationship between two classes, so that
+the same instance can participate in two different aggregations.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the case where a person has a home-based business.
+Both the Person and the Business have an address; in fact it is the <u>same</u>
+address. The Address is an integral part of both the Person and the Business.
+Yet the Business may cease to exist, leaving the Person hopefully at the same
+address.</p>
+<p class="example">Note also that it is possible in this case to start off with
+shared aggregation, then convert to non-shared aggregation at a later date. The
+home-based business may grow and prosper, eventually moving into separate
+quarters. At this point, the Person and the Business no longer share the same
+address. As a result, the aggregation is no longer shared.</p>
+      <p class="picturecenter" align="center"><img src="images/aggr5.gif" alt="example of aggregation" width="387" height="185"></p>
+<p class="picturetext">An example of shared aggregation.</p>
+<h3><a name="Composition">Composition</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><b>Composition</b> is a form of aggregation with strong ownership
+and coincident lifetime of the part with the aggregate. The multiplicity of the
+aggregate end (in the example, the <b>Order</b>) may not exceed one
+(i.e. it cannot be shared). The aggregation is also unchangeable, that is once
+established, its links cannot be changed. By implication, a composite
+aggregation forms a &quot;tree&quot; of parts, with the root being the
+aggregate, and the &quot;branches&quot; the parts.</p>
+<p>A compositional aggregation should be used over &quot;plain&quot; aggregation
+when there is strong inter-dependency relationship between the aggregate and the
+parts; where the definition of the aggregate is incomplete without the parts. In
+the example presented below, it does make sense to even have an <b>Order</b>
+if there is nothing being ordered (i.e. <b>Line Items</b>). In some
+cases, this inter-dependency can be identified as early as analysis (as in the
+case with this example), but more often it is not until design that such
+decisions can be made confidently.</p>
+<p>A solid filled diamond is attached to the end of an association path to
+indicate composition, as shown below:</p>
+<p align="center"><img src="images/aggr4.gif" alt="compositional aggregation" width="304" height="61"></p>
+<p class="picturetext">An example of compositional aggregation</p>
+<p class="exampleheading">Example</p>
+<p class="example">In this example, the <b>Customer Interface</b> is
+composed of several other classes. In this example the multiplicities of the
+aggregations are not yet specified.</p>
+<p class="picturecenter" align="center"><img src="images/aggr1.gif" alt="an example of compositional aggregation" width="377" height="161"></p>
+<p class="picturetext">A <b>Customer Interface</b> object knows which <b>Display,
+Receipt Printer</b>, <b>KeyPad, </b>and <b>Speaker</b>
+objects belong to it.</p>
+<h3><a name="Using Composition to Model Attributes">Using Composition to Model
+Class Properties</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A property of a class is something that the class knows about. As in the case
+of the <b>Customer</b> class shown above, one could choose to model
+the <b>Address </b>of the Customer as either a class, as we have shown
+it, or as a set of attributes of the class. The decision whether to use a class
+and the aggregation relation, or a set of attributes, depends on the following:
+<ul>
+  <li>Do the 'properties' need to have independent identity, such that they can
+    be referenced from a number of objects? If so, use a class and aggregation.</li>
+  <li>Do a number of classes need to have the same 'properties'? If so, use a
+    class and aggregation.</li>
+  <li>Do the 'properties' have a complex structure and properties of their own?
+    If so, use a class (or classes) and aggregation.</li>
+  <li>Otherwise, use attributes.</li>
+</ul>
+<p class="exampleheading">Example</p>
+<p class="example">In an <b>Automated Teller Machine</b>, the system
+must keep track of the current customer and their PIN, let us assume that the <b>Customer
+Interface </b>is responsible for this. This information may be thought of
+as &quot;properties&quot; of the class. This may done using a separate class,
+shown as follows:</p>
+<p class="picturecenter" align="center"><img src="images/aggr2.gif" alt="properties modeled using aggregation" width="173" height="220"></p>
+<p class="picturetext" align="center">Object properties modeled using
+Aggregation</p>
+<p class="example">The alternative, having the <b>Customer Interface</b>
+keep track of the current Customer and their PIN using attributes, is modeled as
+follows:</p>
+<p class="picturecenter" align="center"><img src="images/aggr3.gif" alt="properties modeled using attributes" width="186" height="87"></p>
+<p class="picturetext">Object properties modeled using Attributes</p>
+<p>The decision of whether to use attributes or an aggregation association to a
+separate class is determined based the degree of coupling between the concepts
+being represented: when the concepts being modeled are tightly connected, use
+attributes. When the concepts are likely to change independently, use
+aggregation.</p>
+<h3><a name="XE_aggregation__association¸_vs._aggregation"></a><a name="XE_association__aggregation_vs._association"></a><a name="Aggregation or Association?">Aggregation
+or Association?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Aggregation should be used only in cases where there is a compositional
+relationship between classes, where one class is composed of other classes,
+where the &quot;parts&quot; are incomplete outside the context of the whole.
+Consider the case of an <b>Order</b>: it makes no sense to have an
+order which is &quot;empty&quot; and consists of &quot;nothing&quot;. The same
+is true for all aggregates: Departments must have Employees, Families must have
+Family Members, and so on.</p>
+<p>If the classes can have independent identity outside the context provided by
+other classes, if they are not parts of some greater whole, then the association
+relationship should be used. In addition, when in doubt, an association more
+appropriate; aggregations are generally obvious, and choosing aggregation is
+only done to help clarify. It is not something that is crucial to the success of
+the modeling effort.</p>
+<h3><a name="Self-Aggregations">Self-Aggregations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Sometimes, a class may be aggregated with itself. This does not mean that an
+instance of that class is composed of itself (this would be silly), it means
+that one instance if the class is an aggregate composed of other instances of
+the same class. In the case of self-aggregations, role names are essential to
+distinguish the purpose for the association.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the following self-aggregation involving the class <b>Product</b>:</p>
+<p align="center" class="picturetext"><img src="images/assoc3.gif" alt="example of self-aggregation" width="152" height="119"></p>
+<p class="example">In this case, a product may be composed of other products; if
+they are, the aggregated products are called sub-products. The association is
+navigable only from the aggregate to the sub-product; i.e. sub-products would
+not know what products they are part of (since they may be part of many
+products).</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

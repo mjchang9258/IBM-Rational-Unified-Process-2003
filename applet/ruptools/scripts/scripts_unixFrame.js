@@ -1,0 +1,1 @@
+if(snnvv_nn && snvpl_unix) {	  window.location = "unix_frames.html"	}

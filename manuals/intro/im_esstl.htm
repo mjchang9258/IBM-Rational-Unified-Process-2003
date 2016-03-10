@@ -1,0 +1,473 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Process Essentials</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h1 class="banner"><a name="Top">Process Essentials</a></h1>
+<h5><big>Topics</big></h5>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr> 
+      <td width="493" height="102" valign="top"> 
+        <ul>
+          <li> <a href="#Introduction">Introduction</a></li>
+        </ul>
+        <ol>
+          <li><a href="#Vision"><b>Vision</b></a>&#151;Develop a Vision </li>
+          <li><a href="#Plan"><b>Plan</b></a>&#151;Manage to the Plan</li>
+          <li><a href="#Risks"><b>Risks</b></a>&#151;Mitigate Risks and Track 
+            Related Issues</li>
+          <li><a href="#BusinessCase"><b>Business Case</b></a>&#151;Examine the 
+            Business Case</li>
+          <li><a href="#Architecture"><b>Architecture</b></a>&#151;Design a Component 
+            Architecture</li>
+          <li><a href="#Prototype"><b>Prototype</b></a>&#151;Incrementally Build 
+            and Test the Product</li>
+          <li><a href="#Evaluation"><b>Evaluation</b></a>&#151;Regularly Assess 
+            Results</li>
+          <li><a href="#ChangeRequests"><b>Change Requests</b></a>&#151;Manage 
+            and Control Changes</li>
+          <li><a href="#UserSupport"><b>User Support</b></a>&#151;Deploy a Usable 
+            Product</li>
+          <li><a href="#Process"><b>Process</b></a>&#151;Adopt a Process that 
+            Fits Your Project</li>
+        </ol>
+        <ul>
+          <li> 
+            <a href="#Conclusion">Conclusion</a>
+          </li>
+        </ul>
+      </td>
+      <td width="330" height="102"><b>Additional Concepts:</b>
+        <ul>
+          <li><a href="im_bp.htm">Best Practices for Developing Software</a> 
+        </ul>
+        <p><b>Additional Guidance:</b></p>
+        <ul>
+          <li><a href="../../papers/teness.htm">White Paper: The Ten Essentials 
+            of RUP</a></li>
+        </ul>
+      </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h3><font face="Arial">
+<b><font size="5"><a name="Introduction">Introduction</a></font></b></font><font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p>The key to achieving the delicate balance between delivering quality software 
+  and delivering it quickly (the software paradox!) is to understand the essential 
+  elements of the process and to follow certain guidelines for tailoring the process 
+  to best fit your project's specific needs. This should be done while adhering 
+  to the best practices that have been proven throughout the industry to help 
+  software development projects be successful.&nbsp;&nbsp;</p>
+<p class="MsoNormal">The following describes the essential principles of an effective 
+  software process.</p>
+<h3><a name="Vision"></a>1. <i>Vision</i>&#151;Develop a Vision<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p>In particular, developing a clear Vision is key to developing a product that 
+  meets your<span style="mso-spacerun: yes">&nbsp; </span>stakeholders’ <i>real 
+  </i>needs&#148;.<o:p> </o:p> </p>
+      
+<p class="MsoNormal">In RUP, the <a href="../../process/artifact/ar_vsion.htm">Vision</a> 
+  artifact captures very high-level requirements and design constraints, to give 
+  the reader an understanding of the system to be developed. It provides input 
+  to the project-approval process, and is therefore intimately related to the 
+  Business Case. It communicates the fundamental &quot;why's and what's&quot; 
+  related to the project and is a gauge against which all future decisions should 
+  be validated.<o:p> </o:p> </p>
+<p class="MsoNormal">The contents of the Vision&#151;along with any other related 
+  requirements artifacts&#151;should answer the following questions, which might 
+  be broken out to separate, more detailed, artifacts, as needed:</p>
+<ul>
+  <li> What are the key terms? (Glossary)</li>
+  <li>
+    What problem are we trying to solve? (Problem Statement)</li>
+  <li>
+    Who are the stakeholders? Who are the users? What are
+    their needs?</li>
+  <li>
+    What are the product features?</li>
+  <li> What are the functional requirements? (Use Cases)</li>
+  <li>
+    What are the non-functional requirements?</li>
+  <li>
+    What are the design constraints?</li>
+</ul>
+<p>Developing a clear vision and an understandable set of requirements is the 
+  essence of the <a href="../../process/workflow/ovu_req.htm">Requirements discipline</a>, 
+  and the <a href="im_bp2.htm"> Best Practice: Manage Requirements</a>. This involves 
+  analyzing the problem, understanding stakeholder needs, defining the system, 
+  and managing the requirements as they change.<span style="mso-spacerun: yes">&nbsp;</span><o:p> 
+  &nbsp; 
+<h3><a name="Plan"></a>2. <i>Plan</i>&#151;Manage to the Plan</h3>
+<p>&#147;The product is only as good as the plan for the product&#148; <span style="mso-special-character: footnote; mso-footnote-id: ftn1" class="MsoFootnoteReference">(<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:Palatino;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"><a href="../../process/referenc.htm#FIS96">FIS96</a></span></span><span style="font-size: 12.0pt; mso-bidi-font-size: 10.0pt; font-family: Palatino; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-special-character: footnote; mso-footnote-id: ftn1" class="MsoFootnoteReference">).</span><o:p>
+</o:p>
+</p>
+<p class="MsoNormal">Conceiving a new project; evaluating scope and risk; monitoring 
+  and controlling the project; planning for and evaluating each iteration and 
+  phase - these are the &#147;essence&#148; of the <a href="../../process/workflow/ovu_mgm.htm">Project 
+  Management discipline</a>.</p>
+<p class="MsoNormal">A <a href="../../process/artifact/ar_sdp.htm">Software Development 
+  Plan</a> gathers the information required to manage the project.<o:p></o:p> 
+  It is used to plan the project schedule and resource needs, and to track progress 
+  against the schedule. It addresses such areas as:<span style="mso-spacerun: yes">&nbsp; 
+  </span>project organization, schedule, budget, and resources. It may also include 
+  plans for requirements management, configuration management, problem resolution, 
+  quality assurance, evaluation and test, and product acceptance.</p>
+<p class="MsoNormal">In a simple project, many of these topics can be covered 
+  by one or two sentences each. For example, configuration management planning 
+  may simply state: &#147;At the end of each day, the contents of the project 
+  directory structure will be zipped, copied onto a dated, labeled zip disk, marked 
+  with a version number and placed in the central filing cabinet.&#148;<o:p> </o:p> 
+</p>
+<p class="MsoNormal">The format of the planning artifacts are not as important 
+  as the planning activities and the thought that goes into them.<span style="mso-spacerun: yes">&nbsp; 
+  </span>It doesn't matter what the plans look like – or what tools you use to 
+  build them.<span style="mso-spacerun: yes">&nbsp; </span>As Dwight D. Eisenhower 
+  said, &#147;The plan is nothing; the planning is everything.&#148;<o:p> </o:p><o:p></o:p> 
+</p>
+<h3><a name="Risks"></a>3. <i>Risks</i>&#151;Mitigate Risks and Track Related 
+  Issues</h3>
+<p class="MsoNormal">It is essential to identify and attack the highest risk items 
+  early in the project and track them, along with other related issues.<span style="mso-spacerun: yes">&nbsp; 
+  </span>The <a href="../../process/artifact/ar_rskls.htm">Risk List</a> is intended 
+  to capture the perceived risks to the success of the project. It identifies, 
+  in decreasing order of priority, the events which could lead to a significant 
+  negative outcome.<o:p> </o:p> </p>
+<p class="MsoNormal">Along with each risk, should be a plan for mitigating that
+risk.<span style="mso-spacerun: yes">&nbsp; </span>This serves as a focal point
+for planning project activities, and is the basis around which iterations are
+organized.</p>
+<h3><a name="BusinessCase"></a>4. <i>Business Case</i>&#151;Examine the Business 
+  Case</h3>
+<p class="MsoNormal">The <a href="../../process/artifact/ar_bcase.htm">Business
+Case</a> provides the necessary information, from a business standpoint, to
+determine whether or not this project is worth investing in.<o:p>
+</o:p>
+</p>
+<p class="MsoNormal">The main purpose of the Business Case is to develop an economic 
+  plan for realizing the project Vision. Once developed, the Business Case is 
+  used to make an accurate assessment of the return on investment (ROI) provided 
+  by the project. It provides the justification for the project and establishes 
+  its economic constraints. It provides information to the economic decision makers 
+  on the project's worth, and is used to determine whether the project should 
+  move ahead.<o:p> </o:p> </p>
+<p class="MsoNormal">The description should not delve deeply into the specifics
+of the problem, but rather it should create a compelling argument why the
+product is needed. It must be brief, however, so that it is easy enough for all
+project team members to understand and remember. At critical milestones, the
+Business Case is re-examined to see if estimates of expected return and cost are
+still accurate, and whether the project should be continued</p>
+<h3><a name="Architecture"></a>5. <i>Architecture</i>&#151;Design a Component 
+  Architecture<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p class="MsoNormal">In the Rational Unified Process (RUP), the architecture of 
+  a software system (at a given point) is the organization or structure of the 
+  system's significant components interacting through interfaces, with components 
+  composed of successively smaller components and interfaces.<span style="mso-spacerun: yes">&nbsp;</span>What 
+  are the main pieces?<span style="mso-spacerun: yes">&nbsp;</span>And how do 
+  they fit together?<o:p>&nbsp; Do we have a framework on which the rest of the 
+  software can be added? </o:p> </p>
+<p class="MsoNormal">To speak and reason about software architecture, you must 
+  first define an architectural representation, a way of describing important 
+  aspects of an architecture. This description is captured in the <a href="../../process/artifact/ar_sadoc.htm">Software 
+  Architecture Document</a>, which presents the architecture in multiple views.<o:p> 
+  </o:p> </p>
+<p class="MsoNormal">Each architectural view addresses some specific set of concerns, 
+  specific to stakeholders in the development process: end users, designers, managers, 
+  system engineers, maintainers, and so on. This serves as a communication medium 
+  between the software architect and other project team members regarding architecturally 
+  significant decisions which have been made on the project.</p>
+<p class="MsoNormal">Defining a candidate architecture, refining the architecture, 
+  analyzing behavior, and designing components of the system is the &#147;essence&#148; 
+  of the <a href="../../process/workflow/ovu_and.htm">Analysis and Design discipline</a>, 
+  and the <a href="im_bp3.htm">Best Practice: Use Component Architectures</a>. 
+</p>
+<h3><a name="Prototype"></a>6. <i>Prototype</i>&#151;Incrementally Build and Test 
+  the Product<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p>The RUP is an iterative approach of building, testing, and evaluating executable 
+  versions of the product in order to flush out the problems and resolve risks 
+  and issues as early as possible.</p>
+<p class="MsoNormal">Incrementally building and testing the components of the 
+  system is the &#147;essence&#148; of the <a href="../../process/workflow/ovu_impl.htm">Implementation</a>&nbsp; 
+  and <a href="../../process/workflow/ovu_test.htm"> Test</a> disciplines, and 
+  the <a href="im_bp1.htm">Best Practice: Develop Iteratively</a>. </p>
+<h3><a name="Evaluation"></a>7. <i>Evaluation</i>&#151;Regularly Assess Results</h3>
+<p class="MsoNormal">Continuous open communication with objective data derived 
+  directly from ongoing activities, and the evolving product configurations are 
+  important in any project.<span style="mso-spacerun: yes">&nbsp; </span>Regular 
+  <a href="../../process/artifact/ar_stass.htm">status assessments</a> provide 
+  a mechanism for addressing, communicating, and resolving management issues, 
+  technical issues, and project risks.<span style="mso-spacerun: yes">&nbsp; </span>In 
+  addition to identifying the issues, each should be assigned a due date, with 
+  a responsible person who is accountable for the resolution.<span style="mso-spacerun: yes">&nbsp; 
+  </span>This should be regularly tracked and updated as necessary.<o:p> </o:p> 
+</p>
+<p class="MsoNormal">These project snapshots provide the heartbeat for management 
+  attention. While the period may vary, the forcing function needs to capture 
+  the project history and resolve to remove any roadblocks or bottlenecks that 
+  restrict progress.</p>
+<p class="MsoNormal">The <a href="../../process/artifact/ar_itass.htm">Iteration 
+  Assessment</a> captures the results of an iteration, the degree to which the 
+  evaluation criteria were met, the lessons learned and process changes to be 
+  implemented.<o:p> </o:p> </p>
+<p class="MsoNormal">The Iteration Assessment is an essential artifact of the
+iterative approach. Depending on the scope and risk of the project and the
+nature of the iteration, it may range from a simple record of demonstration and
+outcomes to a complete formal test review record.<o:p>
+</o:p>
+</p>
+<p class="MsoNormal">The key here is to focus on process problems, as well as
+product problems: &quot;The sooner you fall behind, the more time you will have
+to catch up.&quot;</p>
+<h3><a name="ChangeRequests"></a>8. <i>Change Requests</i>&#151;Manage and Control 
+  Changes<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p class="MsoNormal">As soon as the first prototype is put before the users (and 
+  often even before that), changes <i>will </i>be requested. (One of those certainties 
+  of life!) In order to control those changes and effectively manage the scope 
+  of the project and expectations of the stakeholders, it is important that all 
+  changes to any development artifacts be proposed through <a href="../../process/artifact/ar_crqst.htm">Change 
+  Requests</a> and managed with a consistent process.<o:p> </o:p> </p>
+<p class="MsoNormal">Change Requests are used to document and track defects,
+enhancement requests and any other type of request for a change to the product.
+The benefit of Change Requests is that they provide a record of decisions, and,
+due to their assessment process, ensure that impacts of the potential change are
+understood by all project team members. The Change Requests are essential for
+managing the scope of the project, as well as assessing the impact of proposed
+changes.</p>
+<p class="MsoNormal">Manage and controlling the scope of the project, as
+changes occur throughout the project lifecycle, while maintaining the goal of
+considering all stakeholder needs and meeting those, to whatever extent possible
+- this is the &#147;essence&#148; of the <a href="../../process/workflow/ovu_cm.htm">Configuration and Change
+Management discipline</a>, and the <a href="im_bp6.htm">Best Practice: Control
+Changes</a>.
+</p>
+<h3><a name="UserSupport"></a>9. <i>User Support</i>&#151;Deploy a Usable Product<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p class="MsoNormal">The purpose of a process is to produce a usable
+product.&nbsp; All aspects of the process should be tailored with this goal in
+mind.&nbsp; The product is typically more than just the software.&nbsp; At
+a minimum, there should be a User’s Guide, perhaps implemented through
+online help.&nbsp; You may also include an Installation Guide and Release Notes.<span style="mso-spacerun:
+yes">&nbsp; </span>Depending on the complexity of the product, training
+materials may also be needed, as well as a bill of materials along with any
+product packaging. The 
+associated activities form the <a href="../../process/workflow/ovu_dep.htm"> Deployment
+discipline</a>.
+</p>
+<h3><a name="Process"></a>10. <i>Process</i>&#151;Adopt a Process that Fits Your 
+  Project<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p>It is essential that a process be chosen which fits the type of product you 
+  are developing. Even after a process is chosen, it must not be followed blindly 
+  &#151; common sense and experience must be applied to configure the process 
+  and tools to meet the needs of the organization and the project.</p>
+<p>Adapting a process for a project is a key part of the <a href="../../process/workflow/ovu_env.htm"> 
+  Environment discipline</a>.</p>
+<p>For more information on adapting RUP to your project and organization, see: 
+  <a href="../../process/workflow/environm/co_polpr.htm">Concepts: RUP Tailoring</a>.</p>
+<h3><a name="Conclusion"></a>Conclusion<font size="5"><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></font></h3>
+<p class="MsoNormal">The above &quot;essentials&quot; provide a means of quickly
+assessing a process and identifying areas where improvement is most
+beneficial.&nbsp; It is important to explore what will happen if any of these
+essentials is ignored.&nbsp; For example:</p>
+<ul style="margin-top:0in" type="disc">
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    vision? You may lose track of where you are going and may be easily distracted 
+    on detours.</li>
+  <li>No process? Without a common process, the team may have miscommunications 
+    and misunderstandings about who is going to do what &#151; and when.</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    plan? You will not be able to track progress.</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    risk list? You may be focusing on the wrong issues now and may explode on 
+    an unsuspected mine 5 months from now.</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    business case? You risk losing time and money on the project. It may be cancelled 
+    or go bankrupt.</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    architecture? You may be unable to handle communication, synchronization, 
+    and data access issues as they arise; there may be problems with scaling and 
+    performance.</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    product (prototype)? As soon as possible, get a product in front of the customer. 
+    Just accumulating paperwork doesn't assure you or the customer that the product 
+    will be successful&#151;and it maximizes risk of budget and schedule overruns 
+    and/or outright failure.</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    evaluation? Don’t keep your head in the sand. It is important to face the 
+    truth. How close are you really to your deadline? To your goals in quality 
+    or budget? Are all issues adequately being tracked?</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    change requests? How do you keep track of requests from your stakeholders? 
+    How do you prioritize them? And keep the lower priority ones from falling 
+    through the cracks?</li>
+  <li class="MsoNormal" style="mso-list:l2 level1 lfo15;tab-stops:list .5in">No 
+    user support? What happens when a user has a question or can’t figure out 
+    how to use the product?<span style="mso-spacerun: yes">&nbsp; </span>How easy 
+    is it to get help?</li>
+</ul>
+<p>These &quot;essentials&quot; also provide an introduction to each of the <a href="../../process/workflow/ovu_core.htm"> 
+  disciplines</a> of the RUP, and many of its <a href="im_bp.htm">best practices</a>.&nbsp; 
+  There is one discipline not mentioned&#151<a href="../../process/workflow/ovu_busm.htm">Business 
+  Modeling</a>&#151that has activities related to understanding the structure 
+  and the dynamics of the organization.&nbsp; While not represented here as essential, 
+  you may wish to explore this discipline further, as you may decide that some 
+  aspects are useful (or even essential) for your organization.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

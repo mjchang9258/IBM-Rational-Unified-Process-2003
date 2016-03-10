@@ -1,0 +1,319 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Acquire Staff</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Acquire Staff</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To commit human resources to the project</li>
+      <li>To map available resources on to the skill sets
+        needed for the project.</li>
+      <li>To group available resources into relatively
+        independent but collaborating teams.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Staff the Project">Staff the Project</a></li>
+      <li><a href="#Map Staff Skills to Workers">Map Staff Skills to Roles</a></li>
+      <li><a href="#Form Teams">Form Teams</a></li>
+      <li><a href="#Train Project Staff">Train Project Staff</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_projm.htm">Project Manager</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_mgm.htm">Project Management</a>
+<ul>
+<li><a href="../workflow/manageme/wfs_manit.htm">Manage Iteration</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Staff the Project">Staff the Project</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Project Manager will have determined the staffing needs for the iteration
+in <a href="ac_dfpos.htm">Activity: Define Project Organization and Staffing</a>,
+and will look to the Human Resources function of the organization to provide
+staff with the needed domain, skills and experience profiles. Most organizations
+do not have the luxury of keeping a large pool of staff on stand-by for
+projects, and project starts do not always neatly synchronize with the
+termination of previous projects. Frequently then, except for a few staff
+engaged on the project from the outset, many will need to be hired. This may be
+a lengthy process, so the prudent Project Manager will always be looking ahead,
+and initiating the acquisition of staff for future iterations as well as the
+current one. It may be possible to cover shortfalls by working overtime or by
+the use of contract rather than permanent staff. Both these solutions have
+disadvantages, and any systematic and persistent shortfall in staff levels is a
+serious risk to schedule.</p>
+<h3><a name="Map Staff Skills to Workers">Map Staff Skills to Roles</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A role defines the behavior and responsibilities of an
+individual, or a set of individuals working together, in the business. The
+behavior of each role is defined as a set of activities. The responsibilities
+of each role are usually defined relative to certain artifacts, such as
+documents, for example. Examples of roles are designer, software architect, and
+reviewer. Through the associated set of activities, the role also implicitly
+defines a <b>competence</b>.</p>
+<p>Note that roles are not individuals; instead, they describe how individuals
+should behave in the business, and what responsibilities these individuals have.</p>
+<p>The project typically has at its disposal a number of <b>resources</b>,
+individuals which have specific competencies. For example, Joe, Marie, Paul,
+Sylvia are individuals with different, although overlapping competencies. Using
+the roles defined in the process, map resources available to the project onto roles they can play.</p>
+<p align="center"><img src="../../manuals/intro/images/wk_assgn.gif" width="471" height="230"></p>
+<p>The association of individual to role is dynamic over time, driven by the
+phase in the project lifecycle and the work to be performed.
+<ul>
+  <li>An individual might act as several different roles in the same day: For
+    example, Sylvia might be a Reviewer in the morning, and a Use-Case Designer
+    in the afternoon.</li>
+  <li>An individual might act as several roles simultaneously: For example,
+    Jane could be both the Software Architect and the Designer of a certain class, and
+    also the Package Owner of the package that contains this class.</li>
+  <li>Several people can act as the same role to perform a certain activity
+    together, acting as a team: For example, Paul and Mary could be both
+    Use-Case Designers of the same use case.</li>
+</ul>
+<p>Try to allocate responsibilities so that there is as little hand-off of
+artifacts from one resource to another: have the same person or team design and
+implement a subsystem, so that they do not have to re-learn work already done by
+others.</p>
+<p>When the same team designs as well as implements, there is a smooth
+transition from design to implementation. In addition, it makes for better
+designers: by learning what works and what does not, they gain a better sense of
+good design and incorporate it into future work. Like a sculptor, the good
+designer must understand the medium of expression, which for software is the
+implementation environment.</p>
+<h3><a name="Form Teams">Form Teams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The shape of the project organization and the required staffing levels for 
+  the iteration have been decided by the Project Manager in <a href="ac_dfpos.htm">Activity: 
+  Define Project Organization and Staffing</a>. With the knowledge of actual resource 
+  availability, it remains to fine-tune this structure and assign staff to it. 
+  The Project Manager should reexamine any team of more than seven staff to see 
+  if there is some architecturally sensible way in which it may be split, say 
+  along subsystem lines.</p>
+<p>Teams should consist of a minimum of two people and a maximum of about seven;
+teams with more than seven people usually naturally split themselves into
+sub-teams, so it's best to do it for them to make life simpler.</p>
+<p>In assigning staff to teams, the Project Manager should be sensitive to the
+overall experience and familiarity level of the team, and try to create teams
+with a mix of 'new blood' and staff who have been with the project for some
+time. At the beginning of a project, the Project Manager will have to rely on
+blending experienced staff with more junior staff.</p>
+<h3><a name="Train Project Staff">Train Project Staff</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In many cases, an inventory of the competencies of the resources available to
+the project will reveal gaps in the assignment of team members to roles
+(assuming that the normal course of trying to recruit additional team members or
+hire external contractors has already been tried). In this case, skills will
+need to be developed. Appropriate training and mentoring must be obtained for
+these people, in advance of but in close proximity to the time when they will
+need the skills. Training not put to practice immediately rapidly decays. Often,
+the combination of formal training followed by a mentor-led workshop to
+'jump-start' an activity is particularly effective at putting the new skills to
+work.</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

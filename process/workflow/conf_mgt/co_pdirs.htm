@@ -1,0 +1,1407 @@
+<!-- RPW META DATA START --
+
+ 
+
+-- RPW META DATA END -->
+
+
+
+<html>
+
+
+
+<head>
+
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+
+<title>Concepts:&nbsp;Product Directory Structure</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+
+
+<body>
+
+
+
+ 
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+
+ 
+
+
+
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Product 
+
+  Directory Structure</rpw></h2>
+
+<p>The Product Directory Structure serves as a logically nested placeholder for 
+
+  all versionable product-related artifacts. Artifacts are produced as result 
+
+  of the following development process lifecycle and for the development of each 
+
+  constituent <a href="../../artifact/ar_comp.htm">implementation element</a> 
+
+  of the overall system.</p>
+
+<p>The following figure shows that System-X consists of &quot;N&quot; subsystems 
+
+  and each subsystem consists of &quot;N&quot; components. The Product Directory 
+
+  Structure provides a common placeholder for the various artifacts that are required 
+
+  for the development of each part of the overall system.</p>
+
+<p align="center">
+
+  <map name="FPMap0"> 
+
+    <area href="#Component Level Directory Structure" shape="rect" coords="-1,235,315,278">
+
+    <area href="#Subsystem Level Product Directory Structure" shape="rect" coords="22,108,268,170">
+
+    <area href="#SystemProductDirectoryStructure" shape="rect" coords="102,-2,191,71">
+
+  </map>
+
+  <img src="images/co_pdstr.gif" border="0" usemap="#FPMap0" width="314" height="274">
+
+</p>
+
+
+
+<h5 align="left">Topics</h5>
+
+<ul>
+
+  <li><a href="#SystemProductDirectoryStructure">System Product Directory Structure</a></li>
+
+  <li><a href="#SubsystemProductDirectoryStructure">Subsystem Directory Structure</a></li>
+
+  <li><a href="#ComponentDirectoryStructure">Component Directory Structure</a></li>
+
+</ul>
+
+<p>In the Rational Unified Process artifacts are grouped and described in terms 
+
+  of information sets. The information sets are:</p>
+
+<blockquote>
+
+  <ul>
+
+
+
+    <li><a href="../../artifact/ars_bm.htm">Business Modeling</a></li>
+
+
+
+    <li><a href="../../artifact/ars_req.htm">Requirements</a></li>
+
+    <li><a href="../../artifact/ars_dsg.htm">Analysis &amp; Design</a></li>
+
+    <li><a href="../../artifact/ars_impl.htm">Implementation</a></li>
+
+    <li><a href="../../artifact/ars_test.htm">Test</a></li>
+
+    <li><a href="../../artifact/ars_depl.htm">Deployment</a></li>
+
+    <li><a href="../../artifact/ars_ccm.htm">Configuration &amp; Change
+
+      Management</a></li>
+
+    <li><a href="../../artifact/ars_mgmt.htm">Project Management</a></li>
+
+    <li><a href="../../artifact/ars_env.htm">Environment</a></li>
+
+  </ul>
+
+</blockquote>
+
+<p>Projects could organize artifacts by information set, however, that would not 
+
+  take into account how the overall system is to be developed and then assembled 
+
+  from its constituent parts. The Product Directory Structure is logically structured 
+
+  to show how components are nested and has the essential information required 
+
+  to create them in an overall context of a system or subsystem.</p>
+
+<p>The Product Directory Structure is a placeholder framework and provides a navigational 
+
+  map to all project-related artifacts. The artifacts could be <i>physically</i> 
+
+  placed within the various directories or they could be <i>referenced </i>from 
+
+  given locations.</p>
+
+
+
+<h3 align="left"><a name="SystemProductDirectoryStructure">System Product Directory 
+
+  Structure</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Although an experienced software architect may have a good idea of system composition 
+
+  at the outset, the view of major developmental components emerges as a result 
+
+  of Analysis &amp; Design-related activities to define and refine candidate architectures.</p>
+
+<p>The following table provides a Product System Directory Structure pattern that 
+
+  could be used as a &quot;Product Directory Structure&quot; in the initial phases 
+
+  of project development whereas the precise details of composite subsystems and 
+
+  architectural layering has yet to be determined.</p>
+
+
+
+<div align="center">
+
+  <table border="1" width="70%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+    <tbody valign="top"> 
+
+    <caption><b>System Level Product Directory Structure</b></caption>
+
+    <tr> 
+
+      <td width="118" align="center" rowspan="10
+
+	  " height="281"> 
+
+        <p align="center">System Requirements</p>
+
+      </td>
+
+      <td width="162" align="center" rowspan="1" height="65"> 
+
+        <p align="center">Models</p>
+
+      </td>
+
+      <td width="84" align="left" height="38"><a href="../../artifact/ar_ucmod.htm">Use-Case 
+
+        Model</a></td>
+
+      <td width="94" align="left" height="38"><a href="../../artifact/ar_ucpkg.htm">Use-Case 
+
+        Package</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19">Database</td>
+
+      <td width="186" align="left" colspan="2" height="19">
+
+	  <a href="../../artifact/ar_rattr.htm">Requirements Attributes</a>
+
+	  </td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" rowspan="6" height="127">Documents</td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_vsion.htm">Vision</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_gloss.htm">Glossary</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_stnds.htm">Stakeholder 
+
+        Requests</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_sspec.htm">Supplementary 
+
+        Specifications</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_srs.htm">Software 
+
+        Requirement Specs</a></td>
+
+    </tr>
+
+     <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_storyboard.htm">Storyboards</a></td>
+
+    </tr>
+
+   <tr> 
+
+      <td rowspan="2" height="46" width="162"> 
+
+        <p align="center">Reports</p>
+
+      </td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../reports/re_ucmsv.htm">Use-Case 
+
+        Model Survey</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../reports/re_ucrep.htm">Use-Case 
+
+        Report</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="118" align="center" rowspan="12" height="376">System Design and 
+
+        Implementation</td>
+
+      <td width="162" align="center" rowspan="7" height="249">Models</td>
+
+      <td width="84" align="left" height="57"><a href="../../artifact/ar_amdl.htm">Analysis 
+
+        Model</a></td>
+
+      <td width="94" align="left" height="57"><a href="../../artifact/ar_ucrea.htm">Use-Case 
+
+        Realization</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="84" align="left" height="130" rowspan="3" bgcolor="#FFFFFF"><a href="../../artifact/ar_desmd.htm">Design 
+
+        Model</a></td>
+
+      <td width="94" align="left" height="38" bgcolor="#FFFFFF"><a href="../../artifact/ar_dsub.htm">Design 
+
+        Subsystem</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="94" align="left" height="38" bgcolor="#FFFFFF"><a href="../../artifact/ar_if.htm">Interface</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="94" align="left" height="38" bgcolor="#FFFFFF"><a href="../../artifact/ar_despk.htm">Design 
+
+        Package</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_datmd.htm">Data 
+
+        Model</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_wlmod.htm">Workload 
+
+        Analysis Document</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_uiprt.htm">User-Interface Prototype</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="65" rowspan="3">Documents</td>
+
+      <td width="186" align="left" colspan="2" height="38"><a href="../../artifact/ar_sadoc.htm">Software 
+
+        Architecture Document</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../reports/re_desms.htm">Design 
+
+        Model Survey</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_navmap.htm">Navigation Map</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19" bgcolor="#8080C0">Subsystem-1</td>
+
+      <td width="186" align="left" colspan="2" height="19" bgcolor="#8080C0"><a href="#Subsystem Level Product Directory Structure">Subsystem 
+
+        Directory Structure</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19" bgcolor="#8080C0">Subsystem-N</td>
+
+      <td width="186" align="left" colspan="2" height="19" bgcolor="#8080C0"><a href="#Subsystem Level Product Directory Structure">Subsystem 
+
+        Directory Structure</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td align="center" rowspan="2" height="46" width="118">System Integration</td>
+
+      <td align="center" height="19" width="162">Plans</td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_intbp.htm">Integration 
+
+        Build Plan</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td align="center" height="19" width="162">Libraries</td>
+
+      <td width="186" align="left" colspan="2" height="19">&nbsp;</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="118" align="center" rowspan="4" height="72">System Test</td>
+
+      <td width="162" align="center" height="18"><a href="../../artifact/ar_tstpl.htm">Test 
+
+        Plan</a></td>
+
+      <td width="186" align="left" colspan="2" height="18"><a href="../../artifact/ar_tstste.htm">Test 
+
+        Suites</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19"><a href="../../artifact/ar_tstcs.htm">Test 
+
+        Cases</a></td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_tstsc.htm">Test 
+
+        Scripts</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="10"><a href="../../artifact/ar_tstdta.htm">Test 
+
+        Data</a></td>
+
+      <td width="186" align="left" colspan="2" height="10">&nbsp;</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="9"><a href="../../artifact/ar_tstrs.htm">Test 
+
+        Results</a></td>
+
+      <td width="186" align="left" colspan="2" height="9">&nbsp;</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="118" align="center" rowspan="5" height="127">System Deployment</td>
+
+      <td width="162" align="center" height="19"><a href="../../artifact/ar_dppls.htm">Deployment 
+
+        Plan</a></td>
+
+      <td width="186" align="left" colspan="2" height="19">&nbsp;</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19">Documents</td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_rlsnt.htm">Release 
+
+        Notes</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" rowspan="2" height="46">Manuals</td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_eusm.htm">End-User 
+
+        Support Material</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_trmtr.htm">Training 
+
+        Materials</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19"><a href="../../artifact/ar_insta.htm">Installation 
+
+        Artifacts</a></td>
+
+      <td width="186" align="left" colspan="2" height="19">&nbsp;</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="118" align="center" rowspan="11" height="624">System Management</td>
+
+      <td width="162" align="center" rowspan="8" height="498">Plans</td>
+
+      <td width="186" align="left" colspan="2" height="35"><a href="../../artifact/ar_sdp.htm">Software 
+
+        Development Plan</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="84" align="left" height="57"><a href="../../artifact/ar_itpln.htm">Iteration 
+
+        Plan</a></td>
+
+      <td width="94" align="left" height="57">
+
+	    <a href="../../artifact/ar_ratgl.htm">Requirements Management Plan</a>
+
+		</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="84" align="left" height="57"><a href="../../artifact/ar_rskls.htm">Risk 
+
+        List</a></td>
+
+      <td width="94" align="left" height="57">
+
+	    <a href="../../artifact/ar_riskpl.htm">Risk Management Plan</a>
+
+		</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="84" align="left" height="38"><a href="../../artifact/ar_devcs.htm">Development 
+
+        Case</a></td>
+
+      <td width="94" align="left" height="38">Infrastructure Plan</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="84" align="left" height="57">
+
+	    <a href="../../artifact/ar_acpl.htm">Product Acceptance Plan</a>
+
+		</td>
+
+      <td width="94" align="left" height="57"><a href="../../artifact/ar_cmpln.htm">Configuration 
+
+        Management Plan</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="89" align="left" height="38"> Documentation Plan </td>
+
+      <td width="89" align="left" height="38"> 
+
+	  <a href="../../artifact/ar_qapl.htm">QA Plan</a>
+
+	  </td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="84" align="left" height="57">
+
+	  <a href="../../artifact/ar_prrsp.htm">Problem Resolution Plan</a>
+
+	  </td>
+
+      <td width="94" align="left" height="57">Subcontractor Management Plan</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="84" align="left" height="57">Process Improvement Plan</td>
+
+      <td width="94" align="left" height="57">
+
+	  <a href="../../artifact/ar_metr.htm">Measurement Plan</a>
+
+	  </td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" rowspan="3" height="118">Assessments</td>
+
+      <td width="186" align="left" colspan="2" height="32"><a href="../../artifact/ar_itass.htm">Iteration 
+
+        Assessment</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="38"><a href="../../artifact/ar_deorv.htm">Development 
+
+        Organization Assessment</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="32"><a href="../../artifact/ar_stass.htm">Status 
+
+        Assessment</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="118" align="center" rowspan="7" height="230">Tools</td>
+
+      <td width="162" align="center" height="50" rowspan="2">Development Environment 
+
+        <a href="../../artifact/ar_tools.htm">Tools</a></td>
+
+      <td width="186" align="left" colspan="2" height="21">Editors</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="21">Compilers</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="38">Configuration Management Tools</td>
+
+      <td width="186" align="left" colspan="2" height="38">Rational ClearCase</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="38">Requirements Management Tools</td>
+
+      <td width="186" align="left" colspan="2" height="38">Rational RequisitePro</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="21">Visual Modeling Tools</td>
+
+      <td width="186" align="left" colspan="2" height="21">Rational Rose</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="21">Test Tools</td>
+
+      <td width="186" align="left" colspan="2" height="21">Rational Test Factory</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="22">Defect Tracking</td>
+
+      <td width="186" align="left" colspan="2" height="22">Rational ClearQuest</td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="118" align="center" rowspan="5" height="154">Standards and Guidelines</td>
+
+      <td width="162" align="center" rowspan="2" height="73">Requirements</td>
+
+      <td width="186" align="left" colspan="2" height="19">
+
+	  <a href="../../artifact/ar_rattr.htm">Requirements Attributes</a>
+
+	  </td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_projspecgls.htm">Project 
+
+        Specific Guidelines</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19">Design</td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_projspecgls.htm">Project 
+
+        Specific Guidelines</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19">Implementation</td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_projspecgls.htm">Project 
+
+        Specific Guidelines</a></td>
+
+    </tr>
+
+    <tr> 
+
+      <td width="162" align="center" height="19">Documentation</td>
+
+      <td width="186" align="left" colspan="2" height="19"><a href="../../artifact/ar_mansg.htm">Manual 
+
+        Styleguide</a></td>
+
+    </tr>
+
+    </tbody> 
+
+  </table>
+
+<br>
+
+</div>
+
+
+
+<p>Once Analysis &amp; Design activities are underway, and there is an improved 
+
+  understanding about the number and nature of subsystems required in the overall 
+
+  system (<a href="../../activity/ac_subds.htm">Activity: Subsystem Design</a>), 
+
+  the Product Directory Structure needs to be expanded to accommodate each subsystem.</p>
+
+<p>The information in the System Product Directory Structure needs to be visible 
+
+  to all subsystems across the project. So apart from the product management, 
+
+  requirements and test information Standards and Guidelines would belong in the 
+
+  System Product Directory Structure. In this instance, Tools are included in 
+
+  the System Product Directory Structure, however, they could be in a higher level 
+
+  directory where a number of Systems could be using the same toolset.</p>
+
+
+
+
+
+<h3><a name="SubsystemProductDirectoryStructure">Subsystem Directory Structure</a> 
+
+  <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The information in the Product Subsystem Directory Structure relates directly 
+
+  to the development of that particular subsystem. The number of 'instantiations' 
+
+  of the Subsystems Product Directory Structure is clearly related to number of 
+
+  subsystems decided upon as a result of the Analysis&amp;Design activities.</p>
+
+<p>As shown in the following figure (<i>Drilling to the Executables</i>), System-y 
+
+  has three subsystems (Subsystem-A, Subsystem-B and Subsystem-N). Each subsystem 
+
+  has the necessary information for its design and, eventual, implementation.</p>
+
+
+
+<p align="center"><b>Drilling to the Executables</b></p>
+
+<p align="center"><img src="images/co_dirst.gif" width="565" height="499"></p>
+
+
+
+
+
+<p>A generalized breakdown of the <a name="Subsystem Level Product Directory Structure">Subsystem 
+
+  Product Directory Structure</a> is as follows:</p>
+
+
+
+<div align="center">
+
+<table border="1" width="70%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+    <caption><b>Subsystem Level Product Directory Structure</b></caption>
+
+    <tr>
+
+      <td width="147" align="center" rowspan="13" height="154">
+
+        <p align="center">Subsystem-N Requirements</p>
+
+      </td>
+
+      <td width="131" align="center" rowspan="4" height="52" valign="middle"> 
+
+        Models</td>
+
+      <td width="91" align="left" height="30" rowspan="2"><a href="../../artifact/ar_ucmod.htm">Use-Case 
+
+        Model</a></td>  
+
+      <td width="89" align="left" height="15"><a href="../../artifact/ar_ucpkg.htm">Use-Case 
+
+        Package</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="89" align="left" height="15"><a href="../../artifact/ar_storyboard.htm">Storyboard</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_uc.htm">Use-Case 
+
+        (text)</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_uiprt.htm">User-Interface 
+
+        Prototype</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" align="center" height="30" valign="top">Database</td>
+
+      <td width="188" align="left" height="30" colspan="2">
+
+	  <a href="../../artifact/ar_rattr.htm">Requirements Attributes</a>
+
+	  </td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" align="center" rowspan="6" height="64">Documents</td>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_vsion.htm">Vision</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_gloss.htm">Glossary</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="30" colspan="2"><a href="../../artifact/ar_stnds.htm">Stakeholder 
+
+        Requests</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_sspec.htm">Supplementary 
+
+        Specifications</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_srs.htm">Software 
+
+        Requirement Specs</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_storyboard.htm">Storyboards</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td rowspan="2" width="131">
+
+        <p align="center">Reports 
+
+      </td>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../reports/re_ucmsv.htm">Use-Case 
+
+        Model Survey</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../reports/re_ucrep.htm">Use-Case 
+
+        Report</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="147" align="center" rowspan="13" height="172">Subsystem-N Design 
+
+        and Implementation</td>
+
+      <td width="131" align="center" rowspan="7" height="112">Models</td>
+
+      <td width="91" align="left" height="30"><a href="../../artifact/ar_amdl.htm">Analysis 
+
+        Model</a></td>  
+
+      <td width="89" align="left" height="30"><a href="../../artifact/ar_ucrea.htm">Use-Case 
+
+        Realization</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="91" align="left" height="30" rowspan="3"><a href="../../artifact/ar_desmd.htm">Subsystem 
+
+        Design Model</a></td>
+
+      <td width="89" align="left" height="8" bgcolor="#FFFFFF"><a href="../../artifact/ar_despk.htm">Design 
+
+        Packages</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="89" align="left" height="7"><a href="../../artifact/ar_if.htm">Interface 
+
+        Packages</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="89" align="left" height="15"><a href="../../artifact/ar_despk.htm">Test 
+
+        Packages</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_impmd.htm">Implementation 
+
+        Model</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../artifact/ar_datmd.htm">Data 
+
+        Model</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="30" colspan="2"><a href="../../artifact/ar_wlmod.htm">Workload 
+
+        Model</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" align="center" rowspan="3" height="52">Documents</td>
+
+      <td width="188" align="left" height="30" colspan="2"><a href="../../artifact/ar_sadoc.htm">Software 
+
+        Architecture Document</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="30" colspan="2"><a href="../../reports/re_desms.htm">Design 
+
+        Model Survey</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="188" align="left" height="30" colspan="2"><a href="../../artifact/ar_navmap.htm">Navigation Map</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131">
+
+        <p align="center">Reports</p>
+
+      </td>
+
+      <td width="188" align="left" height="15" colspan="2"><a href="../../reports/re_ucrrp.htm">Use-Case 
+
+        Realization Report</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" bgcolor="#8080C0">
+
+        <p align="center">Component-1</p>
+
+      </td>
+
+      <td width="188" align="left" height="8" colspan="2" bgcolor="#8080C0"><a href="#Component Level Directory Structure">Component-1 
+
+        Directory</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" bgcolor="#8080C0">
+
+        <p align="center">Component-N</p>
+
+      </td>
+
+      <td width="188" align="left" height="7" colspan="2" bgcolor="#8080C0"><a href="#Component Level Directory Structure">Component-N 
+
+        Directory</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td align="center" height="31" width="147" rowspan="2">Subsystem-N Integration</td>
+
+      <td align="center" height="16" width="131">Plans</td>
+
+      <td width="188" align="left" height="16" colspan="2"><a href="../../artifact/ar_intbp.htm">Subsystem 
+
+        Integration Build Plan</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td align="center" height="15" width="131">Libraries</td>
+
+      <td width="188" align="left" height="15" colspan="2">&nbsp;</td>
+
+  </tr>
+
+  <tr>
+
+      <td width="147" align="center" rowspan="4" height="85">Subsystem-N Test</td>
+
+	  <td width="131" align="center" height="31"><a href="../../artifact/ar_tstpl.htm">Test 
+
+        Plan</a></td>
+
+      <td width="188" align="left" height="29" colspan="2"><a href="../../artifact/ar_tstste.htm">Test 
+
+        Suites</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" align="center" height="31"><a href="../../artifact/ar_tstcs.htm">Test 
+
+        Cases</a></td>
+
+      <td width="188" align="left" height="28" colspan="2"><a href="../../artifact/ar_tstsc.htm">Test 
+
+        Scripts</a></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" align="center" height="16"><a href="../../artifact/ar_tstrs.htm">Test 
+
+        Results</a></td>
+
+      <td width="188" align="left" height="14" colspan="2">&nbsp;</td>
+
+  </tr>
+
+  <tr>
+
+      <td width="131" align="center" height="15"><a href="../../artifact/ar_tstdta.htm">Test 
+
+        Data</a></td>
+
+      <td width="188" align="left" height="14" colspan="2">&nbsp;</td>
+
+  </tr>
+
+ </tbody>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<h3 align="left"><a name="ComponentDirectoryStructure"><b>Component
+
+Directory Structure</b> </a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p align="left">The number of components is a result of subsystem design decisions. 
+
+  The following directory structure needs to be instantiated for each component 
+
+  to be developed.</p>
+
+
+
+<div align="center">
+
+<table border="1" width="70%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <caption><a name="Component Level Directory Structure"><b>Component Level
+
+    Directory Structure</b></a></caption>
+
+  <tr>
+
+    <td width="50%" align="center" rowspan="7" bgcolor="#8080C0">Component</td>
+
+    <td width="50%" align="left">
+
+    <p align="left"><a href="../../artifact/ar_comp.htm">Source Code</a></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="50%" align="left"><a href="../../artifact/ar_comp.htm">Object (Executable)
+
+      Code</a></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="50%" align="left"><a href="../../artifact/ar_comp.htm">Interfaces</a></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="50%" align="left"><a href="../../artifact/ar_tstcp.htm">Test Code</a></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="50%" align="left"><a href="../../artifact/ar_tstsc.htm">Executable Test Scripts</a></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="50%" align="left"><a href="../../modguide/md_tstdta.htm">Test Data</a></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="50%" align="left"><a href="../../artifact/ar_tstrs.htm">Test Results</a></td>
+
+  </tr>
+
+ </tbody>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p align="left">One benefit of nesting directories in the prescribed manner is
+
+that all relevant contextual information on the development of a component is
+
+available, either at the same level, or the level above.</p>
+
+<p align="left">This type of logical nesting gives rise to the setting up of
+
+development and integration <a href="co_wrksp.htm">workspaces</a> that can
+
+linked to the overall development 
+
+<a href="../../modguide/md_prpln.htm#Team Structure">team structure</a>
+
+.</p>
+
+<p align="left">The naming convention for artifacts is described in <a href="../../activity/ac_strep.htm#DefineConfigurationIdentificationPractices">Activity:
+
+Establish CM Policies, Step: Define Configuration
+
+Identification Practices</a></p>
+
+<br>
+
+<br>
+
+
+
+ 
+
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+
+ 
+
+
+
+</body>
+
+
+
+</html>
+
+
+

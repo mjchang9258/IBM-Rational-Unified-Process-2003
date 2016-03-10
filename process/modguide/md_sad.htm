@@ -1,0 +1,566 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Software Architecture Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Software Architecture 
+  Document</rpw><a name="Top"></a><a name="XE_logical_view__guidelines_for"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#References">References</a></li>
+  <li><a href="#Architectural Goals and Constraints">Architectural Goals and
+    Constraints</a></li>
+  <li><a href="#The Use-Case View">The Use-Case View</a></li>
+  <li><a href="#Contents">The Logical View</a></li>
+  <li><a href="#The Process View">The Process View</a></li>
+  <li><a href="#The Deployment View">The Deployment View</a></li>
+  <li><a href="#The Implementation View">The Implementation View</a></li>
+  
+  <li><a href="#The Data View">The Data View</a></li>
+  
+  <li><a href="#Size and Performance">Size and Performance</a></li>
+  <li><a href="#Quality">Quality</a></li>
+</ul>
+<h3><a name="References">References</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The references section presents external documents which provide background
+information important to an understanding of the architecture of the system. If
+there are a larger number of references, structure the section in subsections:
+<ol>
+  <li>external documents</li>
+  <li>internal documents</li>
+  <li>government documents</li>
+  <li>non-government documents</li>
+  <li>etc.</li>
+</ol>
+<h3><a name="Architectural Goals and Constraints">Architectural Goals and
+Constraints</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The architecture will be formed by considering:</p>
+<ul>
+  <li>functional requirements, captured in the Use-Case Model, and</li>
+  <li>non-functional requirements, captured in the Supplementary Specifications</li>
+</ul>
+<p>However, these are not the only influences that will shape the architecture: 
+  there will be constraints imposed by the environment in which the software must 
+  operate; by the need to reuse existing assets; by the imposition of various 
+  standards; by the need for compatibility with existing systems, and so on.&nbsp; 
+  There may also be a preexisting set of <b>architectural principles and policies</b> 
+  which will guide the development, and which need to be elaborated and reified 
+  for the project.&nbsp; This section of the Software Architecture document is 
+  the place to describe these goals and constraints, and any <b>architectural 
+  decisions</b> flowing from them which do not find a ready home (as requirements) 
+  elsewhere.&nbsp; </p>
+  <p>When this document is created, an important input is a specification of the
+implementation environment. Examples of things that should be specified are
+target platform (hardware, operating system), window system, development tools (language, GUI builder), database management system, and
+component libraries.&nbsp; It is also valuable to specify which user interface technologies are allowed and
+  which are not.&nbsp; Many
+  systems choose to not use certain presentation technologies (JavaScript, Applets, Frames,
+XML, etc.) so that more client systems are capable of using the application,
+  or to make the application easier to develop.&nbsp;&nbsp;The decisions are
+captured here in the Software Architecture Document, while the details for how
+to use and apply the chosen technologies is documented in the <a href="../artifact/ar_projspecgls.htm">artifact:
+Project Specific Guidelines</a>.</p>
+
+<p>The enforcement of these decisions is achieved by framing a set of <b>architecture 
+  evaluation criteria </b>which will be used as part of the iteration assessment.</p>
+<p>Evaluation criteria are also derived from <b>Change Cases </b>which document
+likely future changes to:</p>
+<ul>
+  <li>the system's capabilities and properties</li>
+  <li>the way the system is used</li>
+  <li>the system's operating and support environments</li>
+</ul>
+<p>Change Cases clarify those properties of the system described by subjective
+phrases such as, &quot;easy to extend&quot;, &quot;easy to port&quot;,
+&quot;easy to maintain&quot;, &quot;robust in the face of change&quot;, and
+&quot;quick to develop&quot;. Change Cases focus on what is important and likely
+rather than just what is possible.</p>
+<p>Change Cases try to predict changes: such predictions rarely turn out to be
+exactly true.</p>
+<p>The properties of a system are determined by users, sponsors, suppliers,
+developers, and other stakeholders. Changes can arise from many sources, for
+example:</p>
+<ul>
+  <li>Business drivers: new and modified business processes and goals</li>
+  <li>Technology drivers: adaptation of the system to new platforms, integration
+    with new components</li>
+  <li>Changes in the profiles of the average user</li>
+  <li>Changes in the integration needs with other systems</li>
+  <li>Scope changes arising from the migration of functionality from external
+    systems</li>
+</ul>
+<h3><a name="The Use-Case View">The Use-Case View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Use-Case View presents a subset of the <a href="../artifact/ar_ucmod.htm">Artifact:
+Use-Case Model</a>, presenting the architecturally significant use-cases of the
+system. It describes the set of scenarios and/or use cases that represent some
+significant, central functionality. It also describes the set of scenarios
+and/or use cases that have a substantial architectural coverage (that exercise
+many architectural elements) or that stress or illustrate a specific, delicate
+point of the architecture.</p>
+<p>If the model is larger, it will typically be organized in packages; for ease
+of understanding the use-case view should similarly organized by package, if
+they are packaged. For each significant use case, include a subsection with the
+following information:
+<ol>
+  <li>The name of the use case.</li>
+  <li>A brief description of the use case.</li>
+  <li>Significant descriptions of the <b>Flow of Events </b>of the use
+    case. This can be the whole <b>Flow of Events </b>description, or
+    subsections of it that describe significant flows or scenarios of the use
+    case.</li>
+  <li>Significant descriptions of relationships involving the use case, such as
+    include- and extend-relationships, or communicates-associations.</li>
+  <li>An enumeration of the significant use-case diagrams related to the use
+    case.</li>
+  <li>Significant descriptions of <b>Special Requirements </b>of the
+    use case. This can be the whole <b>Special Requirements</b>
+    description, or subsections of it that describe significant requirements.</li>
+  <li>Significant <b>Pictures of the User Interface, </b>clarifying
+    the use case.</li>
+  <li>The realizations of these use cases should be found in the logical view.</li>
+</ol>
+<h3>The <a name="Contents">Logical View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Logical View is a subset of the <a href="../artifact/ar_desmd.htm">Artifact:
+Design Model</a> which presents architecturally significant design elements. It
+describes the most important classes, their organization in packages and
+subsystems, and the organization of these packages and subsystems into layers.
+It also describes the most important use-case realizations, for example, the
+dynamic aspects of the architecture.</p>
+<p>A complex system may require a number of sections to describe the Logical
+View:
+<ol>
+  <li><b>Overview</b>
+    <p>This subsection describes the overall decomposition of the design model
+    in terms of its package hierarchy and layers. If the system has several
+    levels of packages, you should first describe those that are significant at
+    the top level. Include any diagrams showing significant top-level packages,
+    as well as their interdependencies and layering. Next present any
+    significant packages within these, and so on all the way down to the
+    significant packages at the bottom of the hierarchy.</p>
+  </li>
+  <li><b>Architecturally Significant Design Packages</b>
+    <p>For each significant package, include a subsection with the following
+    information
+    <ol>
+      <li>Its name.</li>
+      <li>A brief description.</li>
+      <li>A diagram with all significant classes and packages contained within
+        the package. For a better understanding this diagram may show some
+        classes from other packages if necessary.</li>
+      <li>For each significant class in the package, include its name, brief
+        description, and, optionally a description of some of its major
+        responsibilities, operations and attributes. Also describe its important
+        relationships if necessary to understand the included diagrams.</li>
+    </ol>
+  </li>
+  <li><b>Use-Case Realizations</b>
+    <p>This section illustrates how the software works by giving a few selected
+    use-case (or scenario) realizations, and explains how the various design
+    model elements contribute to their functionality. The realizations given
+    here are chosen because they represent some significant, central
+    functionality of the final system; or for their architectural coverage -
+    they exercise many architectural elements - or stress or illustrate a
+    specific, delicate point of the architecture. The corresponding use cases
+    and scenarios of these realizations should be found in the use-case view.</p>
+    <p>For each significant use-case realization, include a subsection with the
+    following information
+    <ol>
+      <li>The name of the realized use case.</li>
+      <li>A brief description of the realized use case.</li>
+      <li>Significant descriptions of the <b>Flow of Events - Design </b>of
+        the use-case realization. This can be the whole <b>Flow of Events -
+        Design </b>description, or subsections of it that describe the
+        realization of significant flows or scenarios of the use case.</li>
+      <li>An enumeration of the significant interaction or class diagrams
+        related to the use-case realization.</li>
+      <li>Significant descriptions of <b>Derived Requirements </b>of
+        the use-case realization. This can be the whole <b>Derived
+        Requirements</b> description, or subsections of it that describe
+        significant requirements.</li>
+    </ol>
+  </li>
+</ol>
+<h4>Architecturally Significant Design Elements</h4>
+<p>To assist in deciding what is architecturally significant, some examples of
+qualifying elements and their characteristics are presented:</p>
+<ul>
+  <li>A model element that encapsulates a major abstraction of the problem
+    domain, such as:
+    <ul>
+      <li>A flight plan in an air-traffic control system.</li>
+      <li>An employee in a payroll system.</li>
+      <li>A subscriber in a telephone system.</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <p>Sub-types of these should not necessarily be included, e.g. Distinguishing
+  an <b>ICAO Standard Flight Plan </b>from a <b>US Domestic
+  Flight Plan </b>is not important; they are all flight plans and share a
+  substantial amount of attributes and operations.</p>
+  <p>Distinguishing a subscriber with a data line, or with a voice line, does
+  not matter as long as the call handling proceeds in roughly the same way.</p>
+</ul>
+<ul>
+  <li>A model element that is used by many other model elements.</li>
+  <li>A model element that encapsulates a major mechanism (service) of the
+    system</li>
+  <li>Design Mechanisms
+    <ul>
+      <li>Persistency mechanism (repository, database, memory management).</li>
+      <li>Communication mechanism (RPC, broadcast, broker service).</li>
+      <li>Error handling or recovery mechanism.</li>
+      <li>Display mechanism, and other common interfaces (windowing, data
+        capture, signal conditioning, and so on).</li>
+      <li>Parameterization mechanisms.</li>
+    </ul>
+  </li>
+</ul>
+<p>In general, any mechanism likely to be used in many different packages (as
+opposed to completely internal to a package), and for which it is wise to have
+one single common implementation throughout the system, or at least a single
+interface that hides several alternative implementations.
+<ul>
+  <li>A model element that participates in a major interface in the system with,
+    for example:
+    <ul>
+      <li>An operating system.</li>
+      <li>An off-the-shelf product (windowing system, RDBMS, geographic
+        information system).</li>
+      <li>A class that implements or supports an architectural pattern (such as
+        patterns for de-coupling model elements, including the
+        model-view-controller pattern, or the broker pattern).</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>A model element that is of localized visibility, but may have some huge
+    impact on the overall performance of the system, for example:
+    <ul>
+      <li>A polling mechanism to scan sensors at a very high rate.</li>
+      <li>A tracing mechanism for troubleshooting.</li>
+      <li>A check-pointing mechanism for high-availability system (check-point
+        and restart).</li>
+      <li>A start-up sequence.</li>
+      <li>An online update of code.</li>
+      <li>A class that encapsulates a novel and technically risky algorithm, or
+        some algorithm that is safety-critical or security-critical, for
+        example: computation of irradiation level; airplane collision-avoidance
+        criteria for congested airspace; Password encryption.</li>
+    </ul>
+  </li>
+</ul>
+<p>The criteria as to what is architecturally significant will evolve in the
+early iterations of the project, as you discover technical difficulties and
+begin to better understand the system. As a rule however, you should label at
+most 10% of the model elements as &quot;<b>architecturally significant</b>.&quot;
+Otherwise you risk diluting the concept of architecture, and &quot;everything is
+architecture.&quot;</p>
+<p>When you define and include the architecturally significant model elements in
+the logical view, you should also take the following aspects into consideration
+<ul>
+  <li>Identify potential for commonality and reuse. Which classes could be
+    subclasses of a common class, or instances of the same parameterized class?</li>
+  <li>Identify potential for parameterization. What part of the design can be
+    made more reusable or flexible by using static and run-time parameters (such
+    as table-driven behavior, or resource data loaded at start-up time)?</li>
+  <li>Identify potential for using off-the-shelf products.</li>
+</ul>
+<h3><a name="The Process View">The Process View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The process view describes the process structure of the system. Since the
+process structure has great architectural impact, all processes should be
+presented. Within processes, only architecturally significant lightweight
+threads need be presented. The process view describes the tasks (processes and
+threads) involved in the system's execution, their interactions and
+configurations, as well as the allocation of objects and classes to tasks.</p>
+<p>For each network of processes, include a subsection with the following
+information:
+<ol>
+  <li>Its name.</li>
+  <li>The processes involved.</li>
+  <li>The interactions between processes in the form of collaboration diagrams,
+    in which the objects are actual processes that encompass their own threads
+    of control. For each process, briefly describe its behavior, lifetime and
+    communication characteristics.</li>
+</ol>
+<h3><a name="The Deployment View">The Deployment View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This section describes one or more physical network (hardware) configurations
+on which the software is deployed and run. It also describes the allocation of
+tasks (from the <b>Process View</b>) to the physical nodes. For each
+physical network configuration, include a subsection with the following
+information:
+<ol>
+  <li>Its name.</li>
+  <li>A deployment diagram illustrating the configuration, followed by a mapping
+    of processes to each processor.</li>
+  <li>If there are many possible physical configurations, just describe a
+    typical one and then explain the general mapping rules to follow in defining
+    others. You should also include, in most cases, descriptions of network
+    configurations for performing software tests and simulations.</li>
+</ol>
+<p>This view is generated from the <a href="../artifact/ar_dplmdl.htm">Artifact:
+Deployment Model</a>.</p>
+<h3><a name="The Implementation View">The Implementation View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This section describes the decomposition of the software into layers and implementation 
+  subsystems in the implementation model. It also provides an overview of the 
+  allocation of design elements (from the Logical View) to the implementation. 
+  It contains two subsections: 
+<ol>
+  <li><b>Overview</b> 
+    <p>This subsection names and defines the various layers and their contents, 
+      the rules that govern the inclusion to a given layer, and the boundaries 
+      between layers. Include a component diagram that shows the relations between 
+      layers.</p>
+  </li>
+  <li><b>Layers</b> 
+    <p>For each layer, include a subsection with the following information: 
+    <ol>
+      <li>Its name.</li>
+      <li>A component diagram showing the implementation subsystems and their 
+        import dependencies.</li>
+      <li>If appropriate, an outline of the layer's relationship to elements in 
+        the logical or process view.</li>
+      <li>An enumeration of the implementation subsystems located in the layer. 
+        For each implementation subsystem: </li>
+      <ul>
+        <li>Give its name, abbreviation or nickname, a brief description, and 
+          a rationale for its existence;</li>
+        <li>If appropriate, indicate the implementation subsystem's relationship 
+          to elements in the logical or process view. In many cases, an implementation 
+          subsystem will implement one or more design subsystems from the logical 
+          view.</li>
+        <li>If an implementation subsystem contains architecturally significant 
+          implementation subsystems and/or <br>
+          directories, consider reflecting this in the subsection hierarchy.<br>
+        </li>
+        <li> If an implementation subsystem doesn't map one-to-one with an implementation 
+          directory, then include an explanation of how the implementation subsystem 
+          is defined in terms of implementation directories and/or files.</li>
+      </ul>
+    </ol>
+    <ol>
+    </ol>
+  </li>
+</ol>
+
+
+
+<h3><a name="The Data View">The Data View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This view describes the architecturally significant persistent elements in
+the data model. It describes an overview of the data model and its organization
+in terms of the tables, views, indexes, triggers and stored procedures used to
+provide persistence to the system. It also describes the mapping of persistent
+classes (from the Logical View) to the data structure of the database</p>
+<p>It typically includes:
+<ul>
+  <li>The mapping from key persistent design classes, especially where the
+    mapping is non-trivial.</li>
+  <li>The architecturally significant parts of the system which have been
+    implemented in the database, in the form of stored procedures and triggers.</li>
+  <li>Important decisions in other views which have data implications, such as
+    choice of transaction strategy, distribution, concurrency, fault tolerance.
+    For example, the choice to use database-based transaction management
+    (relying on the database to commit or abort transactions) requires that the
+    error handling mechanism used in the architecture include a strategy for
+    recovering from a failed transaction by refreshing the state of persistence
+    objects cached in memory in the application.</li>
+</ul>
+<p>You should present architecturally significant data model elements, describe
+their responsibilities, as well as a few very important relationships and
+behaviors (triggers, stored procedures, etc.).</p>
+
+<h3><a name="Size and Performance">Size and Performance</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This section describes architecturally-defining volumetric and responsiveness
+characteristics of the system. The information presented may include:
+<ul>
+  <li>The number of key elements the system will have to handle (such as the
+    number of concurrent flights for an air traffic control system, the number
+    of concurrent phone calls for a telecom switch, the number of concurrent
+    online users for an airline reservation system, etc.).</li>
+  <li>The key performance measures of the system, such as average response time
+    for key events; average, maximum and minimum throughput rates, etc.</li>
+  <li>The footprint (in terms of disk and memory) of the executables - essential
+    if the system is an embedded system which must live within extremely
+    confining constraints.</li>
+</ul>
+<p>Most of these qualities are captured as requirements; they are presented here
+because they shape the architecture in significant ways and warrant special
+focus. For each requirement, discuss how the architecture supports this
+requirement.</p>
+<h3><a name="Quality">Quality</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In this section, list the key quality dimensions of the system that shape the
+architecture. The information presented may include:
+<ul>
+  <li>Operating performance requirements, such as <b>mean-time between
+    failure </b>(MTBF).</li>
+  <li>Quality targets, such as &quot;no unscheduled down-time&quot;</li>
+  <li>Extensibility targets, such as &quot;the software will be upgradeable
+    while the system is running&quot;.</li>
+  <li>Portability targets, such as hardware platforms, operating systems,
+    languages.</li>
+</ul>
+<p>For each dimension, discuss how the architecture supports this requirement. 
+  You can organize the section by the different views (logical, implementation, 
+  and so on), or by quality. When particular characteristics are important in 
+  the system, for example, safety, security or privacy, the architectural support 
+  for these should be carefully delineated in this section.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

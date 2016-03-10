@@ -1,0 +1,365 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Review Code</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Review Code</rpw><a name="Top"></a><a name="XE_code__reviewing"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To verify the implementation.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+	  <li><a href="#GeneralRecommendations">General Recommendations</a></li>
+      <li><a href="#Establish Checkpoints for the Implementation">Establish Checkpoints for
+        the Implementation</a></li>
+      <li><a href="#Prepare Review Report and Document Defects">Prepare Review
+        Record and Document Defects</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_comp.htm">Implementation Element</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+</ul>
+&nbsp;
+    </td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Every iteration&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_tchrvw.htm">Technical Reviewer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  &nbsp;
+	</td>
+  </tr>
+  
+</table>
+<!-- Linked to Workflow Begin -->
+<p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_impl.htm">Implementation</a>
+<ul>
+<li><a href="../workflow/implemen/wfs_implc.htm">Implement Components</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="GeneralRecommendations">General Recommendations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	  <td width="95%">General recommendations for each review.</td>
+  </tr>
+</table>
+<br>
+</div>
+<p>When you are building high-quality software, reviewing the implementation is 
+  a complement to other quality mechanisms, such as compiling, integrating and 
+  testing. Before you review the implementation, compile it, and use tools, such 
+  as code-rule checkers, to catch as many errors as possible. Consider using tools 
+  that allow the code to be visualized. Additional errors may also be detected 
+  and eliminated prior to implementation review if the code is executed using 
+  run-time error detection tools.</p>
+<p>The benefits of reviewing the implementation are:
+<ul>
+  <li>To enforce and encourage a common coding style for the project. Code
+    reviewing is an effective way for members follow the Programming Guidelines.
+    To ensure this, it is more important to review results from all authors and
+    implementers, than to review all source code files.</li>
+  <li>To find errors that automated tests do not find. Implementation reviews catch
+    different errors to those of testing.</li>
+  <li>To share knowledge between individuals, and to transfer knowledge from the
+    more experienced individuals to the less experienced individuals.</li>
+</ul>
+<p>There are several techniques that can be used to review the implementation. Use one of the
+following:
+<ul>
+  <li><b>Inspection</b>. A formal evaluation technique in which the implementation 
+    is examined in detail. Inspections are considered to be the most productive 
+    review technique, however it requires training, and preparation.</li>
+  <li><b>Walkthrough</b>. An evaluation technique where the author of the implementation, 
+    leads one or more reviewers through the implementation. The reviewers ask 
+    questions, and make comments regarding technique, style, possible error, violation 
+    of coding standards, and so on.</li>
+  <li><b>Code reading</b>. One or two persons read the code. When the reviewers 
+    are ready, they can meet and present their comments and questions. The meeting 
+    can be omitted, however, and reviewers can give their comments and questions 
+    to the author in written form instead. Code reading is recommended to verify 
+    small modifications, and as a &quot;sanity check.&quot;</li>
+</ul>
+<p>Skill requirements for this role are similar to those for Role: <a href="../workers/wk_implm.htm">Implementer</a>; 
+  people playing this role are often considered experts in the programming language 
+  used for the code being reviewed. In most projects, this role is staffed using 
+  senior programmers from the implementation team.</p>
+<p></p>
+<p>See also <a href="../workguid/wg_rview.htm">Guidelines: Reviews</a>.</p>
+<h3><a name="Establish Checkpoints for the Implementation">Establish Checkpoints for
+the Implementation</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To establish checkpoints for reviewing the implementation.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p><br>This section gives some general check-points for reviewing the
+implementation, just as
+examples of what to look for in a review. The Programming Guidelines should be
+the main source of information for code quality.</p>
+
+<p><b>General</b>
+<ul>
+  <li>Does the code follow the Programming Guidelines?</li>
+  <li>Is the code self-documenting? Is it possible to understand the code from
+    reading it?</li>
+  <li>Have all errors detected by code-rule checking, and / or run-time error
+    detection tools been addressed?</li>
+</ul>
+<p><b>Commenting</b>
+<ul>
+  <li>Are comments up to date?</li>
+  <li>Are comments clear and correct?</li>
+  <li>Are the comments easy to modify, if the code is changed?</li>
+  <li>Do the comments focus on explaining <i>why</i>, and not <i>how</i>?</li>
+  <li>Are all surprises, exceptional cases, and work-around errors commented?</li>
+  <li>Is the purpose of each operation commented?</li>
+  <li>Are other relevant facts about each operation commented?</li>
+</ul>
+<p><b>Source code</b>
+<ul>
+  <li>Does each operation have a name that describe what the operation does?</li>
+  <li>Do the parameters have descriptive names?</li>
+  <li>Is the normal path through each operation, clearly distinguishable from
+    other exceptional paths?</li>
+  <li>Is the operation too long, and can it be simplified by extracting related
+    statements into private operations?</li>
+  <li>Is the operation too long, and can it be simplified by reducing the number
+    of decision points? A decision point is a statement where the code can take
+    different paths, for example, <i>if</i>-, <i>else</i>-, <i>and</i>-, <i>while</i>-,
+    and <i>case</i>-statements.</li>
+  <li>Is nesting of loops minimized?</li>
+  <li>Are the variables well named?</li>
+  <li>Is the code straightforward, and does it avoid &quot;clever&quot;
+    solutions?</li>
+</ul>
+<h3><a name="Prepare Review Report and Document Defects">Prepare Review Record
+and Document Defects</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To document the review results.<br>
+ 	  To ensure that identified defects are documented.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p><br>Following each review meeting, the results of the meeting must be
+documented in a <a href="../artifact/ar_rvrec.htm">Review Record</a>. In
+addition, defects must be documented in <a href="../artifact/ar_crqst.htm">Change
+Request</a>s (and eventually assigned to someone to own and drive to
+resolution).</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

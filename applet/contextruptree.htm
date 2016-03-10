@@ -1,0 +1,171 @@
+
+<html>
+
+<head>
+<title>RUP - Table of contents</title>
+<meta name="Microsoft Theme" content="none, default">
+<meta name="Microsoft Border" content="none">
+
+<style type=text/css>
+.text
+ {
+   	background-color: #006699;
+    	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;	
+	font-size: 10px;
+	text-decoration: none;		
+}
+</style>
+
+<script language="JavaScript">
+<!---
+var treeLoaded;
+var finishPageUrl;
+function checkTreeLoaded()
+  {
+    if(treeLoaded)
+    {
+      return treeLoaded;
+    }
+     if(parent.ory_toc.document.RupPresenterApplet != null
+        && parent.ory_toc.document.RupPresenterApplet.isReady())
+     {
+       treeLoaded = true;
+     }
+     return treeLoaded;
+   }
+
+  function printFinishPage()
+  {
+     var url = parent.getCookie("rup_ory_doc");
+     if(url==null || url=="null")
+     {
+	// fchong - removed March 18, 2003 because we only want to show finishpage
+	// if it came from a "Display Tree Browser" link
+        //document.writeln("<param name=\"finishpage\" value=\"../process/ovu_proc.htm\">\n");
+     }
+     else
+     {
+	finishPageUrl = url;
+        if(url.indexOf(".")!=0)
+        {
+          var docurl = document.URL;
+          var lastSlash = docurl.lastIndexOf("/");
+          var lastBackSlash = docurl.lastIndexOf("\\");
+
+          var max = lastSlash;
+          if(lastBackSlash>max)
+          {
+            max = lastBackSlash;
+          }
+          docurl = docurl.substring(0,max);      
+          lastSlash = docurl.lastIndexOf("/");
+          lastBackSlash = docurl.lastIndexOf("\\");
+          max = lastSlash;
+          if(lastBackSlash>max)
+          {
+            max = lastBackSlash;
+          }
+          docurl = docurl.substring(0,max);
+          var length = docurl.length;
+          finishPageUrl = ".." + url.substring(length,url.length);		
+        }
+          document.writeln("<param name=\"finishpage\" value=\""+ finishPageUrl + "\">\n");
+     }
+ 
+     var expires = new Date();
+     expires.setTime (expires.getTime() + (1000 * 20));
+     document.cookie = "rup_ory_doc=" + null +     
+        "; expires=" + expires.toString() +  "; path=/"; 
+  }
+
+  function printFinishPageForNetscape()
+  {
+     	if(finishPageUrl==null || finishPageUrl=="null")
+     	{
+	}
+	else
+	{
+        	document.writeln("finishpage =\"" + finishPageUrl + "\"");
+	}
+	finishPageUrl = "null";
+  }
+
+// -->
+</script>
+
+<style type="text/css">
+body
+{margin-top: 0px;
+ margin-left: 0px;
+ margin-right: 0px;
+ margin-bottom: 0px;
+}
+</style>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+ <!--"CONVERTED_APPLET"-->
+<!-- HTML CONVERTER -->
+
+<script language="JavaScript">
+	document.writeln(" <OBJECT \n");
+    		document.writeln(" classid=\"clsid:8AD9C840-044E-11D1-B3E9-00805F499D93\" \n");
+    		document.writeln(" WIDTH = \"100%\" HEIGHT = \"100%\" ID=\"RupPresenterApplet\" NAME = \"RupPresenterApplet\" \n"); 
+		document.writeln(" codebase=\"./AppletJreConsole.exe\"> \n");
+    		document.writeln(" <PARAM NAME = CODE VALUE = \"com.rational.rpw.processtools.RupPresenterApplet.class\" > \n");
+    		document.writeln(" <PARAM NAME = CODEBASE VALUE = \"./\" > \n");
+    		document.writeln(" <PARAM NAME = ARCHIVE VALUE = \"./localization/,./processtools.jar,search/lucene-demos-1.2.jar,search/lucene-1.2.jar\" > \n");
+    		document.writeln(" <PARAM NAME = NAME VALUE = \"RupPresenterApplet\" > \n");
+
+    		document.writeln(" <PARAM NAME=\"type\" VALUE=\"application/x-java-applet;version=1.4.1\"> \n");
+    		document.writeln(" <PARAM NAME=\"scriptable\" VALUE=\"true\"> \n");
+    		document.writeln(" <PARAM NAME=\"mayscript\" VALUE=\"true\"> \n");
+  		document.writeln("<param name=\"loadpage\" value=\"../spscreen.htm\">\n");
+  		document.writeln("<param name=\"imagefile\" value=\"rpw_img.zip\">\n");
+  		document.writeln("<param name=\"viewstatefile\" value=\"ViewState.myrup\">\n");
+  		document.writeln("<param name=\"viewstatecookiefile\" value=\"ViewStateCookie.myrup\">\n");
+  		printFinishPage();
+  		document.writeln("<param name=\"delimeters\" value=\"*\">\n");
+  		document.writeln("<param name=\"target\" value=\"ory_doc\">\n");
+  		document.writeln("<param name=\"showxhelp\" value=\"yes\">\n");
+
+    		document.writeln(" <COMMENT> \n");
+		document.writeln(" <EMBED  \n");
+            	document.writeln(" type=\"application/x-java-applet;version=1.4.1\" \n");
+            	document.writeln(" CODE = \"com.rational.rpw.processtools.RupPresenterApplet.class\" \n");
+            	document.writeln(" CODEBASE = \"./\"  \n");
+            	document.writeln(" ARCHIVE = \"./localization/,./processtools.jar,search/lucene-demos-1.2.jar,search/lucene-1.2.jar\" \n");
+            	document.writeln(" NAME = \"RupPresenterApplet\" \n");
+            	document.writeln(" WIDTH = \"100%\" \n");
+            	document.writeln(" HEIGHT = \"100%\"  \n");
+            	document.writeln(" imagefile = \"rpw_img.zip\" \n");
+            	document.writeln(" loadpage = \"../spscreen.htm\" \n");
+            	document.writeln(" viewstatefile = \"ViewState.myrup\" \n");
+            	document.writeln(" viewstatecookiefile = \"ViewStateCookie.myrup\" \n");
+            	document.writeln(" delimeters = \"*\" \n");
+            	document.writeln(" target = \"ory_doc\" \n");
+            	document.writeln(" showxhelp = \"yes\" \n");
+		printFinishPageForNetscape();
+     		document.writeln(" scriptable=true  \n");
+     		document.writeln(" mayscript=true  \n");
+    		document.writeln(" pluginspage=\"http://java.sun.com/products/archive/j2se/1.4.1/index.html\"> \n");
+        	document.writeln(" <NOEMBED> \n");
+		document.writeln(" </NOEMBED> \n");
+		document.writeln(" </EMBED> \n");
+    		document.writeln(" </COMMENT> \n");
+
+	document.writeln(" </OBJECT> \n");
+
+</script>
+
+<!--"END_CONVERTED_APPLET"-->
+
+</body>
+
+</html>

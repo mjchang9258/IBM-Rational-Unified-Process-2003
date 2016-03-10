@@ -1,0 +1,561 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Software Development Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Software Development 
+  Plan</rpw></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Length">Determining the Length of an Iteration</a></li>
+  <li><a href="#Number">Determining the Number of Iterations</a></li>
+  <li><a href="#TraditionalReviewsAndTheIterativeApproach">Aligning
+    the Traditional Waterfall Review Sequence with the Iterative Approach</a></li>
+  <li><a href="#ProjectOrganization">Project Organization</a></li>
+</ul>
+<h3><a name="XE_iteration__length_of_iterations__guidelines_for"></a><a name="Length">Determining
+the Length of each Iteration</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>We have defined an iteration as a rather complete mini-project, going through
+all major disciplines and resulting in most cases in an executable, yet
+incomplete, system: a release. Although the cycle [edit, compile, test, debug]
+sounds like an iteration, this is not what we mean here. The daily or weekly
+builds incrementally integrating and testing more and more elements of the
+system may also seem to be an iteration, but that is only a portion of an
+iteration, as we use the term here.</p>
+<p>An iteration starts with planning and requirements, and ends with a release,
+internal or external.</p>
+<p>How quickly you can iterate depends mostly on the <b>size</b> of
+the development organization.</p>
+<p>For example:
+<ul>
+  <li>Five people can do some planning on a Monday morning, have lunch together
+    every day to monitor progress, reallocate tasks, start doing a build on
+    Thursday, and complete the iteration by Friday evening.</li>
+  <li>But this will be very hard to achieve with 20 people. It will take more
+    time to distribute the work, synchronize between subgroups, integrate, and so on.
+    An iteration may take rather three or four weeks.</li>
+  <li>With 40 people, it already takes a week for the &quot;nervous influx to go
+    from the brain to the extremities&quot;. You have intermediate levels of
+    management, the common understanding of the objective will require more
+    formal documentation, more ceremony. Three month is a more likely reasonable
+    iteration length.</li>
+</ul>
+<p>Other factors come into play: the degree of familiarity of the organization
+with the iterative approach, including having a stable and mature organization,
+the level of automation the team is using to manage code (for example, distributed CM),
+distribute information (for example, internal web), automate testing, and so on.</p>
+<p>Be aware also that there is some fixed overhead in an iteration, in planning,
+synchronizing, analyzing the results, and so on.</p>
+<p>So, on one hand, convinced by the tremendous benefits of the iterative
+approach, you might be tempted to iterate furiously, the human limits of your
+organization are going to slow your fervor.</p>
+<p>Some empirical data:</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="18%" align="center"><b>SLOCs</b></td>
+    <td width="41%" align="center"><b>Number of developers</b></td>
+    <td width="41%" align="center"><b>Duration of an Iteration</b></td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">10,000</td>
+    <td width="41%" align="center">5</td>
+    <td width="41%" align="center">1 week</td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">50,000</td>
+    <td width="41%" align="center">15</td>
+    <td width="41%" align="center">1 month</td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">500,000</td>
+    <td width="41%" align="center">45</td>
+    <td width="41%" align="center">6 months</td>
+  </tr>
+  <tr>
+    <td width="18%" align="center">1,000,000</td>
+    <td width="41%" align="center">100</td>
+    <td width="41%" align="center">1 year</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<ul>
+  <li><b>Iterations of more than 6 months</b> probably need to have
+    intermediate milestones built in to keep the project on track. Consider
+    reducing the scope of the iteration to reduce its length and ensure a clear
+    focus.</li>
+  <li><b>Iterations of more than 12 months</b> create their own risk,
+    as the iteration spans the annual funding cycle. A project which has not
+    produced anything visible in the past 12 months is at risk of losing its
+    funding.</li>
+  <li><b>Iterations of less than 1 month</b> need to be scoped
+    carefully. Typically, short iterations are more suitable for the
+    Construction phase, where the degree of new functionality to be included and
+    the degree of novelty are low. Short iterations may do little or no formal
+    analysis or design, and may simply be incrementally improving
+    well-understood functionality.</li>
+  <li><b>Iterations need not all be the same length</b>: their length
+    will vary according to their objectives. Typically, elaboration iterations
+    will be longer than construction iterations. Within a phase, iterations are
+    generally the same length (it makes planning easier).</li>
+</ul>
+<p>Once you have an idea of the number of iterations in your coarse-grained plan, 
+  you need to define the contents of each iteration. It is even a good idea to 
+  find a name or title to qualify the product you have at the end of each iteration, 
+  to help people get a better focus.</p>
+<blockquote>
+  <p class="exampleheading"><a name="Example">Example</a> Iterations for a
+  Private Telephone Switch</p>
+</blockquote>
+<blockquote>
+  <ul>
+    <li>Iteration 1: local call.</li>
+    <li>Iteration 2: add external calls and subscriber management.</li>
+    <li>Iteration 3: add voice mail and conference calls.</li>
+  </ul>
+</blockquote>
+
+
+<h3><a name="XE_iteration__number_of_iterations_guidelines_for"></a><a name="Number">Determining
+the Number of Iterations</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A very simple project may have only one iteration per phase:</p>
+<ul>
+  <li>One iteration in the inception phase, producing perhaps a proof-of-concept
+    prototype, or user-interface mock-up, or no iteration at all, in the case
+    for example of an evolution cycle.</li>
+  <li>One iteration in the elaboration phase to produce an architectural
+    prototype.</li>
+  <li>One iteration in the construction phase to build the product (up to a
+    &quot;beta&quot; release).</li>
+  <li>One iteration in transition to finish the product (full product release).</li>
+</ul>
+<p>For a more substantial project, in its initial development cycle the norm would 
+  be:</p>
+<ul>
+  <li>One iteration in the inception phase (possibly producing a prototype).</li>
+  <li>Two iterations in the elaboration phase; one for an architectural
+    prototype, and one for the architectural baseline.</li>
+  <li>Two iterations in the construction phase to expose a partial system, and
+    mature it.</li>
+  <li>One iteration in the transition phase to go from initial operational
+    capability to full product release.</li>
+</ul>
+<p>For a large project, with lots of unknowns, new technologies, and the like, 
+  there may be a case for:</p>
+<ul>
+  <li>an additional iteration in the inception phase, to allow for more
+    prototyping.</li>
+  <li>an additional iteration in the elaboration phase, to allow different
+    technologies to be explored.</li>
+  <li>an additional iteration in the construction phase because of the sheer
+    size of the product.</li>
+  <li>an additional iteration in the transition phase to allow for operational
+    feedback.</li>
+</ul>
+<p>So over a development cycle, we have:</p>
+<blockquote>
+  <blockquote>
+    <ul>
+      <li>Low: 3 iterations [0,1,1,1]</li>
+      <li>Typical: 6 [1, 2, 2, 1]</li>
+      <li>High: 9 [1, 3, 3, 2]</li>
+      <li>Very High: 10 [2, 3, 3, 2]</li>
+    </ul>
+  </blockquote>
+</blockquote>
+<p>So, in general, plan to have <b>three to ten</b> iterations. Observe though 
+  that the upper and lower bounds connote unusual circumstances, so most developments 
+  will use <b>six to eight</b> iterations.</p>
+<p>Many variations are possible depending on risks, size, complexity:</p>
+<ul>
+  <li><b>If the product is intended for some totally new domain</b>,
+    you may need to add some iterations in the inception phase to consolidate
+    the concepts, show various mock-ups to a cross-section of customers or end
+    users, or build a solid response to a request for proposal.</li>
+  <li><b>If a new architecture must be developed</b>, or there is a
+    large amount of use-case modeling, or there are very challenging risks, you
+    should plan to have two or three iterations in the elaboration phase.</li>
+  <li><b>If the product is large and complex</b>, and developed over a
+    long period, you should plan to have three or more iterations in the
+    construction phase.</li>
+  <li>You should plan to have several iterations in the transition phase if,
+    because you must minimize the time to market, you must deliver the product
+    with a reduced set of functionality, or if you feel you may need a lot of
+    small adaptations to the end-user base after a period of use.</li>
+</ul>
+
+
+<h3><a name="XE_software_development_plan__traditional_reviews__guidelines_for_mapping"></a><a name="TraditionalReviewsAndTheIterativeApproach">Aligning
+the Traditional Waterfall Review Sequence with the Iterative Approach</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The default review sequence for a waterfall life-cycle project has a single 
+  major review at the completion of the important artifacts, for example:</p>
+<ul>
+  <li><b>System Requirements Review (SRR)</b>, at the completion of
+    the system specification;</li>
+  <li><b>Software Specification Review (SSR)</b>, at the completion of
+    the software requirements specification;</li>
+  <li><b>Preliminary Design Review (PDR)</b>, at the completion of the
+    architectural design sections of the software design description;</li>
+  <li><b>Critical Design Review (CDR)</b>, at the completion of the
+    detailed design sections of the software design description.</li>
+</ul>
+<p>In the Rational Unified Process (RUP), parts of the equivalent artifacts are 
+  reviewed as they are completed in each iteration, but the major milestones (and 
+  therefore reviews) are aligned with the completion of the <a href="../itrwkfls/iwf_iwfs.htm">phases</a>, 
+  inception, elaboration, construction and transition. A Project Manager wanting 
+  to adopt the RUP may have to find a way to reconcile this apparent conflict, 
+  because of contractual obligations. Ideally, the Project Manager should convince 
+  the customer that the phase and iteration based approach in fact gives greater 
+  true visibility into project progress, and reduces risk, so that there is no 
+  need for an SRR, an SSR, and so forth. However, this is not always possible, 
+  and the Project Manager has to schedule these reviews at appropriate points. 
+  It is possible, in the RUP, to locate the points at which these important artifacts 
+  (actually, their equivalents in the RUP) are essentially complete, although 
+  this does not always neatly align with phases or iterations.</p>
+<p>This is done here by assuming that the relative effort that will be spent on 
+  requirements, design, and the like will be approximately the same in the RUP 
+  as in the (ideal) waterfall life cycle - but that the effort will be distributed 
+  differently. The result is the following:</p>
+<ul>
+  <li>the SRR (concerned mainly with the <a href="../artifact/ar_vsion.htm">Vision</a>)
+    can be scheduled at the end of the inception phase;</li>
+  <li>the SSR (concerned mainly with the <a href="../artifact/ar_srs.htm">Software
+    Requirements Specification</a>) at about 1/3 of the way through the
+    elaboration phase;</li>
+  <li>the PDR (concerned mainly with the <a href="../artifact/ar_sadoc.htm">Software
+    Architecture Document</a>) at the end of the elaboration phase;</li>
+  <li>the CDR (concerned mainly with the <a href="../artifact/ar_desmd.htm">Design
+    Model</a>) at about 1/3 of the way through the construction phase.</li>
+</ul>
+<p>For efficiency, the Project Manager, in consultation with the customer, should 
+  attempt to combine these reviews with the prescribed RUP reviews. This is clearly 
+  possible for the SRR and the PDR, they can be combined with <a href="../itrwkfls/ms_lco.htm">Lifecycle 
+  Objectives Milestone</a> Review and the <a href="../itrwkfls/ms_lca.htm">Lifecycle 
+  Architecture Milestone</a> Review, respectively. 
+  It is not so obvious for the SSR and CDR. However, observing that almost all projects will have at least 
+  two iterations in elaboration and at least two in construction, it is recommended 
+  that SSR be combined with the <a href="../activity/ac_iacrv.htm">Iteration Acceptance 
+  Review</a> for the first iteration in the elaboration phase, and CDR be combined 
+  with the Iteration Acceptance Review for the first iteration in construction. 
+  In both cases, there is then good visibility of mature artifacts, with enough 
+  time remaining for correction - although the iterative approach should cope 
+  with this as a matter of course.</p>
+
+
+<h3><a name="ProjectOrganization">Project Organization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Just as the software process is influenced by the project's characteristics, 
+  so is the project organization. The default structure presented here (see the 
+  figure below), has to be adapted to reflect the effects of factors such as the 
+  ones listed:</p>
+<ul>
+  <li>The Business Context</li>
+  <li>The Size of the Software Development Effort</li>
+  <li>The Degree of Novelty</li>
+  <li>Type of Application</li>
+  <li>The Current Development Process</li>
+  <li>Organizational Factors</li>
+  <li>Technical and Managerial Complexity</li>
+</ul>
+<p>These are key distinguishing factors when analyzing how the organization as 
+  a whole should adopt a new development process, here we will examine their effect 
+  on the choice of project structure. The figure below presents a default project 
+  organization, showing how responsibilities are assigned to the team structure.</p>
+<p align="center">
+  <map name="FPMap0"> 
+    <area href="../workers/wk_ccmgr.htm" shape="rect" coords="380, 471, 503, 483">
+<area href="../workers/wk_depm.htm" shape="rect" coords="377, 459, 483, 470">
+<area href="../workers/wk_crsdv.htm" shape="rect" coords="377, 449, 470, 459">
+<area href="../workers/wk_tlsmt.htm" shape="rect" coords="384, 437, 457, 447">
+<area href="../workers/wk_tchwr.htm" shape="rect" coords="384, 426, 465, 436">
+<area href="../workers/wk_sysad.htm" shape="rect" coords="378, 414, 487, 424">
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="380, 401, 462, 412">
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="378, 389, 459, 401">
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="377, 377, 491, 389">
+<area href="../workers/wk_cmmgr.htm" shape="rect" coords="376, 365, 491, 378">
+<area href="../workers/wk_syint.htm" shape="rect" coords="379, 355, 469, 366">
+<area href="../workers/wk_tstr.htm" shape="rect" coords="379, 343, 413, 353">
+<area href="../workers/wk_tstds.htm" shape="rect" coords="380, 333, 452, 343">
+<area href="../workers/wk_dbdsr.htm" shape="rect" coords="211, 416, 307, 427">
+<area href="../workers/wk_uides.htm" shape="rect" coords="210, 404, 331, 415">
+    <area href="../workers/wk_ucaut.htm" shape="rect" coords="214,391,328,403">
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="212, 381, 295, 391">
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="211, 369, 296, 380">
+<area href="../workers/wk_implm.htm" shape="rect" coords="212, 359, 279, 368">
+<area href="../workers/wk_dsgnr.htm" shape="rect" coords="212, 347, 268, 356">
+<area href="../workers/wk_sysan.htm" shape="rect" coords="213, 334, 293, 344">
+<area href="../workers/wk_projm.htm" shape="rect" coords="324, 178, 404, 192">
+<area href="../workers/wk_uides.htm" shape="rect" coords="27, 400, 144, 413">
+    <area href="../workers/wk_ucaut.htm" shape="rect" coords="29,390,145,400">
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="31, 378, 117, 389">
+<area href="../workers/wk_dsgnr.htm" shape="rect" coords="30, 367, 80, 377">
+<area href="../workers/wk_dbdsr.htm" shape="rect" coords="29, 355, 124, 365">
+<area href="../workers/wk_archt.htm" shape="rect" coords="30, 343, 124, 354">
+
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="37, 238, 167, 250">
+
+
+<area href="../workers/wk_bdes.htm" shape="rect" coords="41, 225, 138, 237">
+
+
+<area href="../workers/wk_bpan.htm" shape="rect" coords="43, 213, 175, 224">
+
+<area href="../workers/wk_tchrvw.htm" shape="rect" coords="42, 202, 162, 213">
+<area href="../workers/wk_archt.htm" shape="rect" coords="38, 190, 136, 201">
+<area href="../workers/wk_sysan.htm" shape="rect" coords="41, 179, 122, 189">
+<area href="../workers/wk_cmmgr.htm" shape="rect" coords="103, 88, 217, 101">
+<area href="../workers/wk_tstds.htm" shape="rect" coords="104, 78, 183, 88">
+<area href="../workers/wk_prcen.htm" shape="rect" coords="101, 66, 191, 77">
+<area href="../workers/wk_sthld.htm" shape="rect" coords="104, 56, 179, 65">
+<area href="../workers/wk_projm.htm" shape="rect" coords="103, 42, 189, 55">
+<area href="../workers/wk_mngrvw.htm" shape="rect" coords="101, 102, 190, 113">
+    <area href="../workers/wk_syint.htm" shape="rect" coords="211,428,265,439">
+  </map>
+  <img src="images/md_prp1.gif" hspace="30" border="0" usemap="#FPMap0" width="515" height="500"></p>
+<p class="picturetext">Figure showing Default Project Organization. Note that 
+  there is no significance in terms of seniority or authority in the ordering 
+  of the roles.</p>
+  
+<p>This figure is a starting point for considering how project-level roles and 
+  responsibilities should be mapped to a structure of teams. The figure also serves 
+  to emphasize that roles (shown in the yellow boxes) are not individuals, but 
+  &quot;hats&quot; an individual (or a team) can wear in the project. It is for 
+  this reason that some roles (the Project Manager, for example) appear more than 
+  once. This indicates that, at some time, the behavior of the Project Manager, 
+  as defined in the RUP, may appear in more than one team. For example, in a large 
+  project, the task of preparing a status report based on a Work Breakdown Structure 
+  may be delegated to an <b>individual</b> in the Administration Team. However, 
+  this is a responsibility that the RUP assigns to the <b>role</b> called 
+  Project Manager.</p>
+<p>In a small project, it is likely that an <b>individual</b> nominated as Project 
+  Manager will perform all the activities of the <i>role</i> called Project Manager, 
+  in which case the Administration Team coalesces with the Software Management 
+  Team. The selection of team structure will be influenced by the nature and size 
+  of the project but should be tempered by some, largely common-sense, rules:</p>
+<ul>
+  <li>small teams are usually more productive; however, in a large project this
+    has to be balanced against the amount of cross-team interaction;</li>
+  <li>deep hierarchies are to be avoided;</li>
+  <li>the span of control of any manager or team lead should be limited to seven
+    plus or minus two;</li>
+  <li>the software development <b><a name="team structure">team structure</a></b> 
+    should be driven by the software architecture (<b>not</b> vice versa); a good 
+    architecture, with high cohesion and low coupling between subsystems, will 
+    allow teams to work more effectively in parallel;</li>
+  <li>testing, other than unit test, should ideally be performed by a team
+    separate from the development team. Note, however, that this may not make
+    economic sense in a very small project;</li>
+  <li>the structure must allow all teams and individuals to be given clearly
+    defined authorities and responsibilities. This is particularly important if
+    the hierarchy exceeds three levels. The managers and team leads in the
+    middle of such structures need to understand what is required of them in
+    balancing technical and managerial activities.</li>
+  <li>the structure must support the capabilities, experience and motivations of
+    the staff: for example, if a single team is supposed to perform analysis,
+    design and implementation, without any intermediate hand-off, it will need
+    all the necessary competencies. Skilled analysts are not necessarily good
+    implementers;</li>
+  <li>team structures should not be rigid: individuals will migrate between
+    teams over the project's lifetime, and the responsibilities of teams will
+    change as the emphasis of the project shifts from phase to phase.</li>
+</ul>
+<p>The rationale for the default organization is discussed at length in [<a href="../referenc.htm#ROY98">ROY98</a>]. 
+  In particular, the assignment of responsibilities for deployment to the software 
+  assessment team recognizes that, of all the teams in a development project, 
+  the software assessment team has greatest exposure to the software as the end 
+  user will see it.</p>
+<p>During the life of a project, the organization will evolve to support the work 
+  breakdown structure captured in the project plan. This is shown in the figure 
+  below, which is taken from [<a href="../referenc.htm#ROY98">ROY98</a>].</p>
+<p align="center"><img src="images/md_prp2.gif" vspace="10" hspace="50" width="478" height="405"></p>
+
+<p>This evolution emphasizes a different set of activities in each phase:</p>
+<ul>
+  <li>the Inception team: an organization focused on planning, with enough
+    support from the other teams to ensure that the plans represent a consensus
+    of all perspectives;</li>
+  <li>the Elaboration team: an architecture-focused organization in which the
+    driving forces of the project reside in the software architecture team and
+    are supported by the software development and software assessment teams as
+    necessary to achieve a stable architecture baseline;</li>
+  <li>the Construction team: a balanced organization in which most of the
+    activity resides in the software development and software assessment teams;</li>
+  <li>the Transition team: a customer-focused organization in which usage
+    feedback drives the deployment activities.</li>
+</ul>
+<p>Migration between teams during this evolution will ensure that knowledge and 
+  capability is retained in the project. For example, when elaboration is complete, 
+  some architecture team members could be dispersed into the development teams, 
+  perhaps to act as team leads, or carry the architectural 'vision' into development. 
+  Later still, towards the end of the construction phase, the focus shifts to 
+  the assessment team, and there is a movement of staff from the development team 
+  into the assessment team. It is also important at that stage, to avoid the loss 
+  of architectural integrity in the heat of construction, that the influence of 
+  the architecture team is not allowed to wane as the 'center of gravity' of the 
+  project moves. Moving some architecture team members to the assessment team 
+  is one way to do this.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

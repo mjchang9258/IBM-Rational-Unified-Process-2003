@@ -1,0 +1,398 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Elicit Stakeholder Requests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Elicit Stakeholder 
+  Requests</rpw><a name="Top"></a><a name="XE_Stakeholder_Requests__eliciting"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To understand who are the stakeholders of the project.</li>
+      <li>To collect requests on what needs the system should fulfill.</li>
+      <li>To prioritize stakeholder requests.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Determine Sources for Requirements">Determine Sources for
+        Requirements</a></li>
+      <li><a href="#Gather Information">Gather Information</a></li>
+      <li><a href="#Conduct Requirements Workshops">Conduct Requirements
+        Workshops</a></li>
+      <li><a href="#Evaluate Your Results">Evaluate Your Results</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_bcase.htm">Business Case</a></li>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+<li><a href="../artifact/ar_storyboard.htm">Storyboard</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+      <a href="../workers/wk_sysan.htm">System Analyst</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/anastudio/tm_er_cq.htm">Eliciting Stakeholder Requests Using Rational ClearQuest</a></li>
+<li><a href="../../toolment/reqpro/tm_elstk.htm">Eliciting Stakeholder Requests Using Rational RequisitePro</a></li>
+<li><a href="../../toolment/anastudio/tm_feat_cqrp.htm">Managing Stakeholder Requests Using Rational ClearQuest and Rational RequisitePro</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/manageme/co_proto.htm">Concept: Prototypes</a></li>
+<li><a href="../workguid/wg_stbd.htm">Guideline: Storyboarding</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_req.htm">Requirements</a>
+<ul>
+<li><a href="../workflow/requirem/wfs_unsh.htm">Understand Stakeholder Needs</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<h3><a name="XE_requirements__determining_sources_of"></a> <a name="Determine Sources for Requirements">Determine
+Sources for Requirements</a> <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To identify individuals who will act as stakeholders in your &quot;extended project team&quot;.<br>
+	  To determine and prioritize sources for requirements.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>For an existing system, the first set of input to this
+activity will be the set of postponed <a href="../artifact/ar_crqst.htm">enhancement
+requests</a>, which have been gathered throughout the product lifecycle as part
+of the formal <a href="../workflow/conf_mgt/co_revno.htm">change request
+management</a> process. This will provide a valuable starting point from which
+to gather data and further refine your set of <a href="../artifact/ar_stnds.htm">stakeholder
+requests</a>.</p>
+<p>After this initial information has been gathered, look
+for partners, users, customers, domain experts, and industry analysts who can
+represent your <a href="../workers/wk_sthld.htm">stakeholders</a>. Determine
+which individuals you would work with to collect information, considering their
+knowledge, communication skills, availability, and &quot;importance&quot;. These
+individuals will act as stakeholders of your project&#151;in effect, an
+&quot;extended project team&quot;. In general, it is better to have a small (2–5)
+group of people that can stay with you for the duration of the project. Also,
+the more people there are in your extended team, the more time it will take to
+manage them and make sure that you use their time effectively. These people do
+not work fulltime on the project&#151;they typically participate in one or a few
+requirements gathering workshops in the inception and elaboration phases, and
+later on in review sessions.</p>
+<p>Find a way to learn how others do what you are trying
+to do. If you are developing a software product, this would mean to gather
+competitive information. If you are developing a new version of an in-house
+information system, you need to schedule site visits to see how people are using
+the current system and find out what can be improved.</p>
+<p>An important source is any existing descriptions of the
+organization in which the system is to be used. These could either be business
+models produced as described in the business modeling discipline, or any other
+form of business definition.</p>
+<h3><a name="Gather Information">Gather Information</a> <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">Formulate which questions that need to be answered.<br>
+	  Gather and document information.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h4>Interviews</h4>
+<p>One of the most useful methods of gathering information
+is to conduct interviews with a select group of key stakeholders. Some sample questions and techniques that may be used
+are found in the <a href="../workguid/wg_intrv.htm">Guidelines: Interviews</a>.&nbsp;
+See the supplied template for <a href="../artifact/ar_stnds.htm">Artifact:
+Stakeholder Requests</a> for a sample script for conducting an effective
+interview.</p>
+<h4>Questionnaires</h4>
+<p>This is a widely used technique. After conducting
+several interview, you may realize that the same information is appearing over
+and over again. This type of information may be collected into a set of
+questions with typical answers from which to choose and send to a larger set of
+stakeholders. This method allows you to better gather formal statistics on the
+answers that are given to the included questions. They key, however, is to be
+able to formulate questions in such a way that these statistics give realistic
+results of what your stakeholders actually need.</p>
+<p>The stakeholders may be able to answer and send the
+results back to you via the internet. This allows you to reach a much wider
+range of people than if you do direct interviews, but you have less control of
+the results. You are not there to directly communicate with the person answering
+the questions to clarify any issues or misunderstandings. Questionnaires can be
+a very powerful tool, but they do not replace a direct interview. Also, an
+assumption is that relevant questions can be determined in advance, and that you
+can phrase them so that the reader hears them in the intended way.</p>
+<h3><a name="XE_requirements_workshop"></a><a name="XE_requirements__workshop"></a><a name="Conduct Requirements Workshops">Conduct
+Requirements Workshops</a> <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To make the project team meet the stakeholders of the project.<br>
+      To gather a comprehensive &quot;wish list&quot; from stakeholders of the project.<br>
+	  To prioritize the collected requirements based on stakeholders attending the workshop.&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Guidelines:</b>
+    <ul>
+      <li><a href="../workguid/wg_rqwsh.htm">Requirements Workshops</a></li>
+      <li><a href="../workguid/wg_brnst.htm">Brainstorming and Idea Reduction</a></li>
+      <li><a href="../workguid/wg_stbd.htm">Storyboarding</a></li>
+      <li><a href="../workguid/wg_rlpl.htm">Role Playing</a></li>
+      <li><a href="../workguid/wg_revxr.htm">Review Existing Requirements</a></li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h3><a name="Evaluate Your Results">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">Compare results from different requirements workshops.<br>
+      Make sure you have the correct information gathered.&nbsp;
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Especially if you have conducted more than one requirements workshop, it is a
+good habit for the project team to walk through the results and:
+<ul>
+  <li>Make sure there is a priority given to each request.</li>
+  <li>Make sure that there is information about what or who is the source of the
+    request.</li>
+  <li>Note and maybe clarify obvious inconsistencies between the requests.</li>
+</ul>
+<p>The results of the requirements workshop need to be presented to a select set
+of customers or users in a review or follow-up session. In this session, you
+will identify if there are any issues that need to be clarified, which in turn
+means you will identify tasks that need to be completed, and assign people to
+those tasks.</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

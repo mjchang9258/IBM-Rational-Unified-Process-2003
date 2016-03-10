@@ -1,0 +1,219 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CREG Use Case - Login - Elaboration Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Example: Login Use Case Specification</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Microsoft Border" content="b, default">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<font face="Arial" size="5"><b>
+<p align="RIGHT">Course Registration System</p>
+<p align="RIGHT">Use-Case Specification</p>
+<p>&nbsp;</p>
+<i>
+<p align="RIGHT">Login Use-Case</p></i></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="4"><b>
+<p align="RIGHT">Version 2.0</p></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Date</b></font></td>
+    <td width="12%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Version</b></font></td>
+    <td width="39%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Description</b></font></td>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Author</b></font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">21/Dec/98</font></td>
+    <td width="12%" valign="TOP"><font size="2">Draft</font></td>
+    <td width="39%" valign="TOP"><font size="2">Draft Version</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">13/Feb/99</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 1.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Minor corrections based on
+    review</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">15/Feb/99</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 2.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Modify section on use case
+    extends Final cleanup. Revise alternate flows. Resolve outstanding issues.</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">&nbsp;</p>
+<p align="CENTER">Table of Contents</p></b></font>
+<ol>
+  <li><a href="#_Toc449508973"><font size="2">Brief Description</font></a></li>
+  <li><a href="#_Toc449508974"><font size="2">Flow of Events</font></a>
+    <dl compact>
+      <dd><font size="2">2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508975"><font size="2">Basic Flow - Login</font></a></dd>
+      <dd><font size="2">2.2&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508976"><font size="2">Alternative Flows</font></a></dd>
+    </dl>
+  </li>
+  <li><a href="#_Toc449508978"><font size="2">Special Requirements</font></a></li>
+  <li><a href="#_Toc449508979"><font size="2">Preconditions</font></a></li>
+  <li><a href="#_Toc449508980"><font size="2">Postconditions</font></a></li>
+  <li><a href="#_Toc449508981"><font size="2">Extension Points</font></a></li>
+</ol>
+<b><font face="Arial" size="5">
+<p align="CENTER">&nbsp;</p>
+<p align="CENTER">Login Use Case</p>
+</font></b>
+<ol>
+  <li><b><a name="_Toc449508973"><font face="Arial">Brief Description</font></a></b></li>
+  <font size="2">
+  <p>This use case describes how a user logs into the Course Registration
+  System.</p>
+  <p>The actors starting this use case are Student, Professor, and Registrar.</p>
+  </font>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;<font face="Arial"><b> 2.&nbsp;&nbsp;&nbsp; </b></font><a name="_Toc449508974"><font face="Arial"><b>Flow
+  of Events</b></font></a>
+</p><blockquote>
+<p>
+  <font size="2">The use case begins when the actor types his/her name and password on the
+  login form.</font>
+    <font size="2">
+    <p><b><font face="Arial">2.1</font></b>&nbsp;&nbsp;<b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;</font></b>
+    <b><font face="Arial" size="2"><a name="_Toc449508975">Basic
+      Flow</a> - Login</font></b></font>
+  <blockquote>
+    <ol>
+      <li><font size="2">The system validates the actor’s password and logs
+        him/her into the system.</font></li>
+      <li><font size="2">The system displays the Main Form and the use case
+        ends.</font></li>
+    </ol>
+  </blockquote>
+  <font size="2"><b><font face="Arial">2.2&nbsp;&nbsp;&nbsp; </font></b><a name="_Toc449508976"><b><font face="Arial" size="2">Alternative
+      Flows</font></b></a></font>
+</blockquote>
+<ol>
+    <ol>
+      <font size="2">
+      <li><i><a name="_Toc449508977">Invalid Name / Password</a></i></li>
+      </font>
+    </ol>
+</ol>
+  <blockquote>
+    <blockquote>
+      <font size="2">
+      <p>If in the basic flow the system cannot find the name or the password is
+      invalid, an error message is displayed. The actor can type in a new name
+      or password or choose to cancel the operation, at which point the use case
+      ends.</p>
+      </font>
+    </blockquote>
+  </blockquote>
+<strong>&nbsp;&nbsp;&nbsp;<font face="Arial"> 3.&nbsp;&nbsp;&nbsp; </font><a name="_Toc449508978"><font face="Arial">Special Requirements</font></a></strong>
+<blockquote>
+    <p><font size="2">There are no special requirements associated with this use
+    case.</font></p>
+</blockquote>
+&nbsp;&nbsp;&nbsp;<font face="Arial"><b> 4.&nbsp;&nbsp;&nbsp; </b></font><a name="_Toc449508979"><font face="Arial"><b>Preconditions</b></font></a>
+<blockquote>
+    <p><font size="2">There are no preconditions associated with this use case.</font></p>
+</blockquote>
+&nbsp;&nbsp;&nbsp;<font face="Arial"><b> 5.&nbsp;&nbsp;&nbsp; </b></font><a name="_Toc449508980"><font face="Arial"><b>Postconditions</b></font></a>
+<blockquote>
+    <p><font size="2">There are no postconditions associated with this use
+    case.</font></p>
+</blockquote>
+&nbsp;&nbsp;&nbsp;<font face="Arial"><b> 6.&nbsp;&nbsp;&nbsp; </b></font><a name="_Toc449508981"><font face="Arial"><b>Extension Points</b></font></a>
+<blockquote>
+    <p><font size="2">There are no extension points associated with this use
+    case.</font></p>
+</blockquote>
+<ol>
+  <font size="2">
+  <p>&nbsp;</p>
+  </font>
+</ol>
+<blockquote>
+  <p>&nbsp;</p>
+</blockquote>
+<br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+    <td width="56%" height="19"><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2003 Rational Software Corporation&nbsp;</small></small></a></font>
+    </td>
+    <td width="39%" height="19">
+<p align="right"><font face="Arial"><small><small>
+Course Registration Project Web Example<br>
+Version 2001.02</small></small></font>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

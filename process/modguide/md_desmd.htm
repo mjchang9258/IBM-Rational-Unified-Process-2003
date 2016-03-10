@@ -1,0 +1,264 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Design Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Design Model</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<li><a href="#Identifying Design Elements from Analysis Classes">Identifying 
+    Design Elements from Analysis Classes</a></li>
+
+
+<li><a href="#Mapping to the Analysis Model">Mapping to the Analysis Model</a></li>
+
+<li><a href="#toImplementation">Mapping to the Implementation Model</a></li>
+  <li><a href="#Characteristics of a Good Design Model">Characteristics of a
+    good Design Model</a></li>
+<h3><a name="Identifying Design Elements from Analysis Classes">Identifying Design 
+  Elements from Analysis Classes</a> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></h3>
+<p><a href="../artifact/ar_aclss.htm">Artifact: Analysis Class</a>es represent 
+  roles played by instances of design elements; these roles may be fulfilled by 
+  one or more design model elements. In addition, a single design element may 
+  fulfill multiple roles. The following observations discuss the ways the analysis 
+  roles may be fulfilled: 
+<ul>
+  <li>An analysis class can become a single design class in the design model.</li>
+  <li>An analysis class can become a part of a design class in the design model.</li>
+  <li>An analysis class can become an aggregate design class in the design model. 
+    (Meaning that the parts in this aggregate may not be explicitly modeled as 
+    analysis classes.)</li>
+  <li>An analysis class can become a group of design classes that inherits from 
+    the same class in the design model.</li>
+  <li>An analysis class can become a group of functionally related design classes 
+    in the design model.</li>
+  <li>An analysis class can become a design subsystem in the design model.</li>
+  <li>An analysis class can become part of a design subsystem, such as one or 
+    more interfaces and their corresponding implementation.</li>
+  <li>An analysis class can become a relationship in the design model.</li>
+  <li>A relationship between analysis classes can become a design class in the 
+    design model.</li>
+  <li>Analysis classes handle primarily functional requirements, and model objects 
+    from the &quot;problem&quot; domain; design classes handle non-functional 
+    requirements, and model objects from the &quot;solution&quot; domain.</li>
+  <li>Analysis classes can be used to represent &quot;the objects we want the 
+    system to support,&quot; without taking a decision on how much of them to 
+    support with hardware and how much with software. Thus, part of an analysis 
+    class can be realized by hardware, and not modeled in the design model at 
+    all.</li>
+</ul>
+<p>Any combination of the above are also possible.</p>
+
+<p>If a separate Analysis Model is maintained, be sure to maintain the traceability 
+  from the identified design element to the Analysis Classes they correspond to.&nbsp; 
+  For more information, see <a href="#Mapping to the Analysis Model">Mapping to 
+  the Analysis Model</a>.</p>
+
+<h3><a name="Mapping to the Analysis Model">Mapping to the Analysis Model</a> 
+  <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></h3>
+<p>This section only applies if a separate Analysis Model is maintained.</p>
+<p> During design, design elements are identified which support a closer alignment 
+  with the architecture and chosen technologies.&nbsp; Every Analysis Class in 
+  the Analysis Model should be associated with at least one design class in the 
+  Design Model. </p>
+<p>To model this traceability, a «trace» dependency should be drawn from the design 
+  element to the analysis class(es) it represents, as shown in the following diagram:&nbsp; 
+</p>
+<p><img border="0" src="images/md_des1.gif" width="437" height="85"></p>
+<p>Note: Traceability links are drawn <i> from</i> the Design Model elements <i> 
+  to</i> the Analysis Model elements, so that the Design Model is dependent on 
+  the Analysis Model and not the other way around. </p>
+
+<h3><a name="XE_design_model__mapping_to_the_Implementation_Model"></a><a name="toImplementation">Mapping
+to the Implementation Model </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You should decide before the design starts how classes in the design model
+should relate to implementation classes; this should be described in the Design
+Guidelines specific to the project.</p>
+<p>The design model can be more or less close to the implementation model, depending 
+  on how you map its classes, packages and subsystems to implementation classes, 
+  files, packages and subsystems in the implementation model. During implementation, 
+  you will often address small tactical issues related to the implementation environment 
+  that shouldn't have impact on the design model. For example, classes and subsystems 
+  can be added during implementation to handle parallel development, or to adjust 
+  import dependencies. For more information, refer to <a href="../activity/ac_strim.htm">Activity: 
+  Structure the Implementation Model</a> and <a href="../workflow/implemen/co_mdesc.htm">Concepts: 
+  Mapping from Design to Code</a>.</p>
+<p>There should be a consistent mapping from the design model to the
+implementation model. The <a href="../artifact/ar_projspecgls.htm">Artifact: Project Specific
+Guidelines</a> should define this mapping, and a consistent level of abstraction
+should be applied across the design model.</p>
+<h3><b><a href="#Characteristics of a Good Design Model" name="XE_design_model__mapping_from_the_Analysis_Model"></a><a name="Characteristics of a Good Design Model">Characteristics 
+  of a Good Design Model</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_design_model__characteristics_of_a_good"></a>A good design model
+has the following characteristics:
+<ul>
+  <li>It satisfies the system requirements.</li>
+  <li>It is resistant to changes in the implementation environment.</li>
+  <li>It is easy to maintain in relation to other possible object models and to
+    system implementation.</li>
+  <li>It is clear how to implement.</li>
+  <li>It does not include information that is best documented in program code.</li>
+  <li>It is easily adapted to changes in requirements.</li>
+</ul>
+<p>For specific characteristics, see <a href="../activity/chklists/ck_dmdl.htm">Checkpoints:
+Design Model</a>.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,695 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Define Testability Elements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Define Testability Elements</rpw><a name="XE_test_automation_architecture__elements_of"></a><a name="XE_test__testability__elements_of"></a><a name="XE_test__infrastructure__elements_of"></a><a name="XE_test_interface_specification__definition_of"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+     <ul>
+	 	  <li>To identify the elements needed to support the target test items</li>
+          <li>To identify the physical elements of the test implementation infrastructure 
+            required to enable testing under each Test Environment Configuration</li>
+          <li>To define the software design requirements that will need to be 
+            met to enable the software to be physically testable</li>
+     </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#IdentifyTargetMechanismItems">For each required target test item, 
+		    identify relationships with test mechanisms.</a></li>
+          <li><a href="#IdentifyDynamicElementsEvents">Identify dynamic elements 
+            and events of the system</a></li>
+          <li><a href="#IdentifyBoundariesAndInterfaces">Identify system boundaries 
+            and interfaces</a></li>
+          <li><a href="#IdentifyTestInfrastructure">Identify test infrastructure 
+            elements</a></li>
+          <li><a href="#IdentifyTestDesignNeeds">Identify test-specific design 
+            needs</a></li>
+          <li><a href="#DefineSoftwareTestability">Define software testability 
+            requirements</a></li>
+          <li><a href="#DefineSoftwareTestability">Define test infrastructure</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+    </td>
+    </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:</b> 
+        <ul>
+<li><a href="../artifact/ar_dplmdl.htm">Deployment Model</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_impmd.htm">Implementation Model</a></li>
+<li><a href="../artifact/ar_if.htm">Interface</a></li>
+<li><a href="../artifact/ar_tstatmarc.htm">Test Automation Architecture</a></li>
+<li><a href="../artifact/ar_tstcs.htm">Test Case</a></li>
+<li><a href="../artifact/ar_tstdta.htm">Test Data</a></li>
+<li><a href="../artifact/ar_tstintspc.htm">Test Interface Specification</a></li>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+<li><a href="../artifact/ar_wlmod.htm">Workload Analysis Model</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstatmarc.htm">Test Automation Architecture</a></li>
+<li><a href="../artifact/ar_tstdsg.htm">Test Design</a></li>
+<li><a href="../artifact/ar_tstintspc.htm">Test Interface Specification</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstds.htm">Test Designer</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/testfact/tm_tfenv.htm">Setting Up the Test Environment in Rational TestFactory</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_vrftstapr.htm">Verify Test Approach</a></li>
+<li><a href="../workflow/test/wfs_imptstast.htm">Improve Test Assets</a></li>
+</ul>
+</li>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and4.htm">Design Components</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="IdentifyTargetMechanismItems">For each required target test item, 
+  identify relationships with test mechanisms.</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To gain an understanding of the test mechanism support needed 
+        by the target test items.</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>For each target test item, review the list of test mechanisms and identify 
+  the ones that could provide support. Analyze how close the selected test mechanisms 
+  are to provide a complete test solution and how can they be adapted to become 
+  a better fit. If no candidates are found or the adaptation effort is significant, 
+  define new test mechanisms and try to find a balance between specificity and 
+  reusability. </p>
+
+<h3><a name="IdentifyDynamicElementsEvents">Identify dynamic elements and events 
+  of the system</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To gain an understanding of the dynamic and run-time aspects 
+        of the system.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the available software requirements and design information, identify 
+  the dynamic elements and events of the system. Using the use-case, design, implementation 
+  and deployment models, you can identify relevant items such as control classes, 
+  processes, threads and events. Places to begin your research include classes 
+  stereotyped as &lt;&lt;control&gt;&gt;, use-case realizations, and elements 
+  described in the process architectural view or the implementation model stereotyped 
+  as &lt;&lt;process&gt;&gt; or &lt;&lt;thread&gt;&gt;.</p>
+<p>In relation to the constraints imposed by the test environment, define the 
+  physical requirements</p>
+
+
+<h3><a name="IdentifyBoundariesAndInterfaces">Identify system boundaries and 
+  interfaces</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To gain an understanding of the responsibilities of the 
+        system as a service provider, and the dependencies of the system as a 
+        client.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Another useful group of elements to examine are the Interfaces of the system, 
+  most importantly those that relate to actors external to the boundaries of the 
+  system. Using the Design and Implementation Models, look for elements defined 
+  with the stereotype &lt;&lt;interface&gt;&gt;. Also examine the models for the 
+  existence of classes stereotyped as &lt;&lt;boundary&gt;&gt;.</p>
+<p>As a tester, it is useful to explore past these system boundaries to gain an 
+  understanding of the expectations of the related systems, both client and service 
+  providers. This will give you a more thorough understanding of what is needed 
+  both in terms of validation of the interfaces and in terms of the test infrastructure 
+  required to test and possibly simulate these interfaces.</p>
+
+
+<h3><a name="IdentifyTestInfrastructure">Identify test infrastructure elements</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To identify the essential elements of the test effort that 
+        will enable the required testing to be performed.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>For an iterative test effort to be successful, it is important to identify 
+  and maintain an appropriate infrastructure. Without an infrastructure to help 
+  maintain it, the test effort can quickly become unmaintainable and unusable. 
+  While more obviously relevant to the automated test effort, test infrastructure 
+  is also an important concern for the manual test effort.</p>
+<p>Consider the dynamic elements and events in the system; what dependencies will 
+  these place on the implementation of individual tests? Look for opportunities 
+  to uncouple the dependencies between individual tests and manage them through 
+  common points of control that provide a layer of indirection. Common areas to 
+  explore for dependencies include test navigation, test data use and system state 
+  changes.</p>
+<p>Using the information you have gathered, consider what requirements will govern 
+  the test infrastructure, and what facilities it will need to provide to enable 
+  a successful test approach.</p>
+<p><b>Sub-topics:</b></p>
+<ul>
+  <li><a href="#FacilitateCommonScenarios">Facilitate common test scenarios</a></li>
+  <li><a href="#FacilitateTestDataDependencies">Facilitate test data dependencies</a></li>
+  <li><a href="#FacilitateTestStateDependencies">Facilitate test state dependencies</a></li>
+  <li><a href="#FacilitateDerivedTestDataValues">Facilitate derived test data values</a></li>
+  <li><a href="#FacilitateCommonNavigationPaths">Facilitate common test navigation paths</a></li>
+</ul>
+
+<h4><a name="FacilitateCommonScenarios">Facilitate common test scenarios</a> 
+  <a href="#IdentifyTestInfrastructure"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Some tests have a common structure to the scenario or procedure followed when 
+  they are executed, but the same procedure needs to be conducted many times against 
+  different test target items. In the case of test automation, it can be useful 
+  to create common test scripts or utility functions that can be reused in many 
+  different contexts to undertake these common test scenarios in an efficient 
+  way. This provides a central point of modification if the test scenario needs 
+  to be altered. Examples include conducting standard boundary tests on appropriate 
+  classes of interface elements, and validating UI elements for adherence to UI 
+  design standards.</p>
+
+<h4><a name="FacilitateTestDataDependencies">Facilitate test data dependencies</a> 
+  <a href="#IdentifyTestInfrastructure"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>When tests are to be conducted in a given test environment configuration, there 
+  is the potential for conflicts in the test data values that are used. This problem 
+  is compounded when the environment is shared by multiple test team members. 
+  Consider using a data-driven approach that uncouples test data values from the 
+  test scripts that use them, and provide a central point of collection and modification 
+  of the test data. This provides two key benefits; it gives visibility of the 
+  test data to all test team members, allowing them to avoid potential conflicts 
+  in test data use, and it provides a central point of modification for the test 
+  data when it needs to be updated.</p>
+
+<h4><a name="FacilitateTestStateDependencies">Facilitate test state dependencies</a> 
+  <a href="#IdentifyTestInfrastructure"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Most tests require the system to be in a specific given state before they are 
+  executed, and should return the system to a specific known state when they complete. 
+  Common dependencies involve security rights (function or data), dynamic or context 
+  sensitive data (e.g. system dates, order numbers, user id preferences etc.), 
+  data expiry cycles (e.g. security passwords, product expiry etc.). Some tests 
+  are highly dependent on each other; for example, one test may create a unique 
+  order number and a subsequent test may need to dispatch the same order number.</p>
+<p>A common solution is to use test suites to sequence dependent tests in the 
+  correct system state order. The test suites can then be coupled with appropriate 
+  system recovery and set up utilities. For automated test efforts, some solutions 
+  may involve using centralized storage of dynamic system data and the use of 
+  variables within the test scripts that reference the centralized information.</p>
+
+<h4><a name="FacilitateDerivedTestDataValues">Facilitate derived test data values</a> 
+  <a href="#IdentifyTestInfrastructure"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Tests sometimes need to calculate or derive appropriate data values from one 
+  or more aspects of the runtime system state. This applies to test data values 
+  for both input and expected results. Consider developing utilities that calculate 
+  the derived data values, simplifying test execution and eliminating potential 
+  inaccuracies introduced through human error. Where possible, develop these utilities 
+  so that the can be utilized by both manual or automated test efforts.</p>
+
+<h4><a name="FacilitateCommonNavigationPaths">Facilitate common test navigation paths</a>
+   <a href="#IdentifyTestInfrastructure"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>For test automation, you should consider isolating common navigation sequences 
+  and implementing them using centralized utility functions or test scripts. These 
+  common navigation sequences can then be reused in many places, providing a central 
+  point of modification if the navigation subsequently changes. These common navigation 
+  aids simply navigate the application from one point to another; they typically 
+  don't perform any tests themselves other than to verify their start and end 
+  states.</p>
+
+
+<h3><a name="IdentifyTestDesignNeeds">Identify test-specific design needs</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To identify the needs of the test discipline that will place 
+        potential constraints on the software engineering process, the software 
+        architecture and the corresponding design and implementation.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Especially where test automation is concerned, it's likely that the test implementation 
+  and assessment needs that will place some constraints on both the way the development 
+  team enact the software engineering process, and on the architecture and design 
+  of the software. It's important that the software development team are not unduly 
+  hampered in their core development work and that the test team have the ability 
+  to perform the necessary testing. See <a href="ac_tst_obttstcmt.htm">Activity: 
+  Obtain Testability Commitment</a> for information about presenting the needs 
+  of the test team to the development team and finding workable solutions that 
+  satisfy the needs of all disciplines.</p>
+<p>Using the information you have gathered, consider what requirements the test 
+  effort will place on the development effort.</p>
+<p><b>Sub-topics:</b></p>
+<ul>
+  <li><a href="#IdentifyDesignTestInterfaces">Identify test interfaces</a></li>
+  <li><a href="#IdentifyDesignInbuiltTests">Identify inbuilt test functions</a></li>
+  <li><a href="#IdentifyDesignTestConstraints">Identify test design constraints</a></li>
+</ul>
+
+
+<h4><a name="IdentifyDesignTestInterfaces">Identify test interfaces</a>
+ <a href="#IdentifyTestDesignNeeds"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Consider the interfaces identified; are there additional requirements the test 
+  effort will need included in the software design and subsequently exposed in 
+  the implementation? In some cases, additional interfaces will be required specifically 
+  to support the test effort, or existing interfaces will require additional operating 
+  modes or modified message signatures (changes to input and return parameters).</p>
+<p>In relation to the target deployment environments (as captured in the test 
+  environment configurations) and the development schedule itself, identify the 
+  constraints and dependencies placed on the test effort. These dependencies may 
+  necessitate the provision of stubs to simulate elements of the environment that 
+  will not be available or are too resource prohibitive to establish for testing 
+  purposes, or to provide the opportunity the early testing of components of the 
+  partially completed system.</p>
+
+<h4><a name="IdentifyDesignInbuiltTests">Identify inbuilt test functions</a> 
+  <a href="#IdentifyTestDesignNeeds"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Some tests are potentially valuable but prohibitively expensive to implement 
+  as true black-box tests. Furthermore, in high-reliability environments it is 
+  important to be able to test for and isolate faults as quickly as possible to 
+  enable fast resolution. In these cases, it can be useful to build tests directly 
+  into the executable software itself.</p>
+<p>There are different approaches that can be taken to achieve this; two of the 
+  most common include built-in self tests where the software uses redundant processing 
+  cycles to perform self-integrity tests, and diagnostic routines that can be 
+  performed when the software is sent a diagnostic event message, or when the 
+  system is configured to run with diagnostic routines enabled.</p>
+
+<h4><a name="IdentifyDesignTestConstraints">Identify test design constraints</a> 
+  <a href="#IdentifyTestDesignNeeds"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Some of the design and implementation choices of the development team will 
+  either enable or inhibit the test effort. While some of these choices are unavoidably 
+  necessary, there are many smaller decisions&#151;especially in the area of implementation&#151;that 
+  have minimal impact on the development team but significant impact on the test 
+  team.</p>
+<p>Areas to consider include: Use of standard, recognized communication protocols; 
+  Use of UI implementation components that can be recognized by test automation 
+  tools; Adhering to UI design rules including the naming of UI elements; Consistent 
+  use of UI navigation conventions.</p>
+
+
+<h3><a name="DefineSoftwareTestability">Define software testability requirements</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To specify the requirements for the software functions needed 
+        to support the implementation and execution of tests.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+<p>Using the previous work performed on the activity, define the test-specific 
+  requirements and constraints that should be considered in the software design 
+  and implementation.<br>
+  <br>
+  It is important to clearly explain to the development team the reasons why test-specific 
+  features are required to be to built into the software. Key reasons will typically 
+  fall into one of the following areas:</p>
+<ul>
+  <li>To enable tests to be implemented&#151;both manual and automated&#151;by 
+    providing an interface between the target test item and either the manual 
+    or automated test. This is typically most relevant as a test automation concern 
+    to help overcome the limitations of test automation tools in being able to 
+    access the software application for both information input and output.</li>
+  <li>To enable built-in self-tests to be conducted by the developed software 
+    itself.</li>
+  <li>To enable target test items to be isolated from the rest of the developed 
+    system and tested.</li>
+</ul>
+<p>Test-specific features built into the software need to strike a balance between 
+  the value of a built-in test feature and the effort necessary to implement and 
+  test it. Examples of built-in test features include producing audit logs, self-diagnostic 
+  functions and interfaces to interrogate the value of internal variables.</p>
+<p>Another common use of test specific functionality is during integration work 
+  where there is the need to provide stubs for components or subsystems that are 
+  not yet implemented or incorporated. There are two main implementation styles 
+  used for stubs:</p>
+      
+<ul>
+  <li>Stubs and drivers that are simply &quot;dummies&quot; with no functionality 
+    other than being able to provide a specific predefined value (or values) as 
+    either input or as a return value.</li>
+  <li>Stubs and drivers that are more intelligent and can &quot;simulate&quot; 
+    or approximate more complex behavior.</li>
+</ul>
+<p>This second style of stub also provides a powerful means of isolating components 
+  or groups of components from the rest of the system, thus providing flexibility 
+  in the implementation and execution of tests. As with the earlier comment about 
+  test-specific features, a balance between the value of a complex stub and the 
+  effort necessary to implement and test the stub needs to be considered. Use 
+  this second style prudently for two reasons; first, it takes more resources 
+  to implement, and second; it is easier to overlook the existence of the stub 
+  and forget to subsequently remove it.</p>
+<p>Record your findings in terms of test-specific requirements on the design and 
+  implementation models directly, or using one or more test interface specifications.</p>
+
+
+<h3><a name="DefineSoftwareTestability">Define test infrastructure</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To specify the requirements for the test infrastructure 
+        needed to support the implementation and execution of tests.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+<p>Using the previous work performed on the activity, define the test infrastructure 
+  that is required to support test implementation and execution.</p>
+<p>Remember that you are defining the implementation features of the infrastructure; 
+  The main objective is to define the various parts of the solution that will 
+  implement that infrastructure.</p>
+<p><b>Sub-topics:</b></p>
+<ul>
+  <li><a href="#AutomationInfrastructureElements">Test automation elements</a></li>
+  <li><a href="#ManualInfrastructureElements">Manual test elements</a></li>
+</ul>
+
+
+<h4><a name="AutomationInfrastructureElements">Test automation elements</a>
+ <a href="#DefineSoftwareTestability"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Key requirements or features of the test automation infrastructure include:</p>
+<ul>
+  <li>Navigation model: common approaches are round-trip, segmented or hybrid 
+    approaches. Other alternatives include using an Action&#151;Word framework 
+    or screen navigation tables.</li>
+  <li>External Data Access: a method to access data externally from the and To 
+    enable built-in self-tests to be conducted by the developed software itself.</li>
+  <li>Error Reporting and Recovery: common error handling routines and Test Suite 
+    recovery execution wrappers.</li>
+  <li>Security and Access Profiles: Automated Test Execution User Ids.</li>
+</ul>
+<p>Record your decisions as definitions in the implementation sections of the 
+  Test Automation Architecture, process guidance in one or more Test Guidelines 
+  or as Test Scripts, Test Suites, or test library utility routines. See <a href="../artifact/ar_tstatmarc.htm">Artifact: 
+  Test Automation Architecture</a> for further suggestions.</p>
+
+<h4><a name="ManualInfrastructureElements">Manual test elements</a>
+ <a href="#DefineSoftwareTestability"><img src="../../images/top.gif" alt="To top of page" border="0" width="20" height="15"></a></h4> 
+<p>Key requirements or features of the manual test infrastructure include:</p>
+<ul>
+  <li>Test Data Repository: a common repository for the definition of test data.</li>
+  <li>Restoration and Recovery: a method to restore or recover the test environment 
+    configuration to a known state.</li>
+  <li>To enable target test items to be isolated from the rest of the developed 
+    system and tested.</li>
+</ul>
+<p>Record your decisions as process guidance in one or more <a href="../artifact/ar_projspecgls.htm">Artifact: 
+  Project Specific Guidelines</a>.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

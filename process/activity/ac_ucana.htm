@@ -1,0 +1,1480 @@
+<!-- RPW META DATA START --
+
+ 
+
+ 
+
+
+
+-- RPW META DATA END -->
+
+
+
+<html>
+
+
+
+<head>
+
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+
+<title>Activity: Use-Case Analysis </title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+
+
+<body>
+
+
+
+ 
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+
+ 
+
+
+
+
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Use-Case Analysis</rpw><a name="Top"></a></h2>
+
+
+
+
+
+<div align="left">
+
+
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td colspan="2"><b>Purpose</b>
+
+    <ul>
+
+      <li>To identify the classes which perform a use case’s flow of events.</li>
+
+      <li>To distribute the use case behavior to those classes, using use-case
+
+        realizations.</li>
+
+      <li>To identify the responsibilities, attributes and associations of the
+
+        classes.</li>
+
+      <li>To note the usage of architectural mechanisms</li>
+
+    </ul>
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td colspan="2"><b>Steps</b>
+
+      <p>The following are performed for each use case in the current iteration:</p>
+
+      <ul>
+
+      <li><a href="#Create Use-Case Realization">Create the Use-Case
+
+        Realization</a></li>
+
+      <li><a href="#Supplement the use-case description">Supplement the
+
+        Use-Case Description</a></li>
+
+      <li><a href="#Find Classes from Use-Case Behavior">Find Analysis
+
+            Classes from Use-Case Behavior</a></li>
+
+      <li><a href="#Distribute behavior to analysis classes">Distribute
+
+            Behavior to Analysis Classes</a></li>
+
+      <li><a href="#Describe responsibilities">Describe Responsibilities</a></li>
+
+      <li><a href="#Describe attributes and associations">Describe
+
+            Attributes and Associations</a></li>
+
+      </ul>
+
+      <p>The following are performed once per iteration:</p>
+
+    <ul>
+
+      <li><a href="#Reconcile the Use-Case Realizations">Reconcile the Use-Case
+
+        Realizations</a></li>
+
+      <li><a href="#Qualify Analysis Mechanisms">Qualify Analysis Mechanisms</a></li>
+
+            <li><a href="#Establish Traceability">Establish Traceability</a></li>
+
+      <li><a href="#Review the Results">Review the Results</a></li>
+
+    </ul>
+
+	
+
+	    <p>Note: The above steps are presented in a logical order, but you may 
+
+          have to alternate between them, or perform some of them in parallel.</p>
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+
+	  <ul>
+<li><a href="../artifact/ar_aclss.htm">Analysis Class</a></li>
+<li><a href="../artifact/ar_amdl.htm">Analysis Model</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_gloss.htm">Glossary</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_uc.htm">Use Case</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+</ul>
+&nbsp;
+
+	</td>
+
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+
+	  <ul>
+<li><a href="../artifact/ar_aclss.htm">Analysis Class</a></li>
+<li><a href="../artifact/ar_amdl.htm">Analysis Model</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+</ul>
+&nbsp;
+
+	</td>
+
+  </tr>
+
+  <tr>
+
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration, for a set of use cases and/or use-case scenarios
+
+      (those being developed in the current iteration).&nbsp;
+
+	</td>
+
+  </tr>
+
+  <tr>
+
+    <td colspan="2"><b>Role:&nbsp;</b>
+
+	  <a href="../workers/wk_dsgnr.htm">Designer</a>&nbsp;
+
+	</td>
+
+  </tr>
+
+  <tr>
+
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+
+	  <ul>
+<li><a href="../../toolment/rose/tm_ucana.htm">Capturing the Results of Use-Case Analysis Using Rational Rose</a></li>
+<li><a href="../../toolment/rose/tm_ucds2.htm">Managing Collaboration Diagrams Using Rational Rose</a></li>
+<li><a href="../../toolment/rose/tm_ucds1.htm">Managing Sequence Diagrams Using Rational Rose</a></li>
+<li><a href="../../toolment/rose/tm_desmd.htm">Managing the Design Model Using Rational Rose</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_ucana.htm">Performing Use-Case Analysis Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_ucana.htm">Performing Use-Case Analysis Using Rational XDE Developer - Java Platform Edition</a></li>
+</ul>
+&nbsp;
+
+	</td>
+
+  </tr>
+
+  <tr>
+
+    <td colspan="2"><b>More Information:&nbsp;</b>
+
+	  <ul>
+<li><a href="../modguide/md_acls2.htm">Guideline: Analysis Class</a></li>
+<li><a href="../modguide/md_coldm.htm">Guideline: Collaboration Diagram</a></li>
+<li><a href="../modguide/md_seqdm.htm">Guideline: Sequence Diagram</a></li>
+<li><a href="../workguid/wg_uca.htm">Guideline: Use-Case-Analysis Workshop</a></li>
+<li><a href="../modguide/md_ucrea.htm">Guideline: Use-Case Realization</a></li>
+</ul>
+
+
+      </td>
+
+  </tr>
+
+</table>
+
+<!-- Linked to Workflow Begin -->
+
+<p></p>
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+
+      <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and1.htm">Define a Candidate Architecture</a></li>
+<li><a href="../workflow/ana_desi/wfs_and3.htm">Analyze Behavior</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+
+	</td>
+
+  </tr>
+
+</table>
+
+<!-- Linked to Workflow End -->
+
+</div>
+
+
+
+<h2><a name="Create Use-Case Realization">Create Use-Case Realization</a> 
+
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="5%"><b>Purpose</b></td>
+
+	<td width="95%">To create the modeling element used to express the behavior of the use case.&nbsp;</td>
+
+  </tr>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p>Use Cases form the central focus of most of the early analysis and design work. 
+
+  To enable the transition between Requirements-centric activities and Analysis/Design-centric 
+
+  activities, the <a href="../artifact/ar_ucrea.htm">Artifact: Use-Case Realization</a> 
+
+  serves as a bridge, providing a way to trace behavior in the Analysis and Design 
+
+  Models back to the Use-Case Model, as well as organizing collaborations around 
+
+  the Use Case concept.</p>
+
+<p>If one does not already exist, create a <a href="../artifact/ar_ucrea.htm"> 
+
+  Use-Case Realization</a> in the Analysis Model for the <a href="../artifact/ar_uc.htm">Use 
+
+  Case</a>.&nbsp; The name for the Use-Case Realization should be the same as 
+
+  the associated Use Case, and a &quot;realizes&quot; relationship should be established 
+
+  from the use-case realization to its associated use case.</p>
+
+<p>For more information on use-case realizations, see <a href="../modguide/md_ucrea.htm">Guidelines: Use-Case
+
+Realization</a>.</p>
+
+
+
+<h3><a name="Supplement the use-case description">Supplement the Use-Case
+
+Description</a> <a href="#Top"><img src="../../images/top.gif" border="0" alt="To Top of Page" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="5%"><b>Purpose</b></td>
+
+	<td width="95%">To capture additional information needed in order to understand the required internal behavior of the system
+
+	  that may be missing from the use-case description written for the customer of the system.&nbsp;
+
+	</td>
+
+  </tr>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p>The description of each use case is not always sufficient for finding
+
+analysis classes and their objects. The customer generally finds information
+
+about what happens inside the system uninteresting, so the use-case descriptions
+
+may leave such information out. In these cases, the use-case description reads
+
+like a &#145;black-box&#146; description, in which internal details on what the system
+
+does in response to an actor’s actions is either missing or very summarily
+
+described. To find the objects which perform the use case, you need to have the
+
+&#145;white box&#146; description of what the system does from an internal
+
+perspective.</p>
+
+<p class="exampleheading">Example</p>
+
+<p class="example">In the case of an Automated Teller Machine (ATM), the
+
+customer of the system may prefer to say
+
+<ul>
+
+  <p class="example">&quot;The ATM validates the Bank Customer’s card.&quot;</p>
+
+</ul>
+
+<p class="example">To describe the user authentication behavior of the system.
+
+While this may be sufficient for the customer, it gives us no real idea of what
+
+really happens inside the ATM to validate the card.</p>
+
+<p class="example">In order to form an internal picture of how the system really
+
+works, at a sufficient level of detail to identify objects, we may need
+
+additional information. Taking the ATM card validation activity as an example,
+
+the expanded description would read as:
+
+<ul>
+
+  <p class="example">&quot;The ATM sends the customer’s account number and the
+
+  PIN to the ATM Network to be validated. The ATM Network returns success if the
+
+  customer number and the PIN match and the customer is authorized to perform
+
+  transactions, otherwise the ATM Network returns failure.&quot;</p>
+
+</ul>
+
+<p class="example">This level of detail gives us a clear idea of what
+
+information is required (account number and PIN) and who is responsible for the
+
+authentication (the ATM Network, an actor in the Use Case model). From this
+
+information, we can identify two potential objects (a Customer object, with
+
+attributes of account number and PIN, and an ATM Network Interface) as well as
+
+their responsibilities.</p>
+
+<p>Examine the use-case<b> </b>description to see if the internal behavior 
+
+  of the system is clearly defined. The internal behavior of the system should 
+
+  be unambiguous, so that it is clear what the system must do. It is not necessary 
+
+  to define the elements within the system (objects) that are responsible for 
+
+  performing that behavior – just a clear definition of what needs to be done.</p>
+
+<p>Sources of information for this detail include domain experts who can help
+
+define what the system needs to do. A good question to ask, when considering a
+
+particular behavior of the system, is &quot;what does it mean for the system to
+
+do that thing?&quot;. If what the system does to perform the behavior is not
+
+well defined enough to answer that question, there is likely more information
+
+that needs to be uncovered.</p>
+
+<p>The following alternatives exist for supplementing the description of the <b>Flow
+
+of Events</b>:
+
+<ul>
+  <li><b>Do not describe it at all</b>. This might be the case if you think the 
+    interaction diagrams are self-explanatory, or if the <b>Flow of Events</b> 
+    of the corresponding use case provides a sufficient description.</li>
+  <li><b>Supplement the existing Flow of Event description</b>. Add supplementary 
+    descriptions to the <b>Flow of Events</b> in areas where the existing text 
+    is unclear about the actions the system should take.</li>
+  <li><b>Describe it as a complete textual flow</b>, separate from the &quot;external&quot; 
+    Use Case Flow of Events description. This is appropriate in cases where the 
+    internal behavior of the system bears little resemblance to the external behavior 
+    of the system. In this case, a completely separate description, associated 
+    with the use-case realization rather than the use case, is warranted.</li>
+</ul>
+
+<h3><a name="Find Classes from Use-Case Behavior">Find Analysis Classes from
+
+Use-Case Behavior</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="5%"><b>Purpose</b></td>
+
+	<td width="95%">To identify a candidate set of model elements (analysis classes) which will be capable of performing the 
+
+	  behavior described in use cases.&nbsp;
+
+	</td>
+
+  </tr>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p>Finding a candidate set of analysis classes is the first step in the transformation 
+
+  of the system from a mere statement of required behavior to a description of 
+
+  how the system will work. In this effort, analysis classes are used to represent 
+
+  the roles of model elements which provide 
+
+  the necessary behavior to fulfill the functional requirements specified by use 
+
+  cases and the non-functional requirements specified by the supplemental requirements. 
+
+  As the project focus shifts to design, these roles evolve a set of design elements 
+
+  which realize the use cases.</p>
+
+<p>The roles identified in Use-Case Analysis primarily express behavior of the
+
+upper-most layers of the system - application-specific behavior and domain
+
+specific behavior. Boundary classes and control classes typically evolve into
+
+application-layer design elements, while entity classes evolve into
+
+domain-specific design elements. Lower layer design element typically evolve
+
+from the analysis mechanisms which are used by the analysis classes identified
+
+here.</p>
+
+<p>The technique described here uses three different perspectives of the system
+
+to drive the identification of candidate classes. The three perspectives are
+
+that of the <b>boundary </b>between the system and its actors, the
+
+information the system uses, and the control logic of the system. The
+
+corresponding class stereotypes, boundary, entity and control, are conveniences
+
+used during Analysis that disappear in Design.</p>
+
+<p>Identification of classes means just that: they should be identified, named,
+
+and described briefly in a few sentences.</p>
+
+<p>For more information on identification of analysis classes, see <a href="../modguide/md_acls2.htm">Guidelines:
+
+Analysis Class</a>. For more information on use-case realizations, see <a href="../modguide/md_ucrea.htm">Guidelines:
+
+Use-Case Realization</a>.</p>
+
+<p>If particular analysis mechanisms and/or analysis patterns have been documented 
+  in the project-specific guidelines, 
+  these should be used as another source of &quot;inspiration&quot; for the analysis 
+  classes.</p>
+
+<h3><a name="Distribute behavior to analysis classes">Distribute Behavior to
+
+Analysis Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+  <table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+    <tbody valign="top"> 
+
+    <tr> 
+
+      <td width="5%"><b>Purpose</b></td>
+
+      <td width="95%">To express the use-case behavior in terms of collaborating 
+
+        analysis classes. To determine the responsibilities of analysis classes.&nbsp; 
+
+      </td>
+
+    </tr>
+
+  </table>
+
+<br>
+
+</div>
+
+
+
+<p>For each independent sub-flow (scenario):
+
+<ul>
+
+  <li><b>Create one or more interaction (collaboration or sequence) diagrams</b>. At least one
+
+    diagram is usually needed for the main flow of events of the use case, plus
+
+    at least one diagram for each alternate/exceptional flow. Separate diagrams
+
+    are usually needed for sub-flows which have complex timing or decision
+
+    points, or to simplify complex flows which are too long to grasp easily in
+
+    one diagram.</li>
+
+  <li><b>Identify the analysis classes </b>responsible for the
+
+    required behavior by stepping through the flow of events of the scenario,
+
+    ensuring that all behavior required by the use case is provided by the
+
+    use-case realization.</li>
+
+  <li><b>Illustrate interactions between analysis classes in the
+
+    interaction diagram. </b>The interaction diagram should also show
+
+    interactions of the system with its actors (the interactions should begin
+
+    with an actor, since an actor always invokes the use case).</li>
+
+  <li><b>Include classes that represent the control classes of used
+
+    use-cases.</b> (Use a separate interaction diagram for each extending
+
+    use-case, showing only the variant behavior of the extending use case.)</li>
+
+</ul>
+
+<p align="center"><img src="images/ac_ucan1.gif" alt="an example collaboration diagram" border="0" width="613" height="260"></p>
+
+<p class="picturetext">A collaboration diagram for the use case <b>Receive
+
+Deposit Item</b>.</p>
+
+<p>If particular analysis mechanisms and/or analysis patterns have been
+
+documented in the project-specific guidelines,
+
+these should be reflected in the allocation of responsibility and resulting
+
+interaction diagrams.</p>
+
+<h3><a name="Describe responsibilities">Describe Responsibilities</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="5%"><b>Purpose</b></td>
+
+	<td width="95%">To describe the responsibilities of a class of objects identified from use-case behavior.&nbsp;</td>
+
+  </tr>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p>A responsibility is a statement of something an object can be asked to
+
+provide. Responsibilities evolve into one (but usually more) operations on
+
+classes in design; they can be characterized as:
+
+<ul>
+
+
+  <li>The actions that the object can perform.</li>
+
+  <li>The knowledge that the object maintains and provides to other objects.</li>
+
+</ul>
+
+<p>Each analysis class should have several responsibilities; a class with only
+
+one responsibility is probably too simple, while one with a dozen or more is
+
+pushing the limit of reasonability and should potentially be split into several
+
+classes.</p>
+
+<p>That all objects can be created and deleted goes without saying; don’t
+
+restate the obvious unless the object performs some special behavior when it is
+
+created or deleted. (Some objects cannot be removed if certain relationships
+
+exist.)</p>
+
+<h4>Finding Responsibilities</h4>
+
+<p>Responsibilities are derived from messages in interaction diagrams. For
+
+each message, examine the class of the object to which the message is sent. If
+
+the responsibility does not yet exist, create a new responsibility that provides
+
+the requested behavior.</p>
+
+<p>Other responsibilities will derive from non-functional requirements. When you
+
+create a new responsibility, check the non-functional requirements to see if
+
+there are related requirements which apply. Either augment the description of
+
+the responsibility, or create a new responsibility to reflect this.</p>
+
+<h4>Documenting Responsibilities</h4>
+
+<p>Responsibilities are documented with a short (up to several words) name for
+
+the responsibility, and a short (up to several sentences) description. The
+
+description states what the object does to fulfill the responsibility, and what
+
+result is returned when the responsibility is invoked.</p>
+
+<h3><a name="Describe attributes and associations"></a><a name="XE_attribute_on_object__describing">Describe
+
+Attributes and Associations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="5%"><b>Purpose</b>
+
+    <td width="95%">To define the other classes on which the analysis class depends.<br>
+
+	  To define the events in other analysis classes that the class must know about.<br>
+
+	  To define the information that the analysis class is responsible for maintaining.&nbsp;
+
+	</td>
+
+  </tr>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p>In order to carry-out their responsibilities, classes frequently depend on
+
+other classes to supply needed behavior. Associations document the inter-class
+
+relationships and help us to understand class coupling; better understanding of
+
+class coupling, and reduction of coupling where possible, can help us build
+
+better, more resilient systems.</p>
+
+<p>The following steps define the attributes of classes and the associations
+
+between classes:
+
+<ul>
+
+  <li><a href="#Define Attributes">Define attributes</a></li>
+
+  <li><a href="#Establish associations between analysis classes">Establish associations between
+
+    analysis classes</a></li>
+
+  <li><a href="#Describe event dependencies between analysis classes">Describe event dependencies between analysis
+
+    classes</a></li>
+
+</ul>
+
+<h4><a name="Define Attributes">Define Attributes</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Attributes are used to store information by a class. Specifically, attributes
+
+are used where the information is:
+
+<ul>
+
+  <li>Referred to &quot;by value&quot;; that is, it is only the value of the
+
+    information, not it's location or object identifier which is important.</li>
+
+  <li>Uniquely &quot;owned&quot; by the object to which it belongs; no other
+
+    objects refer to the information.</li>
+
+  <li>Accessed by operations which only get, set or perform simple
+
+    transformations on the information; the information has no &quot;real&quot;
+
+    behavior other than providing its value.</li>
+
+</ul>
+
+<p>If, on the other hand, the information has complex behavior, is shared by two
+
+or more objects, or is passed &quot;by reference&quot; between two or more
+
+objects, the information should be modeled as a separate class.</p>
+
+<p>The attribute name should be a noun that clearly states what information the
+
+attribute holds.</p>
+
+<p>The description of the attribute should describe what information is to be
+
+stored in the attribute; this can be optional when the information stored is
+
+obvious from the attribute name.</p>
+
+<p>The attribute type is the simple data type of the attribute. Examples include
+
+<b>string</b>, <b>integer</b>, <b>number</b>.</p>
+
+<h4><a name="Establish associations between analysis classes">Establish
+
+Associations between Analysis Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Start by studying the links in the interaction diagrams produced in <a href="#Distribute behavior to analysis classes">Distribute
+
+Behavior to Analysis Classes</a>. Links between classes indicate that objects of
+
+the two classes need to communicate with one another to perform the Use Case.
+
+Once we start designing the system, these links may be realized in several ways:
+
+<ul>
+
+  <li>The object may have &quot;global&quot; scope, in which case any object in
+
+    the system can send messages to it</li>
+
+  <li>One object may be passed the second object as a parameter, after which it
+
+    can send messages to the passed object</li>
+
+  <li>The object may have a permanent association to the object to which
+
+    messages are sent.</li>
+
+  <li>The object may be created and destroyed within the scope of the operation
+
+    (i.e. a 'temporary' object) - these objects are considered to be 'local' to
+
+    the operation.</li>
+
+</ul>
+
+<p>At this early point in the &quot;life&quot; of the class, however, it is too
+
+early to start making these decisions: we do not yet have enough information to
+
+make well-educated decisions. As a result, in analysis we create associations
+
+and aggregations to represent (and &quot;carry&quot;) any messages that must be
+
+sent between objects of two classes. (Aggregation, a special form of
+
+association, indicates that the objects participate in a &quot;whole/part&quot;
+
+relationship (see <a href="../modguide/md_assoc.htm">Guidelines: Association</a>
+
+and <a href="../modguide/md_aggrg.htm">Guidelines: Aggregation</a>)).</p>
+
+<p>We will refine these associations and aggregations in the <a href="ac_cldes.htm">Activity:
+
+Class Design</a>.</p>
+
+<p>For each class, draw a class diagram which shows the associations each class
+
+has to other classes:</p>
+
+<p align="center"><img src="images/aclssdg.gif" alt="an example class diagram, showing associations and aggregations" width="358" height="222"></p>
+
+<p class="picturetext">Example analysis class diagram for part of an Order Entry
+
+System</p>
+
+<p>Focus only on associations needed to realize the use cases; don't add
+
+association you think &quot;might&quot; exist unless they are required based on
+
+the interaction diagrams.</p>
+
+<p>Give the associations role names and multiplicities.
+
+<ul>
+
+  <li>A role name should be a noun expressing what role the associated object
+
+    plays in relation to the associating object.</li>
+
+  <li>Assume a multiplicity of 0..* (zero to many) unless there is some clear
+
+    evidence of something else. A multiplicity of zero implies that the
+
+    association is optional; make sure you mean this; if an object might not be
+
+    there, operations which use the association will have to adjust accordingly.</li>
+
+  <li>Narrower limits for multiplicity may be specified (such as 3..8).</li>
+
+  <li>Within multiplicity ranges, probabilities may be specified. Thus, if the
+
+    multiplicity is 0..*, is expected to be between 10 and 20 in 85% of the
+
+    cases, make note of it; this information will be of great importance during
+
+    design. For example, if persistent storage is to be implemented using a
+
+    relational database, narrower limits will help better organize the database
+
+    tables.</li>
+
+</ul>
+
+<p>Write a brief description of the association to indicate how the association
+
+is used, or what relationships the association represents.</p>
+
+<h4><a name="Describe event dependencies between analysis classes">Describe
+
+Event Dependencies between Analysis Classes </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>Objects sometimes need to know when an event occurs in some
+
+&quot;target&quot; object, without the &quot;target&quot; having to know all the
+
+objects which require notification when the event occurs. As a short-hand to
+
+show this event-notification dependency, a subscribe-association allows us to
+
+express this dependency in a compact, concise way.</p>
+
+<p>A subscribe-association between two objects indicates that the subscribing
+
+object will be informed when a particular event has occurred in the subscribed
+
+object. A subscribe-association has a <b>condition</b> defining the event that
+
+causes the subscriber to be notified.<b> </b>For more information, see <a href="../modguide/md_sbscr.htm">Guidelines:
+
+Subscribe-Association</a></p>
+
+<p>The conditions of the <b>subscribes-</b>association should be
+
+expressed in terms of abstract characteristics, rather than in terms of its
+
+specific attributes or operations. In this way, the associating object is kept
+
+independent of the contents of the associated entity object, which may well
+
+change.</p>
+
+<p>A subscribe-association is needed:
+
+<ul>
+
+  <li>If an object is influenced by something that occurs in another object.</li>
+
+  <li>If a new object must be created to deal with some event, for example, when
+
+    an error occurs, a new window must be created to notify the user.</li>
+
+  <li>If an object needs to know when another object is instantiated, changed or
+
+    destroyed.</li>
+
+</ul>
+
+<p>The objects which are 'subscribed-to' are typically entity objects. Entity
+
+objects are typically passive stores of information, with any behavior generally
+
+related to their information-storage responsibilities. Many other objects often
+
+need to know when the entity objects change. The subscribe-association prevents
+
+the entity object from having to know about all these other objects - they
+
+simply 'register' interest in the entity object and are notified when the entity
+
+object changes.</p>
+
+<p>Now this is all really just 'analysis sleight-of-hand': in design we have to
+
+define how exactly this notification works. We may purchase a notification
+
+framework, or we may have to design and build one ourselves. But for the moment,
+
+simply noting that the notification exists is sufficient.</p>
+
+<p>The direction of the association shows that only the subscribing object is
+
+aware of the relation between the two objects. The description of the
+
+subscription is entirely within the subscribing object. The associated entity
+
+object, in turn, is defined in the usual way without considering that other
+
+objects might be interested in its activity. This also implies that a
+
+subscribing object can be added to, or removed from, the model without changing
+
+the object to which it subscribes.</p>
+
+
+
+<h3><a name="Reconcile the Use-Case Realizations">Reconcile the Use-Case
+
+Realizations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+   <tr>
+
+     <td width="5%"><b>Purpose</b></td>
+
+     <td width="95%">To reconcile the individual use-case realizations and identify a set of analysis classes with
+
+	   consistent relationships.&nbsp;
+
+	 </td>
+
+   </tr>
+
+</table>
+
+<br>
+
+</div>
+
+<p>
+
+The <a href="../artifact/ar_ucrea.htm">use-case realization</a>s were developed
+
+as a result of analyzing a particular use case.&nbsp; Now the individual use-case realizations need to
+
+be reconciled.&nbsp; Examine the <a href="../artifact/ar_aclss.htm">analysis class</a>es
+
+and the supporting associations defined for each of the use-case realizations.&nbsp;
+
+Identify and resolve inconsistencies and remove any duplicates.&nbsp; For
+
+example, two different use-case realizations may include an analysis class that
+
+is conceptually the same, but since the analysis classes were identified by
+
+different <a href="../workers/wk_dsgnr.htm">designer</a>s, a different name was
+
+used.&nbsp;<br>
+
+Note: Duplication across use-case realizations can be significantly reduced if
+
+the <a href="../workers/wk_archt.htm">Software Architect</a> does a
+
+good job defining an initial architecture (see <a href="ac_arcan.htm">Activity:
+
+Architectural Analysis</a>).</p>
+
+<p>When reconciling the model elements, it is important to take into consideration 
+
+  their relationships.&nbsp; If two classes are merged, or one class replaces 
+
+  another, be sure to propagate the original class's relationships to the new 
+
+  class.</p>
+
+<p>The <a href="../workers/wk_archt.htm">Software
+
+Architect</a> should participate in the reconciliation of the use-case
+
+realizations, as it requires an understanding of the business context, as well as some
+
+foresight of the software architecture and design so that the analysis classes
+
+that best represent the problem and solution domains can be selected.</p>
+
+<p>For more information on classes, see <a href="../modguide/md_acls2.htm">Guidelines: Analysis Class</a>.</p>
+
+<h3><a name="XE_analysis_mechanisms__qualifying">Qualify Analysis Mechanisms</a><a name="Qualify Analysis Mechanisms">
+
+</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="5%"><b>Purpose</b></td>
+
+	<td width="95%">To identify analysis mechanisms (if any) used by the analysis classes. To provide additional information
+
+	  about how the analysis classes apply the analysis mechanism.&nbsp;
+
+	</td>
+
+  </tr>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p>In this step, the analysis mechanisms that apply to each of the identified
+
+analysis classes is examined.</p>
+
+
+
+<p>If an analysis class uses one or more analysis mechanisms, additional
+
+information captured now will assist the software architect and designers to determine the
+
+capabilities required of the architectural design mechanisms. The number of
+
+instances of the analysis class, their size, their frequency of access, and
+
+their expected life-span are among the important properties that can assist the
+
+designers in selecting appropriate mechanisms.</p>
+
+<p>For each analysis mechanism used by an analysis class, qualify the relevant
+
+characteristics which need to be considered when selecting appropriate design
+
+and implementation mechanisms. These will vary depending on the type of
+
+mechanism; give ranges where appropriate, or when there is still much
+
+uncertainty. Different architectural mechanisms will have different
+
+characteristics, so this information is purely descriptive and need only be as
+
+structured as necessary to capture and convey the information. During analysis,
+
+this information is generally quite speculative, but capturing has value since
+
+conjectural estimates can be revised as more information is uncovered.</p>
+
+<p>The analysis mechanisms used by a class and their associated characteristic
+
+need not be captured in a formal way; a note attached to a diagram, or an
+
+extension to the description of the class is sufficient to convey the
+
+information. The characteristic information at this point in the evolution of
+
+the class is quite fluid and speculative, so the emphasis is on capturing
+
+expected values rather than on formalizing the definition of the mechanisms.</p>
+
+<p class="exampleheading">Example</p>
+
+<p class="example">The characteristics of the persistence mechanism used by a <b>Flight</b>
+
+class could be qualified as:</p>
+
+<blockquote>
+
+  <p class="example"><b>Granularity</b>: 2 to 24 Kbytes per flight</p>
+
+  <p class="example"><b>Volume</b>: Up to 100,000</p>
+
+  <p class="example"><b>Access frequency</b>:</p>
+
+  <blockquote>
+
+    <blockquote>
+
+      <ul>
+
+        <li>Creation/deletion: 100 per hour</li>
+
+        <li>Update: 3,000 updates per hour</li>
+
+        <li>Read: 9,000 access per hour</li>
+
+      </ul>
+
+    </blockquote>
+
+  </blockquote>
+
+</blockquote>
+
+<p class="exampleheading">Example</p>
+
+<p class="example">The characteristics of the persistence mechanism used by a <b>Mission</b>
+
+class could be qualified as:</p>
+
+<blockquote>
+
+  <p class="example"><b>Granularity</b>: 2 to 3 Mbytes per mission</p>
+
+  <p class="example"><b>Volume</b>: 4</p>
+
+  <p class="example"><b>Access frequency</b>:</p>
+
+</blockquote>
+
+<blockquote>
+
+  <blockquote>
+
+    <blockquote>
+
+      <ul>
+
+        <li>Creation/deletion: 1 per day</li>
+
+        <li>Update: 10 per day</li>
+
+        <li>Read: 100 per hour</li>
+
+      </ul>
+
+    </blockquote>
+
+  </blockquote>
+
+</blockquote>
+
+<h3><a name="Establish Traceability">Establish 
+
+  Traceability</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+    <tr>
+
+      <td width="5%"><b>Purpose</b></td>
+
+      <td width="95%">To maintain the traceability relationships between the Analysis Model and other models.&nbsp;</td>
+
+    </tr>
+
+</table>
+
+<br>
+
+</div>
+
+<p>
+
+  The project's project-specific guidelines 
+
+  specifies what traceability is required for Analysis Model elements.</p>
+
+<p>For example, if there is a separate model of the user interface, then it may 
+
+  be useful to trace screens or other user interface elements in that model to 
+
+  boundary classes in the Analysis Model.</p>
+
+<h3><a name="Review the Results">Review the Results</a>&nbsp; <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+
+ <tbody valign="top">
+
+  <tr>
+
+    <td width="5%"><b>Purpose</b></td>
+
+	<td width="95%">To verify that the analysis objects meet the functional requirements made on the system.<br>
+
+      To verify that the analysis objects and interactions are consistent.&nbsp;
+
+	</td>
+
+  </tr>
+
+</table>
+
+<br>
+
+</div>
+
+
+
+<p>Conduct a review informally at the end of the workshop, as a synchronization
+
+point, as well as the conclusion to the <a href="ac_ucana.htm">Activity:
+
+Use-Case Analysis</a>.</p>
+
+<p>Use the checkpoints for artifacts output by this activity.</p>
+
+<br>
+
+<br>
+
+
+
+
+
+ 
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+
+ 
+
+
+
+</body>
+
+
+
+</html>

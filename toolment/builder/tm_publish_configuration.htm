@@ -1,0 +1,287 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Publish Process Configuration Using RUP Builder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Publish Process Configuration Using RUP Builder</rpw><a name="XE_Index_Entry_Category__???_New_Tool_Mentor"></a> 
+</h2>
+
+
+<h3>Purpose</h3>
+<p>RUP Builder allows you to publish a configuration of RUP that you've created
+to any drive available to you. This enables you to share the common process that
+you have agreed on with your team.</p>
+
+<p>This tool mentor assumes that you have described your configuration, selected
+the process components pertinent to it, created the process views most useful
+for the configuration and selected the Publish Process panel in RUP Builder.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tlrprjprc.htm">Tailor the Process for the Project</a></li>
+<li><a href="../../process/activity/ac_ladev.htm">Launch Development Process</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h4>Overview</h4>
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#StepNumber1">Select Publication Location</a></li>
+  <li><a href="#StepNumber2">Select Process Views to Publish</a></li>
+  <li><a href="#StepNumber3">Select Graphics Processing Options</a></li>
+  <li><a href="#StepNumber4">Select Post Publishing Options</a></li>
+  <li><a href="#StepNumber5">Publish the Configuration</a></li>
+  <li><a href="#StepNumber6">Inform the Team</a></li>
+  <li><a href="#StepNumber7">Save Your Process Configuration</a></li>
+  <li><a href="#MoreInfo">More Information</a></li>
+</ul>
+
+
+<h3><a name="StepNumber1">Select Publication Location</a>&nbsp; <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>In the Publish Location field, enter the location that you'd like to publish
+your configuration of RUP to.&nbsp; You can also use the browse button to select
+a location.&nbsp; For trouble-shooting while you are developing the
+configuration, you could choose to publish to your local hard drive, but it is
+expected that you will publish to a drive accessible to the entire team that
+will use the RUP configuration.</p>
+
+
+<h3><a name="StepNumber2">Select Process Views to Publish</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>You've already reviewed and possibly updated the various process views in
+your configuration.&nbsp; You don't, however, have to include all of them in
+your published web-site.&nbsp; The first tab in the publication panel contains a
+process view selection list and a matching radio-button selection of the
+default.&nbsp; By default, all process views are selected for publication.&nbsp;
+De-select those that you don't want to have visible in the published site.&nbsp;
+From the ones that you will publish, select the one that you would like to
+appear as the default visible view in the published site.</p>
+
+<p>Note that if a user has hidden all but one of the process views in their tree
+control, this will be their default when they start RUP.</p>
+
+<h3><a name="StepNumber3">Select Graphics Processing Options</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>By default, RUP Builder generates customized tabular views of the process you
+have chosen that mimic as closely as possible the graphics in Classic RUP.&nbsp;
+This enables you to make process selections and have them show up in all aspects
+of the published RUP site.&nbsp; You may choose to publish using the existing
+RUP graphics as well.&nbsp; This isn't recommended as they won't include any of
+your custom choices.</p>
+
+<p>There is one case in which publishing anything but the basic Classic RUP with
+existing graphics is useful:&nbsp; your organization has created an
+organizational process plug-in that replaces the existing graphics with ones
+appropriate to the configuration in question.&nbsp; In this case, you should
+receive clear guidance from your organizational process group on this.</p>
+
+<h3><a name="StepNumber4">Select Post Publishing Options</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>By default, RUP Builder regenerates the keyword and search indices used by
+RUP Browser.&nbsp; You must do this to have fully valid indices for your final
+publication. It can save a few minutes every time you publish a RUP
+configuration to not generate them.&nbsp; This is useful when you are developing
+and testing a RUP configuration. If you choose not to generate them, default
+indices are put in place, but they will be inaccurate in greater or lesser ways.</p>
+
+<h3><a name="StepNumber5">Publish the Configuration</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Click on the Publish icon at the bottom of the panel. The publication process
+deletes all files in a folder before publication, but prompts you if you wish to
+do so.&nbsp;&nbsp;</p>
+
+<p>If you selected the 'Show Error Log' option in the Advanced panel, a dialog
+will appear with various publication errors.&nbsp; This will be most meaningful
+to people testing newly created plug-ins, not people configuring processes.</p>
+
+<p>A progress bar will appear at the bottom of the panel.&nbsp; It will go
+through twice, once for publication and once for post-publishing options (see
+above).</p>
+
+<p>When it's finished you will be prompted to see if you would like to review
+the newly published web-site.</p>
+
+<h3><a name="StepNumber6">Inform the Team</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>When you are satisfied with the RUP configuration that you have published,
+provide the URL to all members of the team or organization that need to have
+access to it.</p>
+
+<h3><a name="StepNumber7">Save Your Process Configuration</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>After making a series of changes, its a good idea to save your selections to
+a custom configuration for your project if you have not already done so.&nbsp;
+That way, the next time you update your process configuration, you can start
+from the same place you left off, and iterate your process and its views most
+effectively.
+
+<h4><a name="MoreInfo">For More Information</a><a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>&nbsp;
+</h4>
+  
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,356 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Workflow Detail:&nbsp;Manage Changing Requirements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Workflow Detail:&nbsp;<rpw name="PresentationName">Manage 
+  Changing Requirements</rpw></h2>
+
+<div align="center">
+<table width="100%" cellpadding="4" border="0" bordercolor="#808080">
+  <tbody valign="top">
+    <tr> 
+      <td colspan="2" valign="top" height="45"> 
+       <p>The purpose of this workflow detail is to assess the impact of requested 
+          changes to the requirements, and manage the downstream impact of the 
+          changes approved to be actioned</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="10%" height="198" bgcolor="#CCCCCC"> 
+        <h5><br>Topics</h5>
+        <ul>
+          <li><a href="#Description">Description</a></li>
+          <li><a href="#RelatedInformation">Related Information</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Optionality">Optionality</a>&nbsp;</li>
+          <li><a href="#HowToStaff">How to Staff</a></li>
+          <li><a href="#WorkGuidelines">Work Guidelines</a></li>
+        </ul>
+      </td>
+      <td width="90%" height="198"> 
+        <p><a name="Overview"><map name="RPWMap0">
+
+ 
+    <area href="../../artifact/ar_rvrec.htm" shape="rect" coords="314,277,358,339">
+    
+
+    <area href="../../artifact/ar_crqst.htm" shape="rect" coords="438,233,487,295">
+    
+
+    <area href="../../artifact/ar_stnds.htm" shape="rect" coords="373,233,434,300">
+    
+
+    <area href="../../artifact/ar_rskls.htm" shape="rect" coords="279,6,319,56">
+    
+
+    <area href="../../artifact/ar_ratgl.htm" shape="rect" coords="204,5,262,71">
+    
+ 
+    <area href="../../artifact/ar_vsion.htm" shape="rect" coords="437,174,477,228">
+    
+
+    <area href="../../artifact/ar_uc.htm" shape="rect" coords="274,188,338,238">
+    
+
+    <area href="../../artifact/ar_itpln.htm" shape="rect" coords="148,338,208,405">
+    
+
+    <area href="../../artifact/ar_uiprt.htm" shape="rect" coords="296,339,374,405">
+    
+
+    <area href="../../artifact/ar_rattr.htm" shape="rect" coords="365,185,434,235">
+    
+
+	<area href="../../workers/wk_sthld.htm" shape="rect" coords="5, 187, 79, 393">
+	
+
+    <area href="../../artifact/ar_itpln.htm" shape="rect" coords="41,5,101,80">
+    
+
+    <area href="../../artifact/ar_ucmod.htm" shape="rect" coords="109,3,192,80">
+    
+
+    <area href="../../artifact/ar_rattr.htm" shape="rect" coords="396,100,466,164">
+    
+
+    <area href="../../artifact/ar_tstpl.htm" shape="rect" coords="382,4,436,61">
+    
+
+    <area href="../../artifact/ar_desmd.htm" shape="rect" coords="324,2,377,56">
+    
+
+    <area href="../../artifact/ar_sspec.htm" shape="rect" coords="173,181,247,250">
+    
+
+    <area href="../../artifact/ar_gloss.htm" shape="rect" coords="230,345,271,404">
+    
+
+	<area href="../../artifact/ar_ucmod.htm" shape="rect" coords="81, 184, 161, 242">
+	
+
+    <area href="../../activity/ac_mgdep.htm" shape="rect" coords="265,94,338,156">
+    
+
+	<area href="../../activity/ac_rvucm.htm" shape="rect" coords="215, 266, 275, 334">
+	
+
+    <area href="../../activity/ac_stucm.htm" shape="rect" coords="173,91,257,155">
+    
+
+    <area href="../../workers/wk_tchrvw.htm" shape="rect" coords="90, 262, 145, 335">
+    
+
+    <area href="../../workers/wk_sysan.htm" shape="rect" coords="96,96,150,172">
+    
+</map><img border="0" src="images/wfg_mnch.gif" width="486" height="401" usemap="#RPWMap0">
+</a>
+		</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br></div>
+
+<h4><a name="Description">Description</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>This workflow detail addresses:</p>
+<ul>
+  <li>Evaluating requested changes and determining their impact on the existing 
+    requirement set.</li>
+
+ 
+  <li>Structuring the <a href="../../artifact/ar_ucmod.htm">use-case model</a>.</li>
+
+
+
+  <li>Setting up appropriate <a href="../../artifact/ar_rattr.htm">requirements 
+    attributes</a> and <a href="co_trace.htm">traceability relationships</a>.</li>
+
+
+  <li>Verify that the results of the requirements work conform to the customer's 
+    view of the system.</li>
+</ul>
+<p>Changes to requirements naturally impact downstream artifacts. For example 
+  the models produced in the course of analysis &amp; design work, the tests developed 
+  to validate that the requirements have been met, and the end-user support materials. 
+
+
+  The <a href="co_trace.htm">Traceability</a> relationships identified in the 
+  <a href="../../activity/ac_mgdep.htm">manage dependency</a> activity of this 
+  discipline, identify the relationships between requirements and other artifacts. 
+  These relationships are the key to understanding the impact of requirements 
+  change.
+
+
+</p>
+<p>Another important consideration is the tracking of requirement history. By 
+  capturing the nature and rationale of requirements changes, <a href="../../workers/wk_reviewer.htm">reviewers</a> 
+  (in this case the role is played by anyone on the software project team whose 
+  work is affected by the change) receive the information needed to respond to 
+  the change properly.</p>
+<p>Regular reviews, along with updates to the requirement attributes and dependencies, 
+  should be done whenever the requirements are updated.</p>
+
+
+  
+<h4><a name="RelatedInformation">Related Information</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>This section provides links to additional information related to this workflow detail.</p>
+<p><ul>
+<li><a href="../../../papers/apprmuc.htm">Whitepaper: Applying Requirements Management with Use Cases</a></li>
+<li><a href="../../../papers/traceability.htm">Whitepaper: Traceability Strategies for Managing Requirements with Use Cases</a></li>
+</ul>
+</p>
+  
+<h4><a name="Timing">Timing</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>This work is normally addressed throughout each iteration.</p>
+
+<h4><a name="Optionality">Optionality</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>Should be performed in each iteration where the requirements will be further refined.</p>
+
+<h4><a name="HowToStaff">How to Staff</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>Involve the extended team (<a href="../../workers/wk_sthld.htm">stakeholders</a>: 
+  customer representatives, domain experts, and others). Be careful to manage 
+  your reviewing resources effectively&#151;do not include the entire extended 
+  team unless you can ensure it adds value to the project.</p>
+<p>The extended team should incorporate good knowledge of the problem domain, 
+  the technical difficulties of the project, as well as skills in requirements 
+  management
+
+   and <a href="../../modguide/md_ucmod.htm">use-case modeling</a>
+.</p>
+
+<h4><a name="WorkGuidelines">Work Guidelines</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>The core development team should conduct a few rounds of internal reviews: 
+  walk-throughs to clean up unnecessary inconsistencies before their work is more 
+  formally inspected and reviewed by the extended team.</p>
+<p>You should divide the material up so that the team does not review everything 
+  at once. A review meeting shouldn't take more than a day. For example, you might 
+  conduct separate reviews of the user interface and the behavioral scenarios, 
+  or you might review all of the requirements artifacts related to a given subsystem.</p>
+<p>See the <a href="#RelatedInformation">Related Information</a> section for additional 
+  guidance that will help you in performing this work.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

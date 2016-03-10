@@ -1,0 +1,305 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Creating Performance Test Suites with Rational TestManager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Creating Performance 
+  Test Suites with Rational TestManager</rpw><a name="Top"></a> </h2>
+
+<h3>Purpose</h3>
+
+<p>This tool mentor describes how to use Rational TestManager to create a
+performance test suite.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+<li><a href="../../process/activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+
+<p>A suite shows a hierarchical representation of the user population and
+workload that you emulate in a performance test. It shows items such as the user
+groups, the scripts executed by each group, and the number or percentage of
+virtual testers assigned to each group.</p>
+<p>This tool mentor applies to Microsoft&reg; Windows 98/2000/NT 4.0 platforms.</p>
+
+<h4>Tool Steps</h4>
+
+<p>To design automated performance test suites using TestManager,
+perform the following steps:</p>
+<ol type="1">
+  <li><a href="#Create a suite">Create
+    a suite</a>
+  <li><a href="#Insert user groups into a suite">Insert
+    user groups into a suite</a>
+  <li><a href="#Insert test scripts into a suite">Insert
+    test scripts into a suite</a></li>
+</ol>
+
+<h3>1.&nbsp; <a name="Create a suite">Create a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+  <p>A suite enables you to run test scripts and, more importantly, to emulate
+  the actions of real users accessing a multi-user application. A suite can be
+  as simple as one virtual tester executing one test script or as complex as
+  thousands of virtual testers executing a variety of test scripts.</p>
+  <p>You can create a performance suite in one of these ways:</p>
+  <ul>
+    <li>Using
+      the performance testing suite wizard
+    <li>Based
+      on an existing Robot session
+    <li>Using
+      a blank performance testing suite</li>
+  </ul>
+  <p>This mentor describes using a blank performance test suite.</p>
+  <p>To create this suite:</p>
+    <ol type="1">
+      <li>Click
+        <b>File &gt; New Suite</b>.
+      <li>Click
+        <b>Blank Performance Testing Suite</b>.</li>
+    </ol>
+
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to the topic
+titled <i>Creating a New Suite</i>  in TestManager online Help.<h3>2.&nbsp;
+<a name="Insert user groups into a suite">Insert user groups into a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+  <p>User groups are the basic building block for all performance testing
+  suites. A user group is a collection of virtual testers who perform the same
+  set of activities. All performance testing suites must contain one or more
+  user groups&#151either fixed or scalable.</p>
+  <p>In general, scalable user groups allow more flexibility than fixed user
+  groups. With scalable user groups, a single performance test suite can emulate
+  a different number of users in each test run. If your suite contains fixed
+  user groups and you want to runs tests with different numbers of virtual
+  testers, you must modify the number of virtual testers in each user group in
+  the suite at test run-time.</p>
+  <p>To insert a user group into an open suite:</p>
+    <ol type="1">
+      <li>Click
+        <b>Suite &gt; Insert &gt; User Group</b>.
+      <li>Choose
+        between <b>Fixed</b> or <b>Scalable</b> user groups.</li>
+      <li>Set
+        the Number of users (for a fixed user group) or Percentage (for a
+        scalable user group). If the percentage for a scalable user group is
+        less than 100%, another user group must be added (sum total percentage
+        of all user groups must be 100).</li>
+    </ol>
+
+<h3>3.&nbsp;&nbsp;&nbsp; <a name="Insert test scripts into a suite">Insert test scripts into a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+  <p>From an opened suite, perform the following steps:</p>
+<ol>
+  <li>Select the user groups that are to run the test script.</li>
+  <li>Click <b>Suite &gt; Insert &gt; Test Script</b>.</li>
+  <li>When the Run Properties of Test Script dialog appears, the following
+    properties can be set:</li>
+</ol>
+<blockquote>
+<ul>
+  <li>
+    <p><b>Test script source</b> – Choose the type
+      of script (GUI, VU, VB, Java) you want to insert.</li>
+  <li>
+    <p><b>Query</b> &#151 Specify the characteristics
+      of scripts you would like to insert into the suite. If a large number of
+      test scripts resides in your test datastore, build a query to show only
+      those scripts that meet certain criteria (created by a certain person,
+      modified since a certain date, and so on).</li>
+  <li>
+    <p><b>Precondition</b> &#151 Select this to
+      specify that successful completion of the test script is a precondition
+      for the remainder of that suite sequence. This means that the test script
+      must complete successfully for subordinate items in the suite sequence to
+      run.</li>
+  <li>
+    <p><b>Iterations</b> &#151 Specify how often to
+      repeat the selected script or scripts.</li>
+  <li>
+    <p"><b>Scheduling method</b> &#151 Specify the
+      delay, if any, before the start of the script, or specify other events
+      that trigger the execution of the script.</li>
+</ul>
+</blockquote>
+<ol start="4">
+  <li>After you have set the properties you want, select the <b>name of the
+      test to insert</b> and click <b>OK</b>.</li>
+</ol>
+<p><b>Note</b>: You cannot mix GUI and VU test scripts in a user group. You can,
+however, mix other test script types.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to the
+following topics  in the TestManager online Help:</p>
+<ul>
+  <li><i>Defining Test Scripts</i></li>
+  <li><i>Running Properties of the Test Script</i></li>
+</ul>
+
+<p>&nbsp;</p>
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

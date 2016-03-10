@@ -1,0 +1,245 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Best Practice: Manage Requirements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top">Best Practice: Manage Requirements</a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#What is Requirements Management">What is Requirements
+    Management?</a>
+  </li>
+  <li><a href="#Use-Case Driven Development">How is Development Driven by Use
+    Cases?</a></li>
+</ul>
+<h2><a name="What is Requirements Management">What is Requirements Management?</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Requirements management is a systematic approach to finding, documenting,
+organizing, and tracking a system's changing requirements.</p>
+<p>We define a requirement as &quot;a condition or capability to which the system 
+  must conform&quot;.</p>
+<p>We formally define requirements management as a systematic
+approach to both:
+<ul>
+  <li>eliciting, organizing, and documenting the requirements of the system</li>
+  <li>establishing and maintaining agreement between the customer and the
+    project team on the system's changing requirements</li>
+</ul>
+<p>Keys to effective requirements management include maintaining a clear statement 
+  of the requirements, along with appropriate attributes and traceability to other 
+  requirements and other project artifacts.</p>
+<p>Collecting requirements may sound like a rather straightforward task. In reality,
+however, projects run into difficulties for the following reasons:
+<ul>
+  <li>Requirements are not always obvious, and can come from many sources.</li>
+  <li>Requirements are not always easily or clearly expressed in words.</li>
+  <li>There are many different types of requirements at different levels of detail.</li>
+  <li>The number of requirements can become unmanageable if they're not controlled.</li>
+  <li>Requirements are related to one another and also to other deliverables of 
+    the software engineering process.</li>
+  <li>Requirements have unique properties or property values. For example, they 
+    are not necessarily equally important nor equally easy to meet.</li>
+  <li>There are many interested parties, which means requirements need to be managed 
+    by cross-functional groups of people.</li>
+  <li>Requirements change.</li>
+</ul>
+<p>No matter how carefully you've defined your requirements, there will always 
+  be things that change. What makes changing requirements complex to manage is 
+  not only that a changed requirement means that time has to be spent on implementing 
+  a particular new feature, but also that a change to one requirement may have 
+  an impact on other requirements. Managing change includes such activities as 
+  establishing a baseline, determining which dependencies are important to trace, 
+  establishing traceability between related items, and implementing change control.</p>
+<h2><a name="Use-Case Driven Development">How is Development Driven by Use
+Cases?</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Our recommended method for organizing your functional requirements is using 
+  use cases. Instead of a bulleted list of requirements, organize them in a way 
+  that tells a story of how someone may use the system. This provides for greater 
+  completeness and consistency, and also provides a better understanding of the 
+  importance of a requirement from a user's perspective.</p>
+<p>From a traditional object-oriented system model, it's often difficult to tell
+how a system does what it's supposed to do. This difficulty stems from the lack
+of a &quot;red thread&quot; through the system when it performs certain tasks.
+In the Rational Unified Process (RUP), use cases are that thread because they define
+the behavior performed by a system. Use cases are not part of traditional object orientation, but their importance has become
+even more apparent. This is further emphasized by the fact that use cases are
+part of the Unified Modeling Language.</p>
+<p>The RUP employs a &quot;use-case driven approach&quot;,
+which means that use cases defined for a system are the basis for
+the entire development process.</p>
+<p>Use cases play a part in several disciplines.</p>
+<ul>
+  <li>The concept of use cases can be used to represent business processes. We 
+    call this use-case variant a &quot;business use case&quot;. It is covered 
+    by the Business Modeling discipline.</li>
+  <li>Use cases as software requirements are described in the Requirements discipline. 
+    Use cases constitute an important fundamental concept that must be acceptable 
+    to both the customer, developers and testers of the system.</li>
+  <li>In the Project Management discipline, use cases are used as a basis for 
+    planning iterative development.</li>
+  <li>Use cases are realized in a design model as part of the Analysis and Design 
+    discipline. Use-case realizations describe how the use case is supported by 
+    the design in terms of interacting objects in the design model.</li>
+  <li>Use cases ultimately become implemented and testable scenarios, and so are 
+    an important focus in both the Implementation and Test disciplines. They are 
+    used to derive test cases and test scripts; the functionality of the system 
+    is verified by executing test scenarios that exercise each use case.</li>
+  <li>In the Deployment discipline, use cases form a foundation for what is described 
+    in user's manuals. Use cases can also be used to define ordering units of 
+    the product. For example, a customer can get a system configured with a particular 
+    mix of use cases.</li>
+</ul>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

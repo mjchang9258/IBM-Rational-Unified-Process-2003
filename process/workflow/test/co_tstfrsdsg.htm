@@ -1,0 +1,508 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Concepts:&nbsp;Test-first Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:
+<rpw name="PresentationName">Test-first Design</rpw><a name="XE_test__developer_testing__test-first_design"></a><a name="XE_design__test-first_design"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Examples">Examples</a></li>
+  <li><a href="#WhoDoesTest-FirstDesign">Who does Test-First Design?</a></li>
+  <li><a href="#CanAllTestDesignBeDoneAtComponentDesignTime">Can all test design be done at component design time?</a></li>
+  <li><a href="#Test-FirstDesignAndRUPPhases">Test-first design and the phases of RUP</a></li>
+</ul>
+
+<h3><a name="Introduction">Introduction</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Test designs are created using information from a variety of artifacts, including 
+  design artifacts such as use case realizations, design models, or classifier 
+  interfaces. Tests are executed after components are created. It's typical to 
+  create the test designs just before the tests are to be executed&#151;well after 
+  the software design artifacts are created. Figure 1, following, shows an example. 
+  Here, test design begins sometime toward the end of implementation. It draws 
+  on the results of component design. The arrow from Implementation to Test Execution 
+  indicates that the tests can't be executed until the implementation is complete.</p>
+
+<p align="center"><img src="images/tstfrsdsg-img1.gif" width="614" height="159"></p>
+<p class="picturetext">Fig1: Traditionally, Test Design is performed later in the life-cycle</p>
+
+<p>However, it doesn't have to be this way. Although test execution has to wait 
+  until the component has been implemented, test design can be done earlier. It 
+  could be done just after the design artifact is completed. It could even be 
+  done in parallel with component design, as shown here:</p>
+
+<p align="center"><img src="images/tstfrsdsg-img2.gif" width="610" height="158"></p>
+<p class="picturetext">Fig2: Test-first Design brings test design chronologically 
+  in-line with software design</p>
+
+<p>Moving the test effort &quot;upstream&quot; in this way is commonly called 
+  &quot;test-first design&quot;. What are its advantages?</p>
+<ol>
+  <li>No matter how carefully you design software, you'll make mistakes. You might 
+    be missing a relevant fact. Or you might have particular habits of thought 
+    that make it hard for you to see certain alternatives. Or you might just be 
+    tired and overlook something. Having other people review your design artifacts 
+    helps. They might have the facts you miss, or they might see what you overlooked. 
+    It's best if these people have a different perspective than you do; by looking 
+    at the design differently, they'll see things you missed. <br>
+    <br>
+    Experience has shown that the testing perspective is an effective one. It's 
+    relentlessly concrete. During software design, it's easy to think of a particular 
+    field as &quot;displaying the title of the current customer&quot; and move 
+    on without really thinking about it. During test design, you must decide <i>specifically</i> 
+    what that field will show when a customer who retired from the Navy and then 
+    obtained a law degree insists on referring to himself as &quot;Lieutenant 
+    Morton H. Throckbottle (Ret.), Esq.&quot; Is his title &quot;Lieutenant&quot; 
+    or &quot;Esquire&quot;?<br>
+    <br>
+    If test design is deferred until just before test execution, as in Figure 
+    1, you'll probably waste money. A mistake in your software design will remain 
+    uncaught until test design, when some tester says, &quot;You know, I knew 
+    this guy from the Navy...&quot;, creates the &quot;Morton&quot; test, and 
+    discovers the problem. Now a partially or fully complete implementation has 
+    to be rewritten and a design artifact has to be updated. It would be cheaper 
+    to catch the problem before implementation begins.<br>
+    <br>
+  </li>
+  <li>Some mistakes might be caught before test design. Instead, they'll be caught 
+    by the Implementer. That's still bad. Implementation must grind to a halt 
+    while the focus switches from how to implement the design to what that design 
+    should be. That's disruptive even when the Implementer and Designer roles 
+    are filled by the same person; it's much more disruptive when they're different 
+    people. Preventing this disruption is another way in which test-first design 
+    helps improve efficiency.<br>
+    <br>
+  </li>
+  <li>Test designs help Implementers in another way&#151;by clarifying design. 
+    If there's a question in the Implementer's mind about what the design meant, 
+    the test design might serve as a specific example of the desired behavior. 
+    That will lead to fewer bugs due to Implementer misunderstanding.<br>
+    <br>
+  </li>
+  <li>There are fewer bugs even if the question <i>wasn't</i> in the Implementer's 
+    mind&#151;but should have been. For example, there might have been an ambiguity 
+    that the Designer unconsciously interpreted one way and the Implementer another. 
+    If the Implementer is working from both the design and also from specific 
+    instructions about what the component is supposed to do&#151;from test cases&#151;the 
+    component is more likely to actually do what is required.</li>
+</ol>
+
+
+<h3><a name="Examples">Examples</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Here are some examples to give you the flavor of test-first design.</p>
+
+<p>Suppose you're creating a system to replace the old &quot;ask the secretary&quot; 
+  method of assigning meeting rooms. One of the methods of the <font face="Courier New">MeetingDatabase</font> 
+  class is called <font face="Courier New">getMeeting</font>, which has this signature:</p>
+<blockquote>
+<pre>
+Meeting getMeeting(Person, Time);
+</pre>
+</blockquote>
+
+<p>Given a person and a time, <font face="Courier New">getMeeting</font> returns 
+  the meeting that person is scheduled to be in at that time. If the person isn't 
+  scheduled for anything, it returns the special <font face="Courier New">Meeting</font> 
+  object <font face="Courier New">unscheduled</font>. There are some straightforward test cases:</p>
+<ul>
+  <li>The person isn't in any meeting at the given time. Is the <font face="Courier New">unscheduled</font> 
+    meeting returned? </li>
+  <li>The person is in a meeting at that time. Does the method return the correct 
+    meeting?</li>
+</ul>
+
+<p>These test cases are unexciting, but they need to be tried eventually. They 
+  might as well be created now, by writing the actual test code that will someday 
+  be run. Java code for the first test might look like this:</p>
+<pre>
+    // if not in a meeting at given time,
+    // expect to be unscheduled.
+    public void testWhenAvailable() {
+        Person fred = new Person("fred");
+        Time now = Time.now();
+        MeetingDatabase db = new MeetingDatabase();
+
+        expect(db.getMeeting(fred, now) == Meeting.unscheduled);
+    }
+</pre>
+
+<p>But there are more interesting test ideas. For example, this method searches 
+  for a match. Whenever a method searches, it's a good idea to ask what should 
+  happen if the search finds more than one match. In this case, that means asking 
+  &quot;Can a person be in two meetings at once?&quot; Seems impossible, but asking 
+  the secretary about that case might reveal something surprising. It turns out 
+  that some executives are quite often scheduled into two meetings at once. Their 
+  role is to pop into a meeting, &quot;rally the troops&quot; for some short amount 
+  of time, and then move on. A system that didn't accommodate that behavior would 
+  go at least partially unused.</p>
+
+<p>This is an example of test-first design done at the implementation level catching 
+  an analysis problem. There are a few things to note about that:</p>
+<ol>
+  <li>You would hope that good use-case specification and analysis would have 
+    already discovered this requirement. In that case, the problem would have 
+    been avoided &quot;upstream&quot; and <font face="Courier New">getMeeting</font> 
+    would have been designed differently. (It couldn't return a meeting; it would 
+    have to return a set of meetings.) But analysis always misses some problems, 
+    and it's better for them to be discovered during implementation than after 
+    deployment.<br>
+    <br>
+  </li>
+  <li>In many cases, Designers and Implementers won't have the domain knowledge 
+    to catch such problems&#151;they won't have the opportunity or time to quiz 
+    the secretary. In that case, the person designing tests for <font face="Courier New">getMeeting</font> 
+    would ask, &quot;is there a case in which two meetings should be returned?&quot;, 
+    think for a while, and conclude that there wasn't. So test-first design doesn't 
+    catch every problem, but the mere fact of asking the right kinds of questions 
+    increases the chance a problem will be found.<br>
+    <br>
+  </li>
+  <li>Some of the same testing techniques that apply during implementation also 
+    apply to analysis. Test-first design can be done by analysts as well, but 
+    that's not the topic of this page.</li>
+</ol>
+
+<p>The second of the three examples is a statechart model for a heating system. 
+</p>
+
+<p align="center"><img src="images/tstfrsdsg-img3.gif" width="567" height="253" alt="HVAC Statechart"></p>
+<p class="picturetext">Fig3: HVAC Statechart</p>
+
+<p>A set of tests would traverse all the arcs in the statechart. One test might 
+  begin with an idle system, inject a Too Hot event, fail the system during the 
+  Cooling/Running state, clear the failure, inject another Too Hot event, then run 
+  the system back to the Idle state. Since that does not exercise all the arcs, 
+  more tests are needed. These kinds of tests look for various kinds of implementation 
+  problems. For example, by traversing every arc, they check whether the implementation 
+  has left one out. By using sequences of events that have failure paths followed 
+  by paths that should successfully complete, they check whether error-handling 
+  code fails to clean up partial results that might affect later computation. 
+  (For more about testing statecharts, see <a href="../../modguide/md_tstidssttact.htm">Guideline: 
+  Test Ideas for Statechart and Activity Diagrams</a>.)</p>
+
+<p>The final example uses part of a design model. There's an association between 
+  a creditor and an invoice, where any given creditor can have more than one invoice 
+  outstanding.</p>
+
+<p align="center"><img src="images/tstfrsdsg-img4.gif" width="186" height="45"></p>
+<p class="picturetext">Fig4: Association between Creditor and Invoice Classes</p>
+
+<p>Tests based on this model would exercise the system when a creditor has no 
+  invoices, one invoice, and a large number of invoices. A tester would also ask 
+  whether there are situations in which an invoice might need to be associated 
+  with more than one creditor, or where an invoice has no creditor. (Perhaps the 
+  people who currently run the paper-based system the computer system is to replace 
+  use creditor-less invoices as a way to keep track of pending work). If so, that 
+  would be another problem that should have been caught in Analysis.</p>
+
+
+<h3><a name="WhoDoesTest-FirstDesign">Who does test-first design?</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Test-first design can be done by either the author of the design or by someone 
+  else. It's common for the author to do it. The advantage is that it reduces 
+  communication overhead. The artifact Designer and Test Designer don't have to 
+  explain things to each other. Further, a separate Test Designer would have to 
+  spend time learning the design well, whereas the original Designer already knows 
+  it. Finally, many of these questions&#151;like &quot;what happens if the compressor 
+  fails in state X?&quot;&#151;are natural questions to ask during both software 
+  artifact design and test design, so you might as well have the same person ask 
+  them exactly once and write the answers down in the form of tests.</p>
+
+<p>There are disadvantages, though. The first is that the artifact Designer is, 
+  to some extent, blind to his or her own mistakes. The test design process will 
+  reveal some of that blindness, but probably not as much as a different person 
+  would find. How much of a problem this is seems to vary widely from person to 
+  person and is often related to the amount of experience the Designer has.</p>
+
+<p>Another disadvantage of having the same person do both software design and 
+  test design is that there's no parallelism. Whereas allocating the roles to 
+  separate people will take more total effort, it will probably result in less 
+  elapsed calendar time. If people are itching to move out of design and into 
+  implementation, taking time for test design can be frustrating. More importantly, 
+  there's a tendency to skimp on the work in order to move on. </p>
+
+
+<h3><a name="CanAllTestDesignBeDoneAtComponentDesignTime">Can all test design be done at component design time?</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>No. The reason is that not all decisions are made at design time. Decisions 
+  made during implementation won't be well-tested by tests created from the design. 
+  The classic example of this is a routine to sort arrays. There are many different 
+  sorting algorithms with different tradeoffs. Quicksort is usually faster than 
+  an insertion sort on large arrays, but often slower on small arrays. So a sorting 
+  algorithm might be implemented to use Quicksort for arrays with more than 15 
+  elements, but insertion sort otherwise. That division of labor might be invisible 
+  from design artifacts. You <i>could</i> represent it in a design artifact, 
+  but the Designer might have decided that the benefit of making such explicit 
+  decisions wasn't worthwhile. Since the size of the array plays no role in the 
+  design, the test design might inadvertently use only small arrays, meaning that 
+  none of the Quicksort code would be tested at all.</p>
+
+<p>As another example, consider this fraction of a sequence diagram. It shows 
+  a <font face="Courier New">SecurityManager</font> calling the <font face="Courier New">log()</font> 
+  method of <font face="Courier New">StableStore</font>. In this case, though, 
+  the <font face="Courier New">log()</font> returns a failure, which causes <font face="Courier New">SecurityManager</font> 
+  to call <font face="Courier New">Connection.close()</font>.</p>
+
+<p align="center"><img src="images/tstfrsdsg-img5.gif" width="303" height="161"></p>
+<p class="picturetext">Fig5: SecurityManager sequence diagram instance</p>
+
+<p>This is a good reminder to the Implementer. Whenever <font face="Courier New">log()</font> 
+  fails, the connection must be closed. The question for testing to answer is 
+  whether the Implementer really did it&#151;and did it correctly&#151;in <i>all</i> 
+  cases or just in <i>some</i>. To answer the question, the Test Designer must 
+  find all the calls to <font face="Courier New">StableStore.log()</font> and 
+  make sure each of those call points is given a failure to handle. </p>
+
+<p>It might seem odd to run such a test, given that you've just looked at all 
+  the code that calls <font face="Courier New">StableStore.log()</font>. Can't 
+  you just check to see if it handles failure correctly?</p>
+
+<p>Perhaps inspection might be enough. But error-handling code is notoriously 
+  error-prone because it often implicitly depends on assumptions that the existence 
+  of the error has violated. The classic example of this is code that handles 
+  allocation failures. Here's an example:</p>
+<blockquote>
+  <pre>
+while (true) { // top level event loop
+    try {
+        XEvent xe = getEvent();
+        ...                      // main body of program
+    } catch (OutOfMemoryError e) {
+        emergencyRestart();
+    }
+}
+</pre>
+</blockquote>
+<p>This code attempts to recover from out of memory errors by cleaning up (thus 
+  making memory available) and then continuing to process events. Let's suppose 
+  that's an acceptable design. <font face="Courier New">emergencyRestart</font> 
+  takes great care not to allocate memory. The problem is that <font face="Courier New">emergencyRestart</font> 
+  calls some utility routine, which calls some other utility routine, which calls 
+  some other utility routine&#151;which allocates a new object. Except that there's 
+  no memory, so the whole program fails. These kinds of problems are hard to find 
+  through inspection.</p>
+
+
+<h3><a name="Test-FirstDesignAndRUPPhases">Test-first design and the phases of RUP</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Up to this point, we've implicitly assumed that you'd do as much test design 
+  as possible as early as possible. That is, you'd derive all the tests you could 
+  from the design artifact, later adding only tests based on implementation internals. 
+  That may not be appropriate in the Elaboration phase, because such complete 
+  testing may not be aligned with an iteration's objectives.</p>
+
+<p>Suppose an architectural prototype is being built to demonstrate product feasibility 
+  to investors. It might be based on a few key use-case instances. Code should 
+  be tested to see that it supports them. But is there any harm if further tests 
+  are created? For example, it might be obvious that the prototype ignores important 
+  error cases. Why not document the need for that error handling by writing test 
+  cases that will exercise it?</p>
+
+<p>But what if the prototype does its job and reveals that the architectural approach 
+  won't work? Then the architecture will be thrown away - along with all those 
+  tests for error-handling. In that case, the effort of designing the tests will 
+  have yielded no value. It would have been better to have waited, and only designed 
+  those tests needed to check whether this proof-of-concept prototype really proves 
+  the concept.</p>
+
+<p>This may seem a minor point, but there are strong psychological effects in 
+  play. The Elaboration phase is about addressing major risks. The whole project 
+  team should be focused on those risks. Having people concentrating on minor 
+  issues drains focus and energy from the team.</p>
+
+<p>So where might test-first design be used successfully in the Elaboration phase? 
+  It can play an important role in adequately exploring architectural risks. Considering 
+  how, precisely, the team will know if a risk has been realized or avoided will 
+  add clarity to the design process and may well result in a better architecture 
+  being built the first time.</p>
+
+<p>During the Construction phase, design artifacts are put into their final form. 
+  All the required use case realizations are implemented, as are 
+  the interfaces for all classes. Because the phase objective is completeness, 
+  complete test-first design is appropriate. Later events should invalidate few, 
+  if any, tests.</p>
+
+<p>The Inception and Transition phases typically have less focus on design activities 
+  for which testing is appropriate. When it is, test-first design is applicable. 
+  For example, it could be used with candidate proof of concept work in Inception. 
+  As with Construction and Elaboration phase testing, it should be aligned with 
+  iteration objectives.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

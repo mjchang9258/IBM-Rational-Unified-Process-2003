@@ -1,0 +1,373 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Reference Architecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Reference Architecture</rpw><a name="Top"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/doc_artf.jpg" width="37" height="48">&nbsp;
+	  </td>
+      <td width="80%">A Reference Architecture is, in essence, a predefined architectural 
+        pattern, or set of patterns, possibly partially or completely instantiated, 
+        designed and proven for use in particular business and technical contexts, 
+        together with supporting artifacts to enable their use. Often, these artifacts 
+        are harvested from previous projects.&nbsp; </td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_archt.htm">Software Architect</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Optional. Inception and Elaboration phases.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">A number of relevant architectural views: Use-Case, Logical, 
+        Process, Deployment, Implementation, Data.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_arcan.htm">Architectural Analysis</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      &nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Reference Architecture artifacts are part of an organization's reusable asset
+base. Their purpose is to form a starting point for architectural development.
+They may range from ready-made <a href="../glossary.htm#architectural_pattern">architectural
+patterns</a>, <a href="../glossary.htm#architectural_mechanism">architectural
+mechanisms</a><i> </i>and <a href="../glossary.htm#framework">frameworks</a>,
+to complete systems, with known characteristics, proven in use. They may be
+applicable generally, or for a broad class of systems spanning domains, or have
+a narrower, domain-specific, focus.</p>
+<p>The use of tested reference architectures is
+an effective way to address many non-functional requirements, particularly
+quality requirements, by selecting existing reference architectures, which are
+known through usage to satisfy those requirements. Reference Architectures may
+exist or be used at different levels of abstraction and from different
+viewpoints. These correspond to the 4+1 Views (see <a href="../workflow/ana_desi/co_swarch.htm#A Typical Set of Architectural Views">&quot;A
+Typical Set of Architectural Views&quot;</a>). In this way, the software
+architect can select what fits best&#151just architectural design, or design and
+implementation, to varying degrees of completion.&nbsp;</p>
+<p> Often, a Reference
+Architecture is defined not to include instances of the components that will be
+used to construct the system&#151if it does it becomes a <a href="../glossary.htm#product-line_architecture">Product-Line
+Architecture</a>&#151but this is not a hard and fast distinction. In the
+Rational Unified Process (RUP), we allow the notion of Reference Architecture to
+include references to existing, reusable components (that is, implementations).</p>
+<h3><a name="BriefOutline">Brief Outline</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4>Organization of Assets</h4>
+<p>The organization which owns the Reference Architecture assets will need to
+decide how the assets are to be classified and organized for easy retrieval by
+the software architect, by matching selection criteria for the new system.
+Although the creation and storage of Reference Architectures is currently
+outside the scope of the RUP, one suggestion is that
+architectures be organized around the idea of <a href="../glossary.htm#domain">domains</a>,
+where a domain is a subject area that defines knowledge and concepts for some
+aspect of a system, or for a family of systems. Here we are allowing use of the
+term 'domain' at levels below that of the application. This usage differs
+slightly from some definitions&#151for example, that presented in [<a href="../referenc.htm#HOF99">HOF99</a>]&#151but aligns well with that presented in [<a href="../referenc.htm#LMFS96">LMFS96</a>]:</p>
+<p><i>&quot;<b>Product-Line Domain</b>: A bounded group of capabilities -
+present and/or future - defined to facilitate communication, analysis and
+engineering in pursuit of identifying, engineering and managing commonality
+across a product-line. Such domains might include closely related groups of
+end-user systems, commonly used functions across multiple systems, or widely
+applicable groupings of underlying services.&quot;</i></p>
+<p>This definition includes the notion that things used to compose systems may
+themselves belong to a domain worthy of study in its own right. The figure
+below, taken from [<a href="../referenc.htm#LMFS96">LMFS96</a>], illustrates
+this principle.</p>
+<p align="center"><img border="0" src="images/domains.gif" width="381" height="191"></p>
+<p align="center"><b>Horizontal and Vertical Domains
+for the US Army</b></p>
+<p align="left">This figure shows the major system families, Information
+Systems, Command &amp; Control, and Weapon Systems, each with some wholly
+contained vertical domains, and horizontal domains that cut across these and
+also across system families. Thus, Real-Time Scheduling concepts are applicable
+to the Tactical Domain of Command &amp; Control and all vertical domains of
+Weapon Systems. It probably makes sense therefore, to solve real-time scheduling
+problems once for all these domains, and treat the knowledge and assets so
+developed as a separate domain, which then has an association to, for example,
+Electronic Warfare, but not to Personnel Information Systems.</p>
+<h4 align="left">Contents</h4>
+<p align="left">The Reference Architecture has the same form as the <a href="ar_sadoc.htm">Artifact: 
+  Software Architecture Document</a> and the associated models, <i>stripped of 
+  project specific references, or having project references and characteristics 
+  made generic,</i> so that the Reference Architecture may be classified appropriately 
+  in the asset base. Typical models associated with the Software Architecture 
+  Document (SAD) are a Use-Case Model, Design Model, Implementation Model and 
+  Deployment Model.</p>
+<p align="left">Access to the SAD and associated models gives several points of
+entry for the software architect, who could choose to use just the conceptual or
+logical parts of the architecture (if the organization's reuse policy allows
+this). At the other extreme, the software architect may be able to take from the
+asset base complete working subsystems, and a Deployment Model at the physical
+level (that is, a complete hardware and network blueprint).</p>
+<p align="left">Other supporting artifacts are needed to make the architectural
+assets usable.&nbsp;</p>
+<ol>
+  <li> 
+    <p align="left">The Use-Case Model describes the behavior of the architecture 
+      but the software architect will also need to know its non-functional qualities. 
+      These two&#151the Use-Case Model and non-functional requirements&#151may 
+      previously have been captured in a Software Requirements Specification. 
+      From this the software architect will be able to determine how well the 
+      Reference Architecture meets current requirements. 
+  </li>
+  <li> 
+    <p align="left">The use, and more particularly, the modification of the architecture 
+      will need the same guidance as the original development. For example, the 
+      software architect will need to know what rules were applied in the formation 
+      of the Reference Architecture, and how difficult it will be to modify interfaces. 
+      Access to the design guidelines associated with the Reference Architecture 
+      can help answer these questions. 
+  </li>
+  <li> 
+    <p align="left">(Optional) Reviewing any relevant existing Test Plans may 
+      also prove useful. These Test Plans will inform the architect of the test 
+      and evaluation strategies previously used to test similar architectures, 
+      and as such are likely to provide insight into potential weaknesses in the 
+      architecture. 
+  </li>
+  <li> 
+    <p align="left">(Optional) Reviewing any relevant existing Test Automation 
+      Architectures and Test Interface Specifications may prove useful. These 
+      artifacts inform the architect of likely requests that may be made of the 
+      architecture to facilitate testing. 
+  </li>
+</ol>
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Reference Architecture is used in inception and early elaboration during
+architectural synthesis and the selection of a candidate architecture. The
+creation of Reference Architectures is an organizational issue and currently
+outside the scope of the RUP. During project close down,
+the artifacts created during the project will be examined to see if anything can
+be harvested and retained in the organization's asset base, but the activities
+and techniques employed to do this are not elaborated here.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The software architect is responsible for the selection and use of Reference
+Architectures.</p>
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Unless the system is completely unprecedented, Reference Architectures should
+be examined for applicability (to the domain and type of development) if they
+exist and are accessible to the development organization. The <i>creation</i> of
+Reference Architectures is an issue to be addressed at the organization level.
+It's certainly possible to cut back on the contents list above and still achieve
+some benefits from architectural reuse. For example, it is possible to omit the
+test model, although tests would have to be rewritten if the architecture is
+modified. At a minimum one might expect a design model and some associated
+behavioral description (perhaps the Use-Case Model). Any less and it's difficult
+to call the asset a Reference Architecture&#151;it could still be a valid pattern
+(analysis, design, ...) of some kind.</p>
+
+<br><br>
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,299 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Make Changes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Make Changes</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>&quot;Makes Changes&quot; is a generic activity to
+        accommodate the team members' need for access to the set of artifacts to
+        be changed (<i>change set</i>) in order to fulfill (<i>through
+        performing various activities) </i>the requirements of their work order.</li>
+    </ul>
+	</td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_wkord.htm">Work Order</a></li>
+<li><a href="../artifact/ar_wkspc.htm">Workspace</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_wkspc.htm">Workspace</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>On-Going&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_any.htm">Any Role</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/rose/tm_rose2cc.htm">Accessing Rational ClearCase from Rational Rose</a></li>
+<li><a href="../../toolment/clearcase/tm_cico.htm">Checking Out and Checking In Configuration Items Using Rational ClearCase</a></li>
+<li><a href="../../toolment/pjc/tm_pjc_displayart.htm">Displaying Artifacts Related to Specific Objects on a Diagram Using Rational ProjectConsole</a></li>
+<li><a href="../../toolment/rosert/tm_rrtclearcase.htm">Setting Up Version Control using Rational Rose RealTime with Rational ClearCase</a></li>
+<li><a href="../../toolment/clearcase/tm_actucm.htm">Using UCM Change Sets with Rational ClearCase</a></li>
+<li><a href="../../toolment/reqpro/tm_rhist.htm">Viewing Requirement History Using Rational RequisitePro</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_cm.htm">Configuration & Change Management</a>
+<ul>
+<li><a href="../workflow/conf_mgt/wfd_chdel.htm">Change and Deliver Configuration Items</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<p>The Work Order from project management is a stimulus to any work being
+performed on a project. On being given a work order, team members will typically plan
+their work by creating &quot;to do&quot; lists with due dates that meet the
+&quot;contract&quot; outlined in the work order.
+<p>The next step is for the responsible role to get or create the necessary artifacts that
+need to be worked on or added to source control.
+<p>Projects usually maintain controlled versions of artifacts in a central,
+restricted access, repository. Check-In and Check-Out are the operations that
+enable development staff to obtain a particular version of an artifact, make
+changes to it, and re-submit it to become the latest controlled version. The
+purpose of this step is to ensure that developers follow 'check-in and
+check-out' procedures to make changes to version controlled artifacts.
+<p>The primary CM operations performed by any member of the development staff
+are:
+<ul>
+  <li><a name="XE_configuration_item__check-out"></a><b>Check Out</b>
+    – Grants permission to change an element</li>
+</ul>
+<ul>
+        <li><a name="XE_configuration_item__check-in"></a><b>Check 
+          In </b>– Stores a new version of the changed element and makes 
+          changes available for Check-Out by other team members. A recommended 
+          policy is that every check-in be accompanied by a brief comment describing 
+          the change.</li>
+</ul>
+<ul>
+  <li><b>Add to Source Control </b>– Places a new file or
+    directory under version control, creating the initial version</li>
+</ul>
+<ul>
+  <li><b>Deliver </b>– Submits changes to the integrator.</li>
+  <li><b>Rebase </b>– Makes changes made by other developers
+    available to your view.</li>
+</ul>
+
+<p>An implementer will typically work in the following manner:
+<ol>
+  <li>Checks out the files that need to be changed.</li>
+  <li>Makes the changes.</li>
+  <li>Performs unit tests to verify the changes.</li>
+  <li>Gets the changes approved.</li>
+  <li>Checks in the changes.</li>
+  <li>Promote the changes.</li>
+</ol>
+<p><br>
+<b>Different Kinds of Check-Out</b><br>
+<br>
+By default, checking out an element grants the exclusive right to create a new
+version of it. This is called a<i> reserved checkout</i>. Another user who
+attempts a reserved checkout of that element is prevented from doing so.</p>
+<p>In parallel development situations, an <i>unreserved checkout</i> is a
+mechanism to checkout a file even if someone else has already checked it out.<br>
+<br>
+Some organizations routinely use a first-come/first-served style of development,
+in which multiple users perform an unreserved Check Out of the same element. Any
+one of them can subsequently perform a Check In, to create the next version of
+that file. Each of the others must <i>merge </i>these changes with previously
+checked in changes before creating a subsequent version.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

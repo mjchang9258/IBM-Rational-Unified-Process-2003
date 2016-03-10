@@ -1,0 +1,566 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Test-Ideas Catalog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Test-Ideas 
+  Catalog</rpw><a name="XE_test-ideas_catalog__concept_of"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#HowCatalogsFindFaults">How a Test-Ideas Catalog Finds Faults</a></li>
+  <li><a href="#GoodCatalogs">A Good Test-Ideas Catalog</a></li>
+  <li><a href="#UsingACatalogExample">An Example of Using a Test-Ideas Catalog</a></li>
+  <li><a href="#CreatingYourOwnCatalogs">Creating and Maintaining Your Own Test-Ideas Catalog</a></li>
+</ul>
+
+<h3><a name="Introduction">Introduction</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Much of programming involves taking things you've used over and over before, 
+  and then using them yet again in a different context. Those things are typically 
+  of certain classes&#151;data structures (such as linked lists, hash tables, 
+  or relational databases) or <a href="../../glossary.htm#operation" target="_blank"><i>operations</i></a> 
+  (such as searching, sorting, creating temporary files, or popping up a browser 
+  window). For example, two customer relational databases will have many clichéd 
+  characteristics.</p>
+
+<p>The interesting thing about these clichés is that they have clichéd <a href="../../glossary.htm#fault" target="_blank"><i>faults</i></a>. 
+  People do not invent imaginative new ways to insert something incorrectly into 
+  a doubly-linked list. They tend to make the same mistakes that they and others 
+  have made before. A programmer who pops up a browser window might make one of 
+  these clichéd mistakes:</p>
+<ul>
+  <li>creates a new window when one that's already open should be reused</li>
+  <li>fails to make an obscured or minimized browser window visible</li>
+  <li>uses Internet Explorer when the user has chosen a different default browser</li>
+  <li>fails to check whether JavaScript is enabled</li>
+</ul>
+
+<p>Since faults are clichéd, so are the <a href="../../glossary.htm#test_idea" target="_blank"><i>test 
+  ideas</i></a> that can find them. Put these test ideas in your test-idea catalog 
+  so you can reuse them.</p>
+
+<h3><a name="HowCatalogsFindFaults">How a Test-Ideas Catalog Finds Faults</a> 
+  <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>One of the virtues of a catalog is that a single test idea can be useful for 
+  finding more than one underlying fault. Here's an example of one idea that finds 
+  two faults.</p>
+
+<p>The first fault was in a C compiler. This compiler took command-line options 
+  like &quot;-table&quot; or &quot;-trace&quot; or &quot;-nolink&quot;. The options 
+  could be abbreviated to their smallest unique form. For example, &quot;-ta&quot; 
+  was as good as &quot;-table&quot;. However, &quot;-t&quot; was not allowed, 
+  because it was ambiguous: it could mean either &quot;-table&quot; or &quot;-trace&quot;.</p>
+
+<p>Internally, the command-line options were stored in a table like this:</p>
+<div align="left">
+<table border="1" cellpadding="2" cellspacing="0" width="25%">
+    <tr>
+        <td width="100%">-table</td>
+    </tr>
+    <tr>
+        <td width="100%">-trace</td>
+    </tr>
+    <tr>
+        <td width="100%">-nolink</td>
+    </tr>
+</table>
+<br></div>
+
+<p>When an option was encountered on the command line, it was looked up in the 
+  table. It matched if it was the prefix of any table entry; that is, &quot;-t&quot; 
+  matched &quot;-table&quot;. After one match was found, the rest of the table 
+  was searched for another match. Another match would be an error, because it 
+  would indicate ambiguity.</p>
+
+<p>The code that did the searching looked like this:</p>
+<blockquote>
+<pre>
+for (first=0; first &lt size; first++) {
+    if (matches(entry[first], thing_sought)) {
+        /* at least one match */
+        for(dup=first+1; dup &lt size; dup++)
+            /* search for another */
+            if (matches(entry[dup], thing_sought))
+                /* extra match */
+                break;  /* error out */
+        return first;
+    }
+}
+return -1;	/* Not found or ambiguity */
+</pre>
+</blockquote>
+
+<p>Do you see the problem? It's fairly subtle.</p>
+
+<p>The problem is the break statement. It's intended to break out of the outermost 
+  enclosing loop when a duplicate match is found, but it really breaks out of 
+  the inner one. That has the same effect as not finding a second match: the index 
+  of the first match is returned.</p>
+
+<p>Notice that this fault can only be found if the option being sought for matches 
+  twice in the table, as &quot;-t&quot; would.</p>
+
+<p>Now let's look at a second, completely different fault.</p>
+
+<p>The code takes a string. It is supposed to replace the last '=' in the string 
+  with a '+'. If there is no '=', nothing is done. The code uses the standard 
+  C library routine <font face="Courier New">strchr</font> to find the location 
+  of '='. Here's the code:</p>
+<blockquote>
+<pre>
+ptr = strchr(string, &#145;=&#146;);	/* Find last = */
+if (ptr != NULL_CHAR)
+    *ptr = &#145;+&#146;;
+</pre>
+</blockquote>
+
+<p>This problem here is also somewhat subtle.</p>
+
+<p>The function <font face="Courier New">strchr</font> returns the <i>first</i> 
+  match in the string, not the last. The correct function is <font face="Courier New">str<b><u>r</u></b>chr</font>. 
+  The problem was most likely a typographical error. (Actually, the deep underlying 
+  problem is that it's definitely unwise to put two functions that differ only 
+  by a typo into a standard library.)</p>
+
+<p>This fault can only be found when there are two or more equal signs in the 
+  input. That is:</p>
+<ul>
+  <li>&quot;a=b&quot; would return the correct result, &quot;a+b&quot;.</li>
+  <li>&quot;noequals&quot; would return the correct result, &quot;noequals&quot;.</li>
+  <li>&quot;a=b=c&quot; would incorrectly return &quot;a+b=c&quot;, not the correct 
+    &quot;a=b+c&quot;</li>
+</ul>
+
+<p>What's interesting and useful here is that we have two faults with completely 
+  different root causes (typographical error, misunderstanding of a C construct) 
+  and different manifestations in the code (wrong function called, misuse of break 
+  statement) that can be found by the <i>same</i> test idea (search for something 
+  that occurs twice). </p>
+
+
+<h3><a name="GoodCatalogs">A Good Test-Ideas Catalog</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>What makes a good catalog?</p>
+<ul>
+  <li>It contains a small set of test ideas that can find a much larger set of 
+    underlying faults. </li>
+  <li>It's easy to read quickly (skim). You should be able to skip test ideas 
+    that are not relevant to your situation.</li>
+  <li>It contains only test ideas that you will use. For example, someone who 
+    doesn't ever deal with Web browsers shouldn't have to keep skipping over test 
+    ideas for programs that use Web browsers. Someone working on game software 
+    will want a shorter catalog than someone working on safety-critical software. 
+    The game person can afford to concentrate only on the test ideas with the 
+    highest chance of finding faults.</li>
+</ul>
+
+<p>Given these rules, it seems best to have more than one catalog. Some data and 
+  operations are common to all programming, so their test ideas can be put into 
+  a catalog that all programmers can use. Others are specific to a particular 
+  domain, so test ideas for them can be put into a catalog of domain-specific 
+  test ideas.</p>
+
+<p>A <a href="../../../examples/extrnlcntrbtns/test/tstids_short-catalog.pdf" target="_blank">sample 
+  catalog</a>, used in the following example, is a good one from which to begin. 
+  <a href="../../../examples/extrnlcntrbtns/test/tstatmtch.htm">Test Ideas for 
+  Mixtures of ANDs and ORs</a> provides another example.</p>
+
+
+<h3><a name="UsingACatalogExample">An Example of Using a Test-Ideas Catalog</a> 
+  <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Here's how you might use the <a href="../../../examples/extrnlcntrbtns/test/tstids_short-catalog.pdf" target="_blank">sample 
+  catalog</a>. Suppose you're implementing this method:</p>
+<blockquote>
+<pre>
+void applyToCommonFiles(Directory d1,
+                        Directory d2,
+                        Operation op);
+</pre>
+</blockquote>
+
+<p><font face="Courier New">applyToCommonFiles</font> takes two directories as 
+  arguments. When a file in the first directory has the same name as a file in 
+  the second, <font face="Courier New">applyToCommonFiles</font> performs some 
+  operation on that pair of files. It descends subdirectories.</p>
+
+<p>The method for using the catalog is to scan through it looking for major headings 
+  that match your situation. Consider the test ideas under each heading to see 
+  if they are relevant, and then write those that are relevant into a <a href="co_tstidslst.htm">Test-Ideas 
+  List</a>. </p>
+<p><b>Note:</b> This step-by-step description might make using the catalog seem 
+  laborious. It takes longer to read about creating the checklist than it does 
+  to actually create one.</p>
+<p>So, in the case of <font face="Courier New">applyToCommonFiles</font>, you 
+  might apply the catalog in the manner described throughout the rest of this 
+  section.</p>
+
+<p>The first entry is for <b>Any Object</b>. Could any of the arguments be null 
+  pointers? This is a matter of the contract between <font face="Courier New">applyToCommonFiles</font> 
+  and its callers. The contract could be that the callers will not pass in a null 
+  pointer. If they do, you can't rely on th expected behavior: <font face="Courier New">applyToCommonFiles</font> 
+  could perform any action. In such a case, no test is appropriate, since nothing 
+  <font face="Courier New">applyToCommonFiles</font> does can be wrong. If, however, 
+  <font face="Courier New">applyToCommonFiles</font> is required to check for 
+  null pointers, the test idea would be useful. Let's assume the latter, which 
+  gives us this starting Test-Ideas List:</p>
+<ul>
+  <li>d1 is null (error case)</li>
+  <li>d2 is null (error case)</li>
+  <li>op is null (error case)</li>
+</ul>
+
+<p>The next catalog entry is <b>Strings</b>. The names of the files are strings, 
+  and they're compared to see if they match. The idea of testing with the empty 
+  string (&quot;&quot;) doesn't seem useful. Presumably some standard string comparison 
+  routines will be used, and they will handle empty strings correctly.</p>
+
+<p>But wait... If there are strings being compared, what about case? Suppose <font face="Courier New">d1</font> 
+  contains a file named &quot;File&quot; and <font face="Courier New">d2</font> 
+  contains a file named &quot;file&quot;. Should those files match? On UNIX, clearly 
+  not. On Microsoft&#174; Windows&#174;, they almost certainly should. That's 
+  another test idea:</p>
+<ul>
+  <li>Files match in the two directories, but the case of the names is different.</li>
+</ul>
+
+<p>Notice that this test idea didn't come directly from the catalog. However, 
+  the catalog drew our attention to a particular aspect of the program (file names 
+  as strings), and our creativity gave us an additional idea. It's important not 
+  to use the catalog too narrowly&#151;use it as a brainstorming technique, a way 
+  of inspiring new ideas.</p>
+
+<p>The next entry is <b>Collections</b>. A directory is a collection of files. 
+  Many programs that handle collections fail on the empty collection. A few that 
+  handle the empty collection, or collections with many elements, fail on collections 
+  with exactly one element. So these ideas are useful:</p>
+<ul>
+    <li>d1 is empty</li>
+    <li>d2 is empty</li>
+    <li>d1 has exactly one file</li>
+    <li>d2 has exactly one file</li>
+</ul>
+
+<p>The next idea is to use a collection of the maximum possible size. This is 
+  useful because programs like <font face="Courier New">applyToCommonFiles</font> 
+  are often tested with trivial little directories. Then some user comes along 
+  and applies them to two huge directory trees with thousands of files in them, 
+  only to discover that the program is grotesquely memory inefficient and can't 
+  handle that realistic case. </p>
+
+<p>Now, testing the absolute maximum size for a directory is not important; it 
+  only needs to be as large as a user might try. However, at the very least, there 
+  should be <i>some</i> test with more than three files in a directory:</p>
+<ul>
+  <li>d1 contains very many files</li>
+  <li>d2 contains very many files</li>
+</ul>
+
+<p>The final test idea (duplicate elements) doesn't apply to directories of files. 
+  That is, if you have a directory with two files that have the same name, you 
+  have a problem independent of <font face="Courier New">applyToCommonFiles</font>&#151your 
+  file system is corrupt.</p>
+
+<p>The next catalog entry is <b>Searching</b>. Those ideas can be translated into 
+  <font face="Courier New">applyToCommonFiles</font> terms like this:</p>
+
+<ul>
+    
+  <li>d1 and d2 have no files in common (all the names are different)</li>
+    
+  <li>d1 and d2 have exactly one file in common (it's alphabetically the last 
+    element in the directory)</li>
+    
+  <li>d1 and d2 have more than one file in common</li>
+</ul>
+
+<p>The final test idea checks whether <font face="Courier New">applyToCommonFiles</font> 
+  terminates too soon. Does it return as soon as it finds the first match? The 
+  parenthetical remark in the test idea before that assumes that the program will 
+  fetch the list of files in a directory using some library routine that returns 
+  them, sorted alphabetically. If not, it might be better to find out what the 
+  last one really is (the most recently created?) and make that be the match. 
+  Before you devote a lot of time to finding out how files are ordered, though, 
+  ask yourself how likely it is that putting the matching element last will make 
+  finding defects easier. Putting an element last in a collection is more useful 
+  if the code explicitly steps through the collection using an index. If it's 
+  using an iterator, it's extremely unlikely that the order matters.</p>
+
+<p>Let's look at one more entry in the sample catalog. The <b>Linked structures</b> 
+  entry reminds us that we're comparing directory <i>trees</i>, not just flat 
+  collections of files. It would be sad if <font face="Courier New">applyToCommonFiles</font> 
+  worked only in the top-level directories, but not in the lower-level ones. Deciding 
+  how to test whether <font face="Courier New">applyToCommonFiles</font> works 
+  in lower-level directories forces us to confront the incompleteness of its description. 
+</p>
+
+<p>First, when does <font face="Courier New">applyToCommonFiles</font> descend 
+  into subdirectories? If the directory structure looks like this</p>
+
+<p align="center"><img src="images/tstidsctl-img1.gif" width="334" height="162"></p>
+<p class="picturetext">Figure 1: A directory structure</p>
+
+<p>does <font face="Courier New">applyToCommonFiles</font> descend into <font face="Courier New">Cdir</font>? 
+  That doesn't seem to make sense. There can be no match with anything in the 
+  other directory tree. In fact, it seems as if files in subdirectories can only 
+  match if the subdirectory names match. That is, suppose we have this directory 
+  structure:</p>
+
+<p align="center"><img src="images/tstidsctl-img2.gif" width="334" height="165"></p>
+<p class="picturetext">Figure 2: A second directory structure</p>
+
+<p>The files named &quot;File&quot; don't match because they're in different subdirectories 
+  The subdirectories should be descended only if they have the same name in both 
+  <font face="Courier New">d1</font> and <font face="Courier New">d2</font>. That 
+  leads to these test ideas:</p>
+<ul>
+  <li>some subdirectory in d1 is not found in d2 (no descent)</li>
+  <li>some subdirectory in d2 is not found in d1 (no descent)</li>
+  <li>some subdirectory appears in both d1 and d2 (descend)</li>
+</ul>
+
+<p>But that raises other questions. Should the operation (<font face="Courier New">op</font>) 
+  be applied to matching subdirectories or just to matching files? If it's applied 
+  to the subdirectories, should it be applied before the descent or afterward? 
+  That makes a difference if, for example, the operation deletes the matching 
+  file or directory. For that matter, <i>should</i> the operation be allowed to 
+  modify the directory structure? And more specifically: what's the correct behavior 
+  of <font face="Courier New">applyToCommonFiles</font> if it does? (This is the 
+  same issue that comes up with iterators.)</p>
+
+<p>These sorts of questions typically arise when you carefully read a method's 
+  description of creating test ideas. But let's leave them aside for now. Whatever 
+  the answers are, there will have to be test ideas for them&#151;test ideas that 
+  check whether the code correctly implements the answers.</p>
+
+<p>Let's return to the catalog. We still haven't considered all of its test ideas. 
+  The first one&#151;empty (nothing in structure)&#151;asks for an empty directory. 
+  We've already got that from the <b>Collections</b> entry. We've also got the 
+  <b>minimal non-empty</b> structure, which is a directory with a single element. 
+  This sort of redundancy is not uncommon, but it's easy to ignore.</p>
+
+<p>What about <b>a circular structure</b>? Directory structures can't be circular&#151;a 
+  directory can't be within one of its descendants or within itself... or can 
+  it? What about shortcuts (on Windows) or symbolic links (on UNIX)? If there's 
+  a shortcut in <font face="Courier New">d1</font>'s directory tree that points 
+  back to <font face="Courier New">d1</font>, should <font face="Courier New"> 
+  applyToCommonFiles</font> keep descending forever? The answer could lead to 
+  one or more new test ideas:</p>
+<ul>
+  <li>d1 is circular because of shortcuts or symbolic links</li>
+  <li>d2 is circular because of shortcuts or symbolic links</li>
+</ul>
+
+<p>Depending on the correct behavior, there may be more test ideas than that.</p>
+
+<p>Finally, what about <b>depth greater than one</b>? Earlier test ideas will 
+  ensure that we test descending into one level of subdirectory, but we should 
+  check that <font face="Courier New">applyToCommonFiles</font> keeps descending:</p>
+<ul>
+  <li>descends through several levels (&gt;1) of d1's subdirectories</li>
+  <li>descends through several levels (&gt;1) of d2's subdirectories</li>
+</ul>
+
+
+<h3><a name="CreatingYourOwnCatalogs">Creating and Maintaining Your Own Test-Ideas 
+  Catalog</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>As mentioned previously, the generic catalog won't contain all of the test 
+  ideas you need. But <a href="../../glossary.htm#domain" target="_blank"><i>domain</i></a>-specific 
+  catalogs haven't been published outside of the companies that created them. 
+  If you want them, you'll need to build them. Here's some advice.</p>
+
+<ul>
+  <li>Do not fill a catalog with your speculations about what ideas would be good 
+    for finding faults. Remember that each test idea you put in the catalog costs 
+    time and money: 
+    <ul>
+      <li>your time to maintain the catalog</li>
+      <li>other programmers' time to think about the test idea</li>
+      <li>possibly other programmers' time to implement a test</li>
+    </ul>
+    <br>
+    Add only ideas that have a demonstrated track record. You should be able to 
+    point to at least one actual fault that the test idea would have caught. Ideally, 
+    the fault should be one that was missed by other testing; that is, one that 
+    was reported from the field. One good way to build catalogs is to browse through 
+    your company's bug database and ask questions about how each fault could have 
+    been detected earlier.</li>
+  <br>
+  <br>
+  <li>It's unlikely to work if creating and maintaining a Test-Ideas Catalog is 
+    something you do in your spare time. You'll need time specifically allocated 
+    to this task, just like for any other important one. We recommend you create 
+    and maintain your Test-Ideas Catalog during <a href="wfs_imptstast.htm">Workflow 
+    Detail: Improve Test Assets</a>.</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

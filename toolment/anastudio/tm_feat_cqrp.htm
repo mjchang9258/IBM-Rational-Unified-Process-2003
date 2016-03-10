@@ -1,0 +1,336 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Managing Stakeholder Requests Using Rational ClearQuest and Rational RequisitePro</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Managing Stakeholder Requests Using Rational ClearQuest and Rational RequisitePro</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to create and associate requirements in Rational 
+  RequisitePro&reg; with enhancement requests in Rational ClearQuest&reg;, allowing 
+  the analyst to efficiently track the origin of requirements. It also describes 
+  how to manage requirement properties from within ClearQuest.</p>
+<p><b>Note</b>: Both RequisitePro and ClearQuest must be installed, and a <a href="../admin/tm_raconf.htm"> 
+  Rational Administrator</a> project must be configured with both products to 
+  access this functionality.</p>
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_elstk.htm">Elicit Stakeholder Requests</a></li>
+<li><a href="../../process/activity/ac_facuc.htm">Find Actors and Use Cases</a></li>
+<li><a href="../../process/activity/ac_revcr.htm">Review Change Request</a></li>
+<li><a href="../../process/activity/ac_mgdep.htm">Manage Dependencies</a></li>
+</ul>
+<br>
+  <br>
+</p>
+
+<h3>Overview</h3>
+
+<p>The analyst's role is to incorporate user feedback
+and stakeholder needs into the system definition. Rational's integration
+between ClearQuest and RequisitePro allows qualified enhancement requests to be
+easily associated with related requirements, thereby tracking the source of
+requirements.</p>
+<p>For each enhancement request identified to drive system functionality from ClearQuest, the analyst can create or associate one or many requirements by
+reformulating the text of the enhancement request into a valid requirement
+definition. A <i> well-defined requirement definition</i> refers to those requirements
+that are testable, unambiguous, consistent, verifiable, and complete.
+Requirements are stored in RequisitePro, but can be created either in ClearQuest
+or RequisitePro, and their properties may be managed from within either ClearQuest or RequisitePro.</p>
+
+<p><b>Note</b>: You can only associate enhancement requests to requirements
+in RequisitePro or ClearQuest Windows applications--not in RequisiteWeb or ClearQuest Web.</p>
+
+<h4><strong>Tool Steps</strong></h4>
+
+<p>This document contains the following steps:</p>
+<ol>
+  <li><a href="#Enabling">Enable the ClearQuest and
+    RequisitePro integration</a></li>
+  <li><a href="#select">Use ClearQuest to select a RequisitePro project</a></li>
+  <li><a href="#associate">Use ClearQuest to associate requirements with
+    enhancement requests</a></li>
+  <li><a href="#create">Use ClearQuest to create requirements from enhancement
+    requests</a></li>
+<li><a href="#Managing">Manage requirement properties from ClearQuest</a></li>
+</ol>
+<h3><font face="Arial">1. <b><a name="Enabling">Enable</a>
+the ClearQuest and RequisitePro integration</b></font> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+<p>Minimal setup is necessary to associate enhancement requests to requirements. This setup involves using a Rational Suite project to
+point to the ClearQuest database and the RequisitePro project. In the setup, the
+ClearQuest administrator defines the types of requirements that can be
+created from ClearQuest. Administrators can define a mapping to automate
+their project-specific needs. For information on enabling this integration, see the document entitled <i>Rational Suite Administrator's Guide</i> on your documentation CD.</p>
+
+<h3><font face="Arial">2. <b>Use ClearQuest to <a name="select">select</a> a RequisitePro&nbsp;project</b></font> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>To associate enhancement requests with requirements,
+each enhancement request must identify a Rational Suite
+project to be used as the source of the available requirements.</p>
+
+<p>To select a RequisitePro project from ClearQuest:
+<ol>
+  
+  <li>Select an enhancement request and click <b>Actions</b>
+  &gt; <b>Modify</b> to allow the record to be edited.</li>
+  <li>Click the <b>Main</b> tab.</li>
+  <li>The <b>RA Project</b> list displays valid Rational Suite projects. Each Rational Suite project is associated with a unique RequisitePro project.
+Choose the appropriate project and click <b>Apply</b>. ClearQuest saves the project reference with the enhancement request record.</li>
+</ol>
+
+<h3><font face="Arial">3. <b>Use ClearQuest to <a name="associate">associate</a>
+requirements with enhancement requests</b></font> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+<p>After a Rational Suite project has been
+identified in ClearQuest, the analyst is ready to associate enhancement requests
+with requirements. This association can only be done after the enhancement request has been submitted&#151not at the time of
+submission. If there is an existing requirement representing
+the stakeholder needs expressed in the enhancement request description, the
+analyst associates the enhancement request with the existing requirement
+by selecting the requirement from the complete list of requirements. Many
+enhancement requests can be associated with one requirement, and many requirements can be associated with one enhancement request. </p>
+
+<p>To associate an enhancement request with an existing
+requirement:
+<ol>
+  <li>Select an enhancement request and click <strong>Actions &gt; Modify </strong>to
+    allow the record to be edited. You can select multiple enhancement requests to associate with the same requirement by
+    pressing the Ctrl or Shift key while selecting enhancement requests.</li>
+  <li>On the <b>Main</b> tab, select an <b>RA Project</b>.</li>
+  <li>Click the <b>Requirements</b> tab. This tab is used to select and remove
+    associated requirements as well as viewing the properties of the associated
+    requirements.</li>
+  <li>Click the <strong>Add to List</strong> button. The Select
+    Requirement dialog box appears. Requirements displayed in this dialog box are dynamically queried from the associated RequisitePro project. </li>
+  <li>In the <b>Requirements of type</b> list, select the <strong>FEAT</strong>
+    requirement type. All FEAT requirements are displayed.</li>
+  <li>Select the desired requirement and click <b>OK</b>.</li>
+  <li>Click <strong>Apply</strong> to save your changes.</li>
+</ol>
+
+<p>Refer to the <a href="tm_er_cq.htm">Tool Mentor: Eliciting Stakeholder Requests Using
+Rational ClearQuest</a> for further details.</p>
+
+<h3><font face="Arial">4. <b>Use ClearQuest to <a name="create">create</a>
+requirements from enhancement requests</b></font> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+<p>If the stakeholder need reflected in the enhancement
+request definition is not represented by any existing requirements, the analyst
+can create a new requirement from ClearQuest.</p>
+
+<ol>
+    <li>Select an enhancement request and click <strong>Actions &gt; Modify </strong>to
+    allow the record to be edited. You can select multiple enhancement requests to associate with the same requirement by
+      pressing the Ctrl or Shift key while selecting enhancement requests.</li>
+   	<li>On the <b>Main</b> tab, select an <b>RA Project</b>.</li>
+   	<li>Click the <b>Requirements</b> tab. This tab is used to select and remove
+    associated requirements as well as viewing the properties of the associated
+    requirements.</li>
+  	<li>Click the <strong>Add to List</strong> button. The Select
+    Requirement dialog box appears. Requirements displayed in this dialog box are dynamically queried from the associated RequisitePro project. </li> 
+   	<li>Select a requirement type for the new requirement.</li>
+	<li>Click <b>Create</b>. The Requirement Properties dialog box appears.</li>
+	<li>Click the <b>General</b> tab and type the requirement name and text.
+      Make sure you select the appropriate package to contain your new
+      requirement.</li>
+	<li>Click the <b>Attributes</b> tab and set the requirement attribute values.</li>
+  	<li>Click <b>OK</b>. The Select Requirement dialog box reappears.</li>
+	<li>Scroll to the bottom of the requirements list to locate the newly created requirement, highlight it, and click <b>OK</b>.</li>
+ 	<li>Click <b>Apply</b> to save the changes. The requirement is associated with the enhancement request.</li>
+</ol>
+<p><b>Note</b>: Requirements created in this manner are located only in the
+database, not in documents. Within RequisitePro, you can relocate
+the requirement to a document for further elaboration by cutting the requirement out of the a view (using <b>Edit </b>&gt;<b> Cut</b>) and pasting it 
+into the desired RequisitePro document (using <b>RequisitePro </b>&gt;<b> Requirement</b> &gt; <b>Paste</b>).</p>
+
+<p>For more information regarding the elaboration of
+feature requirements in a document, see <a href="../reqpro/tm_dvisn.htm">Tool
+Mentor: Developing
+a Vision Using Rational RequisitePro</a>.</p>
+
+
+<h3><font face="Arial">5. <b><a name="Managing">Manage</a> requirement properties
+from ClearQuest</b></font> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+<p>Requirement properties for requirements created in a database can be accessed directly
+from within ClearQuest. After the enhancement request has been associated with a
+requirement, the analyst can review and modify the requirement properties of the
+associated requirement while working directly in ClearQuest. The Requirement
+Properties dialog box provides viewing and editing of requirements properties.
+These properties include requirement attributes, history, and relationships.</p>
+
+<ol>
+  <li>Select an enhancement request and click the
+<b>Requirements</b> tab. This tab is used to view the properties of the associated
+requirement.</li>
+<li>Click <b>Actions</b> &gt; <b>Modify</b> to allow the
+  record to be edited.</li>
+<li>Select the associated requirement and click <b>Properties</b>
+ at the bottom of the form. The requirement properties are displayed.</li>
+  <li>Make changes to the requirement.</li>
+<li>Click <b>OK</b> to save the
+  changes.</li>
+  </ol>
+
+<p><img src="../reqpro/images/helpbook.gif" width="16" height="16">
+Refer to the topic <i>Requirement properties overview</i> (Index: requirements > properties) in the RequisitePro online Help.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

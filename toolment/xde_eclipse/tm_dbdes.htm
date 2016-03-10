@@ -1,0 +1,527 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+
+-- RPW META DATA END -->
+<HTML>
+ <HEAD>
+<title>Tool Mentor:&nbsp;Designing Databases Using Rational XDE Developer - Java Platform Edition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK REL="StyleSheet" HREF="../../rop.css" TYPE="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+</HEAD>
+ <BODY>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 CLASS="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Designing Databases
+  Using Rational XDE Developer - Java Platform Edition</rpw><A NAME="Top" msnavigation></A></h2>
+
+<h3>Purpose</h3>
+
+<p>This tool mentor describes how to build a
+       <a href="../../process/artifact/ar_datmd.htm">Data Model</a> with the Data Modeler. </p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_dbdes.htm">Database Design</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity. </p>
+
+<h3>Overview</h3>
+
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#Develop Logical Data Model">Develop Logical Data Model</a> &lt;optional&gt;</li>
+  <li><a href="#Develop Physical Data Model">Develop Physical Data Model</a>
+    <ul>
+      <li><a href="#Define Domains">Define Domains</a></li>
+      <li> <a href="#Transform Logical Database Design into Physical Database Design">
+        Create Initial Physical Database Design Elements</a></li>
+      <li><a href="#Define Reference Tables">Define Reference Tables</a></li>
+      <li><a href="#Create Primary Key and Unique Key Constraints"> Create Primary
+        Key and Unique Key Constraints</a></li>
+      <li><a href="#Define Data and Referential Integrity Enforecment Rules">Define
+        Data and Referential Integrity Enforcement Rules</a></li>
+      <li><a href="#De-Normalize the Database Design to Optimize for Performance">De-Normalize
+        Database Design to Optimize for Performance </a> </li>
+      <li><a href="#Optimize Data Access">Optimize Data Access</a> </li>
+      <li><a href="#Define Storage Characteristics"> Define Storage Characteristics</a></li>
+      <li><a href="#Distribute Class Behavior to the Database">Design Stored Procedures
+        to Distribute Class Behavior to the Database</a></li>
+    </ul>
+  </li>
+  <li><a href="#Review the Results">Review the Results</a></li>
+</ul>
+
+<p>The Rational XDE&#153; software tool includes features that allow the application
+  designers and database designers to develop the application and the database
+  using the same tool. As a <u> <a href="../../process/workers/wk_dbdsr.htm">database
+  designer</a></u> or <u><a href="../../process/workers/wk_dsgnr.htm">designer</a></u>,
+  you can use XDE to model and design databases, as well as to integrate your
+  application and database.&nbsp;The XDE Data Modeler uses the Unified Modeling
+  Language (UML) Profile for Database Modeling as the standard notation for constructing
+  Data Models.&nbsp;The following XDE online Help topics provide key background
+  information on specific details related to database modeling and development
+  using Rational XDE:</p>
+
+<ul>
+  <li><script language=javascript>ReferenceHelpTopic("Databases Supported in Rational XDE","dm","dm_r_db_support");</script>:  Lists the databases supported in Rational XDE.</li>
+  <li><script language=javascript>ReferenceHelpTopic("Supported OLE DB Providers and JDBC Drivers","dm","dm_r_support_ole_db_jdbc");</script>:  Lists data access providers and drivers supported in Rational XDE.</li>
+  <li><script language=javascript>ReferenceHelpTopic("Setting Options for Data Models","dm","dm_o_mdl_data_pref");</script>:  Summarizes setting the default database assignment and database target.</li>
+  <li><script language=javascript>ReferenceHelpTopic("Setting the Default Database Assignment","dm","dm_t_set_default_db_assign");</script>
+    : Provides guidance for configuring XDE Data Models to point toward a specifically
+    named database.</li>
+  <li><script language=javascript>ReferenceHelpTopic("UML Data Modeling Profile","dm","dm_r_uml_dm_profile");</script>
+    : Summarizes the Unified Modeling Language (UML) modeling elements used in
+    the Data Model.</li>
+  <li><script language=javascript>ReferenceHelpTopic("Data Modeling Visibility Icons","dm","dm_r_visible_icon");</script>
+    : Lists notational elements for defining primary/foreign keys and database
+    triggers specific to a Data Model. </li>
+ </ul>
+<p>There are three ways to begin a <a href="../../process/artifact/ar_datmd.htm">Data
+  Model</a> in XDE:</p>
+<ul>
+  <li> Build the Data Model directly in XDE using the Data Modeler tools. </li>
+  <li>Transform persistent classes in the <a href="../../process/artifact/ar_desmd.htm">Design
+    Model</a> to create tables in the Data Model.</li>
+  <li>Reverse engineer an existing database schema or DDL script to create a Data
+    Model.&nbsp; </li>
+</ul>
+<p>For more information about the different methods for creating the Data Model,
+  refer to the following XDE Help topics:</p>
+<ul>
+  <li><script language=javascript>ReferenceHelpTopic("Designing Data Models","dm","dm_o_bld_dm");</script></li>
+  <li><script language=javascript>ReferenceHelpTopic("Class to Table Transformation","dm","dm_c_clss_tbl_transf");</script></li>
+  <li><font color="#FF0000">[this topic has been removed and is covered by the getting started
+    section written by Amber, gs_t_creating projects.htm</font> <script language=javascript>ReferenceHelpTopic("Creating Data Modeling Projects","dm","dm_t_dm_project");</script></li>
+  <li><script language=javascript>ReferenceHelpTopic("Building Data Models by Reverse Engineering","dm","dm_o_gen_dm_re");</script></li>
+</ul>
+<p>The remaining sections of this tool mentor provide instructions on how to build 
+  a Data Model by transforming persistent classes in the Design Model to develop 
+  it. The Data Model package structure that is discussed here is described in 
+  more detail in the Data Model section of <a href="model_structure_guidelines.htm">XDE 
+  Model Structure Guidelines</a>.</p>
+<p> <a href="tm_db_rev.htm">Tool Mentor: Reverse Engineering Databases Using Rational
+  XDE</a> provides more information on how to create a Data Model by reverse engineering
+  the physical database design. </p>
+
+<h3><a name="Develop Logical Data Model">Develop Logical Data Model &lt;optional&gt;</a>
+  <a href="#Top"> <img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+<p>Some projects might need to create a idealized &quot;logical&quot; model of
+  the database design that captures an application-independent view of the key
+  logical data entities and their relationships.&nbsp;<font color="#FF0000"> [Comment: Logical Data Modeling has been separated as its own model,
+   I don't know how RUP documents it, but I have several topics covering the
+area. Because the models are separate you transform a&nbsp; Logical data model
+to a data model to generate tables from classes. Also includes support of
+candidate and surrogate keys.]</font><a href="model_structure_guidelines.htm"></a>
+ This Logical Data Model
+  can be thought of as an &quot;analysis&quot; type of model similar to the optional
+  <a href="../../process/artifact/ar_amdl.htm">Artifact: Analysis Model</a> that
+  might be used in the development of the application design.&nbsp;&nbsp;It should
+  be noted that the Logical Data Model is included in the <a href="../../process/artifact/ar_datmd.htm">Artifact:
+  Data Model</a> and is not considered to be a separate RUP artifact.&nbsp;&nbsp;
+</p>
+
+<p>The Logical Data Model can be created directly using XDE Data Modeler tools.&nbsp;See
+  the <a href="model_structure_guidelines.htm">XDE Model Structure Guidelines</a>
+  for information on creating a Logical Data Model within the overall Data Model
+  artifact.&nbsp;Refer to the
+  <script language=javascript>ReferenceHelpTopic("Logical Data Models","dm","dm_c_logical_dm");</script>
+  topic in the Rational XDE online Help for more information on developing the
+  logical database design. </p>
+
+
+
+<h3><a name="Develop Physical Data Model">Develop Physical Database Design</a>
+  <a href="#Top"> <img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+<p>You can refine the Logical Data Model to create a detailed model of the physical
+  database design using Rational XDE. <br>
+  (See
+  <script language=javascript>ReferenceHelpTopic("Physical Data Models","dm","dm_c_phys_dm");</script>
+  .) This detailed Physical Data Model might then be forward engineered to create
+  a database. (See <a href="tm_db_forw.htm">Tool Mentor: Forward Engineering Databases
+  in Rational XDE</a>.)&nbsp; The major steps in developing a Physical Data Model
+  are described below.</p>
+
+<h4><a name="Define Domains">Define Domains</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+<p>Create domains to implement user-defined data types that can be used throughout
+  the Data Model to enforce database design standards. (See
+  <script language=javascript>ReferenceHelpTopic("Domains","dm","dm_c_dom");</script>
+  .)&nbsp; Domains can also be used to embed business rules in columns.</p>
+<p> In order to use the data types defined by the domains in the Data Model, you
+  must follow these guidelines:</p>
+
+
+<ul>
+  <li>Domains must be defined in a separate package within the Data Model. <font color="#FF0000"> [Comment:
+    Under best practices for source control we also encouraged users of large
+    teams to create a separate model for domains, in fact we have domain model
+    templates for each DBMS]</font> (See
+    <script language=javascript>ReferenceHelpTopic("Creating Domains","dm","dm_t_create_dom");</script>
+    .)</li>
+  <li>The package containing the domains must be assigned to the database component
+    that realizes the tables in the database. (See
+    <script language=javascript>ReferenceHelpTopic("Assigning Domain Packages to Databases","dm","dm_t_assign_dom_pkg_db");</script>
+    .) </li>
+</ul>
+<p> For information on how to apply a domain to a column in the Data Model, see
+  <script language=javascript>ReferenceHelpTopic("Assigning Domains to Columns","dm","dm_t_assign_dom_col");</script>
+  .&nbsp; </p>
+
+
+<h4><a name="Transform Logical Database Design into Physical Database Design">
+Create Initial Physical Database Design Elements</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+
+<p>Transform persistent classes in the Design Model into tables within it. (See
+  <script language=javascript>ReferenceHelpTopic("Class to Table Transformation","dm","dm_c_clss_tbl_transf");</script>
+  .)&nbsp; The attributes of the classes become columns in the tables.&nbsp;Rational
+  XDE provides the option of defining attributes of the classes as candidate keys.
+  (See
+  <script language=javascript>ReferenceHelpTopic("Assigning Candidate Keys","dm","dm_t_assign_cand_key");</script>
+  .) Rational XDE also converts specific associations between the classes to relationships
+  between the tables. The following Rational XDE online Help topics provide more
+  information on how the classes are transformed into tables:</p>
+
+
+<ul type="square">
+
+
+
+  <li> General Mapping Information - <script language=javascript>ReferenceHelpTopic("Class to Table Transformation Mapping","dm","dm_r_clsstbl_transf_map");</script></li>
+  <li> DBMS Specific Mapping Information - <script language=javascript>ReferenceHelpTopic("Class to Table Transformation Data Type Mapping","dm","dm_o_clss_tbltransf_dtmap");</script>  </li>
+</ul>
+
+
+<h4><a name="Define Reference Tables">Define Reference Tables</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+<p>Create reference tables as needed for managing any static data items in the
+  database.&nbsp;You can create reference tables directly in the Data Model using
+  the XDE Data Modeler features. See the
+  <script language=javascript>ReferenceHelpTopic("Modeling Tables and Columns","dm","dm_o_mdl_tables_col");</script>
+  topic in the Rational XDE online Help for general information about creating
+  tables.</p>
+
+
+<h4><a name="Create Primary Key and Unique Key Constraints">Create Primary Key
+and Unique Key Constraints</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+
+<p>Define primary key constraints and unique key constraints to identify rows
+  of information in a table. See the online Help topic
+  <script language=javascript>ReferenceHelpTopic("Primary Key Constraints","dm","dm_c_pk_cnstrnt");</script>
+  for more information on using primary key constraints.&nbsp; The online Help
+  topic&nbsp;
+  <script language=javascript>ReferenceHelpTopic("Creating Primary Key Constraints","dm","dm_t_create_pk_cnstrnt");</script>
+  describes the steps used to create a primary key constraint on one or more columns
+  of a table.&nbsp; Information on defining unique key constraints is contained
+  in
+  <script language=javascript>ReferenceHelpTopic("Unique Key Constraints","dm","dm_c_uk_cnstrnt");</script>
+  , and the steps to create a unique key constraint in the model are described
+  in
+  <script language=javascript>ReferenceHelpTopic("Creating Unique Key Constraints","dm","dm_t_create_uk_cnstrnt");</script>.</p>
+
+<p>Refer to the topic <script language=javascript>ReferenceHelpTopic("Creating Constraints","dm","dm_o_create_cnstrnt");</script>
+in the Rational XDE online Help for additional information.</p>
+<h4><a name="Define Data and Referential Integrity Enforecment Rules">Define Data and Referential
+Integrity Enforcement Rules</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+
+<p>Check constraints can be used to control updates to data elements in tables.&nbsp;Rational
+  XDE provides the ability to define check constraints for tables, columns, and
+  domains. See the topic
+  <script language=javascript>ReferenceHelpTopic("Check Constraints","dm","dm_c_ck_cnstrnt");</script>
+  in the Rational XDE online Help for a description of check constraints.&nbsp;The
+  following XDE online Help topics describe how to create the three types of check
+  constraints in the Data Model: </p>
+
+<ul>
+  <li>Column Check Constraints - <script language=javascript>ReferenceHelpTopic("Creating Column Check Constraints","dm","dm_t_create_ckcnstrnt_col");</script></li>
+  <li>Table Check Constraints - <script language=javascript>ReferenceHelpTopic("Creating Table Check Constraints","dm","dm_t_create_ckcnstrnt_tbl");</script></li>
+  <li>Domain Check Constraints - <script language=javascript>ReferenceHelpTopic("Creating Domain Check Constraints","dm","dm_t_create_ckcnstrnt_dom");</script></li>
+</ul>
+<p>Another type of constraint used to assure referential integrity is the foreign
+  key constraint. (See
+  <script language=javascript>ReferenceHelpTopic("Foreign Key Constraints","dm","dm_c_fk_cnstrnt");</script>
+  .)&nbsp; Foreign key constraints can be produced only by creating a relationship
+  between tables. (See
+  <script language=javascript>ReferenceHelpTopic("Creating Foreign Key Constraints","dm","dm_t_create_fk_cnstrnt");</script>
+  .)&nbsp; The exception to this is the process of reverse engineering a database
+  or DDL script into a Data Model, in which case the relationships, and therefore
+  the foreign keys, are generated automatically.&nbsp;Key migration depends on
+  the type of relationship—identifying versus non-identifying—added between two
+  tables.</p>
+<p>Refer to the topics
+  <script language=javascript>ReferenceHelpTopic("Key Migration","dm","dm_c_key_mig");</script> and <script language=javascript>ReferenceHelpTopic("Changing the Migrated Key","dm","dm_t_chng_mig_key");</script> in the Rational XDE online Help
+for further details on how keys are migrated as foreign keys.</p>
+
+<h4><a name="De-Normalize the Database Design to Optimize for Performance">De-Normalize the Database
+Design to Optimize  for Performance</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+<p>Depending on the specific project situation, you might need to adjust the normalized
+  physical database design to meet performance requirements.&nbsp;Optimize the
+  Data Model for performance improvement by designing the tables to store objects
+  that are retrieved together in the same table.&nbsp;This technique is called
+  de-normalization.&nbsp;To de-normalize, combine the unique columns from the
+  two tables into one, and remove the second table.&nbsp; </p>
+<h4><a name="Optimize Data Access">Optimize Data Access</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+<p>An additional optimization technique is to use column indexing to access data
+  in tables more efficiently. See
+  <script language=javascript>ReferenceHelpTopic("Indexes","dm","dm_c_index");</script>
+  for an overview of how to use indexing to improve database performance. See
+  <script language=javascript>ReferenceHelpTopic("Creating Indexes","dm","dm_t_create_index");</script>
+  for a description of how to create indexes in the Data Model.
+<p> Another aspect of data access is in the use of database views.&nbsp;Views
+  can be used to control or restrict access to data in one or more tables.&nbsp;See
+  <script language=javascript>ReferenceHelpTopic("Creating Views","dm","dm_t_create_view");</script>
+  &nbsp;for a description of how to create a view in the Data Model.&nbsp;For
+  more information on views, refer to
+  <script language=javascript>ReferenceHelpTopic("Modeling Views","dm","dm_o_mdl_view");</script>
+  .</p>
+<p></p>
+
+<h4><a name="Define Storage Characteristics">Define Storage Characteristics</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+<p>Create a model storage design for the database by defining the
+tablespaces and tablespace containers. (See
+<script language=javascript>ReferenceHelpTopic("Tablespaces","dm","dm_c_ts_overview");</script>
+.) Map the physical database design elements to the storage elements through realization
+relationships. The XDE online Help topic
+<script language=javascript>ReferenceHelpTopic("Adding Tablespaces to Databases","dm","dm_t_add_ts_db");</script>
+describes how to create tablespaces for a specific database. The XDE online Help
+topic
+<script language=javascript>ReferenceHelpTopic("Assigning Tables to Tablespaces","dm","dm_t_assign_tbl_ts");</script>
+describes how to assign the tables in the model to the tablespaces.</p>
+<p>Rational XDE currently supports modeling tablespaces for Oracle, DB2, and SQL
+  Server.&nbsp; The following XDE online Help topics provide guidance on how to
+  model tablespaces for these DBMS products:&nbsp; </p>
+<ul>
+  <li> <script language=javascript>ReferenceHelpTopic("Modeling Oracle Tablespaces","dm","dm_o_mdl_oracle_ts");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("Modeling DB2 Tablespaces","dm","dm_o_mdl_db2_ts");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("Modeling SQL Server Tablespaces","dm","dm_o_mdl_sqlsrv_ts");</script></li>
+
+</ul>
+<p> Refer to the following topics in the Rational XDE online Help for more information
+  about tablespace and database model elements: </p>
+
+<ul>
+
+  <li>[<font color="#FF0000">Topic name is Modeling Databases and Tablespaces]</font><script language=javascript>ReferenceHelpTopic("Modeling Tablespaces","dm","dm_o_mdl_ts");</script> </li>
+  <li><script language=javascript>ReferenceHelpTopic("Databases","dm","dm_c_db");</script> </li>
+
+
+</ul>
+
+<h4><a name="Distribute Class Behavior to the Database">Design Stored Procedures
+to Distribute Class Behavior to the Database</a> <a href="#Top">
+<img border="0" src="../../images/top.gif" width="26" height="20"></a></h4>
+<p>Define stored procedures as needed to support efficient storage and retrieval
+  of information in the database. Examine the operations of the design classes
+  that were used to create the tables for candidate stored procedures.&nbsp;Stored
+  procedures can be implemented as procedures or functions.&nbsp;See
+  <script language=javascript>ReferenceHelpTopic("Stored Procedures","dm","dm_c_sp");</script>
+  for a description of stored procedures. Stored procedures must reside in a Stored
+  Procedure Container, as described in
+  <script language=javascript>ReferenceHelpTopic("Stored Procedure Containers","dm","dm_c_sp_cont");</script>
+  . Stored procedures are created as operations of the Stored Procedure Container
+  class in which they reside. See
+  <script language=javascript>ReferenceHelpTopic("Creating Stored Procedures","dm","dm_t_create_sp");</script>
+, <script language=javascript>ReferenceHelpTopic("Creating Stored Procedure Containers","dm","dm_t_create_sp_cont");</script>
+  , and
+  <script language=javascript>ReferenceHelpTopic("Creating Stored Procedure Parameters","dm","dm_t_create_sp_prmtr");</script>
+  for details on how to create stored procedures using Rational XDE.</p>
+
+
+<p>For more information on stored procedures, refer to the topic
+  <script language=javascript>ReferenceHelpTopic("Modeling Stored Procedures","dm","dm_o_mdl_sp");</script> in the Rational XDE online
+Help.</p>
+
+
+<p>Define triggers as needed to further control and manage modifications to the
+  information in the tables. Refer to the topic
+  <script language=javascript>ReferenceHelpTopic("Modeling Triggers","dm","dm_o_mdl_trig");</script> in the Rational XDE
+online Help for a description of the types of triggers supported in XDE and for
+additional topics on how to create triggers in the model. </p>
+
+
+<h3><a name="Review the Results">Review the Results</a> <a href="#Top"> <img border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+
+
+
+<p>Review the results of the database design in the <a href="../../process/artifact/ar_datmd.htm">Data
+  Model</a> for consistency with the application design in the <a href="../../process/artifact/ar_desmd.htm">
+  Design Model</a> and with the overall application architecture structure. Refer
+  to <a href="../../process/activity/chklists/ck_dtmdl.htm">Checkpoints: Data
+  Model</a> for specific items to review. </p>
+
+
+      <p></P>
+
+
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

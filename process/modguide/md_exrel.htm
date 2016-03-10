@@ -1,0 +1,367 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Extend-Relationship</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Extend-Relationship</rpw><a name="Top"></a><a name="XE_extend-relationship__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Executing the Extension">Executing the extension</a></li>
+  <li><a href="#Documenting the Extend-Relationship">Documenting the
+    extend-relationship</a></li>
+  <li><a href="#Example of Use">Example of use</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The extend-relationship connects an extension use case to a base use case.
+You define where in the base to insert the extension by referring to extension
+points in the base use case (see <a href="md_uc.htm">Guidelines: Use Case</a>,
+the discussion on extension points). The extension use case is often abstract,
+but does not have to be.</p>
+<p>You can use the extensions for several purposes:
+<ul>
+  <li>To show that a part of a use case is optional, or potentially optional,
+    system behavior. In this way, you separate optional behavior from mandatory
+    behavior in your model.</li>
+  <li>To show that a subflow is executed only under certain (sometimes
+    exceptional) conditions, such as triggering an alarm.</li>
+  <li>To show that there may be a set of behavior segments of which one or
+    several may be inserted at an extension point in a base use case. The
+    behavior segments that are inserted (and the order in which they are
+    inserted) will depend on the interaction with the actors during the
+    execution of the base use case.</li>
+</ul>
+<p>The extension is conditional, which means its execution is dependent on what
+has happened while executing the base use case. The base use case does not
+control the conditions for the execution of the extension – the conditions are
+described within the extend-relationship. The extension use case may access and
+modify attributes of the base use case. The base use case, however, cannot see
+the extensions and may not access their attributes.</p>
+<p>The base use case is implicitly modified by the extensions. You can also say
+that the base use case defines a modular framework into which extensions can be
+added, but the base does not have any visibility of the specific extensions.</p>
+<p>The base use case should be complete in and of itself, meaning that it should
+be understandable and meaningful without any references to the extensions.
+However, the base use case is not independent of the extensions, since it cannot
+be executed without the possibility of following the extensions.</p>
+<h5>Example:</h5>
+<p class="example" align="center"><img src="images/extend1.gif" width="300" height="186"></p>
+<p class="picturetext">The use cases Place Conference Call and Show Caller
+Identity are both extensions to the base use case Place Call.</p>
+<p class="example">In a phone system, the primary service provided to the users
+is represented by the use case Place Call. Examples of optional services are:
+<ul>
+  <li>
+    <p class="example">To be able to add a third party to a call (Place
+    Conference Call).</p>
+  </li>
+  <li>
+    <p class="example">To allow the receiving party to see the identity of the
+    caller (Show Caller Identity).</p>
+  </li>
+</ul>
+<p class="example">We can represent the behaviors needed for these optional
+services as extension use cases to the base use case Place Call. This is a
+correct use of the extend-relationship: since Place Call is meaningful in
+itself, you do not need to read the descriptions of the extension use cases to
+understand the primary purpose of the base use case, and the extensions use
+cases have optional character.</p>
+<p>If both the base use case and the &quot;base plus extension&quot; use case
+must be explicitly instantiable, or if you want the addition to modify behavior
+in the base use case, you should use use-case-generalization instead (see <a href="md_ucgen.htm">Guidelines:
+Use-Case-Generalization</a>).</p>
+<p>The extension use case can consist of one or more insertion segments, each of
+which may have alternative paths built into it. These insertion segments
+incrementally modify the behavior of the base use case. Each insertion segment
+in an extension use case can be inserted at a separate location in the base use
+case. This means that the extend-relationship has a list of references to
+extension points, equal in number to the number of insertion segments in the
+extension use case. Each extension point must be defined in the base use case.</p>
+<p>One base use case consist of several extend-relationships, which means a use
+case instance can follow more than one extension during its lifetime. One
+extension use case may extend into several base use cases, but this does not
+imply any dependency between the base use cases. There may even be multiple
+extend-relationships between the same extension use case and base use case,
+provided the extension is inserted at different locations in the base. This
+means the different extend-relationships need to refer to different extension
+points in the base use case. An extension use case may itself be the base in an
+extend-, include-, or generalization-relationship. For example, this means
+extension use cases can extend other extension use cases in a nested manner.</p>
+<h3><a name="Executing the Extension">Executing the Extension</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When a use-case instance performing the base use case reaches a location in
+the base use case where an extension point has been defined, the condition on
+the corresponding extend-relationship is evaluated. If the condition is true or
+if it is absent, the use-case instance will follow the extension (or the
+insertion segment within it that corresponds to the extension point). If the
+condition of the extend-relationship is false, the extension is not executed.</p>
+<p>The extension use case may, just like any use case, have a basic flow of
+events and alternative flows of events (see <a href="md_uc.htm">Guidelines: Use
+Case</a>, the discussion on structure of flow of events). Which exact path the
+use-case instance will take through the extension depends on what has happened
+before in the execution (the state of the use-case instance) and also what
+happens in interaction with actors as the extension is executed. Once the
+use-case instance has performed the extension, the use-case instance resumes
+executing the base use case at the point where it left off.</p>
+<p align="center"><img src="images/extend2.gif" width="312" height="224"></p>
+<p class="picturetext">A use-case instance following a base use case and its
+extension.</p>
+<p>An extension use case can have more than one insertion segment, each related
+to its own extension point in the base use case. If this is the case, the
+use-case instance will resume the base use case and continue to the next
+extension point specified in the extend-relationship. At that point it will
+execute the next insertion segment of the extension use case. This is repeated
+until the last insertion segment has been executed. Note that the condition for
+the extend-relationship is checked at the first extension point only – if the
+condition is true, the use-case instance must perform all insertion segments.</p>
+<p align="center"><img src="images/extend3.gif" width="317" height="224"></p>
+<p class="picturetext">A use-case instance following a base use case and an
+extension use case, the latter with two insertion segments.</p>
+<p>The multiplicity of the extend-relationship will constrain the number of
+repetitions of the entire extension that may occur. Note that it is the entire
+extension that is repeated (and limited by the multiplicity), not just one
+insertion segment.</p>
+<h3><a name="Documenting the Extend-Relationship">Documenting the
+Extend-Relationship</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Describe the condition of the extension in terms of attributes of the base
+use case. You can also choose to omit the condition, in which case the extension
+will always be executed.</p>
+<p>Each extend-relationship has a list of references to extension points (one or
+more) in the base use case. The extension points are referenced by name. If the
+extension use case has multiple insertion segments, you need to specify which
+segment corresponds to which extension point. You also need to specify which
+steps or subflows of the extension use case constitute each insertion segment.</p>
+<h5>Example:</h5>
+<p class="example">In a phone system, the use case Place Call can be extended by
+the abstract use case Show Caller Identity. This is an optional service, often
+referred to as &quot;Caller ID&quot;, that may or may not have been requested by
+the receiving party. A description of the extend-relationship from Show Caller
+Identity to Place Call could look as follows:</p>
+<p class="example"><b>Condition:</b> Receiving party must have ordered
+the service &quot;Caller ID&quot;.</p>
+<p class="example"><b>Extension Point(s):</b> Show Identity – insert
+the whole Show Caller Identity use case.</p>
+<p>You may give the extend-relationship a multiplicity, if it is omitted the
+multiplicity is assumed to be one.</p>
+<h3><a name="Example of Use">Example of Use</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Consider the following simple phone system:</p>
+<p>&nbsp;</p>
+<p align="center"><img src="images/extend4.gif" width="271" height="182"></p>
+<p align="center" class="picturetext">The abstract use case Place Conference
+Call is an extension to the use case Place Call.</p>
+<p>In this model, a simple representation of our familiar phone system, basic
+call service is described in the use case Place Call. A step-by-step outline to
+the basic flow of events would look like this:
+<ol>
+  <li>The Caller lifts receiver.</li>
+  <li>The system presents dial-tone.</li>
+  <li>The Caller dials a digit.</li>
+  <li>The System turns off the dial-tone.</li>
+  <li>The Caller enters the remainder of the number.</li>
+  <li>The system analyzes digits, determines network address of the Receiving
+    Party.</li>
+  <li>The system analyzes the digits, determining the location in the network
+    where the Receiving Party exists.</li>
+  <li>The system then determines whether a virtual circuit can be established to
+    the Receiving Party.</li>
+  <li>If a virtual circuit can be established, the System rings the Receiving
+    Party’s phone and presents the ringing tone on the Caller’s phone.</li>
+  <li>When the Receiving Party answers the phone, the system disables the
+    ringing tone on the Caller’s phone, stops ringing the Receiving Party’s
+    phone and completes the virtual circuit.</li>
+  <li>The system starts a billing record, recording the start time for the call,
+    the end points of the call, and the Caller’s customer information.</li>
+  <li>The call continues for some length of time. When either the Caller or the
+    Receiving Party disconnects from the call, the system records the end time
+    for the call, and frees all resources required to support the virtual
+    circuit. The use case then ends.</li>
+</ol>
+<p>To add functionality to this system that would allow the caller or receiving
+party to connect a third party to the call (often called &quot;conference
+call&quot;), we need to add behavior to the flow of events. One alternative, and
+the first one we should consider, is to put the differences directly into Place
+Call. We could model these differences using alternative flows of events, as
+described in <a href="md_uc.htm"><font color="#0000ff">Guidelines: Use Case</font></a>.
+This solution works for most simple additions, where the added functionality
+will not confuse or obscure the original meaning of the use case. The other
+alternative is to separate the differences into an abstract extension use case
+called Place Conference Call which extends the base use case.
+<p>The Place Call use case would have the following addition:
+<blockquote>
+<p><b><u>Extension points:<br>
+</u>Conference Call</b> occurs after step 11.
+</blockquote>
+<p>The extension use case, Place Conference Call, could then be described as:
+<blockquote>
+  <p><b><u>Place Conference Call Use Case<br>
+  </u></b>This use case extends Place Call.&nbsp; It is inserted at extension
+  point Conference Call.<br>
+  <u>Basic Flow:<br>
+  </u>1. Caller depresses the hang-up, link, or flash button.<br>
+  2. The system generates 3 short beeps to acknowledge.
+<br>
+  3..12.&lt;these steps are identical to steps 3..12 from the base use case&gt;<br>
+  13. Caller is reconnected to the receiving party from the Place Call use case.
+</blockquote>
+<p>The commonality of steps 3..12 with the base use case is undesirable.&nbsp;
+One way to solve this is to factor out the common part as an inclusion use case
+(see <a href="md_incl.htm">Guidelines: Include-Relationship</a>).</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

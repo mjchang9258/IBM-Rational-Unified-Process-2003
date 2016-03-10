@@ -1,0 +1,463 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Managing Use Cases Using Rational Rose and Rational RequisitePro</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Managing Use Cases Using Rational Rose and Rational RequisitePro</rpw>
+</h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to manage use cases in Rational Rose&reg; using 
+  integrated use-case attributes and documents in Rational RequisitePro&reg;.</p>
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_facuc.htm">Find Actors and Use Cases</a></li>
+<li><a href="../../process/activity/ac_desuc.htm">Detail a Use Case</a></li>
+<li><a href="../../process/activity/ac_mgdep.htm">Manage Dependencies</a></li>
+<li><a href="../../process/activity/ac_priuc.htm">Prioritize Use Cases</a></li>
+</ul>
+<br>
+  <br>
+</p>
+
+<h3>Overview</h3>
+
+<p>Implementers, testing professionals, and project managers manage use cases 
+  as they are developed and refined throughout the inception, elaboration, construction, 
+  and transition phases of a project. Effective use-case management requires integrated 
+  documentation to record the current status of the use case and to provide detailed 
+  descriptions of the use case.</p>
+<p>Rational's Integrated Use-Case Management allows you to manage use cases using 
+  <b>attributes</b>&#151such as Priority, Risk, Status, and Iteration&#151by associating 
+  use cases in Rose with RequisitePro documents, packages, and requirements. You 
+  can easily navigate from use-case models in Rose to RequisitePro use-case documents, 
+  packages, and requirements. Use-case management in RequisitePro adds depth and 
+  relational information to your Rose use cases by providing support for the following:</p>
+<ul>
+  <li><b>textual definitions</b> of use cases in a Microsoft&reg; Word documents</li>
+  <li><b>detailed descriptions</b> of flows of events, special requirements, preconditions, 
+    and postconditions</li>
+  <li><b>hierarchical (parent-child) relationships</b> between use-case names 
+    and actions within the use-case flow of events</li>
+  <li><b>traceability</b> to and from other use cases and associated design features, 
+    and test plans</li>
+</ul>
+<p>Although many developers may prefer to initially develop use cases in Rose, 
+  most analysts prefer to begin developing use-case requirements in RequisitePro. 
+  Integrated Use-Case Management allows you to begin in either tool and then create 
+  associated use cases or use-case requirements in the other tool. Both approaches 
+  offer integrated use-case management with several easy menu selections.</p>
+
+<h4>Tool Steps</h4>
+<p>This document contains the following steps:</p>
+<ol>
+  <li><a href="#Associating Rose and RequisitePro Artifacts">Associate Rose and RequisitePro artifacts</a></li>
+</ol>
+
+<blockquote>
+  <blockquote>
+    <ul>
+      <li><a href="#Associating a model or package with a RequisitePro project">Associate
+  a model or package with a RequisitePro project</a></li>
+      <li><a href="#Associating use cases with RequisitePro requirements">Associate use cases
+  with RequisitePro requirements</a></li>
+      <li><a href="#Associating use cases with RequisitePro documents">Associate
+  use cases with RequisitePro documents</a></li>
+    </ul>
+  </blockquote>
+</blockquote>
+
+<ol start="2">
+  <li><a href="#Managing use-case attributes and documents">Manage use-case
+    attributes and documents</a></li>
+  <li><a href="#Associate requirements with Rose use cases from RequisitePro">Associate
+    requirements with Rose use cases from RequisitePro</a></li>
+</ol>
+
+
+<h3><font face="Arial">1. <b><a name="Associating Rose and RequisitePro Artifacts">Associate Rose and RequisitePro Artifacts</a></b></font> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To benefit from Integrated Use-Case Management, you must first associate your Rose model or package with a RequisitePro project. This model or package association establishes available document types and requirements types for your use-case description and management. You can then associate use cases with existing or new RequisitePro use-case documents and requirements. This requirement association provides the specific attributes to manage the use-case development.</p>
+
+<h4><a name="Associating a model or package with a RequisitePro project">Associate
+a model or package with a RequisitePro project</a></h4>
+
+<ol>
+  <li>Open the Rational Rose model.</li>
+  <li>Do one of the following:</li>
+</ol>
+<blockquote>
+  <ul>
+    <li>To associate a <i>model</i> with a project, click <b>Tools</b>
+    &gt; <b> Rational RequisitePro</b> &gt; <b>Associate Model to Project</b>.
+    The Associate Model to Project dialog box appears.</li>
+    <li>To associate a <i>package</i> with a project, right-click the package and
+    click <b>Rational RequisitePro</b> &gt; <b>Associate Package to
+    Project</b>. The Associate Package to Project dialog box
+    appears.</li>
+  </ul>
+</blockquote>
+<ol start="3">
+  <li>At the <b>Project File</b> field, click the <b>Browse</b> button.
+    Navigate to and select the RequisitePro project file (with an <font face="Courier" size="2"> .RQS</font>
+    extension). Typically, this is located in a project subdirectory in the <font face="Courier" size="2">
+    \Program Files\Rational\RequisitePro\Projects</font> directory. This may vary
+    when accessing network-based projects or customized local project
+    directories.</li>
+  <li>Click <b>Open</b>. The full path and name of the RequisitePro<font face="Courier" size="2">.RQS</font>
+    file appears in the <b>Project File</b> field. The available document types and
+    requirement types are listed in their respective fields.</li>
+  <li>At the <b>Default Document Type</b> field, click the down arrow
+    and select a document type from the list.<br>
+    This document type, such as &quot;Use-Case Specification&quot;, determines
+    the template for your Word document and a default requirement type for all
+    requirements in that document.</li>
+  <li>At the <b>Default Requirement Type</b> field, click the down
+    arrow and select a requirement type from the list. This requirement type controls the choice of attributes,
+    such
+    as Priority, Status, and Iteration, that you will use when managing your use
+    cases.</li>
+  <li>If you are using a virtual path map for your Rose model, select a <b>Rose Path Map</b>.</li>
+  <li>Click <b>OK</b> to save the association and close the dialog
+    box.</li>
+</ol>
+<p><img src="../reqpro/images/helpbook.gif" width="16" height="16">  Refer to the topic <i>Associating a model with a project</i> in the Integrated Use-Case Management
+online Help.
+
+<h4><a name="Associating use cases with RequisitePro requirements">Associate use cases with RequisitePro requirements</a></h4>
+
+<p>Associate a Rose use case with a RequisitePro requirement to take full advantage of use-case management using requirement attributes.
+Note that the requirement text, not the requirement name, may be used to create
+this association.</p>
+
+<blockquote>
+<h5>Associate a use case with an existing requirement</h5>
+<ol>
+  <li>In the Rose model browser tree or use-case diagram, right-click a use
+  case.</li>
+  <li>Select <b>Requirement Properties</b> &gt; <b>Associate</b>
+  from the context menu. The Associate a Requirement to Use Case
+  dialog box appears.</li>
+  <li>At the <b>Requirements of type</b> field, select
+  a requirement type, such as UC, for managing the use-case
+  attributes.</li>
+  <li>Select a requirement from the displayed list and click <b>OK</b>. </li>
+  <ul><li>If the requirement has a name but no text, the Resolve Use Case Name dialog box appears, allowing you to assign the requirement text, the use-case name, or your own entry to both the requirement text and use-case name.</li>
+  <li>If the existing requirement contains text, the text is updated to the name of the Rose use
+  case.  </li></ul>
+  A requirement dialog box appears, with the <b>Attributes</b> tab displayed.
+  <li>Make changes to the requirement properties.</li>
+</ol>
+
+<h5>Associate a use case with a new requirement</h5>
+<ol>
+  <li>In the Rose model browser tree or use-case diagram, right-click a use
+    case.</li>
+  <li>Select <b>Requirement Properties</b> &gt; <b>New</b> from the context       menu. A new requirement is created in the RequisitePro project. The text of the requirement contains the name of the Rose use case. A requirement dialog box appears, with the <b>Attributes</b> tab displayed.</li>
+  <li>Make changes to the requirement properties.</li>
+  <li>Select the <b>General</b> tab and make changes to the
+    requirements general properties. Make sure to select the appropriate package
+    for the new requirement.</li>
+</ol>
+</blockquote>
+  
+<p><img src="../reqpro/images/helpbook.gif" width="16" height="16">  Refer to the following topics in the Integrated Use-Case Management
+online Help:
+<ul>
+  <li><i>Associating a use case with a new requirement</i></li>
+  <li><i>Associating a use case with an existing requirement</i></li>
+</ul>
+
+<h4><a name="Associating use cases with RequisitePro documents">Associate use cases with RequisitePro documents</a></h4>
+
+<blockquote>
+
+ <h5>Associate a use case with an existing document</h5>
+ <ol>
+  <li>In the Rose model browser tree or use-case diagram, right-click a use
+    case.</li>
+	<li>Select <b>Use Case Document </b>&gt; <b>Associate</b> from the context
+    menu. The Associate Document to Use Case dialog box appears. </li>
+	<li>At the <b>Documents of type </b>field, select a document type for the
+    list below. </li>
+	<li>Select a document from the displayed list and click <b>OK</b>.</li>
+</ol>
+
+<h5>Associate a use case with a new document</h5>
+<ol>
+  <li>In the Rose model browser tree or use-case diagram, right-click a use
+    case.</li>
+  <li>To create a new document, select <b>Use Case Document</b> &gt; <b>New</b>
+    from the context menu. RequisitePro opens a new document of the document
+    type specified in the Rose model or package association with the
+    RequisitePro project. The new document name and file name matches the name
+    of the Rose use case. </li>
+  <li>Use the <b>RequisitePro &gt; Document &gt; Save</b> command
+    in Word to save the document.</li>
+ </ol>
+ 
+</blockquote>
+	
+<p><img src="../reqpro/images/helpbook.gif" width="16" height="16"> Refer to
+<i>Associating a use case with an existing document</i> in the Integrated Use-Case Management
+online Help.
+
+<h3><font face="Arial">2. <b><a name="Managing use-case attributes and documents">Manage
+use-case attributes and documents</a></b></font> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Use-case attributes are managed in an associated RequisitePro
+requirement. By default, the <b> Attributes</b> tab is displayed when the
+Requirement dialog box is opened. You can use the <b> General</b> and <b> Revision</b> tabs to review
+requirement information. In addition, you can use the <b> Traceability</b> tab to add
+traceability to and from other requirements in RequisitePro. For more
+information on traceability, refer to the RequisitePro online Help.</p>
+
+<p>To set the values of the use-case attributes, do the following:
+<ol>
+  <li>Right-click on a Rose use case that is associated with a requirement or a
+    document.</li>
+  <li>Select <b>Requirements Properties</b> &gt; <b>Open</b>
+    from the context menu. The requirement dialog box appears.</li>
+  <li>On the <b>Attributes</b> tab, select or type a value for
+    each attribute field.<br>
+  <li>Click <b>OK</b> to save your settings and close the dialog box.</li>
+</ol>
+<p>To open the RequisitePro requirements document that is associated with a use
+case:</p>
+<ol>
+  <li>In the browser tree or use-case diagram, right-click a use case that has
+    an association with a RequisitePro document.</li>
+  <li>Select <b>Use Case Document </b>&gt; <b>Open </b>from
+    the context menu.</li>
+</ol>
+<p><img src="../reqpro/images/helpbook.gif" width="16" height="16">  Refer to
+the following topics in the Integrated Use-Case Management online
+Help:</p>
+<ul>
+  <li><i>Assigning attribute values to a use case</i></li>
+  <li><i>Opening the associated document</i></li>
+</ul>
+
+<h3><font face="Arial">3. <b><a name="Associate requirements with Rose use cases from RequisitePro">Associate
+requirements with Rose use cases from RequisitePro</a></b></font> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To use RequisitePro use-case requirements to create use cases in a Rose model, do one of the following:</p>
+<ul>
+<li>From within a RequisitePro document, place the cursor in the requirement text. Click <b>RequisitePro</b>&gt; <b>Requirement</b> &gt;<b> Associate to Rose Use Case</b>.</li>
+<li>From within a RequisitePro view or the Explorer, select the desired requirement. Click <b>Requirement</b> &gt; <b>Associate to Rose Use Case</b>.</li>
+<p>The Rose Use-Case Association dialog box appears.</p>
+</ul>
+
+
+<h4><b>Link to the Rose model</b></h4>
+<ol>
+  <li>
+    If the Rose Model File field is already populated with the correct path
+    to the model file you want to use, skip to step 3. Otherwise, type a full
+    path and Rose model file name in the indicated field, or click <b>Browse</b>
+    to find the model file.
+  </li>
+  <li>
+    Click <b>Apply</b> to open the Rose model file. Use cases in
+    the model that are not associated to a requirement or a document appear in
+    the Select Rose Item(s) list.
+  </li>
+  <li>Proceed to associate your requirement with a new or existing use case
+    following the appropriate procedure below.</li>
+</ol>
+<h4>Associate a requirement with an existing use case</h4>
+<ol>
+  <li>To use an existing use case in the Rose Use-Case Association dialog box, navigate to the use case in the displayed Rose packages, and click <b>Associate<span style="FONT-WEIGHT: normal">.
+    If the requirement text and the use case name match, a message confirming
+    the association appears. Click <b>OK</b> to return to the
+    Requirement Use Case Association dialog box. The procedure is complete.</span></b>
+  <li>If the <b>Use-Case Name</b> entry is different than the requirement text,
+    the Resolve Use Case Name dialog box appears. Do one of the following:
+    <ul>
+      <li>Select <b>Requirement Text</b> to apply the RequisitePro requirement
+          text to the Rose use-case name.</li>
+      <li>Select <b>Use Case Name </b>to apply the Rose use-case name to the
+          RequisitePro requirement text.</li>
+      <li>Select <b>Other</b> and type a new entry that will be applied to
+          both the RequisitePro requirement text and the Rose use-case name.</li>
+    </ul>
+  <li>A message confirming the association appears. Click <b>OK</b> to
+    return to the Requirement Use Case Association dialog box. The procedure is
+    complete.</li>
+</ol>
+<h4>Create a new use case from an existing requirement</h4>
+<ol>
+  <li>To create a new use case in the Rose Use-Case Association dialog box, select the appropriate Rose package, and click <b>Create</b>. The Create a New
+    Use Case dialog box appears. The <b>Use-Case Name</b> box displays the
+    selected requirement text, by default. To change the name of the new use
+    case, type a new entry.<br>
+  <li>Select a package in which the new use case will be located. If you have
+    already selected a package in the explorer pane, that package appears as
+    the default selection.<br>
+  <li>Click <b>OK</b>. A message confirming the association appears. Click <b>OK</b>
+    to return to the Requirement Use Case Association dialog box. The procedure
+    is complete.</li>
+</ol>
+<p><img src="../reqpro/images/helpbook.gif" width="16" height="16"> Refer to the 
+  topic <i>Creating use cases from requirements</i> in the Integrated Use-Case 
+  Management online Help.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

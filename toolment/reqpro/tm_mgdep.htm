@@ -1,0 +1,450 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Managing Dependencies Using Rational RequisitePro</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Managing Dependencies Using Rational RequisitePro</rpw>
+</h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational RequisitePro&reg; to manage
+dependencies by using <a href="../../process/artifact/ar_rattr.htm">requirement
+attributes</a> and <a href="../../process/workflow/requirem/co_trace.htm">traceability</a>.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_mgdep.htm">Manage Dependencies</a></li>
+<li><a href="../../process/activity/ac_devra.htm">Develop Requirements Management Plan</a></li>
+<li><a href="../../process/activity/ac_tst_dfnasstrcnds.htm">Define Assessment and Traceability Needs</a></li>
+</ul>
+<br>
+  <br>
+</p>
+
+<h3>Overview</h3>
+<p>RequisitePro enables you to create and maintain a clear organization of <a href="../../process/workflow/requirem/co_req.htm">requirements</a>.
+You can group your requirements according to user-defined attributes, such as
+function, priority, risk, and cost. In addition, you can establish hierarchical
+relationships that represent requirements in logical parent-child groups.
+Finally, you can create a traceability relationship between two requirements
+that establishes dependency from one requirement to the other.</p>
+<h4>Tool Steps</h4>
+<p>The following requirements management concepts and procedures are presented
+in more detail.</p>
+<ol>
+  <li><a href="#Organize Requirements">Organize requirements</a></li>
+  <li><a href="#Create Requirement Hierarchies">Create requirement hierarchies</a></li>
+  <li><a href="#Create Requirement Traceability">Create requirement traceability</a></li>
+  <li><a href="#Query Requirements">Query requirements</a></li>
+</ol>
+<b><h3>
+<font size="4">1.&nbsp; <a name="Organize Requirements">Organize requirements</a> </font><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+</b><p><b>Functional organization can be expressed in requirement types. </b>A <a href="../../process/workflow/requirem/co_reqty.htm">requirement
+type</a> is simply a class of requirements that enable teams to organize large
+numbers of requirements into meaningful and more manageable groups. Establishing
+different types of requirements in a project helps team members classify
+requirements and communicate more clearly.</p>
+<p>One type of requirement usually can be decomposed into other types. For
+example, business rules and vision statements typically include high-level
+requirements from which teams derive user needs, features, and product
+requirement types. Use cases drive design requirements that can be used to
+define software requirements. Test requirements are derived from the software
+requirements and are divided into specific test procedures. (If your
+installation includes Rational TestManager&reg;, we recommend that you use that tool for
+managing test artifacts.)</p>
+<p>When there are hundreds, thousands, or even tens of thousands of requirements
+in a given project, classifying requirements into types makes the project more
+manageable. Using RequisitePro, you can create requirements of a given type in a
+requirements document or directly in the project database. Each requirement type
+has specific attributes that are unique to that type.</p>
+<p>To create <a href="../../process/workflow/requirem/co_reqty.htm">requirement
+types</a>:
+<ol>
+  <li>Click <b>File &gt; Open Project</b>, select the project, and
+    select the <b>Exclusive</b> check box. (The project
+    must be opened in exclusive mode to create new requirement types.) Click <b>OK</b>.
+  <li>In the Explorer, select the project, and click <b>File &gt; Properties</b>.
+    The Project Properties dialog box appears.
+  <li>Click the <b>Requirement Types</b> tab, and click <b>Add</b>.
+    Type the requirement type information (name, description, tag prefix, color,
+    and style of the requirement format).
+  <li>Click <b>OK</b>.</li>
+</ol>
+<p>To create <a href="../../process/workflow/requirem/co_req.htm">requirements</a>
+in a document:
+<ol>
+  <li>In the document, select the text to define the requirement.
+  <li>Do one of the following:
+    <ul>
+      <li>Right-click and select <b>New Requirement</b>.
+      <li>Click <b>RequisitePro</b> &gt; <b>Requirement</b>
+        &gt; <b>New</b>.<br>
+        The Requirement Properties dialog box appears.</li>
+    </ul>
+  <li>Click the tabs and type the appropriate information to define the
+    requirement. Click <b>OK</b>.</li>
+</ol>
+<p>To create requirements in an Attribute Matrix:
+<ol>
+  <li>In the Explorer, select the package in which you want to place the view.
+    Then click <b>File &gt; New &gt; View</b>. The View Properties dialog box
+    appears.
+  <li>Type a name for and description of the view. The view type is Attribute
+    Matrix. Select the requirement type for the Attribute Matrix from the
+    list. Click <b>OK</b>. The Attribute Matrix appears.
+  <li>Either click twice the field marked <b>&lt;Click here to create a
+    requirement&gt;</b>, or click the field and then click <b>Requirement
+    &gt; New</b>. The <b>Name</b> and <b>Text</b> boxes appear.
+  <li>Type a name for and the text of the new requirement.
+  <li>Press the <b>Tab</b> key to move across the matrix. Add
+    attribute values as needed.
+  <li>Click anywhere in the view to save the requirement.</li>
+</ol>
+<p>You can also open an existing requirement in an Attribute Matrix by selecting
+the requirement and clicking&nbsp; <b>Requirement &gt; Properties</b>.
+The Requirement Properties dialog box appears. On the <b>General</b>
+tab, you can modify the text for the requirement. Click the <b>Attributes</b>
+tab and select the appropriate values for the attributes.</p>
+<h4>For More Information</h4>
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b>Refer to the
+following topics in the RequisitePro online Help:
+<ul>
+  <li><i>Creating and modifying requirement types</i> (Index: requirement
+    types &gt; creating)</li>
+  <li><i>Creating requirements in a document</i> (Index: requirements
+    &gt; creating)</li>
+  <li><i>Creating requirements in an Attribute Matrix</i> (Index: requirements
+    &gt; creating)</li>
+</ul>
+<b>
+<h3><font size="4">2.&nbsp; <a name="Create Requirement Hierarchies">Create
+requirement hierarchies</a> </font><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+</b> 
+<p><b>You can manage dependencies in hierarchical relationships.</b>
+Hierarchical requirement relationships are parent-child relationships that
+reflect a logical grouping between requirements. These associations provide
+helpful tools for organizing requirements.</p>
+<p>Use hierarchical relationships to subdivide a general requirement into more
+explicit requirements. Parent requirements are upper level, more general
+requirements; child requirements are lower level, more specific requirements.
+Each child requirement can have only one parent, but a requirement can be both a
+parent and a child.</p>
+<p><b>Note: </b>Hierarchical requirement relationships should not be
+confused with traceability relationships. A traceability relationship is
+generally established between different types of requirements, like software and
+test requirements, whereas hierarchical relationships group requirements of the
+same type, at the same level of the requirement traceability tree.</p>
+<p>To create child requirements in a document:
+<ol>
+  <li>In the requirements document, select the information that defines the
+    requirement.
+  <li>Do one of the following:
+    <ul>
+      <li>Right-click and select <b>New Requirement</b>.
+      <li>Click <b>RequisitePro &gt; Requirement &gt; New</b>.<br>
+        The Requirement Properties dialog box appears.</li>
+    </ul>
+  <li>Click the tabs and enter the appropriate information to define the
+    requirement.
+  <li>On the <b>Hierarchy</b> tab, select a parent from the <b>Parent</b>
+    list. If the parent is not displayed in the list, select &lt;<b>choose
+    parent...</b>&gt;, and select a parent from the list displayed in the Parent Requirement Browser dialog box. 
+	<li>Click <b>OK</b> to close each dialog box.</li>
+</ol>
+<p>To create child requirements in a view:
+<ol>
+  <li>Open an Attribute Matrix based on the requirement type of the requirement
+    you want to create. Select the requirement that you want to be the parent of
+    the new requirement.
+  <li>Click <b>Requirement</b> &gt; <b>New Child</b>. You
+    can create a child requirement in a view only if the selected requirement
+    (which will become the child's parent) is also located in a view (that is,
+    it is not located in a document).
+  <li>Type a description for the child requirement.
+  <li>Press the <b>Tab</b> key to move across the matrix. Add
+    attribute values as needed.
+  <li>Click anywhere in the view to save the
+    requirement.</li>
+</ol>
+<h4>For More Information</h4>
+
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b>Refer to the following topics in the RequisitePro online
+Help:
+<ul>
+  <li><i>Hierarchical relationships overview</i> (Index:
+    hierarchical requirements&gt;overview)</li>
+  <li><i>Creating child requirements in a document</i> (Index:hierarchical
+    requirements&gt;creating child requirements)</li>
+  <li><i>Creating child requirements in a view</i> (Index: hierarchical
+    requirements&gt;creating child requirements)</li>
+  <li><i>Assigning parent requirements in a view</i> (Index: parent requirements&gt;assigning new parent requirements)</li>
+</ul>
+<b><h3>
+<font size="4">3.&nbsp; <a name="Create Requirement Traceability">Create requirement traceability</a>
+</font><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+</b>
+<p><b>You can use traceability to manage dependencies.</b> As implied in the description
+of requirement types, no single expression of a requirement stands alone. The process of
+decomposing user needs into derived requirements implies relationships between
+high-level expectations and subsequent artifacts needed for implementation and
+validation. In effect, one traces to many or vice versa.</p>
+<p>For example, stakeholder requests are related to the product features
+proposed to meet them. Product features are <i>traced to</i> individual
+requirements for specific functional behavior. Test cases are <i>traced from</i>
+the requirements they verify and validate.</p>
+<p>To determine the impact of changes and feel confident that the system
+conforms to expectations, team members must understand, document, and maintain
+these traceability relationships. Traceability is an essential tool for
+accommodating change and ensuring complete coverage. Establishing clear
+requirement types can help make traceability easier to implement and maintain.</p>
+<p>To create requirement traceability:
+<ol>
+  <li>In the Explorer, select the package in which you want to place the view
+    you create, and then click <b>File &gt; New &gt; View</b>. The
+    View Properties dialog box appears.
+  <li>Select the Traceability Matrix view type. Select one requirement type for
+    the rows and one for the columns of the matrix. Click <b>OK</b>.
+  <li>In the Traceability Matrix, select a cell that intersects the two
+    requirements for which you want to create a traceability relationship. (Use
+    a multiple select action to select multiple cells.)
+  <li>Do one of the following:
+    <ul>
+      <li>Click <b>Traceability &gt; Trace To</b> or <b>Traceability &gt; Trace
+        From</b>.
+      <li>Right-click the cell and select <b>Trace To</b> or <b>Trace
+        From</b>.</li>
+    </ul>
+  </li>
+</ol>
+<h4>For More Information</h4>
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b>Refer to the following topics in the RequisitePro online
+Help:
+<ul>
+  <li><i>Trace to/trace from overview</i> (Index: trace to/trace from
+    relationship&gt;overview)</li>
+  <li><i>Creating traceability relationships in a view</i> (Index:
+    traceability &gt;creating )</li>
+</ul>
+<p><b><a href="../../process/workflow/requirem/co_trace.htm">Suspect
+Relationships</a>. </b>A relationship between requirements becomes questionable
+or <i>suspect </i>if RequisitePro detects that one of the requirements in the
+relationship has been modified. If a requirement's text is modified, all <i>direct
+</i>relationships <i>to </i>and <i>from </i>that requirement become suspect. Moreover, you
+can define attributes that, when modified, cause traceability relationships to
+become suspect.</p>
+<font size="4"><b>
+<h3>4.&nbsp; <a name="Query Requirements">Query requirements</a>  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+</b></font>
+<p><b>Query to retrieve and organize requirements by
+attribute values or traceability.</b> The RequisitePro query features
+provide a method for filtering and sorting requirements in views by limiting the
+values of one or more attributes or by limiting traceability and specifying the
+order in which the filtered requirements are displayed. Filtering restricts the
+information being displayed; sorting determines the order in which information
+is displayed. For example, in an Attribute Matrix, you may want to use filter
+criteria to view only those requirements assigned to you; you can also use
+sorting criteria to arrange the requirements from highest to lowest priority.</p>
+<p>You filter and sort requirements by applying query criteria to the
+requirements and their attributes. These criteria limit the values of the
+attributes or conditions of the traceability relationships. You can create a
+query based on a single attribute value, or you can select multiple attribute
+values to create more complex query criteria.</p>
+<p>RequisitePro allows you to save and rerun queries with user-defined views.
+You can dynamically rerun queries to update a requirements collection or refresh
+the returned data with updated values at any time.</p>
+<p>To create a query:
+<ol>
+  <li>Open an Attribute Matrix, Traceability Matrix, or
+    Traceability Tree view.
+  <li>Click <b>View &gt; Query Row Requirements</b>. If
+    you have not yet added any query criteria, the Select Attribute dialog box
+    appears.
+  <li>Select the attribute and attribute value that you want to use in your
+    query, and click <b>OK</b>.
+  <li>For list-type attributes, select one or more values. The logical operator
+    OR is assumed for list-type attributes. For entry-type attributes, select an
+    operator and specify the values.
+  <li>To create compound queries (with multiple attributes), click <b>Add</b>
+    and select additional query criteria.
+  <li>Click <b>OK</b>.</li>
+</ol>
+<p>To save a view:
+<ol>
+  <li>Click <b>File</b> &gt; <b>Save View As</b>. The View
+    Properties dialog box appears.
+  <li>Type a name for the view.
+  <li>Select the <b>Private</b> check box to save the view so that it can be opened
+    only by the user who created it.</li>
+  <li>Click <b>OK</b>.</li>
+</ol>
+
+<h4>For More Information</h4>
+<p><img src="images/helpbook.gif" width="16" height="16"> Refer to the following topics in the RequisitePro online
+Help:</p>
+<ul>
+  <li><i>Creating a view</i> (Index: Views &gt; creating views)</li>
+  <li><i>Creating and modifying queries</i> (Index: queries &gt; creating)</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

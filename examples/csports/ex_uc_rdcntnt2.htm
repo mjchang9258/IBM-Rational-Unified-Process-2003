@@ -1,0 +1,114 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Use Case Specification: Read Content on Web Site V2.0</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Use Case : Read Content on Web Site 2.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Use Case Specification: Read Content on Web Site</p>
+</font><p align="RIGHT">
+<font face="Arial" size="4">Version 2.0</font></p><font face="Arial" size="5">
+<p align="CENTER">Revision History</p></font></b>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP">
+    <p align="CENTER"><b>Version</b></td>
+    <td width="39%" valign="TOP">
+    <p align="CENTER"><b>Description</b></td>
+    <td width="24%" valign="TOP">
+    <p align="CENTER"><b>Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 9, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial version</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">December 1, 1999</td>
+    <td width="12%" valign="TOP">2.0</td>
+    <td width="39%" valign="TOP">Updated after Elaboration</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<h5>Table of Contents</h5>
+<ul>
+  <li><a href="#Read Content on Web Site">Read Content on Web Site</a></li>
+  <li><a href="#Flow of Events">Flow of Events</a></li>
+  <li><a href="#Special Requirements">Special Requirements</a></li>
+  <li><a href="#Preconditions">Preconditions</a></li>
+  <li><a href="#Postconditions">Postconditions</a></li>
+ 
+</ul>
+<h3><a name="Read Content on Web Site"></a>Read Content on Web Site <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when an active subscriber or unregistered user connects
+to the system to view information.</p>
+<h3><a name="Flow of Events"></a>Flow of Events <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>System scans &quot;archived&quot; list of <a href="ex_gloss2.htm#Content">content</a>.
+    Content subscribed to remains in a user's &quot;unread&quot; category until
+    the story has been viewed.&nbsp; Once the story has been viewed, the story
+    is marked as &quot;archived&quot; for that subscriber.&nbsp; After two days
+    in the &quot;archived&quot; category, the story is removed from the
+    subscriber's &quot;archived&quot; category.&nbsp; For any stories older than
+    2 days, the <a href="ex_gloss2.htm#Story">story</a> is moved back into the
+    general category and the reference count attribute of the content object is
+    decremented.</li>
+  <li>When a story is no longer referenced by any subscribers'
+    &quot;unread&quot; or &quot;archived&quot; category (reference count is 0),
+    the system deletes the story.</li>
+  <li>System displays banner ads, general content categories, and specific
+    stories for which <a href="ex_gloss2.htm#Page">pages</a> have been sent.</li>
+  <li>Subscriber views stories.</li>
+  <li>For any paged stories, the stories are marked as viewed and placed into
+    the &quot;archived&quot; category.</li>
+</ol>
+<h4>Alternate Flows</h4>
+<ol>
+  <li>User is not registered subscriber</li>
+  <ol>
+    <li>System displays banner ads and general content categories</li>
+    <li>System provides the option for the user to subscribe</li>
+    <li>User views stories</li>
+  </ol>
+  <li>Content is obsolete</li>
+  <p>If this content has a pending view count of 0 and the last date viewed is
+  more than 2 days ago, the content is deleted.</p>
+</ol>
+<h3><a name="Special Requirements"></a>Special Requirements <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.</p>
+<h3><a name="Preconditions"></a>Preconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.</p>
+<h3><a name="Postconditions"></a>Postconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.</p>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font></p>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

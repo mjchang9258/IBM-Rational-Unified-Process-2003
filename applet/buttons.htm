@@ -1,0 +1,579 @@
+<!-- merged -->
+<html>
+
+<head>
+<title>Button page</title>
+<script language="JavaScript">
+
+<!--
+var tour = 0;
+
+function openFirstTour ()
+// open the guided tour /haakan 990324 
+{
+if(!tour || tour==null || tour.closed)
+    {
+      tour = open("../tour/tour.htm","tour_page","toolbar=no,directories=no,menubar=no,scrollbars=yes,width=350,height=700,resizable=yes");
+    }
+    else
+    {
+      tour.focus();
+    }
+}
+
+function openTour ()
+// open the guided tour /haakan 990324 
+{
+if(!tour || tour==null || tour.closed)
+    {
+      tour = open("../tour/tour.htm","tour_page","toolbar=no,directories=no,menubar=no,scrollbars=yes,width=350,height=700,resizable=yes");
+    }
+    else
+    {
+      tour.focus();
+    }
+}
+
+//Addition by Chinh Vo 03/28/00
+ function displayGettingStarted()
+ {
+ 	var pagePattern = /ovu_proc/;
+ 	var mainPage = window.parent.ory_doc.location;
+ 	
+ 	if ( pagePattern.test( mainPage ) ) {
+    	if (getCookie("RUP") != "checked") { openFirstTour(); }
+	}
+	else {
+		setTimeout( "displayGettingStarted()", 1000 );
+	}
+}
+
+function getCookie (name) 
+{
+  var dcookie = document.cookie; 
+  var cname = name + "=";
+  var clen = dcookie.length;
+  var cbegin = 0;
+  while (cbegin < clen) 
+  {
+    var vbegin = cbegin + cname.length;
+    if (dcookie.substring(cbegin, vbegin) == cname) 
+    { 
+      var vend = dcookie.indexOf (";", vbegin);
+      if (vend == -1) 
+      {
+        vend = clen;
+      }
+      return unescape(dcookie.substring(vbegin, vend));
+    }
+    cbegin = dcookie.indexOf(" ", cbegin) + 1;
+    if (cbegin == 0) 
+    {
+      break;
+    }
+  }
+  return null;
+ }
+
+// -->
+<!--
+  var index=null;
+  var tour=null;
+  var search=null;
+  var glossary=null;
+  var feedback=null;
+  var treeLoaded=false;
+  function checkTreeLoaded()
+  {
+    if(treeLoaded)
+    {
+      return treeLoaded;
+    }
+     if(parent.ory_toc.document.applets.Tree != null
+        && parent.ory_toc.document.applets.Tree.isReady())
+     {
+       treeLoaded = true;
+     }
+     return treeLoaded;
+   }
+
+    function showAlertNotLoaded()
+    {
+      alert("The TreeBrowse is not yet loaded!\nPlease wait!");
+    }
+
+function showStatusNotLoaded()
+  {
+    return "The TreeBrowse is not yet loaded!\nPlease wait!";
+  }
+
+  function showAlertNoPage(text)
+  {
+     var parentLabel = parent.ory_toc.document.applets.Tree.getParentLabel(parent.ory_doc.document.URL); 
+     if(parentLabel!="" && parentLabel!=null)
+     {
+          alert("There is no '" + text + "' page for this page.\nTry one of the other navigation buttons.");
+     }
+     else
+     {
+         alert("There is no '" + text + "' page for this page.\nTry one of the other navigation buttons");
+     }
+  }
+
+  function showStatusNoPage(text)
+  {
+    
+     var parentLabel = parent.ory_toc.document.applets.Tree.getParentLabel(parent.ory_doc.document.URL);
+     var msg; 
+     if(parentLabel!="" && parentLabel!=null)
+     {
+        msg = "There is no " + text + " page!";
+     }
+     else
+     {
+        msg = "There is no " + text + " page!";
+     }
+
+     return msg;
+  }
+
+  function showParentLabel()
+  {
+    if(checkTreeLoaded())
+    {
+      var label = parent.ory_toc.document.applets.Tree.getParentLabel(parent.ory_doc.document.URL); 
+      var parenturl = parent.ory_toc.document.applets.Tree.getParentUrl(parent.ory_doc.document.URL); 
+
+     if(label!="" && label!=null && parenturl!="" && parenturl!=null)
+     {
+       self.status = label;
+     }
+     else
+     {
+       self.status = showStatusNoPage("up");  
+     }
+    }
+    else
+    {
+        self.status = showStatusNotLoaded();
+    }
+  }
+
+  function showHomeLabel()
+  {
+    self.status = "Home";
+  }
+
+  function showPreviousLabel()
+  {
+    if(checkTreeLoaded())
+    {
+      var label = parent.ory_toc.document.applets.Tree.getPreviousLabel(parent.ory_doc.document.URL); 
+      var prevurl = parent.ory_toc.document.applets.Tree.getPreviousUrl(parent.ory_doc.document.URL); 
+
+     if(label!="" && label!=null && prevurl!="" && prevurl!=null)
+     {
+       self.status = label;
+     }
+     else
+     {
+        self.status = showStatusNoPage("previous");  
+     }
+    }
+    else
+    {
+        self.status = showStatusNotLoaded();
+    }
+  }
+
+  function showNextLabel()
+  {
+    if(checkTreeLoaded())
+    {
+      var label = parent.ory_toc.document.applets.Tree.getNextLabel(parent.ory_doc.document.URL); 
+      var nexturl = parent.ory_toc.document.applets.Tree.getNextUrl(parent.ory_doc.document.URL); 
+      if(label!="" && label!=null && nexturl!="" && nexturl!=null)
+      {
+        self.status = label;
+      }
+      else
+      {
+        self.status =  showStatusNoPage("next");  
+      } 
+    } 
+    else
+    {
+       self.status =  showStatusNotLoaded();
+    }
+  }
+
+  function loadPrevious()
+  {
+    if(checkTreeLoaded())
+    {
+     var newLabel = parent.ory_toc.document.applets.Tree.getPreviousLabel(parent.ory_doc.document.URL); 
+     var newLocation = parent.ory_toc.document.applets.Tree.getPreviousUrl(parent.ory_doc.document.URL); 
+
+     if(newLocation!="" && newLocation!=null)
+     {
+
+	if ((newLocation.indexOf("applet")==-1) && (newLocation.indexOf("www")==-1))
+	{
+		parent.ory_doc.location = newLocation; 	
+	}
+	else if (newLocation.indexOf("applet")!=-1)
+	{
+	 	parent.ory_toc.document.applets.Tree.getAppletPage(newLocation, newLabel);	
+	}
+	else if (newLocation.indexOf("www")!=-1)
+	{
+		newLocation = parent.ory_toc.document.applets.Tree.getHttpPage(newLocation, newLabel, "Previous");		
+	}       	
+	      	parent.ory_toc.document.applets.Tree.selectNode(newLocation);	
+     }
+     else
+     {
+       showAlertNoPage("previous");      
+     }
+     }
+    else
+    {
+        showAlertNotLoaded();
+    }
+     return;
+  }
+
+  function loadNext()
+  {
+    if(checkTreeLoaded())
+    {
+     var newLabel = parent.ory_toc.document.applets.Tree.getNextLabel(parent.ory_doc.document.URL); 
+     var newLocation = parent.ory_toc.document.applets.Tree.getNextUrl(parent.ory_doc.document.URL); 
+     if(newLocation!="" && newLocation!=null)
+     {
+
+	if ((newLocation.indexOf("applet")==-1) && (newLocation.indexOf("www")==-1))
+	{
+		parent.ory_doc.location = newLocation; 	
+	}
+	else if (newLocation.indexOf("applet")!=-1)
+	{
+	 	parent.ory_toc.document.applets.Tree.getAppletPage(newLocation, newLabel);	
+	}
+	else if (newLocation.indexOf("www")!=-1)
+	{
+		newLocation = parent.ory_toc.document.applets.Tree.getHttpPage(newLocation, newLabel, "Next");		
+	}       	
+       parent.ory_toc.document.applets.Tree.selectNode(newLocation);
+
+     }
+     else
+     {
+        showAlertNoPage("next"); 
+     }
+    }
+    else
+    {
+      showAlertNotLoaded();
+    }
+
+     return;
+  }
+
+  function loadParent()
+  {
+    if(checkTreeLoaded())
+    {
+     var newLocation = parent.ory_toc.document.applets.Tree.getParentUrl(parent.ory_doc.document.URL); 
+     if(newLocation!="" && newLocation!=null)
+     {
+       parent.ory_doc.location = newLocation; 
+       parent.ory_toc.document.applets.Tree.selectNode(newLocation);
+     }
+     else
+     {
+       showAlertNoPage("up"); 
+     }
+    }
+    else
+    {
+       showAlertNotLoaded();
+    }
+
+     return;
+  }
+
+function whereAmI()
+  {
+    if(checkTreeLoaded())
+    {
+	var status = parent.ory_toc.document.applets.Tree.selectNode(parent.ory_doc.document.URL);
+    	if( status == false )
+	{
+		alert( "The current file is not in the tree browser." );
+	}
+    }
+    else
+    {
+      showAlertNotLoaded();
+    }
+     return;
+  }
+
+  function upArrow()
+  {
+    if(checkTreeLoaded())
+    {
+      var newLocation = parent.ory_toc.document.applets.Tree.upArrow();
+      if(newLocation!="" && newLocation!=null)
+      {
+       parent.ory_doc.location = newLocation;
+      } 
+    }
+    else
+    {
+      showAlertNotLoaded();
+    }
+     return;
+  }
+
+  function downArrow()
+  {
+    if(checkTreeLoaded())
+    {
+      var newLocation = parent.ory_toc.document.applets.Tree.downArrow();
+      if(newLocation!="" && newLocation!=null)
+      {
+       parent.ory_doc.location = newLocation;
+      } 
+
+    }
+    else
+    {
+      showAlertNotLoaded();
+    }
+     return;
+  }
+
+    function leftArrow()
+  {
+    if(checkTreeLoaded())
+    {
+     parent.ory_toc.document.applets.Tree.leftArrow();
+    }
+    else
+    {
+      showAlertNotLoaded();
+    }
+     return;
+  }
+
+    function rightArrow()
+  {
+    if(checkTreeLoaded())
+    {
+     parent.ory_toc.document.applets.Tree.rightArrow();
+    }
+    else
+    {
+      showAlertNotLoaded();
+    }
+     return;
+  }
+// --->
+</script>
+<script language="JavaScript">
+<!--
+MSFPhover = 
+(((navigator.appName == "Netscape") && 
+  (parseInt(navigator.appVersion) >= 3 )) || 
+  ((navigator.appName == "Microsoft Internet Explorer") && 
+  (parseInt(navigator.appVersion) >= 4 ))); 
+
+  function MSFPpreload(img) 
+  {
+     var a=new Image(); 
+     a.src=img; 
+     return a; 
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+    if(MSFPhover) 
+    {
+        HomeGray=MSFPpreload('../images/where.gif'); 
+        HomeBlue=MSFPpreload('../images/where_a.gif'); 
+ 
+        IndexGray=MSFPpreload('../images/index.gif'); 
+        IndexBlue=MSFPpreload('../images/index_a.gif'); 
+
+        SearchGray=MSFPpreload('../images/search.gif'); 
+        SearchBlue=MSFPpreload('../images/search_a.gif'); 
+
+        StartGray=MSFPpreload('../images/getstarted.gif'); 
+        StartBlue=MSFPpreload('../images/getstarted_a.gif'); 
+        
+        GlossaryGray=MSFPpreload('../images/glossary.gif'); 
+        GlossaryBlue=MSFPpreload('../images/glossary_a.gif');
+        
+        PrintGray=MSFPpreload('../images/print.gif'); 
+        PrintBlue=MSFPpreload('../images/print_a.gif');
+
+        FeedbackGray=MSFPpreload('../images/feedback.gif'); 
+        FeedbackBlue=MSFPpreload('../images/feedback_a.gif');
+    }
+// -->
+</script>
+<script language="JavaScript">
+
+<!--
+
+function openOry (page, target)
+{
+    if(!index || index.closed)
+    {
+      index = open(page,target,"toolbar=no,directories=no,menubar=no,scrollbars=yes,width=360,height=500,resizable=yes");
+    }
+    else
+    {
+      index.focus();
+    }
+}
+
+function openSearch()
+{
+    if(!search || search.closed)
+    {
+      search = open("../applet/search.htm","search_page","toolbar=no,directories=no,menubar=no,scrollbars=no,width=630,height=370,resizable=no");
+    }
+    else
+    {
+      search.focus();
+    }
+}
+
+function openIndex()
+{
+   openOry("../index/index.htm");
+}
+
+function openGlossary()
+{
+ if(!glossary || glossary.closed)
+    {
+      glossary = open("../process/glossary.htm","glossary","toolbar=yes,directories=no,menubar=no,scrollbars=yes,width=500,height=600,resizable=yes");
+    }
+    else
+    {
+      glossary.focus();
+    }
+}
+
+function printPage()
+{
+ parent.ory_doc.focus();
+ parent.ory_doc.print();
+}
+
+
+// -->
+
+</script>
+<script language="JavaScript">
+
+var link=window.location;
+
+</script>
+
+<script language="JavaScript">
+
+
+function sendmail()
+{
+var link=parent.ory_doc.location;
+location.replace('mailto:rup_feedback@Rational.Com?subject=Feedback: RUP2003.06.00 - '+link);
+}
+</script>
+
+
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<script language="JavaScript">
+    //Added by Chinh Vo 03/28/00
+  	displayGettingStarted();
+</script>
+
+<body bgcolor="#FFFFFF">
+
+<!--<table border="0" cellpadding="2" cellspacing="0" width="896">
+  <tr> 
+    <td height="14" width="80"></td>
+    <td width="1"></td>
+    <td width="91" rowspan="2" valign="top"> 
+      <div align="center"><a href="JavaScript:upArrow();"><img src="images/up.gif" alt="Move Up the Treebrowser" border="0" width="24" height="24"></a></div>
+    </td>
+    <td width="35"></td>
+    <td " width="669" rowspan="4" valign="middle" align="left"><a href="JavaScript:openIndex();" onmouseover="if(MSFPhover)document['Index'].src=IndexBlue.src; self.status='Index'; return true" onmouseout="if(MSFPhover) document['Index'].src=IndexGray.src; self.status= ' '; return true"><img src="../images/index.gif" border="0" alt="Index" name="Index" width="80" height="24"></a> 
+      <a href="JavaScript:openSearch();" onmouseover="if(MSFPhover)document['Search'].src=SearchBlue.src; self.status='Search'; return true" onmouseout="if(MSFPhover) document['Search'].src=SearchGray.src; self.status= ' '; return true"><img src="../images/search.gif" border="0" alt="Search" name="Search" width="80" height="24"></a> 
+      <a href="JavaScript:openTour();" onmouseover="if(MSFPhover) document['Start'].src=StartBlue.src; showHomeLabel(); return true" onmouseout="if(MSFPhover) document['Start'].src=StartGray.src; self.status= ' ';return true"><img src="../images/getstarted.gif" name="Start" border="0" alt="Click Here for help on using the Rational Unified Process" width="80" height="24"></a> 
+      <a href="JavaScript:openGlossary();" onmouseover="if(MSFPhover)document['Glossary'].src=GlossaryBlue.src; self.status='Glossary'; return true" onmouseout="if(MSFPhover) document['Glossary'].src=GlossaryGray.src; self.status= ' '; return true"><img src="../images/glossary.gif" border="0" alt="Glossary" name="Glossary" width="80" height="24"></a> 
+      <a href="JavaScript:printPage();" onmouseover="if(MSFPhover)document['Print'].src=PrintBlue.src; self.status='Print'; return true" onmouseout="if(MSFPhover) document['Print'].src=PrintGray.src; self.status= ' '; return true"><img src="../images/print.gif" border="0" alt="Click here to print the current page" name="Print" width="80" height="24"></a> 
+      <a href="JavaScript:sendmail();" onmouseover="if(MSFPhover)document['Feedback'].src=FeedbackBlue.src; self.status='Feedback'; return true" onmouseout="if(MSFPhover) document['Feedback'].src=FeedbackGray.src; self.status= ' '; return true"><img src="../images/feedback.gif" border="0" alt="Click here to send an email with feedback on a page with the current page as subject" name="Feedback" width="80" height="24"></a> 
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" rowspan="2"><a href="JavaScript:whereAmI();" onMouseOver="if(MSFPhover) document['Home'].src=HomeBlue.src; showHomeLabel(); return true" onMouseOut="if(MSFPhover) document['Home'].src=HomeGray.src; self.status= ' ';return true"><img src="../images/where.gif" border="0" alt="Highlight the current page in the Treebrowser" name="Home" width="80" height="24"></a></td>
+    <td height="14"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="14"></td>
+    <td rowspan="2" valign="top" align="center"><a href="JavaScript:leftArrow();"><img src="images/compr.gif" alt="Compress Item" border="0" width="24" height="24"></a> 
+      <a href="JavaScript:downArrow();"><img src="images/down.gif" alt="Move Down the Treebrowser" border="0" width="24" height="24"></a> 
+      <a href="JavaScript:rightArrow();"><img src="images/expand.gif" alt="Expand Item" border="0" width="24" height="24"></a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="14"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="0"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="900" height="32" align="left">
+  <tr> 
+    <td width="80" height="32" valign="middle"><a href="JavaScript:whereAmI();" onMouseOver="if(MSFPhover) document['Home'].src=HomeBlue.src; showHomeLabel(); return true" onMouseOut="if(MSFPhover) document['Home'].src=HomeGray.src; self.status= ' ';return true"><img src="../images/where.gif" border="0" alt="Treebrowser: Highlight Location" name="Home" width="80" height="20" align="middle"></a></td>
+    <td width="125" valign="middle" align="center"> 
+      <div align="left"><a href="JavaScript:leftArrow();"><img src="images/compr.gif" alt="Treebrowser: Collapse Item" border="0" width="23" height="23" align="middle"></a> 
+        <a href="JavaScript:upArrow();"><img src="images/up.gif" alt="Treebrowser: Move Up" border="0" width="23" height="23" align="middle"></a> 
+        <a href="JavaScript:downArrow();"><img src="images/down.gif" alt="Treebrowser: Move Down" border="0" width="23" height="23" align="middle"></a> 
+        <a href="JavaScript:rightArrow();"><img src="images/expand.gif" alt="Treebrowser: Expand Item" border="0" width="23" height="23" align="middle"></a></div>
+    </td>
+    <td " width="550" rowspan="4" valign="middle" align="left" height="32">
+      <a href="JavaScript:openTour();" onmouseover="if(MSFPhover) document['Start'].src=StartBlue.src; showHomeLabel(); return true" onmouseout="if(MSFPhover) document['Start'].src=StartGray.src; self.status= ' ';return true"><img src="../images/getstarted.gif" name="Start" border="0" alt="Click Here for help on using the Rational Unified Process" width="80" height="20"></a> 
+	  <a href="JavaScript:openSearch();" onmouseover="if(MSFPhover)document['Search'].src=SearchBlue.src; self.status='Search'; return true" onmouseout="if(MSFPhover) document['Search'].src=SearchGray.src; self.status= ' '; return true"><img src="../images/search.gif" border="0" alt="Search" name="Search" width="80" height="20"></a> 
+      <a href="JavaScript:openGlossary();" onmouseover="if(MSFPhover)document['Glossary'].src=GlossaryBlue.src; self.status='Glossary'; return true" onmouseout="if(MSFPhover) document['Glossary'].src=GlossaryGray.src; self.status= ' '; return true"><img src="../images/glossary.gif" border="0" alt="Glossary" name="Glossary" width="80" height="20"></a> 
+	  <a href="JavaScript:openIndex();" onmouseover="if(MSFPhover)document['Index'].src=IndexBlue.src; self.status='Index'; return true" onmouseout="if(MSFPhover) document['Index'].src=IndexGray.src; self.status= ' '; return true"><img src="../images/index.gif" border="0" alt="Index" name="Index" width="80" height="20"></a> 
+      <a href="JavaScript:printPage();" onmouseover="if(MSFPhover)document['Print'].src=PrintBlue.src; self.status='Print'; return true" onmouseout="if(MSFPhover) document['Print'].src=PrintGray.src; self.status= ' '; return true"><img src="../images/print.gif" border="0" alt="Click here to print the current page" name="Print" width="80" height="20"></a> 
+      <a href="JavaScript:sendmail();" onmouseover="if(MSFPhover)document['Feedback'].src=FeedbackBlue.src; self.status='Feedback'; return true" onmouseout="if(MSFPhover) document['Feedback'].src=FeedbackGray.src; self.status= ' '; return true"><img src="../images/feedback.gif" border="0" alt="Click here to send an email with feedback on a page with the current page as subject" name="Feedback" width="80" height="20"></a> 
+    </td>
+   
+  </tr>
+</table>
+</body>
+
+</html>

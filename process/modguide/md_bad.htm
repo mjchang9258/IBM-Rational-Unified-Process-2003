@@ -1,0 +1,509 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Business Architecture Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business Architecture Document</rpw><a name="Top"></a><a name="XE_Business_Architecture_Document__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#References">References</a></li>
+  <li><a href="#Architectural Drivers">Architectural Drivers</a></li>
+  <li><a href="#The Business Process View">Business Process View</a></li>
+  <li><a href="#The Organization Structure View">Organization View</a></li>
+  <li><a href="#Human Resources Aspects View">Human Resource View</a></li>
+  <li><a href="#Geographic View">Geographic View</a></li>
+  <li><a href="#Architectural Tradeoffs">Architectural Tradeoffs</a></li>
+</ul>
+<h3><a name="References">References</a></h3>
+<p>The References section of the Business Architecture Document presents external 
+  documents that provide background information important to understanding the 
+  business architecture. If there are a large number of references, structure 
+  the section in subsections, for example: 
+<ul>
+  <li>external documents</li>
+  <li>internal documents</li>
+  <li>government documents</li>
+  <li>nongovernment documents</li>
+</ul>
+<h3><a name="Architectural Drivers">Architectural Drivers<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The business architecture is formed by considering what is needed to optimally 
+  improve, or re-engineer, the key business processes. These processes are represented 
+  by business use cases, that form a subset of the <a href="../artifact/ar_bucm.htm">Business 
+  Use Case Model</a>. Another important input is the business goals, also captured 
+  in the <a href="../artifact/ar_bucm.htm">Business Use Case Model</a>. It is 
+  not necessary to describe <i>all</i> the business goals here—only the architecturally 
+  significant ones. The following are examples of characteristics that may determine 
+  whether or not a business goal is architecturally significant:</p>
+<ul>
+  <li>It is critical for the long-term success of the enterprise.</li>
+  <li>It contributes heavily to the business strategy.</li>
+  <li>It cannot be realized with current process, resources, and infrastructure.</li>
+  <li>Changing it would have sweeping effects on the business.</li>
+  <li>It is influenced by external parties over which the business has no direct 
+    control.</li>
+</ul>
+<p>However, these are not the only influences that shape the business architecture. 
+  There also will be constraints imposed by the environment in which the business 
+  must operate, by the need to reuse existing assets, by the imposition of various 
+  standards, and so on. These macro-level forces (<b>drivers</b>) are said to 
+  shape the business architecture because they have significant influence on what 
+  the business does and the way in which it operates.</p>
+<p><b>Architectural drivers </b>is the collective name for architectural <b>goals 
+  </b>and <b>constraints</b>. An architectural goal describes a desire or intent 
+  of the business architecture, while an architectural constraint imposes a restriction. 
+  Clearly defining architectural goals enables the business to take advantage 
+  of the forces affecting the business; clearly defining architectural constraints 
+  reduces risk by restricting alternatives. Consider, for example, the strategic 
+  focus (operational excellence, customer intimacy, or product innovation), the 
+  availability of human or other resources, current and expected economic conditions, 
+  technology trends, changing customer behavior, competitor movements, the state 
+  of the markets in which the business operates, globalization, economic migration, 
+  and legislation and regulation.</p>
+<p>Also consider key quality dimensions of the business that shape
+the business architecture. The information presented may include:
+<ul>
+  <li>operating performance requirements&nbsp;</li>
+  <li>quality targets, such as &quot;all shipments delivered on-time&quot;</li>
+  <li>extensibility targets, such as ability to meet growing customer demands</li>
+  <li>portability targets, such as supported countries, languages, and product 
+    lines</li>
+</ul>
+<h3><a name="The Business Process View">The Business Process View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Business Process View, which includes the key business processes, is a 
+  subset of the <a href="../artifact/ar_bucm.htm">Artifact: Business Use Case 
+  Model</a>. It describes the set of business scenarios and business use cases 
+  that:</p>
+<ul>
+  <li>represent some significant, central capability of the business&nbsp;</li>
+  <li>have a substantial coverage, meaning that that they exercise many key elements 
+    of the organization&nbsp;</li>
+  <li>stress or illustrate a specific, delicate, complex, or risky point of the 
+    business architecture</li>
+</ul>
+<p>The United States General Accounting Office [<a href="../referenc.htm#GAO97">GAO97</a>] lists some criteria for
+prioritizing business process:</p>
+<ul>
+  <li>processes with the strongest link to business strategy 
+  <li>process that have the highest impact on customers 
+  <li>processes with the biggest potential return on improvement 
+  <li>processes for which there is strong consensus on the need for change 
+  <li>processes that can be redesigned with the currently available resources 
+    and infrastructure 
+  <li>less-complex processes that can be improved quickly (quick wins) 
+  <li>less-complex processes that can be used to gain experience in re-engineering</li>
+</ul>
+<p>For each significant business use case, include a subsection containing the 
+  following information: 
+<ul>
+  <li>the name of the Business use case</li>
+  <li>a brief description of the business use case, including its purpose</li>
+  <li>a description of <i>why</i> the Business use case is considered architecturally 
+    significant</li>
+</ul>
+<h3><a name="The Organization Structure View">The Organization View</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Organization View is a subset of the <a href="../artifact/ar_bom.htm">Artifact: 
+  Business Analysis Model</a>, including elements that are significant to the 
+  business architecture. It describes the most important business workers, business 
+  entities and business events, their grouping into business systems, and the 
+  organization of these into layers. It also includes the most important business 
+  use-case realizations and descriptions of general patterns of behavior.</p>
+<p>The scope of this view can be the business itself (the internal organization) 
+  or the business and its relationship to its partners (the extended organization).&nbsp; 
+  This last viewpoint is particularly interesting if you want to consider the 
+  entire value chain involved in delivering products and services to customers.</p>
+<h3><a name="Human Resources Aspects View">The Human Resource View</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>&nbsp;</h3>
+<p>The Human Resource Aspects view covers all aspects of preparing an organization 
+  for change. The results include:</p>
+<ul>
+  <li>a recommended infrastructure 
+  <li>mechanisms for motivating employees to work in the changed organization</li>
+  <li>mechanisms for encouraging the necessary skills in the changed organization</li>
+</ul>
+<p>In order to quickly arrive at a well-functioning organization, this work can 
+  be started long before the final business design has been found. Early in a 
+  project, in the initial iterations before the objectives for the effort are 
+  stable, the work focuses on generally preparing the staff for change. Later 
+  in the project, the work instead focuses on educating the employees in their 
+  new tasks and investigating the needs for infrastructure changes; for example, 
+  where people are located and what equipment they need. If the business-modeling 
+  effort results in massive changes, such as in <a href="../glossary.htm#business_reengineering">business 
+  re-engineering</a>, preparing for change might be such a complex and costly 
+  task that it is treated as a separate project.</p>
+<p>Kotter's change model [<a href="../referenc.htm#KOT96">KOT96</a>], which has 
+  been successfully used by a number of organizations, defines the following steps 
+  for leading an organization through change:</p>
+<ul>
+  <li>Establish a sense of urgency.</li>
+  <li>Create a guiding coalition.</li>
+  <li>Develop a vision and strategy.</li>
+  <li>Communicate the vision.</li>
+  <li>Empower broad-based action.</li>
+  <li>Generate quick wins.</li>
+  <li>Consolidate gains and produce more change.</li>
+  <li>Institutionalize new approaches.</li>
+</ul>
+<p>More specifically, you need to consider the following aspects of
+change:&nbsp;</p>
+<ul>
+  <li><a href="#Understanding Organizational Culture">understanding organizational 
+    culture</a></li>
+  <li><a href="#Managing concerns and attitudes">managing concerns and attitudes</a></li>
+  <li><a href="#Changing and improving skills">changing and improving skills</a></li>
+  <li><a href="#Defining Incentives&nbsp;">defining incentives</a></li>
+</ul>
+<h5><a name="Understanding Organizational Culture">Understanding Organizational
+Culture</a></h5>
+<p>To succeed with a change and make it permanent, you must also understand, and 
+  possibly change, the culture of the target organization. If you fail to understand 
+  the culture of the target organization, any <a href="../glossary.htm#business_engineering">business 
+  engineering</a> effort will fail.&nbsp;</p>
+<p>Even if your business-modeling effort is not aimed at any radical change, the 
+  culture is important to understand—enough so that you can avoid introducing 
+  elements to the organization that disturb it in an unexpected way.&nbsp;</p>
+<p>Culture is not something you can touch or describe with a simple formula.&nbsp;</p>
+<p>Champy [<a href="../referenc.htm#CHM95">CHM95</a>] characterizes the culture 
+  of a healthy business as a culture of &quot;willingness.&quot; Specifically, 
+  Champy suggests that employees in a new business must be willing to: 
+<ul>
+  <li>always perform to the highest measure of competence 
+  <li>take initiatives and risks 
+  <li>adapt to change 
+  <li>make decisions
+  <li>work cooperatively as a team
+  <li>be open, especially with information, knowledge, and news of forthcoming 
+    or actual &quot;problems&quot; 
+  <li>trust and be trustworthy. 
+  <li>respect others, including customers, suppliers, colleagues, and themselves
+  <li>answer for their actions and accept responsibility 
+  <li>judge and be judged, to reward and be rewarded, on the basis of performance</li>
+</ul>
+<p>It is not easy to change a business' culture, or any culture for that matter. 
+  This alone is the subject of entire books. Again, Champy [<a href="../referenc.htm#CHM95">CHM95</a>] 
+  provides the inspiration for a brief description of the recommended procedure: 
+<ul>
+  <li>Determine the shared values of the people in the existing business.
+  <li>Identify and weed out bad behavior.
+  <li>Articulate what values and behaviors you want.
+  <li>Determine if your management use cases support your aspirations for certain 
+    values and behaviors. If they do not, it is impossible to change the culture. 
+  <li>Install new values by teaching, doing, and living according to them.</li>
+</ul>
+<p>The path to a changed culture is full of traps. Repeated here are four of the
+&quot;don'ts&quot; that Champy [<a href="../referenc.htm#CHM95">CHM95</a>] warns
+against:
+<ul>
+  <li>Don't tolerate people who refuse to change their behavior, especially if
+    their work is important to achieving your engineering goals. When you
+    tolerate old behaviors, it signals that you are not serious about change.
+    This applies to everyone—managers and team members alike.
+  <li>Don't expect people to change how they behave unless you arrange their
+    work to allow them to act differently.
+  <li>Don't expect immediate cultural change. A complete cultural change takes a
+    few years, not a few months.
+  <li>Don't delay engineering the management use cases to support the new set of
+    values.</li>
+</ul>
+<h5><a name="Managing concerns and attitudes">Managing Concerns and
+Attitudes&nbsp;</a></h5>
+<p>Areas to consider are:&nbsp;</p>
+<ul>
+  <li>Business idea and strategies—are they explained well and understood by
+    everyone?&nbsp;</li>
+  <li>Functionally oriented versus process-oriented organization—are you
+    changing to a process oriented organization, and, in that case, are the
+    benefits explained and understood?</li>
+  <li>The coming change—change is less threatening if you explain what it
+    entails, and also what is motivating it. The change should be motivated not
+    just from the perspective of the members of the business, but also from the
+    perspective the customers.&nbsp;</li>
+  <li>Business culture—does the culture support the proposed changes?&nbsp;</li>
+</ul>
+<h5><a name="Changing and improving skills">Changing and Improving Skills</a></h5>
+<p>There are needs for education at several levels and we have chosen to show 
+  three categories. For general skills and for some domain-specific skills, you 
+  may find externally available programs. For skills that are more specific to 
+  your organization, you need to develop and plan for presentations, workshops, 
+  and, in some cases, more extensive training programs.&nbsp;</p>
+<p>General skills:&nbsp;</p>
+<ul>
+  <li>A process-oriented organization is focused on the customer. You may need
+    to build an awareness of the difference between delivering value to the
+    customer and just following procedures.&nbsp;</li>
+  <li>Responsibilities are distributed to the individuals working in the
+    processes, which might require that you make sure everyone clearly
+    understands enough of the business rules to make the right decisions.&nbsp;</li>
+</ul>
+<p>Domain-specific skills:&nbsp;</p>
+<ul>
+  <li>Do you have a general understanding of the business, including products 
+    and services?</li>
+  <li>What business actors (customers, partners, vendors) are involved?
+  <li>What results are produced and what services are delivered?
+  <li>How is this related to your work responsibilities within the processes?</li>
+</ul>
+<p>Business-process specific skills:&nbsp;</p>
+<ul>
+  <li>You need a good knowledge of the process or processes of the business. 
+  <li>You need a good knowledge of the responsibilities defined for the business 
+    workers that you will act as, along with an ability to perform the activities 
+    of the business worker. 
+  <li>You need an understanding of your colleagues’ responsibilities and activities. 
+  <li>You need a knowledge of how to use the business tools.</li>
+</ul>
+<p>Achieving the right skills within the organization may be the result of a combination 
+  of training existing employees and hiring new people.&nbsp;</p>
+<h5><a name="Defining Incentives&nbsp;">Defining Incentives&nbsp;</a></h5>
+<p>Define a reward system that encourages employees to work in the direction of 
+  the business idea and business strategy to satisfy the needs of the served actors. 
+  With the goals of the individual business processes, which as a starting point 
+  should be based on business ideas and strategies, define rewards related to: 
+<ul>
+  <li>overall performance of the business 
+  <li>overall performance of the business process 
+  <li>results of the individual execution (instance) of a business process 
+  <li>contributions of each individual&nbsp;</li>
+</ul>
+<p>Investigate existing incentives for all kinds of employees in the target
+organization. Rewards in a functionally oriented organization are often related
+to the individual functional organization unit, which fails to capture that it
+is the overall result of the business and its business processes that are the
+essential aspects. Such incentives need to be replaced as soon as possible.</p>
+<p>A smooth transfer from the old to the new reward system, however, is essential 
+  for the acceptance of changes among the employees.</p>
+<p>As a prerequisite for success, the staff members must have the right equipment, 
+  and that equipment must be optimally located in relation to their tasks.&nbsp;</p>
+<h3><a name="Geographic View">The Geographic View<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In a service industry, optimal location is often relatively easy to arrange, 
+  whereas in a manufacturing company, the changes in a business process might 
+  become both expensive and extensive. The budget and the available time frame 
+  often limit what is possible to achieve on a single project.</p>
+<p>The importance of the location varies between different kinds of processes. A
+telesales process, a field sales process, and a manufacturing process
+significantly differ in this respect. The possibility for a business-engineering
+effort to affect where and how the organization will be located in the future
+also differs significantly between projects.</p>
+<p>The following procedure helps determine a realistic approach:
+<ul>
+  <li>Look at each business use case to see how the involved business workers
+    should be physically located in order to optimally perform the tasks.</li>
+  <li>Look at the use-case realizations, one by one, to identify the needs of
+    equipment and premises for each business worker.</li>
+  <li>Look at the whole business, or a group of related business use cases, and
+    consider:
+    <ul>
+      <li>Which business workers participate in several business use cases?</li>
+      <li>Which processes make use of each other’s results?</li>
+    </ul>
+  </li>
+  <li>With this as a basis, identify the optimal location of each business
+    worker.</li>
+  <li>Compare this with the current situation and ask yourself:
+    <ul>
+      <li>What is a realistic change within the mandate of the project?</li>
+      <li>What is the most cost-effective location?</li>
+      <li>What is mandatory? What can the organization live without?</li>
+      <li>What can be compensated for by having the right equipment?</li>
+      <li>What can be compensated for by having the right location?</li>
+    </ul>
+  </li>
+  <li>Consider the effect of relocating an entire business system on the
+    business use cases.</li>
+  <li>Estimate the cost per business use case to change the location according 
+    to what you have discovered. Determine whether the investment is realistic.</li>
+</ul>
+<p>For example, a mobile data solution must be considered for a sales person who
+needs direct access to company databases while at the customer’s offices.
+Having video-conferencing equipment installed sometimes compensates for the
+disadvantage of having the members of a development team located at different
+sites.</p>
+<h3><a name="Architectural Tradeoffs">Architectural Tradeoffs<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This section of the Business Architecture Document describes the how the business 
+  architecture realizes the architectural goals and constraints (<b>architectural 
+  drivers</b>) described near the beginning of this document. It is a discussion 
+  for preserving the rationale underlying architectural decisions. Most, or at 
+  least many, architectural drivers are conflicting, and the business architecture 
+  must therefore provide an optimal solution that satisfies the greatest number 
+  of conflicting drivers to the greatest possible extent. This implies that tradeoffs 
+  and decisions will have to be made. It is these decisions and tradeoffs that 
+  are described here. 
+<p> As an example, one architectural goal may be the ability to rapidly deploy 
+  new products, while another architectural goal may be the ability to deliver 
+  products via partners with complementary offerings. These two goals are conflicting, 
+  because delivering product via external partners implies a longer time-to-market. 
+  In such a case, this section of the would describe the tradeoffs made within 
+  the business architecture to achieve the maximum of both these goals.&nbsp; 
+  In this example, a partner product management team might be created, and certain 
+  restrictions might be applied to the selection of candidate partners. 
+<p>Many conflicts and tradeoffs will surface only after the application architecture 
+  or technical architecture is considered (see <a href="../workflow/busmodel/co_barch.htm">Concept: 
+  Business Architecture</a>). It is essential that the consequences of these decisions 
+  be clearly understood.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

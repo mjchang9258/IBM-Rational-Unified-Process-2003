@@ -1,0 +1,313 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<HTML>
+ <HEAD>
+  <title>Tool Mentor:&nbsp;Managing Subsystems Using Rational Rose</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <LINK REL="StyleSheet" HREF="../../rop.css" TYPE="text/css">
+</HEAD>
+ <BODY>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<H2 CLASS="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Managing Subsystems Using Rational Rose</rpw><A NAME="Top" msnavigation></A></H2>
+
+<H3>Purpose</H3>
+
+<P>This tool mentor describes how to represent design subsystems and related artifacts in Rational Rose.</P>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_iddes.htm">Identify Design Elements</a></li>
+<li><a href="../../process/activity/ac_subds.htm">Subsystem Design</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</H3>
+<p>The following steps are performed to manage subsystems:</P>
+
+<ol>
+       <LI CLASS="mvd-P">
+       <P>
+        <A HREF="#Creating Subsystems in the Design Model">Create subsystems in the Design Model</a>
+        <LI CLASS="mvd-P"><A HREF="#Creating Subsystem Interfaces">Create
+          subsystem interfaces</a>
+        <LI CLASS="mvd-P"><A HREF="#Creating Classes within the Subsystem">Create
+          classes within the subsystem</a>
+        <LI CLASS="mvd-P"><A HREF="#Documenting Package and Subsystem Dependencies">Document
+          package and subsystem dependencies</a>
+        <LI CLASS="mvd-P"><A HREF="#Documenting Subsystem Contents">Document
+          subsystem contents</a>
+        <LI CLASS="mvd-P"><A HREF="#Documenting Subsystem Behavior">Document
+          subsystem behavior</a>
+</ol>
+      <H3>
+       1. <A NAME="Creating Subsystems in the Design Model"></a>Create
+       subsystems in the Design Model <A HREF="#Top"><IMG SRC="../../images/top.gif" WIDTH="26" HEIGHT="20" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0"></a></H3>
+      <P>
+       You create a subsystem by creating a package in the Design Model and 
+       using the Package Specification to assign it a stereotype of &quot;subsystem&quot;.</P>
+      <P>
+       In order to show the subsystem in sequence and collaboration diagrams 
+       in Rational Rose, you create a class that acts as a &quot;proxy&quot; 
+       for the subsystem in diagrams. To create this class in the subsystem, 
+       read about creating a class in <A HREF="tm_class.htm">Tool Mentor:
+       Managing Classes</a>. This &quot;proxy&quot; 
+       class should have the same name as the subsystem, and should be 
+       stereotyped &quot;subsystem proxy&quot; to indicate that it exists as 
+       a &quot;proxy&quot; for the subsystem.</P>
+      <P>
+       <IMG SRC="../../images/HelpBook.gif" WIDTH="16" HEIGHT="16" VSPACE="0" HSPACE="0" BORDER="0">
+       For
+        more information, refer to the following topics in the Rational Rose 
+       online help:</P>
+      <UL>
+       <LI CLASS="mvd-P">
+       <P>
+        <SPAN STYLE="font-style : italic;">How To &gt; Create and Work in a 
+        Model &gt;Create and Display Stereotypes</SPAN>
+        <LI CLASS="mvd-P"><SPAN STYLE="font-style : italic;">Subsystem 
+        Stereotype Package and Subsystem Stereotype Sample</SPAN><p></P>
+       </UL>
+      <H3>
+       2. <A NAME="Creating Subsystem Interfaces"></a>Create subsystem
+       interfaces <A HREF="#Top"><IMG SRC="../../images/top.gif" WIDTH="26" HEIGHT="20" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0"></a></H3>
+      <P>
+       See <A HREF="tm_ards3.htm">Tool Mentor: Managing Interfaces</a>.</P>
+      <P>
+       In this step, you enable the &quot;subsystem proxy&quot; to provide 
+       all of the operations defined by the interfaces realized by the subsystem. To 
+       do this, you first create a new Class Diagram in the subsystem 
+       package and give it the name &quot;Interface Realizations.&quot; You 
+       can then drag and drop the &quot;subsystem proxy&quot; class into the 
+       new diagram. Using Rational Rose's drawing tool, you should draw 
+       realization dependencies from the &quot;subsystem proxy&quot; class 
+       to the interface classes that the proxy realizes, making sure that 
+       all the interface operations are defined in the &quot;subsystem 
+       proxy&quot; class. This may require creating one or more operations 
+       on the &quot;subsystem proxy&quot; class. See <A HREF="tm_class.htm">Tool
+        Mentor: Managing Classes</a> for more information.</P>
+      <P>
+       <IMG SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16">
+       For
+        more information, refer to the following topics in the Rational Rose 
+       online help:</P>
+      <UL>
+       <LI CLASS="mvd-P">
+       <P>
+        <SPAN STYLE="font-style : italic;">Realize Relationship</SPAN>
+        <LI CLASS="mvd-P"><SPAN STYLE="font-style : italic;">Interface</SPAN><p></P>
+       </UL>
+      <H3>
+       3.<A NAME="Creating Classes within the Subsystem"></a>  Create classes within the
+       subsystem <A HREF="#Top"><IMG SRC="../../images/top.gif" WIDTH="26" HEIGHT="20" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0"></a></H3>
+      <P>
+       To create classes inside the subsystem, see <A HREF="tm_class.htm">Tool
+       Mentor: Managing Classes</a>.</P>
+      <P>
+       With the exception of the subsystem's &quot;subsystem proxy&quot;, all contents of the subsystem should be 
+       &quot;invisible&quot; to model elements outside the subsystem. This 
+       is done by setting the class export control to 
+       &quot;implementation&quot; in the Class Specification. Ideally, the
+       interfaces realized by the subsystem should be defined outside the
+       package that represents the subsystem (so that the subsystem is easily
+       replaceable), but if defined inside the package representing the subsystem, must also be visible.</P>
+      <H3>
+       4. <A NAME="Documenting Package and Subsystem Dependencies"></a>Document
+       package and subsystem dependencies <A HREF="#Top"><IMG SRC="../../images/top.gif" WIDTH="26" HEIGHT="20" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0"></a></H3>
+      <P>
+       You should document the dependencies between packages/subsystems in 
+       the Design Model. To do this, you create a new class diagram for the 
+       Design Model and name it &quot;Package/Subsystem Dependencies.&quot; 
+       You can then drag and drop the packages and subsystems from the 
+       browser into the new diagram. Any existing dependency relationships 
+       will be displayed automatically. You can also visually arrange the 
+       packages and subsystems into layers in the diagram and use the Text 
+       Box tool icon to annotate the layers. Finally, you can create 
+       additional package and subsystem dependency relationships using the 
+       Dependency tool icon.</P>
+      <P>
+       <IMG SRC="../../images/HelpBook.gif" WIDTH="16" HEIGHT="16" VSPACE="0" HSPACE="0" BORDER="0">
+       For
+        more information, refer to the <SPAN STYLE="font-style : italic;">Dependency
+        Relationship</SPAN> topic in the Rational Rose online help:</P>
+      <H3>
+       5. <A NAME="Documenting Subsystem Contents"></a>Document subsystem
+       contents <A HREF="#Top"><IMG SRC="../../images/top.gif" WIDTH="26" HEIGHT="20" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0"></a></H3>
+      <P>
+       Each package and subsystem should contain one or more class diagrams 
+       to document and illustrate the classes contained in the package/subsystem.</P>
+      <H3>
+       6. <A NAME="Documenting Subsystem Behavior"></a>Document subsystem
+       behavior <A HREF="#Top"><IMG SRC="../../images/top.gif" WIDTH="26" HEIGHT="20" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0"></a></H3>
+      <P>
+       Each Subsystem should have one or more sequence diagrams to 
+       illustrate how the operations offered by the interfaces of the 
+       subsystem are distributed to the contents of the subsystem. For more 
+       details, see <A HREF="tm_ucds1.htm">Tool Mentor: Managing Sequence Diagrams</a>.</P>
+      <P>
+       The sequence diagram should illustrate how a particular operation 
+       offered by a subsystem interface is performed by model elements 
+       contained in the subsystem. The left-most object in these 
+       &quot;interface operation&quot; diagrams should be the &quot;subsystem
+        proxy&quot; class. The remainder of the objects represent the 
+       private classes of the subsystem. The messages between them 
+       illustrate how the interface operation is realized.</P>
+      <P>
+       It is recommended that you name the diagram <font face="Courier New" size="2"> &quot;&lt;interface 
+       name&gt;::&lt;operation name&gt;&quot;</font>. This naming convention 
+       simplifies future tracing of interface behaviors to the classes which 
+       implement the interface operations.</P>
+      <P>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

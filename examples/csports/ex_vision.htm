@@ -1,0 +1,515 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Vision - Inception Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Vision</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Vision</p>
+</font><font face="Arial" size="4">
+<p align="RIGHT">Version 1.0</p>
+</font></b><p align="CENTER"><b><font face="Arial" size="4"></font></b><font size="2">&nbsp;</font></p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP"><b>
+    <p align="CENTER">Version</b></td>
+    <td width="39%" valign="TOP"><b>
+    <p align="CENTER">Description</b></td>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 6, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial version</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<p><font face="Arial" size="5"><b>&nbsp;Table of Contents</b></font></p>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Positioning">Positioning</a></li>
+  <li><a href="#Stakeholder and User Descriptions">Stakeholder and User
+    Descriptions</a></li>
+  <li><a href="#Product Overview">Product Overview</a></li>
+  <li><a href="#Product Features">Product Features</a></li>
+  <li><a href="#Constraints">Constraints</a></li>
+  <li><a href="#Quality Ranges">Quality ranges</a></li>
+  <li><a href="#Precedence and Priority">Precedence and Priority</a></li>
+  <li><a href="#Other Product Requirements">Other Product Requirements</a></li>
+  <li><a href="#Documentation Requirements">Documentation Requirements</a></li>
+</ul>
+<h3><a name="Introduction"></a>Introduction <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>The purpose of this document is to collect, analyze and define high-level
+needs and features of the Collegiate Sports Paging System. It focuses on the
+capabilities needed by the stakeholders, and the target users, and <u>why</u>
+these needs exist. The details of how the Collegiate Sports Paging System
+fulfils these needs are detailed in the use-case and supplementary
+specifications.</p>
+<h4>Purpose</h4>
+<p>The purpose of this document is to define the high-level requirements of the
+in terms of the needs of the end users.</p>
+<h4>Scope</h4>
+<p>This Vision Document applies to the Collegiate Sports Paging System, which
+will be developed by Context Integration. This system will allow subscribers to
+be notified of events relating to collegiate sports events or teams to which
+they subscribe, and will enable them to view the content they have subscribed
+to.</p>
+<h4>Definitions, Acronyms and Abbreviations</h4>
+<p>See Glossary document.</p>
+<h4>References</h4>
+<p>None.</p>
+<h3><a name="Positioning"></a>Positioning <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Business Opportunity</h4>
+<p>WebNewsOnLine currently provides news via the World Wide Web as well as in
+print. It currently holds a very strong position in the Collegiate Sports
+category, and is looking for ways to expand its revenue base. In the words of
+Maria Scirpo, CEO:</p>
+<i>
+<p>We will leverage WebNewsOnLine's strength in local and collegiate sports
+coverage by offering a subscription paging service. Subscribers, for a fee of
+$15/year, can pick college divisions, teams or even individual athletes that
+they wish to track. For instance, a subscriber could track the NCAA Pac Ten
+basketball teams (e.g., Cal, Stanford, UCLA, etc). Every time a story was
+produced about this division, the subscriber would receive an alpha-numeric
+page.</p>
+<p>After receiving the page, the subscriber can, at their leisure, access the
+web site. There, on a customized home page, besides the standard stories and
+links, would be url’s corresponding to each alpha-numeric page received by the
+subscriber. Behind these url’s will be stories, audio and video relating to
+the page.</p>
+<p>This service will be promoted at college campuses and via various alumni
+association magazines.</p></i>
+<p>Benefits envisioned from this approach include:
+<ol>
+  <li>It will play to WebNewsOnLine's strengths in covering collegiate sports
+    (i.e., already has most of this content available)</li>
+  <li>A subscription of $15/year means that only 200,000 subscribers will be
+    needed to net $3m/year in revenues. This breakeven point was thought to be
+    very achievable.</li>
+  <li>An entirely new source of advertisers will be willing to pay for ad space
+    associated with this service. For instance, it is thought that local car
+    dealerships, restaurants, boutiques, etc., will be willing to pay to have
+    the eyes of this very affluent and targeted set of users. For instance,
+    several Napa vineyards have already expressed interest in buying space for
+    subscribers to the Pac Ten.</li>
+</ol>
+<h4>Problem Statement</h4>
+
+<table border="1" cellspacing="2" cellpadding="7" width="396">
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">The problem of</td>
+    <td width="61%" valign="TOP">Keeping current on collegiate sports events</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">affects</td>
+    <td width="61%" valign="TOP">Mobile business people</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">The impact of which is</td>
+    <td width="61%" valign="TOP">That they are unable to follow their alma mater
+    (or other collegiate sports in which they are interested) without spending
+    significant time searching for news in their specific interest area.</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">A successful solution would</td>
+    <td width="61%" valign="TOP">Notify them when news in their interest area
+    occurs, and provide them a place to get the news they have requested.</td>
+  </tr>
+</table>
+<h4>Product Position Statement</h4>
+
+<table border="1" cellspacing="2" cellpadding="7" width="396">
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">For</td>
+    <td width="61%" valign="TOP">Mobile business people</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">Who</td>
+    <td width="61%" valign="TOP">Want to follow specific collegiate sports
+    events or groups</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">The Collegiate Sports Paging
+    System</td>
+    <td width="61%" valign="TOP">is a software product</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">That</td>
+    <td width="61%" valign="TOP">Notifies subscribers when news related to their
+    interest area occurs and is available</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">Unlike</td>
+    <td width="61%" valign="TOP">The current state of the art which requires
+    that they check online news on a regular basis to find news in their
+    interest area.</td>
+  </tr>
+  <tr>
+    <td width="39%" valign="TOP" bgcolor="#ffffff">Our product</td>
+    <td width="61%" valign="TOP">Notifies subscribers when news in their
+    interest area occurs, allowing them to check news only when there is content
+    to be read.</td>
+  </tr>
+</table>
+<h3><a name="Stakeholder and User Descriptions"></a>Stakeholder and User
+Descriptions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Market Demographics</h4>
+<p>The target market for this system is comprised of a mobile, interested,
+intellectual, upscale segment of society-but mobile is the key word, whether it
+means people who have moved from Cincinnati to Atlanta, or people who are mobile
+in terms of their lifestyles or their occupations.</p>
+<h4>Stakeholder Summary</h4>
+
+<table border="1" cellspacing="1" bordercolor="#000000" cellpadding="7" width="546">
+  <tr>
+    <td width="22%" valign="TOP"><b>Name</b></td>
+    <td width="38%" valign="TOP"><b>Represents</b></td>
+    <td width="40%" valign="TOP"><b>Role</b></td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Subscriber</td>
+    <td width="38%" valign="TOP">End consumers of the content provided by
+    WebNewsOnLine.</td>
+    <td width="40%" valign="TOP">Create profiles, receive pages, read custom
+    content, and subscribe using credit cards.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Advertiser</td>
+    <td width="38%" valign="TOP">Firms who pay to advertise to target customers
+    on the web site.</td>
+    <td width="40%" valign="TOP">Select target customer groups, provide
+    advertising content, receive reports of advertising viewing.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Editor</td>
+    <td width="38%" valign="TOP">WebNewsOnLine's content provision channel.</td>
+    <td width="40%" valign="TOP">Place content on web site, categorize content.</td>
+  </tr>
+</table>
+<h4>User Summary</h4>
+
+<table border="1" cellspacing="1" bordercolor="#000000" cellpadding="7" width="546">
+  <tr>
+    <td width="22%" valign="TOP"><b>Name</b></td>
+    <td width="44%" valign="TOP"><b>Description</b></td>
+    <td width="34%" valign="TOP"><b>Stakeholder</b></td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Subscriber</td>
+    <td width="44%" valign="TOP">Selects categories for pager notification,
+    reads content on web site, reads targeted advertising on web site.</td>
+    <td width="34%" valign="TOP">Self-represented.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Advertiser</td>
+    <td width="44%" valign="TOP">Obtains advertising delivery information from
+    the system to follow-up or track hits.</td>
+    <td width="34%" valign="TOP">Self-represented.</td>
+  </tr>
+  <tr>
+    <td width="22%" valign="TOP">Editor</td>
+    <td width="44%" valign="TOP">Places content onto the web site, identifies
+    categories in which the content belongs.</td>
+    <td width="34%" valign="TOP">Self-represented</td>
+  </tr>
+</table>
+<h4>User environment</h4>
+<p>Individuals will receive pages via alphanumeric pagers or cellular phones
+when an event occurs in there area of interest. At their leisure, they will
+connect to the web site and view their content. Usage patterns are not
+predictable at this point, though higher volumes are anticipated during
+collegiate sports playoffs such as March Madness.</p>
+<p>Users will be expected to have a device capable of receiving an alphanumeric
+page or message, and are expected to have a browser-enabled device for viewing
+content. If they have devices capable of viewing video or audio clips, this
+content will also be available to the user.</p>
+<p>Advertisers will be expected to have a browser-enabled device for checking
+advertising usage.</p>
+<p>Editors will require a browser-enabled device for categorizing content and/or
+viewing system status.</p>
+<h4>Stakeholder Profiles</h4>
+<h5>Subscriber</h5>
+
+<table border="1" cellspacing="1" cellpadding="7" width="583">
+  <tr>
+    <td width="21%" valign="TOP"><b>Description</b></td>
+    <td width="79%" valign="TOP">Individual who pays to receive pages and custom
+    content related to specific collegiate sports categories.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Type</b></td>
+    <td width="79%" valign="TOP">Primary user</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Responsibilities</b></td>
+    <td width="79%" valign="TOP">Primary consumer of the services and content
+    offered by .</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Success Criteria</b></td>
+    <td width="79%" valign="TOP">Ability to define a profile of news, and be
+    notified of breaking news in specified interest areas.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Involvement</b></td>
+    <td width="79%" valign="TOP">Provides reviews of beta versions of software,
+    provides ongoing feedback after release.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Deliverables</b></td>
+    <td width="79%" valign="TOP">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Comments / Issues</b></td>
+    <td width="79%" valign="TOP">None.</td>
+  </tr>
+</table>
+<h5>Advertiser</h5>
+
+<table border="1" cellspacing="1" cellpadding="7" width="583">
+  <tr>
+    <td width="21%" valign="TOP"><b>Description</b></td>
+    <td width="79%" valign="TOP">Individual who provides targeted content for
+    viewing by specified market segment, and who checks viewing patterns of the
+    advertising content.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Type</b></td>
+    <td width="79%" valign="TOP">Expert user.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Responsibilities</b></td>
+    <td width="79%" valign="TOP">Review requirements and User Interface designs.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Success Criteria</b></td>
+    <td width="79%" valign="TOP">Ability to specify target market segment to
+    view specific content, and to verify that the content has been viewed.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Involvement</b></td>
+    <td width="79%" valign="TOP">Requirements Reviewer.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Deliverables</b></td>
+    <td width="79%" valign="TOP">Usage/viewing reports.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Comments / Issues</b></td>
+    <td width="79%" valign="TOP">None.</td>
+  </tr>
+</table>
+<h5>Editor</h5>
+
+<table border="1" cellspacing="1" cellpadding="7" width="583">
+  <tr>
+    <td width="21%" valign="TOP"><b>Description</b></td>
+    <td width="79%" valign="TOP">Individual who provides content to the web site
+    and categorized it.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Type</b></td>
+    <td width="79%" valign="TOP">Expert user.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Responsibilities</b></td>
+    <td width="79%" valign="TOP">Needs to be able to quickly and easily post and
+    categorize content, and to verify content and categories on the web site.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Success Criteria</b></td>
+    <td width="79%" valign="TOP">Ability to post content within 5 minutes of
+    content availability.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Involvement</b></td>
+    <td width="79%" valign="TOP">Requirements Reviewer.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Deliverables</b></td>
+    <td width="79%" valign="TOP">None.</td>
+  </tr>
+  <tr>
+    <td width="21%" valign="TOP"><b>Comments / Issues</b></td>
+    <td width="79%" valign="TOP">Performance during peak usage periods may be an
+    issue.</td>
+  </tr>
+</table>
+<h4>User Profiles</h4>
+<p>See previous section</p>
+<h4>Key Stakeholder / User Needs</h4>
+
+<table border="1" cellspacing="1" bordercolor="#000000" cellpadding="7" width="576">
+  <tr>
+    <td width="23%" valign="TOP"><b>Need</b></td>
+    <td width="10%" valign="TOP"><b>Priority</b></td>
+    <td width="22%" valign="TOP"><b>Concerns</b></td>
+    <td width="17%" valign="TOP" ><b>Current Solution</b></td>
+    <td width="28%" valign="TOP"><b>Proposed Solutions</b></td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Specify profile</td>
+    <td width="10%" valign="TOP">High</td>
+    <td width="22%" valign="TOP">Level of granularity</td>
+    <td width="17%" valign="TOP">None (read all news to find items of interest)</td>
+    <td width="28%" valign="TOP">Allow multiple levels of selection for paging</td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Receive pages when news occurs</td>
+    <td width="10%" valign="TOP">High</td>
+    <td width="22%" valign="TOP">Volume levels and response time</td>
+    <td width="17%" valign="TOP">None</td>
+    <td width="28%" valign="TOP">Use tiered architecture to allow scalability</td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Read news targeted to areas in profile</td>
+    <td width="10%" valign="TOP">Medium</td>
+    <td width="22%" valign="TOP">None</td>
+    <td width="17%" valign="TOP">None (read all news)</td>
+    <td width="28%" valign="TOP">Provide links on web page to specific targeted
+    news items</td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Target advertisements</td>
+    <td width="10%" valign="TOP">High</td>
+    <td width="22%" valign="TOP">Ability to segment market population</td>
+    <td width="17%" valign="TOP">Select advertising channels to indirectly
+    target market segments</td>
+    <td width="28%" valign="TOP">Map advertising content delivery to profile
+    attributes</td>
+  </tr>
+  <tr>
+    <td width="23%" valign="TOP">Verify advertising delivery to gauge
+    effectiveness</td>
+    <td width="10%" valign="TOP">Medium</td>
+    <td width="22%" valign="TOP">None</td>
+    <td width="17%" valign="TOP">None</td>
+    <td width="28%" valign="TOP">Provide reports to advertisers on number of
+    views of advertising content</td>
+  </tr>
+</table>
+<h4>Alternatives and Competition</h4>
+<p>At this time, there is no direct competitor for this service. ESPNET
+Sportzone provides targeted news but does not page subscribers when particular
+news breaks.</p>
+<h3><a name="Product Overview"></a>Product Overview <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Product Perspective</h4>
+<p>This product will leverage WebNewsOnLine's existing lead in collegiate sports
+news, but will present a user interface via a separate system. Graphically, the
+system may be viewed as follows:</p>
+<p><img src="images/ex_sysorg.gif" width="478" height="358"></p>
+<h4>Summary of Capabilities</h4>
+<p>Table 1 - Collegiate Sports Paging System Features</p>
+
+<table border="1" cellspacing="2" bordercolor="#000080" cellpadding="7" width="468">
+  <tr>
+    <td width="46%" valign="TOP"><b>Customer Benefit</b></td>
+    <td width="54%" valign="TOP"><b>Supporting Features</b></td>
+  </tr>
+  <tr>
+    <td width="46%" valign="TOP">Subscriber can specify which news they which to
+    receive</td>
+    <td width="54%" valign="TOP">Profile capability within system</td>
+  </tr>
+  <tr>
+    <td width="46%" valign="TOP">Subscriber can read only that news in which
+    they have interest</td>
+    <td width="54%" valign="TOP">Customized dynamic web pages for each
+    subscriber, with links to stories on which they have been paged</td>
+  </tr>
+  <tr>
+    <td width="46%" valign="TOP">Advertisers can target content</td>
+    <td width="54%" valign="TOP">Advertising delivery based on subscriber
+    profiles</td>
+  </tr>
+  <tr>
+    <td width="46%" valign="TOP">No new content required</td>
+    <td width="54%" valign="TOP">Link to existing web-based sports content</td>
+  </tr>
+</table>
+<h4>Assumptions and Dependencies</h4>
+<p>Existing content is assumed to be available for viewing on the web site.
+Integration of current content with the new web site is required in order for
+collegiate sports information to be made available in a timely manner.</p>
+<h4>Cost and Pricing</h4>
+<p>Subscription rates are initially target at $15 per subscriber per year. With
+only 200,000 subscribers this will generate $3M in revenues per year, which is
+more than enough to cover incremental cost of the system. Advertisers will pay
+additional fees (initially targeted at 5% higher than normal) for access to
+defined target populations.</p>
+<h4>Licensing and Installation</h4>
+<p>N/A. All custom software is server-based and owned by WebNewsOnLine.</p>
+<h3><a name="Product Features"></a>Product Features <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>These will be provided during the Elaboration phase of the project.</p>
+<h3><a name="Constraints"></a>Constraints <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>The system must be available by March 2000.</p>
+<p>The system must not cost more than $2M per year to operate.</p>
+<p>The system must utilize existing sports content on WebNewsOnLine's web site.</p>
+<h3><a name="Quality Ranges"></a>Quality Ranges <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None specified.</p>
+<h3><a name="Precedence and Priority"></a>Precedence and Priority <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<ol>
+  <li>The system must be available by March 2000.</li>
+  <li>The system must utilize existing sports content on WebNewsOnLine's web
+    site.</li>
+  <li>The system must not cost more than $2M per year to operate.</li>
+</ol>
+<h3><a name="Other Product Requirements"></a>Other Product Requirements <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Applicable Standards</h4>
+<p>The system must comply with existing web standards (HTML, Java, TCP/IP,
+etc.).</p>
+<h4>System Requirements</h4>
+<p>None specified.</p>
+<h4>Performance Requirements</h4>
+<p>The system must send a page to a subscriber within 5 minutes of new content
+being posted to the site.</p>
+<p>The system must be able to handle 200,000 subscribers.</p>
+<h4>Environmental Requirements</h4>
+<p>None specified.</p>
+<h3><a name="Documentation Requirements"></a>Documentation Requirements<a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h5>User Manual</h5>
+<p>None required – the system must be sufficiently easy to use that a user
+manual is not required.</p>
+<h5>Online help</h5>
+<p>Context-specific and general help will be available for all functions within
+the system.</p>
+<h5>Installation Guides, Configuration, Read Me File</h5>
+<p>An installation manual will be provided. In addition, a formal Knowledge
+Transfer plan will be developed to ensure that staff are capable of maintaining
+the system moving forward.</p>
+<h5>Labeling and Packaging</h5>
+<p>Not applicable.<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font></p>
+
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

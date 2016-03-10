@@ -1,0 +1,371 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Business Entity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Business Entity</rpw><a name="Top"></a><a name="XE_business_entity__as_artifact"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/bentity.jpg" width="79" height="56">&nbsp;
+	  </td>
+      <td width="80%">A <b>Business Entity</b> represents a significant and persistent 
+        piece of information that is manipulated by business actors and business 
+        workers. Business Entities are passive; that is, they do not initiate 
+        interactions on their own. A Business Entity might be used in many different 
+        Business Use-Case Realizations and usually outlives any single interaction. 
+        Business Entities provide the basis for sharing information (document 
+        flow) among Business Workers participating in different Business Use-Case 
+        Realizations.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_bom.htm">Business Analysis Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_bdes.htm">Business Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Can be excluded. Business Entities are very useful for providing 
+        a single point of reference for terms and definitions used between departments 
+        or projects.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          <li><a href="../reports/re_bent.htm">Business   Entity <business entity name></a></li>
+&nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Class, stereotyped as &laquo;business entity&raquo;.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../activity/chklists/ck_bent.htm">Checklist: Business Entities</a></li>
+<li><a href="../modguide/md_bent.htm">Guideline: Business Entity</a></li>
+<li><a href="../reports/re_bent.htm">Report: Business Entity <business entity name></a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dent.htm">Detail a Business Entity</a></li>
+<li><a href="../activity/ac_rvbom.htm">Review the Business Analysis Model</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dent.htm">Detail a Business Entity</a></li>
+<li><a href="../activity/ac_fbwke.htm">Find Business Workers and Entities</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_business_entity__purpose_of"></a><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business Entities represent an abstraction of important persistent information 
+  within the business. Any piece of information that is a property of something 
+  else is probably not a Business Entity in itself.&nbsp; For example, ContactDetails 
+  is a property of Customer and therefore not a Business Entity in itself. Information 
+  that is not stored but is created or determined on-demand (when necessary) is 
+  also probably not a Business Entity. For example, product inventory is certainly 
+  significant information, but this is not persistent information. Anytime somebody 
+  needs to know how many instances of a particular bar code are currently on the 
+  shelves (or in the warehouse), this information will be calculated and then 
+  discarded.
+<p>Stakeholders use Business Entities to ensure that the information created and 
+  required by the organization is present in the Business Analysis Model. A business 
+  designer is responsible for identifying and describing Business Entities, as 
+  well as for assessing the impact of organizational changes on the information 
+  created and required by the business. Business Entities are also used by systems 
+  analysts and designers when describing system use cases and identifying software 
+  entities, respectively. 
+<h3><a name="XE_business_entity__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%"><b>Property
+    Name</b></td>
+    <td width="40%"><b>Brief
+    Description</b></td>
+    <td width="40%"><b>UML
+    Representation</b></td>
+  </tr>
+  <tr>
+    <td width="20%">Name</td>
+      <td width="40%">The name of the Business Entity.</td>
+    <td width="40%">The
+    attribute &quot;Name&quot; on model element.</td>
+  </tr>
+  <tr>
+    <td width="20%">Brief
+    Description</td>
+      <td width="40%">A brief description of the role and purpose of the Business 
+        Entity.</td>
+      <td width="40%">Tagged value, of type &quot;short text&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Responsibilities</td>
+      <td width="40%">A survey of the responsibilities defined by the Business 
+        Entity. This may include the Entity’s lifecycle, from being instantiated 
+        and populated until the job is finished.</td>
+      <td width="40%">A (predefined) tagged value on the superclass &quot;Type&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Relationships</td>
+      <td width="40%">The relationships, such as generalizations, associations, 
+        and aggregations, in which the Business Entity participates.</td>
+      <td width="40%">Owned by an enclosing package, via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Operations</td>
+      <td width="40%">The operations defined by the Business Entity.</td>
+      <td width="40%">Owned by the superclass &quot;Type&quot; via the aggregation 
+        &quot;members&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Attributes</td>
+      <td width="40%">The attributes defined by the Business Entity.</td>
+    <td width="40%">Owned
+    by the superclass &quot;Type&quot; via the aggregation &quot;members&quot;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Diagrams</td>
+      <td width="40%">Any diagrams local to the Business Entity, such as interaction 
+        diagrams or class diagrams.</td>
+    <td width="40%">Owned
+    by an enclosing package, via the aggregation &quot;owns&quot;.</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The most significant Business Entities are identified during the Inception 
+  phase. The remaining Business Entities are identified during the Elaboration 
+  phase, in which Business Entities are further refined and described.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A <a href="../workers/wk_bdes.htm">business designer</a> is responsible for
+the integrity of the Business Entity, ensuring that:
+<ul>
+  <li>The name and brief description are explanatory.</li>
+  <li>The responsibilities are correctly described.</li>
+  <li>It has the appropriate relationships, attributes, and operations defined 
+    to fulfill its responsibilities.</li>
+</ul>
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If you are doing domain modeling, meaning that you identify Business Entities 
+  only, you can use the stereotype &laquo;domain class&raquo; instead of &laquo;business 
+  entity&raquo;.</p>
+<br><br>
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

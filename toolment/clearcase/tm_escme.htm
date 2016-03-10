@@ -1,0 +1,266 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Creating Baselines Using Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Creating Baselines Using Rational ClearCase</rpw>
+ <a name="XE_clearcase__baselines__creating"></a> 
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to ensure that project assets are safeguarded 
+  and can be recreated, as required, through appropriate baselining&nbsp; practices.&nbsp;</p> 
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_baspj.htm">Create Baselines</a></li>
+<li><a href="../../process/activity/ac_strep.htm">Establish Configuration Management (CM) Policies</a></li>
+</ul>
+<br>
+    
+</p>
+
+<h3><b>Overview</b></h3>
+<p>The following diagram illustrates the workflow for managing UCM projects. Shaded 
+  areas are discussed in this tool mentor.&nbsp;</p>
+<p><b><img border="0" src="images/wflow_mkbl.gif" width="463" height="103"></b></p>
+<p>In Rational ClearCase UCM, a baseline is an object that typically represents 
+  a stable configuration of a component. A baseline identifies activities and 
+  one version of every element in a component, in effect, acting as a version 
+  of a component.</p>
+<p>As developers deliver work to the integration stream, project managers make 
+  new baselines for the project's integration, or shared, working area that incorporate 
+  the changes. Developers can then rebase to the new baselines and stay current 
+  with changes in the project.</p>
+<p>This tool mentor is applicable when running Microsoft Windows.&nbsp;</p>
+<h4><b>Tool Steps</b></h4>
+Follow these steps to create baselines: 
+<ul>
+  <li><a href="#Lock the project's integration stream">Lock the project's integration 
+    stream</a> 
+  <li><a href="#Start the Make Baseline dialog">Start the Make Baseline dialog</a> 
+  <li><a href="#Specify descriptive information for the baseline">Specify descriptive 
+    information for the baseline</a></li>
+  <li><a href="#Unlock the integration stream">Unlock the integration stream</a></li>
+</ul>
+<h3><b>1. <a name="Lock the project's integration stream">Lock the project's integration 
+  stream</a> &nbsp;<a href="#Top"><img SRC="../../images/top.gif" BORDER=0 width="26" height="20"></a></b></h3>
+<p>No new work can be delivered to the integration stream while it is locked, 
+  ensuring a stable configuration from which to create the baseline.&nbsp;</p>
+<ol>
+  <li>From the Windows task bar, select <b>Start &gt; Programs &gt; Rational ClearCase &gt; Project Explorer</b>. 
+  <li>From the Project Explorer, locate and select your project's integration 
+    stream. 
+  <li>Click <b>File &gt; Properties</b> to display the integration stream's property 
+    sheet.&nbsp; 
+  <li>Click the <b>Lock</b> tab.&nbsp; 
+  <li>Click <b>Locked</b> and then click <b>OK</b>.&nbsp;&nbsp;</li>
+</ol>
+<h3><b>2. <a name="Start the Make Baseline dialog">Start the Make Baseline dialog</a> 
+  &nbsp;<a href="#Top"><img SRC="../../images/top.gif" BORDER=0 width="26" height="20"></a></b></h3>
+<ol>
+  <li>From the Project Explorer, locate and select your project's integration 
+    stream.</li>
+  <li>Click <b>Tools &gt; Make Baseline</b>.&nbsp; The Make Baseline dialog box 
+    appears.</li>
+</ol>
+<h3><b>3. <a name="Specify descriptive information for the baseline">Specify descriptive 
+  information for the baseline</a> <a href="#Top"><img SRC="../../images/top.gif" BORDER=0 width="26" height="20"></a></b></h3>
+<p>This descriptive information includes the baseline's name, the type of baseline 
+  to create, the components for which to create a baseline, and the view and stream 
+  information to use.&nbsp;</p>
+<h4><b>Types of Baselines</b></h4>
+<p>An incremental baseline is a baseline that ClearCase creates by recording the 
+  last full baseline and those versions that have changed since the last full 
+  baseline was created.</p>
+<p>A full baseline is a baseline that ClearCase creates by recording all versions 
+  below the component's root directory. Generally, it takes less time to create 
+  an incremental baseline. However, it takes less time for ClearCase to look up 
+  the contents of a full baseline.</p>
+<ol>
+  <li>Enter a name in the<b> Baseline Name</b> box. By default, ClearCase 
+    names the baseline by appending the date to the project name.</li>
+  <li>Select <b>incremental</b> or <b>full</b> as the type of baseline to create.</li>
+  <li>Select a view context for the baseline by specifying one of the project's 
+    integration views, a view attached to the project's integration stream.&nbsp;</li>
+  <li>Specify the components for which you are creating baselines. ClearCase automatically 
+    appends a unique identifier to each baseline to help differentiate baselines 
+    associated with individual components.</li>
+</ol>
+<p> <img src="../../images/helpbook.gif" width="16" height="16"> For more information, 
+  see the topic titled <i>ClearCase Component Tree Browser</i> in ClearCase online 
+  Help.</p>
+<h3><b>4. <a name="Unlock the integration stream">Unlock the integration stream</a> 
+  &nbsp;<a href="#Top"><img SRC="../../images/top.gif" BORDER=0 width="26" height="20"></a></b></h3>
+<ol>
+  <li>From the Project Explorer, locate and select your project's integration 
+    stream.</li>
+  <li>Click <b>File &gt; Properties</b> to display the integration stream's property 
+    sheet.&nbsp;</li>
+  <li>Click the <b>Lock</b> tab.&nbsp;</li>
+  <li>Click <b>Unlocked</b> and then click <b>OK</b>.&nbsp;&nbsp;</li>
+</ol>
+<img src="../../images/helpbook.gif" width="16" height="16"> For more information, 
+see these ClearCase online Help topics: 
+<ul>
+  <li><i>About baselines</i> 
+  <li><i>Making a baseline</i></li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

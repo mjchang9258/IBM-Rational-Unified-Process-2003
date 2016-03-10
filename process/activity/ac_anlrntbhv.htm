@@ -1,0 +1,507 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Analyze Runtime Behavior</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Analyze Runtime Behavior</rpw> <a name="XE_developer_testing__runtime_analysis"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To understand the behavior of a component during its execution.</li>
+          <li>To identify anomalous behavior and any corrective actions required.</li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b>
+	    <a href="../workers/wk_implm.htm">Implementer</a>&nbsp;
+	  </td>
+    </tr>
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b>This activity is typically performed 
+        multiple times during the creation or modification of an implementation 
+        element.</td>
+    </tr>
+    <!-- Activity Steps -->
+    <tr>
+      <td colspan="2"><b>Steps</b>
+        <ul>
+          <li><a href="#DetermineScenario">Determine required execution scenario</a></li>
+          <li><a href="#PrepareComponent">Prepare implementation component for 
+            runtime observation</a></li>
+          <li><a href="#PrepareEnvironment">Prepare environment for execution</a></li>
+          <li><a href="#ObserveBehavior">Execute the component and capture behavioral observations</a></li>
+          <li><a href="#ReviewObservations">Review behavioral observations and isolate initial findings</a></li>
+          <li><a href="#AnalyzeFindings">Analyze findings to understand root causes</a></li>
+          <li><a href="#CommunicateActions">Identify and communicate follow-up actions</a></li>
+          <li><a href="#EvaluateResults">Evaluate your results</a></li>
+        </ul>
+      </td>
+    </tr>
+    <!-- Input_Output Artifacts Begins -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	    <ul>
+<li><a href="../artifact/ar_comp.htm">Implementation Element</a></li>
+<li><a href="../artifact/ar_tstlog.htm">Test Log</a></li>
+</ul>
+&nbsp;
+	  </td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstrs.htm">Test Results</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity More Information -->
+    <tr>
+      <td colspan="2"><b>More Information:&nbsp;</b>
+	    &nbsp;
+      </td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	    <ul>
+<li><a href="../../toolment/xde_vsnet/tm_anlrntbhv.htm">Analyzing Runtime Behavior Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_anlrntbhv.htm">Analyzing Runtime Behavior Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/testfact/tm_tfvsc.htm">Evaluating Test Coverage Using Rational TestFactory</a></li>
+<li><a href="../../toolment/testfact/tm_tfcvg.htm">Using Rational TestFactory to Measure and Evaluate Code-based Test Coverage on Rational Robot Test Scripts</a></li>
+<li><a href="../../toolment/testfact/tm_tfvtp.htm">Viewing Logs and Evaluating the Execute Test Suite Using the Rational TestManager</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+  </tbody> 
+</table>
+<p>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	    <ul>
+<li><a href="../workflow/ovu_impl.htm">Implementation</a>
+<ul>
+<li><a href="../workflow/implemen/wfs_implc.htm">Implement Components</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="DetermineScenario">Determine required execution scenario</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:&nbsp;</b></td>
+      <td colspan="2" width="95%">To identify the execution path that will stimulate 
+        the desired runtime behavior</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>If the observation and analysis of runtime behavior is to provide the desired 
+  insight into the behavior of the software, you will need to give consideration 
+  to which execution paths through the application will be of importance to explore 
+  and of those, which will offer the most opportunity in understanding the runtime 
+  behavior of the software.</p>
+<p>In general, the most useful scenario's to explore tend to reflect all or part 
+  of those that the end-user will typically use. As such, it is useful whereever 
+  possible to identify scenario's by questioning or otherwise consulting with 
+  a domain expert such as a representative end-user of the software being developed.</p>
+<p>Use cases offer a valuable set of artifacts from which useful scenario's can 
+  be identified and explored. As a developer, the most familiar of these will 
+  likely be the use-case realizations which you should begin with if available. 
+  In the absence of use-case realizations, identify any available use-case scenario's 
+  that offer a textual explanation of the path the end user will navigate through 
+  the various flows of events in the use-case specification. Finally, the use-case 
+  flows of events can be consulted to provide information from which likely candidate 
+  scenario's can be identified. The success of this last approach is improved 
+  by consultation with a representative for the the uses cases actor or other 
+  domain expert.</p>
+<p>Testers are another useful resource to consult when attempting to identify 
+  useful sceanrio's for runtime analysis. Testers often have insight into and 
+  experience with the domain through their testing efforts that evolves them into 
+  pseudo-domain experts. In many cases, the stimulus for observing the software's 
+  runtime behavior will come from the results of the testing effort itself.</p>
+<p>If this activity is driven by a reported defect, the main focus will be to 
+  reproduce it in a controlled environment. Based on the information which has 
+  been logged when the problem happened, a number of test case have to be identified 
+  as potential candidates for making the defect occur reliably. You might need 
+  to tweak some of the tests or write new ones, but keep in mind that reproducing 
+  the defect is an essential step and for the most difficult cases it will take 
+  more time to stabilize the defect than to fix it.</p>
+
+
+
+<h3><a name="PrepareComponent">Prepare implementation component for runtime observation</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:</b></td>
+      <td colspan="2" width="95%">To ensure the component is ready in an appropriate 
+        state to enable runtime execution</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>For runtime execution of the component to yield accurate results, care should 
+  be taken to prepare the component satisfactorily so that no anomalous results 
+  occur as a by-product of errors in implementation, compilation or linking.</p>
+<p>It is often necessary to make use of <i><a href="../glossary.htm#stub" target="_blank">stubbed 
+  components</a></i> so that the runtime observation can be completed in a timely 
+  manner, or so that it can actually be conducted in situations where the component 
+  is reliant on other components that have not yet been implemented.</p>
+<p>You will also need to prepare any framework or supporting tools required to 
+  execute the component. In some cases this may mean creating driver or harness 
+  code to support execution of the component; in other cases it may mean instrumenting 
+  the component so that external support tools can observe and possibly control 
+  the components behavior.</p>
+
+
+<h3><a name="PrepareEnvironment">Prepare environment for execution</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:</b></td>
+      <td colspan="2" width="95%">To ensure the prerequiste setup of the target 
+        environment has been completed satisfactorily.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>It is important to consider any requirements and constraints that must be addressed 
+  for the target environment in which the runtime analysis will occur. In some 
+  cases it will be necessary to simulate one or more of the intended deployment 
+  environments in which the component will ultimately be required to run. In other 
+  cases, it will be sufficient to perform the observe the runtime behavior on 
+  the developers machine.</p>
+<p>In any case, it is important to setup the target environment for the runtime 
+  observation satisfactorily so that the exercise is not wasted by the inclusion 
+  of &quot;contaminants&quot; that will potentially invalidate the subsequent 
+  analysis.</p>
+<p>Another consideration is the use of tools that generate environmental constraints 
+  or exception conditions that are otherwise difficult to reproduce. Such tools 
+  are invaluable in isolating failures or anomalies that occur in runtime behavior 
+  under these conditions. </p>
+
+
+<h3><a name="ObserveBehavior">Execute the component and capture behavioral observations</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:</b></td>
+      <td colspan="2" width="95%">To observe and capture the runtime behavior 
+        of the component.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Having prepared both the component and the environment it will be observed 
+  in, you can now begin to execute the component through the chosen scenario. 
+  Dependent on the techniques and tools employed, this step may be performed largely 
+  unattended or may offer (or even require) ongoing attention as the scenario 
+  progresses.</p>
+  
+  
+<h3><a name="ReviewObservations">Review behavioral observations and isolate initial findings</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:</b></td>
+      <td colspan="2" width="95%">To identify failures and anomalies in the components 
+        runtime behavior</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Either during each step in or at the conclusion of the scenario you are observing, 
+  look for failures or anomalies in the expected behavior. Note any observations 
+  you make or impressions you have that you think might relate to the anomalous 
+  behavior.</p>
+
+
+<h3><a name="AnalyzeFindings">Analyze findings to understand root causes</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:</b></td>
+      <td colspan="2" width="95%">To understand the root cause of any failure 
+        and anomally</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Take your findings and begin to investigate the underlying fault or root cause 
+  of each failure.</p>
+
+
+<h3><a name="CommunicateActions">Identify and communicate follow-up actions</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:</b></td>
+      <td colspan="2" width="95%">To suggest further investigative or corrective 
+        actions</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Once you've reviewed all of your findings, you'll likely have a list of thoughts 
+  or hunches that will require further investigation, and possibly specific corrective 
+  actions that you propose. If you will not be taking immediate action on these 
+  items yourself, record your proposals in an appropriate format and communicate 
+  them to the members of your team who can approve or otherwise undertake your 
+  proposals. </p>
+
+
+<h3><a name="EvaluateResults">Evaluate your results</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td colspan="2" width="5%"><b>Purpose:</b></td>
+      <td colspan="2" width="95%">To verify that the activity has been completed 
+        appropriately and that the resulting artifacts are acceptable.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is a good practice to verify that 
+  the work was of sufficient value. You should evaluate whether your work is of 
+  appropriate quality, and that it is complete enough to be useful to those team 
+  members who will make subsequent use of it as input to their work. Where possible, 
+  use the checklists provided in RUP to verify that quality and completeness are 
+  &quot;good enough&quot;.</p>
+<p>Have the people who will use your work as input in performing their downstream 
+  activities take part in reviewing your interim work. Do this while you still 
+  have time available to take action to address their concerns. You should also 
+  evaluate your work against the key input artifacts to make sure you have represented 
+  or considered them sufficiently and accurately. It may be useful to have the 
+  author of the input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  in many cases counterproductive&#151;to fully-form an artifact that will only 
+  be partially used or will not be used at all in immediately subsequent downstream 
+  work. This is because there is a high probability that the situation surrounding 
+  the artifact will change&#151;and the assumptions made when the artifact was 
+  created proven incorrect&#151;before the artifact is used, resulting in rework 
+  and therefore wasted effort.</p>
+<p>Also avoid the trap of spending too many cycles on presentation to the detriment 
+  of the value of the content itself. In project environments where presentation 
+  has importance and economic value as a project deliverable, you might want to 
+  consider using an administrative or junior resource to perform work on an artifact 
+  to improve it's presentation.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

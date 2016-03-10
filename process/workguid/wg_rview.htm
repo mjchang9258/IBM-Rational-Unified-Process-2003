@@ -1,0 +1,379 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Reviews</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Reviews</rpw></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#General">General</a></li>
+  <li><a href="#TypesOfReviews">Types of Reviews</a></li>
+  <li><a href="#Planning">Planning</a></li>
+  <li><a href="#PrepareReview">Preparation</a></li>
+  <li><a href="#ConductReview">Conducting Reviews</a></li>
+  <li><a href="#TakingActionOnResults">Taking Action on Review Results</a></li>
+  <li><a href="#MoreInfo">More Information</a></li>
+</ul>
+<h3><a name="General">General</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>Conduct reviews in a meeting format, although the participants of the meetings 
+    might prepare some reviews on their own.</li>
+  <li>Continuously monitor quality during the process activities to prevent large 
+    numbers of defects from remaining hidden until the reviews. In each activity 
+    in the Rational Unified Process (RUP), the checkpoints listed below are referenced 
+    to reinforce this; use them for informal review meetings or in daily work.</li>
+</ul>
+
+<h3><a name="TypesOfReviews">Types of Reviews</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In a 1990 standard glossary, IEEE defines three kinds of reviews:</p>
+<blockquote>
+  <dl>
+    <dt><b><i>Review</i></b></dt>
+    <dd>A formal meeting at which an artifact, or a set of artifacts are presented 
+      to the user, customer, or other interested parties for comments and approval.</dd>
+    <dt><b><i>Inspection</i></b></dt>
+    <dd>A formal evaluation technique in which artifacts are examined in detail 
+      by a person or group other than the author to detect errors, violations 
+      of development standards, and other problems.</dd>
+    <dt><b><i>Walkthrough</i></b></dt>
+    <dd>A review process in which a developer leads one or more members of the 
+      development team through a segment of an artifact that he or she has written 
+      while the other members ask questions and make comments about technique, 
+      style, possible error, violation of development standards, and other problems.</dd>
+  </dl>
+</blockquote>
+<p>When implemented across teams, reviews also provide opportunities for people 
+  to discover design and code from other groups, and increase the chances of detecting 
+  common source code, reuse opportunities, and opportunities for generalization. 
+  Reviews also provide a way to coordinate the architectural style among various 
+  groups.</p>
+<p>In the RUP, reviews play an important though secondary part in assuring quality. 
+  The major contributors to quality in the RUP are well described in [<a href="../referenc.htm#ROY98">ROY98</a>] 
+  in the section on Peer Inspections. However, this book does identify a valuable 
+  additional effect of reviews in professional development: junior staff have 
+  the opportunity to see the work of experts, and have their own work reviewed 
+  by senior mentors.</p>
+
+<h3><a name="Planning">Planning</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>We plan reviews to determine the focus and scope of the review, and to make 
+  sure all participants understand their role, and the goals of the review.</p>
+<p>Prior to the review, define the scope of the review by determining the question 
+  that will be asked; define what will be assessed and why? See the Check-points 
+  for the artifacts to be reviewed for the types of questions that could be asked. 
+  The exact questions will depend on the phase in the project: earlier reviews 
+  will be concerned with broader architectural issues, later reviews will be more 
+  specific.</p>
+<p>Once the scope of the review has been determined, define the review participants, 
+  the agenda, the information that will be required to perform the review. In 
+  selecting the participants, establish balance between software architecture 
+  expertise and domain expertise. Clearly and unambiguously designate an assessment 
+  leader who will coordinate the review. If necessary, draw upon other teams or 
+  other parts of the organization to supply domain or technical expertise.</p>
+<p>The number of reviewers should be approximately seven or less. If chosen appropriately, 
+  they will be more than capable of identifying problems in the architecture. 
+  More reviewers actually reduce the quality of the review by making the meetings 
+  longer, making participation more difficult, and by injecting side issues and 
+  discussion into the review. Fewer than 4 reviewers increases the risk of review 
+  myopia, as the diversity of concerns is reduced.</p>
+<p>Reviewers should be experienced in the area to be reviewed; for use cases, 
+  reviewers should have an understanding of the problem domain; for software architecture 
+  a knowledge of software design techniques is also needed. Inexperienced reviewers 
+  may learn something about the architecture by participating, but they will contribute 
+  little to the review and their presence may be distracting. Keep the group small; 
+  no more than seven people and no fewer than three. Fewer reviewers jeopardize 
+  the quality of the review, and more reviewers prevent interactive discussion 
+  essential to achieving quality results.</p>
+<p>Select reviewers appropriate for the material: 
+<ul>
+  <li>those who have the background to understand the material presented</li>
+  <li>those who have an active stake in the quality of product or artifact being 
+    reviewed</li>
+</ul>
+
+<h3><a name="PrepareReview">Preparation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Prior to the review, the artifacts to be reviewed and any background material 
+  should be gathered and distributed to the review participants. This must be 
+  done sufficiently in advance of the review meeting for reviewers to review the 
+  material and gather issues. Distributing review materials sufficiently in advance, 
+  and allowing reviewers to have time to prepare for the review significantly 
+  improves the quality of review results. Preparation for reviews also greatly 
+  improves the efficiency and effectiveness of the review.</p>
+<p>Reviewers should study the documentation, forming questions and identifying 
+  issues to discuss, <b>prior to the review</b>. Given normal workload of reviewers, 
+  a few working days is usually the minimum time needed to prepare for the review.</p>
+
+<h3><a name="ConductReview">Conducting Reviews</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are several keys to conducting a successful review:</p>
+<ul>
+  <li><a href="#UnderstandReviewProcess">Understand the review process</a></li>
+  <li><a href="#UnderstandReviewerRoles">Make sure that reviewers understand their 
+    roles</a></li>
+  <li><a href="#Moderator">Have a moderator</a></li>
+  <li><a href="#KeepReviewMeetingsBrief">Keep the review short and stick to the 
+    agenda</a></li>
+  <li><a href="#IdentifyIssuesDontFixProblems">Identify issues, don't fix problems</a></li>
+</ul>
+<p>Each of these is discussed in detail below.</p>
+
+<h4><a name="UnderstandReviewProcess">Understand the review process</a>  <a href="#ConductReview"><img src="../../images/top.gif" alt="To Conduct Review" border="0" width="26" height="20"></a></h4>
+<p>In general, the review process follows a repetitive cycle: 
+<ul>
+  <li>An issue is raised by a reviewer</li>
+  <li>The issue is discussed, and potentially confirmed</li>
+  <li>A defect is identified (something is identified as needing to be addressed)</li>
+  <li>Continue until no more issues are identified</li>
+</ul>
+<p>In order for this to work effectively, everyone must understand that the goal 
+  of a review is to improve the quality of the reviewed artifact. The artifacts 
+  should be reviewed with a critical eye to finding problems. Doing this can be 
+  difficult, so all reviewers must constantly remind themselves to focus on identifying 
+  issues (we are all natural problem solvers, but as reviewers we must put that 
+  aside).</p>
+<p>We all have strong ownership of our work; it is often difficult to accept criticism, 
+  even when it is constructive. As a result, we must work even harder to focus 
+  on the goals of the review: to make that work better.</p>
+
+<h4><a name="UnderstandReviewerRoles">Understand reviewer roles</a> <a href="#ConductReview"><img src="../../images/top.gif" alt="To Conduct Review" border="0" width="26" height="20"></a></h4>
+<p>In order to conduct an effective review, everyone has a role to play. More 
+  specifically, there are certain roles that must be played, and reviewers cannot 
+  switch roles easily. The basic roles in a review are:</p>
+<ul>
+  <li>the moderator</li>
+  <li>the recorder</li>
+  <li>the presenter</li>
+  <li>reviewers</li>
+</ul>
+<p>The moderator makes sure that the review follows its agenda and stays focused 
+  on the topic at hand. The moderator ensures that side-discussions do not derail 
+  the review, and that all reviewers participate equally.</p>
+<p>The recorder is an often overlooked, but essential part of the review team. 
+  Keeping track of what was discussed and documenting actions to be taken is a 
+  full-time task. Assigning this task to one of the reviewers essentially keeps 
+  them out of the discussion. Worse yet, failing to document what was decided 
+  will likely lead to the issue coming up again in the future. Make sure to have 
+  a recorder and make sure that this is the only role the person plays.</p>
+<p>The presenter is the author of the artifact under review. The presenter explains 
+  the artifact and any background information needed to understand it (although 
+  if the artifact was not self-explanatory, it probably needs some work). It's 
+  important that reviews not become &quot;trials&quot; - the focus should be on 
+  the artifact, not on the presenter. It is the moderator's role to make sure 
+  that participants (including the presenter) keep this in mind. The presenter 
+  is there to kick-off the discussion, to answer questions and to offer clarification.</p>
+<p>Reviewers raise issues. It's important to keep focused on this, and not get 
+  drawn into side discussions of how to address the issue. Focus on results, not 
+  the means.</p>
+
+<h4><a name="Moderator">Have a moderator</a>  <a href="#ConductReview"><img src="../../images/top.gif" alt="To Conduct Review" border="0" width="26" height="20"></a></h4>
+<p>As discussed above, the moderator plays a crucial role in keeping the review 
+  from losing focus. It's important that the moderator be focused on keeping the 
+  review on track; the moderator should not have reviewer responsibilities. The 
+  role of the moderator is to elicit discussion, ensure equal participation, and 
+  to defuse contention. This is a full-time task. Failure to moderate effectively 
+  causes reviews to drag on beyond their intended conclusion, and to fail to achieve 
+  their goals.</p>
+
+<h4><a name="KeepReviewMeetingsBrief">Keep the review meetings brief</a> <a href="#ConductReview"><img src="../../images/top.gif" alt="To Conduct Review" border="0" width="26" height="20"></a></h4>
+<p>Reviews are most effective when they are brief and focused on well-identified 
+  objectives. Because it is difficult to maintain focus for long periods, and 
+  because reviewers have other work to do as well, limit reviews to no more than 
+  two hours. If a review is expected to go longer, break it into several smaller 
+  and more focused reviews. Results will be better if reviewers can maintain focus.</p>
+<p>The key to doing this is to have a well-identified agenda and clearly articulated 
+  goals. These should be communicated when the review materials are distributed, 
+  and the moderator should reinforce them when the review meeting begins. The 
+  moderator must then consistently (and sometime ruthlessly) reinforce these goals 
+  during the meeting.</p>
+
+<h4><a name="IdentifyIssuesDontFixProblems">Identify issues, don't fix
+problems</a> <a href="#ConductReview"><img src="../../images/top.gif" alt="To Conduct Review" border="0" width="26" height="20"></a></h4>
+<p>One of the major reasons why review meetings fail to achieve their intended 
+  results is that they have a tendency to degenerate into discussions of how a 
+  problem should be fixed. Fixing problems usually requires investigation and 
+  reflection; the format of the review is not an effective medium for this kind 
+  of discussion. Once the issue is identified, determine if it is a defect that 
+  must be resolved, and then assign it to someone to investigate and resolve. 
+  The review meeting should focus on identification only.</p>
+<p>If the issue requires further discussion among a group of people, form a separate 
+  meeting to focus on that topic. Typically this meeting will require some investigation 
+  and preparation, and people with the right skills will need to be involved. 
+  The review should remain focused on identifying other issues. The moderator 
+  will often need to exert considerable will to keep the review meeting focused 
+  on this.</p>
+
+<h3><a name="TakingActionOnResults">Taking Action on Review Results</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The review is of little value if nothing comes of it. At the conclusion of 
+  the review: 
+<ul>
+  <li>Prioritize the list of problems.</li>
+  <li>Create defects to track the problems and their resolution.</li>
+  <li>If additional investigation is required, assign a small team to research 
+    the problem (but not to solve it).</li>
+  <li>For problems that can be resolved in the current iteration, assign a person 
+    or team to fix the problem.</li>
+  <li>Feed the list of unresolved problems into future iteration planning efforts.</li>
+</ul>
+
+<h3><a name="MoreInfo">More information</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>See also [<a href="../referenc.htm#MCO97">MCO97</a>].</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

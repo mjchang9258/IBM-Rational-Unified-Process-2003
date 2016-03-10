@@ -1,0 +1,329 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Project Repository</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Project Repository</rpw><a name="Top"></a></h2>
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_repos.jpg" width="44" height="45">&nbsp;
+	  </td>
+      <td width="80%">The project repository stores all versions of project files 
+        and directories. It also stores all the derived data and meta data associated 
+        with the files and directories.&nbsp; </td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_cmmgr.htm">Configuration Manager</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Set up early in the project lifecycle and maintained throughout.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Package, stereotyped as &#171;project repository&#187;.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_baspj.htm">Create Baselines</a></li>
+<li><a href="../activity/ac_relss.htm">Create Deployment Unit</a></li>
+<li><a href="../activity/ac_criws.htm">Create Integration Workspaces</a></li>
+<li><a href="../activity/ac_pfmca.htm">Perform Configuration Audit</a></li>
+<li><a href="../activity/ac_buildp.htm">Promote Baselines</a></li>
+<li><a href="../activity/ac_repdd.htm">Report on Configuration Status</a></li>
+<li><a href="../activity/ac_upwks.htm">Update Workspace</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_prmci.htm">Deliver Changes</a></li>
+<li><a href="../activity/ac_buildp.htm">Promote Baselines</a></li>
+<li><a href="../activity/ac_wspba.htm">Set Up Configuration Management (CM) Environment</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The project repository stores all the files and directories that are managed
+by the project's CM Tool. The project repository is a global resource that will
+need to be accessed by most project team &quot;clients&quot;.</p>
+<p>Depending on the size of a project there could be multiple project
+repositories, and each project repository could contain tens of thousands of
+files and directories. The number of files in any given project repository will
+depend on the size of the machine on which the repository server is running, and
+the number of users expected to concurrently access data. The repository server
+handles read / write traffic to the project repository.</p>
+<h3><a name="Properties">Properties</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The project repository can be a central point of failure for all assets, and
+therefore needs to be reliable, fault tolerant, scalable to accommodate mode
+data and have high performance so as not to impede product development.</p>
+
+<p>The key hardware considerations (in order of priority) for the project
+repository are the following:</p>
+<ul>
+  <li>Memory Requirements
+    <p>Memory is one of the cheapest ways to improve the performance of a CM
+    Tool. A rule of thumb for how much main memory is required in the server
+    machine is to add all the database space used by the project repository, and
+    divide by two. For example, 1MB of main memory should be sufficient to allow
+    for caching and background data writing for 2MB of database space. The
+    assumption is that half of the data in the project repository will be
+    actively accessed at any given time.</p>
+    <p>Server machines should have a minimum of 256MB. On the client side, each
+    developer's machine should have a minimum of 128MB of main memory.</p>
+    <p>&nbsp;</li>
+  <li>Disk Input / Output Requirements<p>The second most likely performance
+    bottleneck in the CM environment is the speed at which the data can be
+    written to disk. Read/write intensive operations are check-in, check-out and
+    baseline creation. It is a good idea to have a dedicated controller and
+    channel per disk.<p>&nbsp;</li>
+  <li>Network Bandwidth<p>Since the CM tool is usually a distributed
+    application, adequate network capacity and reliability are required for good
+    performance. The recommendation is to put machines hosting the project
+    repository and views on the same subnet. And if the local area network (LAN)
+    is too saturated as indicated by time outs and poor response, the idea is to
+    increase network capacity or add a subnet for the CM tool hosing machine.<p>&nbsp;</li>
+  <li>Project Repository Disk Space<p>Depending on the size of a project there could be multiple project
+repositories, and each project repository could contain tens of thousands of
+files and directories. The number of files in any given project repository will
+depend on the size of the machine on which the repository server is running, and
+the number of users expected to concurrently access data. An active read/write
+    code development project repository can hold less elements than a less
+    volatile repository that does not have the same level of user traffic. For a
+    software development project repository expect to hold approximately 3000 to
+    5000 elements in the repository.
+    <p>A good rule of thumb is to allow disk space for growth, and have about
+    50% free space by allocating 2 giga-bytes of storage per project repository.</li>
+</ul>
+    <p>The project repository should be on a dedicated server. This means the
+    project repository server should <b>not</b> be used for:
+<ul>
+  <li>compiles, builds or testing</li>
+  <li>running other third party tools</li>
+  <li>a mail server</li>
+  <li>a web server</li>
+</ul>
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The project repository is set up early in the project lifecycle and maintained
+throughout.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The <a href="../workers/wk_cmmgr.htm">Configuration Manager</a> is the prime
+custodian of the project repository. He has to make sure that it is routinely
+backed-up and archived in accordance with the project's CM policies
+ (<a href="../activity/ac_strep.htm">
+Activity: Establish CM Policies</a>).
+
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Tailoring of this artifact should be documented in the <a href="ar_cmpln.htm">Artifact:
+Configuration Management Plan</a>.</p>
+<br>
+<br>
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+  
+</body>
+
+</html>

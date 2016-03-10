@@ -1,0 +1,233 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Performance Testing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Performance Testing</rpw><a name="XE_performance_test__introduction_to"></a></h2>
+
+<p>Performance testing is a class of tests implemented and executed to characterize 
+  and evaluate the performance-related characteristics of the target-of-test, 
+  such as the timing profiles, execution flow, response times, and operational 
+  reliability and limits. Different types of performance tests, each focused on 
+  a different test objective, are implemented throughout the software development 
+  lifecycle (SDLC). </p>
+<p>Early in the architecture iterations, performance tests are focused on identifying 
+  and eliminating architectural-related performance bottlenecks. In the construction 
+  iterations, additional types of performance tests are implemented and executed 
+  to fine-tune the software and environment (optimizing response time and resources), 
+  and to verify that the applications and system acceptably handle high load and 
+  stress conditions, such as a large numbers of transactions, clients, and/or 
+  volumes of data.</p>
+<p>The following types of tests are included in Performance Testing: 
+<ul>
+  <li><b>Benchmark testing:</b><big> </big>Compares the performance of new or 
+    unknown target-of-test to a known reference standard, such as existing software 
+    or measurements.</li>
+  <li><b>Contention</b> <b>test: </b>Verifies the target-of-test 
+    can acceptably handle multiple actor demands on the same resource (data records, 
+    memory, and so forth).</li>
+  <li><b>Performance profiling: </b> Verifies the acceptability of the target-of-test's 
+    performance behavior using varying configurations while the operational conditions 
+    remain constant.</li>
+  <li><b>Load testing: </b> Verifies the acceptability of the target-of-test's 
+    performance behavior under varying operational conditions (such as number 
+    of users, number of transactions, and so on) while the configuration remains 
+    constant.</li>
+  <li><b>Stress testing:</b> Verifies the acceptability of the target-of-test's 
+    performance behavior when abnormal or extreme conditions are encountered, 
+    such as diminished resources or an extremely high number of users.</li>
+</ul>
+<p>Performance evaluation is normally performed in conjunction with the <i>User 
+  representative</i> and is done from a multileveled approach.</p>
+<ul>
+  <li>The first level of performance analysis involves evaluating the results 
+    for a single actor or use-case instance and comparing the results across several 
+    test executions; for example, capturing the performance behavior of a single 
+    actor performing a single use case without any other activity on the target-of-test 
+    and comparing the results with several other test executions of the same actor 
+    or use case. This first-level analysis can help identify trends that could 
+    indicate contention among system resources, which may affect the validity 
+    of the conclusions drawn from other performance test results.</li>
+  <li>A second level of analysis examines the summary statistics and actual data 
+    values for specific actor or use-case execution, and the target-of-test's 
+    performance behavior. Summary statistics include standard deviations and percentile 
+    distributions for the response times, which provide an indication of the variability 
+    in system responses as seen by individual actors.</li>
+  <li>A third level of analysis can help in understanding the causes and significance 
+    of performance problems. This detailed analysis takes the low-level data and 
+    uses statistical methods to help testers draw correct conclusions from the 
+    data. Detailed analysis provides objective and quantitative criteria for making 
+    decisions, but it's more time consuming and requires a basic understanding 
+    of statistics.</li>
+</ul>
+<p>Detailed analysis uses the concept of <i>statistical significance</i> to help 
+  understand when differences in performance behavior are real or due to some 
+  random event associated with collecting the test data. The idea is that, on 
+  a fundamental level, there is randomness associated with any event. Statistical 
+  testing determines whether there is a systematic difference that can’t be explained 
+  by random events.</p>
+<p>See <a href="co_keyme.htm">Concepts: Key Measures of Test</a> for more
+information on the different performance test reports.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

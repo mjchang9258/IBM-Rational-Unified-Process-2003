@@ -1,0 +1,569 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Assess and Improve Test Effort</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Assess and Improve Test Effort</rpw><a name="XE_test__improving_the_test_effort"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b> 
+      <ul>
+          <li>To make an assessment of the productivity, effectiveness and completeness 
+            of the test effort</li>
+          <li>To make adjustments to the test effort (both tactical and strategic) 
+            to improve effectiveness</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b> 
+      <ul>
+          <li><a href="#CaptureWorkStatus">Capture work status</a></li>
+          <li><a href="#GatherTestProductEffectMetrics">Gather test effort productivity and effectiveness metrics</a></li>
+          <li><a href="#CRMetrics">Gather Change Request distribution, trend and 
+            aging metrics</a></li>
+          <li><a href="#GatherTraceability">Gather traceability, coverage and dependency metrics </a></li>
+          <li><a href="#EvaluateMetrics">Evaluate metrics and formulate initial assessment</a></li>
+          <li><a href="#RecordFindings">Record findings</a></li>
+          <li><a href="#PresentAssessment">Present assessment and gather feedback</a></li>
+          <li><a href="#ImplementImprovements">Plan and implement improvement initiatives</a></li>
+          <li><a href="#ManageImprovements">Monitor and support improvement initiatives</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+      </ul>
+    </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+<li><a href="../artifact/ar_itass.htm">Iteration Assessment</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_prjms.htm">Project Measurements</a></li>
+<li><a href="../artifact/ar_qapl.htm">Quality Assurance Plan</a></li>
+<li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+<li><a href="../artifact/ar_stass.htm">Status Assessment</a></li>
+<li><a href="../artifact/ar_tstev.htm">Test Evaluation Summary</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+<li><a href="../artifact/ar_tstrs.htm">Test Results</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_tstev.htm">Test Evaluation Summary</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstmng.htm">Test Manager</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        &nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_achmsnacp.htm">Achieve Acceptable Mission</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="CaptureWorkStatus">Capture work status</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gain an objective, up-to-date understanding of the general 
+        status of the testing work against plan.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>There are different ways to approach this step, and much of the approach will 
+  depend on your project culture. Where available, gather and collate progress 
+  reports prepared by individual team members or sub-teams. Project time sheets 
+  are another possible source to consider. Where project scheduling systems such 
+  as Microsoft Project are actively used and updated with actual progress this 
+  provides another useful information source. Where available and actively used, 
+  you might also derive objective status or progress metrics from configuration 
+  and change management systems.</p>
+<p>For this step and subsequent steps that deal with gathering information and 
+  assessing the test effort, try to obtain a balanced view incorporating both 
+  objective and subjective measures. Remember that objective numbers only give 
+  part of the picture and need to be supported and explained by the current project 
+  &quot;climate&quot;. Conversely, don't rely purely on hearsay and subjective 
+  speculation about the test effort: look for supporting objective evidence. We 
+  recommend you supplement your objective data by discussion with either team 
+  leads or where possible individual team members to gather subjective assessments 
+  and gauge how much confidence you can place in the objective data.</p>
+
+
+<h3><a name="GatherTestProductEffectMetrics">Gather test effort productivity and 
+  effectiveness metrics</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gather and examine objective data that enables the assessment 
+        of the testing performed by the test team.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Investigate how much effort has been spent on the identification, definition, 
+  design, implementation and execution of tests. Keep an eye out for signs of 
+  excessive effort being devoted to one aspect of the test effort to the detriment 
+  of others. Look also for areas where effort may be unproductive or not showing 
+  sufficient benefit for the level of effort being expended.</p>
+<p>Look also at the effectiveness of the testing. Look for data that supports 
+  your initial observations of effectiveness. Consider aspects such as defect 
+  discovery rate, defect severity counts, duplicate defect statistics, and defects 
+  detected as test escapes.</p>
+
+
+<h3><a name="CRMetrics">Gather Change Request distribution, trend and aging metrics</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gather and examine objective data that enables the assessment 
+        of the issues and defects logged by the test team.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Identify important trends evident in the Change Request data. In general it's 
+  less important for this activity to spend time analyzing data volumes and more 
+  important to identify what the relative data trends are indicating. Look for 
+  positive signs such as a steady, continuous rate of defect discovery, or a light 
+  ongoing increase or decrease in discovery rate over time. Be on the lookout 
+  for sharp peaks and troughs in discovery rate that indicate the test team may 
+  be encountering process, environmental, political or other problems that are 
+  reducing their productivity.</p>
+<p>Look at trends in defects closures. Look for significant increases of closures 
+  by development staff as &quot;not reproducible&quot;; identify cases where this 
+  is a result of insufficient analysis of the failure having been performed by 
+  the test team and quantify the extent of this problem. Look at trends in defects 
+  being closed by development staff as &quot;functioning as designed&quot;; identify 
+  cases where this is a result of insufficient analysis of the specification having 
+  been performed by the test team and quantify the extent of this problem. Be 
+  careful to confirm these indications are not false and due instead to overworked 
+  developers triaging their workload. Some analysis should also be done of defect 
+  verification trends as fixes to defects are released to the test team in subsequent 
+  builds: look out for trends that indicate defects awaiting verification by the 
+  test team are aging or growing to an unmanageable number.</p>
+<p>Look for other trends that indicate problems. Look at the the way in which 
+  defects and other change requests have been recorded or managed by the test 
+  team: ambiguous and insufficient information on a change request is difficult 
+  and frustrating for a developer to take action on. The team should take care 
+  to monitor that the quality of the information recorded against defects remains&#151;on 
+  average&#151;relatively high. Take the opportunity to improve the clarity of 
+  the associated Change Requests, eliminating ambiguity and emotive language and 
+  reasoning. Work together with the individuals who created these artifacts to 
+  ensure the essence of the problem is clearly stated and encourage them to find 
+  factual and accurate ways to approach discussing the Issues.</p>
+<p>Also look out for imbalances in defect distribution on a number of different 
+  dimensions. Look for functional areas of the application or the specification 
+  that have low defect counts raised against them: this may indicate an exposure 
+  that insufficient testing has been undertaken in that functional area. Look 
+  also at distribution by test team member: there may be indications that individual 
+  team members are overworked and that productivity is suffering.</p>
+
+
+<h3><a name="GatherTraceability">Gather traceability, coverage and dependency 
+  metrics </a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gather and examine objective data that enables the assessment 
+        asset traceability.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Analyze the state of the traceability relationships between the testing assets&#151;Test 
+  Ideas, Test Cases, Test Scripts, Test Suites and Change Requests&#151;and the 
+  upstream and downstream assets they relate to. Look for signs that indicate 
+  the test effort is focused on the correct areas and a useful set of motivations. 
+  Look also for negative indications that suggest certain aspects of testing are 
+  missing or are no longer of importance: If the requirements or development teams 
+  are working on areas not represented by the current test effort, this should 
+  raise concerns.</p>
+
+
+<h3><a name="EvaluateMetrics">Evaluate metrics and formulate initial assessment</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To evaluate and assess the metric data and formulate an 
+        initial assessment of the effectiveness of the test effort against plan.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Collate all of the information you have gathered and evaluate it as a collective 
+  whole. Remember that each piece of the data gathered only addresses one aspect 
+  of the total assessment, and you must formulate your assessment of the test 
+  effort based on a balanced and considered view of all data.</p>
+<p>Record you initial assessment in a format that will be suitable for the stakeholders 
+  to make comments and give feedback on.</p>
+
+
+<h3><a name="RecordFindings">Record findings</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To document summary findings for inclusion in project management 
+        reporting and to enable analysis of subsequent status assessment against 
+        earlier assessments.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>This activity produces summary status information that is important to the 
+  project manager and other roles in the management team. These roles will use 
+  the summary findings to make informed decisions about the project.</p>
+<p>We recommend your record some aspects of the test effort assessment in a format 
+  that allows subsequent assessments to be compared and contrasted with previous 
+  ones. This will enable you to analyze the relative trend in test effort improvements 
+  over time.</p>
+
+
+<h3><a name="PresentAssessment">Present assessment and gather feedback</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To engage stakeholders and obtain their feedback on whether 
+        the actual testing effort is serving their needs.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Present your assessment for stakeholders to comment and offer feedback on. 
+  The format or method for doing this will differ from project to project: in 
+  some cases it will be a series of informal conversations, in another simply 
+  a posting on a project intranet web-site, and in others a formal presentation&#151;choose 
+  a format that suits your culture.</p>
+<p>Even with the best planning and specification documents possible, there will 
+  usually be differences between the original expectation and intent of those 
+  documents and the resulting end product. This is as true for testing and evaluating 
+  software as it is for the software development itself. The value of this step 
+  is to take the opportunity to elicit the stakeholders feedback and identify 
+  where the careful planning and documentation has not achieved what was originally 
+  expected or intended.</p>
+
+
+<h3><a name="ImplementImprovements">Plan and implement improvement initiatives</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To identify areas for improvement and formulate initial 
+        strategies for achieving those improvements.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Based on your analysis and the feedback you've received from various stakeholders, 
+  identify opportunities for improvement. Look for ways to make the testing more 
+  effective, productive and efficient. This might involve: reassigning staff, 
+  including pairing staff to work more effectively or employing specialized contractors; 
+  using productivity tools to improve efficiency; finding alternative approaches 
+  and techniques that are more productive in terms of finding defects.</p>
+<p>In most cases it's better to make small, incremental improvements to the test 
+  effort and avoid the risk of derailing the project with large, unsettling changes: 
+  In some cases a bigger change is warranted and useful. Use your best judgment 
+  to formulate an appropriate approach to improvement and discuss your ideas with 
+  other management staff to get their input before committing the team to embrace 
+  large changes. </p>
+
+
+<h3><a name="ManageImprovements">Monitor and support improvement initiatives</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To ensure that necessary improvement initiatives are achieved 
+        in a satisfactory and timely manner.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>For the improvements to be effective, you will need to manage their success. 
+  Identify ways that you will be able to monitor improvement initiatives&#151;preferably 
+  in advance on their adoption&#151;to assess their effectiveness. Either actively 
+  monitor the progress being made in adopting the changes yourself, or appoint 
+  someone else on the team to do so.</p>
+<p>Most changes meet resistance or problems that must be overcome for them to 
+  be ultimately successful. Allow time for and be prepared to quickly address 
+  any issues that arise and prevent the initiative from succeeding. Be sensitive 
+  to peoples natural reluctance to change and find ways to address their concerns 
+  appropriately.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

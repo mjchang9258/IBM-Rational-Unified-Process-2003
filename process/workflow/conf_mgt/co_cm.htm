@@ -1,0 +1,252 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Configuration and Change Request Management</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Configuration and 
+  Change Request Management</rpw><a name="XE_change_management__overview_of"></a></h2>
+<p>The major aspects of a CM System include all of the following: 
+<ul>
+  <li><a href="co_revno.htm">Change Request Management</a></li>
+  <li>
+      <a href="co_strep.htm">Configuration Status Accounting/Measurement</a>
+	  </li>
+  <li>Configuration Management (CM)</li>
+  <li>Change Tracking</li>
+  <li>Version Selection</li>
+  <li>Software Manufacture</li>
+</ul>
+<p>The following CM Cube, suggesting their mutual interdependence, serves to iconograph 
+  the major aspects of a CM System.</p>
+
+<p align="center">
+  <map name="FPMap0"> 
+    <area href="co_revno.htm" shape="rect" coords="61,2,444,34">
+    <area href="co_revno.htm" shape="rect" coords="61,37,275,134">
+    <area href="co_revno.htm" shape="circ" coords="294,69,33">
+     
+      <area href="co_strep.htm" shape="rect" coords="274,138,366,347">
+      <area href="co_strep.htm" shape="circ" coords="332,122,33">
+      <area href="co_strep.htm" shape="rect" coords="381,176,526,207">
+    
+	
+      <area href="co_pdirs.htm" shape="rect" coords="62,139,272,349">
+      <area href="co_pdirs.htm" shape="rect" coords="1,366,345,396">
+    
+  </map>
+  <img src="images/co_cm.gif" border="0" usemap="#FPMap0" width="538" height="398"> 
+</p>
+<p>&nbsp;</p>
+<ol>
+  <li><b>Change Request Management (CRM)</b> &#150; addresses the organizational 
+    infrastructure required to assess the cost, and schedule, impact of a requested 
+    change to the existing product. Change Request Management addresses the workings 
+    of a Change Review Team or Change Control Board.</li>
+  <li><b>Configuration Status Accounting (Measurement)</b> &#150; is used to describe 
+    the &#145;state&#146; of the product based on the type, number, rate and severity 
+    of defects found, and fixed, during the course of product development. Metrics 
+    derived under this aspect, either through audits or raw data, are useful in 
+    determining the overall completeness status of the project.</li>
+  <li><b>Configuration Management (CM)</b> &#150; describes
+    the <a href="co_pdirs.htm">product structure</a>  and identifies its constituent configuration items that are 
+    treated as single versionable entities in the configuration management process. 
+    CM deals with defining configurations, building and labeling, and collecting 
+    versioned artifacts into constituent sets and maintaining traceability between 
+    these versions.</li>
+  <li><b>Change Tracking</b> &#150; describes what is done to elements for what 
+    reason and at what time. It serves as history and rationale of changes. It 
+    is quite separate from assessing the impact of proposed changes as described 
+    under 'Change Request Management'.</li>
+  <li><b>Version Selection </b> &#150;<b> </b>the purpose of good 'version selection' 
+    is to ensure that right versions of configuration items are selected for change 
+    or implementation. Version selection relies on a solid foundation of 'configuration 
+    identification'.</li>
+  <li><b>Software Manufacture</b> &#150; covers the need to automate the steps 
+    to compile, test and package software for distribution.</li>
+</ol>
+
+<p>The Rational Unified Process describes a comprehensive CM System that covers 
+  all CM aspects. The purpose is to allow for an effective CM process that:</p>
+<ul>
+  <li>is built into the software development process</li>
+  <li>helps manage the evolution of the software development work products</li>
+  <li>allows developers to execute CM tasks with minimal intrusion into the development 
+    process</li>
+</ul>
+
+<p>One goal of the Rational CM process is to encourage version control of artifacts 
+  captured in development tools, and to de-emphasize the resource inefficient 
+  production of hardcopy documentation per-se.</p>
+<p>Another goal of the Rational CM process is to ensure that the level of control 
+  applied to each artifact is based on the maturity level of that product. As 
+  work products mature, change authorization migrates from implementer, to subsystem 
+  or system integrator, to project manager and ultimately to the customer.</p>
+<p>For the sake of process efficiency it is important to ensure that the bureaucratic 
+  overhead associated with the Change Request Management process is consistent 
+  with the maturity of the product.</p>
+<p>For example, during early iterations the Change Request Management (CRM) process 
+  may be relatively informal. In the later phases of the development lifecycle, 
+  the CRM process can be made more strict to ensure that necessary test and documentation 
+  resources can handle changes as well as assessing the potential instability 
+  that a change may introduce. A project which is unable to tailor the level of 
+  control during the development process will not be running as efficiently as 
+  possible.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

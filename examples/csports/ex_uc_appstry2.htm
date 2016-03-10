@@ -1,0 +1,159 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Use Case Specification: Approve Story V2.0</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Use Case : Approve Story 2.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Use Case Specification: Approve Story</p>
+</font><p align="RIGHT">
+<font face="Arial" size="4">Version 2.0</font></p><font face="Arial" size="5">
+<p align="CENTER">Revision History</p></font></b>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP">
+    <p align="CENTER"><b>Version</b></td>
+    <td width="39%" valign="TOP">
+    <p align="CENTER"><b>Description</b></td>
+    <td width="24%" valign="TOP">
+    <p align="CENTER"><b>Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 9, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial version</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">December 1, 1999</td>
+    <td width="12%" valign="TOP">2.0</td>
+    <td width="39%" valign="TOP">Update with detail from Elaboration</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<h5>Table of Contents</h5>
+<ul>
+  <li><a href="#Approve Story">Approve Story</a></li>
+  <li><a href="#Flow of Events">Flow of Events</a></li>
+  <li><a href="#Special Requirements">Special Requirements</a></li>
+  <li><a href="#Preconditions">Preconditions</a></li>
+  <li><a href="#Postconditions">Postconditions</a></li>
+  <li><a href="#Extension Points">Extension Points</a></li>
+</ul>
+<h3><a name="Approve Story"></a>Approve Story <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This Use Case takes place when an editor approves a story for inclusion in
+the Collegiate Sports Paging System. Some stories will automatically propogate
+from the existing system, but some stories will require editor intervention
+(either because their subject is not clear or the categories to which the story
+belongs are not clear). This flow is also used to approve advertising content
+being posted.</p>
+<h3><a name="Flow of Events"></a>Flow of Events <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>The system places a <a href="ex_gloss2.htm#Story">story</a> in the editor’s
+    &quot;to-do&quot; workflow queue. If more than one editor is defined, a
+    round-robin approach is used to attempt to balance load.&nbsp;&nbsp; Editors
+    may be marked as unavailable (if, for instance, they are on vacation or sick
+    or out of the office), in which case they will not be included in the
+    round-robin process.</li>
+  <li>The editor views the story.</li>
+  <li>The editor categorizes the story by selecting from system-provided
+    categories.&nbsp;&nbsp; There may be more than one <a href="ex_gloss2.htm#Category">category</a>
+    assigned to the story.&nbsp; At least one category must be assigned to the
+    story.</li>
+  <li>The editor then marks the story as approved.</li>
+  <li>The system includes the story in the list of available content for paging
+    initiation.</li>
+  <li>The system triggers initiation of paging messages.</li>
+</ol>
+<h4>Alternate Flows</h4>
+<ol>
+  <li>Reject Content</li>
+  <ol>
+    <li>The editor views the story.</li>
+    <li>The editor marks the story as rejected and describes the reason for
+      rejection.</li>
+    <li>The system notifies the originator of the content that the story has
+      been rejected and includes the reason provided by the editor.</li>
+    <li>The system deletes the story.</li>
+  </ol>
+  <li>Modify Content</li>
+  <ol>
+    <li>Editor selects &quot;Modify Story&quot;</li>
+    <li>System displays titles of all stories available</li>
+    <li>Editor selects specific title</li>
+    <li>System displays characteristics of story</li>
+    <li>Editor updates characteristics, either deleting some categories, adding
+      other categories, or both.</li>
+    <li>Editor selects &quot;Save&quot;</li>
+    <li>System re-posts the story to the list of available content for paging
+      initiation.</li>
+    <li>The system triggers initiation of paging messages.</li>
+  </ol>
+  <li>Approve Advertising Content</li>
+  <ol>
+    <li>The editor views the advertising content</li>
+    <li>The editor marks it approved.</li>
+    <li>The system includes the advertising content in the list of available
+      advertising for display</li>
+    <li>The system creates a preliminary billing record, using information
+      stored about the advertiser (billing rate indicator, advertiser name and
+      billing address), content identification, date, and total due.</li>
+    <li>The system marks the preliminary billing record as approved</li>
+  </ol>
+  <li>Reject Advertising Content</li>
+  <ol>
+    <li>The editor views the advertising content</li>
+    <li>The editor marks it rejected and provides a reason for rejection. This
+      may include account overdue, content inappropriate or not within scope of
+      contract, or duplicate content (advertising content is already on file and
+      being displayed).</li>
+    <li>The system notifies the advertiser (via email) of the rejection and the
+      reason.</li>
+    <li>The system deletes the content.</li>
+  </ol>
+  <li>Story not viewable</li>
+  <p>If the story has been deleted by another editor and is not currently
+  viewable, the use case terminates.</p>
+</ol>
+<h3><a name="Special Requirements"></a>Special Requirements <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.</p>
+<h3><a name="Preconditions"></a>Preconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>Editor must be logged in.</p>
+<h3><a name="Postconditions"></a>Postconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>When this use case is complete, content is available. For advertising
+content, the content will be eligible for display immediately. For story
+content, the paging process can begin immediately.</p>
+<h3><a name="Extension Points"></a>Extension Points <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

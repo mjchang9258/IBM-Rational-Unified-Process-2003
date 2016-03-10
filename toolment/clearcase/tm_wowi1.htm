@@ -1,0 +1,241 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Promoting Project Baselines Using Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Promoting Project Baselines Using Rational ClearCase</rpw>
+ <a name="XE_clearcase__baselines__promoting"></a> 
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to assign promotion levels to baselines using 
+  Rational ClearCase Unified Change Management (UCM).&nbsp;</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_buildp.htm">Promote Baselines</a></li>
+</ul>
+<br>
+    
+</p>
+
+<h3>Overview</h3>
+<p>In ClearCase, UCM baselines typically represent a stable configuration for 
+  a component.&nbsp; 
+<p>Baselines are assigned promotion levels that can be used to indicate the quality 
+  or degree of completeness of the work represented by a baseline. Generally, 
+  the promotion level indicates a level of testing. UCM provides an ordered set 
+  of default promotion levels, and also supports user-defined promotion levels. 
+  The action of changing the promotion level of a baseline is called promoting 
+  or demoting the baseline.</p>
+<p>A recommended baseline is baseline that has been approved for general use. 
+  Recommended baselines are used in rebase operations. When a stream is rebased, 
+  it is reconfigured with the recommended baselines of the target stream. One 
+  use of promotion levels is to assign a set of baselines with the same promotion 
+  level to be recommended baselines for a particular stream.</p>
+<p>This tool mentor is applicable when running Microsoft Windows.&nbsp;</p>
+
+
+<h4>Tool Steps</h4>
+<p>This procedures describes how to change a baseline's promotion level and how 
+  to make baselines with a particular promotion level recommended baselines for 
+  the stream:&nbsp; 
+<ol>
+  <li><a href="#Change the promotion level of a baseline">Change the promotion level of
+    a baseline</a>
+  <li><a href="#Based on promotion level, set a baseline to be a recommended baseline for the stream">Based
+    on promotion level, set a baseline to be a recommended baseline for the
+    stream</a>
+</ol>
+<p><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"> 
+  For further information, see the Rational manual titled <i>Managing Projects 
+  with ClearCase</i>.&nbsp;</p>
+
+
+<h3>1. <a name="Change the promotion level of a baseline">Change the promotion level of
+a baseline</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ol>
+  <li>In ClearCase Project Explorer, select a stream. Click<b>
+    File &gt; Properties</b> to display the stream's property sheet.</li>
+  <li>Click the<b> Baselines</b>  tab.</li>
+  <li>In the <b>Components</b> box select the component whose baseline you want
+    to promote. The component's baselines are displayed in the<b> Baselines</b>
+    box. Select the baseline and click <b>Properties </b>to display the
+    baseline's property sheet.</li>
+  <li>At the <b>General</b> tab, click the down arrow in the Promotion Level<b> </b>list
+    to display all available promotion levels. Select the new promotion level.
+    Click<b>  OK</b>.</li>
+</ol>
+
+
+<h3>2. <a name="Based on promotion level, set a baseline to be a recommended baseline for the stream">Based
+on promotion level, set a baseline to be a recommended baseline for the stream</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>Click <b>Start</b> &gt; <b>Programs </b>&gt; <b>Rational ClearCase</b>
+    &gt; <b>Project Explorer</b>.&nbsp;
+  <li>Select a stream.&nbsp;&nbsp;
+  <li>Click <b>Tools &gt; Recommend Baselines</b> to display a list of the
+    current recommended baselines for the stream.&nbsp;
+  <li>In the <b>Set List</b> area, select a promotion level from the pull-down
+    list.&nbsp;
+  <li>Click <b>Set List </b>to make the most recent baselines at or above the
+    promotion level recommended baselines.&nbsp;&nbsp;
+  <li>Click <b>OK.</b></li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

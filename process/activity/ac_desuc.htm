@@ -1,0 +1,583 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Detail a Use Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Detail a Use Case</rpw></h2>
+
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Purpose</b>
+        <ul>
+          <li>To describe one or more of the use case's flow of events in sufficient 
+            detail to enable software development to begin on it.</li>
+          <li>To describe the use case specification to the understanding and 
+            satisfaction of the actor representative or customer.</li>
+        </ul>
+	  </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b>
+	    <a href="../workers/wk_ucaut.htm">Requirements Specifier</a>&nbsp;
+	  </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration, for each use 
+        case or use-case flow being detailed in the iteration&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Steps</b>
+        <ul>
+          <li><a href="#RefineScenarios">Review and Refine the Scenarios</a>, (optional)</li>
+          <li><a href="#DetailFlowOfEvents">Detail the Flow of Events</a></li>
+		  <li><a href="#StructureFlowOfEvents">Structure the Flow of Events</a></li>
+		  <li><a href="#IllustrateRelationships">Illustrate Relationships with 
+            Actors and Other Use Cases</a></li>
+		  <li><a href="#DescribeSpecialRequirements">Describe any Special Requirements</a></li>
+          <li><a href="#DefineCommunicationProtocols">Define Communication Protocol(s)</a></li>
+          <li><a href="#DescribePreconditions">Describe Preconditions</a>, (optional)</li>
+          <li><a href="#DescribePostconditions">Describe Postconditions</a>, (optional)</li>
+          <li><a href="#DescribeExtensionPoints">Describe Extension Points</a>, 
+            (optional)</li>
+          <li><a href="#EvaluateyourResults">Evaluate Your Results</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	    <ul>
+<li><a href="../artifact/ar_gloss.htm">Glossary</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_ratgl.htm">Requirements Management Plan</a></li>
+<li><a href="../artifact/ar_stnds.htm">Stakeholder Requests</a></li>
+<li><a href="../artifact/ar_storyboard.htm">Storyboard</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_uc.htm">Use Case</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	  </td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	    <ul>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_uc.htm">Use Case</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	    <ul>
+<li><a href="../../toolment/soda/tm_ucrep.htm">Creating a Use-Case Report Using Rational SoDA</a></li>
+<li><a href="../../toolment/reqpro/tm_desuc.htm">Detailing a Use Case Using Rational RequisitePro</a></li>
+<li><a href="../../toolment/rose/tm_desuc.htm">Detailing a Use Case Using Rational Rose</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_desuc.htm">Detailing a Use Case Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_desuc.htm">Detailing a Use Case Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/anastudio/tm_iucm.htm">Managing Use Cases Using Rational Rose and Rational RequisitePro</a></li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+    <tr>
+      <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="chklists/ck_sspec.htm">Checklist: Supplementary Specifications</a></li>
+<li><a href="chklists/ck_uc.htm">Checklist: Use Case</a></li>
+</ul>
+</td>
+      </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	    <ul>
+<li><a href="../workflow/ovu_req.htm">Requirements</a>
+<ul>
+<li><a href="../workflow/requirem/wfs_refs.htm">Refine the System Definition</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	  </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="RefineScenarios">Review and Refine the Scenarios</a> <a name="XE_scenarios__refining"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Start by reviewing and refining the scenarios that you will be dealing with 
+  in the development cycle. These may have already been initially identified in 
+  the <a href="ac_facuc.htm">Activity: Find Actors and Use Cases</a>. Use these 
+  enumerated scenarios as a starting point in determining the scope of what flows 
+  will need to be described.</p>
+<p><a href="../artifact/ar_uiprt.htm">Storyboards</a> will help you in understanding 
+  and detailing the use case flows. 
+  Another input to consider is the <a href="../artifact/ar_uiprt.htm">user-interface 
+  prototype</a>, if one has already been developed.</p>
+
+
+
+<h3><a name="DetailFlowOfEvents">Detail the Flow of Events</a> <a name="XE_flow_of_events__detailing"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You should already have a outlined, step-by-step description of the use-case 
+  flow of events. This is also created in the <a href="ac_facuc.htm">Activity: 
+  Find Actors and Use Cases</a>. Use this step-by-step outline as a starting point, 
+  and gradually make it more detailed.</p>
+<p>Describe use cases according to the standards decided for the project 
+  (documented 
+  in the <a href="../artifact/ar_projspecgls.htm">Use-Case Modeling Guidelines</a>). 
+  Decide on the following points before describing the use cases so that you are 
+  consistent across use cases:</p>
+<ul>
+  <li>How does the use case start? The start of the use case must clearly describe 
+    the signal that activates the use case. Write, for example, &quot;The use 
+    case can start when … happens.&quot;</li>
+  <li>How does the use case terminate? You should clearly state whatever happens 
+    in the course of the flow to terminate the use case. Write, for example, &quot;When 
+    … happens, the use case terminates.&quot;</li>
+  <li>How does the use case interact with actors? To minimize any risk of misunderstanding 
+    say exactly what will reside inside the system, and what will reside outside 
+    the system. Structure the description as a series of paragraphs, in which 
+    each paragraph expresses an action in the format: &quot;When the actor does 
+    …, the system does ….&quot; You can also emphasize interaction by writing 
+    that the use case sends and receives signals from actors, for example: &quot;The 
+    use case starts when it receives the signal 'start' from the Operator.&quot;</li>
+  <li>How does the use case exchange data with an actor? If you like, you can 
+    refer to the arguments of the signals, but it might be better to write, for 
+    example, &quot;The use case starts when the User logs into the system by giving 
+    his name and password.&quot;</li>
+  <li>How does the use case repeat some behavior? You should try to express this 
+    in natural language. However, in exceptional cases, it might be worthwhile 
+    to use code-like constructs, such as &quot;WHILE-END WHILE,&quot; &quot;IF-THEN-ELSE,&quot; 
+    and &quot;LOOP-END LOOP,&quot; if the corresponding natural language terms 
+    are difficult to express. In general, however, you should avoid using such 
+    code-like constructs in use-case descriptions because they are hard to read 
+    and maintain.</li>
+  <li>Are there any optional situations in a use case's flow of events? Sometimes 
+    an actor is presented with several options. This should be written in the 
+    same way. For example: 
+    <p>&quot;The actor chooses one of the following, one or more times:</p>
+    <blockquote>
+      <p>a) . . .</p>
+      <p>b) . . .</p>
+      <p>c) . . .&quot; etc.</p>
+    </blockquote>
+  </li>
+  <li>How should the use case be described so that the customer and the users 
+    can understand it? The use of methodology-specific terminology, such as use 
+    case, actor, and signal, might make the text unnecessarily hard to grasp. 
+    To make the text easier to read, you might enumerate the actions, or adopt 
+    some other strategy. Whatever strategy you use should be specified in the 
+    general use-case-modeling guidelines so that you keep it in mind during the 
+    entire activity of describing use cases.</li>
+</ul>
+
+<p>Concentrate on describing what is done in the use case, not how specific problems 
+  internal to the system should be solved. When working with object models, you 
+  may have to complement the description with details about how things work, so 
+  do not make the description overly detailed at this point. Describe only what 
+  you believe will be stable later on.</p>
+<p>If a use case's flow of events has become too encompassing or complex, or if 
+  it appears to have parts that are independent of one another, split it into 
+  two or more use cases.</p>
+<p>When you write the descriptive text, refer to the glossary. As fresh terms 
+  evolve from new concepts, include them in the glossary. Do not change the definition 
+  of a term without informing the appropriate project members.</p>
+
+<h5>The Content of a Flow of Events Description</h5>
+<p>A flow of events description explores:</p>
+<ul>
+  <li>How and when the use case starts.</li>
+</ul>
+
+<h5>Example:</h5>
+<p class="example">&quot;The use case can start when the function 'Administer 
+  Order' is activated by a user.&quot;</p>
+
+<ul>
+  <li>When the use case interacts with the actors, and what data they exchange.</li>
+</ul>
+
+<h5>Example:</h5>
+<p class="example">&quot;To create a new order, the user activates the function 
+  'New' and then specifies the following mandatory data concerning the order: 
+  name, network elements (at least one), and type of measurement function. Optional 
+  data can also be specified concerning the order: a comment (a small textual 
+  description). The user then activates the function 'OK,' and a new order is 
+  created in the system.&quot;</p>
+  
+<p>Note: You must be explicit regarding the data exchanged between the actors 
+  and the use case; otherwise, the customer and the users will probably not understand 
+  the use-case description.</p>
+<ul>
+  <li>How and when the use case uses data stored in the system, or stores data 
+    in the system.</li>
+</ul>
+
+<h5>Example:</h5>
+<p class="example">&quot;The user activates the function 'Modify' to modify an 
+  existing order, and specifies an order number (small integer). The system then 
+  initializes an order form with the name of the order, its network elements, 
+  and its type of measurement function. This data is retrieved from a secondary 
+  storage device.&quot; 
+
+<ul>
+  <li>How and when the use case ends.</li>
+</ul>
+
+<h5>Example:</h5>
+<p class="example">&quot;The use case ends when the function 'Exit' is activated 
+  by the Orderer.&quot;</p>
+
+<p>You should also describe odd or exceptional flows of events. An exceptional 
+  flow is a subflow of the use case that does not adhere to the use case's normal 
+  or basic behavior. This flow may nevertheless be necessary in any complete description 
+  of the use case's behavior. A typical example of an exceptional flow is the 
+  one given in the first example. If the use case receives some unexpected data 
+  (that the actor is not the one expected in that particular context) it terminates. 
+  Having the wrong actor and terminating prematurely are not in the typical flow 
+  of events.</p>
+<p>Other &quot;do's and don'ts&quot; to consider when you describe a use case 
+  include:</p>
+<ul>
+  <li>Describe the flow of events, not just the use case's functionality or
+    purpose.</li>
+  <li>Describe only flows that belong to the use case, not what is going on in
+    other use cases that work in parallel with it.</li>
+  <li>Do not mention actors who do not communicate with the use case in
+    question.</li>
+  <li>Do not provide too much detail when you describe the use case's
+    interaction with any actor.</li>
+  <li>If the order of the subflows described for the use case does not have to
+    be fixed, do not describe it as if it does have to be fixed.</li>
+  <li>Use the terms in the common glossary and consider the following in writing
+    the text:</li>
+  <li>Use straightforward vocabulary. Don't use a complex term when a simple one
+    will do.</li>
+  <li>Write short, concise sentences.</li>
+  <li>Avoid adverbs, such as very, more, rather, and the like.</li>
+  <li>Use correct punctuation.</li>
+  <li>Avoid compound sentences.</li>
+</ul>
+<p>For more information, see <a href="../modguide/md_uc.htm">Guidelines: Use Case</a>, 
+  the discussions on <a href="../modguide/md_uc.htm#Flow of Events - Contents">contents</a> 
+  and <a href="../modguide/md_uc.htm#Flow of Events - Style">style</a> of the 
+  flow of events.</p>
+
+<h3><a name="StructureFlowOfEvents">Structure the Flow of Events</a> <a name="XE_use_case__structuring_the_flow_of_events_of"></a><a name="XE_flow_of_events__structuring"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A use case's flow of events can be divided into several subflows. When the 
+  use case is activated the subflows can combine in various ways if the following 
+  holds true:</p>
+<ul>
+  <li>The use case can proceed from one of several possible paths, depending on 
+    the input from a given actor, or the values of some attribute or object. For 
+    example, an actor can decide, from several options, what to do next, or, the 
+    flow of events may differ if a value is less or greater than a certain value.</li>
+</ul>
+
+<h5><b>Example:</b></h5>
+<p class="example">Part of the description of the use case Withdraw Money in an 
+  automated teller machine system could be &quot;The amount of money the client 
+  wants to withdraw from the account is compared to the balance of the account. 
+  If the amount of money exceeds the balance, the client is informed and the use 
+  case terminates. Otherwise, the money is withdrawn from the account.&quot; 
+
+<ul>
+  <li>The use case can perform some subflows in optional sequences.</li>
+  <li>The use case can perform several subflows at the same time.</li>
+</ul>
+<p>You must describe all these optional or alternative flows. It is recommended 
+  that you describe each subflow in a separate supplement to the Flow of Events 
+  section, and should be mandatory for the following cases: 
+<ul>
+  <li>Subflows that occupy a large segment of a given flow of events.</li>
+  <li>Exceptional flows of events. This helps the use case's basic flow of
+    events to stand out more clearly.</li>
+  <li>Any subflow that can be executed at several intervals in the same flow of 
+    events.</li>
+</ul>
+<p>If a subflow involves only a minor part of the complete flow of events, it 
+  is better to describe it in the body of the text.</p>
+
+<h5><b>Example:</b></h5>
+<p class="example">&quot;This use case is activated when the function 'administer 
+  order' is called for by either of the actors Orderer or Performance Manager 
+  Administrator. If the signal does not come from one of these actors, the use 
+  case will terminate the operation and display an appropriate message to the 
+  user. However, if the actor is recognized, the use case proceeds by.....&quot;</p>
+
+<p>You can illustrate the structure of the flow of events with an activity diagram, 
+  see <a href="../modguide/md_actd.htm">Guidelines: Activity Diagram in the Use-Case 
+  Model</a>.</p>
+<p>For more information, see <a href="../modguide/md_uc.htm#Flow of Events - Structure">Guidelines: 
+  Use Case, structure of the flow of events</a>.</p>
+<h3><a name="IllustrateRelationships">Illustrate Relationships with Actors and 
+  Other Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Create use-case diagrams showing the use case and its relationships to actors 
+  and other use cases. A diagram of this type functions as a local diagram of 
+  the use case, and should be related to it. Note that this kind of local use-case 
+  diagram is typically of little value, unless the use case has use-case relationships 
+  that need to be explained, or if there is an unusual complexity among the actors 
+  involved.</p>
+<p>For more information, see <a href="../modguide/md_ucdgr.htm">Guidelines: Use-Case 
+  Diagram</a>.</p>
+
+<h3><a name="DescribeSpecialRequirements">Describe any Special Requirements</a> 
+  <a name="XE_use_case__describing_special_requirements_of"></a><a name="XE_flow_of_events__describing_special_requirements_of"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Any requirements that can be related to the use case, but that are not taken 
+  into consideration in the Flow of Events of the use case, should be described 
+  in the Special Requirements of the use case. Such requirements are likely to 
+  be nonfunctional.</p>
+<p>For more information, see <a href="../modguide/md_uc.htm#Special Requirements">Guidelines: 
+  Use Case, special requirements</a>.</p>
+
+<h3><a name="DefineCommunicationProtocols">Define Communication Protocol(s)</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Define the communication protocol to be used for any actor that is another 
+  system or external hardware. If some existing protocol (especially recognized 
+  protocols or protocols considered standard) is to be used, the description of 
+  the use case should simply name the protocol. If the protocol is new, you should 
+  point to where the protocol definition can be found which will need to be fully 
+  described during object-model development.</p>
+
+<h3><a name="DescribePreconditions">Describe Preconditions</a> <a name="XE_use_case__describing_precondition_of"></a><a name="XE_precondition__describing_for_a_use_case"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A precondition on a use case explains the state the system must be in order 
+  for the use case to be possible to start.</p>
+
+<h5>Example:</h5>
+<p class="example">In order for an ATM system to be able to dispense cash, the 
+  following preconditions must be satisfied:</p>
+<blockquote>
+  <ul>
+    <li>The ATM network must be accessible.</li>
+    <li>The ATM must be in a state ready to accept transactions.</li>
+    <li>The ATM must have at least some cash on hand that it can dispense.</li>
+    <li>The ATM must have enough paper to print a receipt for at least one transaction.</li>
+  </ul>
+</blockquote>
+<p class="example">These would all be valid preconditions for the use case Dispense 
+  Cash.</p>
+  
+<p>Take care to describe the system state; avoid describing the detail of other 
+  incidental activities that may have taken place prior to this use case.</p>
+<p>Preconditions are not used to create a sequence of use cases. There will never 
+  be a case where you have to first perform one use case, then another, in order 
+  to have a meaningful flow of events. If you feel there is a need to do this, 
+  it is likely that you have decomposed the use-case model too much. Correct this 
+  problem by combining the sequentially dependent use cases into a single use 
+  case. If this makes the resulting&nbsp; use case too complex, consider techniques 
+  for structuring use cases, as presented in <a href="#StructureFlowOfEvents">Structure 
+  the Flow of Events of the Use Case</a> above, or in the<a href="ac_stucm.htm"> 
+  Activity: Structure the Use-Case Model</a>.</p>
+<p>For more information, see <a href="../modguide/md_uc.htm#preconditions and Postconditions">Guidelines: 
+  Use Case, Preconditions and Postconditions</a>.</p>
+
+<h3><a name="DescribePostconditions">Describe Postconditions</a> <a name="XE_postcondition__describing_for_a_use_case"></a><a name="XE_use_case__describing_postcondition_of"></a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A postcondition on a use case lists possible states the system can be in at 
+  the end of the use case. The system must be in one of those states at the end 
+  of the execution of the use case. It is also used to state actions that the 
+  system performs at the end of the use case, regardless of what occurred in the 
+  use case.</p>
+
+<h5>Example<b>:</b></h5>
+<p class="example">If the ATM always displays the &#145;Welcome&#146; message 
+  at the end of a use case, this could be documented in the postcondition of the 
+  use case.</p>
+<p class="example">Similarly, if the ATM always closes the customer’s transaction 
+  at the end of a use case like Withdraw Cash, regardless of the course of events 
+  taken, that fact should be recorded as a postcondition for the use case.</p>
+<p class="example">Postconditions are used to reduce the complexity and improve 
+  the readability of the flow-of-events of the use case.</p>
+
+<p>Under no circumstances should postconditions be used to create a sequence of 
+  use cases. There should never be a case where you have to first perform one 
+  use case, then another, in order to have a meaningful flow of events. If you 
+  feel a need to do this, the sequentially dependent use cases should be combined 
+  into a single use case. If this makes the combined use case too complex, consider 
+  techniques for structuring use cases, as presented in Structure the Flow of 
+  Events of the Use Case above, or in the <a href="ac_stucm.htm">Activity: Structure 
+  the Use-Case Model</a>.</p>
+<p>For more information, see <a href="../modguide/md_uc.htm#preconditions and Postconditions">Guidelines: 
+  Use Case, Preconditions and Postconditions</a>.</p>
+
+<h3><a name="DescribeExtensionPoints">Describe Extension Points</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If the use case is to be extended by another use case (see <a href="../modguide/md_exrel.htm">Guidelines: 
+  Extend-Relationship</a>), you need to describe what the extension points are 
+  (see <a href="../modguide/md_uc.htm#Extension Points">Guidelines: Use Case, 
+  extension points</a>).</p>
+
+<h3><a name="EvaluateyourResults">Evaluate Your Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Review and discuss the use case with the stakeholders, so that they have a 
+  clear understanding of the use case and agree on its description.</p>
+<p>The use-case description is complete only when it describes everything the 
+  use case performs, implements, or otherwise allows from beginning to end. Before 
+  you finish, check that the use case exhibits the properties that characterize 
+  it as a &quot;good&quot; use case. See checkpoints for use cases and use-case 
+  reports in <a href="ac_rvucm.htm">Activity: Review Requirements</a>.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

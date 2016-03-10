@@ -1,0 +1,416 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Data Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Artifact:&nbsp;<rpw name="PresentationName">Data Model</rpw><a name="XE_data_model__as_artifact"></a><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_datmd.jpg" width="103" height="50">&nbsp;
+	  </td>
+      <td width="80%">The data model describes the logical and physical representations 
+        of persistent data used by the application. In cases where the application 
+        will utilize a relational database management system (RDBMS), the data 
+        model may also include model elements&nbsp;for stored procedures, triggers, 
+        constraints, etc. that define the interaction of the application components 
+        with the RDBMS.</td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_dbdsr.htm">Database Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Optional.Inception and Elaboration phases.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">A package stereotyped as &laquo;model&raquo;. </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../activity/chklists/ck_dtmdl.htm">Checklist: Data Model</a></li>
+<li><a href="../modguide/md_datmd.htm">Guideline: Data Model</a></li>
+<li><a href="../modguide/md_rdbforw.htm">Guideline: Forward-Engineering Relational Databases </a></li>
+<li><a href="../modguide/md_rdboo.htm">Guideline: Reverse-engineering Relational Databases</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dbdes.htm">Database Design</a></li>
+<li><a href="../activity/ac_tst_idntstitm.htm">Identify Targets of Test</a></li>
+<li><a href="../activity/ac_tst_idntstids.htm">Identify Test Ideas</a></li>
+<li><a href="../activity/ac_impcl.htm">Implement Design Elements</a></li>
+<li><a href="../activity/ac_rvdes.htm">Review the Design</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_dbdes.htm">Database Design</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_data_model__purpose_of"></a><a name="Purpose">Purpose</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Data Model is used to describe the logical and physical structure of the 
+persistent information managed by the system. The data model may be initially 
+created through reverse engineering of existing persistent data stores 
+(databases) or may be initially created from a set of persistent
+<a href="ar_class.htm">Design Classes</a> in the <a href="ar_desmd.htm">Design 
+Model</a>. </p>
+<p>The data model is needed whenever the 
+persistent storage mechanism is based upon some non-object-oriented technology.&nbsp; The data model is specifically needed where the persistent data structure 
+cannot be automatically and mechanically derived from the structure of 
+persistent classes in the design model. It is used to define the mapping between 
+persistent design classes and persistent data structures, and to define the 
+persistent data structures themselves. </p>
+<p>The properties table below describes the elements of the data model.&nbsp; 
+The definitions of the model properties included in this table are consistent 
+with the Data Modeling profile for version 1.3 of Unified Modeling Language (UML) 
+specification.&nbsp; The data modeling profile elements for UML version 1.4 have 
+not yet been defined. </p>
+<h3><a name="XE_data_model__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr> 
+    <td width="20%"><p class="tableheading"><b>Property Name</b></td>
+    <td width="40%"><p class="tableheading"><b>Brief Description</b></td>
+    <td width="40%"><p class="tableheading"><b>UML Representation</b></td>
+  </tr>
+  <tr> 
+    <td width="20%">Introduction</td>
+    <td width="40%">A textual description that serves as a brief introduction to the model.</td>
+    <td width="40%">Tagged value, of type &quot;short text&quot;.</td>
+  </tr>
+  <tr> 
+    <td width="20%">Packages</td>
+    <td width="40%">The packages used for organizational grouping purposes.</td>
+    <td width="40%">Owned via the association &quot;represents&quot;, or recursively via the aggregation &quot;owns&quot;.</td>
+  </tr>
+  <tr> 
+    <td width="20%">Tables</td>
+    <td width="40%">The tables in the data model, owned by the packages.</td>
+    <td width="40%">Classes, stereotyped as &laquo;Table&raquo;.</td>
+  </tr>
+  <tr> 
+	<td width="20%">Relationship</td>
+    <td width="40%">Simple association between tables in the model.</td>
+    <td width="40%">Association, stereotyped as &laquo;Non-Identifying&raquo;</td>
+  </tr>
+  <tr>
+    <td width="20%">Strong Relationship</td>
+    <td width="40%">Composite Aggregation relationship between tables in the model.</td>
+    <td width="40%">Association, stereotyped as &laquo;Identifying&raquo; </td>
+  </tr>
+  <tr>
+    <td width="20%">Dependency (View to Table)</td>
+    <td width="40%">Dependency between Tables, Views and other model elements</td>
+    <td width="40%">Dependency, stereotyped as &laquo;Derive&raquo; for dependency relationships between Table and View</td>
+  </tr>
+  <tr>
+    <td width="20%">Column</td>
+    <td width="40%">The data values of the tables.</td>
+    <td width="40%">Attribute, stereotyped as &laquo;Column&raquo;.</td>
+  </tr>
+  <tr> 
+	<td width="20%">Domain</td>
+    <td width="40%">A user-defined data type.</td>
+    <td width="40%">Class, stereotyped as &laquo;Domain&raquo;.</td>
+  </tr>
+  <tr>
+    <td width="20%">View</td>
+    <td width="40%">A virtual table, composed of columns from one or more tables.</td>
+    <td width="40%">Class, stereotyped as &laquo;View&raquo;.</td>
+  </tr>
+  <tr> 
+    <td width="20%">Diagrams</td>
+    <td width="40%">The diagrams in the model, owned by the packages.</td>
+    <td width="40%">Class Diagrams that depict Tables and their 
+    relationships and Component Diagrams that depict the realization of the 
+    Tables in the model to Tablespaces components and Database components.</td>
+  </tr>
+  <tr> 
+    <td width="20%">Index</td>
+	<td width="40%">Data access structures used to speed access along specified paths.</td>
+    <td width="40%">Operation, stereotyped as &laquo;Index&raquo;.</td>
+  </tr>
+  <tr> 
+	<td width="20%">Trigger</td>
+    <td width="40%">Event-activated behavior associated with tables.</td>
+    <td width="40%">Operation, stereotyped as &laquo;Trigger&raquo;.</td>
+  </tr>
+  <tr> 
+    <td width="20%">Check constraint</td>
+    <td width="40%">A validation rule on a column or table. It can consist of a range of valid values or calculations.</td>
+    <td width="40%">Operation, stereotyped as &laquo;Check&raquo;.</td>
+  </tr>
+  <tr> 
+    <td width="20%">Unique constraint</td>
+    <td width="40%">Designates that the data in a column or set of columns must be unique.</td>
+    <td width="40%">Operation, stereotyped as &laquo;Unique&raquo;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Stored Procedure Package</td>
+    <td width="40%">A Class that is used as a &quot;container&quot; for Stored Procedure operations</td>
+    <td width="40%">Class, stereotyped as &laquo;SP_Container&raquo;</td>
+  </tr>
+  <tr>
+    <td width="20%">Stored Procedure&nbsp;</td>
+    <td width="40%">Explicitly invoked behavior, associated with tables or with the model as a whole.</td>
+    <td width="40%">Operation, stereotyped as &laquo;SP&raquo;.</td>
+      </tr>
+      <tr>
+    <td width="20%">Schema&nbsp;</td>
+    <td width="40%">Container for elements of the data model that represents the overall 
+    structure of the database. Used for managing security and ownership of tables.</td>
+    <td width="40%">Package  stereotyped as &laquo;Schema&raquo;.</td>
+  </tr>
+  <tr>
+    <td width="20%">Database</td>
+    <td width="40%">Model element that represents the physical database</td>
+    <td width="40%">Component, stereotyped as &laquo;Database&raquo;</td>
+  </tr>
+  <tr>
+    <td width="20%">Tablespace</td>
+    <td width="40%">Units of physical storage in a database</td>
+    <td width="40%">Component, stereotyped as &laquo;Tablespace&raquo;</td>
+  </tr>
+</table>
+<br></div>
+
+<h3><a name="Timing">Timing</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The data model may be started in the <a href="../itrwkfls/iwf_iii.htm">Inception 
+Phase,</a> as part of 
+architectural prototyping, to understand existing reusable assets, or to get a jump-start 
+on the design. In the <a href="../itrwkfls/iwf_iie.htm">Elaboration Phase,</a> a 
+data model is developed to the extent needed to mitigate key risks and support 
+the architecturally significant use cases. In particular, it is generally 
+important in elaboration have a solid mechanism for accessing persistent data 
+storage (in most cases a database) from the rest of the application.</p>
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A <a href="../workers/wk_dbdsr.htm">Database Designer</a> is responsible for the integrity of the
+data model, ensuring that the data model as a whole is correct, consistent, and
+understandable.</p>
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For projects which have little persistent data, or have a straightforward 
+transformation from design classes to the persistency mechanism, a separate data 
+model may not be needed.&nbsp; For projects utilizing a RDBMS for persistence, 
+the data model will need to be tailored to the specifics semantics of the 
+underlying database, which may vary slightly
+between RDMBSes. 
+<p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+</p>
+
+</body>
+
+</html>

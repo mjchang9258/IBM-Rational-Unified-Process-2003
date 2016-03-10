@@ -1,0 +1,110 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Use Case Specification: Pay Fee with Credit Card V1.0</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Use Case : Pay Fee with Credit Card 1.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Use Case Specification: Pay Fee with Credit Card</p>
+</font><p align="RIGHT">
+<font face="Arial" size="4">Version 1.0</font></p><font face="Arial" size="5">
+<p align="CENTER">Revision History</p></font></b>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP">
+    <p align="CENTER"><b>Version</b></td>
+    <td width="39%" valign="TOP">
+    <p align="CENTER"><b>Description</b></td>
+    <td width="24%" valign="TOP">
+    <p align="CENTER"><b>Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 9, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial version</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<h5>Table of Contents</h5>
+<ul>
+  <li><a href="#Pay Fee With Credit Card">Pay Fee With Credit Card</a></li>
+  <li><a href="#Flow of Events">Flow of Events</a></li>
+  <li><a href="#Special Requirements">Special Requirements</a></li>
+  <li><a href="#Preconditions">Preconditions</a></li>
+  <li><a href="#Postconditions">Postconditions</a></li>
+  <li><a href="#Extension Points">Extension Points</a></li>
+</ul>
+<h3><a name="Pay Fee With Credit Card"></a>Pay Fee With Credit Card <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when a new subscriber wants to pay their annual
+subscription fee by specifying a credit card number and PIN. This may also occur
+when an existing subscriber wants to renew (see alternate flow 1)</p>
+<h3><a name="Flow of Events"></a>Flow of Events <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>Subscriber selects &quot;pay fee with credit card&quot;</li>
+  <li>System prompts subscriber for credit card number, expiration date, and
+    (optionally) PIN</li>
+  <li>System sends credit card info to external system for charge validation and
+    application</li>
+  <li>Upon receipt of validation, system updates subscriber record to indicate
+    new expiration date</li>
+</ol>
+<h4>Alternate Flows</h4>
+<h5>Subscriber renews subscription</h5>
+<p>When this occurs, the flow runs as follows:
+<ol>
+  <li>Subscriber selects &quot;pay fee with credit card&quot;</li>
+  <li>System displays current credit card information</li>
+  <li>User either accepts information as is or updates appropriately</li>
+  <li>System sends credit card info to external system for charge validation and
+    application</li>
+  <li>Upon receipt of validation, system updates subscriber record to indicate
+    new expiration date</li>
+</ol>
+<h5>Invalid credit card information</h5>
+<p>If the information provided by the subscriber is not validated by the
+external system, an error message will be displayed and the subscriber record
+will NOT be updated (so that the last steps in the above flows will not be
+executed).</p>
+<h3><a name="Special Requirements"></a>Special Requirements <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>Special requirements will be determined during the next iteration.</p>
+<p>Issue – interface specifications for external credit card system need to be
+verified.</p>
+<h3><a name="Preconditions"></a>Preconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>Preconditions will be determined during the next iteration.</p>
+<h3><a name="Postconditions"></a>Postconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>Postconditions will be determined during the next iteration.</p>
+<h3><a name="Extension Points"></a>Extension Points <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>Extension points of the use case will be identified during the Elaboration
+Phase.<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

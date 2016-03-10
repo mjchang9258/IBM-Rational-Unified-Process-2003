@@ -1,0 +1,619 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Change Request</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Change Request</rpw> <a name="XE_change_request_(CR)__artifact_definition"></a></h2>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_cr.jpg" width="39" height="50">&nbsp;
+	  </td>
+      <td width="80%">Changes to development artifacts are proposed through Change 
+        Requests (CR's). Change Requests are used to document and track defects, 
+        enhancement requests and any other type of request for a change to the 
+        product. The benefit of CR's is that they provide a record of decisions 
+        and, due to their assessment process, ensure that change impacts are understood 
+        across the project.&nbsp;</td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_ccmgr.htm">Change Control Manager</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Mandatory. Occurs as many times as required.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Not applicable.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../workflow/conf_mgt/co_revno.htm">Concept: Change Request Management</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_agrmsn.htm">Agree on the Mission</a></li>
+<li><a href="../activity/ac_tst_asststefr.htm">Assess and Improve Test Effort</a></li>
+<li><a href="../activity/ac_confcr.htm">Confirm Duplicate or Rejected CR</a></li>
+<li><a href="../activity/ac_tst_dfntstdtl.htm">Define Test Details</a></li>
+<li><a href="../activity/ac_elstk.htm">Elicit Stakeholder Requests</a></li>
+<li><a href="../activity/ac_tst_idntstmtv.htm">Identify Test Motivators</a></li>
+<li><a href="../activity/ac_mgdep.htm">Manage Dependencies</a></li>
+<li><a href="../activity/ac_revcr.htm">Review Change Request</a></li>
+<li><a href="../activity/ac_rvucm.htm">Review Requirements</a></li>
+<li><a href="../activity/ac_schaw.htm">Schedule and Assign Work</a></li>
+<li><a href="../activity/ac_updcr.htm">Update Change Request</a></li>
+<li><a href="../activity/ac_vfycr.htm">Verify Changes in Build</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_anltstflr.htm">Analyze Test Failure</a></li>
+<li><a href="../activity/ac_confcr.htm">Confirm Duplicate or Rejected CR</a></li>
+<li><a href="../activity/ac_ladev.htm">Launch Development Process</a></li>
+<li><a href="../activity/ac_mgacc.htm">Manage Acceptance Test</a></li>
+<li><a href="../activity/ac_mgbet.htm">Manage Beta Test</a></li>
+<li><a href="../activity/ac_revcr.htm">Review Change Request</a></li>
+<li><a href="../activity/ac_subcr.htm">Submit Change Request</a></li>
+<li><a href="../activity/ac_updcr.htm">Update Change Request</a></li>
+<li><a href="../activity/ac_vfycr.htm">Verify Changes in Build</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a name="XE_change_request_(CR)__purpose_of"></a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The necessity for change is inherent in developing a software system as it 
+  evolves during its initial creation and as it is subsequently used and maintained 
+  in day-to-day operation in an live environment. Generating and managing CR's 
+  ensures that changes to a system are made in a controlled way so that their 
+  effect on the system can be predicted. CR's may be used to document and track 
+  all types of requests for changes to the system, including enhancement requests 
+  and defects.</p>
+
+<p><b>Enhancement Requests</b> are used by the <a href="../workers/wk_sysan.htm">System 
+  Analyst</a> to define future features to include in the product. These are a 
+  type of <a href="ar_stnds.htm">Stakeholder Request</a> that capture and articulate 
+  an understanding of stakeholder needs.</p>
+ 
+<p><b>Defects</b> are reports of anomalies or failures in a delivered work product. 
+  Defects include such things as omissions and imperfections found during early 
+  lifecycle phases, or symptoms of faults (failures) that need to be isolated 
+  and corrected within the software. Defects may also include deviations from 
+  what can be reasonably expected of the software behavior (such as usability 
+  issues).</p>
+<p>The purpose of a defect is to communicate the details of the issue, enabling 
+  corrective action, resolution, and tracking to occur. The following people use 
+  the CR's: 
+<ul>
+  <li><b><a href="../workers/wks_analysts.htm">Analysts</a></b> uses CR's define 
+    significant changes to high-level requirements and to determine requirements 
+    from, especially from those CR's identified as Enhancement Requests.</li>
+  <li><b><a href="../workers/wks_managers.htm">Managers</a></b> use CR's to manage 
+    and control work assignment.</li>
+  <li><a href="../workers/wks_testers.htm"><b>Testers</b></a> use CR's to describe 
+    failures (defects), omissions and quality issues found during software testing.</li>
+  <li>The <b><a href="../workers/wk_implm.htm">Implementer</a></b> uses defect 
+    CR's to analyze failures and find the underlying faults or causes of the failure 
+    so as to resolve the CR.</li>
+  <li>The <b><a href="../workers/wk_tstanl.htm">Test Analyst</a></b> uses CR's 
+    to plan the tests required to verify resolved CR's and to evaluate the test 
+    effort by analyzing sets of defects to measure trends in the quality of the 
+    software and the software engineering process.</li>
+</ul>
+
+<h3><a name="BriefOutline">Brief Outline</a> <a name="XE_change_request_(CR)__brief_outline_of"></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4>Sample Change Request Form</h4>
+<ol>
+  <li>
+    <h4 align="JUSTIFY"><b>Identification</b></h4>
+  </li>
+</ol>
+<blockquote>
+  <ul>
+    <li>
+      <h5 align="JUSTIFY">Project:</h5>
+    </li>
+    <li>
+      <h5 align="JUSTIFY">Change Request Number:</h5>
+    </li>
+    <li>
+      <h5 align="JUSTIFY">Change Request Type: (Problem or Enhancement)</h5>
+    </li>
+    <li>
+      <h5 align="JUSTIFY">Title:</h5>
+    </li>
+    <li>
+      <h5 align="JUSTIFY">Date Submitted:</h5>
+    </li>
+    <li>
+      <h5>Originator:</h5>
+    </li>
+    <li>
+      <h5>Change Request Priority:</h5>
+    </li>
+  </ul>
+</blockquote>
+<ol start="2">
+  <li>
+    <h4><b>Current Problem</b></h4>
+  </li>
+</ol>
+<blockquote>
+  <ul>
+    <li>
+      <h5>Description of the current problem:</h5>
+    </li>
+    <li>
+      <h5>Critical Failure:</h5>
+    </li>
+    <li>
+      <h5>Nuisance:</h5>
+    </li>
+    <li>
+      <h5>Enhancement:</h5>
+    </li>
+    <li>
+      <h5>New Requirement:</h5>
+    </li>
+    <li>
+      <h5>Conditions under which the problem was observed:</h5>
+    </li>
+    <li>
+      <h5>Current Environment: Hardware</h5>
+    </li>
+    <li>
+      <h5>Operating System</h5>
+    </li>
+    <li>
+      <h5>Compiler</h5>
+    </li>
+    <li>
+      <h5>Source of the current problem:</h5>
+    </li>
+    <li>
+      <h5>Cost or Savings Impact of the current problem:</h5>
+    </li>
+  </ul>
+</blockquote>
+<ol start="3">
+  <li>
+    <h4><b>Proposed Change (Originator)</b></h4>
+  </li>
+</ol>
+<blockquote>
+  <ul>
+    <li>
+      <h5>Description of the proposed change:</h5>
+    </li>
+    <li>
+      <h5>Estimated cost to implement the proposed change:</h5>
+    </li>
+  </ul>
+</blockquote>
+<ol start="4">
+  <li>
+    <h4><b>Proposed Change (Change Review Team)</b></h4>
+  </li>
+</ol>
+<blockquote>
+  <ul>
+    <li>
+      <h5>Action:</h5>
+    </li>
+    <li>
+      <h5>Approved:</h5>
+    </li>
+    <li>
+      <h5>Disapproved:</h5>
+    </li>
+    <li>
+      <h5>Deferred:</h5>
+    </li>
+    <li>
+      <h5>Description of the proposed change:</h5>
+    </li>
+    <li>
+      <h5>Affected Configuration Items:</h5>
+    </li>
+    <li>
+      <h5>Category:</h5>
+    </li>
+    <li>
+      <h5>Error Fix:</h5>
+    </li>
+    <li>
+      <h5>Enhancement:</h5>
+    </li>
+    <li>
+      <h5>New Feature:</h5>
+    </li>
+    <li>
+      <h5>Other:</h5>
+    </li>
+  </ul>
+</blockquote>
+<ol start="5">
+  <li>
+    <h4><b>Resolution</b></h4>
+  </li>
+</ol>
+<blockquote>
+  <ul>
+    <li>
+      <h5>Estimated cost to implement the proposed change:</h5>
+    </li>
+    <li>
+      <h5>Implementer:</h5>
+    </li>
+    <li>
+      <h5>Actual time to implement change:</h5>
+    </li>
+    <li>
+      <h5>Analysis:</h5>
+    </li>
+    <li>
+      <h5>Implementation:</h5>
+    </li>
+    <li>
+      <h5>Test:</h5>
+    </li>
+    <li>
+      <h5>Documentation:</h5>
+    </li>
+    <li>
+      <h5>Affected Number of Lines of Code:</h5>
+    </li>
+  </ul>
+</blockquote>
+<ol start="6">
+  <li>
+    <h4><b>Assessment</b></h4>
+  </li>
+</ol>
+<blockquote>
+  <ul>
+    <li>
+      <h5>Test Methods:</h5>
+    </li>
+    <li>
+      <h5>Inspection</h5>
+    </li>
+    <li>
+      <h5>Analysis</h5>
+    </li>
+    <li>
+      <h5>Demonstration</h5>
+    </li>
+    <li>
+      <h5>Test:</h5>
+    </li>
+    <li>
+      <h5>Test Platforms:</h5>
+    </li>
+    <li>
+      <h5>Test Cases:</h5>
+    </li>
+  </ul>
+</blockquote>
+<ol start="7">
+  <li>
+    <h4><b>Change Review Team Disposition</b></h4>
+  </li>
+</ol>
+<blockquote>
+  <ul>
+    <li>
+      <h5>Changes Approved and Accepted:</h5>
+    </li>
+  </ul>
+</blockquote>
+
+
+
+<h3><a name="Properties">Properties</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following attributes are useful in coming to a decision about any submitted 
+  CR:</p>
+<blockquote>
+  <h4>Size of the change</h4>
+  <ul>
+    <li>How much existing work will have to change?</li>
+    <li>How much new work will need to be added?</li>
+  </ul>
+  <h4>Alternatives</h4>
+  <ul>
+    <li>Are there any?</li>
+  </ul>
+  <h4>Complexity</h4>
+  <ul>
+    <li>Is the proposed change easy to make?</li>
+    <li>What are the possible ramifications of making this change?</li>
+  </ul>
+  <h4>Severity</h4>
+  <ul>
+    <li>What is the impact of not implementing this request?
+      <ul>
+        <li>Is there any loss of work or data involved?</li>
+        <li>Is this an enhancement request?</li>
+        <li>Is it a minor annoyance?</li>
+      </ul>
+    </li>
+  </ul>
+  <h4>Schedule</h4>
+  <ul>
+    <li>When is the change required?</li>
+    <li>Is that feasible?</li>
+  </ul>
+  <h4>Impact</h4>
+  <ul>
+    <li>What are the consequences of making the change?</li>
+    <li>What are the consequences of not making the change?</li>
+  </ul>
+  <h4>Cost</h4>
+  <ul>
+    <li>What is the cost of saving from making this change?</li>
+  </ul>
+  <h4>Relationship to Other Changes</h4>
+  <ul>
+    <li>Will other changes supersede or invalidate this one or does it depend on
+      other changes?</li>
+  </ul>
+  <h4>Test</h4>
+  <ul>
+    <li>Are there any special tests that will need to be conducted to verify the 
+      change has been successful?</li>
+  </ul>
+</blockquote>
+
+
+<h3><a name="Timing">Timing</a>
+ <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Change Management practices are often institutionalized or established early 
+  on in the project lifecycle. As such, CR's, which are integral to the change 
+  process, can be raised at any time during the course of the project.</p>
+<p>The main source of defects is the results of executing the tests&#151integration, system, and
+performance. However, defects can appear at any point during the software development lifecycle and include
+identifying missing or incomplete use cases, test cases, or documentation.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> 
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Anyone on the project staff should be able to raise a Change Request. However, these need to 
+  be reviewed and approved for resolution work in a manner appropriate for the 
+  context of the software project. In larger teams or more formal cultures, approval 
+  is generally made by the supervisor of the person raising the Change Request. 
+  In many cases the final arbitration of a Change Request is by a Review Team 
+  such as a Change Control Board (CCB).</p>
+<p>The <a href="../workers/wk_ccmgr.htm">Change Control Manager</a> is responsible for the integrity of the Change Request, ensuring that:</p>
+<ul>
+  <li>All information identifying and describing the change, including assumption 
+    or background about how the need for change was discovered, has been provided 
+    sufficiently and is accurate.</li>
+  <li>The request is unique in that it is not another occurrence of a previously 
+    identified change.<br>
+  </li>
+</ul>
+
+
+<h3><a name="Tailoring">Tailoring</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The actual fields and data necessary to accurately identify, describe, and
+track defects vary and are dependent upon the standards, guidelines, and change
+control system implemented.<p>
+<p>It is best to store change requests in a database or change request management 
+  system, so that change requests can be more easily managed (for example, sorting 
+  by priority, tracking assignment and completion status, and so on). On a small 
+  project, a spreadsheet (with a column for each attribute) may be sufficient.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

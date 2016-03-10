@@ -1,0 +1,740 @@
+<!-- RPW META DATA START --
+<rpw name="MetaData" meta_value="anonymous" meta_name="filetype"></rpw>
+-- RPW META DATA END -->
+<html>
+
+<head>
+<title>Rational Unified Process <rpw name="InsertPresentationName">!RPW COMMAND! Insert Presentation Name !RPW COMMAND!</rpw></title>
+<link rel="stylesheet" TYPE="text/css" HREF="rational.css" TITLE="formal">
+<rpw rpw_comment="">
+<META rpw_comment="The following code is simply to provide a link to the default RUP style sheet 
+to enable WYSIWYG editing of the release notes - RPW will remove this during publishing.">
+<link rel="StyleSheet" href="rop.css" type="text/css">
+</rpw>
+</head>
+
+
+<body link="#3366CC" vlink="#9999CC" text="#000000" alink="#0000CC" bgcolor="#FFFFFF">
+
+<h1 id="fileTitle">Rational Unified Process&nbsp;<rpw name="PresentationName">Release Notes</rpw></h1>
+
+<script language="JavaScript" type="text/javascript">
+  var lastModDate = new Date(document.lastModified);
+  document.write ("<p font=2><strong>Updated:" +lastModDate + "<\/p><\/strong>");
+  document.title = fileTitle.firstChild.data;
+</script>
+<script language="JavaScript" type="text/javascript">
+  thePath = '';
+  loc = '' +location.href;
+  paths = loc.substring(7).split('/');
+  file = loc.substring(0,6);
+  for (i=0, n=paths.length;i<n;i++)
+    {
+       file += "/" + paths[i];
+       thePath += '> <a href="' + file + '">' + paths[i] + '<\/a> ';
+    }
+  document.write('This file is located in: ' + thePath.substring(1));
+  document.write('<hr>');
+</script>
+
+<p>Version 2003.06.00</p>
+
+<hr>
+Copyright &copy; 2003 Rational Software Corporation. All Rights Reserved.
+<p> This documentation (the &quot;Work&quot;) is protected under the copyright laws of the 
+  United States and/or other jurisdictions, as well as various international treaties. 
+  Any reproduction or distribution of the Work is expressly prohibited without 
+  the prior written consent of Rational Software Corporation.</p>
+
+
+<p><a title="(c) Rational Software Corporation" href="legal_information.html">Legal
+      Notices Information</a></p>
+
+<hr>
+<h1>Scope</h1>
+<p>This document provides information about the 2003.06.00 release of RUP. For 
+details of updates of the product from previous versions, please refer to the 
+About page in the product.</p>
+<p>You can find information about add-on products and upgrades at the <a href="http://www.rational.net/rupcenter" target="_blank">RUP 
+  Knowledge Center on RDN<sup><font size="2">SM</font></sup></a>. RUP users should 
+  visit this page, from time to time, to check on updates and product information.</p>
+<p>Also included is information about: </p>
+<ul>
+  <li>Training courses for the RUP</li>
+  <li>Add-on products</li>
+  <li>Product upgrades</li>
+  <li>FAQ</li>
+  <li>Support</li>
+  <li>Examples</li>
+</ul>
+<h2>Contents</h2>
+<dl>
+  <dt><a href="#whats-new">What's New in This Release</a> </dt>
+  <dd><a href="#product-doc">Product Documentation </a></dd>
+  <dt><a href="#specs">Hardware and Software Information </a></dt>
+  <dd><a href="#client-reqs">Client Requirements</a> </dd>
+  <dd><a href="#server-reqs">Server Requirements</a> </dd>
+  <dt><a href="#getting-started">Installing, Upgrading, and Licensing </a> </dt>
+  <dd><a href="#installation">Installation Information </a></dd>
+  <dd><a href="#installation-issues">Installation Issues </a></dd>
+  <dd><a href="#upgrading">Upgrades </a></dd>
+  <dd><a href="#licensing">Licensing </a></dd>
+  <dt><a href="#compatibility">Compatibility Issues </a></dt>
+  <dd><a href="#compatibilty-with-rational">With Rational Products </a></dd>
+  <dd><a href="#compatibilty-with-3rd-party">With Third-Party Products</a> </dd>
+  <dt><a href="#restrictions">Restrictions and Guidelines on Using Rational 
+  Unified Process </a></dt>
+  <dt><a href="#issues">Known Issues and Change Requests </a></dt>
+  <dd><a href="#defects-fixed">Defects fixed in This Release</a> </dd>
+  <dd><a href="#doc-updates">Documentation Updates</a> </dd>
+  <dt><a href="#additional-info">Additional Information </a></dt>
+  <dt><a href="#support info">Contacting Rational Technical Support </a></dt>
+</dl>
+<h1><a name="whats-new">What's New in This Release </a></h1>
+<p>The following enhancements and new features appear in this release: </p>
+<ul>
+  <li>The tree browser has been upgraded for enhanced capabilities of creating 
+    customized <i>My RUP</i> trees.</li>
+  <li>New look and feel of the entire RUP site.</li>
+  <li>Replaced the Search Engine with a new and improved one.</li>
+  <li>Extended Help has been upgraded and uses the same browser window as RUP.</li>
+  <li>RUP will be delivered with Rational XDE in this release.</li>
+  <li>RUP delivered in Rational Suites and as a point product with these 
+  improvements to RUP Builder:</li>
+  <ul>
+    <li>Fine-grained selection of configurations by selecting the applicable 
+    plug-ins, then selecting the applicable set of components within those 
+    plug-ins.</li>
+    <li>Includes a Process View Editor where project managers can specify, after 
+    publishing, how the navigation tree will look. Project managers can create 
+    multiple tabs on the navigation tree to express different views; for 
+    example, a testing view, a development view, and an analysis view.</li>
+    <li>RUP Builder is now UNIX compatible. </li>
+  </ul>
+  <li>Extended Help is delivered with the standard RUP browser as a tab on the 
+  navigation tree. If Extended Help is started from a tool, it opens the RUP 
+  with the Extended Help tab in focus.</li>
+  <li>MyRUP lets you create tabs to unclutter the navigation tree. You can add 
+  new nodes, which can be URLs, files, or any file type, allowing for a truly 
+  customized navigation tree.</li>
+  <li>Added new tool mentors:
+  <ul>
+    <li>Tool Mentor: Adding Elements to Source Control Using Rational ClearCase</li>
+  </ul>
+  </li>
+</ul>
+<h2><a name="product-doc">Product Documentation </a></h2>
+<p>Additional product documentation is available in the following locations:</p>
+<ul>
+  <li>Installation Guides are available online, either in HTML or PDF format. 
+    The online manuals are on the Rational Solutions for Windows Online Documentation 
+    CD.</li>
+  <li>RUP Builder has an online help system, but no longer has a user's guide.</li>
+  <li>For more information about Rational Software technical publications, see:<a target="_blank" href="http://www.rational.com/documentation"> 
+    http://www.rational.com/documentation </a>.</li>
+</ul>
+<h1><a name="specs">Hardware and Software Information </a></h1>
+<p>Refer to the following information for system and software requirements. This 
+section provides basic information on the platforms supported and the hardware 
+and software requirements for running RUP. Refer to Compatibility Issues for 
+more information.</p>
+<p>This product has been tested on the following platforms:</p>
+<ul>
+  <ul>
+    <font size="3">
+    <li>Windows 2000 (Microsoft Internet Explorer, Netscape Navigator)</li>
+    <li>Windows NT (Microsoft Internet Explorer, Netscape Navigator)</li>
+    <li>UNIX platforms (Netscape Navigator)</li>
+    </font>
+  </ul>
+</ul>
+<h2><a name="client-reqs">Client Requirements </a></h2>
+<h3>Hardware Requirements</h3>
+<h4>Windows</h4>
+<p>Any Pentium-based PC-compatible computer system with</p>
+<ul>
+  <li>SVGA-compatible display</li>
+  <li>Any pointing device with at least two buttons</li>
+  <li>Microsoft Windows NT 4.0 (SP6a) or Windows 2000 (SP2 or 3)</li>
+  <li>64 MB RAM minimum, 128 MB recommended</li>
+  <li>255 MB disk space</li>
+</ul>
+<h4>UNIX</h4>
+<ul>
+  <li>one of these supported UNIX platforms:</li>
+  <ul>
+    <li>HP-UX 11.0 or 11.11</li>
+    <li>RedHat Linux 7.2 or 8.0</li>
+    <li>Solaris 7, 8 or 9</li>
+  </ul>
+  
+  <li>225 MB disk space</li>
+</ul>
+<h3>Software Requirements</h3>
+<h4>Windows</h4>
+<p>Either of the following supporting software is required</p>
+<ul>
+  <li>Microsoft Internet Explorer 5.01 with SP2 or later</li>
+  <li>Netscape Navigator versions 4.72 to 4.77 and 7.0</li>
+</ul>
+<h4>UNIX</h4>
+<ul>
+  <li>Netscape Navigator 4.72 to 4.77 or later</li>
+  <li>Sun JRE 1.4.1 plug-in</li>
+</ul>
+<h2><a name="server-reqs">Server Requirements </a></h2>
+<h3>Hardware Requirements</h3>
+<p>See Client Requirements.</p>
+<h3>Software Requirements</h3>
+<p>See Client Requirements.</p>
+<h1><a name="getting-started">Installing, Upgrading, and Licensing </a></h1>
+<h2><a name="installation">Installation Information </a></h2>
+<p>Follow the instructions provided by the installation CD. This release 
+installs the Classic version of the Rational Unified Process and the RUP Builder 
+which enables users to generate other RUP configurations available in this 
+release. See installation guide for details.</p>
+<h2><a name="installation-issues">Installation Issues </a></h2>
+<p>There are no known issues regarding upgrading this product from previous 
+releases.</p>
+<h2><a name="upgrading">Upgrading from previous versions of Rational Unified 
+Process </a></h2>
+<p>N/A</p>
+<h2><a name="licensing">Licensing</a></h2>
+<p>This version of Rational Unified Process uses the current license.</p>
+<h1><a name="compatibility">Compatibility Issues </a></h1>
+<h2><a name="compatibilty-with-rational">With Previous versions of Rational Unified 
+  Process </a></h2>
+<p>If you want to view previous versions of Rational Unified Process or customized 
+  project websites in Internet Explorer after having installed the JRE plug-in 
+  for this release. Go to Tools -&gt; Internet Options -&gt; Advanced and uncheck 
+  the box for &quot;Use Java2(vx.x)&quot; where x.x is the version of your JRE 
+  plug-in. Doing this allows you to run both JRE and non-JRE applets.</p>
+<h2><a name="compatibilty-with-3rd-party">With Third-Party Products </a></h2>
+<h3><a name="Browser Compatibility">Browser </a><a name="Browser Compatibility">
+Compatibility</a></h3>
+<p>We <u>strongly</u> recommend using the RUP with the most currently available 
+version of your web browser. RUP requires Microsoft Internet Explorer 4.0 with 
+SP1 or later. Some older versions of browsers do not allow the full capabilities 
+of the RUP to be exercised.</p>
+<h3><a name="Other Tools">Other Tools</a></h3>
+<p>The following tools and respectively versions are used in constructing the 
+RUP:</p>
+<div align="center">
+  <table border="1" width="85%">
+    <tbody>
+      <tr>
+        <td width="50%" bgcolor="#C0C0C0">
+        <p class="tableheading">Tool</td>
+        <td width="50%" bgcolor="#C0C0C0">
+        <p class="tableheading">Version</td>
+      </tr>
+      <tr>
+        <td width="50%">Microsoft FrontPage</td>
+        <td width="50%">2000</td>
+      </tr>
+      <tr>
+        <td width="50%">CorelDraw</td>
+        <td width="50%">9</td>
+      </tr>
+      <tr>
+        <td width="50%">PhotoShop</td>
+        <td width="50%">5.5</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h1>&nbsp;</h1>
+<h1><a name="restrictions">Restrictions and Guidelines on Using Rational Unified 
+Process </a></h1>
+<ol>
+  <li> 
+    <h3> Operating System Support for Java Runtime Environment (JRE)</h3>
+  </li>
+  <p>Due to the many JRE plugin versions available for each operating system, 
+    the following are the versions that we have tested for tech supported operating 
+    system. There are versions that we recommend you use. You may encounter problems 
+    with other JRE plugin versions depending on your operating system.</p>
+  <center>
+    <table width="80%" border="0">
+      <tr> 
+        <td>Windows 2000 and variants</td>
+        <td>JRE Plugin 1.4.1</td>
+      </tr>
+      <tr> 
+        <td>Solaris</td>
+        <td>JRE Plugin 1.4.1</td>
+      </tr>
+      <tr> 
+        <td>HP-UX</td>
+        <td>JRE RTE 1.4.0_03 and Plugin 1.4</td>
+      </tr>
+    </table>
+  </center>
+  <p>&nbsp;</p>
+  <li> 
+    <h3> Installation of JRE Runtime Environment</h3>
+  </li>
+  <p>The RUP application is generally installed to systems by someone who has 
+    administrator privileges. A common &quot;User&quot; is usually not allowed 
+    to install any applications. If the administrator has forgotten to install 
+    the correct JRE 1.4.1 plug-in required by the RUP Browser, someone logged 
+    in as &quot;User&quot; or other than &quot;Administrator&quot; will observe 
+    that the RUP Browser will be hanging during launch without a notification. 
+    If this occurs, notify the system administrator to install the required version 
+    of the JRE plug-in.</p>
+  <br>
+  <li> 
+    <h3><a name="UNIX">UNIX platforms</a></h3>
+  </li>
+  <p>When launching the RUP Netscape Navigator on UNIX, a warning dialog may appear:</p>
+  <blockquote> 
+    <p><font size="2" face="Courier New">Netscape: subprocess diagnostics (stdout/stederr)</font></p>
+    <blockquote> <font size="2" face="Courier New"> 
+      <p>Warning: Name: HorScrollBar Class: XmScrollBar The scrollbar page increment 
+        is less than 1</p>
+      </font> </blockquote>
+  </blockquote>
+  <font size="3"> 
+  <p>This occurs whenever the horizontal scrollbar must be displayed; that is, 
+    it may not occur if your initial window is large enough that the left panel 
+    doesn't need a scrollbar.</p>
+  <p>You may disable dialogs for warning and error messages, and redirect messages 
+    to a file using the following command:</p>
+  </font> 
+  <blockquote> 
+    <p><font size="2" face="Courier New">netscape &#150;xrm &#145;*useStderrDialog: 
+      False&#146; &#150;xrm &#145;*useStdoutDialog: False&#146; &gt;&amp;/tmp/log.$USER.ns</font></p>
+  </blockquote>
+  <ol type="i">
+    <li><b>Long startup times on UNIX</b> 
+      <blockquote> 
+        <p>It can take more than one minute to start the RUP online on UNIX. Also 
+          the search engine can take up to one minute to start. This is due to 
+          the slow start up of the Java virtual machine.</p>
+      </blockquote>
+    </li>
+    <li><b>Font Settings using Netscape 4.7x</b> 
+      <blockquote> 
+        <p>For users of Netscape 4.7x, if the default fonts are too small, the 
+          following changes to your preferences should solve the problem: 
+        <ul>
+          <li>Go to Edit&gt;Preferences&gt;Fonts</li>
+          <li>Select &quot;Use my default fonts, overriding document specified 
+            fonts&quot;</li>
+          <li>Set the default variable width font to Helvetica 12.</li>
+          <li>Set the default fixed width font to Courier 12.</li>
+        </ul>
+      </blockquote>
+      <br>
+    <li><b> Enabling JRE Plug-in for Netscape 4.7x on Solaris</b> 
+      <blockquote> 
+        <p>To enable the Sun JRE plug-in for your Netscape 4.7x browser, if it 
+          is not already enabled, you can set the NPX_PLUGIN_PATH environment 
+          variable. This environment variable must point to the installed Sun 
+          JRE plug-in location containing the javaplugin.so file. 
+        <p>For example, on SPARC processor platforms, the default location of 
+          javaplugin.so for the package installation is in /usr/j2se/jre/plugin/sparc/ns4. 
+          You can then set the variable by using the command: 
+        <blockquote> 
+          <p>setenv NPX_PLUGIN_PATH /usr/j2se/jre/plugin/sparc/ns4</p>
+        </blockquote>
+        <p>Use the absolute path. 
+        <p>Furthermore, you may need to restart your Netscape 4.7x browser twice 
+          for the plug-in to be picked up. To check whether the plug-in is enabled, 
+          do Help -&gt; About Plug-ins to confirm that the plug-in is loaded. 
+      </blockquote>
+      <br>
+    <li><font size="3"><b>HP-UX 11.x</b> </font></li>
+    <blockquote> 
+      <p>If you will get an error stating that there is an "out of memory" problem 
+        while publishing using RUP Builder, you can change certain kernal parameters 
+        to resolve this problem. The underlying cause is that for most Java applications, 
+        the kernel parameters, specifically, max_thred_proc, is by default, set 
+        at too low a value. As a result, there are not enough kernel threads to 
+        support the Java application and this manifests as an "out of memory" 
+        error.</p>
+      <p>More information can be found at: <a target="_blank" href="http://www.hp.com/products1/unix/java/infolibrary/prog_guide/java1_3/configuration.html"> 
+        http://www.hp.com/products1/unix/java/infolibrary/prog_guide/java1_3/configuration.html</a></p>
+      <p>Furthermore, the tools used to determine the current parameter values 
+        (HPjconfig) and to modify them (Jave out-of-box tool) can be found from 
+        HP.com website.</P>
+      <p>In testing, these are the tuned parameters that we have found to fix 
+        the problem:</P>
+      <table width="75%" align="center" border="1">
+        <tr> 
+          <td width="18%">ParamNames</td>
+          <td width="57%">Param Fomulas</td>
+          <td width="25%">Recommended Tuned Valules</td>
+        </tr>
+        <tr> 
+          <td width="18%">max_thread_proc</td>
+          <td width="57%">64</td>
+          <td width="25%">3000</td>
+        </tr>
+        <tr> 
+          <td width="18%">maxdsiz</td>
+          <td width="57%">0x10000000</td>
+          <td width="25%">2063835136</td>
+        </tr>
+        <tr> 
+          <td width="18%">maxfiles</td>
+          <td width="57%">60</td>
+          <td width="25%">2048</td>
+        </tr>
+        <tr> 
+          <td width="18%">maxfiles_lim</td>
+          <td width="57%">1024</td>
+          <td width="25%">2048</td>
+        </tr>
+        <tr> 
+          <td width="18%">maxusers</td>
+          <td width="57%">32</td>
+          <td width="25%">512</td>
+        </tr>
+        <tr> 
+          <td width="18%">ncallout</td>
+          <td width="57%">(16+NKTHREAD)</td>
+          <td width="25%">6000</td>
+        </tr>
+        <tr> 
+          <td width="18%">nfile</td>
+          <td width="57%">(16*(NPROC+16+MAXUSERS)/10+32+2*(NPTY+NSTRPTY+NSTRTEL))</td>
+          <td width="25%">3000</td>
+        </tr>
+        <tr> 
+          <td width="18%">NKTHREAD</td>
+          <td width="57%">(((NPROC*7)/4)+16)</td>
+          <td width="25%">6000</td>
+        </tr>
+        <tr> 
+          <td width="18%">NPROC</td>
+          <td width="57%">(20+8*MAXUSERS)</td>
+          <td width="25%">2068</td>
+        </tr>
+      </table>
+      <p>&nbsp;</P>
+    </blockquote>
+    <li><b>Using RUP Builder on HP with HP RTE 1.4.0_03 and plug 1.4</b> 
+      <blockquote> 
+        <p>There is a known defect for users of the process view editor on HP 
+          machines with the HP RTE 1.4.0_03 and plugin 1.4. During drag and drop 
+          operations, when you hold the drag and drop pointer on the target node 
+          for a few seconds in order to expand the target node, an exception will 
+          occur in the Java plugin, and the machine will freeze and you will need 
+          to reboot it. Note that this does not affect regular drag and drop operations, 
+          only the case when you hold the pointer for a few seconds in order to 
+          expand the target mode.</p>
+        <p>The workaround is to expand the target node first, and then drag and 
+          drop the source to it or to any of its children.</p>
+      </blockquote>
+    </li>
+    <li><b>Using MyRUP on HP with HP RTE 1.4.0_03 and plug 1.4</b> 
+      <blockquote> 
+        <p></p>
+        <p>There is a known defect for users of MyRup on HP machines with the 
+          HP RTE 1.4.0_03 and plugin 1.4. During drag and drop operations on a 
+          MyRup tree, when you hold the drag and drop pointer on the target node 
+          for a few seconds in order to expand the target node, an exception will 
+          occur in the Java plugin, and the machine will freeze and you will need 
+          to reboot it. Note that this does not affect regular drag and drop operations, 
+          only the case when you hold the pointer for a few seconds in order to 
+          expand the target node.</p>
+        <p>The workaround is to expand the target node first, and then drag and 
+          drop the source to it or to any of its children.</p>
+      </blockquote>
+    </li>
+    <li><b>&quot;Add From Default Tree&quot; feature not available on Netscape 
+      4.78</b> 
+      <blockquote> 
+        <p></p>
+        <p>Netscape 4.78 prevents drag and drop from the &quot;Default Tree&quot; 
+          window to your &quot;MyRUP&quot; tree in the main browser. This feature 
+          does work with Netscape 4.79.</p>
+      </blockquote>
+    </li>
+  </ol>
+  <li> 
+    <h3><a name="Netscape">Netscape Browsers</a></h3>
+  </li>
+  <font size="3"> 
+  <p>&#145;Banners&#146; on page titles are not correctly displayed using some 
+    versions of Netscape Navigator and Communicator. The problem is purely cosmetic 
+    and does not affect use of the product.&nbsp;<br>
+    <br>
+  </font> 
+  <ol type="i">
+    <li> 
+      <h4>Delay using &quot;Where Am I&quot; navigation button</h4>
+      <blockquote> 
+        <p>You will experience a delay when the &quot;Where Am I&quot; navigation 
+          button is pressed for the first time while browsing the RUP.&nbsp;</p>
+      </blockquote>
+    </li>
+    <li> 
+      <h4>Netscape Navigator on UNIX Banner Display problems </h4>
+      <blockquote> 
+        <p>Netscape Navigator has problems displaying trademark () and registered 
+          () symbols in the title banners. They will show up as a question mark 
+          (?).</p>
+      </blockquote>
+    </li>
+    <li> 
+      <h4>Launching RUP using Netscape 4.7x</h4>
+      <blockquote> 
+        <p>When starting up RUP using Netscape 4.7x, the following known problems 
+          may occur:</p>
+        <ol type="1">
+          <li>An error indicating that the index.htm file not found. Users can 
+            simply click on OK and continue.</li>
+          <li>A second error indicating that the Java Plug-in could not be loaded. 
+            To resolve problem, go to <a href="http://java.sun.com/products/archive/j2se/1.4.1/index.html" target="_blank">http://java.sun.com/products/archive/j2se/1.4.1/index.html</a> 
+            and manually install the plugin. The Java Plug-in must be installed 
+            after Netscape is installed. The sequence of installation is important.</li>
+          <li>On Windows NT4, after installing the Java Plug-in from step 2 above, 
+            users will have to manually enable the plug-in by going to Edit -&gt;Presferences-&gt;Advanced 
+            and enable both the Java and the Java plug-in.</li>
+        </ol>
+      </blockquote>
+      <br>
+    </li>
+  </ol>
+  <font size="3"> 
+  <p>&nbsp; 
+  <li> 
+    <h3><a name="Microsoft">Microsoft Browsers</a></h3>
+    <ol type="i">
+      <li> 
+        <h4>Browser Window too Small</h4>
+        <p>When using Windows 2000 or Windows 98, if the Internet Explorer browser 
+          window is too small to display the tree browser, the RUP will not be 
+          displayed properly. You will need to increase the browser window size 
+          and refresh.</p>
+      </li>
+      <li> 
+        <h4>Printing Error</h4>
+        <p>When the cursor is in the tree browser frame, if one tries to print 
+          the content in the main frame by selecting File &gt; Print. The product 
+          splash screen will be displayed in the main frame under you click on 
+          another node in the tree browser. The output of the print job will be 
+          blank.Use the Print icon located on the banner instead. 
+      </li>
+    </ol>
+  </li>
+  <p>&nbsp;</p>
+  <li> 
+    <h3><a name="General Errors">General Errors</a></h3>
+  </li>
+  <ol type="i">
+    <li> 
+      <h4>The Java Applets Do Not Run with version 3.x of Netscape and Microsoft 
+        browsers</h4>
+      <p>Using Internet Explorer 3.x and Netscape 3.x, you cannot run the Java 
+        applets, such as the tree browser in the left frame. When you start the 
+        RUP, using IE 3.x, a new window will be displayed that</p>
+      <blockquote> 
+        <p>a) Directs you to the Microsoft or Netscape home pages to download 
+          the latest version of the browser.</p>
+      </blockquote>
+      <blockquote> 
+        <p>b) Gives you the option to use the Site Map to browse the Unified Process 
+          using version 3.x of the browser.</p>
+      </blockquote>
+    </li>
+    <li> 
+      <h4>The Java Applets do not run with browsers which do not support Java 
+        applets (IE 2.x and Netscape 2.x)</h4>
+      <p>The RUP uses Java applets to provide search, index and navigation capabilities; 
+        use of browsers that do not support Java applets is not supported. See 
+        browser compatibility note above.</p>
+      <p>Browsing the Unified Process using non-Java compliant browsers can be 
+        accomplished with a loss of functionality using the web page ./sitemap/sitemap.htm 
+        under the Unified process install directory.</p>
+    </li>
+    <li> 
+      <h4>Disk Space Usage</h4>
+      <p>29 MB (Windows NT). Run the DOS command chkdsk for information on your 
+        file system.</p>
+      <p>UNIX 30 MB</p>
+    </li>
+    <li> 
+      <h4>Crude Formatting using Netscape Navigator 3.x and Microsoft Internet 
+        Explorer 3.x</h4>
+      <p>Navigator 3.x and IE 3.x do not support cascading style sheets (CSS), 
+        which are used by the RUP. This means that the formatting and layout is 
+        crude on Navigator 3.x and IE 3.x. We strongly recommend upgrading to 
+        a newer release of your browser.</p>
+    </li>
+    <li> 
+      <h4>Small fonts</h4>
+      <p>If you find the text font to be too small you can change the web-browsers 
+        default font. This will make the text on all pages to be displayed with 
+        a larger font.</p>
+    </li>
+    <li> 
+      <h4>JRE plugin requirements </h4>
+      <p>JRE1.4.1 plugin must be used for both IE and Netscape. Windows users 
+        who have installed RUP from the CD can install the JRE plug-in by running 
+        j2re-1_4_1-windwos-i586-i.exe from common\rwp\JRE_plugins folder where 
+        RUP is installed. Other RUP users need to get it from the JAVA SUN site 
+        http://java.sun.com/products/archive/j2se/1.4.1/index.html. UNIX users 
+        need to check on the website for their particular machine (i.e. HP or 
+        SUN).<br>
+      </p>
+    </li>
+    <li> 
+      <h4>JRE plugin requirements on non-English Operating Systems </h4>
+      <p>The internationalized version of the JRE plugin must be installed for 
+        operating systems with a double-byte character set, for example, Japanese 
+        or Chinese. The internationalized version of the JRE can be found from 
+        <a target="_blank" href="http://java.sun.com/products/archive/j2se/1.3.1_02/jre/index.html"> 
+        http://java.sun.com/products/archive/j2se/1.4.1/index.html</a></p>
+    </li>
+    <li> 
+      <h4>Java Console present while browsing RUP</h4>
+      <p>When RUP is started, the Java console starts up and will shut down when 
+        RUP is closed.</p>
+    </li>
+    <li> 
+      <h4>ATI Radeon Cards</h4>
+      <p>If your system has an ATI Radeon video card, you might experience undesired 
+        behavior. To find out whether your system has this type of video card, 
+        right-mouse click on your desktop -> Settings -> Advanced -> Adapter. 
+        There is an existing problem with the JRE used to run RUP and the driver 
+        for the ATI Radeon cards, which will intermittently, cause your system 
+        to freeze when you run or shutdown RUP. ATI has release a new driver which 
+        seems to fix the problem. The driver is available from Windows Update. 
+        Go to Drivers Update -> ATI Technologies Video card. You can also put 
+        the line &quot;-Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true&quot; 
+        in the parameter string for your plug-in. Go to Control Panel, Java Plug-in, 
+        Advanced Tab. Put the above line into text box for Java Runtime parameters.</p>
+    </li>
+  </ol>
+  </font> 
+</ol>
+<font size="3"> 
+<h1><a name="issues">Known Issues and Change Requests </a></h1>
+<p> 
+<blockquote> 
+  <ol type="i">
+    <li> 
+      <h4>Full Path required in Publish Location</h4><blockquote>
+      <p>In RUP Builder, when you do not put the full path to the folder that 
+        you want to publish to, the folder will automatically be<br>
+        put in the RUP Builder installed directory. When publishing is completed, 
+        and you are prompted to view the website, an error may occur as a result 
+        of the web browser not being given the full path to the folder location 
+        in the installed directory.</p>
+      <p>Normally, as a user, you should put in the full path to the folder where 
+        you want to publish, such as &quot;C:\Program Files\MyPublishedFolder&quot; 
+        or &quot;\\MyUNCServerLocation\MyPublishedFolder&quot;. </p></blockquote>
+    </li>
+    <li> 
+      <h4>Defects logged in RATLC database for Rational Installer - RATLC00688306 
+        Revised &quot;Blue Screen&quot; Install Solution Overview</h4>
+      <blockquote> 
+        <p>Rational Installer Incompatible with Windows &quot;Change Journal&quot; 
+          Feature</p>
+        <p>Rational has determined that under certain circumstances file system 
+          corruption can result from installing Rational Version 2003 products 
+          on Windows 2000 to an NTFS partition that has the windows &quot;Change 
+          Journal&quot; (log) enabled on it. Rational is actively working with 
+          Microsoft to better understand and identify a fix for the problem.</p>
+        <p>Before installing any Rational Version 2003 product on a computer running 
+          Windows 2000, please read Rational Solution 182435434 at <a href="http://solutions.rational.com/solutions/display.jsp?solutionID=182435434>"> 
+          http://solutions.rational.com/solutions/display.jsp?solutionID=182435434</a> 
+          for latest information. Alternatively, you can search the Rational Solutions 
+          Knowledge Base at <a href="http://solutions.rational.com/solutions">http://solutions.rational.com/solutions</a> 
+          for the text &quot;Change Journal&quot;. </p>
+        </blockquote></li>
+    <li> 
+      <h4>Defects logged in RATLC database for Rational Unified Process and RUP 
+        Browser </h4>
+      <ul>
+        <li>RATLC00036564: Fix outstanding broken links for Small Project Configuration</li>
+        <li>RATLC00367528: RUP locks up when PVCS is on the machine</li>
+        <li>RATLC00513210: Rose and Robot Tool Mentors come up as blank screens</li>
+        <li>RATLC00513484: RUP hangs when starting up HP-UX with JRE 1.4.1</li>
+        <li>RATLC00513735: &quot;viewrup&quot; does not appear to recognize JRE 
+          1.4.1 on Solaris</li>
+        <p></p>
+      </ul>
+    </li>
+    <li> 
+      <h4>Defects logged in RATLC database for RUP Builder</h4>
+      <ul>
+        <li>RATLC00036596: Anchor tag after presentation name command disables 
+          link processing</li>
+        <li>RATLC00036517: Builder crashes when there is &amp; or % in the name 
+          of publication directory</li>
+        <li>RATLC00036588: RUP Builder does not publish to an UNC path</li>
+        <li>RATLC00036486: Keyword Index Applet indexes temporary files</li>
+        <li>RATLC00036613: &quot;Browse&quot; and &quot;Publish&quot; buttons 
+          are cut off depending on screen resolution and/or window size</li>
+        <li>RATLC00036640: &lt;&lt;rupReplaces&gt;&gt; not properly handled</li>
+        <br>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+<h2><a name="defects-fixed">Defects fixed in this release </a></h2>
+<p>N/A</p>
+<h2><a name="doc-updates">Documentation Updates </a></h2>
+<p>N/A</p>
+<p>&nbsp; </p>
+<h1><a name="additional-info">Additional Information </a></h1>
+<p>This section may include lists of third-party components&nbsp;installed in 
+  this release. May also include a list of files changed in this release.</p>
+<h1><a name="support info">Contacting Rational Technical Support </a></h1>
+<p>If you have questions about installing, using, or maintaining this product, 
+  contact Rational Technical Support as follows:</p>
+<table border="1">
+  <tbody> 
+  <tr> 
+    <td>Your Location </td>
+    <td>Telephone </td>
+    <td>Facsimile </td>
+    <td>E-mail </td>
+  </tr>
+  <tr> 
+    <td>North America </td>
+    <td>(800) 433-5444<br>
+      (toll free) 
+      <p>(408) 863-4000<br>
+        Cupertino, CA 
+    </td>
+    <td>(781) 676-2460<br>
+      Lexington, MA</td>
+    <td><a href="mailto:support@rational.com">support@rational.com </a></td>
+  </tr>
+  <tr> 
+    <td>Europe, Middle East, Africa </td>
+    <td>+ 31 (0) 20 4546 200<br>
+      Netherlands</td>
+    <td>+31 (0) 20-4545-202<br>
+      Netherlands</td>
+    <td><a href="mailto:support@europe.rational.com"> support@europe.rational.com 
+      </a></td>
+  </tr>
+  <tr> 
+    <td>Asia Pacific </td>
+    <td>+61-2-9419-0111<br>
+      Australia</td>
+    <td>+61-2-9419-0123<br>
+      Australia</td>
+    <td><a href="mailto:support@apac.rational.com">support@apac.rational.com </a></td>
+  </tr>
+  </tbody> 
+</table>
+<p>When you contact Rational Technical Support, please be prepared to supply the 
+  following information:</p>
+<ul>
+  <li>Your name, company name, telephone number, and e-mail address </li>
+  <li>Your operating system, version number, and any service packs or patches 
+    you have applied </li>
+  <li>Product name and release number </li>
+  <li>Your case ID number (if you are following up on a previously reported problem)</li>
+</ul>
+</font> 
+</body>
+
+</html>

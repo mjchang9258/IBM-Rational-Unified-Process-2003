@@ -1,0 +1,228 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Checkpoints:&nbsp;Use Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Checkpoints:&nbsp;<rpw name="PresentationName">Use Case</rpw><a name="XE_checkpoints__for_use_cases"></a></h2>
+<ul>
+  <ul>
+    <li class="ck">Is each concrete use case involved with at least one actor?
+      If not, something is wrong; a use case that does not interact with an
+      actor is superfluous, and you should remove it. For more information, see <a href="../../modguide/md_uc.htm">Guidelines:
+      Use Case</a><i>.</i></li>
+    <li class="ck">Is each use case independent of the others? If two use cases
+      are always activated in the same sequence, you should probably merge them
+      into one use case.</li>
+    <li class="ck">For an included use case: does it make assumptions about the
+      use cases that include it? Such assumptions should be avoided, so that the
+      included use case is not affected by changes to the including
+      use cases.</li>
+  </ul>
+  <ul>
+    <li class="ck">Do any use cases have very similar behaviors or flows of
+      events? If so - and if you wish their behavior to be similar in the future
+      - you should merge them into a single use case. This makes it easier to
+      introduce future changes. Note: you must involve the users if you decide
+      to merge use cases, because the users, who interact with the new, merged
+      use case will probably be affected.</li>
+    <li class="ck">Has part of the flow of events already been modeled as
+      another use case? If so, you can have the new use case use the old one.</li>
+    <li class="ck">Is some part of the flow of events already part of another
+      use case? If so, you should extract this subflow and have it be used by
+      the use cases in question. Note: you must involve the users if you decide
+      to &quot;reuse&quot; the subflow, because the users of the existing use
+      case will probably be affected.</li>
+    <li class="ck">Should the flow of events of one use case be inserted into
+      the flow of events of another? If so, you model this with an
+      extend-relationship to the other use case.</li>
+    <li class="ck">Do the use cases have unique, intuitive, and explanatory
+      names so that they cannot be mixed up at a later stage? If not, you change
+      their names.</li>
+    <li class="ck">Do customers and users alike understand the names and
+      descriptions of the use cases? Each use-case name must describe the
+      behavior the use case supports.</li>
+    <li class="ck">Does the use case meet all the requirements that obviously
+      govern its performance? You must include any (nonfunctional) requirements
+      to be handled in the object models in the use-case <i>Special
+      Requirements.</i></li>
+    <li class="ck">Does the communication sequence between actor and use case
+      conform to the user's expectations?</li>
+    <li class="ck">Is it clear how and when the use case's flow of events starts
+      and ends?</li>
+    <li class="ck">Behavior might exist that is activated only when a certain
+      condition is not met. Is there a description of what will happen if a
+      given condition is not met?</li>
+    <li class="ck">Are any use cases overly complex? If you want your use-case
+      model to be easy to understand, you might have to split up complex use
+      cases.</li>
+    <li class="ck">Does a use case contain disparate flows of events? If so, it
+      is best to divide it into two or more separate use cases. A use case that
+      contains disparate flows of events will be very difficult to understand
+      and to maintain.</li>
+    <li class="ck">Is the subflow in a use case modeled accurately?</li>
+    <li class="ck">Is it clear who wishes to perform a use case? Is the purpose
+      of the use case also clear?</li>
+    <li class="ck">Are the actor interactions and exchanged information clear?</li>
+    <li class="ck">Does the brief description give a true picture of the use case?</li>
+  </ul>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

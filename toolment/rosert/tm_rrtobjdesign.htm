@@ -1,0 +1,335 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Designing with Active Objects in Rational Rose RealTime</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Designing 
+  with Active Objects in Rational Rose RealTime</rpw></h2>
+
+
+<h3>Purpose</h3>
+<p>This tool mentor describes the components of active objects and explains how 
+  to design with active objects in Rational Rose RealTime.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_cpdes.htm">Capsule Design</a></li>
+</ul>
+<br>
+   
+</p>
+ 
+<h3>Overview</h3>
+<p>An active object consists of capsules with protocols and ports.</p>
+<p>Capsules are highly encapsulated objects using message-based communication 
+  to other capsules through their port objects. Capsules can aggregate other capsules. 
+  A capsule structure can contain other capsules, which are capsule roles.</p>
+<p>The set of messages exchanged between two objects conforms to a communication 
+  pattern called a protocol. It is basically a contractual agreement defining 
+  the valid types of messages that can be exchanged between the participants in 
+  the protocol.</p>
+<p>A state diagram is one way to define object behavior. It shows the sequence 
+  of states that an object or an interaction goes through during its life in response 
+  to messages received, together with its responses and actions.</p>
+
+
+<h4>Tool Steps</h4>
+<p>To design with active objects in Rational Rose RealTime, perform these steps:</p>
+<ol>
+  <li><a href="#Create a capsule role">Create a capsule role</a></li>
+  <li><a href="#Create ports and bind to protocols">Create ports and bind to protocols</a></li>
+  <li><a href="#Define a capsule state machine">Define a capsule state machine</a></li>
+  <li><a href="#Define states and substates">Define states and substates</a></li>
+  <li><a href="#Define state transitions">Define state transitions</a></li>
+  <li><a href="#Define attributes on classes">Define attributes on classes</a></li>
+</ol>
+
+<h3>1. <a name="Create a capsule role">Create a capsule role</a> <b><a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></b></h3>
+<p>Capsules are created in the Logical View of the model browser.</p>
+<ol>
+  <li>Select the <b>Capsule Role</b> tool in the toolbox.</li>
+  <li>Place the cursor at the location where the capsule role is to be placed, 
+    and left-click.</li>
+  <li>Select the new capsule role's associated capsule from the drop-down list.</li>
+  <li>Give the capsule role an appropriate name.</li>
+  <li>Repeat the above steps for each capsule role to be created.</li>
+</ol>
+ 
+
+<h3>2. <a name="Create ports and bind to protocols">Create ports and bind to protocols</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<ol>
+  <li>Find the capsule in the model browser or on a class diagram.</li>
+  <li>Expand the elements under the capsule in the browser, or right-click on 
+    the capsule in a class diagram to open the capsule's structure diagram.</li>
+  <li>Use the <b>Port</b> tool in the toolbox to place a port on the capsule's 
+    structure diagram. The port may be dropped onto the capsule's border or inside 
+    the large rectangle area.</li>
+  <li>Set the name of the port.</li>
+  <li>Select a protocol from the list, or create a new one.</li>
+  <li>Right-click on the port to select the Port Specification dialog.</li>
+  <li>Use the Port Specification dialog to change the protocol, to select whether 
+    the port is wired or unwired, and to set whether the port is conjugated.</li>
+</ol>
+
+<h3>3. <a name="Define a capsule state machine">Define a capsule state machine</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a> 
+</h3>
+<ol>
+  <li>Find the capsule in the model browser or on a class diagram.</li>
+  <li>Expand the elements under the capsule in the browser, or right-click on 
+    the capsule in a class diagram to open the capsule's state diagram.</li>
+  <li>Use the <b>State Diagram</b> toolbox to place states and transitions into 
+    the state diagram.</li>
+</ol>
+
+<h3>4. <a name="Define states and substates">Define states and substates</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a> 
+</h3>
+<ol>
+  <li>Find the capsule for which the behavior is being updated. Capsules can be 
+    found in the model browser or on a class diagram.</li>
+  <li>Right-click on the capsule to open the State Diagram. This will open the 
+    diagram in a State Diagram Editor.</li>
+  <li>Use the <b> State</b> tool in the toolbox to drop a new state on the diagram. 
+    Do this for each state you want to create.</li>
+  <li>Give each state an appropriate name.</li>
+  <li>Double-click on a state that will have substates. This will expose a new 
+    state diagram on which you may add substates.</li>
+  <li>Use the tab at the bottom of the window to choose which state level to navigate 
+    back to.</li>
+</ol>
+<p><b>Note</b>: Alternatively, you can add states through the Navigator area of 
+  the State Diagram Editor.</p>
+ 
+<h3>5. <a name="Define state transitions">Define state transitions</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+ 
+<h4>Add initial transition</h4>
+<ol>
+  <li>Click on the initial point in the diagram and drag the transition on top 
+    of the target state. The initial point is the black circle that appears in 
+    the top-left corner of the diagram.</li>
+  <li>Give the transition an appropriate name, if not the default. The initial 
+    transition has a default name of Initial. You can change the name by selecting 
+    the label and typing it in. The initial transition will be automatically invoked 
+    at run-time when a capsule instance is created. Any action code associated 
+    with the initial transition will be run as soon as the capsule instance is 
+    created.</li>
+</ol>
+
+<h4>Add transitions</h4>
+<ol>
+  <li>Select the transition tool from the toolbox and draw a transition from the 
+    source state to the target state.</li>
+  <li>Give the transition an appropriate name, or accept the default.</li>
+</ol>
+
+<h4>Adding detail code to state machines</h4>
+<p>C, C++, or Java code can be added as actions on transitions, choice points, 
+  and state entry or exit on capsule state diagrams to be executed at run-time. 
+  Only code added to capsule state diagrams is included in the generated code 
+  for the model. Detailed actions on protocol or data class state diagrams are 
+  not included in the generated code for those classes.</p>
+
+<h4>Add triggers</h4>
+<p>Before a trigger can be set for a transition, the port on which the trigger 
+  will be received must be defined.</p>
+<ol>
+  <li>Double-click the transition to open the Transition Specification dialog.&nbsp;</li>
+  <li>Select the <b> Trigger</b> tab.</li>
+  <li>With the cursor in the port list area, right-click and select <b> Insert</b> 
+    from the menu.</li>
+  <li>In the Port area, select the port on which the trigger will be received.</li>
+  <li>In the Signal area, select the port signal that will cause the trigger event.</li>
+  <li>Click on the <b>OK</b> buttons to close the open dialogs.</li>
+</ol>
+
+<h4>Add code to transition</h4>
+<p>Now that you have all the required elements in place (initial state, initial 
+  transition, and ports), you must add detail code to the initial transition, 
+  as well as state to state transitions. The detail code will be executed when 
+  the initial transition is run at model execution time, or when a trigger is 
+  received on the state to state transition.</p>
+<ol>
+  <li>Double-click the transition to open the Transition Specification dialog.</li>
+  <li>Select the <b> Actions</b> tab to display the code window.</li>
+  <li>Add the code that will be executed on the transition.</li>
+  <li>Select the <b>OK</b> button to close the open dialog.</li>
+</ol>
+<p><b>Note</b>: You don't have to include opening and closing curly braces '{`, 
+  `}'. These are added automatically by the code generator.</p>
+
+<h3>6. <a name="Define attributes on classes">Define attributes on classes</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<ol>
+  <li>Open the Capsule Specification dialog box by double-clicking on the capsule 
+    in the browser, or by selecting the capsule in a diagram and selecting <b>Open 
+    Specification</b> from the context menu.</li>
+  <li>Select the <b>Attributes</b> Tab in the Capsule Specification.</li>
+  <li>With the cursor in the open area of the tab, right-click and select <b>Insert</b>.</li>
+  <li>Change the name from NewAttribute1 to something more meaningful and then 
+    press ENTER.</li>
+  <li>Double-click on the new attribute to display the Attribute Specification 
+    dialog.</li>
+  <li>Use the Attribute Specification dialog to set the attribute type and initial 
+    value.</li>
+</ol>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,363 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Important Decisions in Implementation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Important 
+  Decisions in Implementation</rpw></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Decide How to Perform the Workflow">Decide How to Perform the
+    Workflow</a></li>
+  <li><a href="#Decide How to Use Artifacts">Decide How to Use Artifacts</a></li>
+  <li><a href="#Decide Unit Test Coverage">Decide Unit Test Coverage</a></li>
+  <li><a href="#Decide How to Review Code">Decide How to Review Code</a></li>
+</ul>
+<h3><a name="Decide How to Perform the Workflow">Decide How to Perform the
+Workflow</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following decisions should be made regarding the Implementation
+discipline's workflow:</p>
+<ul>
+  <li>Decide how to perform the workflow by looking at the <a href="../workflow/implemen/wfd_imp.htm">Implementation: 
+    Workflow</a>. Study the diagram with its <a href="../glossary.htm#guard_condition"><i>guard 
+    conditions</i></a> and the guidelines below. Decide which workflow details 
+    to perform and in which order.&nbsp;</li>
+  <li>Decide what parts of the Implementation workflow details to perform. The
+    following are some parts that can be introduced relatively independently
+    from each other.</li>
+</ul>
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="25%" align="center">
+    <p class="tableheading">Part of workflow</td>
+    <td width="75%" align="center">
+    <p class="tableheading">Comments</td>
+  </tr>
+  <tr>
+    <td width="25%">Integration and build management</td>
+    <td width="75%">The role <a href="../workers/wk_syint.htm">Integrator</a> and the <a href="../activity/ac_plsyi.htm">Activity:
+    Plan System Integration</a> together with the <a href="../artifact/ar_intbp.htm">Artifact:
+    Integration Build Plan</a> are usually introduced early in the project. The
+    other integration related activities, such as <a href="../activity/ac_plsui.htm">Activity:
+    Plan Subsystem Integration</a>, <a href="../activity/ac_intsu.htm">Activity:
+    Integrate Subsystem</a>, and <a href="../activity/ac_intsy.htm">Activity:
+    Integrate System</a> are introduced just in time when the integration
+    starts.&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">Implementing components</td>
+    <td width="75%">The roles <a href="../workers/wk_implm.htm">Implementer</a> and <a href="../workers/wk_tchrvw.htm">Code
+    Reviewer</a>, and their activities and artifacts, are introduced at the
+      start of implementation, in each iteration.</td>
+  </tr>
+</table>
+<br></div>
+
+<ul>
+  <li>Decide when, during the project lifecycle, to introduce each part of the
+    workflow. You can often wait until the Elaboration phase before introducing
+    the whole Implementation discipline.&nbsp;Any prototyping that occurs in the
+    Inception phase is usually exploratory and is not conducted with the same
+    rigor (with respect to artifacts and reviews, for example) as required by
+    the complete Implementation workflow during elaboration and construction.</li>
+</ul>
+<p>Document the decisions in 
+the Development Case, under the headings <i>Disciplines, Implementation, Workflow</i>
+.</p>
+
+<h3><a name="Decide How to Use Artifacts">Decide How to Use Artifacts</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Decide which artifacts to use and how to use each of them. The table below
+describes those artifacts you must have and those used in some cases. For more
+detailed information on how to tailor each artifact, and a discussion of the
+advantages and disadvantages of that specific artifact, read the section titled
+&quot;Tailoring&quot; for each artifact.</p>
+<p>For each artifact, decide how the artifact should be used: Must have, Should 
+  have, Could have or Won't have. 
+  For more details, see the <a href="md_uclaar.htm">Guidelines: Classifying Artifacts</a>.</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+      <tr> 
+        <td width="20%"><b>Artifact</b></td>
+        <td width="40%"><b>Purpose</b></td>
+        <td width="40%"> 
+          <p><b> Tailoring (Optional, Recommended)</b></p>
+        </td>
+      </tr>
+      <tr> 
+        
+      <td width="20%"> 
+        <p><a href="../artifact/ar_impmd.htm">Implementation model</a></p>
+          <blockquote> 
+            
+          <p>(<a href="../artifact/ar_impss.htm">Implementation subsystem</a>, 
+            <a href="../artifact/ar_comp.htm">Implementation Element</a>) </p>
+          </blockquote>
+        </td>
+        
+      <td width="40%"> 
+        <p>The implementation model is source code, executables, and all other 
+          artifacts needed to build and manage the system in the run-time environment.</p>
+          
+        <p>An implementation is composed of implementation elements, which include 
+          code (source, binaries and executables), and files containing information 
+          (for example, a startup file or a ReadMe file). </p>
+          
+        <p>An implementation subsystem is a collection of implementation elements 
+          and other implementation subsystems, and is used to structure the implementation 
+          model by dividing it into smaller parts.</p>
+          </td>
+        
+      <td width="40%"> 
+        <p>All software projects have an implementation model with implemention 
+          elements including as a minimum some source code and executables.</p>
+          <p>Some projects will also include subsystems, libraries, and visual 
+            models.</p>
+          
+        <p>Subsystems are useful when there are a large number of implementation 
+          elements to be organized.</p>
+        </td>
+      </tr>
+      <tr> 
+        <td width="20%"><a href="../artifact/ar_intbp.htm">Integration 
+          Build Plan</a></td>
+        
+      <td width="40%">Defines the order in which components should be implemented, 
+        which builds to create when integrating the system, and how they are to 
+        be assessed.<br>
+        </td>
+        <td width="40%"> 
+          <p>Optional.</p>
+          <p>Recommended if you need to plan the integration. Omit it only when 
+            the integration is trivial.</p>
+        </td>
+      </tr>
+    </table>
+<br></div>
+
+<p>Tailor each artifact to fit the needs of the project. For tailoring considerations, 
+  see the tailoring section of the artifacts' description page, 
+  or the steps described under the heading &quot;Tailor Artifacts per Discipline&quot; 
+  in the <a href="../activity/ac_devca.htm">Activity: Develop Development Case</a>.</p>
+  
+<h3><a name="Decide Unit Test Coverage">Decide Unit Test Coverage</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Decide the extent to which unit testing will be performed and the level of
+code coverage, which has a&nbsp; scale that goes from informal to 100% code
+coverage.</p>
+<p>The level of unit test coverage is often driven by the needs of the
+integration and system testers, to whom the code was handed over. The system
+testers are dependent on the quality of the code for their work. If the code has
+too many defects, the integration and system testers will send the code back to
+the implementers too often. This is a sign of a poor development process and the
+solution may be to require the implementers to do more thorough unit testing.</p>
+<p>Of course, you cannot expect the unit-tested code to be completely free of
+defects. You do, however, need to find a &quot;healthy&quot; balance between
+unit testing and quality.</p>
+<p>The level of unit test coverage can also differ between different phases.
+Even a safety-critical project that requires 100% code coverage during
+construction and transition does not usually require that during elaboration
+because many classes are only partially implemented at that stage.</p>
+<h3><a name="Decide How to Review Code">Decide How to Review Code</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Decide to what extent the code should be reviewed.&nbsp;</p>
+<p>The advantages of code reviews are:</p>
+<ul>
+  <li>To enforce and encourage a common coding style on the project. Code
+    reviewing is an efficient way to make the members of the project follow the
+    Programming Guidelines. To ensure this, it's more important to review
+    results from all authors and Implementers than to review all source code
+    files.</li>
+  <li>To find errors that automated tests do not find. Code reviews catch errors
+    not encountered in testing.</li>
+  <li>To share knowledge between individuals and to transfer knowledge from the
+    more experienced individuals to the less experienced individuals.</li>
+</ul>
+<p>The disadvantages of code reviews are:</p>
+<ul>
+  <li>It takes time and resources.</li>
+  <li>If not done properly, it may be inefficient. There is a danger that code
+    reviewing is done &quot;just because we have to&quot; and is not done as an efficient
+    complement to automated testing.</li>
+</ul>
+<p>For more information about code reviewing, also see <a href="../activity/ac_rvcod.htm">Activity:
+Review Code</a>.</p>
+<p>Code reviewing adds significant value to the project. All projects that start
+to measure the levels of bugs and maintenance problems related to code reviews
+claim they gain performance from the reviews. However, in many organizations
+it's difficult to make them &quot;take off&quot; for several reasons:
+<ul>
+  <li>Not enough data is collected to verify if code reviewing actually works.</li>
+  <li>Too much data is collected.</li>
+  <li>Implementers are very protective about their code.</li>
+  <li>The reviews get bogged down in formalities.</li>
+  <li>Administrating reviews takes too much effort.</li>
+</ul>
+<p>Keep the following in mind to make the best possible use of code reviews:</p>
+<ul>
+  <li>Collect only adequate data.</li>
+  <li>Measure the performance of the reviews&#151;and display the result.</li>
+  <li>Use reviews in a &quot;lean&quot; way.</li>
+</ul>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

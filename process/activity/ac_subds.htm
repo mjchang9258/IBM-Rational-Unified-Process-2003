@@ -1,0 +1,435 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Subsystem Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Subsystem Design</rpw><a name="Top"></a><a name="XE_design_subsystem__designing"></a></h2>
+
+
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+            <li>To define the behaviors specified in the subsystem's interfaces 
+              in terms of collaborations of contained design elements and external 
+              subsystems/interfaces.</li>
+      <li>To document the internal structure of the subsystem.</li>
+      <li>To define realizations between the subsystem's interfaces and
+        contained classes.</li>
+      <li>To determine the dependencies upon other subsystems</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+            <li><a href="#Distribute Subsystem behavior">Distribute Subsystem Behavior 
+              to Subsystem Elements</a></li>
+            <li><a href="#Document Subsystem Elements">Document Subsystem Elements</a></li>
+            <li><a href="#Describe Subsystem Dependencies">Describe Subsystem Dependencies</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_dsub.htm">Design Subsystem</a></li>
+<li><a href="../artifact/ar_if.htm">Interface</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_cpsl.htm">Capsule</a></li>
+<li><a href="../artifact/ar_class.htm">Design Class</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_dsub.htm">Design Subsystem</a></li>
+<li><a href="../artifact/ar_if.htm">Interface</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per design subsystem.&nbsp;</td>
+  </tr>
+  <tr>
+    <td  colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_dsgnr.htm">Designer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/xde_vsnet/tm_subds.htm">Designing Subsystems Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_subds.htm">Designing Subsystems Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/rose/tm_dssub.htm">Managing Subsystems Using Rational Rose</a></li>
+<li><a href="../../toolment/rose/tm_desmd.htm">Managing the Design Model Using Rational Rose</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>  
+  <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_stadm.htm">Guideline: Statechart Diagram</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and4.htm">Design Components</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="XE_design_subsystem__distributing_behavior_on_subsystem_elements"></a><a name="Distribute Subsystem behavior">Distribute
+Subsystem Behavior to Subsystem Elements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To specify the internal behavior of the subsystem.<br>
+	  To identify new <a href="../artifact/ar_class.htm"> design classes</a> or <a href="../artifact/ar_dsub.htm">design 
+	  subsystems</a> needed to satisfy subsystem behavioral requirements.&nbsp;
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+<p> The external behavior of a subsystem is primarily defined by the interfaces 
+  it realizes. When a subsystem realizes an interface, it makes a commitment to 
+  support each and every operation defined by the interface. The operation may 
+  be in turn realized by an operation on a design element (i.e., <a href="../artifact/ar_class.htm"> 
+  design class</a> or <a href="../artifact/ar_dsub.htm">design 
+  subsystem</a>) contained by the subsystem; this operation may require collaboration 
+  with other design elements 
+<p>The collaborations of model elements within the subsystem should be
+documented using sequence diagrams which show how the subsystem behavior is
+realized. Each operation on an interface realized by the subsystem should have
+one or more documenting sequence diagrams. This diagram is owned by the
+subsystem, and is used to design the <b>internal </b>behavior of the
+subsystem.</p>
+
+<p>If the behavior of the subsystem is highly state-dependent and represents one
+or more threads of control, state machines are typically more useful in
+describing the behavior of the subsystem. State machines in this context are
+typically used in conjunction with active classes to represent a decomposition
+of the threads of control of the system (or subsystem in this case), and are
+described in statechart diagrams, see <a href="../modguide/md_stadm.htm">Guidelines:
+Statechart Diagram</a>.</p>
+
+<p class="reactive">In real-time systems, the behavior of <a href="../../process/artifact/ar_cpsl.htm">Artifact:
+Capsule</a>s will also be described using state machines.</p>
+
+<p>Within the subsystem, there may be independent threads of execution,
+represented by active classes.</p>
+
+<p class="reactive">In real-time systems, <a href="../../process/artifact/ar_cpsl.htm">Artifact:
+Capsule</a>s will be used to encapsulate these threads.</p>
+
+<p class="exampleheading">Example:</p>
+<p class="example">The collaboration of subsystems to perform some required
+behavior of the system can be expressed using sequence diagrams:</p>
+<p align="center"><img src="images/excollab.gif" width="429" height="298"></p>
+<p class="picturetext">This diagram shows how the interfaces of the subsystems
+are used to perform a scenario. Specifically, for the Network Handling
+subsystem, we see the specific interfaces (ICoordinator in this case) and
+operations the subsystem must support. We also see the NetworkHandling
+subsystems is dependent on the IBHandler and IAHandler interfaces.</p>
+<p class="example">Looking inside the Subsystem, we see how the ICoordinator interface 
+  is realized:</p>
+<p align="CENTER"><img src="images/incollab.gif" width="504" height="314"></p>
+<p class="picturetext">The Coordinator class acts as a &quot;proxy&quot; for the
+ICoordinator interface, handling the interface operations and coordinating the
+interface behavior.</p>
+<p>This &quot;internal&quot; sequence diagram shows exactly what classes provide 
+  the interface, what needs to happen internally to provide the subsystem’s functionality, 
+  and which classes send messages out from the subsystem. The diagram clarifies 
+  the internal design, and is essential for subsystems with complex internal designs. 
+  It also enables the subsystem behavior to be easily understood, hopefully rendering 
+  it reusable across contexts.</p>
+<p>Creating these &quot;interface realization&quot; diagrams, it may be
+necessary to create new classes and subsystems to perform the required behavior.
+The process is similar to that defined in Use Case Analysis, but instead of Use
+Cases we are working with interface operations. For each interface operation,
+identify the classes (or in some cases where the required behavior is complex, a
+contained subsystem) within the current subsystem which are needed to perform
+the operation. Create new classes/subsystems where existing classes/subsystems
+cannot provide the required behavior (but try to reuse first).</p>
+<p>Creation of new design elements should force reconsideration of subsystem content 
+  and boundary. Be careful to avoid having effectively the same class in two different 
+  subsystems. Existence of such a class implies that the subsystem boundaries 
+  may not be well-drawn. Periodically revisit <a href="ac_iddes.htm">Activity: 
+  Identify Design Elements</a> to re-balance subsystem responsibilities.</p>
+<p>It is sometimes useful to create two separate internal models of the subsystem 
+  - a specification targetted to the subsystem client and a realization targetted 
+  to the implementers. The specification may include &quot;ideal&quot; classes 
+  and collaborations to describe the behavior of the subsystem in terms of ideal 
+  classes and collaborations. The realization, on the other hand, corresponds 
+  more closely to the implementation, and may evolve to become the implementation.&nbsp; 
+  For more information on Design Subsystem specification and realization, see 
+  <a href="../modguide/md_dsub.htm#Subsystem Specification and Realization">Guidelines: 
+  Design Subsystem, Subsystem Specification and Realization</a>.</p>
+
+<h3><a name="Document Subsystem Elements"><b>Document Subsystem
+Elements</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left"><left>
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To document the internal structure of the subsystem.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>To document the internal structure of the subsystem, create one or more class
+diagrams showing the elements contained by the subsystem, and their associations
+with one another. One class diagram should be sufficient, but more can be used
+to reduce complexity and improve readability.</p>
+<p>An example class diagram is shown below:</p>
+
+<p align="center"><img src="images/classdg.gif" width="470" height="396"></p>
+<p class="picturetext">Example Class Diagram for an Order-Entry System.</p>
+<p>In addition, a statechart diagram may be needed to document the possible states 
+  the subsystem can assume, see <a href="../modguide/md_stadm.htm">Guidelines: 
+  Statechart Diagram</a>.</p>
+ 
+<p>The description of the classes contained in the subsystem itself is handled 
+  in the <a href="ac_cldes.htm">Activity: Class Design</a>.</p>
+<h3><a name="XE_design_subsystem__describing_subsystem_dependencies"></a><a name="Describe Subsystem Dependencies"><b>Describe 
+  Subsystem Dependencies</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To document the interfaces upon which the subsystem is dependent.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>When an element contained by a subsystem uses some behavior of an element
+contained by another subsystem, a dependency is created between the enclosing
+subsystems. To improve reuse and reduce maintenance dependencies, we want to
+express this in terms of a dependency on a particular <a href="../artifact/ar_if.htm"><b>interface</b></a>
+of the subsystem, not upon the subsystem itself nor on the element contained in
+the subsystem.</p>
+<p>The reason for this is two-fold:
+<ul>
+  <li>We want to be able to substitute one model element (including subsystems)
+    for one another as long as they offer the same behavior. We specify the
+    required behavior in terms of interfaces, so any behavioral requirements one
+    model element has on another should be expressed in terms of interfaces.</li>
+  <li>We want to allow the designer total freedom in designing the <b>internal</b>
+    behavior of the subsystem so long as it provides the correct external
+    behavior. If a model element in one subsystem references a model element in
+    another subsystem, the designer is no longer free to remove that model
+    element or redistribute the behavior of that model element to other
+    elements. As a result, the system is more brittle.</li>
+</ul>
+<p>In creating dependencies, ensure that there are no direct dependencies or
+associations between model elements contained by the subsystem and model
+elements contained by other subsystems. Also ensure that there are no circular
+dependencies between subsystems and interfaces; a subsystem cannot both realize
+an interface and be dependent on it as well.</p>
+<p>Dependencies between subsystems, and between subsystems and packages, can be
+drawn directly as shown below. When shown this way, the dependency states that
+one subsystem (Invoice Management, for example) is directly dependent on another
+subsystem (Payment Scheduling Management).</p>
+<p align="center"><img border="0" src="images/layerib.gif" width="496" height="554"></p>
+<p class="picturetext">Example of Subsystem Layering using direct dependencies</p>
+<p>When there is a potential for substitution of one subsystem for another (where 
+  they have the same interfaces), the dependency can be drawn to an <b><a href="../artifact/ar_if.htm">interface</a> 
+  </b>realized by the subsystem, rather than to the subsystem itself. This 
+  allows any other model element (subsystem or class) which realizes the same 
+  interface to be used. Using interface dependencies allows flexible frameworks 
+  to be designed using replaceable design elements.</p>
+<p align="center"><img src="images/layerif.gif" width="496" height="322"></p>
+<p class="picturetext">Example of Subsystem Layering using Interface
+dependencies</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CREG Supplementary Specification - Inception Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Example: Supplementary Specification</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="Microsoft Border" content="b, default">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Course Registration System<br>
+Supplementary Specification</p>
+</font>
+<p align="RIGHT">&nbsp;</p>
+<font face="Arial" size="4">
+<p align="RIGHT">Version: Draft</p></font>
+<font face="Arial" size="5">
+<p align="CENTER">Revision History</p></font></b>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Date</b></font></td>
+    <td width="12%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Version</b></font></td>
+    <td width="39%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Description</b></font></td>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Author</b></font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">21/Dec/98</font></td>
+    <td width="12%" valign="TOP"><font size="2">Draft</font></td>
+    <td width="39%" valign="TOP"><font size="2">Initial release - draft</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Table of Contents</p></b></font>
+<ol>
+  <li><font size="2"><a href="#_Toc449152651">Objectives</a></font></li>
+  <li><font size="2"><a href="#_Toc449152652">Scope</a></font></li>
+  <li><font size="2"><a href="#_Toc449152653">References</a></font></li>
+  <li><font size="2"><a href="#_Toc449152654">Functionality</a>
+    </font><dl compact><font size="2">
+      <dd>4.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449152655">System Error Logging</a></dd></font>
+    </dl>
+  </li>
+  <li><font size="2"><a href="#_Toc449152656">Usability</a></font>
+    <dl compact>
+      <dd><font size="2">5.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449152657">Windows Compliance</a></font></dd>
+      <dd><font size="2">5.2&nbsp;&nbsp;&nbsp; <a href="#_Toc449152658">Design for Ease-of-Use</a></font></dd>
+      <dd><font size="2">5.3&nbsp;&nbsp;&nbsp; <a href="#_Toc449152659">Online Help</a></font></dd>
+    </dl>
+  </li>
+  <li><font size="2"><a href="#_Toc449152660">Reliability</a></font>
+    <dl compact>
+      <dd><font size="2">6.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449152661">Availability</a></font></dd>
+      <dd><font size="2">6.2&nbsp;&nbsp;&nbsp; <a href="#_Toc449152662">Mean Time Between Failures</a></font></dd>
+    </dl>
+  </li>
+  <li><font size="2"><a href="#_Toc449152663">Performance</a></font>
+    <dl compact>
+      <dd><font size="2">7.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449152664">Simultaneous Users</a></font></dd>
+      <dd><font size="2">7.2&nbsp;&nbsp;&nbsp; <a href="#_Toc449152665">Database Access Response Time</a></font></dd>
+      <dd><font size="2">7.3&nbsp;&nbsp;&nbsp; <a href="#_Toc449152666">Transaction Response Time</a></font></dd>
+    </dl>
+  </li>
+  <li><font size="2"><a href="#_Toc449152667">Supportability</a></font>
+    <dl compact>
+      <dd><font size="2">8.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449152668">New Releases Downloadable</a></font></dd>
+    </dl>
+  </li>
+  <li><font size="2"><a href="#_Toc449152669">Design Constraints</a></font>
+    <dl compact>
+      <dd><font size="2">9.1&nbsp;&nbsp;&nbsp; <a href="#_Toc449152670">Course Catalog Legacy System</a></font></dd>
+      <dd><font size="2">9.2&nbsp;&nbsp;&nbsp; <a href="#_Toc449152671">Billing System</a></font></dd>
+      <dd><font size="2">9.3&nbsp;&nbsp;&nbsp; <a href="#_Toc449152672">Platform Requirements</a></font></dd>
+      <dd><font size="2">9.4&nbsp;&nbsp;&nbsp; <a href="#_Toc449152673">Internet Browsers</a></font></dd>
+      <dd><font size="2">9.5&nbsp;&nbsp;&nbsp; <a href="#_Toc449152674">Java Compatibility</a></font></dd>
+    </dl>
+  </li>
+</ol>
+<font size="2"><b><font face="Arial" size="5">
+<p align="CENTER">Supplementary Specification</p>
+</font>
+</b><ol><b>
+  <li><font face="Arial"><a name="_Toc449152651">Objectives</a></font></li>
+  </b>
+<p>The purpose of this document is to define requirements of the Wylie course
+registration (C-Registration) system. This Supplementary Specification lists the
+requirements that are not readily captured in the use cases of the use-case
+model. The Supplementary Specifications and the use-case model together capture
+a complete set of requirements on the system.</p>
+  </ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp; <a name="_Toc449152652">Scope</a>
+  </b></font>
+<ol>
+<p>This Supplementary Specification applies to the Wylie course registration
+system which will be developed by the Wylie College Information Systems (IT)
+department. The IT department will develop this client-server system to
+interface with the existing course catalog database.</p>
+<p>The C-Registration System will enable students to register for courses
+on-line. The C-Registration System allows professors to select their teaching
+courses and to maintain student grades.</p>
+<p>This specification defines the non-functional requirements of the system;
+such as reliability, usability, performance, and supportability as well as
+functional requirements that are common across a number of use cases. (The
+functional requirements are defined in the Use Case Specifications.)</p>
+  </ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp; <a name="_Toc449152653">References</a>
+</b></font>
+<blockquote>
+  <p>Applicable references are:</p>
+</blockquote>
+<blockquote>
+  <ol>
+    <li>Course Registration System Business Case, WyIT388, DRAFT,
+      1998, Wylie College IT.</li>
+    <li>Course Billing Interface Specification, WC93332, 1985, Wylie College
+      Press.</li>
+    <li>Course Catalog Database Specification, WC93422, 1985, Wylie College
+      Press.</li>
+    <li>Course Registration System Stakeholder Requests Document, WyIT389,
+      V1.0, 1998, Wylie College IT.</li>
+    <li>Course Registration System Vision Document, WyIT387, V1.0, 1998, Wylie
+      College IT.</li>
+    <li>Course Registration System Glossary, WyIT406, V1.0, 1998, Wylie
+      College IT.</li>
+    <li>Course Registration System Use Case Spec - Close Registration, WyIT403, Draft, 1998, Wylie College
+      IT.</li>
+    <li>Course Registration System Use Case Spec – Login, WyIT401, Draft, 1998, Wylie College IT.</li>
+    <li>Course Registration System Use Case Spec - Maintain Professor Info, WyIT407, Draft, 1998, Wylie
+      College IT.</li>
+    <li>Course Registration System Use Case Spec - Register for Courses, WyIT402, Draft, 1998, Wylie
+      College IT.</li>
+    <li>Course Registration System Use Case Spec - Select Courses to Teach, WyIT405, Draft, 1998, Wylie
+      College IT.</li>
+    <li>Course Registration System Use Case Spec - Maintain Student Info, WyIT408, Draft, 1998, Wylie
+      College IT.</li>
+    <li>Course Registration System Use Case Spec - Submit Grades, WyIT409, Draft, 1998, Wylie College IT.</li>
+    <li>Course Registration System Use Case Spec - View Report Card, WyIT410, Draft, 1998, Wylie College
+      IT.</li>
+  </ol>
+</blockquote>
+<b>&nbsp;&nbsp;&nbsp;<font face="Arial"> 4.&nbsp;&nbsp;&nbsp; </font><a name="_Toc449152654"><font face="Arial">Functionality</font></a></b></font>
+<font size="2">
+<ol>
+  <p>This section lists functional requirements that are common to more than one
+  use case.
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>4.1&nbsp;&nbsp;&nbsp; <a name="_Toc449152655">System Error
+      Logging</a></b></font>
+</blockquote>
+<ol>
+  <blockquote>
+    <p>All system errors shall be logged. Fatal system errors shall result in an
+    orderly shutdown of the system.</p>
+    <p>The system error messages shall include a text description of the error,
+    the operating system error code (if applicable), the module detecting the
+    error condition, a data stamp, and a time stamp. All system errors shall be
+    retained in the Error Log Database.</p>
+  </blockquote>
+</ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp; <a name="_Toc449152656">Usability</a>
+    </b></font>
+<ol>
+  <p>&nbsp;</p>
+  <p>This section lists all of those requirements that relate to, or affect, the
+  usability of the system.
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>5.1&nbsp;&nbsp;&nbsp; <a name="_Toc449152657">Windows
+      Compliance</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The desktop user-interface shall be Windows 95/98 compliant.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>5.2&nbsp;&nbsp;&nbsp; <a name="_Toc449152658">Design for
+      Ease-of-Use</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The user interface of the C-Registration System shall be designed for
+    ease-of-use and shall be appropriate for a computer-literate user community
+    with no additional training on the System.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>5.3&nbsp;&nbsp;&nbsp; <a name="_Toc449152659">Online Help</a>
+  </b></font></blockquote>
+    
+<ol>
+  <blockquote>
+    <p>Each feature of the C-Registration System shall have built-in online help
+    for the user. Online Help shall include step by step instructions on using
+    the System. Online Help shall include definitions for terms and acronymns.</p>
+  </blockquote>
+</ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp; <a name="_Toc449152660">Reliability</a>
+    </b></font>
+<ol>
+  <p>&nbsp;</p>
+  <p>This section lists all reliability requirements.
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>6.1&nbsp;&nbsp;&nbsp; <a name="_Toc449152661">Availability</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The availability requirements will be defined in the next iteration.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>6.2&nbsp;&nbsp;&nbsp; <a name="_Toc449152662">Mean Time Between
+      Failures</a>
+  </b></font></blockquote>
+    
+<ol>
+  <blockquote>
+    <p>The MTBF requirements will be defined in the next iteration.</p>
+  </blockquote>
+</ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp; <a name="_Toc449152663">Performance</a>
+    </b></font>
+<ol>
+  <p>&nbsp;</p>
+  <p>The performance characteristics of the system are outlined in this section.
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>7.1&nbsp;&nbsp;&nbsp; <a name="_Toc449152664">Simultaneous
+      Users</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The system shall support up to 2000 simultaneous users against the
+    central database at any given time, and up to 500 simultaneous users against
+    the local servers at any one time.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>7.2&nbsp;&nbsp;&nbsp; <a name="_Toc449152665">Database Access
+      Response Time</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The system shall provide access to the legacy course catalog database
+    with no more than a 10 second latency.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>7.3&nbsp;&nbsp;&nbsp; <a name="_Toc449152666">Transaction
+      Response Time</a>
+  </b></font></blockquote>
+    
+<ol>
+  <blockquote>
+    <p>The system must be able to complete 80% of all transactions within 2
+    minutes.</p>
+  </blockquote>
+</ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp; <a name="_Toc449152667">Supportability</a>
+    </b></font>
+<ol>
+  <p>&nbsp;</p>
+  <p>This section defines any requirements that will enhance the supportability
+  or maintainability of the system being built.
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>8.1&nbsp;&nbsp;&nbsp; <a name="_Toc449152668">New Releases
+      Downloadable</a>
+  </b></font></blockquote>
+    
+<ol>
+  <blockquote>
+    <p>Upgrades to the PC client portion of C-Registration shall be downloadable
+    from the UNIX Server over the internet. This feature enables students to
+    have easy access to system upgrades.</p>
+  </blockquote>
+</ol>
+<font face="Arial"><b>&nbsp;&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp; <a name="_Toc449152669">Design Constraints</a>
+    </b></font>
+<ol>
+  <p>&nbsp;</p>
+  <p>This section lists any design constraints on the system being built.
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>9.1&nbsp;&nbsp;&nbsp; <a name="_Toc449152670">Course Catalog
+      Legacy System</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The system shall integrate with existing legacy system (course catalog
+    database) which operates on the College DEC VAX Main Frame.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>9.2&nbsp;&nbsp;&nbsp; <a name="_Toc449152671">Billing System</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The C-Registration System shall interface with the existing Course
+    Billing System which operates on the College DEC VAX Main Frame.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>9.3&nbsp;&nbsp;&nbsp; <a name="_Toc449152672">Platform
+      Requirements</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The client portion of the C-Registration System shall operate on any
+    personal computer with a 486 processor or greater. The client portion shall
+    require less than 20 MB disk space and 32 MB RAM.</p>
+    <p>The server portion of the C-Registration System shall operate on the
+    Wylie College UNIX server.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>9.4&nbsp;&nbsp;&nbsp; <a name="_Toc449152673">Internet Browsers</a>
+  </b></font></blockquote>
+      
+<ol>
+  <ol>
+    <p>&nbsp;</p>
+    <p>The web-based interface for the C-Registration System shall run in
+    Netscape 4.0.4 and Internet Explorer 4.0 browsers.</p>
+      </ol>
+</ol>
+<blockquote>
+  <font face="Arial" size="2"><b>9.5&nbsp;&nbsp;&nbsp; <a name="_Toc449152674">Java
+      Compatibility</a>
+    </b></font>
+  <blockquote>
+    <p>The web-based interface shall be compatible with the Java 1.1 VM runtime
+    environment.</p>
+    <p>&nbsp;</p>
+  </blockquote>
+</blockquote>
+</font><p><font size="2"></font><br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+    <td width="56%" height="19"><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2003 Rational Software Corporation&nbsp;</small></small></a></font>
+    </td>
+    <td width="39%" height="19">
+<p align="right"><font face="Arial"><small><small>
+Course Registration Project Web Example<br>
+Version 2001.02</small></small></font>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

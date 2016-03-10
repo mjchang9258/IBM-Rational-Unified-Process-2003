@@ -1,0 +1,236 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Implementing Generated Test Scripts Using Rational TestFactory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Implementing 
+  Generated Test Scripts Using Rational TestFactory</rpw> </h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational TestFactory to automatically 
+  generate Test Scripts that test specific areas of the application-under-test.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../../process/activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>A &#147;Pilot&#148; is the Rational TestFactory tool that you can use to generate test
+scripts. A Pilot generates scripts that test the functionality of the controls
+in the application-under-test (AUT) that are represented by UI objects in an
+area of the application map. For information about developing the application
+map, see <a href="tm_tfenv.htm">Tool Mentor:&nbsp;Setting Up the Test
+Environment in Rational TestFactory</a>.</p>
+<p>This tool mentor is applicable when running Windows 98/2000/NT 4.0.</p>
+<p>To use Rational TestFactory to generate test scripts automatically:</p>
+<ol>
+  <li><a href="#Add Pilot">Add a Pilot to the application map</a></li>
+  <li><a href="#Set up run Pilot">Set up and run the Pilot</a></li>
+</ol>
+<h3>1. <a name="Add Pilot">Add a Pilot to the application map</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can add a Pilot object at any location in the application map. From
+there, the Pilot automatically generates test scripts that focus on the specific
+functional area of the AUT corresponding to that portion of the application map.</p>
+<p>To determine a part of the application that you want to test, see the first
+task in <a href="tm_tfcap.htm">Tool Mentor:&nbsp;Capturing the Results of Test
+Design for Automated Testing</a>.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to
+the following topics in Rational TestFactory online Help:
+<ul>
+  <li><i>Pilots: What they are and how they work</i></li>
+  <li><i>Effective Pilot placement</i></li>
+  <li><i>Add a Pilot</i></li>
+</ul>
+<h3>2. <a name="Set up run Pilot">Set up and run the Pilot</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When you set up the Pilot, you indicate the values and options that control
+how the Pilot runs. The setup information that you can specify includes:</p>
+<ul>
+  <li>The depth in the application map to which the Pilot must test.</li>
+  <li>The criteria that Rational TestFactory uses to stop the Pilot run.</li>
+  <li>Additional UI objects in the application map that you want to include in
+    the test.</li>
+  <li>UI objects under the Pilot's control that you want to exclude from
+    testing.</li>
+</ul>
+<p>During a Pilot run, a Pilot builds an optimized &#147;best script&#148; that
+provides extensive code-based test coverage and contains no redundant script
+code.</p>
+<p>A Pilot also generates a &#147;UI script&#148; that is optimized for UI-based test
+coverage. In successive builds of the AUT, you can run UI scripts as a simple
+smoke test to check controls in the user interface.</p>
+<p>Every time you run a Pilot, Rational TestFactory adds a new &#147;run&#148; folder under the
+Pilot in the application map. The run folder contains the test scripts that the
+Pilot generates. If the Pilot encounters defects during its run, TestFactory
+places the defect test scripts in a &#147;defects&#148; subfolder under the run
+folder.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to
+the following topics in Rational TestFactory online Help:
+<ul>
+  <li><i>Pilot view</i></li>
+  <li><i>Set up a Pilot run</i></li>
+  <li><i>Run a single Pilot</i></li>
+</ul>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

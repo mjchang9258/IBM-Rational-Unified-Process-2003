@@ -1,0 +1,258 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Mapping from Design to Code</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Mapping from Design to Code</rpw><a name="Top"></a><a name="XE_code__mapping_from_design"></a></h2>
+<h5 align="left">Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#sketch">Sketch and Code</a></li>
+  <li><a href="#round">Round-Trip Engineering </a> 
+    <ul>
+      <li><a href="#trace">High Level Design Model and Detailed Design Model</a></li>
+      <li><a href="#evolves">Single Evolving Design Model</a></li>
+    </ul>
+  </li>
+  <li><a href="#specification">Specification and Realization Models</a></li>
+</ul>
+<h3><b><a name="Introduction">Introduction</a> </b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Design must define enough of the system so that it can be implemented unambiguously. 
+  What constitutes enough varies from project to project and company to company.</p>
+<p>In some cases the design resembles a sketch, elaborated only far enough to 
+  ensure that the implementer can proceed (a &quot;sketch and code&quot; approach). 
+  The degree of specification varies with the expertise of the implementer, the 
+  complexity of the design, and the risk that the design might be misconstrued. 
+</p>
+<p>In other cases, the design is elaborated to the point that the design can be 
+  transformed automatically into code. This typically involves extensions to standard 
+  UML to represent language and/or environment specific semantics.</p>
+<p>The design may also be hierarchical, such as the following:</p>
+<ul>
+  <li>a high level design model which sketches an overview of the overall system</li>
+  <li>a subsystem specification model which precisely specifies the required interfaces 
+    and behaviour of major subsystems within the system</li>
+  <li>a detailed design model for the internals of subsystems</li>
+</ul>
+<p>The <a href="../../artifact/ar_devcs.htm">Development Case</a> should define 
+  how the Design Model is realized in the project's specific process, and how/if 
+  the model relates to other models and to the implementation. Details should 
+  be captured in the <a href="../../artifact/ar_projspecgls.htm">Project Specific Guidelines</a>. 
+</p>
+<p>The sections below describe some different options for relating a design and 
+  implementation, and discuss benefits and drawbacks of these approaches.</p>
+<h3><b><a name="sketch">Sketch and Code</a> </b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>One common approach to design is to sketch out the design at a fairly abstract 
+  level, and then move directly to code. Maintenance of the design model is manual.</p>
+<p>In this approach, we let a design class be an abstraction of several code-level 
+  classes. We recommend that you map each design class to one &quot;head&quot; 
+  class that, in turn, can use several &quot;helper&quot; classes to perform its 
+  behavior. You can use &quot;helper&quot; classes to implement a complex attribute 
+  or to build a data structure that you need for the implementation of an operation. 
+  In design, you don't model the &quot;helper&quot; classes and you only model 
+  the key attributes, relationships, and operations defined by the head class. 
+  The purpose of such a model is to abstract away details that can be completed 
+  by the implementer.</p>
+<p>This approach is extended to apply to the other design model elements. You 
+  may have design interfaces which are more abstract than the code-level interfaces, 
+  and so on.</p>
+<h3><b><a name="round">Round-Trip Engineering</a> </b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In round-trip engineering environments, the design model evolves to a level 
+  of detail where it becomes a visual representation of the code. The code and 
+  its visual representation are synchronized (with tool support).</p>
+<p>The following are some options for representing a Design Model in a round-trip 
+  engineering context.</p>
+<p><b><a name="trace">High Level Design Model and Detailed Design Model</a></b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></p>
+<p>In this approach, there are two levels of design model maintained. Each high 
+  level design element is an abstraction of one or more detailed elements in the 
+  round-tripped model. For example, a design class may map to one &quot;head&quot; 
+  class and several &quot;helper&quot; classes, just as in the &quot;sketch and 
+  code&quot; approach described previously. Traceability from the high level design 
+  model elements to round-trip model elements can help maintain consistency between 
+  the two models.</p>
+<p>Although this can help abstract away less important details, this benefit must 
+  be balanced against the effort required to maintain consistency between the 
+  models.</p>
+<p><b><a name="evolves">Single Evolving Design Model</a></b><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></p>
+<p> In this approach, there is a single Design Model. Initial sketches of design 
+  elements evolve to the point where they can be synchronized with code. Diagrams, 
+  such as those used to describe use-case realizations, initially reference sketched 
+  design classes, but eventually reference language-specific classes. High level 
+  descriptions of the design are maintained as needed, such as:</p>
+<ul>
+  <li> diagrams of the logical structure of the system,</li>
+  <li>subsystem/component specifications,</li>
+  <li>design patterns / mechanisms.<br>
+  </li>
+</ul>
+<p>Such a model is easier to maintain consistent with the implementation.</p>
+<p> 
+<h3><a name="specification">Specification and Realization Models</a><a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>A related approach is to define the design in terms of specifications for major 
+  subsystems, detailed to the point where client implementations can compile against 
+  them.</p>
+<p>The detailed design of the subsystem realization can be modeled and maintained 
+  separately from this specification model.</p>
+<p>See <a href="../../modguide/md_dsub.htm">Guidelines: Design Subsystem</a> for 
+  guidelines related to subsystem specifications and realizations, and when they 
+  should be used.</p>
+<br> 
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+  
+</body>
+
+</html>

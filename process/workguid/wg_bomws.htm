@@ -1,0 +1,255 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Guidelines: Business Object Modeling Workshop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guideline: <rpw name="PresentationName">Business Analysis Modeling 
+  Workshop</rpw></h2>
+<p>This workshop focuses on finding business workers and business entities that
+participate in one business use-case realization. A productive way of working is to
+gather a group of 3-7 people, use a whiteboard, easel, and Post-it<font size="1">?</font>
+Notes. As the workshop progresses, your results should fill the walls of the
+room, making sure that everyone can see and compare the different types of
+diagrams that will show different aspects of the realization of a business
+process. These diagrams are here presented in a sequence you would introduce
+them, but once introduced they will evolve in parallel.&nbsp;</p>
+<p>Study the workflow of a business use-case. Mark each section in your text to show
+responsibilities that would fit on one business worker or business entity. Or,
+if you have drawn an activity diagram for the workflow, mark up activity states
+in the diagram. Use
+two colors of Post-it<font size="1">?</font> Notes: one for business workers,
+and one for entities.</p>
+<p>Create a new activity diagram, with one swimlane for each business worker
+that you a this point know is participating. Discuss how activities are divided
+among the participating business workers - some activities may need to be split,
+some could be merged.&nbsp;</p>
+<p align="center"><img border="0" src="../modguide/images/md_bact8.gif" width="547" height="403"></p>
+<p class="picturetext">Example of activity diagram with swimlanes.&nbsp;</p>
+<p>Once you understand what responsibilities each business worker has, you may
+start to add the business entities into the picture using object flows in the
+activity diagrams. However, to avoid clutter you often need to limit the
+business entities you show to those that are primary to the workflow. For
+details of business entities class diagrams are a better choice.&nbsp;</p>
+<p align="center"><img border="0" src="../modguide/images/md_bact10.gif" width="608" height="612"></p>
+<p class="picturetext">Example of an activity diagram with object flows
+added.&nbsp;</p>
+<p>To summarize your results, you can create class diagram that shows the
+business workers and the primary business entities. In this class diagram, you
+can also start to add the relationships between business workers and business entities
+that are necessary to perform the workflow of the business use-case realization.&nbsp;</p>
+<p>If the number of business workers and business entities is large, you may
+need several diagrams. The following is recommended:
+<ul>
+  <li>One diagram that shows how the business workers interact (without showing
+    any business entities).</li>
+  <li>A diagram for each subflow of the business use-case realization. Each of
+    these diagrams should contain just the business workers and business
+    entities involved in the subflow. You could even limit the diagram by
+    showing only the most interesting business entities.</li>
+</ul>
+<p align="CENTER"><img src="../modguide/images/bcoldm1.gif" width="426" height="308"></p>
+<p class="picturetext">A class diagram shows how business workers
+and business entities are related to perform a business use-case realization
+workflow.</p>
+<p>As previously mentioned, it can be useful to in a separate class diagram keep
+track of the business entities on how they need to be related.&nbsp;<p align="center"><img border="0" src="../modguide/images/bent2.gif" width="325" height="60"><p class="picturetext">A
+class diagram showing the business entities and their relationships.&nbsp;
+<p>Sequence diagrams, which are often more descriptive than activity diagrams, are good for describing the workflow in the following situations:
+<ul>
+  <li>When parts of the business use-case realization are complex or unclear.</li>
+  <li>When there are few business workers and business entities involved, but
+    many operations to perform.</li>
+  <li>When it is important to show the exact sequence in a workflow, that is, of
+    messages for operations by business workers and messages to operations of
+    business entities.</li>
+</ul>
+<p>If the number of business workers and business entities is large, you may
+need several sequence diagrams. Our recommendations for collaboration diagrams
+are also valid for sequence diagrams. Start with the use-case realization?s
+normal workflow, following its structure. Continue with alternative subflows.</p>
+<p>To draw a sequence diagram of a business use-case realization, do the
+following:
+<ul>
+  <li>Put all business workers and business entities that participate in the
+    workflow into a sequence diagram.</li>
+  <li>Describe how the business workers interact via messages. For each message,
+    specify the operation it concerns. If a business worker handles a business
+    entity, specify the operation it concerns.</li>
+  <li>In the text margin, describe each activation (message requesting an
+    operation).</li>
+</ul>
+<p align="center"><img src="../modguide/images/bseqdm1.gif" width="327" height="286"></p>
+<p class="picturetext">A sequence diagram documents how business workers
+interact and handle business entities to perform the workflow of a business
+use-case realization.</p>
+<p>When you are ready, save the information about each business worker and
+business entity (which activities it is supposed to perform). You will describe
+them later. Also save the information about the business use case and its
+realization, by copying the contents of the whiteboard. A great way of copying
+is to take a picture of the whiteboard with a Polaroid<font size="1">?</font>
+or digital camera - a digital picture has the advantage of being possible to
+share digitally on a project home page.<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

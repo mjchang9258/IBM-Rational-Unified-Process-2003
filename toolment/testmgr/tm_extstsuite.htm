@@ -1,0 +1,309 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Executing a Test Suite Using Rational TestManager</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Executing a Test Suite Using Rational TestManager</rpw>
+</h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational TestManager to execute a test 
+  suite. For other information on this topic, refer to <a href="../robot/tm_imtst.htm">Tool 
+  Mentor: Creating Test Scripts using Rational Robot</a>.</p>
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_exctstste.htm">Execute Test Suite</a></li>
+</ul>
+<br>
+  
+</p>
+
+
+<h3>Overview</h3>
+<p>As part of its ability to manage your testing effort, TestManager allows you 
+  to coordinate test scripts of all types&#151;GUI, Manual Test, Virtual User, 
+  Command Line, Virtual Basic, and Java&#151;into one user-executed step. This 
+  step, called a suite, allows you to distribute, execute, and evaluate families 
+  of test scripts across your testing team as a cohesive whole, rather than in 
+  fragments.</p>
+<p>When you execute a suite, you supply runtime-specific information. Each virtual 
+  tester that executes its assigned suite items runs with these guidelines. The 
+  results of executing the suite are stored in logs. After you execute the suite, 
+  you can generate reports to analyze the data stored in the logs and to display 
+  execution results in the form of graphs and charts.</p>
+<p>See <a href="tm_tstsuite.htm">Tool Mentor: Designing an Automated Test Suite 
+  Using Rational TestManger</a> for more information on creating a test suite.</p>
+<p>This tool mentor is applicable when running Microsoft Windows 98/2000/NT 4.0.</p>
+
+<h4>Tool Steps</h4>
+<p>To execute a test suite using TestManager, you need to perform these steps:</p> 
+<ol>
+  <li><a href="#Specify a suite">Specify a suite</a></li>
+  <li><a href="#Define your user load">Define your user load</a></li>
+  <li><a href="#Specify a log file">Specify a log file</a></li>
+  <li><a href="#Enable or disable resource monitoring">Enable or disable
+    resource monitoring</a></li>
+  <li><a href="#Choose whether to ignore configurations">Choose whether to
+    ignore configurations</a></li>
+  <li><a ID test locations" href="#Specify run-time reporting options">Specify
+    run-time reporting options</a></li>
+</ol>
+
+<h3>1.&nbsp;&nbsp; <a name="Specify a suite">Specify a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" WIDTH="26" HEIGHT="20"></a></h3>
+<ul>
+  <li>To specify a suite, from the <b>File</b> menu, click <b>Run Suite</b>. The
+    Run Suite dialog displays.</li>
+  <li>To change the suite, click <b>Change...</b> within <b>Suite Information</b>.</li>
+</ul>
+
+<h3>2.&nbsp;&nbsp; <a name="Define your user load">Define your user load</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>If the suite you've chosen to run has a fixed computer group defined and
+    there are no fields visible under <b>Name</b>, proceed to step 3, <a href="#Specify a log file">Specify
+    a log file</a> now.</li>
+  <li>Otherwise, enter the number of virtual testers you want to run in the <b>Number
+    of users</b> box.</li>
+  <li>If a suite includes both fixed and scalable groups, the fixed groups are
+    assigned first. The number of available virtual testers depends on the type
+    of license you have. If your license doesn't support the number of virtual
+    testers you specify, you'll see an error message.</li>
+</ul>
+<p><b>Note</b>: When you defined computer groups, if you selected the <b>Prompt 
+  for computers before running suite</b> checkbox, the Computers list appears 
+  along with <b>Edit Computers</b>, <b>Edit Computer Lists</b>, and <b>Properties</b> 
+  buttons.</p>
+
+<h3>3.&nbsp;&nbsp; <a name="Specify a log file">Specify a log file</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The current build number appears in the <b>Build</b> box. The name of the Log 
+  Folder is based on the suite, and the Log Name is based on the number of virtual 
+  testers and the number of times you've run the suite.</p>
+<p>To change the log folder or log name, click <b>Change...</b> within <b>Log 
+  Information</b>.</p>
+
+<h3>4.&nbsp;&nbsp; <a name="Enable or disable resource monitoring">Enable or disable 
+  resource monitoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If you plan to monitor resources, click the <b>Monitor resources</b> checkbox. 
+  Modify the interval in the <b>Update Rate</b> box to change the rate at which 
+  the views are updated. The lower the interval, the faster the update.</p>
+<p>Monitoring observes computer resource usage when you play back the suite, and 
+  then graphs this usage data over the corresponding virtual tester response times 
+  when you analyze your results.</p>
+
+<h3>5.&nbsp;&nbsp; <a name="Choose whether to ignore configurations">Choose whether 
+  to ignore configurations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" WIDTH="26" HEIGHT="20"></a></h3>
+<p>Click the <b>Ignore configurations for test cases</b> checkbox to have TestManager 
+  ignore system configurations for test cases and run the test cases on any available 
+  computers.</p>
+<p>TestManager has three ways of running suites with this option selected:</p>
+<ul>
+  <li>If a suite contains a test case with configured test cases and the parent
+    test case has an implementation&#151for example, a test script or suite&#151TestManager
+    runs the parent test case on any available computer, but does not run any of
+    the configured test cases.</li>
+  <li>If a suite contains a test case with configured test cases and the parent
+    test case does not have an implementation, TestManager does not run the
+    parent or any configured test cases.</li>
+  <li>If a single configured test case has an implementation, TestManager runs
+    the test case on the specified computer.</li>
+</ul>
+
+<h3>6.&nbsp;&nbsp; <a name="Specify run-time reporting options">Specify run-time 
+  reporting options</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" WIDTH="26" HEIGHT="20"></a></h3>
+<ul>
+  <li>
+    To change how TestManager reports the status of your suite execution, click 
+      <b>Options...</b> . You'll be able to set the following types of options:
+    <ul>
+      <li><b>Monitor</b> tab controls how TestManager displays information
+        during suite execution.</li>
+      <li><b>Reports</b> tab specifies the reports generated by TestManager when
+        he suite completes execution. This option is applicable only to
+        performance testing.</li>
+      <li><b>Run</b> tab controls the logging of suite execution for later
+        evaluation.</li>
+      <li><b>VU Compilation</b> tab specifies the default definitions for
+        conditional VU compilation and the inclusion of external C libraries in
+        the suite.</li>
+    </ul>
+  </li>
+</ul>
+<blockquote>
+  <p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; 
+    For more information, refer to the topic titled <i>Options dialog box</i> 
+    in Rational TestManager online Help.</p>
+</blockquote>
+<ul>
+  <li>Once you've configured your execution, click <b>OK</b> to execute your test. 
+    TestManager checks the suite and compiles any uncompiled or out-of-date test 
+    scripts. To stop suite execution while TestManager is checking the suite, 
+    click <b>Cancel</b>.</li>
+  <li>After TestManager checks the suite and compiles the necessary test scripts, 
+    it minimizes the Preparing to Run window. At this point, you cannot cancel 
+    or dismiss this window. To halt execution, click <b>Stop</b> on the <b>Monitor</b> 
+    menu.</li>
+  <li>After you execute your tests, you can evaluate the results of the tests.</li>
+</ul>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; 
+  For more information, refer to the topic titled <i>Executing Tests</i> in TestManager 
+  online Help.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,361 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Tool Mentor:&nbsp;Detailing a Use Case Using Rational RequisitePro</title>
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Detailing 
+  a Use Case Using Rational RequisitePro</rpw></h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational RequisitePro&reg; to describe 
+  a system use case in detail. The description of the system use case is performed 
+  by the system analyst.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_desuc.htm">Detail a Use Case</a></li>
+</ul>
+<br>
+  <br>
+</p>
+
+<h3>Overview</h3>
+<p>After the use cases for the proposed system have been identified 
+
+(as described in the Rational Rose&reg; <a href="../../toolment/rose/tm_fauc2.htm">Tool
+Mentor: Finding Actors and Use Cases</a>)
+
+, you can use RequisitePro to develop a
+Use-Case Specification document.</p>
+
+<p><b>Note:</b> You can develop the use cases in Rose and
+generate them in RequisitePro using the Integrated Use-Case Management feature.
+Refer to <a href="../anastudio/tm_iucm.htm">Tool Mentor: Managing
+Use Cases with Rational Rose and Rational RequisitePro</a> for more information.</p>
+
+<p>Sections of the Use-Case Specification document can be used to create
+specific requirements. These requirements can be traced (or linked) to other
+requirements, such as product features.</p>
+<p>The textual information for the selected use cases is detailed by someone playing 
+  the <a href="../../process/workers/wk_ucaut.htm">requirements specifier</a> 
+  role, who is responsible for writing a Use-Case Specification for each use case. 
+  This document defines all textual properties of the use case and may elaborate 
+  on the name and description of the use case produced in the RUP activity <a href="../../process/activity/ac_facuc.htm">Find 
+  Actors and Use Cases</a>.</p>
+
+<h4>Tool Steps</h4>
+<p>To detail a use case using RequisitePro:
+<ol>
+  <li><a href="#CreateUCS">Create a Use-Case Specification document</a></li>
+  <li><a href="#CompleteUCS">Complete the Use-Case Specification document</a></li>
+  <li><a href="#CreateReqts">Create requirements in the detailed Use-Case Specification</a></li>
+  <li><a href="#Add diagrams to the Use-Case Specification (optional)">Add diagrams 
+    to the Use-Case Specification (optional)</a></li>
+</ol>
+<p>If you created your RequisitePro project using the Use-Case Template, your
+project already contains a Use-Case Specification document type.</p>
+<h3>1. <a name="CreateUCS">Create a Use-Case Specification document</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The <a href="../../process/artifact/ar_uc.htm">Use-Case</a> Specification document 
+  contains the use case's textual properties. This includes the following use-case 
+  properties: name, brief description, basic flow of events, alternate flow of 
+  events, preconditions, postconditions, and special requirements.</p>
+
+<p><b>Note:</b> If you have developed your use cases in Rose, you can use the 
+  procedures described in&nbsp; <a href="../anastudio/tm_iucm.htm">Tool Mentor: 
+  Managing Use Cases Using Rational Rose and Rational RequisitePro</a> to create 
+  a new use-case document that is associated with your Rose use case. If not, 
+  use the following tool steps to create a use-case document.</p>
+
+<p>To create a Use-Case Specification document in RequisitePro: 
+<ol>
+  <li>In the Explorer, select the package in which you want the new document to
+    reside. Then click <b>File &gt; New &gt; Document</b>. The Document
+    Properties dialog box appears.
+  <li>Type a name, description, and file name for the document.
+  <li>In the <b>Document Type</b> list, select &quot;Use-Case
+    Specification Document Type.&quot;
+  <li>Click <b>OK</b>. The outline for the Use-Case Specification
+    document opens in Microsoft&reg; Word.</li>
+</ol>
+<h4>For More Information</h4>
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b> Refer to the topic
+titled <i>Creating requirements documents</i> (Index: documents&gt;creating) in the RequisitePro online
+Help.
+<h3>2. <a name="CompleteUCS">Complete the Use-Case Specification document</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In the newly created Use-Case Specification document, type use-case-specific 
+  information in each section. The name and the brief description properties should 
+  already have been documented when the use case was originally identified.</p>
+<p>To complete the Use-Case Specification document:</p>
+<ol>
+  <li>
+    <p>Replace the &quot;Use-Case Name&quot; text that is displayed in the outline 
+      with the actual name of the use case.</p>
+
+    <p><b>Note:</b> If you created the use-case document using the
+    procedures described in <a href="../anastudio/tm_iucm.htm">Tool Mentor:
+    Managing
+    Use Cases Using Rational Rose and Rational RequisitePro</a>, the use-case
+    name is inserted automatically in the title of the document. Use the <b>RequisitePro</b>
+    &gt; <b>Requirement</b> &gt; <b>Cut</b> and <b>Paste</b>
+    commands to move the use-case requirement to the &quot;Use Case Name&quot;
+    text.</p>
+</li>
+  <li><p>Read the instructions in the <b>Brief Description</b> section, and then 
+    delete them and type a brief description.<br>
+    <br>
+
+    <b>Note:</b> If you developed the use case in Rose and want to include the 
+    Rose documentation field as part of the brief description section in your 
+    RequisitePro use-case document, copy the text from the <b>Documentation</b> 
+    field in the Rose Use-Case Specification dialog box and paste it into your 
+    Use-Case Specification document.
+</p>
+  </li>
+  <li><p>Replace the default text located in the Basic Flow of Events section with 
+    the text for this use case's basic flow of events. Identify each step on a 
+    separate line.</p></li>
+  <li><p>Repeat this procedure for the other use-case properties (alternate flow of
+    events, special requirements, preconditions, postconditions, and so on).</p></li>
+  <li><p>Click <b>RequisitePro</b> &gt; <b>Document</b> &gt; <b>Save</b>.</p></li>
+</ol>
+<h4>For More Information</h4>
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b> Refer to the topic
+titled <i>Saving requirements documents</i> (Index: documents&gt;saving) in the RequisitePro online
+Help.
+<h3>3. <a name="CreateReqts">Create requirements in the detailed Use-Case Specification</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In order to track 
+  <a href="../../process/workflow/requirem/co_trace.htm">traceability</a> 
+  links between use cases and other information, such as the use-case model or 
+  product features, create RequisitePro <a href="../../process/workflow/requirem/co_req.htm">requirements</a> 
+  from the Use-Case Specification sections. Make the use-case name a parent requirement, 
+  and make child requirements from its properties. These properties may include 
+  brief descriptions, actions within the basic or alternate flow of events, preconditions, 
+  postconditions, special requirements, and extends relationships.</p>
+<blockquote>
+<ol>
+  <li><p>In the Use-Case Specification document, select the use-case name.</p></li>
+  <li><p>Do one of the following:</p>
+    <ul>
+      <li>Right-click and select <b>New Requirement</b>.</li>
+      <li>Click <b>RequisitePro</b> &gt; <b>Requirement</b>
+        &gt; <b>New</b>.<br>
+        The Requirement Properties dialog box appears.<br><br></li>
+    </ul>
+  </li>
+  <li><p>Select <b>UC: Use Case Requirement Type</b> as the requirement 
+      type.</p></li>
+  <li><p>On the <b>Attributes</b> tab, at the <b>Property</b> attribute, select the value &quot;<b>Name</b>&quot; from the list of values.</p></li>
+  <li><p>Repeat the preceding steps for the brief description (setting the Property
+    attribute to &quot;<b>Brief Description</b>&quot;). On the <b>Hierarchy</b>
+    tab, select <b>&lt;choose parent&gt;</b> and identify the UC
+    requirement representing the use-case name.</p></li>
+  <li><p>In the basic flow of events section of the Use-Case Specification
+    document, create UC requirements for each step or group of steps (subflow)
+    to which you want to set traceability links. Set the Property attribute to <b>Basic
+    Flow</b>, and set the requirement's parent
+    to the use-case name requirement created in Steps 1-3 above. You have the
+    option of indicating groups of steps that are always performed together. If
+    necessary, use hierarchical requirements to distinguish subflows from the
+    basic flow of events.<br>
+    <br>
+    <b>Note:</b> You do not need to create requirements for each step
+    in a flow of events. The value of creating flow of events requirements is in
+    tracing from a higher-level requirement, such as a product feature, to a
+    specific part of the flow of events. A flow of events often spans several
+    pages, so this may be preferable to considering the flow of events as a
+    whole.</p></li>
+  <li><p>In each alternate flow of events, create UC requirements for each step or
+    group of steps (subflow) to which you want to set traceability links. Set
+    the Property attribute to <b>Alternate Flow</b> and
+    the parent requirement as indicated previously. Similar to the basic flow of
+    events, use hierarchical requirements to indicate complete subflows.</p></li>
+  <li><p>The following steps are optional:</p>
+    <ul>
+      <li>In the preconditions section of the Use-Case Specification document,
+        select each precondition separately and create a UC requirement
+        (Property = <b>pre-conditions</b>, parent = use-case name
+        requirement).</li>
+      <li>Repeat the step above for the postconditions (Property = <b>Post-conditions</b>)
+        and the special requirements section (Property = <b>Special</b>).
+        Set the use-case name requirement as their parent.</li>
+    </ul>
+  </li>
+</ol>
+</blockquote>
+<h4>For More Information</h4>
+<p>
+<b><img src="images/helpbook.gif" width="16" height="16"> </b> Refer to the
+topic <i>Creating requirements in a document</i> (Index:
+    requirements&gt;creating) in the RequisitePro online
+Help.
+<h3>4. <a name="Add diagrams to the Use-Case Specification (optional)">Add diagrams to the Use-Case Specification
+(optional)</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Some of the use-case properties are nontextual, such as &quot;use-case
+diagrams&quot; and &quot;other diagrams&quot;. See the RUP <a href="../../process/artifact/ar_uc.htm">Artifact:
+Use Case</a>. These diagrams are stored in Rose. Using Rational SoDA&reg;,
+you can create a Use-Case Report from the use-case textual properties stored in RequisitePro and the use-case diagram information stored in Rose. See <a href="../../process/reports/re_ucrep.htm">Report:
+Use Case</a> on how to create this report.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

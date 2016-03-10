@@ -1,0 +1,398 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Capsule Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="reactivebanner">Activity:&nbsp;<rpw name="PresentationName">Capsule Design</rpw><a name="XE_capsule__elaborating_the_definition_of"></a><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2">
+      <p class="reactive"><b>Purpose</b>
+          <ul class="reactive">
+            <li>To elaborate and refine the descriptions of a capsule.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <p class="reactive"><b>Steps</b>
+          <ul class="reactive">
+            <li><a href="#Create Ports and Bind to Protocols">Create Ports and
+              Bind to Protocols</a></li>
+            <li><a href="#Validate Capsule Interactions">Validate Capsule
+              Interactions</a></li>
+            <li><a href="#Define Capsule State Machine">Define Capsule State
+              Machine</a>
+              <ul>
+                <li><a href="#Define States">Define States</a></li>
+                <li><a href="#Define State Transitions">Define State Transitions</a></li>
+              </ul>
+            </li>
+            <li><a href="#Define Requirements on Passive Classes">Define
+              Requirements on Passive Classes</a></li>
+            <li><a href="#Introduce Capsule Inheritance">Introduce Capsule
+              Inheritance</a></li>
+            <li><a href="#Validate Capsule Behavior">Validate Capsule Behavior</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <p class="reactive"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_cpsl.htm">Capsule</a></li>
+<li><a href="../artifact/ar_event.htm">Event</a></li>
+<li><a href="../artifact/ar_prot.htm">Protocol</a></li>
+<li><a href="../artifact/ar_signa.htm">Signal</a></li>
+</ul>
+
+	</td>
+    <td width="50%">
+      <p class="reactive"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_cpsl.htm">Capsule</a></li>
+<li><a href="../artifact/ar_class.htm">Design Class</a></li>
+<li><a href="../artifact/ar_prot.htm">Protocol</a></li>
+</ul>
+    
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <p class="reactive"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_ccdsr.htm">Capsule Designer</a></p>
+    </td>
+  </tr>
+  <tr>
+	<td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/rosert/tm_rrtobjdesign.htm">Designing with Active Objects in Rational Rose RealTime</a></li>
+</ul>
+
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_cncry.htm">Guideline: Concurrency</a></li>
+<li><a href="../modguide/md_stadm.htm">Guideline: Statechart Diagram</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+  <!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and4.htm">Design Components</a></li>
+</ul>
+</li>
+</ul>
+
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<p class="reactive">Capsules are used to define concurrent threads of execution
+in the system. Capsules may be nested to an arbitrary depth, as well as having
+associations to design (passive) classes. This activity is performed once for
+each capsule, including new capsules identified within the scope of this
+activity.</p>
+<h3 class="reactive"><a name="Create Ports and Bind to Protocols">Create Ports
+and Bind to Protocols</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Consider the responsibilities of the capsule, creating an
+initial set of port classes. These port classes represent the 'interfaces' to
+the capsule. Port classes represent the realization of an <a href="../artifact/ar_prot.htm">Artifact:
+Protocol</a>, which in turn represents a set of <b>in </b>and <b>out
+</b>signals used to communicate with capsules.</p>
+<p class="reactive">In creating ports, consider the <a href="chklists/ck_prot.htm">Checkpoints:
+Protocol</a> to determine whether the Protocol is appropriate. The port should
+reflect a singular set of related responsibilities; having a similarly scoped
+protocol enables its re-use across a number of capsules. Once the appropriate
+protocol is selected, bind the port to the appropriate protocol.</p>
+<h3 class="reactive"><a name="Validate Capsule Interactions">Validate Capsule
+Interactions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Once the ports are bound to protocols, the external behavior
+of the capsule must be evaluated and validated. Using either manual walk-through
+techniques or automated simulation tools, the behavior of the capsule should be
+tested by simulating the events that will exercise the capsule behavior.
+Validation will also consider the capsules which interact with the capsule under
+design. Using automated tools, stub code will need to be written within the
+capsule to allow the ports to be tested. Errors in protocol or port definition,
+or in capsule responsibilities, should be detected and appropriate changes to
+capsule, port and protocol definitions should be made.</p>
+<h3 class="reactive"><a name="Define Capsule State Machine">Define Capsule State
+Machine</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Once the capsule ports and protocols have been validated,
+the internal behavior of the capsule must be defined. The behavior of the
+capsule is defined using a statechart diagram, refer to the <a href="../../process/modguide/md_stadm.htm">Guidelines:
+Statechart Diagram</a>. Other general capsule information can be obtained from <a href="../modguide/md_cpsl.htm">Guidelines:
+Capsule</a> and <a href="chklists/ck_cpsl.htm">Checkpoints: Capsules</a>.</p>
+<h4 class="reactive"><a name="Define States">Define States</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p class="reactive">First, identify the states in which the capsule can exist.
+The states must be unique (a capsule cannot be in two states simultaneously) and
+descriptive. See the appropriate guidelines and checkpoints for more
+information.</p>
+<h4 class="reactive"><a name="Define State Transitions">Define State Transitions</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p class="reactive">Once states are defined, consider the transitions between
+states. Transition code should read like high level application pseudo-code, it
+should consist primarily of real-time operating system service calls e.g., frame
+services, time services, port operations, capsule operations and passive class
+operations.</p>
+<p class="reactive">When adding detail code to a Capsule transition:
+<ul class="reactive">
+  <li>If the code would be useful in other transitions consider delegating it to
+    a Capsule operation.</li>
+  <li>Consider if the code implements capabilities which conform to the
+    Capsule's responsibility.</li>
+</ul>
+<p class="reactive">When defining a Capsule operation:
+<ul class="reactive">
+  <li>Consider if the function would be useable at any time from any transition
+    in the Capsule, and if whether any of the work being done would ever be
+    useful elsewhere in the system. If it is consider delegating it to a passive
+    class function.</li>
+  <li>If the code is too application-specific to be stored in a particular Data
+    class, consider creating an additional Data class as an abstraction for that
+    code.</li>
+  <li>If the code handles data structure manipulation (e.g., maintaining lists),
+    or performs complex (more than 1 line) computations then it should be pushed
+    into a data class.</li>
+</ul>
+<h3 class="reactive"><a name="Define Requirements on Passive Classes">Define
+Requirements on Passive Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Based on the capsule state machines, examine the passive
+classes referenced by the capsule. If there are new requirements on these
+classes, change requests need to be generated to effect the required changes. If
+new classes have been identified, the requirements on these classes (most
+specifically the required operations on them) should be gathered together and
+the classes should be created. These classes will be further described in the <a href="../../process/activity/ac_cldes.htm">Activity:
+Class Design</a>.</p>
+<h3 class="reactive"><b><a name="Introduce Capsule Inheritance">Introduce
+Capsule Inheritance</a> </b><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Capsule inheritance is used to implement
+generalization-specialization, to make use of polymorphism, to reuse
+implementation. The key word here is 'implementation' - it is a technique that
+is used primarily to re-use the internal structure of capsules, not the external
+behavior of capsules. The primary purpose of <a href="../artifact/ar_prot.htm">Artifact:
+Protocols</a> is to re-use behavioral definitions, so capsule inheritance should
+not be used for this purpose.</p>
+<p class="reactive">Inheritance is often misapplied to achieve something that
+could more easily have been achieved using simpler design techniques.</p>
+<h4 class="reactive"><b>Using inheritance for generalization-specialization</b></h4>
+<p class="reactive">There are three kinds of inheritance. Listed from lowest
+complexity (most desirable) to most complex (least desirable), they are:
+<ul class="reactive">
+  <li><b>Interface inheritance</b> &#151; just inherits ports and protocols, 
+    this is the type of inheritance that is most desirable</li>
+  <li><b>Structural inheritance</b> &#151; inherits interface plus structural 
+    containment hierarchies (useful for frameworks)</li>
+  <li><b>Behavioral inheritance</b> &#151; in addition to above also 
+    reuses behavioral code and state machines</li>
+</ul>
+<p class="reactive">Structural and behavioral inheritance pose some problems:</p>
+<ul class="reactive">
+  <li>The very strong degree of coupling provided by inheritance causes changes
+    to cascade to subclasses when changes are made to superclasses.</li>
+  <li>The need to override and delete superclass behavior and structure in
+    subclasses indicates inappropriate use of inheritance (usually for tactical
+    code re-use). Re-factoring classes and capsules and appropriate use of
+    delegation is a more appropriate strategy.</li>
+  <li>Inheritance means moving design decisions up the class hierarchy, causing
+    undesirable design and compilation dependencies.&nbsp;</li>
+</ul>
+<p class="reactive">Other problems include:</p>
+<ul class="reactive">
+  <li>Decisions may not be appropriate in all usage situations.</li>
+  <li>Introducing inheritance actually makes things harder to reuse, since
+    design elements are more tightly coupled.</li>
+  <li>The design becomes more fragile because any new requirement that
+    invalidates the decision causes large problems.</li>
+  <li>The design has to be made extremely flexible to compensate, which is often
+    difficult. This is why designing reusable frameworks is hard!</li>
+</ul>
+<p class="reactive">All designs containing structure/behavior have decisions and
+assumptions built in (either explicit or implicit). The critical question to ask
+is: are you absolutely sure that decision/assumption will always be valid? If
+not, what can you do to remove it or make it possible to change?</p>
+<h3 class="reactive"><a name="Validate Capsule Behavior">Validate Capsule
+Behavior</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">As a final step, the behavior of the capsule must be
+evaluated and validated. Using either manual walk-through techniques or
+automated simulation tools, the behavior of the capsule should be tested by
+simulating the events that will exercise the capsule behavior. In addition, the
+internal structure of the capsule should be validated, ensuring that not only
+the external behavior but also the internal implementation of that behavior is
+validated. Using automated tools, stub code may need to be written to simulate
+the implementation of passive data classes and external capsules with which the
+capsule interacts. Defects detected should be documented and appropriate changes
+to capsule definitions should be made.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,448 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Concepts:&nbsp;Test-Ideas List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Test-Ideas List</rpw><a name="XE_test-ideas_list__concept_of"></a>
+</h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#TestIdeas">What are Test Ideas?</a></li>
+  <li><a href="#TestDesignUsingTheList">Test Design Using the List</a></li>
+  <li><a href="#UsingTestIdeasBeforeTest">Using Test Ideas Before Testing</a></li>
+  <li><a href="#TestIdeasTraceability">Test Ideas and Traceability</a></li>
+  <p>See also:</p>
+  <ul>
+    <li><a href="../../workflow/test/co_tstidsctlg.htm">Concepts: Test-Ideas Catalog</a></li>
+    <li><a href="../../modguide/md_tstidsblnbnd.htm">Guidelines: Test Ideas for 
+      Booleans and Boundaries</a></li>
+    <li><a href="../../modguide/md_tstidsmthcls.htm">Guidelines: Test Ideas for 
+      Method Calls</a></li>
+    <li><a href="../../modguide/md_tstidssttact.htm">Guidelines: Test Ideas for 
+      Statechart and Flow Diagrams</a></li>
+    <li><a href="../../../examples/extrnlcntrbtns/test/tstids_short-catalog.pdf">Test-Ideas 
+      Catalog: A Short Catalog for Developers</a><a href="../../modguide/md_tstidsblnbnd.htm"></a></li>
+    <li><a href="../../../examples/extrnlcntrbtns/test/tstatmtch.htm">Test-Ideas 
+      Catalog: Test Ideas for Mixtures of ANDs and ORs</a><a href="../../modguide/md_tstidsblnbnd.htm"></a></li>
+  </ul>
+</ul>
+
+
+<h3><a name="Introduction">Introduction</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>Information used in designing tests is gathered from many places: design models, 
+  classifier interfaces, statecharts, and code itself. At some point, this source 
+  document information must be transformed into executable tests:</p>
+
+<ul>
+    
+  <li>specific inputs given to the software under test</li>
+    
+  <li>in a particular hardware and software configuration</li>
+    
+  <li>initialized to a known state</li>
+    
+  <li>with specific results expected</li>
+</ul>
+
+<p>It's possible to go directly from source document information to executable 
+  tests, but it's often useful to add an intermediate step. In this step, <a href="../../glossary.htm#test_idea" target="_blank"><i>test 
+  ideas</i></a> are written into a <i>Test-Ideas List</i>, which is used to create 
+  executable tests.</p>
+
+
+<h3><a name="TestIdeas">What are Test Ideas?</a><a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>A test idea (sometimes referred to as a <a href="../../glossary.htm#test_requirement" target="_blank"><i>test 
+  requirement</i></a>) is a brief statement about a test that could be performed. 
+  As a simple example, let's consider a function that calculates a square root 
+  and come up with some test ideas:</p>
+
+<ul>
+  <li>give a number that's barely less than zero as input</li>
+  <li>give zero as the input</li>
+  <li>test a number that's a perfect square, like 4 or 16 (is the result exactly 
+    2 or 4?)</li>
+</ul>
+<p>Each of these ideas could readily be converted into an executable test with 
+  exact descriptions of inputs and expected results.</p>
+
+<p>There are two advantages to this less-specific intermediate form:</p>
+<ul>
+  <li>test ideas are more reviewable and understandable than complete tests&#151;it's 
+    easier to understand the reasoning behind them</li>
+  <li>test ideas support more powerful tests, as described later under the heading 
+    <a href="#TestDesignUsingTheList">Test Design Using the List</a></li>
+</ul>
+<p>The square root examples all describe inputs, but test ideas can describe any 
+  of the elements of an executable test. For example, &quot;print to a LaserJet 
+  IIIp&quot; describes an aspect of the <a href="../../glossary.htm#test_environment" target="_blank"><i>test 
+  environment</i></a> to be used for a test, as does &quot;test with database 
+  full&quot;, however, these latter test ideas are very incomplete in themselves: 
+  Print <b>what</b> to the printer? Do <b>what</b> with that full database? They 
+  do, however, ensure that important ideas aren't forgotten; ideas that will be 
+  described in more detail later in test design.</p>
+
+<p>Test ideas are often based on <a href="../../glossary.htm#fault_model" target="_blank"><i>fault 
+  models</i></a>; notions of which faults are plausible in software and how those 
+  faults can best be uncovered. For example, consider boundaries. It's safe to 
+  assume the square root function can be implemented something like this:</p>
+
+<blockquote>
+<pre>
+double sqrt(double x) {
+    if (x &lt; 0) 
+      // signal error
+    ...
+</pre>
+</blockquote>
+
+<p>It's also plausible that the <font face="Courier New">&lt;</font> will be incorrectly 
+  typed as <font face="Courier New">&lt;=</font>. People often make that kind 
+  of mistake, so it's worth checking. The fault cannot be detected with <font face="Courier New">X</font> 
+  having the value <font face="Courier New">2</font>, because both the incorrect 
+  expression (<font face="Courier New">x&lt;=0</font>) and the correct expression 
+  (<font face="Courier New">x&lt;0</font>) will take the same branch of the <font face="Courier New">if</font> 
+  statement. Similarly, giving <font face="Courier New">X</font> the value -<font face="Courier New">5</font> 
+  cannot find the fault. The only way to find it is to give <font face="Courier New">X</font> 
+  the value <font face="Courier New">0</font>, which justifies the second test 
+  idea.</p>
+
+<p>In this case, the fault model is explicit. In other cases, it's implicit. For 
+  example, whenever a program manipulates a linked structure, it's good to test 
+  it against a circular one. It's possible that many faults could lead to a mishandled 
+  circular structure. For the purposes of testing, they needn't be enumerated&#151;it 
+  suffices to know that some fault is likely enough that the test is worth running.</p>
+
+<p>The following links provide information about getting test ideas from different 
+  kinds of fault models. The first two are explicit fault models; the last uses 
+  implicit ones.</p> 
+
+<ul>
+  <li><a href="../../modguide/md_tstidsblnbnd.htm">Guidelines: Test Ideas for 
+    Booleans and Boundaries </a></li>
+  <li><a href="../../modguide/md_tstidsmthcls.htm">Guidelines: Test Ideas for 
+    Method Calls </a></li>
+  <li><a href="co_tstidsctlg.htm">Concepts: Test-Ideas Catalog </a></li>
+</ul>
+
+<p>These fault models can be applied to many different artifacts. For example, 
+  the first one describes what to do with Boolean expressions. Such expressions 
+  can be found in code, in guard conditions, in statecharts and sequence diagrams, 
+  and in natural-language descriptions of method behaviors (such as you might 
+  find in a published API).</p> 
+
+<p>Occasionally it's also helpful to have guidelines for specific artifacts. See 
+  <a href="../../modguide/md_tstidssttact.htm">Guidelines: Test Ideas for Statechart 
+  and Flow Diagrams</a>.</p>
+<p>A particular Test-Ideas List might contain test ideas from many fault models, 
+  and those fault models could be derived from more than one artifact.</p>
+
+
+<h3><a name="TestDesignUsingTheList">Test Design Using the List</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Let's suppose you're designing tests for a method that searches for a string 
+  in a sequential collection. It can either obey case or ignore case in its search, 
+  and it returns the index of the first match found or -1 if no match is found.</p>
+<blockquote>
+  <pre>
+int Collection.find(String string,
+                    Boolean ignoreCase);
+</pre>
+</blockquote>
+
+<p>Here are some test ideas for this method:</p>
+<ol>
+    <li>match found in the first position</li>
+    <li>match found in the last position</li>
+    <li>no match found</li>
+    
+  <li>two or more matches found in the collection</li>
+  <li>case is ignored; match found, but it wouldn't match if case was obeyed</li>
+  <li>case is obeyed; an exact match is found</li>
+    <li>case is obeyed; a string that would have matched if case
+        were ignored is skipped</li>
+</ol>
+
+<p>It would be simple to implement these seven tests, one for each test idea. 
+  However, different test ideas can be combined into a single test. For example, 
+  the following test <i>satisfies</i> test ideas 2, 6, and 7:</p>
+<blockquote>
+  <p>Setup: collection initialized to [&quot;dawn&quot;, &quot;Dawn&quot;]<br>
+    Invocation: collection.find(&quot;Dawn&quot;, false)<br>
+    Expected result: return value is 1 (it would be 0 if &quot;dawn&quot;
+    were not skipped)</p>
+</blockquote>
+<p>Making test ideas nonspecific makes them easier to combine.</p>
+
+<p>It's possible to satisfy all of the test ideas in three tests. Why would three 
+  tests that satisfy seven test ideas be better than seven separate tests?</p>
+<ul>
+  <li>When you're creating a large number of simple tests, it's common to create 
+    test N+1 by copying test N and tweaking it just enough to satisfy the new 
+    test idea. The result, especially in more complex software, is that test N+1 
+    probably exercises the program in almost the same way as test N. It takes 
+    almost exactly the same path through the code.<br>
+    <br>
+    A smaller number of tests, each satisfying several test ideas, doesn't allow 
+    a &quot;copy and tweak&quot; approach. Each test will be somewhat different 
+    from the last, exercising the code in different ways and taking different 
+    paths.<br>
+    <br>
+    Why would that be better? If the Test-Ideas List were complete, with a test 
+    idea for every fault in the program, it wouldn't matter how you wrote the 
+    tests. But the list is always missing some test ideas that could find bugs. 
+    By having each test do very different things from the last one&#151;by adding 
+    seemingly unneeded variety&#151;you increase the chance that one of the tests 
+    will stumble over a bug by sheer dumb luck. In effect, smaller, more complex 
+    tests increase the chance the test will satisfy a test idea that you didn't 
+    know you needed.<br>
+    <br>
+  </li>
+  <li>Sometimes when you're creating more complex tests, new test ideas come to 
+    mind. That happens less often with simple tests, because so much of what you're 
+    doing is exactly like the last test, which dulls your mind.</li>
+</ul>
+<p>However, there are reasons for not creating complex tests.</p>
+<ul>
+  <li>If each test satisfies a single test idea and the test for idea 2 fails, 
+    you immediately know the most likely cause: the program doesn't handle a match 
+    in the last position. If a test satisfies ideas 2, 6, and 7, then isolating 
+    the failure is harder.<br>
+    <br>
+  </li>
+  <li>Complex tests are more difficult to understand and maintain. The intent 
+    of the test is less obvious.<br>
+    <br>
+  </li>
+  <li>Complex tests are more difficult to create. Constructing a test that satisfies 
+    five test ideas often takes more time than constructing five tests that each 
+    satisfy one. Moreover, it's easier to make mistakes&#151;to think you're satisfying 
+    all five when you're only satisfying four.</li>
+</ul>
+<p>In practice, you must find a reasonable balance between complexity and simplicity. 
+  For example, the first tests you subject the software to (typically the <a href="../../glossary.htm#smoke_test" target="_blank"><i>smoke 
+  tests</i></a>) should be simple, easy to understand and maintain, and intended 
+  to catch the most obvious problems. Later tests should be more complex, but 
+  not so complex they are not maintainable.</p>
+
+<p>After you've finished a set of tests, it's good to check them against the characteristic 
+  test design mistakes discussed in <a href="co_dvltst.htm#TestDesignMistakes">Concepts: 
+  Developer Testing</a>.</p>
+
+
+<h3><a name="UsingTestIdeasBeforeTest">Using Test Ideas Before Testing</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>A Test-Ideas List is useful for reviews and inspections of design artifacts. 
+  For example, consider this part of a <a href="../../glossary.htm#design_model" target="_blank"><i>design 
+  model</i></a> showing the association between Department and Employee classes.</p>
+
+<p align="center"><img src="images/tstidslst-img1.gif" width="223"
+height="45"></p>
+
+<p class="picturetext">Figure 1: Association between Department and Employee Classes</p>
+
+<p>The rules for creating test ideas from such a model would ask you to consider 
+  the case where a department has many employees. By walking through a design 
+  and asking &quot;what if, at this point, the department has many employees?&quot;, 
+  you might discover design or analysis errors. For example, you might realize 
+  that only one employee at a time can be transferred between departments. That 
+  might be a problem if the corporation is prone to sweeping reorganizations where 
+  many employees need to be transferred.</p>
+
+<p>Such faults, cases where a possibility was overlooked, are called <i>faults 
+  of omission</i>. Just like the faults themselves, you have probably omitted 
+  tests that detect these faults from your testing effort. For example, see <a href="../../referenc.htm#GLA81">[GLA81]</a>, 
+  <a href="../../referenc.htm#OST84">[OST84]</a>, <a href="../../referenc.htm#BAS87">[BAS87]</a>, 
+  <a href="../../referenc.htm#MAR00">[MAR00]</a>, and other studies that show 
+  how often faults of omission escape into deployment.</p> 
+
+<p>The role of testing in design activities is discussed further in <a href="co_tstfrsdsg.htm">Concepts: 
+  Test-first Design</a>.</p>
+
+
+<h3><a name="TestIdeasTraceability">Test Ideas and Traceability</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+
+<p><a href="../../glossary.htm#traceability" target="_blank"><i>Traceability</i></a> 
+  is a matter of tradeoffs. Is its value worth the cost of maintaining it? This 
+  question needs to be considered during <a href="../../activity/ac_tst_dfnasstrcnds.htm">Activity: 
+  Define Assessment and Traceability Needs</a>.</p>
+
+<p>When traceability is worthwhile, it's conventional to trace tests back to the 
+  artifacts that inspired them. For example, you might have traceability between 
+  an API and its tests. If the API changes, you know which tests to change. If 
+  the code (that implements the API) changes, you know which tests to run. If 
+  a test puzzles you, you can find the API it's intended to test.</p>
+
+<p>The Test-Ideas List adds another level of traceability. You can trace from 
+  a test to the test ideas it satisfies, and then from the test ideas to the original 
+  artifact. </p>
+
+
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

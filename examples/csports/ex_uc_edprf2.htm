@@ -1,0 +1,113 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Use Case Specification: Edit Profile V2.0</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Use Case : Edit Profile 2.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT">Collegiate Sports Paging System<a name="Top"></a></p>
+<p align="RIGHT">Use Case Specification: Edit Profile</p>
+</font><p align="RIGHT">
+<font face="Arial" size="4">Version 2.0</font></p><font face="Arial" size="5">
+<p align="CENTER">Revision History</p></font></b>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633">
+  <tr>
+    <td width="24%" valign="TOP"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP">
+    <p align="CENTER"><b>Version</b></td>
+    <td width="39%" valign="TOP">
+    <p align="CENTER"><b>Description</b></td>
+    <td width="24%" valign="TOP">
+    <p align="CENTER"><b>Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">October 9, 1999</td>
+    <td width="12%" valign="TOP">1.0</td>
+    <td width="39%" valign="TOP">Initial version</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">December 1, 1999</td>
+    <td width="12%" valign="TOP">2.0</td>
+    <td width="39%" valign="TOP">Update after Elaboration phase</td>
+    <td width="24%" valign="TOP">Context Integration</td>
+  </tr>
+</table>
+<h5>Table of Contents</h5>
+<ul>
+  <li><a href="#Edit Profile">Edit Profile</a></li>
+  <li><a href="#Flow of Events">Flow of Events</a></li>
+  <li><a href="#Special Requirements">Special Requirements</a></li>
+  <li><a href="#Preconditions">Preconditions</a></li>
+  <li><a href="#Postconditions">Postconditions</a></li>
+  <li><a href="#Extension Points">Extension Points</a></li>
+</ul>
+<h3><a name="Edit Profile"></a>Edit Profile <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when a subscriber wishes to change their profile
+information or when a new subscriber wishes to enroll.</p>
+<h3><a name="Flow of Events"></a>Flow of Events <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>User selects &quot;Edit Profile&quot;</li>
+  <li>System displays categories of profile (<a href="ex_gloss2.htm#Personal Profile">personal</a>,
+    <a href="ex_gloss2.htm#Preferences Profile">preferences</a>, pager
+    information, &quot;<a href="ex_gloss2.htm#Page-me-when Profile">page me when</a>&quot;
+    selections).</li>
+  <li>User selects <a href="ex_gloss2.htm#Category">category</a>.</li>
+  <li>If more than one profile exists for a category (for instance, a subscriber
+    may have more than one pager), a list of possible profiles within the
+    category is&nbsp; presented.</li>
+  <li>User selects specific profile within category.</li>
+  <li>System displays detail of specific profile.</li>
+  <li>User updates detail, presses &quot;OK&quot;</li>
+  <li>If information changed includes credit card information, system validates
+    new information with external credit card system.&nbsp; If information
+    contains pager information, pager PIN format is validated along with email
+    address for sending pages.</li>
+  <li>System updates subscriber profile.</li>
+</ol>
+<h4>Alternate Flows</h4>
+<p>If validation of credit card information fails, user is presented with a
+message indicating failure, and is presented with their profile for update once
+again.</p>
+<p>If this is a new subscriber, the use case &quot;Pay Fee with Credit
+Card&quot; is invoked following step 9 above.</p>
+<h3><a name="Special Requirements"></a>Special Requirements <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>This needs to be secured as credit card information may be in the profile.</p>
+<h3><a name="Preconditions"></a>Preconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.</p>
+<h3><a name="Postconditions"></a>Postconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>For a new subscriber, when this use case is complete, the subscriber is
+immediately eligible to receive pages.</p>
+<h3><a name="Extension Points"></a>Extension Points <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.</p>
+&nbsp;<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

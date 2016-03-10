@@ -1,0 +1,489 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Design Subsystem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Design Subsystem</rpw><a name="Top"></a><a name="XE_layering__layering_guidelines_for_design_subsystems"></a><a name="XE_design_subsystem__guidelines_for"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Subsystem Usage">Subsystem Usage</a></li>
+  <li><a href="#Identifying Subsystems">Identifying Subsystems</a></li>
+  <li><a href="#Modeling Subsystems">Modeling Subsystems</a></li>
+  
+  <li><a href="#Subsystems That Represent Existing Products">Subsystems that Represent Existing Products</a></li>
+  <li><a href="#Subsystem Dependency Restrictions">Subsystem Dependency Restrictions</a></li>
+  <li><a href="#Subsystem Specification and Realization">Subsystem Specification and Realization</a>
+    <ul>
+      <li><a href="#Definition">Definition</a></li>
+      <li><a href="#When and how to use">When and How to Use</a></li>
+      <li><a href="#Dependencies">Dependencies</a></li>
+      <li><a href="#Relationship to Implementation">Relationship to Implementation</a></li>
+    </ul>
+  </li>
+</ul>
+<h3><a name="XE_design_subsystem__partitioning_patterns"></a><a name="Subsystem Usage">Subsystem
+Usage</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_layering__partitioning_patterns"></a>Subsystems can be used in a
+number of complementary ways, to partition the system into units which
+<ul>
+  <li>can be independently ordered, configured, or delivered</li>
+  <li>can be independently developed, as long as the interfaces remain unchanged</li>
+  <li>can be independently deployed across a set of distributed computational
+    nodes</li>
+  <li>can be independently changed without breaking other parts of the systems</li>
+</ul>
+<p>Thus, subsystems are ideal for modeling components - the replaceable units 
+  of assembly in component-based development - that are larger than a single design 
+  class. 
+<p>In addition, subsystems can 
+<ul>
+  <li>partition the system into units which can provide restricted security over 
+    key resources</li>
+  <li>represent existing products or external systems in the design.</li>
+</ul>
+<h3><a name="XE_design_subsystem__identifying_subsystems"></a><a name="Identifying Subsystems">Identifying 
+  Subsystems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A complex analysis class is mapped to a design subsystem if it appears to embody 
+  behavior that cannot be the responsibility of a single design class acting alone. 
+  A complex design class may also become a subsystem, if it is likely to be implemented 
+  as a set of collaborating classes.</p>
+<p>Subsystems are also a good means of identifying parts of the system that are 
+  to be developed independently by a separate team. If the collaborating design 
+  elements can be completely contained within a package along with their collaborations, 
+  a subsystem can provide a stronger form of encapsulation than that provided 
+  by a simple package. The contents and collaborations within a subsystem are 
+  completely isolated behind one or more interfaces, so that the client of the 
+  subsystem is only dependent upon the interface. The designer of the subsystem 
+  is then completely isolated from external dependencies; the designer (or design 
+  team) is required to specify how the interface is realized, but they are completely 
+  free to change the internal subsystem design without affecting external dependencies. 
+  In large systems with largely independent teams, this degree of de-coupling 
+  combined with the architectural enforcement provided by formal interfaces is 
+  a strong argument for the choice of subsystems over simple packages.</p>
+<p>The design subsystem is used to encapsulate these collaborations in such a 
+  way that clients of the subsystem can be completely unaware of the internal 
+  design of the subsystem, even as they use the services provided by the subsystem. 
+  If the participating classes/subsystems in a collaboration interact only with 
+  each other to produce a well-defined set of results, the collaboration and its 
+  collaborating design elements should be encapsulated within a subsystem.</p>
+<p>This rule can be applied to subsets of collaborations as well. Anywhere part
+or all of a collaboration can be encapsulated and simplified, doing so will make
+the design easier to understand.</p>
+<h4>Hints</h4>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="35%">
+    <blockquote>
+      <p align="center" class="tableheading">Hint</p>
+    </blockquote>
+    </td>
+    <td width="65%"><p align="center" class="tableheading">Details</p></td>
+  </tr>
+  <tr>
+    <td width="35%">Look for optionality</td>
+    <td width="60%">If a particular collaboration (or sub-collaboration) represents optional
+    behavior, enclose it in a subsystem. Features which may be removed,
+    upgraded, or replaced with alternatives should be considered independent.</td>
+  </tr>
+  <tr>
+    <td width="35%" rowspan="2">Look to the user interface of the system.</td>
+    <td width="60%">If the user interface is relatively independent of the entity classes in the
+    system (i.e. the two can and will change independently), create subsystems
+    which are horizontally integrated: group related user interface boundary
+    classes together in a subsystem, and group related entity classes together
+    in another subsystem.</td>
+  </tr>
+  <tr>
+    <td width="65%">If the user interface and the entity classes it displays are tightly coupled
+    (i.e. a change in one triggers a change in the other), create subsystems
+    which are vertically integrated: enclose related boundary and entity classes
+    in common subsystem.</td>
+  </tr>
+  <tr>
+    <td width="35%" rowspan="2">Look to the Actors</td>
+    <td width="65%">Separate functionality used by two different actors, since each actor may
+    independently change their requirements on the system.</td>
+  </tr>
+  <tr>
+    <td width="65%">Create subsystems to encapsulate access to an external system or device.</td>
+  </tr>
+  <tr>
+        <td width="35%">Look for coupling and cohesion between design elements</td>
+        <td width="65%">Highly coupled or cohesive classes/subsystems collaborate to provide some set 
+          of services. Organize highly coupled elements into subsystems, and separate 
+          elements along lines of weak coupling. In some cases, weak coupling 
+          can be eliminated entirely by splitting classes into smaller classes 
+          with more cohesive responsibilities, or repartitioning subsystems appropriately.</td>
+  </tr>
+  <tr>
+    <td width="35%">Look at substitution</td>
+    <td width="65%">If there are several levels of service specified for a particular capability
+    (example: high, medium and low availability), represent each service level
+    as a separate subsystem, each of which will realize the same set of
+    interfaces. By doing so, the subsystems are substitutable for one another.</td>
+  </tr>
+  <tr>
+    <td width="35%">Look at distribution</td>
+    <td width="65%"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: HE">Although
+      there can be multiple instances of a particular subsystem, each executing
+      on different nodes, in many architectures it is not possible for a single
+      instance of a component to be split across nodes. In the cases where
+      subsystem behavior must be split across nodes, it is recommended that you
+      decompose the subsystem into smaller subsystems (each representing a
+      single component) with more restricted functionality.<span style="mso-spacerun: yes; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: HE">&nbsp;
+      </span>Determine the functionality that must reside upon each node and
+      create a new subsystem to &#145;own&#146; that functionality, distributing the
+      responsibilities and related elements of the original subsystem
+      appropriately.<span style="mso-spacerun: yes; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: HE">&nbsp;
+      </span>The new subsystems are internal to the original subsystem.</span></td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Once the design has been organized into subsystems, update the use-case realizations 
+  accordingly.</p>
+<h3><a name="Modeling Subsystems">Modeling Subsystems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Subsystems may be modeled as either UML subsystems or UML components. These 
+  constructs provide almost equivalent modeling capabilities, including:
+<ul>
+  <li>can group classes to define a larger granularity component</li>
+  <li>can separate the visible interfaces from internal implementation</li>
+  <li>can have instances that execute at run-time</li>
+</ul>
+<p>Some differences between these modeling options are:</p>
+<ul>
+  <li>Subsystems explicitly include the notion of &quot;specification&quot; and 
+    &quot;realization&quot; (defined below in the section titled <a href="#Subsystem Specification and Realization">Subsystem 
+    Specification and Realization</a>). This can be expressed with components 
+    by creating separate &quot;specification&quot; and &quot;realization&quot; 
+    models of components.</li>
+  <li>Subsystems are also packages. Components, on the other hand, can be composed 
+    across packages. If you wish to maintain a packaging hierarchy orthogonal 
+    from your component composition, components could be a better choice.</li>
+</ul>
+<p>However, by and large, these notations can be used interchangeably. Whether 
+  to represent Design Subsystems as UML Subsystems or UML Components is a decision 
+  that should be documented in the <a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a> 
+  tailored for your process/project.</p>
+<p>Some other suggestions are:</p>
+<ul>
+  <li>Each Design Subsystem must be given a name and a short description.</li>
+  <li>If your visual modeling tool supports UML packages but not UML subsystems, 
+    a package stereotyped as «subsystem» can be used to denote a subsystem.</li>
+  <li>The responsibilities of the original analysis class should be transferred 
+    to the newly-created subsystem, using the description of the subsystem to 
+    document the responsibilities</li>
+</ul>
+<h3><a name="Subsystems That Represent Existing Products">Subsystems That
+Represent Existing Products</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Where an existing product is one that exports interfaces, i.e. operations
+(and perhaps <a href="../glossary.htm#reception"><b>receptions</b></a>), but
+otherwise keeps all details of implementation hidden, then it may be modeled as
+a subsystem in the logical view.&nbsp; Examples of products the system uses that
+you may be able to represent by a subsystem include:
+<ul>
+  <li>Communication software (middleware).</li>
+  <li>Database access support (RDBMS mapping support).</li>
+  <li>Application-specific products.</li>
+</ul>
+<p>Some existing products such as collections of types and data structures (e.g.
+stacks, lists, queues) may be better represented as packages, because they
+reveal more than behavior, and it is the particular contents of the package that
+are important and useful and not the package itself, which is simply a
+container.&nbsp;</p>
+<p>Common utilities, such as math libraries, could be represented as subsystems,
+if they simply export interfaces, but whether this is necessary or makes sense
+depends on the designer's judgment about the nature of the thing modeled.&nbsp;
+Subsystems are object-oriented constructs that are classifiers as well as
+packages: a subsystem can have instances (if the designer so indicates). UML
+provides another way to model groups of global variables and procedures in the <a href="../glossary.htm#utility"><b>utility</b></a>,
+which is a stereotype of class - the utility has no instances.&nbsp;</p>
+<p>When defining the subsystem to represent the product, also define one or more
+interfaces to represent the product interfaces.</p>
+<h3><a name="Subsystem Dependency Restrictions">Subsystem Dependency
+Restrictions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Subsystems differ from packages in their semantics: a subsystem is a kind of
+package which provides behavior through one or more interfaces which it
+realizes. Packages provide no behavior; they are simply containers of things
+which provide behavior.</p>
+<p>The reason for using a subsystem instead of a package is that subsystems encapsulate 
+  their contents, providing behavior only through their interfaces. The benefit 
+  of this is that, unlike a package, the contents and internal behaviors of a 
+  subsystem can changed with complete freedom so long as the subsystem's interfaces 
+  remain constant. Subsystems also provide a 'replaceable design' element: any 
+  two subsystems (or classes, for that matter) that realize the same interfaces 
+  are interchangeable.</p>
+<p>In order to ensure that subsystems are replaceable elements in the model, a
+few rules need to be enforced:
+<ul>
+  <li>A Subsystem should minimize exposing of its contents. Ideally no element 
+    contained by a subsystem should have 'public' visibility, and thus no element 
+    outside the subsystem depends on the existence of a particular element inside 
+    the subsystem. Some exceptions are as follows:
+    <ul>
+	  <li>The interfaces for the subsystem can be packaged with the subsystem, 
+        and made visible. (However, if these interfaces are potentially re-useable, 
+        they should be packaged outside the subsystem.)</li>
+      <li>In some technologies, the externals of a subsystem cannot be modelled 
+        as a UML interface. For example, a Java interface is modelled as a stereotyped 
+        class.</li>
+      <li>The subsystem design may require exposing classes rather than UML interfaces. 
+        For example, a &quot;delegate&quot; or &quot;access&quot; class can be 
+        used hide a complex collaboration of other classes. While an ordinary 
+        package could be used instead, a subsystem could be used in order to emphasize 
+        the intent to encapsulate behaviour and hide internal details.</li>
+    </ul>
+  </li>
+  When a subsystem's externals are not UML interfaces, it is often helpful to 
+  have a diagram (for example named "External View") that shows the visible elements 
+  of the subsystem. 
+  <li>A Subsystem should define its dependencies on subsystem interfaces (and 
+    publicly visible elements of subsystems in the exceptional cases described 
+    above). In addition, a number of subsystems may share a set of interfaces 
+    or class definitions in common, in which case those subsystems 'import' the 
+    contents of the packages which contain the common elements. This is more common 
+    with packages in lower layers in the architecture, to ensure that common definitions 
+    of classes which must pass between subsystems are consistently defined.</li>
+</ul>
+<p>An example of Subsystem and Package dependencies is shown below:</p>
+<p align="center"><img src="images/md_dsub1.gif" width="370" height="240"></p>
+<p class="picturetext">Subsystem and Package Dependencies in the Design Model<br>
+<br>
+<h3><a name="Subsystem Specification and Realization">Subsystem Specification 
+  and Realization</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="picturetext"> 
+<h4><a name="Definition">Definition</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The UML ([<a href="../referenc.htm#UML01">UML01</a>]) states:</p>
+<blockquote>
+  <p>The contents of a subsystem are divided into two subsets: 1) specification<br>
+    elements and 2) realization elements. The specification elements, together 
+    with the<br>
+    operations and receptions of the subsystem, are used for giving an abstract 
+    specification<br>
+    of the behavior offered by the realization elements. The collection of realization 
+    elements<br>
+    model the interior of the behavioral unit of the physical system.</p>
+</blockquote>
+<p>The separation of specification and realization essentially allows for two 
+  separate descriptions of the subsystem. The specification serves as a contract 
+  that defines everything that a client needs to know to use the subsystem. The 
+  realization is the detailed internal design intended to guide the implementer.</p>
+<p>One option for modeling specifications and realizations, if not directly supported 
+  by the modeling environment, is to place two packages, specification and realization, 
+  inside each subsystem.</p>
+<p>One motivation for specifications is to support multiple realizations. This 
+  is not directly supported in the UML. If you wish to support multiple realizations, 
+  create separate &quot;realization&quot; subsystems, and draw a realization from 
+  each realization subsystem to the specification subsystem.</p>
+<p class="picturetext"> 
+<h4><a name="When and how to use">When and how to use</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>If the internal state and behaviour of the subsystem is relatively simple, 
+  it may be sufficient to specify the subsystem by its exposed interfaces, state 
+  diagrams to describe the behaviour, and descriptive text.</p>
+<p>For more complex internal state and behaviour, analysis classes can be used 
+  to specify the subsystem at a high level of abstraction. For large systems of 
+  systems, the specification of a subsystem may also include use cases. See <a href="../../papers/sis.htm">Developing 
+  Large-Scale Systems with the Rational Unified Process</a>.</p>
+<p>Providing a detailed specification separate from the realization tends to be 
+  most useful in the following situations:</p>
+<ul>
+  <li>the subsystem realization's internal state or behaviour is complex - and 
+    the specification needs to be expressed as simply as possible in order for 
+    clients to use it effectively;</li>
+  <li>the subsystem is a reusable &quot;assembly component&quot; intended for 
+    assembly into a number of systems (see <a href="../workflow/ana_desi/co_component.htm">Concepts: 
+    Component</a>);</li>
+  <li>the subsystem's internals are expected to be developed by a separate organization;</li>
+  <li>multiple implementations of the subsystem need to be created;</li>
+  <li>the subsystem is expected to be replaced with another version that has significant 
+    internal changes without changes to the externally visible behavior.</li>
+</ul>
+<p>Maintaining a separate specification takes effort, however &#151; as one must 
+  ensure that the realization of the subsystem is compliant with the specification. 
+  The criteria for when and if to create separate specification and realization 
+  classes and collaborations should be defined in <a href="../artifact/ar_projspecgls.htm">Artifact: 
+  Project Specific Guidelines.</a></p>
+<h4><a name="Dependencies">Dependencies</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A specification should define its dependencies. These are the interfaces and 
+  visible elements from other subsystems and packages that must be available in 
+  all compliant realizations of the subsystem.</p>
+<p>A realization may have additional dependencies, introduced by the designer 
+  or implementer. For example, there may be an opportunity to use a utility component 
+  to simplify the implementation - but the use of this utility component is a 
+  detail that need not be exposed to clients. These additional dependencies should 
+  be captured on a separate diagram as part of the realization.</p>
+<h4><a name="Relationship to Implementation">Relationship to Implementation</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A fully detailed specification defines everything a client needs to use the 
+  subsystem. This means refining the exposed interfaces and any publicly visible 
+  elements so that they are one-to-one with code. Analysis classes introduced 
+  to specify the subsystem behaviour should remain as high level abstractions, 
+  since they are intended to be independent of any subsystems realizations.</p>
+<p>The realization elements of a subsystem should align closely to the code.</p>
+<p>See <a href="../workflow/implemen/co_mdesc.htm">Concepts: Mapping from Design 
+  to Code</a> for some further discussion on this topic.</p>
+  <br><br>
+  
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

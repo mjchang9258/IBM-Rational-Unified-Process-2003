@@ -1,0 +1,271 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Workflow Detail:&nbsp;Define a Candidate Architecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Workflow Detail:&nbsp;<rpw name="PresentationName">Define a Candidate Architecture</rpw><a name="Top"></a></h2>
+
+<div align="center">
+  <table width="100%" cellpadding="4" border="0" bordercolor="#808080">
+    <tr> 
+      <td colspan="2" valign="top" bgcolor="#FFFFFF" height="24"> 
+        <p>The purpose of this workflow detail is to create an initial sketch 
+          of the software architecture.</p>
+        </td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" bgcolor="#CCCCCC" height="123"> 
+        <h5><br>Topics</h5>
+        <ul>
+          <li><a href="#Description">Description</a></li>
+          <li><a href="#RelatedInformation">Related Information</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Optionality">Optionality</a>&nbsp;</li>
+          <li><a href="#HowToStaff">How to Staff</a></li>
+          <li><a href="#WorkGuidelines">Work Guidelines</a></li>
+        </ul>
+      </td>
+      <td width="90%" height="123"> 
+        <p align="center"><a name="Overview"><map name="RPWMap0">
+
+<area href="../../workers/wk_dsgnr.htm" shape="rect" coords="72,408,110,474">
+<area href="../../artifact/ar_ucmod.htm" shape="rect" coords="233,483,300,539">
+<area href="../../artifact/ar_sspec.htm" shape="rect" coords="138,487,199,547">
+<area href="../../artifact/ar_gloss.htm" shape="rect" coords="70,498,112,548">
+<area href="../../artifact/ar_aclss.htm" shape="rect" coords="267,401,324,469">
+<area href="../../artifact/ar_ucrea.htm" shape="rect" coords="261,329,330,393">
+<area href="../../artifact/ar_desmd.htm" shape="rect" coords="204,280,258,334">
+<area href="../../artifact/ar_sadoc.htm" shape="rect" coords="231,81,281,158">
+<area href="../../artifact/ar_desmd.htm" shape="rect" coords="150,94,205,152">
+<area href="../../artifact/ar_ucmod.htm" shape="rect" coords="80,89,147,146">
+<area href="../../artifact/ar_sspec.htm" shape="rect" coords="16,97,60,153">
+<area href="../../artifact/ar_gloss.htm" shape="rect" coords="20,35,60,87">
+    
+
+
+<area href="../../activity/ac_ucana.htm" shape="rect" coords="144,415,184,467">
+<area href="../../activity/ac_arcan.htm" shape="rect" coords="157,192,217,240">
+    
+
+
+<area href="../../artifact/ar_sadoc.htm" shape="rect" coords="137,288,182,365">
+<area href="../../artifact/ar_projspecgls.htm" shape="rect" coords="71,286,113,352">
+<area href="../../workers/wk_archt.htm" shape="rect" coords="66,181,112,258">
+<area href="../../artifact/ar_refarch.htm" shape="rect" coords="289,166,350,224">
+<area href="../../artifact/ar_dplmdl.htm" shape="rect" coords="288,234,355,297">
+</map><img border="0" src="images/wfs_and1.gif" width="357" height="548" usemap="#RPWMap0">
+</a> </p>
+      </td>
+    </tr>
+  </table>
+<br></div>
+
+<h4><a name="Description">Description</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h4>
+<p>This workflow detail has the following goals:</p>
+<ul>
+  <li>Create an initial sketch of the architecture<b> </b>of the system 
+    <ul>
+      <li>Define an initial set of architecturally significant elements<b> </b>to 
+        be used as the basis for analysis</li>
+      <li>Define an initial set of analysis mechanisms</li>
+      <li>Define the initial layering and organization<b> </b>of the system</li>
+      <li>Define the use-case realizations to be addressed in the current iteration</li>
+    </ul>
+  </li>
+  <li>Identify analysis classes<b> </b>from the architecturally significant use 
+    cases</li>
+  <li>Update the use-case realizations with analysis class interactions</li>
+</ul>
+        <h4><a name="RelatedInformation">Related Information</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>This section provides links to additional information related to this workflow detail.</p>
+
+
+<h4><a name="Timing">Timing</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>Early part of Elaboration phase.</p>
+
+<h4><a name="Optionality">Optionality</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> </h4>
+<p>Required</p>
+  
+<h4><a name="HowToStaff">How to Staff</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4><p>These activities are best carried out by a small team staffed by
+cross-functional team members. Issues that are typically architecturally
+significant include performance, scaling, process and thread synchronization,
+and distribution. The team should also include members with domain experience
+who can identify key abstractions. The team should also have experience with
+model organization and layering. The team will need to be able to pull all these
+disparate threads into a cohesive, coherent (albeit preliminary) architecture.</p>
+<h4><a name="WorkGuidelines">Work Guidelines</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The work is best done in several sessions, perhaps performed over a few days
+(or weeks and months for very large systems), with iteration between <a href="../../activity/ac_arcan.htm">Architectural
+Analysis</a> and <a href="../../activity/ac_ucana.htm">Use-Case Analysis</a>.
+Perform an initial pass at the architecture in <a href="../../activity/ac_arcan.htm">Architectural
+Analysis</a>, then choose architecturally significant use cases, performing <a href="../../activity/ac_ucana.htm">Use-Case
+Analysis</a> on each one. After (or as) each use case is analyzed, update the
+architecture as needed to reflect adaptations required to accommodate new
+behavior of the system and to address potential architectural problems which are
+identified.</p>
+<p>Where the architecture already exists (either from a prior project or
+iteration), change requests may need to be created to change the architecture to
+account for the new behavior the system must support. These changes may be to
+any artifact in the process, depending on the scope of the change.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,604 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Concurrency</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Concurrency</rpw><a name="Top"></a><a name="XE_concurrency__guidelines_for"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Concurrency approaches">Concurrency Approaches</a></li>
+  <li><a href="#Issues">Issues</a>
+    <ul>
+      <li><a href="#Inter-Object Communications">Inter-Object Communications</a></li>
+      <li><a href="#Pragmatics">Pragmatics</a></li>
+    </ul>
+  </li>
+  <li><a href="#Heuristics">Heuristics</a>
+    <ul>
+      <li><a href="#Focus on interactions">Focus on the Interaction between
+        Concurrent Components</a></li>
+      <li><a href="#Isolate and encapsulate external interfaces.">Isolate and
+        Encapsulate External Interfaces</a></li>
+      <li><a href="#Isolate and encapsulate blocking and polling behavior.">Isolate
+        and Encapsulate Blocking and Polling Behavior</a></li>
+      <li><a href="#Prefer reactive behavior to scheduled behavior.">Prefer
+        Reactive Behavior to Polling Behavior</a></li>
+      <li><a href="#Prefer event notification to data broadcasting">Prefer Event
+        Notification to Data Broadcasting</a></li>
+      <li><a href="#Make heavy use of light-weight mechanisms and light use of heavy-weight mechanisms.">Make
+        Heavy Use of Light-weight Mechanisms and Light Use of Heavy-weight
+        Mechanisms.</a></li>
+      <li><a href="#Eschew performance bigotry.">Eschew Performance Bigotry</a></li>
+    </ul>
+  </li>
+  <li><a href="#Choosing Mechanisms">Choosing Mechanisms</a></li>
+  <li><a href="#Summary">Summary</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The art of good design is that of choosing the &quot;best&quot; way to meet a
+set of requirements. The art of good concurrent system design is often that of
+choosing the simplest way to satisfy the needs for concurrency. One of the first
+rules for designers should be to avoid reinventing the wheel. Good design
+patterns and design idioms have been developed to solve most problems. Given the
+complexity of concurrent systems it only makes sense to use well-proven
+solutions and to strive for simplicity of design.</p>
+<h3><a name="Concurrency approaches">Concurrency Approaches</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Concurrent activities that take place entirely within a computer, are called <b>threads
+of execution</b>. Like all concurrent activities, threads of execution are an
+abstract concept since they occur in time. The best we can do to physically
+capture a thread of execution is to represent its state at a particular instant
+in time.</p>
+<p>The most direct way of representing concurrent activities using computers is
+to dedicate a separate computer to each activity. However, this usually too
+expensive and is not always conducive to conflict resolution. It is common,
+therefore, to support multiple activities on the same physical processor through
+some form of <b>multi-tasking</b>. In this case, the processor and its
+associated resources such as memory and busses are shared. (Unfortunately, this
+sharing of resources may also lead to new conflicts that were not present in the
+original problem.)</p>
+<p>The most common form of multi-tasking is to provide each activity with a
+&quot;virtual&quot; processor. This virtual processor is typically referred to
+as a <b>process or task</b>. Normally, each process has its own address space
+that is logically distinct from the address space of other virtual processors.
+This protects processes on conflicting with each other against accidental
+overwrites of each other's memory. Unfortunately, the overhead required to
+switch the physical processor from one process to another is often prohibitive.
+It involves significant swapping of register sets within the CPU (<b>context
+switching</b>) that even with modern high-speed processors may take hundreds of
+microseconds.</p>
+<p>To reduce this overhead, many operating systems provide the ability to
+include multiple <b>lightweight threads</b><i> </i>within a single process. The
+threads within a process share the address space of that process. This reduces
+the overhead involved in context switching, but increases the likelihood of
+memory conflicts.</p>
+<p>For some high-throughput applications, even the overhead of lightweight
+thread switching may be unacceptably high. In such situations it is common to
+have an even lighter-weight form of multi-tasking that is achieved by taking
+advantage of some special features of the application.</p>
+<p>The concurrency requirements of the system can have a dramatic impact upon
+the architecture of the system. The decision to move functionality from a uni-process
+architecture to a multi-process architecture introduces significant changes to
+the structure of the system, in many dimensions. Additional mechanisms (e.g.
+remote procedure calls) may need to be introduced which may substantially change
+the architecture of the system.</p>
+<p>System availability requirements must be considered, as well as the
+additional overhead of managing the additional processes and threads.</p>
+<p>As with most architectural decisions, changing the process architecture
+effectively trades one set of problems for another:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="18%"><p class="tableheading">Approach</td>
+    <td width="46%"><p class="tableheading">Advantages</td>
+    <td width="46%"><p class="tableheading">Disadvantages</td>
+  </tr>
+  <tr>
+    <td width="18%">Uni-process, no threads</td>
+    <td width="46%">
+    <ul>
+      <li>Simplicity</li>
+      <li>Fast intra-process messaging</li>
+    </ul>
+    </td>
+    <td width="46%">
+    <ul>
+          <li>Hard to balance workload</li>
+          <li>Can't scale to multiple processors</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+      <td width="18%">Uni-process, multi-threaded</td>
+    <td width="46%">
+    <ul>
+          <li>Fast intra-process messages</li>
+          <li>Multi-tasking without inter-process communication</li>    <li>Better multi-tasking without the overhead of 'heavyweight' processes</li>
+    </ul>
+    </td>
+    <td width="46%">
+    <ul>
+          <li>Application must be 'thread-safe'</li>
+          <li>Operating system must have efficient thread-management</li>
+          <li>Shared memory issues need to be considered</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="18%">Multi-process</td>
+    <td width="46%">
+    <ul>
+      <li>Scales well as processors are added</li>
+      <li>Relatively easy to distribute across nodes</li>
+    </ul>
+    </td>
+    <td width="46%">
+    <ul>
+      <li>Sensitive to process boundary: using inter-process communication too much hurts performance</li>
+      <li>Swapping and context switches are expensive</li>
+      <li>Harder to design</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>A typical evolutionary path is to start with a uni-process architecture,
+adding processes for groups of behaviors that need to occur simultaneously.
+Within these broader groupings, consider additional needs for concurrency,
+adding threads within processes to increase concurrency.</p>
+<p>The initial starting point is to assign many active objects to a single operating system task
+or thread, using a purpose-built active object scheduler - this way it is
+usually possible to achieve a very lightweight simulation of concurrency,
+although, with a single operating system task or thread, it will not be possible
+to take advantage of machines with multiple CPUs.&nbsp; The key decision is to isolate blocking behavior in separate
+threads, so that blocking behavior does not become a bottleneck. This will
+result in a separation of active objects with blocking behavior into their own
+operating system threads.</p>
+
+<p class="reactive">In real-time systems, this reasoning applies equally to
+capsules - each capsule has a logical thread of control, which may or may not
+share an operating system thread, task or process with other capsules.</p>
+
+<h3><a name="Issues">Issues</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Unfortunately, like many architectural decisions, there are no easy answers;
+the right solution involves a carefully balanced approach. Small architectural
+prototypes can be used to explore the implications of a particular set of
+choices. In prototyping the process architecture, focus on scaling the number of
+processes up to the theoretical maximums for the system. Consider the following
+issues:
+<ul>
+  <li>Can the number of processes be scaled up to the maximum? How far beyond
+    the maximum can the system be pushed? Is there allowance for potential
+    growth?</li>
+  <li>What is the impact of changing some of the processes to lightweight
+    threads which operate in a shared process address space?</li>
+  <li>What happens to response time as the number of processes are added? As the
+    amount of inter-process communication (IPC) is increased? Is there
+    noticeable degradation?</li>
+  <li>Could the amount of IPC be reduced by combining or reorganizing processes?
+    Would such a change result in large monolithic processes which are difficult
+    to load-balance?</li>
+  <li>Can shared memory be used to reduce IPC?</li>
+  <li>Should all processes get &quot;equal time&quot; when time resources are
+    allocated? Is it possible to carry the time allocation? Are there potential
+    draw-backs to changing the scheduling priorities?</li>
+</ul>
+<font face="Arial"><b>
+<h4><a name="Inter-Object Communications">Inter-Object Communications</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</b></font>
+<p>Active objects can communicate with each other synchronously or
+asynchronously. Synchronous communication is useful because it can simplify
+complex collaborations through strictly controlled sequencing. That is, while an
+active object is executing a run-to-completion step that involves synchronous
+invocations of other active objects, any concurrent interactions initiated by
+other objects can be ignored until the full sequence is completed.</p>
+<p>While this is useful in some cases, it can also be problematic since it can
+happen that a more important high-priority event may have to wait (priority
+inversion). This is exacerbated by the possibility that the synchronously
+invoked object may itself be blocked waiting on a response to a synchronous
+invocation of its own. This can lead to unbounded priority inversion. In the
+most extreme case, if there is circularity in the chain of synchronous
+invocations, it can lead to deadlock.</p>
+<p>Asynchronous invocations avoid this problem enabling bounded response times.
+However, depending on the software architecture, asynchronous communication often leads to more complex code since
+an active object may have to respond to several asynchronous events (each of
+which might entail a complex sequence of asynchronous interactions with other
+active objects) at any time. This can be very difficult and error
+prone to implement.&nbsp;</p>
+<p>The use of an asynchronous messaging technology with assured message delivery
+can simplify the application programming task. The application can continue
+operation even if the network connection or remote application is unavailable.
+Asynchronous messaging does not preclude using it in a synchronous mode.
+Synchronous technology will require a connection to be available whenever the
+application is available. Because a connection is known to exist, handling
+commit processing may be easier.</p>
+
+<p class="reactive">In the approach recommended in the Rational Unified Process
+for real-time systems, <a href="../../process/artifact/ar_cpsl.htm">capsules</a>
+communicate asynchronously through the use of <a href="../artifact/ar_signa.htm">signals</a>,
+according to particular <a href="../../process/artifact/ar_prot.htm">protocols</a>. It is
+possible, nevertheless to achieve synchronous communication through the use of
+signal pairs, one in each direction.</p>
+
+<font face="Arial"><b>
+<h4><a name="Pragmatics">Pragmatics</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</b></font>
+<p>Although the context-switching overhead of active objects may be very low, it is
+possible that some applications may still find that cost unacceptable. This
+typically occurs in situations where large amounts of data need to be processed
+at a high rate. In those cases, we may have to fall back to using passive
+objects and more traditional (but higher risk) concurrency management techniques
+such as semaphores.</p>
+<p>These considerations, however, do not necessarily imply that we must abandon
+the active object approach altogether. Even in such data-intensive applications,
+it is often the case that the performance sensitive part is a relatively small
+portion of the overall system. This implies that the rest of the system can
+still take advantage of the active object paradigm.</p>
+<p>In general, performance is only one of the design criteria when it comes to
+system design. If the system is complex, then other criteria such as
+maintainability, ease of change, understandability, etc. are equally if not even
+more important. The active object approach has a clear advantage since it hides
+much of the complexity of concurrency and concurrency management while allowing
+design to be expressed in application-specific terms as opposed to low-level
+technology-specific mechanisms.</p>
+<h3><a name="Heuristics">Heuristics</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4><a name="Focus on interactions">Focus on Interactions between Concurrent
+Components</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Concurrent components with no interactions are an almost trivial problem.
+Nearly all of the design challenges have to do with interactions among
+concurrent activities, so we must first focus our energy on understanding the
+interactions. Some of the questions to ask are:</p>
+<ul>
+  <li>Is the interaction one-directional, bi-directional, or multi-directional?</li>
+  <li>Is there a client-server or master slave relationship?</li>
+  <li>Is some form of synchronization required?</li>
+</ul>
+<p>Once the interaction is understood, we can think about ways to implement it.
+The implementation should be selected to yield the simplest design consistent
+with the performance goals of the system. Performance requirements generally include both overall throughput and acceptable latency in the
+response to externally generated events.</p>
+
+<p class="reactive">These issues are even more critical for real-time systems,
+which are often less tolerant of variations in performance, for example 'jitter'
+in response time, or missed deadlines.</p>
+
+<h4><a name="Isolate and encapsulate external interfaces.">Isolate and
+Encapsulate External Interfaces</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>It is bad practice to embed specific assumptions about external interfaces
+throughout an application, and it is very inefficient to have several threads of
+control blocked waiting for an event. Instead, assign a single object the
+dedicated task of detecting the event. When the event occurs, that object can
+notify any others who need to know about the event. This design is based upon a
+well-known and proven design pattern, the &quot;Observer&quot; pattern [<a href="../referenc.htm#GAM94">GAM94</a>].
+It can easily be extended for even greater flexibility to the
+&quot;Publisher-Subscriber Pattern,&quot; where a publisher object acts as
+intermediary between the event detectors and the objects interested in the event
+(&quot;subscribers&quot;) [<a href="../referenc.htm#BUS96">BUS96</a>].</p>
+<h4><a name="Isolate and encapsulate blocking and polling behavior.">Isolate and
+Encapsulate Blocking and Polling Behavior</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Actions in a system may be triggered by the occurrence of externally generated events. One very important
+externally generated event may be simply the passage of time
+itself, as represented by the tick of a clock. Other external events come from
+input devices connected to external hardware, including user interface devices,
+process sensors, and communication links to other systems.</p>
+
+<p class="reactive">This is overwhelmingly true for real-time systems, which
+typically have high connectivity with the outside world.</p>
+
+<p>In order for software to detect an event, it must be either blocked waiting 
+  for an interrupt, or periodically checking hardware to see if the event has 
+  occurred. In the latter case, the periodic cycle may need to be short to avoid 
+  missing a short lived event or multiple occurrences, or simply to minimize the 
+  latency between the event's occurrence and detection.</p>
+<p>The interesting thing about this is that no matter how rare an event is, some
+software must be blocked waiting for it or frequently checking for it. But many
+(if not most) of the events a system must handle are rare; most of the time, in
+any given system, nothing of any significance is happening.</p>
+<p>The elevator system provides many good examples of this. Important events in 
+  the life of an elevator include a call for service, passenger floor selection, 
+  a passenger's hand blocking the door, and passing from one floor to the next. 
+  Some of these events require very time-critical response, but all are extremely 
+  rare compared to the time-scale of the desired response time.</p>
+<p>A single event may trigger many actions, and the actions may depend upon the
+states of various objects. Furthermore, different configurations of a system may
+use the same event differently. For example, when an elevator passes a floor the
+display in the elevator cab should be updated and the elevator itself must know
+where it is so that it knows how to respond to new calls and passenger floor
+selections. There may or may not be elevator location displays at each floor.</p>
+<h4><a name="Prefer reactive behavior to scheduled behavior.">Prefer Reactive
+Behavior to Polling Behavior</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Polling is expensive; it requires some part of the system to periodically
+stop what it is doing to check to see if an event has occurred. If the event
+must be responded to quickly, the system will have to check for event arrival
+quite frequently, further limiting the amount of other work which can be
+accomplished.</p>
+<p>It is far more efficient to allocate an interrupt to the event, with the
+event-dependent code being activated by the interrupt. Though interrupts are
+sometimes avoided because they are considered &quot;expensive&quot;, using
+interrupts judiciously can be far more efficient than repeated polling.</p>
+<p>Cases where interrupts would be preferred as an event-notification mechanism
+are those where event arrival is random and infrequent, such that most polling
+efforts find that the event had not occurred. Cases where polling would be
+preferred are those in which events arrive in a regular and predictable manner
+and most polling efforts find that the event has occurred. In the middle, there
+will be a point at which one is indifferent to either polling or reactive
+behavior - either will do equally well and the choice matters little. In most
+cases, however, given the randomness of events in the real world, reactive
+behavior is preferred.</p>
+<h4><a name="Prefer event notification to data broadcasting">Prefer Event
+Notification to Data Broadcasting</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <p>Broadcasting data (typically using signals) is expensive, and is typically 
+        wasteful - only a few objects may be interested in the data, but everyone 
+        (or many) must stop to examine it. A better, less resource consumptive 
+        approach is to use notification to inform only those objects who are interested 
+        that some event has occurred. Restrict broadcasting to events which require 
+        the attention of many objects (typically timing or synchronization events).</p>
+<h4><a name="Make heavy use of light-weight mechanisms and light use of heavy-weight mechanisms.">Make
+Heavy Use of Light-weight Mechanisms and Light Use of Heavy-weight Mechanisms</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>More specifically:</p>
+<ul>
+  <li>Use passive objects and synchronous method invocations where concurrency
+    is not an issue but instantaneous response is.</li>
+  <li>Use active objects and asynchronous messages for the vast majority of
+    application-level concurrency concepts.</li>
+  <li>Use OS threads to isolate blocking elements. An active object can be
+    mapped to an OS thread.</li>
+  <li>Use OS processes for maximum isolation. Separate processes are needed if
+    programs need to be started up and shut down independently, and for
+    subsystems which may need to be distributed.</li>
+  <li>Use separate CPUs for physical distribution or for raw horsepower.</li>
+</ul>
+<p>Perhaps the most important guideline for developing efficient concurrent
+applications is to maximize the use of the lightest weight concurrency
+mechanisms. Both hardware and operating system software play a major part in
+supporting concurrency, but both provide relatively heavy-weight mechanisms,
+leaving a great deal of work to the application designer. We are left to bridge
+a big gap between the available tools and the needs of concurrent applications.</p>
+<p>Active objects help to bridge this gap by virtue of two key features:
+<ul>
+  <li>They unify the design abstractions by encapsulating the basic unit of
+    concurrency (a thread of control) which can be implemented using any of the
+    underlying mechanisms provided by the OS or CPU.</li>
+  <li>When active objects share a single OS thread, they become a very
+    efficient, light-weight concurrency mechanism which would otherwise have to
+    be implemented directly in the application.</li>
+</ul>
+<p>Active objects also make an ideal environment for the passive objects
+provided by programming languages. Designing a system entirely from a foundation
+of concurrent objects without procedural artifacts like programs and processes
+leads to more modular, cohesive, and understandable designs.</p>
+<h4><a name="Eschew performance bigotry.">Eschew performance bigotry</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<p>In most systems less than 10% of the code uses more than 90% of the CPU
+cycles.</p>
+<p>Many system designers act as though every line of code must be
+optimized. Instead, spend your time optimizing the 10% of the code that runs
+most often or takes a long time. Design the other 90% with an emphasis on
+understandability, maintainability, modularity, and ease of implementation.</p>
+<h3><a name="Choosing Mechanisms">Choosing Mechanisms</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The non-functional requirements and the architecture of the system will
+affect the choice of mechanisms used to implement remote procedure calls.&nbsp;
+An overview of the kinds of trade-offs between alternatives is presented
+below.&nbsp;</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="20%">Mechanism</td>
+    <td width="26%">Uses</td>
+    <td width="54%">Comments</td>
+  </tr>
+  <tr>
+    <td width="20%">Messaging</td>
+    <td width="26%">Asynchronous access to enterprise servers</td>
+    <td width="54%">Messaging middleware can simplify the application
+    programming task by handling queuing, timeout and recovery/restart
+    conditions. You can also use messaging middleware in a pseudo-synchronous
+    mode. Typically, messaging technology can support large message sizes. Some
+    RPC approaches may be limited in message sizes, requiring additional
+    programming to handle large messages.</td>
+  </tr>
+  <tr>
+    <td width="20%">JDBC/ODBC</td>
+    <td width="26%">Database calls</td>
+    <td width="54%">These are database-independent interfaces for Java servlets
+      or application programs to make calls to databases that may be on the same or another server.
+	</td>
+  </tr>
+  <tr>
+    <td width="20%">Native interfaces</td>
+    <td width="26%">Database calls</td>
+    <td width="54%">Many database vendors have implemented native application
+    program interfaces to their own databases which offer a performance
+    advantage over ODBC at the expense of application portability.</td>
+  </tr>
+  <tr>
+    <td width="20%">Remote Procedure Call</td>
+    <td width="26%">To call programs on remote servers</td>
+    <td width="54%">You may not need to program at the RPC level if you have an
+    application builder that takes care of this for you.</td>
+  </tr>
+  <tr>
+    <td width="20%">Conversational</td>
+    <td width="26%">Little used in e-business applications</td>
+    <td width="54%">Typically low-level program-to-program communication using protocols such as APPC or Sockets.</td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<h3><a name="Summary">Summary</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Many systems require concurrent behavior and distributed components.
+Most programming languages give us very little help with either of these issues.
+We have seen that we need good abstractions to understand both the need for
+concurrency in applications, and the options for implementing it in software. We
+have also seen that, paradoxically, while concurrent software is inherently more
+complex than non-concurrent software, it is also capable of vastly simplifying
+the design of systems which must deal with concurrency in the real world.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

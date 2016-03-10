@@ -1,0 +1,244 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Generalization in the Business Analysis Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Generalization 
+  in the Business Analysis Model</rpw><a name="Top"></a><a name="XE_generalizations_in_business_object_model__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Concrete and Abstract Classes">Concrete and abstract classes</a></li>
+  <li><a href="#Use">Use</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Many things in real life have common properties. For example, both dogs and
+cats are animals. Classes can have common properties as well. Relationships of
+this type between classes can be clarified by means of a <b>generalization</b>.
+By extracting common properties into classes of their own, the business model
+will be easier to change in the future.</p>
+<p>A class that inherits general characteristics from another class is called a
+descendant. The class from which the descendant has inherited is called the
+ancestor. A generalization shows that one class inherits from another. This
+means that the definition of the ancestor, including any attributes or
+operations, is also valid for the descendant. The ancestor’s relationships are
+also inherited.</p>
+<p>Generalization can take place in several stages, which makes it possible to
+model complex, multileveled inheritance hierarchies, although the number of
+levels should be restricted for easier understanding. General properties are
+placed in the upper part of the inheritance hierarchy, and special properties
+lower down in the hierarchy. In other words, the generalization-relationship can
+be used to model specializations of a more general concept.</p>
+<h5>Example:</h5>
+<p class="example">Passengers arriving at the airport check-in bring different
+kinds of baggage, Normal Baggage, Hand Baggage and Special Baggage. From the
+airline's viewpoint, they have a few common properties, besides being baggage—each
+bag has an owner and a weight, for example. These common properties can be
+modeled by attributes and operations in a separate class called Baggage. Normal
+Baggage, Hand Baggage and Special Baggage will inherit from this class.</p>
+<p align="CENTER"><img src="images/bgener1.gif" width="176" height="147"></p>
+<p class="picturetext">Normal Baggage, Hand Baggage, and Special Baggage classes
+have common properties. They are all specializations of the general concept
+Baggage.</p>
+<p>A class can inherit several other classes–this is called &quot;multiple
+inheritance&quot;—although normally it will inherit only one. If the class
+inherits several classes, it is important to check how the associations, the
+attributes, and the operations are named in the ancestors. If the same name
+appears in several ancestors, you must describe what this means to the specific
+inheriting class.</p>
+<h3><a name="Concrete and Abstract Classes">Concrete and Abstract Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A class that exists only so that other classes can inherit it is an abstract
+class. An abstract class is never instantiated. However, an object of a class
+that inherits an abstract class conforms to its own description and the
+description of the inherited class. Classes that are instantiated in the
+business are concrete classes<b>.</b></p>
+<p>In this context, &quot;abstract&quot; means something completely different to
+what it means in ordinary speech. Something may very well be abstract in the
+ordinary sense of the word without being represented by an abstract class.
+Lessons in school are abstract phenomena, or concepts‚ because they cannot be
+touched. However, if you model school activities, a lesson would most likely
+resemble a concrete class—one that is instantiated. Similarly, concrete
+phenomena, such as products and persons, can be said to produce abstract classes
+if they have properties in common with other classes.</p>
+<h3><a name="Use">Use</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The main purpose of using inheritance is to achieve an object model that
+accommodates change. However, inheritance should be used carefully:
+<ul>
+  <li>Inheritance is &quot;only&quot; a way to structure the description. You
+    visualize which phenomena have some properties in common.</li>
+</ul>
+<blockquote>
+  <p>When it comes to realization, you still have to find an employee capable of
+  performing both the job of the ancestor, and that of the descendant whenever a
+  descendant class should be instantiated.</p>
+</blockquote>
+<ul>
+  <li>Use generalizations only between classes of the same stereotype.</li>
+</ul>
+<blockquote>
+  <p>Because different class stereotypes have different purposes, a
+  generalization from a class of one stereotype to a class of another stereotype
+  would not make sense. If you let a business worker class inherit a business
+  entity, for instance, the business worker would become a kind of hybrid.</p>
+</blockquote>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

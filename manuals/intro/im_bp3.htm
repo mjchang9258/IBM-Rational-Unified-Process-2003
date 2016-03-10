@@ -1,0 +1,301 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Best Practice: Use Component Architectures</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  <h2 class="banner"><a name="Top"></a>Best Practice: Use Component Architectures</h2>
+<p align="center"><img src="images/softarch.gif" width="312" height="187"></p>
+<p class="picturetext"><a href="../../process/glossary.htm#component-based_development_(CBD)">Component-based</a>
+<a href="../../process/glossary.htm#architecture">architecture</a> with <a href="../../process/glossary.htm#layer">layers</a></p>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#What are Component Architectures">What Does Component
+    Architecture Mean?</a></li>
+  <li><a href="#Architectural Emphasis">Architectural Emphasis</a></li>
+  <li><a href="#Component-Based Development (CBD)">Component-based Development</a></li>
+</ul>
+<h2><a name="What are Component Architectures">What Does Component Architecture
+Mean</a>? <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>A Component Architecture is an architecture based on replaceable components 
+  as described in <a href="../../process/workflow/ana_desi/co_component.htm">Concepts: 
+  Component</a>. Because Component Architectures are based on independent, replaceable, 
+  modular components, they help to manage complexity and encourage re-use.</p>
+<h2><a name="Architectural Emphasis">Architectural Emphasis</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Use cases drive the Rational Unified Process (RUP) end-to-end over the whole
+lifecycle, but the design activities are centered around the notion of system<i>
+</i><a href="../../process/glossary.htm#architecture">architecture</a>
+ and, for software-intensive systems, software architecture.
+The main focus of the early iterations of the process&#151;mostly in the
+elaboration phase&#151;is to produce and validate a <a href="../../process/glossary.htm#software_architecture">software
+architecture</a><i>, </i>which in the initial development cycle takes the form
+of an executable architectural prototype that gradually evolves to become the
+final system in later iterations.</p>
+<p>By executable architecture, we mean a
+partial implementation of the system built to demonstrate selected system
+functions and properties, in particular those satisfying non-functional
+requirements. The purpose of executable architecture is to mitigate risks related to performance, throughput,
+capacity, reliability, and other &quot;ilities&quot;, so that the complete functional
+capability of the system may be added in the <a href="../../process/glossary.htm#construction">construction
+phase</a> on a solid foundation, without fear of breakage.</p>
+<p>For an introduction to the notion of architecture&#151;most specifically
+software architecture&#151;and an explanation of why this notion is crucial, see <a href="../../process/workflow/ana_desi/co_swarch.htm">Concepts:
+Software Architecture</a>.</p>
+      <p>The RUP provides a methodical, systematic way to 
+        design, develop, and validate an architecture. We offer templates for 
+        architectural description around the concepts of multiple architectural 
+        views, and for the capture of architectural style, design rules, and constraints. 
+        The <a href="../../process/workflow/ovu_and.htm">Analysis 
+        and Design</a> discipline contains specific activities aimed at identifying 
+        architectural constraints and architecturally significant elements, as 
+        well as guidelines on how to make architectural choices. The management 
+        process shows how the planning of the early iterations takes into account 
+        the design of an architecture and the resolution of the major technical 
+        risks. See the <a href="../../process/workflow/ovu_mgm.htm">Project Management</a> 
+        discipline and all activities associated with the <a href="../../process/workers/wk_archt.htm">Role: 
+        Software Architect</a> for further information.</p>
+<p>Architecture is important for several reasons:
+<ul>
+  <li>It lets you gain and retain intellectual control over the project, to
+    manage its complexity and to maintain system integrity.</li>
+</ul>
+<blockquote>
+<p>A complex system is more than the sum of its parts; more than a succession of
+small independent tactical decisions. It must have some unifying, coherent
+structure to organize those parts systematically and it must provide precise rules on
+how to grow the system without having its complexity &quot;explode&quot; beyond
+human understanding.</p>
+<p>The architecture establishes the means for improved communication and
+understanding throughout the project by establishing a common set of references,
+a common vocabulary with which to discuss design issues.
+</blockquote>
+<ul>
+  <li>It is an effective basis for large-scale reuse.</li>
+</ul>
+<blockquote>
+<p>By clearly articulating the major components and the critical interfaces
+between them, an architecture lets you reason about reuse&#151;both internal reuse,
+which is the identification of common parts, and external reuse, which is the incorporation of
+ready-made, off-the-shelf components. However, it also allows reuse on a larger
+scale: the reuse of the architecture itself in the context of a line of products
+that addresses different functionality in a common domain.
+</blockquote>
+<ul>
+  <li>It provides a basis for project management.</li>
+</ul>
+<blockquote>
+<p>Planning and staffing are organized along the lines of major components.
+Fundamental structural decisions are taken by a small, cohesive architecture
+team; they are not distributed. Development is partitioned across a set of small
+teams, each responsible for one or several parts of the system.</p>
+</blockquote>
+<h2><a name="Component-Based Development (CBD)">Component-Based Development</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Component-based development is a variation on general application development 
+  in which:</p>
+<blockquote> 
+  <ul>
+    <li>The application is <b>built from discrete executable components</b> 
+      which are<b> developed relatively independently of one another</b>, 
+      potentially by different teams. These are referred to in RUP as &quot;assembly 
+      components&quot;. See <a href="../../process/workflow/ana_desi/co_component.htm">Concepts: 
+      Component</a> for a more detailed definition. </li>
+    <li>The application may be <b>upgraded in smaller increments</b> 
+      by upgrading only some of the assembly components that comprise the application.</li>
+    <li>Assembly components may be shared between applications, 
+      creating opportunities for <b>reuse</b>, but also creating <b>inter-project 
+      dependencies</b>.</li>
+    <li>Though not strictly related to being component-based, component-based 
+      applications tend to be <b>distributed</b>.</li>
+  </ul>
+</blockquote>
+<p>Assembly components result from the following: 
+<ul>
+  <li>In defining a very modular architecture, you identify, isolate, design, 
+    develop, and test well-formed components. These components can be individually 
+    tested and gradually integrated to form the whole system.</li>
+  <li>Furthermore, some of these components can be developed to be reusable, especially 
+    the components that provide common solutions to a wide range of common problems. 
+    These reusable components, which may be larger than just collections of utilities 
+    or class libraries, form the basis of reuse within an organization, increasing 
+    overall software productivity and quality.</li>
+  <li>More recently, the advent of commercially successful, component infrastructures&#151;such 
+    as CORBA, the Internet, ActiveX, JavaBeans, .NET and J2EE &#151; trigger a whole 
+    industry of off-the-shelf components for various domains, allowing you to 
+    buy and integrate components rather than developing them all in-house.</li>
+</ul>
+<p>The first point in the preceding list exploits the old concepts of modularity 
+  and encapsulation, bringing those concepts underlying object-oriented technology 
+  a step further. The last two points in the list shift software development from 
+  programming software one line at a time, to composing software by assembling 
+  components.</p>
+
+<p><a name="XE_component-based_development_(CBD)__as_a_feature_in_the_Unified_Process"></a>The
+RUP supports component-based development in these ways:
+<ul>
+  <li>The iterative approach allows you to progressively identify components, 
+    and decide which ones to develop, which ones to reuse, and which ones to buy.</li>
+  <li>The focus on software architecture allows you to articulate the structure&#151;the 
+    components and the ways in which they integrate&#151;which include the fundamental 
+    mechanisms and patterns by which they interact. This in turn supports the 
+    planning aspects of project management, in that the component dependencies 
+    can help determine which components can be developed concurrently, and which 
+    sequentially.<br>
+  </li>
+  <li>Concepts, such as packages, subsystems, and layers, are used during Analysis 
+    &amp; Design to organize components and to specify interfaces.</li>
+  <li>Testing is first organized around components, then gradually around larger 
+    sets of integrated components.</li>
+</ul>
+<p>For more on components, refer to <a href="../../process/workflow/ana_desi/co_component.htm">Concepts: Component</a>.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

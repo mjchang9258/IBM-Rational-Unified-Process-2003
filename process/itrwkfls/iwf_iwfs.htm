@@ -1,0 +1,262 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Lifecycle:&nbsp;RUP Lifecycle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h1 class="banner"><a name="Top"></a><rpw name="PresentationName">RUP Lifecycle</rpw> <a name="XE_phases__overview"></a></h1>
+
+<p>&nbsp;</p>
+<p align="center" class="banner">
+  <map name="FPMap0"> 
+    <area href="iwf_iii.htm" shape="rect" coords="3,7,70,32">
+    <area href="iwf_iie.htm" shape="rect" coords="73,7,152,32">
+    <area href="iwf_lic.htm" shape="rect" coords="167,7,281,32">
+    <area href="iwf_lit.htm" shape="rect" coords="303,7,369,32">
+    <area href="ms_lco.htm" shape="rect" coords="43,61,104,103">
+    <area href="ms_lca.htm" shape="rect" coords="124,60,194,107">
+    <area href="ms_ioc.htm" shape="rect" coords="264,62,328,118">
+    <area href="ms_pr.htm" shape="rect" coords="348,62,401,106">
+  </map>
+  <img src="../workflow/manageme/images/co_phas1.gif" border="0" usemap="#FPMap0" alt="Click on text for more information about phases and milestones" width="406" height="156">
+</p>
+
+<p align="center" class="picturetext">The phases and milestones of a project</p>
+
+<p>From a management perspective, the software lifecycle of the Rational 
+  Unified Process (RUP) is decomposed over time into four sequential phases, each 
+  concluded by a major milestone; each phase is essentially a span of time between 
+  two major milestones. At each phase-end an assessment is performed to determine 
+  whether the objectives of the phase have been met. A satisfactory assessment 
+  allows the project to move to the next phase.</p>
+
+
+<h4>Planning Phases</h4>
+<p>All phases are not identical in terms of schedule and effort. Although this 
+  varies considerably depending on the project, a typical initial development 
+  cycle for a medium-sized project should anticipate the following distribution 
+  between effort and schedule:</p>
+
+<div align="center"><center>
+<table border="1" colspec="L13 L6 L7 L8 L7" width="85%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right" width="69" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">&nbsp;</td>
+    <td width="96" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><a href="iwf_iii.htm"><b>Inception</b></a></td>
+    <td width="88" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><a href="iwf_iie.htm"><b>Elaboration</b></a></td>
+    <td width="92" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><a href="iwf_lic.htm"><b>Construction</b></a></td>
+    <td width="100" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"><a href="iwf_lit.htm"><b>Transition</b></a></td>
+  </tr>
+  <tr>
+    <td align="right" width="69" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Effort</td>
+    <td width="96" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">~5
+    %</td>
+    <td width="88" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">20
+    %</td>
+    <td width="92" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">65
+    %</td>
+    <td width="100" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">10%</td>
+  </tr>
+  <tr>
+    <td align="right" width="69" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">Schedule</td>
+    <td width="96" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">10
+    %</td>
+    <td width="88" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">30
+    %</td>
+    <td width="92" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">50
+    %</td>
+    <td width="100" align="center" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">10%</td>
+  </tr>
+</table>
+</center></div>
+
+<p>&nbsp;</p>
+<p>which can be depicted graphically as</p>
+<p align="center">
+  <map name="FPMap1"> 
+    <area href="iwf_lit.htm" shape="rect" coords="360,41,407,139">
+    <area href="iwf_lic.htm" shape="rect" coords="172,19,352,139">
+    <area href="iwf_iie.htm" shape="rect" coords="58,69,170,139">
+    <area href="iwf_iii.htm" shape="rect" coords="5,78,56,139">
+  </map>
+  <img src="../activity/images/dprpl001.gif" border="0" usemap="#FPMap1" alt="Click on a phase for more information" width="413" height="165"></p>
+
+<p>For an evolution cycle, the inception and elaboration phases would be considerably 
+  smaller. Tools which can automate some portion of the Construction effort can 
+  mitigate this, making the construction phase much smaller than the inception 
+  and elaboration phases together.</p>
+<p>One pass through the four phases is a <b>development cycle</b>; each pass through 
+  the four phases produces a <b>generation </b>of the software. Unless the product 
+  &quot;dies,&quot; it will evolve into its next generation by repeating the same 
+  sequence of inception, elaboration, construction and transition phases, but 
+  this time with a different emphasis on the various phases. These subsequent 
+  cycles are called <b>evolution cycles. </b>As the product goes through several 
+  cycles, new generations are produced.</p>
+
+<p align="center"><img src="../workflow/manageme/images/co_phas2.gif" width="431" height="115"></p>
+
+<p>Evolution cycles may be triggered by user-suggested enhancements, changes in 
+  the user context, changes in the underlying technology, reaction to the competition, 
+  and so on. Evolution cycles typically have much shorter Inception and Elaboration 
+  phases, since the basic product definition and architecture are determined by 
+  prior development cycles.&nbsp;&nbsp; Exceptions to this rule are evolution 
+  cycles in which a significant product or architectural redefinition occurs.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

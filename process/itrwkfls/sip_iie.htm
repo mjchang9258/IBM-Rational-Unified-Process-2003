@@ -1,0 +1,557 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Sample Iteration Plan: Elaboration Phase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">
+<rpw name="PresentationName">Sample Iteration Plan</rpw>: Elaboration Phase</h2>
+<p>This is an example of a typical iteration schedule in the Elaboration Phase 
+  of a project following the <b>Classic RUP configuration</b> or similar. This 
+  illustration shows the relationship of the workflows in the iteration. It is 
+  constructed from the Workflow Details as they would appear at that time. The 
+  intent is to indicate dependencies and show where workflows occur in parallel. 
+  The lengths of the bars in the chart (indicating duration) have no absolute 
+  significance. For example, it is not intended to convey that Plan for Next Iteration 
+  and Manage the Scope of the System must have the same duration. There is also 
+  no intention to suggest the application of a uniform level of effort across 
+  the duration of the workflows. An indication of the relative effort can be seen 
+  in the <a href="../ovu_proc.htm">Process Overview</a>. You can navigate to the 
+  corresponding Workflow Detail pages from each line of the chart by clicking 
+  on the Workflow Detail name. This illustration was created from a <a href="../../prjtmpl/mgmt/mp_elabit.htm">Microsoft 
+  Project Plan</a>.</p>
+<p>Note that although this is a plan for a single iteration, not all Requirements 
+  and Analysis and Design work performed during this iteration is intended for 
+  Implementation and Test in this iteration. This explains why the relative effort, 
+  within an iteration, for Requirements, Analysis and Design, Implementation and 
+  Test, changes through the lifecycle. However, the Iteration Plan will dictate 
+  what requirements are explored and refined and what components are designed, 
+  even if they are intended for Implementation and Test in a later iteration.</p>
+<p align="center">
+  <map name="FPMap0"> 
+    <area href="../workflow/conf_mgt/wfd_monrpt.htm" shape="rect" coords="22,797,271,833">
+    <area href="../workflow/conf_mgt/wfd_mgbsln.htm" shape="rect" coords="21,755,269,773">
+    <area href="../workflow/conf_mgt/wfd_mgchrq.htm" shape="rect" coords="21,774,270,793">
+    <area href="../workflow/conf_mgt/wfd_chdel.htm" shape="rect" coords="21,735,268,754">
+    <area href="../workflow/environm/wfs_env2.htm" shape="rect" coords="23,673,271,693">
+    <area href="../workflow/environm/wfs_env4.htm" shape="rect" coords="22,693,271,711">
+    <area href="../workflow/test/wfs_imptstast.htm" shape="rect" coords="15,630,269,647">
+    <area href="../workflow/test/wfs_achmsnacp.htm" shape="rect" coords="16,607,268,628">
+    <area href="../workflow/test/wfs_tstandevl.htm" shape="rect" coords="15,588,268,606">
+    <area href="../workflow/test/wfs_vrftstapr.htm" shape="rect" coords="16,567,268,588">
+    <area href="../workflow/test/wfs_dfnevlmsn.htm" shape="rect" coords="17,544,267,564">
+    <area href="../workflow/implemen/wfs_inss.htm" shape="rect" coords="19,481,271,499">
+    <area href="../workflow/implemen/wfs_implc.htm" shape="rect" coords="19,461,267,480">
+    <area href="../workflow/implemen/wfs_pint.htm" shape="rect" coords="19,442,264,460">
+    <area href="../workflow/implemen/wfs_stim.htm" shape="rect" coords="19,420,265,438">
+    <area href="../workflow/implemen/wfs_insy.htm" shape="rect" coords="19,501,269,522">
+    <area href="../workflow/ana_desi/wfs_and2.htm" shape="rect" coords="15,378,269,396">
+    <area href="../workflow/ana_desi/wfs_and7.htm" shape="rect" coords="17,357,271,375">
+    <area href="../workflow/ana_desi/wfs_and4.htm" shape="rect" coords="18,335,270,358">
+    <area href="../workflow/ana_desi/wfs_and3.htm" shape="rect" coords="19,314,265,332">
+    <area href="../workflow/ana_desi/wfs_and1.htm" shape="rect" coords="20,293,265,312">
+    <area href="../workflow/requirem/wfs_mnch.htm" shape="rect" coords="22,250,298,269">
+    <area href="../workflow/requirem/wfs_refs.htm" shape="rect" coords="21,232,301,248">
+    <area href="../workflow/requirem/wfs_sco.htm" shape="rect" coords="24,213,303,230">
+    <area href="../workflow/requirem/wfs_defs.htm" shape="rect" coords="21,189,297,209">
+    <area href="../workflow/requirem/wfs_unsh.htm" shape="rect" coords="19,167,295,184">
+    <area href="../workflow/requirem/wfs_anpr.htm" shape="rect" coords="18,147,291,166">
+    <area href="../workflow/manageme/wfs_eval.htm" shape="rect" coords="16,62,293,79">
+    <area href="../workflow/manageme/wfs_moncon.htm" shape="rect" coords="14,42,291,61">
+<area href="../workflow/manageme/wfs_manit.htm" shape="rect" coords="11, 19, 292, 36">
+    <area href="../workflow/manageme/wfs_plan.htm" shape="rect" coords="13,80,297,99">
+    <area href="../workflow/manageme/wfs_sdp.htm" shape="rect" coords="15,104,298,122">
+  </map>
+  <img src="images/elab.gif" border="0" usemap="#FPMap0" width="620" height="818" ></p>
+<p>At the start of the elaboration phase, the <a href="iwf_iii.htm">Inception 
+  Phase</a> has been completed and the project has been funded. An initial <a href="../artifact/ar_sdp.htm">Artifact: 
+  Software Development Plan</a> exists, along with preliminary <a href="../artifact/ar_itpln.htm">Artifact: 
+  Iteration Plan</a>s for at least the Elaboration Phase. The requirements of 
+  the system, captured by the <a href="../artifact/ar_ucmod.htm">Artifact: Use-Case 
+  Model</a> and <a href="../artifact/ar_sspec.htm">Artifact: Supplementary Specifications</a>, 
+  have been briefly outlined.</p>
+
+
+
+<h4><a name="XE_elaboration_iteration__example_of_iteration_workflow_in_elaboration_phase"></a><a name="XE_elaboration_phase__example_of_iteration_workflow_in_elaboration_phase"></a>Sample
+Iteration Plan</h4>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Start up: Outline the iteration plan, risks, and 
+          architectural objectives.
+      </td>
+      <td width="80%">The <a href="../artifact/ar_itpln.htm">Artifact: Iteration Plan</a> 
+        for this iteration was constructed by the <a href="../workers/wk_projm.htm">Role: 
+        Project Manager</a> after the previous iteration was assessed and the 
+        project scope and risk reevaluated. The evaluation criteria for the architecture 
+        are outlined by the <a href="../workers/wk_archt.htm">Role: Software Architect</a> 
+        in the <a href="../artifact/ar_sadoc.htm">Artifact: Software Architecture 
+        Document</a>, taking into consideration the &quot;architectural risks&quot; 
+        that are to be mitigated (see <a href="../artifact/ar_rskls.htm">Artifact: 
+        Risk List</a>). Remember that one of the goals of Elaboration is establishing 
+        a robust, executable architecture; the plan for doing this needs to be 
+        developed in the initial Elaboration iteration.</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Environment: Prepare environment for the iteration&nbsp;
+      </td>
+      <td width="80%">The <a href="../workers/wk_prcen.htm">Role: Process Engineer</a> 
+        and the <a href="../workers/wk_tlsmt.htm">Role: Tool Specialist</a> prepare 
+        the environment for the iteration (see the <a href="../workflow/environm/wfs_env2.htm">Workflow 
+        Detail: Prepare Environment for an Iteration</a>). An important input 
+        is the evaluation of the previous iteration. The <a href="../workers/wk_prcen.htm">Role: 
+        Process Engineer</a> completes the <a href="../artifact/ar_devcs.htm">Artifact: 
+        Development Case</a> and tailor templates (see <a href="../artifact/ar_prjspctmp.htm">Artifact: 
+        Project-Specific Templates</a>) and guidelines (see <a href="../artifact/ar_projspecgls.htm">Artifact: 
+        Project-Specific Guidelines</a>), to be ready for the iteration, by tailoring 
+        (at least) the Analysis &amp; Design discipline and the Implementation 
+        discipline. The <a href="../workers/wk_tlsmt.htm">Role: Tool Specialist</a> 
+        sets up the tools (see <a href="../artifact/ar_tools.htm">Artifact: Tools</a>) 
+        to be used in the iteration. </td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Requirements: Decide what will &quot;drive&quot; 
+          the development of the architecture.
+      </td>
+      <td width="80%">The <a href="../workers/wk_archt.htm">Role: Software Architect</a> and 
+        the <a href="../workers/wk_projm.htm">Role: Project Manager</a> then determine 
+        which use cases and/or scenarios should be addressed in the current iteration; 
+        these use cases and/or scenarios drive the development of the architecture 
+        (see <a href="../workflow/requirem/wfs_sco.htm">Workflow Detail: Manage 
+        the Scope of the System</a> in the <a href="../workflow/requirem/in_req.htm">Requirements 
+        Discipline</a>). The <a href="../artifact/ar_itpln.htm">Artifact: Iteration 
+        Plan</a> created in previous step should be updated accordingly.</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Understand the &quot;drivers&quot; in detail, 
+          if necessary; inspect results.
+      </td>
+      <td width="80%">A number of <a href="../workers/wk_ucaut.htm">Role: Requirements Specifier</a>s 
+        then describe in detail the architecturally significant subsets of the 
+        selected use cases or scenarios (see <a href="../workflow/requirem/wfs_refs.htm">Workflow 
+        Detail: Refine the System Definition</a> in the Requirements discipline). 
+        As the model evolves, the <a href="../workers/wk_sysan.htm">Role: System 
+        Analyst</a> may restructure the <a href="../artifact/ar_ucmod.htm">Artifact: 
+        Use-Case Model</a> to improve the comprehensibility of the model. The 
+        changes to the <a href="../artifact/ar_ucmod.htm">Artifact: Use-Case Model</a> 
+        are then reviewed and approved (see <a href="../workflow/requirem/wfs_mnch.htm">Workflow 
+        Detail: Manage Changing Requirements</a> in the <a href="../workflow/requirem/in_req.htm">Requirements 
+        Discipline</a>)</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">The &quot;drivers&quot; of the architecture are 
+          reconsidered according to new information; risks also need to be reconsidered.
+      </td>
+      <td width="80%">The use-case view is revisited again by the <a href="../workers/wk_archt.htm">Role: 
+        Software Architect</a>, taking into consideration new use-case descriptions, 
+        and possibly a new structure of the <a href="../artifact/ar_ucmod.htm">Artifact: 
+        Use-Case Model</a> (revisit <a href="../workflow/requirem/wfs_sco.htm">Workflow 
+        Detail: Manage the Scope of the System</a> in the <a href="../workflow/requirem/in_req.htm">Requirements 
+        Discipline</a>). The task now is to select what set of use cases and/or 
+        scenarios should be analyzed, designed and implemented in the current 
+        iteration. Note again that the development of these use cases and/or scenarios 
+        set the software architecture. The <a href="../workers/wk_projm.htm">Role: 
+        Project Manager</a> again updates the current iteration plan accordingly 
+        (see <a href="../artifact/ar_itpln.htm">Artifact: Iteration Plan</a>), 
+        and might also reconsider risk management, because new risks might have 
+        been made visible according to new information (see <a href="../artifact/ar_rskls.htm">Artifact: 
+        Risk List</a>).</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Use-Case Analysis: Find obvious classes, do an 
+          initial (high-level) subsystem partitioning, and start looking at the 
+          &quot;drivers&quot; in detail.
+      </td>
+      <td width="80%">To get a general feeling of the obvious classes needed, the <a href="../workers/wk_archt.htm">Role: 
+        Software Architect</a> then considers the system requirements, the glossary, 
+        the use-case view (but not use case descriptions), and the team's general 
+        domain knowledge to sketch the outline of the subsystems, possibly in 
+        a layered fashion (see <a href="../activity/ac_iddes.htm">Activity: Identify 
+        Design Elements</a> in the <a href="../workflow/ana_desi/in_and.htm">Analysis 
+        &amp; Design Discipline</a>). The analysis mechanisms (common solutions 
+        to frequent analysis problems) are also identified by the software architect. 
+        In parallel with this effort, a team of <a href="../workers/wk_dsgnr.htm">Role: 
+        Designer</a>s, possibly together with the software architect, will start 
+        finding <a href="../artifact/ar_aclss.htm">Artifact: Analysis Class</a>es 
+        for this iteration's use cases and/or scenarios, as well as beginning 
+        to allocate responsibilities to the identified classes and analysis mechanisms, 
+        in the process updating the <a href="../artifact/ar_ucrea.htm">Artifact: 
+        Use-Case Realization</a>s. The designers will use the obvious classes 
+        found by the software architect as input. 
+        <p>Then, a number of designers refine the classes identified in the previous 
+          step by allocating responsibilities to the classes, and updating their 
+          relationships and attributes. It is determined in detail how the available 
+          analysis mechanisms are used by each class. When this is done, the <a href="../workers/wk_archt.htm">Role: 
+          Software Architect</a> identifies a number of classes that should be 
+          considered as architecturally significant, and includes these classes 
+          in the logical view section of the <a href="../artifact/ar_sadoc.htm">Artifact: 
+          Software Architecture Document</a>. The resulting analysis artifacts 
+          are then reviewed.
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Design: Adjust to the implementation environment, 
+          decide how the &quot;drivers&quot; are to be designed, and refine the 
+          definition of classes, packages and subsystems; inspect results.
+      </td>
+      <td width="80%">The <a href="../workers/wk_archt.htm">Role: Software Architect</a> then 
+        refines the architecture by deriving the design mechanisms (e.g. programming 
+        language, database, distribution mechanism, communication mechanism) needed 
+        by the earlier identified analysis mechanisms (see <a href="../activity/ac_dsmec.htm">Activity: 
+        Identify Design Mechanisms</a> in the <a href="../workflow/ana_desi/in_and.htm">Analysis 
+        &amp; Design Discipline</a>). <a href="../artifact/ar_dsub.htm">Artifact: 
+        Design Subsystem</a>s are defined and <a href="../artifact/ar_class.htm">design 
+        classes</a> are allocated to them; the <a href="../artifact/ar_if.htm">interfaces</a> 
+        to subsystems are identified. Remaining design classes are partitioned 
+        into <a href="../artifact/ar_despk.htm">packages</a>, and responsibilities 
+        for subsystems and packages are allocated to <a href="../workers/wk_dsgnr.htm">Role: 
+        Designer</a>s. 
+        <p>Instances of classes and subsystems are used by designers to describe 
+          the realizations of the selected use cases and/or scenarios (see <a href="../workflow/ana_desi/wfs_and4.htm">Workflow 
+          Detail: Design Components</a> in the Analysis &amp; Design discipline). 
+          This puts requirements on the employed model elements and their associated 
+          design mechanisms; in the process the interaction diagrams previously 
+          created are refined. The requirements put on each design mechanism are 
+          handled by the software architect (revisit <a href="../activity/ac_dsmec.htm">Activity 
+          Identify Design Mechanisms</a> in the Analysis &amp; Design discipline). 
+          The logical view is updated accordingly by the software architect. The 
+          resulting design artifacts are then reviewed.
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Consider the concurrency and distribution aspect 
+          of the architecture.
+      </td>
+      <td width="80%">The next step for the software architect is to consider the concurrency 
+        and distribution required by the system. This is done by studying the 
+        tasks and processes required and the physical network of processors and 
+        other devices (see <a href="../activity/ac_concr.htm">Activity: Describe 
+        the Run-time Architecture</a> and <a href="../activity/ac_distr.htm">Activity: 
+        Describe Distribution</a> in the <a href="../workflow/ana_desi/in_and.htm">Analysis 
+        &amp; Design Discipline</a>). An important input to the software architect 
+        here are the designed use cases in terms of collaborating objects in interaction 
+        diagrams; these objects are allocated to tasks and processes, which in 
+        turn are allocated to processors and other devices. This results in both 
+        a logical and physical distribution of functionality.</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Inspect the architecture
+      </td>
+      <td width="80%">The architecture is reviewed. See <a href="../activity/ac_rvarc.htm">Activity: 
+        Review the Architecture</a>.</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Implementation: Consider the physical packaging 
+          of the architecture.
+      </td>
+      <td width="80%">A <a href="../workers/wk_archt.htm">Role: Software Architect</a> now 
+        considers the impact of the architectural design onto the implementation 
+        model, and defines the initial structure of the implementation model (revisit 
+        <a href="../activity/ac_strim.htm">Activity: Structure the Implementation 
+        Model</a> in the Analysis &amp; Design discipline).</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Implementation: Plan the integration.
+      </td>
+      <td width="80%">A system integrator (<a href="../workers/wk_syint.htm">Role: Integrator</a>) 
+        now studies the use cases that are to be implemented in this iteration, 
+        and defines the order in which subsystems should be implemented, and later 
+        integrated into an architectural prototype (see <a href="../workflow/implemen/wfs_pint.htm">Workflow 
+        Detail: Plan the Integration</a> in the Implementation discipline). The 
+        results of this planning should be reflected in the <a href="../artifact/ar_sdp.htm">Artifact: 
+        Software Development Plan</a>.</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Test: Define Evaluation Mission
+      </td>
+      <td width="80%">The test manager (<a href="../workers/wk_tstmng.htm">Role: 
+        Test Manager</a>) gains agreement with stakeholders on the test objectives 
+        for this iteration. The test analyst (<a href="../workers/wk_tstanl.htm">Role: 
+        Test Analyst</a>) and test designer (<a href="../workers/wk_tstds.htm">Role: 
+        Test Designer</a>) define the details of the approach - what will be tested 
+        and how.</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Test: Verify Test Approach
+      </td>
+      <td width="80%"> 
+        <p>The test designer (<a href="../workers/wk_tstds.htm">Role: Test Designer</a>) 
+          and tester (<a href="../workers/wk_tstr.htm">Role: Tester</a>) now implement 
+          enough of the test infrastructure to verify that the test approach will 
+          work and is of value. The test analyst (<a href="../workers/wk_tstanl.htm">Role: 
+          Test Analyst</a>) details these verification tests which are then implemented 
+          and executed by the tester.</p>
+        <p>The test manager (<a href="../workers/wk_tstmng.htm">Role: Test Manager</a>) 
+          ensures that the development team is committed to supporting the test 
+          approach.</p>
+        </td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Implementation: Implement the classes and integrate.
+      </td>
+      <td width="80%">A number of implementers (<a href="../workers/wk_implm.htm">Role: Implementer</a>) 
+        now implement and unit test the classes identified in the architectural 
+        design (Step 5, 6, and 7). The implementations of the classes are physically 
+        packaged as defined by the implementation model. The implementers (<a href="../workers/wk_implm.htm">Role: 
+        Implementer</a>) also fix defects (see <a href="../workflow/implemen/wfs_implc.htm">Workflow 
+        Detail: Implement Components</a> in the Implementation discipline). The 
+        developers and testers integration test the implementation subsystem (see 
+        <a href="../workflow/implemen/wfs_inss.htm">Workflow Detail: Integrate 
+        Each Subsystem</a> in the Implementation discipline and <a href="../workflow/test/wfs_tstandevl.htm">Workflow 
+        Detail: Test and Evaluate</a> in the Test discipline), and then the implementers 
+        (<a href="../workers/wk_implm.htm">Role: Implementer</a>) release the 
+        tested implementation subsystems to system integration.</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Integrate the implemented parts.
+      </td>
+      <td width="80%">The system integrators (<a href="../workers/wk_syint.htm">Role: Integrator</a>) 
+        incrementally integrate the subsystems into an executable architectural 
+        prototype (see <a href="../workflow/implemen/wfs_insy.htm">Workflow Detail: 
+        Integrate the System</a> in the Implementation discipline). Each build 
+        is normally tested to ensure it is stable enough to warrant further testing 
+        (see <a href="../workflow/test/wfs_vldbldstb.htm">Workflow Detail: Validate 
+        Build Stability</a> in the Test discipline), detailed testing work commences 
+        and (see <a href="../workflow/test/wfs_vldbldstb.htm"></a><a href="../workflow/test/wfs_tstandevl.htm">Workflow 
+        Detail: Test and Evaluate</a> in the Test discipline).</td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Test: Test and Evaluate, Achieve Acceptable Mission, 
+          Improve Test Assets
+      </td>
+      <td width="80%"> 
+        <p>Testing proceeds through the following cycle (organized around major 
+          builds, and involving all test roles):</p>
+        <ul>
+          <li>Test and Evaluate - tests are implemented, executed, and evaluated</li>
+          <li>Achieve Acceptable Mission - test results are evaluated against 
+            testing objectives. Additional testing is done as necessary.</li>
+          <li>Improve Test Assets - test artifacts are improved as needed to support 
+            the next cycle of testing.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p class="tableheading">Assess the iteration itself.
+      </td>
+      <td width="80%">Lastly, the <a href="../workers/wk_projm.htm">Role: Project Manager</a> 
+        compares the iteration's actual cost, schedule, and content with the iteration 
+        plan; determine if rework needs to be done, and if so, assign to future 
+        iterations; update the risk list (see <a href="../artifact/ar_rskls.htm">Artifact: 
+        Risk List</a>); update the project plan (see <a href="../artifact/ar_sdp.htm">Artifact: 
+        Software Development Plan</a>); and prepare an outline of an iteration 
+        plan for the next iteration (see <a href="../artifact/ar_itpln.htm">Artifact: 
+        Iteration Plan</a>). Productivity figures, size of code, and size of database 
+        might be interesting to consider here. 
+        <p>The <a href="../workers/wk_projm.htm">Role: Project Manager</a>, in 
+          cooperation with the <a href="../workers/wk_prcen.htm">Role: Process 
+          Engineer</a> and the <a href="../workers/wk_tlsmt.htm">Role: Tool Specialist</a>, 
+          evaluate the use process and tools.</p>
+      </td>
+    </tr>
+  </table>
+<br>
+</div>
+
+
+<h4>Result</h4>
+<p>The result of this initial iteration would be a first cut at the architecture, 
+  consisting of fairly described architectural views (use-case view, logical view, 
+  process view, deployment view, implementation view) and an executable architecture 
+  prototype.</p>
+
+
+<h4>Subsequent Iterations In Elaboration</h4>
+<p>Subsequent iterations can be initiated to further enhance the understanding 
+  of the architecture. This might imply a further enhancement of the design or 
+  implementation model (that is, the realization of more use cases, in priority 
+  order, of course). Whether this needs to take place depends on considerations 
+  such as the complexity of the system and its architecture, associated risks, 
+  and domain experience. 
+<p>In each iteration the supporting environment is further refined. If the first 
+  Elaboration iteration&nbsp; focused on preparing the environment for Analysis 
+  &amp; Design, and Implementation, then the second iteration may focus on preparing 
+  the test environment. Preparing the test environment includes configuring the 
+  test process, and writing that part of the development case, preparing templates 
+  and guidelines for test and setting up the test tools.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,246 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Runtime Observation & Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Runtime 
+  Observation &amp; Analysis</rpw> <a name="XE_runtime_observation_&amp;_analysis__concept"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#RuntimeObservation">Observing runtime behavior</a></li>
+  <li><a href="#RuntimeAnalysis">Analyzing runtime observations</a></li>
+  <li><a href="#AutomatedToolSupport">Automated tool support</a></li>
+</ul>
+
+
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The observation and subsequent analysis of the runtime behavior of a software 
+  component is an important practice in the successful debugging of software. 
+  Understanding the runtime behavior of software involves two key practices:</p>
+<ul>
+  <li>Observation of the software during runtime execution.</li>
+  <li>Analysis of the captured observations.</li>
+</ul>
+<p>Runtime observation and analysis techniques are themselves not dependent on 
+  testing in so far as runtime behavior can be observed and analyzed without the 
+  requirement for predefined test inputs or the use of testing techniques to stimulate 
+  the application behavior. However, testing can be successfully combined with 
+  runtime observation techniques and tools: for example, tools that automate runtime 
+  observation can be executed during test execution, improving the visibility 
+  into the runtime behavior of the component that occurs in response to the test.</p>
+
+
+<h3><a name="RuntimeObservation">Observing runtime behavior</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>While it is important to carefully observe all of the behavior that occurs 
+  during runtime execution of the software, there are usually significant observation 
+  points that are useful to specifically monitor. These significant observation 
+  points are often:</p>
+<ul>
+  <li>Decision points at which the software logic path is about to or has just 
+    branched.</li>
+  <li>Completion points at which an important logic path has completed, typically 
+    resulting in a state change within the software environment.</li>
+  <li>An interface point between two separate application components.</li>
+  <li>An interface point between the software and it's execution environment, 
+    including any interfaces to hardware components.</li>
+</ul>
+<p>These observation points may also align with control points at which it may 
+  be desirable to alter either the application state or the flow of control through 
+  the logic paths. These concerns are often referred to as Points of Control and 
+  Observation (PCO).</p>
+<p>Runtime observation excludes static observation methods as a primary approach, 
+  such as review of the static software source code or of the relationships between 
+  the software building blocks captured in visual models and so forth. Rather, 
+  it requires an executable software component and offers valuable information 
+  not available through other debugging techniques about how the developed component 
+  behaves when it runs, either in the test environment, or in the final deployment 
+  environment. The observations captured from the runtime behavior may subsequently 
+  be related to static elements to provide additional insight.</p>
+
+
+<h3><a name="RuntimeAnalysis">Analyzing runtime observations</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>Software runtime analysis is simply the practice of understanding the behavior 
+  of a software component by analyzing data collected during runtime execution 
+  of the component. During the development of the component by the Implementer, 
+  runtime observation and analysis is one aspect of the debugging activities the 
+  Implementer undertakes.</p>
+<h3><a name="AutomatedToolSupport">Automated tool support</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>Because of the potential volume of low-level information that can be captured 
+  from runtime behavior, the speed at which that information is generated, and 
+  the subsequent difficulty in understanding the potentially vast amount of information, 
+  automated tool support is a key factor in making this practice feasible. There 
+  are various approaches that can be taken to provide tool support yourself, and 
+  a wealth of tools available commercially that will save you the time, effort 
+  and cost of creating your own.</p>
+
+<p>See <a href="../../../toolment/purify_plus/purifyplus.htm">PurifyPlus</a> for more information about 
+  runtime observation and analysis tools.</p>
+
+
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,502 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Implementing an Automated Test Suite Using Rational TestManager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Implementing an Automated Test Suite Using Rational TestManager</rpw><a name="Top"></a>
+</h2>
+
+<h3>Purpose</h3>
+
+<p>This tool mentor describes how to use Rational TestManager to design
+   a functional or performance test suite.</p>
+   
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+<li><a href="../../process/activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+
+<p>
+ A suite shows a hierarchical representation of the task and of the workload that
+you want to run and test. It shows such items as the computer groups, resources
+assigned to each computer group, which test scripts the computer groups run,
+and how many times each test script runs. </p>
+
+<p>This tool mentor is applicable when running Microsoft Windows 98/2000/NT 4.0.</p>
+
+<h4>Tool Steps</h4>
+
+<p>To design an automated test suite using Rational TestManager, you need to
+perform these steps: 
+
+<ol>
+  <li><a href="#Create a suite">Create a suite</a></li>
+  <li><a href="#Insert user groups into a suite (for performance testing only)">Insert
+    user groups into a suite (for performance testing only)</a></li>
+  <li><a href="#Insert computer groups into a suite">Insert computer groups into a suite</a></li>
+  <li><a href="#Insert test scripts into a suite">Insert test scripts into a suite</a></li>
+  <li><a ID test locations" href="#Insert other items into a suite">Insert other items into a
+    suite</a>&nbsp;
+</ol>
+
+<h3>1.&nbsp;&nbsp; <a name="Create a suite">Create a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" WIDTH="26" HEIGHT="20"></a></h3>
+
+<p> A suite enables you to not only run test scripts,&nbsp;
+but more importantly,&nbsp; to emulate the actions of virtual testers using&nbsp;
+a system. A suite can be as simple as one virtual tester executing one test&nbsp;
+script, or as complex as hundred of virtual testers in different groups,
+with&nbsp; each group executing different test scripts at different times
+using different&nbsp; resources.</p>
+
+<p>You can create a suite in several different ways:</p>
+
+          <blockquote> 
+                                                   
+            <ul>
+                                                             
+              <li>Using the performance testing suite wizard</li>
+                                                             
+              <li>Using the functional testing suite wizard</li>
+                                                             
+              <li>Based on an existing suite of any type</li>
+                                                             
+              <li>Based on an existing Robot session</li>
+                                                             
+              <li>Using a blank performance testing suite</li>
+                                                             
+              <li>Using a blank functional testing suite</li>
+                                                   
+            </ul>
+              </blockquote>
+                                                   
+<p>To create a new suite using any of these methods, click <b>File &gt; New
+Suite</b>.</p>
+<p><b>Note</b>: When you create a new suite using the wizards, you must have 
+valid   test scripts available for use in the suite.</p>
+
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to the topic
+titled <i>Creating a Suite</i>  in Rational TestManager online Help.<h3>2.&nbsp;&nbsp; <a name="Insert user groups into a suite (for performance testing only)">Insert
+user groups into a suite (for performance testing only)</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>   A user group is the basic building block for all
+ performance testing suites.  A user group is a collection of virtual testers
+ that perform the same activity.</p>
+
+<ul>
+  <li>
+     To insert a user group into a suite, from an open suite, click <b> Suite &gt; Insert &gt; User
+ Group</b>.</li>
+  <li>
+Set the User count as follows:</li>
+</ul>
+<blockquote>
+  <p><b>Fixed</b>&#151Specifies a static number
+ of virtual testers. Enter  the maximum number of virtual testers that you
+ want to be able to run.</p>
+  <p>
+           <b>Scalable</b>&#151Specifies a dynamic number of virtual testers. 
+ Type  the percentage of the workload that the user group represents.</p>
+</blockquote>
+<ul>
+  <li>Set computers as follows:</li>
+</ul>
+<blockquote>
+  <p>   The default computer is the TestManager Local
+ computer, but you can specify  that the user group runs on any defined
+  computer.</p>
+  <p> <b>
+ Note</b>: Copy any custom-created external C libraries,&nbsp; Java
+class files, or&nbsp; COM components necessary for the test to the Agent
+computer.</p>
+</blockquote>
+<ul>
+  <li>You can also distribute the virtual testers among multiple
+computers.&nbsp; To&nbsp; distribute the virtual testers in a user group
+among multiple computers, click<b> Suite &gt; Insert &gt; User Group</b>, and then
+ click <b> Multiple  Computers</b>.</li>
+</ul>
+
+<p><img src="../../images/HelpBook.gif" alt="Help icon" WIDTH="16" HEIGHT="16">&nbsp;&nbsp; Refer to the
+<i>User groups into a suite</i>  topic in Rational TestManager online Help. </p>
+
+<h3>3.&nbsp;&nbsp; <a name="Insert computer groups into a suite">Insert computer
+groups into a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>A computer group is the basic building block for all functional testing
+suites.&nbsp; activity of implementing your tests is primarily creating reusable test scripts.
+A computer group is one or more computers, or computer lists, running  the same test scripts and, therefore, testing
+the same application.</p>
+<ul>
+  <li>
+   To insert a computer group into a suite, click <b> Suite &gt; Insert &gt; Computer Group</b>.</li>
+</ul>
+<blockquote>
+                    <b> Note:</b> When adding computer groups to suites,&nbsp;
+you can specify either one&nbsp; computer group for which to prompt for resources&nbsp;
+at runtime, or numerous computer groups to prompt for resources at runtime.&nbsp;
+You cannot mix the following within a suite: computer groups with specific&nbsp;
+resources, and computer groups without specific resources.&nbsp;
+</blockquote>
+<ul>
+  <li>To distribute the virtual testers in a computer group over multiple computers,
+    click <b> Suite &gt; Insert &gt; Computer Group</b>,
+ and then click <b>  Change</b>.</li>
+</ul>
+<blockquote>
+  <p><b>Note</b>: The benefit of doing this is it saves time by running virtual
+  testers simultaneously on different computers.</p>
+</blockquote>
+
+<p><img src="../../images/HelpBook.gif" alt="Help icon" WIDTH="16" HEIGHT="16">&nbsp;&nbsp; Refer to the
+<i>computer groups into a suite</i>  topic in Rational TestManager online Help. </p>
+
+<h3>4.&nbsp;&nbsp; <a name="Insert test scripts into a suite">Insert test
+scripts into a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>To run the test script from an open suite, select <b>computer groups</b> for
+functional testing or user groups for performance testing, then click <b>Suite
+&gt; Insert &gt; Test Script</b>. </p>
+
+<p>You need to make the following decisions:
+
+<ul>
+  <li><b>Test script source</b>&#151this is where you chose the types of
+    scripts, such as GUI, VU, VB, Java, and so forth.</li>
+  <li><b>Query</b>&#151here you choose the type of query you'll use to search
+    for&nbsp; a script or adapt a new one.</li>
+  <li>Precondition&#151this is a reminder of the suite sequence, which means
+    that the test script, suite, or test case must complete successfully during
+    the suite run for subordinate items in the suite sequence you'll run.</li>
+  <li>Iterations&#151how often will the selected script be repeated?</li>
+  <li>Scheduling method&#151this shows you condition of items, whether they're
+    available or pending.</li>
+</ul>
+<p><b>Note</b>: You cannot mix GUI and VU test scripts in a user group. You can,
+however, mix other test script types.</p>
+
+<p><img src="../../images/HelpBook.gif" alt="Help icon" WIDTH="16" HEIGHT="16">&nbsp;&nbsp; Refer to the topic
+titled <i>test scripts into a suite</i> in Rational TestManager online Help.<h3>5.&nbsp;&nbsp;
+<a name="Insert other items into a suite">Insert other items into a suite</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" WIDTH="26" HEIGHT="20"></a></h3>
+
+<p> A suite requires only computer groups
+and test scripts to run. However,&nbsp; a suite that realistically models
+the work that actual virtual testers perform is likely to be more complex&nbsp;
+and varied than this sample model. A realistic&nbsp; suite might also contain
+test cases, subordinate test suite, scenarios, selectors (for performance
+testing only), delays, synchronization points, and transactors&nbsp; (for
+performance&nbsp;
+Testing only) to represent a variety of virtual testers' actions.</p>
+
+<p>Other items you can insert into a suite include:</p>
+
+<ul>
+  <li>Inserting a test case</li>
+  <li>Inserting a suite</li>
+  <li>Inserting a scenario</li>
+  <li>Inserting a selector (for performance testing only)</li>
+  <li>Inserting a delay</li>
+  <li>Inserting a transactor (for performance testing only)</li>
+  <li>Inserting a synchronization point</li>
+</ul>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" WIDTH="16" HEIGHT="16">&nbsp;&nbsp; Refer to the topic
+titled <i>other items into a suite</i> in Rational TestManager online Help.</p>
+
+<h4>Inserting a test case</h4>
+
+<ol>
+  <li>To insert a test case into a suite, from an open suite, click Suite &gt;
+    Insert &gt; Test Case.</li>
+  <li>Preconditions can be applied to test cases too. Right-click the test case,
+    then select <b>Run Properties</b>.&nbsp;</li>
+</ol>
+<blockquote>
+  <p><b>Note</b>: A test case can be considered configured, depending on its
+  properties.</p>
+
+</blockquote>
+<h4>Inserting a suite</h4>
+
+<p>To insert a suite into a suite, from an open suite, click <b>Suite &gt;
+Insert &gt; Suite</b>.</p>
+
+<p><b>Note</b>:&nbsp; You cannot place a user group-based performance suite into
+another suite. In addition, computer group-based functional suites placed into a
+suite must have been created with the <b>Prompt for Resources</b> option
+selected for the computer group.</p>
+
+<h4>Inserting a scenario</h4>
+
+<p>A scenario lets you group test scripts together so they can be shared by more
+than one user group. If you have a complicated suite that uses many test
+scripts, grouping the test scripts under a scenario has the added advantage of
+making your suite easier to read and maintain.</p>
+
+<ol>
+  <li>To create a new scenario, from the <b>Scenarios</b> section of the suite,
+    click <b>Suite &gt; Insert &gt; Scenario</b>.</li>
+  <li>To insert a scenario into a suite, click where you want to place the
+    scenario, then click <b>Suite &gt; Insert &gt; Scenario</b>.</li>
+</ol>
+<p><b>Note</b>: Before a scenario is added to a user group, it's a good idea to
+populate the scenario. A scenario requires only test scripts to urn. However,
+like a user group, a realistic scenario may also contain selectors, delays,
+synchronization points, and transactors. A scenario can even contain other
+scenarios.</p>
+
+<h4>Inserting a selector (for performance testing only)</h4>
+
+<p>A selector provides more sophisticated control than running a simple sequence
+of consecutive items in a suite. A selector tells TestManager what items each
+virtual tester executes and in what sequence.</p>
+
+<p>To insert a selector into a suite, select the computer group or scenario that
+will contain the selector, then click <b>Suite &gt; Insert &gt; Selector</b>.</p>
+
+<p>The types of selectors include:</p>
+
+<ul>
+  <li><b>Sequential</b>&#151runs each test script or scenario in the order in
+    which it appears in the suite.</li>
+  <li><b>Parallel</b>&#151distributes its test scripts or scenarios to an
+    available virtual tester (one virtual&nbsp; tester per computer)</li>
+  <li><b>Random with replacement</b>&#151the selector runs the items under it in
+    random order and each time an item is selected, the odds of it being
+    selected again remain the same.</li>
+  <li><b>Random without replacement</b>&#151the selector runs the item under it
+    in random order, but each time an item is selected, the odds change.</li>
+  <li><b>Dynamic load balancing</b>&#151with this items are not selected
+    randomly. Items are selected to balance the workload according to the weight
+    that has been set. You can balance the workload either for time or for
+    frequency.</li>
+</ul>
+<h4>Inserting a delay</h4>
+<p>A delay tells TestManager how long to pause before it runs the nest item in
+the suite.</p>
+<p>To insert a delay into a suite, click the <b>computer group</b> (for
+functional testing), <b>user group</b> (for performance testing), <b>scenario</b>,
+or <b>selector</b> to which to add a delay, then click <b>Suite &gt; Insert &gt;
+Delay</b>.</p>
+<p><b>Note</b>: You can insert a delay into a suite or test script. The
+advantages of inserting a delay into a suite are that the delay is visible in
+the suite and the delay is easy to change without editing the test script.</p>
+<h4>Inserting a transactor (for performance testing only)</h4>
+<p>A transactor tells TestManager the number of tasks each virtual tester runs
+in a given time period.</p>
+<p>To insert a transactor into a suite, select the user group or selector to
+contain the transactor, then click <b>Suite &gt; Insert &gt; Transactor</b>.</p>
+<p>The transactor can be one of these two types:</p>
+<ul>
+  <li>A <b>coordinated</b> transactor, which has built-in synchronization points
+    and lets you specify the total rate you want to achieve.</li>
+  <li>An <b>independent</b> transactor, which lets each virtual tester (VT) operate
+    independently. It does not coordinate the VT under it with a built-in
+    synchronization point.</li>
+</ul>
+<p>A transactor can have one of two rates:</p>
+<ul>
+  <li><b>Total rate</b>&#151for a coordinated transactor, you generally select
+    this rate.</li>
+  <li><b>User rate</b>&#151for an independent transactor, you must select this
+    rate.</li>
+</ul>
+<p>&nbsp;You have three choices of distribution for a transactor:</p>
+<ul>
+  <li>A <b>constant distribution</b> means that each transaction occurs exactly
+    at the rate you specify.</li>
+  <li>A <b>uniform distribution</b> means that, over time, the transaction
+    averages out to the rate you specify although the time between each
+    transaction is constant.</li>
+  <li>In contrast, a <b>negative exponential distribution</b> changes the
+    probability of when a transaction starts. This distribution most closely
+    emulates the bursts of activity followed by a tapering off of activity that
+    is typical of VT behavior.</li>
+</ul>
+<h4>Inserting a synchronization point</h4>
+
+<p>A synchronization point lets you coordinate the activities of a number of VTs
+by pausing the execution of each VT at a particular point, called the
+synchronization point.</p>
+
+<p>To insert a synchronization point into a suite, click <b>Suite &gt; Insert
+&gt; Synchronization Point</b>.</p>
+
+<p>Synchronization points settings include:</p>
+
+<ul>
+  <li><b>Together</b>&#151releases all virtual testers at once.</li>
+  <li><b>Staggered</b>&#151releases the virtual testers one-by-one.</li>
+  <li><b>Timeout</b>&#151means that this period of time for a synchronization
+    point specifies the total time that TestManager waits for VTs to reach the
+    synchronization point. The timeout period begins when the first VT arrives
+    at the synchronization point.</li>
+</ul>
+
+<p>&nbsp;
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

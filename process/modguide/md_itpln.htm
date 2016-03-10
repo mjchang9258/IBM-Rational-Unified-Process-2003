@@ -1,0 +1,400 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Iteration Plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Iteration Plan</rpw><a name="Top"></a><a name="XE_Iteration_Plan_document__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Iteration Patterns">Iteration Patterns</a>
+    <ul>
+      <li><a href="#Inception Iterations">Inception Iterations</a></li>
+      <li><a href="#Elaboration Iterations">Elaboration Iterations</a></li>
+      <li><a href="#Construction and Transition Iterations">Construction and
+        Transition Iterations</a></li>
+    </ul>
+  </li>
+  <li><a href="#Iteration Strategies">Iteration Strategies</a>
+    <ul>
+      <li><a href="#Wide and Shallow">Wide and Shallow</a></li>
+      <li><a href="#Narrow and Deep">Narrow and Deep</a></li>
+      <li><a href="#Lessons Learned from Experience">Lessons Learned from
+        Experience</a></li>
+      <li><a href="#Hybrid Strategies">Hybrid Strategies</a></li>
+      <li><a href="#Special Considerations for New Teams">Special Considerations
+        for New Teams</a></li>
+    </ul>
+  </li>
+  <li><a href="#Expected Rework">Expected Rework</a></li>
+  <li><a href="#Level of Planning">Level of Planning</a></li>
+</ul>
+<h3><a name="XE_inception_phase__iteration_patterns"></a><a name="XE_construction_iteration__iteration_patterns"></a><a name="Iteration Patterns">Iteration
+Patterns</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4><a name="XE_iteration_patterns__inception_iterations"></a><a name="Inception Iterations">Inception
+Iterations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In Inception, the top risks are often either business risks or technical
+risks. The dominant business risk early on is typically ensuring project
+funding. Thus, a proof of concept prototype is often the result of the inception
+phase. The proof of concept prototype either demonstrates key functionality or
+some essential technology.</p>
+<p>The first iteration of a new product is usually the hardest. There are many
+new aspects a first iteration must achieve besides producing software: For
+example, putting in place the process, team-building, understanding a new
+domain, becoming familiar with new tools, and so on. Be conservative in your
+expectations about how much of the architecture you can flesh out, or the degree
+of usable functionality you can achieve. If you aim too high, you risk delaying
+the completion of the first iteration, reducing the total number of iterations,
+and hence decreasing the benefit of an iterative approach. The first iterations
+should be focused on getting the architecture right. You must therefore involve
+the software architects in the planning process of early iterations.</p>
+<h4><a name="XE_iteration_patterns__elaboration_iterations"></a><a name="XE_elaboration_iteration__iteration_patterns"></a><a name="Elaboration Iterations">Elaboration
+Iterations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In Elaboration, the iterations focus on defining a stable architecture, on
+designing and implementing the essential behavior of the system and exploring
+the technical architectural issues through a series of architectural prototypes.
+&quot;Architecturally significant&quot; scenarios are sub-flows which exercise
+the architecture of the system in defining ways.</p>
+<h4><a name="XE_transition_iteration__iteration_patterns"></a><a name="XE_iteration_patterns__transition_iterations"></a><a name="XE_iteration_patterns__construction_iterations"></a><a name="Construction and Transition Iterations">Construction
+and Transition Iterations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Toward the end of Elaboration, and during Construction and Transition, change
+requests (also known as Software Change Orders or SCO's) begin to drive the
+iteration process. SCO's result from:
+<ul>
+  <li>enhancement requests</li>
+  <li>change requests whose scope goes beyond the individual package or class.</li>
+  <li>changes in the iteration scope and objectives.</li>
+  <li>changes in requirements either proposing that the requirements baseline be
+    changed, or accommodating an accepted change to the requirements baseline.</li>
+</ul>
+<p>These SCO's are balanced against the existing project plan, iteration plans,
+and the existing risk list. SCO's may cause the priority of requirements to be
+re-evaluated, or may drive the re-prioritization of risk. SCO's must be managed
+carefully, however, lest project control be lost.</p>
+<p>During Construction and Transition, the focus is on fleshing-out the
+architecture and implementing all remaining requirements.</p>
+<h3><a name="XE_iteration__strategies"></a><a name="Iteration Strategies">Iteration
+Strategies</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Unlike the Waterfall model, where the entire system is considered at once, we
+only consider a portion of the functionality of the system in each iteration.
+During each iteration, a subset of the total system is analyzed, designed and
+implemented. The choice of what the subset should be and how deep to delve are
+critical to reducing risk in subsequent iterations. There are two basic
+strategies: Wide/Shallow and Narrow/Deep.</p>
+<h4><a name="Wide and Shallow">Wide and Shallow</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In the Wide/Shallow strategy, the entire problem domain is analyzed, but only
+the surface details are considered. All Use Cases are defined and most are
+fleshed-out in great detail, to get a clear understanding of the problem at
+hand. The architecture is defined broadly as well, and the key mechanisms and
+services offered by architectural components are defined; the interfaces of
+subsystems are defined, but their internal details are detailed only where
+significant risk or uncertainty must be managed. Very little is implemented
+until Construction, where most of the iteration occurs.</p>
+<p>The Wide/Shallow strategy is appropriate when:
+<ul>
+  <li>The Team is inexperienced, either in the problem domain or in a technology
+    area (including methodology or process).</li>
+  <li>Sound architecture is a key requirement for future capability, and the
+    architecture is unprecedented.</li>
+</ul>
+<p>The strategy has some potential pitfalls, however:
+<ul>
+  <li>The team can get trapped in <b>analysis paralysis</b> (the illogical
+    feeling that unless the design is perfect, one cannot implement anything).</li>
+  <li>Early results are often needed to build confidence and credibility; the
+    longer the project team goes without producing something executable, the
+    less confident they feel about their ability to do so.</li>
+  <li>Not enough of the technical details and challenges of the architecture are
+    exposed to get a sense of the real technical risks</li>
+</ul>
+<h4><a name="Narrow and Deep">Narrow and Deep</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In the Narrow/Deep strategy, a <i>slice </i>of the problem domain is
+analyzed thoroughly. The Use Cases related to this narrow slice are defined and
+fleshed-out in great detail, to get a clear understanding of the problem at
+hand. The architecture required to support the desired behavior is defined, and
+the system is designed and implemented. Subsequent iterations focus on
+analyzing, designing and implementing additional vertical slices.</p>
+<p>The Narrow/Deep strategy is appropriate when:
+<ul>
+  <li>Early results need to be demonstrated to overcome a dominant risk, garner
+    support or prove viability.</li>
+  <li>Requirements are continually evolving, making it difficult to completely
+    define all requirements before starting detailed design and implementation
+    work.</li>
+  <li>The deadline is <b>mandatory</b>, such that getting an early start on
+    development is key to successful delivery.</li>
+  <li>A high degree of re-use is possible, enabling a greater degree of
+    incremental delivery.</li>
+</ul>
+<p>The strategy is not without drawbacks:
+<ul>
+  <li>There is a tendency with this strategy for each iteration to develop
+    software that is vertically integrated but horizontally incompatible. This
+    is sometimes referred to as the <b>stovepipe</b> syndrome, and it makes a
+    system difficult to integrate.</li>
+  <li>It is not well-suited to developing systems in a completely new problem
+    domain or based on an unprecedented architecture, since a large part of the
+    functionality of a system must be sampled in order to achieve a balanced
+    architecture.</li>
+</ul>
+<h4><a name="Lessons Learned from Experience">Lessons Learned from Experience</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Generally, early iterations will have more of a Wide/Shallow flavor, while
+later iterations (where a stable architecture has been developed) tend to follow
+the Narrow/Deep strategy.</p>
+<p>The first iteration is usually the hardest, since it requires the entire
+development environment and much if the project team to be in place. Tool
+integration and team-building issues add to the complexity of the first
+iteration. Focusing on the architectural issues can help to maintain focus and
+prevents the team from getting bogged down in details too early.</p>
+<h4><a name="Hybrid Strategies">Hybrid Strategies</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<ul>
+  <li>Narrow/Deep strategy used in Inception
+    <p>Where exploitation of a new technology is essential to the fundamental
+    viability of the project.&nbsp; Many e-business projects require new
+    technologies to be explored to a much greater depth than might be done
+    traditionally.&nbsp; The proof-of-concept prototype is still considered a
+    &quot;throw-away&quot;, and merely explores the viability of the project
+    concept.</li>
+  <li>Wide/Shallow strategy used in Inception
+    <p>This strategy is pursued to gain an understanding of the
+    scope of the system, and to sample the breadth of functionality of the
+    system to ensure that the architecture is capable of delivering the desired
+    capabilities.</li>
+  <li>Wide/Shallow strategy used in Elaboration
+    <p>This approach can help develop a sound architecture, with selective
+    Narrow/Deep focus to address specific technical risks. In Construction, with
+    a sound architecture established, the focus can return to Narrow/Deep, where
+    functionality is developed and delivered in a series of integrated
+    increments.</li>
+  <li>Narrow/Deep strategy used in Construction
+    <p>Construction iterations are always Narrow/Deep, with teams working in
+    parallel to develop and deliver the required functionality.&nbsp;</li>
+</ul>
+<h4><a name="Special Considerations for New Teams">Special Considerations for
+New Teams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>New teams are typically overly optimistic at first with what they can
+accomplish. To counter this, and to avert potential morale problems which occur
+when actual results fall short of optimistic expectations, be modest in the
+amount of functionality that can be achieved in the first iteration. Try to
+build experience while creating a sense of accomplishment and project momentum.</p>
+<p>If the development environment and/or methods are new to the team, reduce the
+functionality of the first iteration to a minimum. Focus on integrating and
+tuning the environment and becoming proficient with the tools, then ramp-up the
+functionality content in subsequent iterations.</p>
+<h3><a name="XE_rework__as_part_of_iterations"></a><a name="Expected Rework">Expected
+Rework</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Rework is good, up to a point. One of the major benefits of an iterative
+development is precisely to allow mistakes and experimentation, but early enough
+so that corrective actions can be taken. However technical people in particular
+tend to 'gold plate' or redo work to perfection between one iteration and the
+next.</p>
+<p>At the end of each iteration, during the iteration assessment, the team
+should decide what part of the current release will be reworked. Expect rework
+to be allocated among phases in the following percentages, relative to the total
+system:
+<ul>
+  <li>Inception, 40%-100% - this is where you may develop throwaway, exploratory
+    prototypes</li>
+  <li>Elaboration, 25%-60% in early iterations; less than 25% in later
+    iterations, or for an evolution cycle.</li>
+  <li>Construction, after the architecture baseline, 10% or less per iteration
+    and 25% total.</li>
+  <li>Transition, less than 5%.</li>
+</ul>
+<p>Rework is inevitable. When no one sees the need for rework, you should be
+suspicious. This may be due to:
+<ul>
+  <li>Excessive pressure schedule.</li>
+  <li>Lack of real test or assessment.</li>
+  <li>Lack of motivation or focus.</li>
+  <li>Negative perception of rework as being bad, waste of resources, or an
+    admission of incompetence or failure.</li>
+</ul>
+<p>Too much rework is alarming. This may be due to 'gold plating' or to an
+unacceptable level of requirement changes. A business case must be done to
+evaluate the necessity of some rework.<p>Note that we do <i>not</i> include work
+de-scoped from the previous iteration (because of the timeboxed approach to
+iteration management) in the category of 'rework'. The Project Manager has to
+include this de-scoped work in the pool of functionality from which to define
+the next iteration's contents. Obviously, such work will normally have high
+priority. The Project Manager should also discover and carefully consider the
+reasons for the failure of the previous iteration to achieve its planned goals.
+For example, although we do not advise the arbitrary addition of staff in a
+desperate attempt to meet a schedule, running a project chronically <i>understaffed</i>
+- while repeatedly making ambitious plans for each iteration - is not sensible
+either. It usually leads to poor team morale and an angry customer. The right
+balance has to be found, and estimation models such as COCOMO II (see [<a href="../referenc.htm#BOE00">BOE00</a>])
+can help with this. With each iteration, a project builds a history of
+achievement - of productivity and quality. A strong indicator for a Project
+Manager, in planning the next iteration, is what was achieved in the previous
+one.
+<h3><a name="Level of Planning">Level of Planning</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When the first-cut iteration plan is complete, the team leads, perhaps in conjunction 
+  with the project manager, can refine it into a working plan at the activity 
+  level. The included <a href="../../prjtmpl/index.htm">Microsoft&reg; Project 
+  Templates</a> (at the activity level) show how this might appear. Note though 
+  that these working plans are derived from the iteration plan, they are not separately 
+  produced, independent artifacts. It is important - if the project manager is 
+  to keep control - that the working plans can be rolled-up to status the project 
+  manager's iteration plan.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+  
+
+</body>
+
+</html>

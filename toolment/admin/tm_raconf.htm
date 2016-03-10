@@ -1,0 +1,289 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Configuring Projects Using the Rational Administrator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Configuring Projects Using the Rational Administrator</rpw><a name="Top"></a></h2>
+
+<h3>Purpose</h3>
+<p>This tool mentor describes how to use Rational Administrator to configure Administrator projects.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_sudev.htm">Support Development</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+<p>In Administrator, you create Administrator projects that store software testing and development
+information. All Rational components on your computer update and retrieve data
+from the same project. The types of data in a Administrator project depend on the Rational software that you have
+installed.&nbsp;</p>
+<p>
+<b><img src="../../images/helpbook.gif" width="16" height="16"> </b>For information on Administrator projects, refer to the following topics in
+Administrator online Help:</p>
+<ul>
+  <li><i>What is a Rational project?</i></li>
+  <li><i>Parts of a Rational project</i></li>
+  <li><i>Benefits of a Rational project</i></li>
+</ul>
+<p>Using the Administrator, an Administrator project can also be enabled for UCM (Unified Change
+Management), which is the Rational Software approach to managing change to
+requirements, design models, documentation, components, test cases, source code,
+and so on.&nbsp;</p>
+<p>
+<b><img src="../../images/helpbook.gif" width="16" height="16"> </b>For information about UCM, refer to the following topics in
+Administrator online Help:</p>
+<ul>
+  <li><i>What is UCM?</i></li>
+  <li><i>What UCM is in Relation to the Rational Administrator</i></li>
+  <li><i>Deciding whether to make the project UCM-enabled</i></li>
+</ul>
+<p>Before you can configure a project, you must create it. And before you can create
+an Administrator project, you need to resolve key questions. If you plan
+to UCM-enable the project, you also need to set up Rational ClearCase.&nbsp;</p>
+<p>
+<b><img src="../../images/helpbook.gif" width="16" height="16"> </b>For
+information about the steps leading up to and including creating an
+Administrator project, refer to the following topics in Administrator online Help:&nbsp;</p>
+<ul>
+  <li><i>Before creating a project</i></li>
+  <li><i>ClearCase setup steps</i></li>
+  <li><i>Creating a Rational Administrator project</i></li>
+</ul>
+<p>If you want to use existing repositories, you can convert them to
+Administrator projects so that they can be used by the current version of the Administrator.&nbsp;</p>
+<p>
+<b><img src="../../images/helpbook.gif" width="16" height="16"> </b>For more information about conversion, refer to the
+following topics in Administrator online Help:&nbsp;</p>
+<ul>
+  <li><i>Upgrading an SQA 6.x repository</i></li>
+  <li><i>Upgrading a Rational Test 7.x repository</i></li>
+</ul>
+<p>This tool mentor is applicable when running Windows 98/2000/NT 4.0.</p>
+<p>To configure an Administrator project:
+<ol>
+  <li><a href="#Decide on data structures">Decide which Rational data structures
+    you want to include in the project</a></li>
+  <li><a href="#Associate with UCM">Decide whether to associate the
+    Administrator project with a UCM project</a> (if you have not already done so)</li>
+  <li><a href="#Bring under config management">Decide whether to bring a
+    Rational RequisitePro project or a Rational Test datastore under configuration
+    management</a> (if you have not already done so)</li>
+</ol>
+<h3>1.&nbsp;&nbsp; <a name="Decide on data structures">Decide which Rational
+data structures you want to include in the project</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can associate various data structures with the Administrator
+project. The data structures are:</p>
+<ul>
+  <li>Rational Test datastores</li>
+  <li>Rational RequisitePro projects</li>
+  <li>Rational ClearQuest databases</li>
+  <li>Rational Rose model files</li>
+</ul>
+<p>You can create the data structures from within Administrator, or you
+can select existing data structures, with the exception of Rose model
+files. Rose model files can only be added, not created, from inside the
+Administrator.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp; Refer to the
+topic titled <i>Configuring a Rational Administrator project</i> in Administrator
+online Help.
+<h3>2.&nbsp;&nbsp; <a name="Associate with UCM">Decide whether to associate the Administrator project with a UCM project</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>After an Administrator project has been created, you can UCM-enable
+the project if it was created as non-UCM-enabled, but only if Rational ClearCase
+is installed on your system. You can also UCM-enable requirements assets and
+test assets in the project as part of modifying the project's properties.</p>
+<p>Note that you cannot disable a UCM-enabled project that has datastores under
+UCM. This means that you cannot change the status of a UCM-enabled project to
+non-UCM-enabled unless both the test and requirements datastores are also non-UCM-enabled.</p>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp;
+Refer to the topic titled <i>Associating a Rational Administrator project with a UCM project</i>
+in Administrator online Help.
+<h3>3.&nbsp;&nbsp; <a name="Bring under config management">Decide whether to
+bring a Rational RequisitePro project or a Rational Test datastore under configuration
+management</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If you have already associated a RequisitePro project or
+Test datastore with a project that is UCM-enabled, but have not brought them
+under configuration management, you can do so.</p>
+<p>Also, any UCM project that is associated with the Administrator
+project will be enabled for change request management if you select a ClearQuest
+database on the Configure Project dialog box.</p>
+<p>However, if a ClearQuest database has already been associated with the UCM
+project, you will not be able to select or create another ClearQuest database to
+associate with the Administrator project. To create or change the ClearQuest
+database
+associated with an Administrator project, you must create a new project. The ClearQuest
+database is predetermined by any existing relationship with a UCM project.</p>
+<p>In an Administrator project that is UCM-enabled, you can disassociate
+a RequisitePro project or Test datastore that is under
+configuration management. Note that removing a RequisitePro project or Test
+datastore from configuration management does the following:</p>
+<ul>
+  <li>Copies all of the files in the RequisitePro project and Test datastore to
+    a non-version-controlled area</li>
+  <li>Associates the project with the non-version-controlled area</li>
+</ul>
+<p><img src="../../images/HelpBook.gif" alt="Help icon" width="16" height="16">&nbsp;&nbsp; Refer to
+the topic titled <i>Configuring a Rational Administrator project</i> in Administrator
+online Help.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

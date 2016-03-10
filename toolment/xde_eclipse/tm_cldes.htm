@@ -1,0 +1,401 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Tool Mentor:&nbsp;Designing Classes Using Rational XDE Developer - Java Platform Edition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+<h2 class="banner">Tool Mentor: <rpw name="PresentationName">Designing Classes
+  Using Rational XDE Developer - Java Platform Edition</rpw><a name="Top"></a></h2>
+
+<h3>Purpose</h3>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_cldes.htm">Class Design</a></li>
+</ul>
+<br>
+  
+</p>
+
+<p>The steps in this tool mentor match those in the activity. Links to topics
+  in the Rational XDE&#153; online Help are marked with <img src="../../images/helpbook.gif" width="16" height="16">.
+</p>
+
+
+
+
+<h3>Overview</h3>
+
+
+
+<p>This tool mentor assumes that a structured <a href="../../process/artifact/ar_desmd.htm">Design
+  Model</a> has been created as part of <a href="../../process/activity/ac_arcan.htm">Activity:
+  Architectural Analysis</a> following the steps outlined in <a href="tm_arcan.htm">Tool
+  Mentor: Performing Architectural Analysis Using Rational XDE</a>. </p>
+<p> The following steps are performed in this tool mentor:
+
+<ul>
+  <li><a href="#Use Design Patterns and Mechanisms">Use Design Patterns and Mechanisms</a></li>
+  <li><a href="#Create Initial Design Classes">Create Initial Design Classes</a></li>
+  <li><a href="#Define Persistent Classes">Identify Persistent Classes</a></li>
+  <li><a href="#Define Class Visibility">Define Class Visibility</a></li>
+  <li><a href="#Define Operations">Define Operations</a></li>
+  <li><a href="#Define Methods">Define Methods</a></li>
+  <li><a href="#Define States">Define States</a></li>
+  <li><a href="#Define Attributes">Define Attributes</a></li>
+  <li><a href="#Define Dependencies">Define Dependencies</a></li>
+  <li><a href="#Define Associations">Define Associations</a></li>
+  <li><a href="#Define Generalizations">Define Generalizations</a></li>
+  <li><a href="#Resolve Use-Case Collisions">Resolve Use-Case Collisions</a></li>
+  <li><a href="#Handle Non-Functional Requirements">Handle Nonfunctional Requirements
+    in General</a></li>
+  <li><a href="#Evaluate Your Results">Evaluate the Results</a></li>
+</ul>
+
+
+
+<h3><a name="Use Design Patterns and Mechanisms">Use Design Patterns and Mechanisms</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Incorporating a pattern and/or mechanism is effectively performing many of
+  the subsequent steps in this tool mentor (adding new classes, operations, attributes,
+  and relationships), but in accordance with the rules defined by the pattern
+  or mechanism.</p>
+
+<p> For information on using patterns, refer to: </p>
+
+<ul>
+<!-- begin - wsw -->
+  
+
+  <li><script language=javascript>ReferenceHelpTopic("J2EE Pattern-Driven Development","j","jee_c_j2ee_pattrns");</script>
+  </li>
+
+  
+<!-- end - wsw -->
+
+  <li><script language=javascript>ReferenceHelpTopic("Applying Patterns","ea","ea_o_apply_pttrn");</script>
+  </li>
+</ul>
+
+
+<h3><a name="Create Initial Design Classes"></a>Create Initial Design Classes
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+  <li>Add a class diagram to the model. See
+    <script language=javascript>ReferenceHelpTopic("Adding Diagrams","rs","rs_t_add_dgm");</script>.</li>
+  <li>Add design classes to the class diagram. See
+    <script language=javascript>ReferenceHelpTopic("Adding Shapes to Diagrams","rs","rs_t_add_shp_dgm");</script>.</li>
+  <li> Document each class. See
+  <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.</li>
+</ol>
+
+<p> For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Working with Class Diagrams","rs","rs_o_work_w_class_dgms");</script>.
+</p>
+
+
+<h3><a name="Define Persistent Classes">Identify Persistent Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>A class can be marked as persistent. Refer to
+  <script language=javascript>ReferenceHelpTopic("Specifying Persistence","rs","rs_t_spec_persistence");</script>.</p>
+
+<!-- begin - wsw -->
+
+
+<p>In J2EE development, persistency is commonly implemented using entity EJBs. See
+  <a href="tm_iddes.htm">Tool Mentor: Identifying Design Elements using Rational XDE</a>
+  for details.
+</p>
+
+
+<!-- end - wsw -->
+
+
+<h3><a name="Define Class Visibility">Define Class Visibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>For each class, determine the class visibility within the package where it
+  resides.</p>
+
+<p>Refer to
+  <script language=javascript>ReferenceHelpTopic("Specifying Visibility","rs","rs_t_spec_visibility");</script>.
+</p>
+
+
+<h3><a name="Define Operations">Define Operations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+
+  <li>Add operations to each class. See
+    <script language=javascript>ReferenceHelpTopic("Adding Operations to Classifiers","rs","rs_t_add_oper_clssfr");</script>.</li>
+  <li>Add parameters to operations. See
+    <script language=javascript>ReferenceHelpTopic("Adding Parameters to Operations","rs","rs_t_add_param_op");</script>.</li>
+  <li>Specify visibility of operations. See
+    <script language=javascript>ReferenceHelpTopic("Specifying Visibility","rs","rs_t_spec_visibility");</script>.
+  </li>
+</ol>
+
+<p> For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Adding and Modifying Attributes and Operations in Classifiers","rs","rs_o_add_mod_atts_ops");</script>.
+</p>
+
+
+<h3><a name="Define Methods"></a>Define Methods <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>A description of how an operation is to be implemented might be added to the
+  operation description.</p>
+
+<p>A sequence diagram might optionally be used to describe a method. See the XDE
+  online Help topic
+  <script language=javascript>ReferenceHelpTopic("Documenting Model Elements","rs","rs_t_doc_model_elem");</script>.
+</p>
+
+<p> For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Working with Interaction (Sequence) Diagrams","rs","rs_o_work_inter_dgm");</script>.
+</p>
+
+
+<h3>Define States<a name="Define States"></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>A state machine might optionally be used.</p>
+
+<p> For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Working with Statechart Diagrams","rs","rs_o_work_statechart_dgms");</script>.
+</p>
+
+
+<h3><a name="Define Attributes">Define Attributes</a><a name="Define Attributes and Relationships"></a>
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+  <li>Define attributes. See
+    <script language=javascript>ReferenceHelpTopic("Attributes","rs","rs_c_attibutes");</script>.</li>
+  <li>Add attributes to classifiers. See
+    <script language=javascript>ReferenceHelpTopic("Adding Attributes to Classifiers","rs","rs_t_add_attributes_clssfr");</script>.</li>
+  <li>Specify visibility. See
+    <script language=javascript>ReferenceHelpTopic("Specifying Visibility","rs","rs_t_spec_visibility");</script>.</li>
+</ol>
+
+<h3><a name="Define Dependencies">Define Dependencies</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Refer to
+  <script language=javascript>ReferenceHelpTopic("Adding Dependency Relationships","rs","rs_t_add_depend_relshp");</script>.
+</p>
+
+
+<h3><a name="Define Associations">Define Associations</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<ol>
+  <li>Add association relationships. See
+    <script language=javascript>ReferenceHelpTopic("Adding Association Relationships","rs","rs_t_add_assoc_rels");</script>.</li>
+  <li>Specify the kind of each association. See
+    <script language=javascript>ReferenceHelpTopic("Specifying Kinds of Association Relationships","rs","rs_t_spec_kinds_assoc");</script>.
+  </li>
+</ol>
+
+
+<h3><a name="Define Generalizations">Define Generalizations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Refer to
+  <script language=javascript>ReferenceHelpTopic("Adding Generalization Relationships","rs","rs_t_add_genrlztn_relshp");</script>.
+</p>
+
+
+<h3><a name="Resolve Use-Case Collisions">Resolve Use-Case Collisions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Refer to
+  <script language=javascript>ReferenceHelpTopic("Specifying the Type of Concurrency for Operations","rs","rs_t_spec_type_cncrrncy_op");</script>.
+</p>
+
+
+<h3><a name="Handle Non-Functional Requirements">Handle Nonfunctional Requirements</a>
+  in General <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Nonfunctional requirements often drive a class to incorporate specific design
+  mechanisms using collaborations and patterns. Often the use of a framework component
+  is sufficient to satisfy a nonfunctional requirement. (See <a href="tm_iddes.htm">Tool
+  Mentor: Identifying Design Elements Using Rational XDE</a>.)</p>
+
+<p> For more information, refer to: </p>
+<ul>
+<!-- begin - wsw -->
+  
+
+  <li><script language=javascript>ReferenceHelpTopic("J2EE Pattern-Driven Development","j","jee_c_j2ee_pattrns");</script></li>
+
+ 
+<!-- end - wsw -->
+
+  <li><script language=javascript>ReferenceHelpTopic("Applying Patterns","ea","ea_o_apply_pttrn");</script>
+
+  </li>
+</ul>
+
+
+<h3><a name="Evaluate Your Results"></a>Evaluate the Results <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p> It might be helpful to publish any models to html format. Also note that diagrams
+  can be copied from the Rational XDE software tool to Microsoft Word and other
+  programs. </p>
+<p>For more information, refer to
+<script language=javascript>ReferenceHelpTopic("Reporting in Rational XDE","cr","cr_o_rptg_xde");</script>.</p>
+
+
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

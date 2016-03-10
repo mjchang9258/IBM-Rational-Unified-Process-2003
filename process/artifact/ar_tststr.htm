@@ -1,0 +1,386 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Test Strategy</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Test Strategy</rpw> <a name="XE_test_strategy__artifact_definition"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="../../rpw_gen/artifact.gif" width="50" height="50">&nbsp;
+	  </td>
+      <td width="80%">Defines the strategic plan for how the test effort will 
+        be conducted against one or more aspects of the target system.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Extends: <a href="ar_tstpl.htm">Test Plan</a>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_tstds.htm">Test Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Not considered optional. Occurs as one or more artifacts, 
+        typically either as a single, evolving strategy or may be multiple artifacts 
+        partitioned on various dimensions including development phase, type or 
+        testing and target test item.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <li><a href="../../webtmpl/templates/test/rup_tststr.htm">Test Strategy</a></li>
+<br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Not applicable.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../workflow/test/co_exptst.htm">Concept: Exploratory Testing</a></li>
+<li><a href="../workflow/test/co_stru.htm">Concept: Structure Testing</a></li>
+<li><a href="../../papers/rt_test.htm">Whitepaper: Testing Embedded Systems</a></li>
+<li><a href="../modguide/md_tststr.htm">Guideline: Testing Techniques by Quality Risk/ Test Type</a></li>
+<li><a href="../workflow/test/co_testr.htm">Concept: Test Strategy</a></li>
+<li><a href="../workflow/test/co_ustst.htm">Concept: Usability Testing</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_anltstflr.htm">Analyze Test Failure</a></li>
+<li><a href="../activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+<li><a href="../activity/ac_tst_dfntstdtl.htm">Define Test Details</a></li>
+<li><a href="../activity/ac_tst_dfntstenvcnf.htm">Define Test Environment Configurations</a></li>
+<li><a href="../activity/ac_tst_dtrtstrsl.htm">Determine Test Results</a></li>
+<li><a href="../activity/ac_tst_idntstitm.htm">Identify Targets of Test</a></li>
+<li><a href="../activity/ac_tst_idntstmch.htm">Identify Testability Mechanisms</a></li>
+<li><a href="../activity/ac_tst_idntstids.htm">Identify Test Ideas</a></li>
+<li><a href="../activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+<li><a href="../activity/ac_tst_obttstcmt.htm">Obtain Testability Commitment</a></li>
+<li><a href="../activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstapr.htm">Define Test Approach</a></li>
+<li><a href="../activity/ac_tst_idntstitm.htm">Identify Targets of Test</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a> <a name="XE_test_strategy__purpose_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>The main purpose of the Test Strategy is to:</p>
+<ul>
+  <li>convey the strategy to external stakeholders to gain their agreement to 
+    the approach. </li>
+  <li> convey the strategy to the internal members of the test team to enable 
+    a coordinated team effort.</li>
+</ul>
+<p>A test strategy needs to be able to convince management and other stakeholders 
+  that the approach is sound and achievable, and it also needs to be appropriate 
+  both in terms of the software product to be tested and the skills of the test 
+  team.</p>
+
+
+<h3><a name="BriefOutline">Brief Outline</a> <a name="XE_test_strategy__brief_outline_for"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>The Test Strategy captures the following informational elements:</p>
+<ul>
+  <li>A explanation of the general approach that will be used. For example, explain 
+    how the primary approach be based on verifying the software against requirements 
+    or design specifications, exercising the software against fault models, subjecting 
+    the software to known attacks, or some other general approach.</li>
+  <li>The specific <a href="../workflow/test/co_tytst.htm">types, techniques, 
+    styles of testing</a> that will be employed as part of the strategy, and for 
+    each: 
+    <ul>
+      <li>An indication of the scope and applicability of the technique</li>
+      <li>An outline of how the technique will be employed.</li>
+      <li>An outline of what tools will be required to support the technique.</li>
+      <li>The criteria for measuring the success and ongoing value of employing 
+        the technique</li>
+      <li>An indication of the weaknesses or limitations of the technique and 
+        where any other techniques will cover this.</li>
+    </ul>
+  </li>
+</ul>
+<p>Note that for a specific software system in a given context (technology, domain 
+  and so forth), it is likely that the strategy can be reused all or in part in 
+  subsequent development lifecycles.</p>
+
+
+<h3><a name="Properties">Properties</a><a name="XE_test_strategy__properties_of"></a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>There are no UML representations for these properties.</p>
+
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr> 
+      <th width="40%" align="left">Property Name&nbsp;</th>
+      <th width="60%" align="left">Brief Description&nbsp;</th>
+    </tr>
+    <tr> 
+      <td width="40%">Name&nbsp;</td>
+      <td width="60%">An unique name used to identify this Test Strategy.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="40%">Description&nbsp;</td>
+      <td width="60%">A short description of the contents of the Test Strategy, 
+        typically giving some high-level indication of complexity and scope.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="40%">Purpose&nbsp;</td>
+      <td width="60%">An explanation of what this Test Strategy represents and 
+        why it is important, usually the specific test types or assessment purpose 
+        it achieves.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="40%">Dependent Test and Evaluation Items&nbsp;</td>
+      <td width="60%">Some form of traceability or dependency mapping to specific 
+        elements such as individual Requirements that need to be referenced.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+
+<h3><a name="Timing">Timing</a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>Starting as early as Inception and continuing in each subsequent phase, the 
+  test strategy is readdressed continually as the project lifecycle evolves. Typically 
+  the strategy differs from phase-to-phase and is typically defined early in each 
+  phase (or at the end of the preceding phase).</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> 
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>The <a href="../workers/wk_tstds.htm">Test Designer</a> role is primarily responsible for this 
+  artifact. The most important skill required to fulfill this responsibility is 
+  knowledge and experience of a broad range of testing types, techniques and styles. 
+  Good communication skills are important for creating this artifact, typically 
+  a reasonable proficiency in writing is necessary. </p>
+
+
+<h3><a name="Tailoring">Tailoring</a>
+  <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+<p>In certain testing cultures, the Test Strategy is considered an informal, casual 
+  artifact, whereas in others it is highly formalized and often requires external 
+  signoff. As such, the format and content should be varied to meet the specific 
+  needs of the project or organization.</p>
+<p>As an alternative to formal documentation, you might choose to only record 
+  the elements of the Test Strategy as a set of informal planning notes, possibly 
+  maintained on an intranet Web site or whiteboard readily visible to, and accessible 
+  by, the test team.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

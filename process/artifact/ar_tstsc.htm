@@ -1,0 +1,396 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Test Script</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Test Script</rpw><a name="XE_test_script__artifact_definition"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/tstscrpt.jpg" width="72" height="55">&nbsp;
+	  </td>
+      <td width="80%">The step-by-step instructions that realize a test, enabling 
+        its execution. Test Scripts may take the form of either documented textual 
+        instructions that are executed manually or computer readable instructions 
+        that enable automated test execution.&nbsp; </td>
+    </tr>
+	
+    
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_tstr.htm">Tester</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Define as many Test Scripts as needed to provide the appropriate 
+        amount of testing.&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Not applicable.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_tstsc.htm">Guideline: Programming Automated Test Scripts</a></li>
+<li><a href="../activity/chklists/ck_tstsc.htm">Checklist: Test Script</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_anltstflr.htm">Analyze Test Failure</a></li>
+<li><a href="../activity/ac_tst_exctstste.htm">Execute Test Suite</a></li>
+<li><a href="../activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../activity/ac_tst_imptstste.htm">Implement Test Suite</a></li>
+<li><a href="../activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstdtl.htm">Define Test Details</a></li>
+<li><a href="../activity/ac_tst_imptst.htm">Implement Test</a></li>
+<li><a href="../activity/ac_tst_strtstatmimp.htm">Structure the Test Implementation</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="XE_test_script__purpose_of"></a><a name="Purpose">Purpose</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The purpose of the Test Script is to provide the implementation of a subset 
+  of required tests in an efficient and effective manner.</p>
+
+
+<h3><a name="BriefOutline">Brief Outline</a>
+ <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20" alt="To top of page"></a> 
+</h3>
+<p>Each Test Script should consider various aspects including the following: </p>
+<ul>
+  <li>The basic computer hardware requirements; for example, Processors, Memory Storage, 
+    Hard-disk Storage, Input/ Output Interface Devices</li>
+  <li>The basic underlying software environment; for example, Operating System
+    and basic 
+    productivity tools such as e-mail or a calendar system</li>
+  <li>Additional specialized input/output peripheral hardware; for example, Bar-code 
+    scanners, receipt printers, cash draws, and sensor devices</li>
+  <li>The required software for the specialized input/ output peripheral hardware;
+    for example, drivers, interface and gateway software</li>
+  <li>The minimal set of software tools necessary to facilitate test, evaluation 
+    and diagnostic activities; for example,&nbsp; memory diagnostics, automated test execution,
+    and so forth</li>
+  <li>The required configuration settings of both hardware and software options;
+    for example, video-display resolution, resource allocation, environment variables,
+    and so on</li>
+  <li>The required "preexisting" consumables; for example, populated data sets, receipt 
+    printer dockets, and the like.</li>
+</ul>
+
+
+<h3><a name="XE_test_script__properties_of"></a><a name="Properties">Properties</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are no UML representations for these properties. 
+</p>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr> 
+      <td width="20%"><p class="tableheading"><b>Property Name</b>&nbsp;</td>
+      <td width="80%"><p class="tableheading"><b>Brief Description</b>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Name&nbsp;</td>
+      <td width="80%">An unique name used to identify this Test Script.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Description&nbsp;</td>
+      <td width="80%">A short description of the contents of the 
+        Test Script, typically giving some high-level indication of complexity and scope.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Purpose&nbsp;</td>
+      <td width="80%">An explanation of what this test script represents and why it is important.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Dependent Test and Evaluation Items&nbsp;</td>
+      <td width="80%">Some form of traceability or dependency mapping 
+        to specific elements such as individual Requirements that need to be referenced.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Preconditions&nbsp;</td>
+      <td width="80%">The starting state that must be achieved prior 
+        to the Test Script being executed.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Instructions &nbsp;</td>
+      <td width="80%">Either the step-by-step instructions for executing 
+        the manual test, or the machine readable instructions that, when executed, 
+        stimulate the software in a similar manner to the actions that would be 
+        undertaken by the appropriate Actor, human or otherwise.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Observation Points&nbsp;</td>
+      <td width="80%">One or more locations in the Test Script instructions 
+        where some aspect of the system state will be observed, and usually compared 
+        with an expected result.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Control Points&nbsp;</td>
+      <td width="80%">One or more locations in the Test Script instructions 
+        where some condition or event in the system may occur and needs to be 
+        considered in regard to determining the next instruction to be followed.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Log Points&nbsp;</td>
+      <td width="80%">One or more locations in the Test Script instructions 
+        where some aspect of the executing test script state is recorded for the 
+        purpose of future reference.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Postconditions&nbsp;</td>
+      <td width="80%">The resulting state that the system must be 
+        left in after the Test Script has been executed.&nbsp;</td>
+    </tr>
+  </table>
+<br>
+</div>
+
+
+
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The initial Test Scripts can be created as soon as there are some software 
+  components against which to implement the tests. The Test Scripts are modified and 
+  extended throughout the remainder of the lifecycle, during the course of each 
+  test cycle.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The <a href="../workers/wk_tstr.htm">Tester</a> role is primarily responsible for this 
+  artifact. Those responsibilities include:</p>
+<ul>
+  <li>identifying and defining each Test Script, and managing all subsequent changes</li>
+  <li>ensuring the Test Script accurately reflects the required test, identified 
+    by one or more a Test Ideas or defined in one or more Test Cases</li>
+  <li>ensuring the Test Script is implemented according to defined standards to be compatible and maintainable with the other Test
+    Scripts</li>
+  <li>ensuring the Test Script makes reasonably efficient use of the available
+    resources</li>
+  <li>developing the Test Script with a focus on economy of effort and identifying 
+    opportunities for reuse and simplification</li>
+  <li>developing the Test Script so that it can be used as part of a Test Suite</li>
+</ul>
+
+
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Manual Test Scripts may be documented using some form of text document, spreadsheet, 
+  or table, or using a specialized test documentation support tool.</p>
+<p>Automated Test Scripts may be created (recorded) or automatically generated 
+  using test automation tools, programmed using a programming language, or any 
+  combination of the above. The Test Scripts may be modified to include programming 
+  concepts, such as referencing common function libraries, using variables, loops, 
+  and branching to increase the efficiency, effectiveness, and resilience of the 
+  scripts.</p>
+<p>In certain cases, it will be appropriate to use automated Test Scripts as informal, 
+  transient resources, avoiding the effort and cost of maintaining them.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

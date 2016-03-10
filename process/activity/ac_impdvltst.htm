@@ -1,0 +1,416 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Implement Developer Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Implement Developer Test</rpw><a name="XE_Implement_Component__implementation_of_tests_for"></a><a name="XE_unit_test__implementation_of"></a><a name="XE_Test__Implementing_Developer_Tests"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To implement one or more tests that enable the validation of the 
+            inividual software components through physical execution.</li>
+          <li>To develop tests that can be executed in conjunction with other 
+            tests as part of a larger test infrastructure.</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b> 
+      <ul>
+          <li><a href="#Refine_the_Scope_and_Identify_the_Tests">Refine the Scope and Identify the Tests</a></li>
+		  <li><a href="#Select_Appropriate_Implementation_Technique">Select Appropriate Implementation Technique</a></li>
+		  <li><a href="#Implement_the_Test">Implement the Test</a></li>
+		  <li><a href="#Establish_External_Data_Sets">Establish External Data Sets</a></li>
+		  <li><a href="#Verify_the_Test_Implementation">Verify the Test Implementation</a></li>
+		  <li><a href="#Maintain_Traceability_Relationships">Maintain Traceability Relationships</a></li>
+      </ul>
+    </td>
+  </tr>
+    <!-- Input_Output Artifacts Begins -->
+  <tr>
+	<td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_comp.htm">Implementation Element</a></li>
+<li><a href="../artifact/ar_tstcp.htm">Testability Element</a></li>
+<li><a href="../artifact/ar_tstdsg.htm">Test Design</a></li>
+<li><a href="../artifact/ar_tststb.htm">Test Stub</a></li>
+</ul>
+ 
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_dvltst.htm">Developer Test</a></li>
+</ul>
+ 
+    </td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+            
+      <td colspan="2"><b>Frequency:&nbsp;</b>Typically once for each corresponding 
+        activity that develops implementation elements</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+            <td colspan="2"><b>Role:</b>&nbsp; <a href="../workers/wk_implm.htm">Implementer</a></td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+            <td colspan="2"><b>Tool Mentors:</b>&nbsp;<ul>
+<li><a href="../../toolment/rqa/tm_rqa_implautoct.htm">Implementing an Automated Component Test using Rational QualityArchitect</a></li>
+<li><a href="../../toolment/test_realtime/tm_rtrtimp.htm">Implementing Developer Tests using Rational Test RealTime</a></li>
+<li><a href="../../toolment/robot/tm_imtst.htm">Implementing Test Scripts Using Rational Robot</a></li>
+</ul>
+ 
+            </td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workguid/wg_mnttstste.htm">Guideline: Maintaining Automated Test Suites</a></li>
+<li><a href="../modguide/md_tstcs.htm">Guideline: Test Case</a></li>
+<li><a href="../modguide/md_untst.htm">Guideline: Unit Test</a></li>
+</ul>
+</td>
+    </tr>
+ </tbody> 
+</table>
+<p></p>
+
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	    <ul>
+<li><a href="../workflow/ovu_impl.htm">Implementation</a>
+<ul>
+<li><a href="../workflow/implemen/wfs_implc.htm">Implement Components</a></li>
+<li><a href="../workflow/implemen/wfs_inss.htm">Integrate Each Subsystem</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="Refine_the_Scope_and_Identify_the_Tests">Refine the Scope and Identify the Tests</a> 
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+	  <td width="95%">To identify the Component under Test and define a set of tests that are of most benefit
+	  in the current iteration.</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>In a formal environment the components and the tests needed to be developed
+   are specified in the Test Design artifact, making this step optional.
+   There are other occasions when the developer tests are driven by Change Requests,
+   bug fixes, implementation decisions that need to be validated, subsystem testing
+   with only the Design Model as input. For each of these cases:
+<ul>
+   <li>define the goal: subsystem/component interface validation, implementation validation, reproduce a defect;</li>
+   <li>define the scope: subsystem, component, group of components;</li>
+   <li>define the test type and details: black-box, white-box, pre-conditions,
+       post-conditions, invariants, input/output and execution conditions,
+       observation/control points, clean-up actions;</li>
+   <li>decide what is the life span of the test; for example a test built specially
+       for fixing a defect might be a throw-away one, but one that exercises the
+       external interfaces will have the same lifecycle as the component under test;</li>
+</ul>
+
+
+<h3><a name="Select_Appropriate_Implementation_Technique">Select Appropriate Implementation Technique</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To determine the appropriate technique to implement the test.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>There are various techniques available to implement a test, but they can be considered
+   in terms of two general categories: manual and automated testing. Most of the developer 
+   tests are implemented using automated testing techniques: 
+<ul>
+   
+  <li>programmed tests, using either the same software programming techniques 
+    and environment as the component under test, or less complex programming languages 
+    and tools ( e.g. scripting languages: tcl, shell based, etc.);</li>
+   
+  <li>recorded or captured tests, built by using test automation tools which capture 
+    the interactions between the component under test and the rest of the system, 
+    and produce the basic tests;</li>
+   <li>generated tests: some aspects of the test, either procedural or the test data,
+       could be automatically generated using more complex test automation tools.</li>
+</ul>
+   Although the most popular approach is the "programmed test" one, in some cases 
+- GUI related testing for example, the more efficient way to conduct a test is 
+manually, following a sequence of instructions that have been captured in a textual 
+description form. 
+<h3><a name="Implement_the_Test">Implement the Test</a> 
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+	  <td width="95%">To implement the tests identified in the defintion step/activity.</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Implement all the elements defined in the first step. Detail and clearly specify 
+  the test environment pre-conditions and what are the steps to get the component 
+  under test to the state where the test(s) could be conducted. Identify the clean-up 
+  steps to be followed in order to restore the environment to the original state. 
+  Pay special attention to the implementation of the observation/control points, 
+  as these aspects might need special support that has to be implemented in the 
+  component under test. </p>
+
+<h3><a name="Establish_External_Data_Sets">Establish External Data Sets</a> 
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+	  <td width="95%">To create and maintain data, stored externally to the test, 
+        that are used by the test during execution. </td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>In most of the cases, decoupling the Test Data from the Test leads to a more
+   maintainable solution. If the test's life span is very short, hardcoding the
+   data within the test might be more efficient, but if many test execution cycles 
+   are needed using different data sets, the simplest way is to store them externally.
+   There are some other advantages if the Test Data is decoupled from the Test:
+<ul>
+   <li>more than one test could use the same data set;</li>
+   <li>easy to modify and/or multiply;</li>
+   <li>could be used to control the conditional branching logic within the Test.</li>
+</ul>
+
+<h3><a name="Verify_the_Test_Implementation">Verify the Test Implementation</a> 
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+	  <td width="95%">To verify the correct workings of the Test.</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Test the Test. Check the environment setup and clean-up instructions. Run the 
+  Test, observe its behaviour and fix the test's defects. If the test will be 
+  long-lived, ask a person with less inside knowledge to run it and check if there 
+  is enough support information. Review it with other people within the development 
+  team and other interested parties. </p>
+
+<h3><a name="Maintain_Traceability_Relationships">Maintain Traceability Relationships</a> 
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+	  <td width="95%">To enable impact analysis and assessment reporting to be 
+        performed on the traced items.</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Depending on the level of formalism implemented.</p>
+
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

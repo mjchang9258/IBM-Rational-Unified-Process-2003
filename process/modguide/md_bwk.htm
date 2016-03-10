@@ -1,0 +1,263 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Business Worker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business Worker</rpw><a name="Top"></a><a name="XE_business_worker__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Attributes">Attributes</a></li>
+  <li><a href="#Operations">Operations</a></li>
+  <li><a href="#Business Worker Characteristics">Business worker characteristics</a></li>
+  <li><a href="#Characteristics of Good Business Workers">Checkpoints for good
+    business workers</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A <b>business worker </b>represents an abstraction of a human that acts
+within the business. A business worker object interacts with other business
+worker objects and manipulates business entity objects in order to realize a
+business use-case instance. We use <b>worker individual</b> as a synonym for
+business worker object.</p>
+<p>A worker is instantiated (&quot;manned&quot;) when the workflow of its
+corresponding use-case instance is started or, at the latest, just in time for
+the person doing the job to play his role in the use-case instance. A worker
+object often &quot;lives&quot; (the person is engaged) as long as the business
+use case executes.</p>
+<h3><a name="Attributes">Attributes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A business worker may have a checklist she must follow. She may also have information 
+  that she provides to other workers or business entities as she executes a business 
+  use case, such as her security level, e-mail address, and so on.</p>
+<p>This kind of information can either be described implicitly in the textual 
+  description of the business worker, or modeled explicitly as an attribute of 
+  the business worker.</p>
+<p>An attribute is of a certain<i> </i>type. An attribute has a name, preferably 
+  a noun that describes the attribute’s role in relation to the class. An attribute 
+  type can be more or less primitive, starting from a simple number or string. 
+  Different classes can have attributes with identical structures. Those attributes 
+  should share a description; that is, they should share attribute type.</p>
+<p>An attribute may be more or less tangible. For instance, you might model as 
+  an attribute the information that a certain business worker must keep in mind 
+  as he executes a business use case. For example, characteristic &quot;suspicious 
+  behaviours&quot; are kept in the minds of trained customs agents to identify 
+  who to pull aside for questioning.</p>
+<p>Note: You should only model attributes to make a business worker more understandable!</p>
+<h3><a name="XE_business_worker__operations_on"></a><a name="Operations">Operations</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An <b>operation</b> of a business worker represents a specific activity to 
+  be performed by an individual of that class. The operation of a business worker 
+  is initiated by a <b>message</b> from another worker individual or from an actor. 
+  An operation has a <b>name</b> and, optionally, <b>parameters</b>.</p>
+<p>An operation describes a task a business worker may be asked to perform. It is
+initiated by a message. A business worker represents a role played by an
+employee. To perform the job in a use case, the person acting as a business
+worker performs one, or several activities.</p>
+<p>When designing a business worker—that is, when defining what a business
+worker must be able to do in order to produce the desired results of a business
+use case—you have two alternatives. You can either:
+<ul>
+  <li>Write a general textual description of the work, or</li>
+  <li>Explicitly define each activity in the form of an operation, which in turn
+    should be described textually. For each operation, you define what message
+    initiates its execution.</li>
+</ul>
+<p>Each operation is defined by a name, which should tell its purpose, and
+optionally, a number of parameters. The parameters specify what an object of the
+class should expect to receive from an object that is requesting support or
+making an access, and what the object will provide when the operation has been
+performed. As an example, you can give parameters that reflect when a business
+worker should take a step in the worker operation, or when he should access a
+certain business entity by initiating one of the business entity’s operations.
+Parameters can also represent more or less tangible things that are handed over.</p>
+<p>Operations can be defined informally, or in more detail, depending on the
+importance or required level of detail in a use case. A &quot;more
+detailed&quot; description might describe a behavior sequence that tells which
+attributes and relationships are dealt with during its performance, how objects
+of other classes are contacted, and how it is terminated.</p>
+<h3><a name="Business Worker Characteristics">Business Worker Characteristics</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The characteristics of a business worker should cover the following
+topics:&nbsp;</p>
+<ul>
+  <li>Prior knowledge and experience</li>
+  <li>Physical characteristics</li>
+  <li>Social and physical environment&nbsp;</li>
+  <li>Job, tasks, and requirements</li>
+  <li>Cognitive characteristics</li>
+</ul>
+<p>This type of information is only useful to capture for &quot;human&quot;
+business workers.&nbsp;</p>
+<h3><a name="XE_business_worker__characteristics_of_a_good"></a><a name="Characteristics of Good Business Workers">Checkpoints
+for Good Business Workers</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>Its name and description are clear and understandable.</li>
+  <li>Each business worker has an association to the business entities it must
+    know about.</li>
+  <li>Each business worker has a link to the other business workers it must
+    communicate with.</li>
+  <li>A business worker’s relationships do not depend on each other.</li>
+  <li>Each business worker participates in at least one business use case.</li>
+  <li>Each relationship is used in the workflow of at least one business use
+    case.</li>
+  <li>Each of the business worker’s operations is performed in the workflow of
+    at least one business use case.</li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

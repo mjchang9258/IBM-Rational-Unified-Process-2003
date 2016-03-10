@@ -1,0 +1,412 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Workload Analysis Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+
+<h2 class="banner"><a name="Top"></a>Artifact:&nbsp;<rpw name="PresentationName">Workload 
+  Analysis Model</rpw><a name="XE_workload_analysis_model__artifact_definition"></a></h2>
+
+<div align="left">
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/wrkloadm.jpg" width="57" height="74">&nbsp;
+	  </td>
+      <td width="80%">A model that identifies one or more workload profiles that 
+        are deemed to accurately define a system state of interest in which evaluation 
+        of the software and/ or it's operating environment can be undertaken. 
+        The workload profiles represent candidate conditions to be simulated against 
+        the Target Test Items under one or more Test Environment Configurations.&nbsp;</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Extends: <a href="ar_tstcs.htm">Test Case</a>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_tstanl.htm">Test Analyst</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">One or more artifacts. Mainly relevant when system load, 
+        system performance or system stress testing is to be conducted. &nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Not applicable.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../workflow/test/co_perfo.htm">Concept: Performance Testing</a></li>
+<li><a href="../modguide/md_wlmod.htm">Guideline: Workload Analysis Model</a></li>
+<li><a href="../activity/chklists/ck_wrkld.htm">Checklist: Workload Analysis Model</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#BriefOutline">Brief Outline</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_anltstflr.htm">Analyze Test Failure</a></li>
+<li><a href="../activity/ac_tst_dfntstelm.htm">Define Testability Elements</a></li>
+<li><a href="../activity/ac_tst_dfntstenvcnf.htm">Define Test Environment Configurations</a></li>
+<li><a href="../activity/ac_tst_dtrtstrsl.htm">Determine Test Results</a></li>
+<li><a href="../activity/ac_tst_imptst.htm">Implement Test</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_tst_dfntstdtl.htm">Define Test Details</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3><a name="Purpose">Purpose</a><a name="XE_workload_analysis_model__purpose_of"></a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Workload Analysis Model attempts to accurately define the loading conditions 
+  under which the Target Test Items must operate within their Target Configuration 
+  Environment. The main objective is to define a realistic representative workload 
+  that allows performance risks to be accurately assessed. Typically determined 
+  by analyzing anticipated or existing actor characteristics, end-user's business 
+  statistics (use cases), etc.</p>
+
+
+<h3><a name="BriefOutline">Brief
+Outline</a><a name="XE_workload_analysis_model__brief_outline_of"></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><b>1. Introduction</b></p>
+<blockquote>
+  <p>Identifies the purpose, background, and objectives of the performance
+  testing within this project.</p>
+</blockquote>
+<p><b>2. System Attributes and Variables</b></p>
+<blockquote>
+  <p>Identifies the attributes and variables of the system that uniquely
+  identify the workload for the system being modeled.</p>
+</blockquote>
+<p><b>4. Actor Definitions</b></p>
+<blockquote>
+  <p>Identifies classes of external clients whose use-case sceanrios will need 
+    to be modeled to simulate / emulate loads on the system-under-test. Additionally 
+    this section identifies the proportion to which any actor comprises the load 
+    for a performance test.</p>
+</blockquote>
+<p><b>7. Actor Attributes</b></p>
+<blockquote> 
+  <p>Identifies the attributes and variables of each actor that uniquely identify 
+    the different characteristics of the external clients of the system. For each 
+    actor, identifies information such as human or non-human, data-feed rate, 
+    think time, transaction style, transaction complexity and behaviour patterns 
+    characterizing the variability in end-user interaction with the system.</p>
+</blockquote>
+<p><b>6. Actor Work Profile</b></p>
+<blockquote> 
+  <p>Identifies the specific use-case scenarios executed by an actor and the percentage 
+    of time or proportion of effort spent by the actor executing the use-case 
+    scenarios to accomplish their total business responsibilities.</p>
+</blockquote>
+<p><b>3. Work Load Profile</b></p>
+<blockquote>
+  <p>For a given profile, identifies the number of external clients being simulated 
+    / emulated during the test, including the number, type and distribution of 
+    the transactions. A profile may be defined in terms of &quot;peak load&quot;, 
+    &quot;average load&quot; and so on.</p>
+</blockquote>
+<p align="left"><b>5. Measurements and Criteria</b></p>
+<blockquote>
+  <p align="left">Identifies the measurement and criteria to be used to evaluate
+  successful achievement of the identified performance objectives. Measurements
+  typically include response time limits or throughput capacity.</p>
+</blockquote>
+<p><b>8. Remote Terminal Emulation Requirements</b></p>
+<blockquote>
+  <p>Identifies the requirements and constraints necessary to be addressed in 
+    creating a Test Environment Configuration that is acceptable for implementing 
+    and executing the performance testing.</p>
+</blockquote>
+
+<h3><a name="Properties">Properties</a><a name="XE_workload_analysis_model__properties_of"></a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>There are no UML representations for these properties. 
+</p>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr> 
+    <td width="20%"><p class="tableheading"><b>Property Name</b>&nbsp;</td>
+    <td width="80%"><p class="tableheading"><b>Brief Description</b>&nbsp;</td>
+  </tr>
+    <tr> 
+      <td width="20%">Name&nbsp;</td>
+      <td width="80%">An unique name used to identify this Workload Analysis Model.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Description&nbsp;</td>
+      <td width="80%">A short description of the contents of the Workload Analysis 
+        Model, typically giving some high-level indication of complexity and scope.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Purpose&nbsp;</td>
+      <td width="80%">An explanation of what this Workload Analysis Model represents 
+        and why it is important.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="20%">Dependent Test and Evaluation Items&nbsp;</td>
+      <td width="80%">Some form of traceability or dependency mapping to specific 
+        elements such as individual requirements that need to be referenced.&nbsp;</td>
+  </tr>
+ </tbody> 
+</table>
+<br>
+</div>
+
+
+<h3><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Workload Analysis Model should be initially outlined as early as possible, 
+  preferably in the Inception phase, with ongoing refinement and detailed definition 
+  as needed during the Elaboration phase.</p>
+<p>While the Workload Analysis Model may be refined or revised during each Iteration 
+  throughout the remainder of the lifecycle, it's good practice to conduct as 
+  much of the testing as possible that relates to this artifact in the Elaboration 
+  phase. While some system load and performance testing work may continue throughout 
+  the project, it is likely any significant defects or required changes identified 
+  as a result of these tests will not be practical or affordable if the results 
+  are delivered much later than early in the Construction phase.</p>
+
+
+<h3><a name="Responsibility">Responsibility</a> 
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+<p>The <a href="../workers/wk_tstanl.htm">Test Analyst</a> role is primarily responsible for this 
+  artifact. The responsibilities are split into two main areas of concern:</p>
+<p>The primary set of responsibilities covers the following design and implementation 
+  issues:</p>
+<ul>
+  <li>Eliciting the information required to formulate the Workload Analysis Model.</li>
+  <li>The Workload Analysis Model accurately reflects the workload and end-user 
+    characteristics of the system being tested.</li>
+  <li>To understand the goals of the performance/ load tests and present this 
+    accurately and reliably.</li>
+  <li>To identify and describe the key use case flows and conditions which best 
+    duplicate the end-user’s core business functions, in terms of the test focus. 
+    The Workload Analysis Model should also identify the interval being simulated 
+    / emulated, any factors or variables that will be changed during the test, 
+    and the measurements used to evaluate the results.</li>
+</ul>
+<p>The secondary set of responsibilities covers the following management and signoff 
+  issues:</p>
+<ul>
+  <li>Provide access to the appropriate sources to elicit and gather the raw detail 
+    that will help formulate the Workload Analysis Model</li>
+  <li>The review of the Workload Analysis Model for the accuracy and appropriateness 
+    of the content and to approve it.</li>
+</ul>
+
+
+<h3><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Workload Analysis Model (contents and format) may require modification 
+  to meet the needs of internal or external standards, guidelines, etc. Optionally, 
+  some aspects of the Workload Analysis Model can be encapsulated within the <a href="ar_tstpl.htm">Iteration 
+  Test Plan</a>&nbsp;</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

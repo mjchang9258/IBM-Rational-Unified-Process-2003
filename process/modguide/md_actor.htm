@@ -1,0 +1,363 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Actor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Actor</rpw><a name="XE_actor__guidelines_for"></a><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#How to Find Actors">How to find actors</a></li>
+  <li><a href="#Actors Help Define System Boundaries">Actors help define system
+    boundaries</a></li>
+  <li><a href="#Brief Description">Brief description</a></li>
+  <li><a href="#Actor Characteristics">Actor characteristics</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To fully understand the system's purpose you must know <b>who</b><i>
+</i>the system is for, that is, who will be using the system. Different user
+types are represented as actors<i>.</i></p>
+<p><a name="XE_actor__definition"></a>An actor is anything that exchanges data
+with the system. An actor can be a user, external hardware, or another system.</p>
+<p>The difference between an actor and an individual system user is that an
+actor represents a particular class<i> </i>of user rather than an actual user.
+Several users can play the same role, which means they can be one and the same
+actor. In that case, each user constitutes an instance of the actor.</p>
+<p class="picturecenter" align="center"><img src="images/md_acto2.gif" width="396" height="322"></p>
+<p class="picturetext">Ivar and Mark are operators of a recycling machine. When
+they are using the machine each is represented by an instance of the actor
+Operator.</p>
+<p>However, in some situations, only one person plays the role modeled by an
+actor. For example, there may be only one individual playing the role of system
+administrator for a rather small system.</p>
+<p>The same user can also act as several actors (that is, the same person can
+take on different roles).</p>
+<p class="picturecenter" align="center"><img src="images/md_acto3.gif" width="367" height="139"></p>
+<p class="picturetext">Charlie uses the Depot-Handling System primarily as Depot
+Manager, but sometimes he also uses the Depot-Handling System as ordinary Depot
+Staff.</p>
+<h3><a name="How to Find Actors">How to Find Actors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p align="center"><img src="images/actor1.gif" width="478" height="327"></p>
+<p align="center" class="picturetext">What in the system's surroundings will
+become actors to the system?</p>
+<p>Start by thinking of individuals who will use the system. How can you
+categorize them? It is often a good habit to keep a few individuals (two or
+three) in mind and make sure that the actors you identify cover their needs. The
+following set of questions is useful to have in mind when you are identifying
+actors:
+<ul>
+  <li>Who will supply, use, or remove information?</li>
+  <li>Who will use this functionality?</li>
+  <li>Who is interested in a certain requirement?</li>
+  <li>Where in the organization is the system used?</li>
+  <li>Who will support and maintain the system?</li>
+  <li>What are the system’s external resources?</li>
+  <li>What other systems will need to interact with this one?</li>
+</ul>
+<p>There are several different aspects of a system's surroundings that you will
+represent as separate actors:
+<ul>
+  <li>Users who execute the system's main functions.</li>
+</ul>
+<h5>Example:</h5>
+<p class="example">For a Depot-Handling System, which supports the work in a
+depot, there are several categories of users: Depot Staff, Order Registry Clerk,
+Depot Manager. All these categories have specific roles in the system and you
+should therefore represent each one by a separate actor.
+<ul>
+  <li>Users who execute the system's secondary functions, such as system
+    administration.</li>
+</ul>
+<h5>Example:</h5>
+<p class="example">In a recycling machine used for recycling cans, bottles, and
+crates, Customer is the main actor, the one for whom the system is primarily
+built. Someone has to manage the machine, however. This role is represented by
+the actor Operator.
+<ul>
+  <li>External hardware the system uses.</li>
+</ul>
+<h5>Example:</h5>
+<p class="example">A ventilation system that controls the temperature in a
+building continuously gets metered data from sensors in the building. Sensor is
+therefore an actor.
+<ul>
+  <li>Other systems interacting with the system.</li>
+</ul>
+<h5>Example:</h5>
+<p class="example">An automated teller machine must communicate with the central
+system that holds the bank accounts. The central system is probably an external
+one, and should therefore be an actor.</p>
+<p>If you are building a internet-based application, your primary actors will in
+a sense be anonymous. You don't really know who they are, and you cannot make
+any assumptions about their skills and background. But you can still describe
+the role you expect them to play towards your system.</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">Systems that provide information (such as search engines)
+will have purely anonymous actors who access the application only to find
+information about a particular topic.&nbsp;</p>
+<p class="exampleheading">Example:&nbsp;</p>
+<p class="example">Government-informational sites whose charter is to provide
+information to any citizen or 'netizen' about laws and regulations, practices,
+forms, and so on. For example, in the US the Internal Revenue Service has page
+that provides information around how to complete a tax return. This includes
+having all forms available electronically, as well as allowing individuals to
+file their tax return electronically. The role of the primary actor in this case
+is anyone interested in how you file a tax return in the US. Of course, once the
+individual attempts filing the return, she can no longer be anonymous.&nbsp;</p>
+<h3><a name="Actors Help Define System Boundaries">Actors Help Define System
+Boundaries</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Finding the actors also means that you establish the boundaries of the
+system, which helps in understanding the purpose and extent of the system. Only
+those who directly communicate with the system need to be considered as actors.
+If you are including more roles than that in the system's surroundings, you are
+attempting to model the business in which the system will be used, not the
+system itself.</p>
+<h5>Example:</h5>
+<p class="example">In an airline booking system, what would the actor be? This
+depends on whether you are building a airline booking system to be used by a
+travel agent, or whether you are building a system to which the passenger can
+connect directly through Internet.</p>
+<p class="example" align="center"><img src="images/actor2.gif" width="368" height="120"></p>
+<p class="example">If you are building an airline booking system to be used at a
+travel agent, the actor would be travel agent. The traveler doesn't interact
+directly with the system, and is therefore not an actor</p>
+<p class="example" align="center"><img src="images/actor3.gif" width="242" height="120"></p>
+<p class="example">If you are building a booking system that will allow users to
+connect via the Internet, the traveler will interact directly with the system
+and is therefore an actor to it.</p>
+<h3><a name="Brief Description">Brief Description</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The brief description of the actor should include information about:
+<ul>
+  <li>What or who the actor represents.</li>
+  <li>Why the actor is needed.</li>
+  <li>What interests the actor has in the system.</li>
+</ul>
+<p>The brief description should be, at most, a few sentences long.</p>
+<h5>Example:</h5>
+<p class="example">In the use-case model of the Recycling Machine, the three
+actors are briefly described as follows:</p>
+<p class="example"><b>Customer</b>: The Customer collects bottles,
+cans and crates at home and brings them back to the shop to get a refund.</p>
+<p class="example"><b>Operator</b>: The Operator is responsible for
+maintenance of the recycling machine.</p>
+<p class="example"><b>Manager</b>: The Manager is responsible for
+questions about money and the service the store delivers to the customers.</p>
+<h3><a name="Actor Characteristics">Actor Characteristics </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The characteristics of an actor might influence how the system is developed,
+and in particular how an optimally usable user interface is visually shaped.
+Note that if business workers corresponding to the actors are already described
+in a business-object model, some of the following characteristics may have
+already been captured. The actor characteristics include:
+<ul>
+  <li>The actor's scope of responsibility.</li>
+  <li>The physical environment in which the actor will be using the system.
+    Deviations from the ideal case (where the user sits in a silent office, with
+    no distractions), might affect the use of such things as sound, the choice
+    of font, and the appropriate use of input device combinations (e.g.,
+    keyboard, touch screen, mouse, and hot-keys.)</li>
+  <li>The number of users represented by this actor. This number is a relevant
+    factor when determining the significance of the actor, and the significance
+    of the parts of the user interface that the actor uses.</li>
+  <li>The frequency with which the actor will use the system. This frequency
+    will determine how much (of the user interface) the actor can be expected to
+    remember between sessions.</li>
+</ul>
+<p>In most cases, a rough estimate of the number of users and frequency of use
+will suffice. A difference between 30 and 40 will not affect how the user
+interface is shaped, but a difference between 3 and 30 might.</p>
+<p>Other actor characteristics include:
+<ul>
+  <li>The actor's level of domain knowledge. This level will help determine how
+    much domain-specific help is needed, and how much domain-specific
+    terminology should be used in the user interface.</li>
+  <li>The actor's level of general computer experience. This level will help
+    determine how appropriate sophisticated versus simplistic interaction
+    techniques are in the user interface.</li>
+  <li>Other applications that the actor uses. Borrowing user-interface concepts
+    from these applications will shorten the actor's learning time and decrease
+    his memory load, since the actor is already familiar with these concepts.</li>
+  <li>General characteristics of the actors, such as level of expertise
+    (education), social implications (language), and age. These characteristics
+    can influence details of the user interface, such as font and language.</li>
+</ul>
+<p>These characteristics are used primarily when identifying the boundary
+classes and the prototype, to ensure the best usability match between the user
+community and the user interface design.</p>
+<h5>Example:</h5>
+<p class="example">The following is an example of characteristics of the Mail
+User actor. This is the actor that, amongst other things, interacts with the
+Manage Incoming Mail Messages use case.
+<ul>
+  <li>
+    <p class="example">The mail user is an experienced PC user.</p>
+  </li>
+  <li>
+    <p class="example">The work environment of the mail user is typically a
+    quiet office.</p>
+  </li>
+  <li>
+    <p class="example">The targeted number of mail users is 500,000.</p>
+  </li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

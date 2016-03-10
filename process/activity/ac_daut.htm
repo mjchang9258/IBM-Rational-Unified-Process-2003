@@ -1,0 +1,366 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Define Automation Requirements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Define Automation Requirements</rpw><a name="Top"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+          <ul>
+            <li>To understand how new technologies can be used to make the target 
+              organization more effective.&nbsp;</li>
+            <li>To determine level of automation in the target organization.&nbsp;</li>
+            <li>To derive system requirements from the business modeling artifacts.&nbsp;</li>
+          </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+          <ul>
+            <li><a href="#Explore New Technologies">Explore New Technologies</a></li>
+            <li><a href="#Identify System Actors and Use Cases">Identify System 
+              Actors and Use Cases</a></li>
+            <li><a href="#Identify Entities in the Analysis Model">Identify Entities 
+              in the Analysis Model</a></li>
+            <li><a href="#Other Sources of Requirements on Systems">Identify Other 
+              Sources to Requirements on Systems</a></li>
+            <li><a href="#Review the Results">Review the Results</a></li>
+          </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_bom.htm">Business Analysis Model</a></li>
+<li><a href="../artifact/ar_badoc.htm">Business Architecture Document</a></li>
+<li><a href="../artifact/ar_bgloss.htm">Business Glossary</a></li>
+<li><a href="../artifact/ar_bucm.htm">Business Use Case Model</a></li>
+<li><a href="../artifact/ar_sbs.htm">Supplementary Business Specification</a></li>
+<li><a href="../artifact/ar_torg.htm">Target-Organization Assessment</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_amdl.htm">Analysis Model</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_ucmod.htm">Use-Case Model</a></li>
+</ul>
+&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration, with most work occurring in the early iterations.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+      <a href="../workers/wk_bdes.htm">Business Designer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td height="23" colspan="2"><b>Tool Mentors:&nbsp;</b>    
+      &nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_bmtse.htm">Guideline: Going from Business Models to Systems</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_busm.htm">Business Modeling</a>
+<ul>
+<li><a href="../workflow/busmodel/wfs_prep.htm">Explore Process Automation</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br>
+</div>
+
+<p>The team must make a rough estimate of what kinds of support the changed business 
+  use cases will require. It is important to indicate, at an early stage, which 
+  techniques are available for implementing the business. Are your free to support 
+  the business use case with new custom business tools? Must you use existing 
+  business tools? Or can you purchase off-the-shelf products? Can you find the 
+  necessary resources, internally or externally, for the business tools that must 
+  be developed? Is the existing configuration of computer systems, terminals, 
+  workstations, and networks important? Is compatibility with the existing business 
+  tools required?</p>
+<h3><a name="Explore New Technologies">Explore New Technologies</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Many technologies are developing very fast. You must build up a good
+understanding of available state-of-the-art solutions, generally solutions as
+well as those specific to your own business domain.</p>
+<p>Common to all organizations is the dependence on information technology. For
+a long time, information technology has been used to improve the performance of
+the business. However, modern solutions can totally change the way business is
+done. Before deciding on any new process designs it is important that you
+understand the potentials of modern information technologies. The following list
+(see [<a href="../referenc.htm#JAC94">JAC94</a>]) gives you an idea as to what you
+can do with technology to improve, or totally revolutionize, the way a business
+operates.
+<ul>
+  <li>Automate work to eliminate human labor.
+  <li>Analyze data in a way that cannot practically be done by hand.
+  <li>Parallelize work or change the sequencing of activities by using databases
+    and networks.
+  <li>Distribute the organization by making it possible to access information
+    from geographically different places, ultimately to the front line where the
+    customer is. Consider developing dedicated hardware solutions to withstand
+    rain and so forth, if required.
+  <li>Move parts of the use cases outside the organization by giving your
+    customers or suppliers access to your information system.
+  <li>Help coordinate activities by supporting information exchange within the
+    organization.
+  <li>Use expert systems to make it possible for non-experts to do specialized
+    work.
+  <li>Collect information from different sources and present it in a way that
+    humans can understand.
+  <li>Keep track of work. Measure the business to find where improvements need
+    to be made and where problems have occurred.
+  <li>Purchase customer databases to improve sales and marketing.
+  <li>Sell and market electronically. More and more, companies and consumers are
+    moving into the electronic world of business.
+  <li>Follow standards for electronic communication so that you can communicate
+    with other businesses easily.</li>
+</ul>
+<h3><a name="XE_business_models__actors_to_the_system,_relationship_to"></a><a name="XE_actor__business_models,_relationships_to"></a><a name="Identify System Actors and Use Cases">Identify
+System Actors and Use Cases</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To identify information-system use cases, begin with the business workers in
+the business analysis model. For each business worker, perform the following
+steps:
+<ul>
+  <li>Decide if the business worker will use the information system.</li>
+  <li>If so, identify an actor for the information system in the information
+    system’s use-case model. Give the actor the same name as the business
+    worker.</li>
+  <li>For each business use case the business worker participates in, create a
+    system use case and give it a brief description.&nbsp;</li>
+  <li>Consider performance goals or additional information about the business
+    worker that should be noted as a Special Requirement for the system use
+    case, or be entered in the Supplementary Specifications for the
+    system.&nbsp;</li>
+  <li>Repeat these steps for all business workers.</li>
+</ul>
+<p>See also <a href="../modguide/md_bmtse.htm">Guidelines: Going from Business
+Models to Systems</a>, the section on business models and actors to the
+system.&nbsp;</p>
+<p>If a business worker is to be completely automated by the system, the corresponding 
+  system actor can be removed. The system use case corresponding to the business 
+  worker still needs a system actor that initiates it. Search for that system 
+  actor among the business actors and business workers supported by the to-be-automated 
+  business worker. See also <a href="../modguide/md_bmtse.htm">Guidelines: Going 
+  from Business Models to Systems</a>, the section on automated business workers.&nbsp;</p>
+<h3><a name="Identify Entities in the Analysis Model">Identify Entities in the
+Analysis Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each business entity, consider the following:&nbsp;</p>
+<ul>
+  <li>If it is to be managed by the information system, identify a corresponding
+    entity in the analysis model of that system.&nbsp;</li>
+  <li>For each attribute of the business entity, determine if it should be
+    modeled as an entity in the analysis model, rather than an attribute. See
+    also <a href="../modguide/md_class.htm">Guidelines: Design Class</a>, the
+    section on attributes.&nbsp;</li>
+</ul>
+<p>See also <a href="../modguide/md_bmtse.htm">Guidelines: Going from Business
+Models to Systems</a>, the section on business models and entity classes in the
+analysis model.&nbsp;</p>
+<h3><a name="Other Sources of Requirements on Systems">Identify Other Sources to
+Requirements on Systems</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are many sources of knowledge about&#151;and requirements for&#151;the
+information system outside the business model. Examples of sources are:
+<ul>
+  <li>Users of the information systems that you have not modeled in the business
+    model. For example, the system administrator is a user of the information
+    system that is (usually) not represented in the business model.</li>
+  <li>Strategies that the business as whole has decided on. For example,
+    regarding IT, reuse, compatibility and quality.</li>
+  <li>Corporate databases that must be used.</li>
+  <li>Other information systems with which the new system(s) must work (legacy
+    considerations).</li>
+  <li>Timing and coordination with other projects.</li>
+  <li>Trends within the business’s own industry and within the IT industry.</li>
+</ul>
+<p>See the <a href="../workflow/ovu_req.htm">Requirements Discipline</a> for more
+details.</p>
+<h2><a name="Review the Results">Review the Results</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>As the activity concludes, review the system artifacts that have been
+sketched, to ensure that they are consistent. As the results of this activity
+are preliminary and relatively informal, reviews should be informal as well.
+</p>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

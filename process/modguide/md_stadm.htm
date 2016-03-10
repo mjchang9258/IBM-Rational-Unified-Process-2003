@@ -1,0 +1,644 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Statechart Diagram</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Statechart Diagram</rpw><a name="Top"></a><a name="XE_state_machine__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#States">States</a></li>
+  <li><a href="#Transitions">Transitions</a></li>
+  <li><a href="#Substates">Substates</a></li>
+  <li><a href="#History States">History states</a></li>
+  <li><a href="#Common Modeling Techniques">Common modeling techniques</a></li>
+  <li><a href="#Hints and Tips">Hints and tips</a></li>
+  <li><a href="#Designing Abstract State Machines">Designing with abstract state
+    machines</a></li>
+  <li><a href="#Chain States">Chain states</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>State machines are used to model the dynamic behavior of a model element, and
+more specifically, the event-driven aspects of the system's behavior (see <a href="../workflow/ana_desi/co_event.htm">Concepts:
+Events and Signals</a>). State machines are specifically used to define
+state-dependent behavior, or behavior that varies depending on the state in
+which the model element is in. Model elements whose behavior does not vary with
+its state of the element do not require state machines to describe their
+behavior (these elements are typically passive classes whose primary responsible
+is to manage data). In particular, state machines must be used to model the
+behavior of active classes that use call events and signal events to implement
+their operations (as transitions in the class's state machine).</p>
+<p>A state machine consists of states, linked by transitions. A state is a
+condition of an object in which it performs some activity or waits for an event.
+A transition is a relationship between two states which is triggered by some
+event, which performs certain actions or evaluations, and which results in a
+specific end-state. The elements of a state machine are depicted in Figure 1.</p>
+<p align="center"><img src="images/md_state1.gif" width="511" height="278"></p>
+<p align="center" class="picturetext">Figure 1. State machine notation.</p>
+<p>A simple editor can be viewed as a finite state machine with the states <b>Empty,</b>
+<b>Waiting for a command,</b> and<b> Waiting for text</b>.
+The events <b>Load file,</b> <b>Insert text,</b> <b>Insert
+character, </b>and<b> Save and quit</b> cause transitions in the
+state machine. The state machine for the editor is depicted in Figure 1 below.</p>
+<p class="picturecenter" align="center"><img src="images/md_stad2.gif" alt width="437" height="263"></p>
+<p class="picturetext">Figure 2. The state machine for a simple editor.</p>
+<h3><a name="States">States</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p align="left">A state is a condition of an object in which it performs some
+activity or waits for an event. An object may remain in a state for a finite
+amount of time. A state has several properties:</p>
+<div align="center">
+<table border="1" width="65%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%"><b>Name</b></td>
+    <td width="60%">A textual string which distinguishes the state from other states; a state may
+    also be anonymous, meaning that it has no name.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Entry/exit actions</b></td>
+    <td width="60%">Actions executed on entering and exiting the state.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Internal transitions</b></td>
+    <td width="60%">Transitions that are handled without causing a change in state.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Substates</b></td>
+    <td width="60%">The nested structure of a state, involving disjoint (sequentially active) or
+    concurrent (concurrently active) substates.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Deferred events</b></td>
+    <td width="60%">A list of events that are not handled in that state but are postponed and
+    queued for handling by the object in another state.</td>
+  </tr>
+</table>
+<br></div>
+
+<p>As depicted in Figure 1, there are two special states that may be defined for
+an object's state machine. The initial state indicates the default starting
+place for the state machine or substate. An initial state is depicted as a
+filled black circle. The final state indicates the completion of the execution
+of the state machine or that the enclosing state has been completed. A final
+state is represented as a filled black circle surrounded by an unfilled circle.
+Initial and final states are really pseudostates. Neither may have the usual
+parts of a normal state, except for a name. A transition from an initial state
+to a final state may have the full complement of features, including a guard
+condition and an action, but may not have a trigger event.</p>
+<h3><a name="Transitions">Transitions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li><a href="#Event Triggers">Event Triggers</a></li>
+  <li><a href="#Guard Conditions">Guard Conditions</a></li>
+  <li><a href="#Actions">Actions</a></li>
+  <li><a href="#Entry and Exit Actions">Entry and Exit Actions</a></li>
+  <li><a href="#Internal Transitions">Internal Transitions</a></li>
+  <li><a href="#Deferred Events">Deferred Events</a></li>
+</ul>
+<p>A transition is a relationship between two states indicating that an object
+in the first state will perform certain actions and enter a second state when a
+specified event occurs and specified conditions are satisfied. On such a change
+of state, the transition is said to 'fire'. Until the transition fires, the
+object is said to be in the 'source' state; after it fires, it is said to be in
+the 'target' state. A transition has several properties:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%"><b>Source state</b></td>
+    <td width="60%">The state affected by the transition; if an object is in the source state, an
+    outgoing transition may fire when the object receives the trigger event of
+    the transition and if the guard condition, if any, is satisfied.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Event trigger</b></td>
+    <td width="60%">The event that makes the transition eligible to fire (providing its guard
+    condition is satisfied) when received by the object in the source state.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Guard condition</b></td>
+    <td width="60%">A boolean expression that is evaluated when the transition is triggered by the
+    reception of the event trigger; if the expression evaluates True, the
+    transition is eligible to fire; if the expression evaluates to False, the
+    transition does not fire. If there is no other transition that could be
+    triggered by the same event, the event is lost.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Action</b></td>
+    <td width="60%">An executable atomic computation that may directly act upon the object that
+    owns the state machine, and indirectly on other objects that are visible to the object.</td>
+  </tr>
+  <tr>
+    <td width="40%"><b>Target state</b></td>
+    <td width="60%">The state that is active after the completion of the transition.</td>
+  </tr>
+</table>
+<br></div>
+
+<p>A transition may have multiple sources, in which case it represents a join
+from multiple concurrent states, as well as multiple targets, in which case it
+represents a fork to multiple concurrent states.</p>
+<h4><a name="Event Triggers">Event Triggers</a></h4>
+<p>In the context of the state machine, an event is an occurrence of a stimulus
+that can trigger a state transition. Events may include signal events, call
+events, the
+passing of time, or a change in state. A signal or call may have parameters
+whose values are available to the transition, including expressions for the
+guard conditions and action. It is also possible to have a triggerless
+transition, represented by a transition with no event trigger. These
+transitions, also called completion transitions, is triggered implicitly when
+its source state has completed its activity.</p>
+<h4><a name="Guard Conditions">Guard Conditions</a></h4>
+<p>A guard condition is evaluated after the trigger event for the transition
+occurs. It is possible to have multiple transitions from the same source state
+and with the same event trigger, as long as the guard conditions don't overlap.
+A guard condition is evaluated just once for the transition at the time the
+event occurs. The boolean expression may reference the state of the object.</p>
+<h4><a name="Actions">Actions</a></h4>
+<p>An action is an executable atomic computation, meaning that it cannot be
+interrupted by an event and therefore runs to completion. This is in contrast to
+an activity, which may be interrupted by other events. Actions may include
+operation calls (to the owner of the state machine as well as other visible
+objects), the creation or destruction of another object, or the sending of a
+signal to another object. In the case of sending a signal, the signal name is
+prefixed with the keyword 'send'.</p>
+<h4><a name="Entry and Exit Actions">Entry and Exit Actions</a></h4>
+<p>Entry and exit actions allow the same action to be dispatched every time the
+state is entered or left, respectively. Entry and exit actions enable this to be
+done cleanly, without having to explicitly put the actions on every incoming or
+outgoing transition explicitly. Entry and exit actions may not have arguments or
+guard conditions. The entry actions at the top-level of a state machine for a
+model element may have parameters representing the arguments that the machine
+receives when the element is created.</p>
+<h4><a name="Internal Transitions">Internal Transitions</a></h4>
+<p>Internal transitions allow events to be handled within the state without
+leaving the state, thereby avoiding triggering entry or exit actions. Internal
+transitions may have events with parameters and guard conditions, and
+essentially represent interrupt-handlers.</p>
+<h4><a name="Deferred Events">Deferred Events</a></h4>
+<p>Deferred events are those whose handling is postponed until a state in which
+the event is not deferred becomes active. When this state becomes active, the
+event occurrence is triggered and may cause transitions as if it had just
+occurred. The implementation of deferred events requires the presence of an
+internal queue of events. If an event occurs but is listed as deferred, it is
+queued. Events are taken off this queue as soon as the object enters a state
+that does not defer these events.</p>
+<h3><a name="Substates">Substates</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A simple state is one which has no substructure. A state which has substates
+(nested states) is called a composite state. Substates may be nested to any
+level. A nested state machine may have at most one initial state and one final
+state. Substates are used to simplify complex flat state machines by showing
+that some states are only possible within a particular context (the enclosing
+state).</p>
+<p align="center"><img src="images/md_state2.gif" alt="ar_state2.gif (12801 bytes)" width="449" height="279"></p>
+<p align="center" class="picturetext">Figure 3. Substates.</p>
+<p>From a source outside an enclosing composite state, a transition may target
+the composite state or it may target a substate. If its target is the composite
+state, the nested state machine must include an initial state, to which control
+passes after entering the composite state and after dispatching its entry action
+(if any). If its target is the nested state, control passes to the nested state
+after dispatching the entry action of the composite state (if any), and then the
+entry action of the nested state (if any).</p>
+<p>A transition leading out of a composite state may have as its source the
+composite state or a substate. In either case, control first leaves the nested
+state (and its exit action, if any, is dispatched), then it leaves the composite
+state (and its exit action, if any, is dispatched). A transition whose source is
+the composite state essentially interrupts the activity of the nested state
+machine.</p>
+<h3><a name="History States">History States</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Unless otherwise specified, when a transition enters a composite state, the
+action of the nested state machine starts over again at the initial state
+(unless the transition targets a substate directly). History states allow the
+state machine to re-enter the last substate that was active prior to leaving the
+composite state. An example of history state usage is presented in Figure 3.</p>
+<p align="center"><img src="images/md_state3.gif" alt="ar_state3.gif (8052 bytes)" width="412" height="211"></p>
+<p align="center" class="picturetext">Figure 4. History State.</p>
+<h3><a name="Common Modeling Techniques">Common Modeling Techniques</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>State machines are used most commonly to model the behavior of an object
+across its lifetime. They are particularly needed when objects have
+state-dependent behavior. Objects which may have state machines include classes,
+subsystems, use cases and interfaces (to assert states which must be satisfied by
+an object which realizes the interface).</p>
+
+<p class="reactive">In the case of real-time systems, state machines are also
+used for capsules and protocols (to assert states which
+must be satisfied by an object which realizes the protocol).</p>
+
+<p> Not all objects
+require state machines. If an object's behavior is simple, such that it simply
+store or retrieves data, the behavior of the object is state-invariant and its
+state machine is of little interest.</p>
+<p>Modeling the lifetime of an object involves three things: specifying the
+events to which the object can respond, the response to those events, and the
+impact of the past on current behavior. Modeling the lifetime of an object also
+involves deciding the order in which the object can meaningfully respond to
+events, starting at the time of the object's creation and continuing until its
+destruction.</p>
+<p>To model the lifetime of an object:
+<ul>
+  <li>Set the context for the state machine, whether it is a class, a use case,
+    or the system as a whole.
+    <ul>
+      <li>If the context is a class or a use case, collect the neighboring
+        classes, including parent classes or classes reachable by associations
+        or dependencies. These neighbors are candidate targets for actions and
+        are candidate targets for inclusion in guard conditions.</li>
+      <li>If the context is the system as a whole, narrow your focus to one
+        behavior of the system, and then consider the lifetimes of the objects
+        involved in that aspect. The lifetime of the entire system is simply too
+        big too be a meaningful focus.</li>
+    </ul>
+  </li>
+  <li>Establish initial and final states for the object. If there are
+    preconditions or postconditions of the initial and final states, define
+    those as well.</li>
+  <li>Determine the events to which the object responds. These can be found in
+    the object's interfaces. In the case of real-time
+    systems, these can be found in the object's protocols.</li>
+  <li>Starting from the initial state to the final state, lay-out the top-level
+    states the object may be in. Connect these states with transitions triggered
+    by the appropriate events. Continue by adding these transitions.</li>
+  <li>Identify any entry or exit actions.</li>
+  <li>Expand or simplify the state machine by using substates.</li>
+  <li>Check that all events triggering transitions in the state machine match
+    events expected by the interfaces realized by the object.
+    Similarly, check that all events expected by the interfaces of
+    the object are handled by the state machine. In the case of real-time systems, make equivalent checks for a capsule's protocols. Finally, look to places where
+
+    you explicitly want to ignore events (e.g. deferred events).</li>
+  <li>Check that all actions in the state machine are supported by
+    relationships, methods, and operations of the enclosing object.</li>
+  <li>Trace through the state machine, comparing it with expected sequences of
+    events and their responses. Search for unreachable states and states in
+    which the machine gets stuck.</li>
+  <li>If you re-arrange or re-structure the state machine, check to make sure
+    that the semantics have not changed.</li>
+</ul>
+<h3><a name="Hints and Tips">Hints and Tips</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>When given a choice, use the visual semantics of the state machine rather
+    than writing detail transition code. For example, do not trigger one
+    transition on several signals, then use detail code to manage the flow of
+    control differently depending on the signal. Use separate transitions,
+    triggered by separate signals. Avoid conditional logic in transition code
+    that hides additional behavior.</li>
+  <li>Name states according to what you are waiting for or what is happening
+    during the state. Remember that a state is not a 'point in time'; it's a
+    period during which the state machine is waiting for something to happen.
+    For example, 'waitingForEnd' is a better name than 'end'; 'timingSomeActivity'
+    is better than 'timeout'. Do not name states as if they were actions.</li>
+  <li>Name all states and transitions within a state machine uniquely; this will
+    make source-level debugging easier.</li>
+  <li>Use state variables (attributes used to control behavior) cautiously; do not use them in lieu of creating new
+    states. Where states are few, with little or no state-dependent behavior,
+    and where there is little or no behavior that might be concurrent with or
+    independent of the object containing the state machine, state variables may
+    be used. If there is complex, state-dependent behavior which is potentially
+    concurrent, or if events which must be handled may originate outside the
+    object containing the state machine, consider using a collaboration of two
+    or more active objects (possibly defined as a composition).  In
+    real-time systems, complex&nbsp; state-dependent, concurrent behavior should
+    be modeled using a capsule containing subcapsules. 
+</li>
+  <li>If there are more than 5 ± 2 states on a single diagram, consider using
+    substates. Common sense applies: ten states in an absolutely regular pattern
+    might be fine, but two states with forty transitions between them obviously
+    needs to be re-thought. Make sure the state machine is understandable.</li>
+  <li>Name transitions for what triggers the event and/or what happens during
+    the transition. Choose names that improve understandability.</li>
+  <li>When you see a choice vertex, you should ask whether you can delegate the
+    responsibility for that choice to another component, such that it gets
+    presented to the object as a distinct set of signals to be acted upon
+    (e.g., instead of a choice on msg-&gt;data &gt; x), have the sender or some
+    other intermediate actor make the decision and send a signal with the
+    decision explicit in the signal name (e.g., use signals named isFull and
+    isEmpty instead of having a signal named value and checking message data).</li>
+  <li>Name the question answered at the choice vertex descriptively, e.g. 'isThereStillLife'
+    or 'isItTimeToComplain'.</li>
+  <li>Within any given object, try to keep choice vertex names unique (for the
+    same reason as keeping transition names unique).</li>
+  <li>Are there overly long code fragments on transitions? Should functions be
+    used instead, and are common code fragments captured as functions? A
+    transition should read like high-level pseudo-code, and should adhere to the
+    same or even more stringent rules of length as C++ functions. For example, a
+    transition with more than 25 lines of code is considered excessively long.</li>
+  <li>Functions should be named by what they do.</li>
+  <li>Pay particular attention to entry and exit actions: it is particularly
+    easy to make changes and forget to change the entry and exit actions.</li>
+  <li>Exit actions can be used to provide safety features, e.g. the exit action
+    from the 'heaterOn' state turns the heater off, where the actions are used
+    to enforce an assertion.</li>
+  <li>Generally substates should contain two or more states unless the state
+    machine is abstract and will be refined by sub-classes of the enclosing
+    element.</li>
+  <li>Choice points should be used in lieu of conditional logic in actions or
+    transitions. Choice point are easily seen, whereas conditional logic in code
+    is hidden from view and easy to overlook.</li>
+  <li>Avoid guard conditions
+    <ul>
+      <li>If the event triggers several transitions, there is no control over
+        which guard condition is evaluated first. As a result, results can be
+        unpredictable.</li>
+      <li>More than one guard condition could be 'true', but only one transition
+        can be followed. The path chosen can be unpredictable.</li>
+      <li>Guard conditions are non-visual; it is harder to 'see' their presence.</li>
+    </ul>
+  </li>
+  <li>Avoid state machines which resemble flow charts.
+    <ul>
+      <li>This may indicate an attempt to model an abstraction that is not really 
+        there, such as:
+<ul>
+          <li>using an active class to model behavior that is best suited for 
+            a passive (or data) class or</li>
+          <li>modeling a data class by using a data class and an active class 
+            that are very tightly coupled (i.e. the data class was used for passing 
+            type information around but the active class contains most of the 
+            data that should be associated with the data class).</li>
+        </ul>
+      </li>
+      <li>This misuse of state machines can be recognized by the following symptoms:
+<ul>
+          <li>messages sent to 'self', primarily just to re-use code</li>
+          <li>few states, with many choice points</li>
+          <li>in some cases a state machine without cycles. Such state machines 
+            are valid in process control applications or when trying to control 
+            a sequence of events; their presence during analysis usually represents 
+            the degeneration of the state machine into a flow chart.</li>
+        </ul>
+      </li>
+      <li>When the problem is identified:
+<ul>
+          <li>Consider splitting the active class into smaller units with more 
+            distinct responsibilities,</li>
+          <li>Move more behavior into a data class that is associated with the 
+            problem active class.</li>
+          <li>Move more behavior into active class functions.</li>
+          <li>Make more meaningful signals instead of relying on data.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h3 align="JUSTIFY"><a name="Designing Abstract State Machines">Designing with
+Abstract State Machines </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p align="JUSTIFY">An abstract state machine is a state machine
+that needs to have more detail added before it can be used for practical
+purposes. Abstract state machines can be used to define generic, reusable
+behavior which is further refined in subsequent model elements.</p>
+<p align="CENTER"><img src="images/md_cpsl2.gif" width="167" height="201"></p>
+<p class="picturetext">Figure 5. An abstract state machine.</p>
+<p align="JUSTIFY">Consider the abstract state machine in Figure
+5. The simple state machine depicted is representative of the
+most abstract level of behavior (the &quot;control&quot; automaton) of many
+different types of elements in event-driven systems. Although they all share this
+high-level form, the different element types may have widely different detailed
+behaviors in the Running state depending on their purpose. Therefore, this state
+machine would most likely be defined in some abstract class that serves
+as the root class for the different specialized active classes</p>
+<p align="JUSTIFY">Let us therefore define two such different refinements of
+this abstract state machine, using inheritance. These two refinements, R1 and
+R2, are shown in Figure 6. For clarity, we have drawn the elements inherited
+from the parent class using a gray pen.</p>
+
+<p align="CENTER"><img src="images/md_cpsl3.gif" width="391" height="204"></p>
+<p align="CENTER">Figure 6. Two refinements of the state machine in Figure 5.</p>
+<p align="JUSTIFY">The two refinements clearly differ in how they
+decompose the Running state and also how they extend the original
+&quot;start&quot; transition. These choices can only be made, of course, once
+the refinement is known and, hence, could not have been done with a single
+end-to-end transition in the abstract class.</p>
+
+<h3 align="JUSTIFY"><a name="Chain States">Chain States</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<font size="3">
+<p align="JUSTIFY">The ability to &quot;continue&quot; both incoming transitions
+and outgoing transitions is fundamental for the type of refinement described
+above. It may seem that entry points and final states, combined with
+continuation transitions are sufficient to provide these semantics.
+Unfortunately, this is not sufficient when there are multiple different
+transitions that need to be extended.</p>
+<p align="JUSTIFY">What is required for the abstract behavior pattern is a way
+of chaining two or more transition segments that are all executed in the scope
+of a single run-to-completion step. This means that transitions entering a
+hierarchical state are split into the incoming part that effectively terminates
+on the state boundary and an extension that continues within the state.
+Similarly, outgoing transitions emanating from a hierarchically nested state are
+segmented into a part that terminates on the enclosing state boundary and a part
+that continues from the state boundary to the target state. This effect can be
+achieved in UML with the introduction the <b>chain state</b> concept.
+This is modeled by a stereotype (&laquo;chainState&raquo;) of the UML State concept. This
+is a state whose only purpose is to &quot;chain&quot; further automatic (triggerless)
+transitions onto an input transition. A chain state has no internal structure&#151;no
+entry action, no internal activity, no exit action. It also has no transitions
+triggered by events. It may have any number of input transitions. It may have an
+outgoing transition with no trigger event; this transition automatically fires
+when an input transition activates the state. The purpose of the state is to
+chain an input transition to a separate output transition. Between the input
+transition(s) and the chained output transition, one connects to another state
+inside the containing state and the other connects to another state outside the
+containing state. The purpose of introducing a chain state is to separate the
+internal specification of the containing state from its external environment; it
+is a matter of encapsulation.</p></font>
+<p align="JUSTIFY">In effect, a chain state represents a &quot;pass
+through&quot; state that serves to chain a transition to a specific continuation
+transition. If no continuation transition is defined, then the transition
+terminates in the chain state, and some transition on an enclosing state must
+eventually fire to move things along.</p>
+<p align="JUSTIFY">The example state machine segment in Figure 7 illustrates
+chain states and their notation. Chain states are represented in a state machine
+diagram by small white circles located within the appropriate hierarchical state
+(this notation is similar to initial and final states, which they resemble). The
+circles are stereotype icons of the chain state stereotype and are usually drawn
+near to the boundary for convenience. (In fact, a notational variation would be
+to draw these on the border of the enclosing state.)</p>
+<p align="CENTER"><img src="images/md_cpsl4.gif" width="391" height="152"></p>
+<p class="picturetext">Figure 7. Chain states and chained transitions.</p>
+<p align="JUSTIFY">The chained transition in this example consists of the three
+chained transition segments e1/a11–/a12–/a13. When signal e1 is received,
+the transition labeled e1/a11 is taken, its action a11 executed, and then chain
+state c1 is reached. After that, the continuation transition between c1 and c2
+is taken, and finally, since c2 is also a chain state, the transition from c2 to
+S21. If the states along these paths all have exit and entry actions, the actual
+sequence of action executions proceeds as follows:</p>
+<ul>
+  <li>exit action of S11</li>
+  <li>action a11</li>
+  <li>exit action of S1</li>
+  <li>action a12</li>
+  <li>entry action of S2</li>
+  <li>action a13</li>
+  <li>entry action of S21</li>
+</ul>
+<p align="JUSTIFY">All of this is executed in the scope of a single
+run-to-completion step.</p>
+<p align="JUSTIFY">This should be compared against the action execution
+semantics of the direct transition e2/a2, which are:</p>
+<ul>
+  <li>exit action of S11</li>
+  <li>exit action of S1</li>
+  <li>action a2</li>
+  <li>entry action for state S2</li>
+  <li>entry action for state S21</li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

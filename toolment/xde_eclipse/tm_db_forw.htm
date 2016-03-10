@@ -1,0 +1,295 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+  <title>Tool Mentor:&nbsp;Forward Engineering Databases Using Rational XDE Developer - Java Platform Edition</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <link rel="StyleSheet" href="../../rop.css" type="text/css">
+<script language="JavaScript" SRC="online_help_link.js"></script>
+</head>
+<body>
+
+
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Forward Engineering Databases Using Rational XDE Developer - Java Platform Edition</rpw>
+</h2>
+
+
+<h3>Purpose</h3>
+<p>This tool mentor describes the use of forward engineering in the Rational XDE&#153;
+  software tool to generate a database schema or DDL script file from an existing
+  Rational XDE Data Model.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_dbdes.htm">Database Design</a></li>
+</ul>
+<br>
+  
+</p>
+
+<h3>Overview</h3>
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#Set Model Properties">Set Model Properties</a></li>
+  <li><a href="#Forward Engineer Database">Forward Engineer Data Model to a Database</a></li>
+  <li><a href="#MoreInfo">Manage Changes to the Model and Database</a></li>
+</ul>
+
+
+<h3><a name="Set Model Properties">Set Model Properties</a> <a href="#Top">
+<img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+
+<p>Two types of model properties must be set to enable forward engineering of
+  the Data Model to create a database or Data Definition Language (DDL) file.&nbsp;These
+  properties are:</p>
+
+
+<ul>
+  <li>Default Database Target Database Management System (DBMS) (see
+    <script language=javascript>ReferenceHelpTopic("Setting the Default Database Target","dm","dm_t_set_default_db_target");</script>
+    )</li>
+  <li>Default Database Assignment (see <script language=javascript>ReferenceHelpTopic("Setting the Default Database Assignment","dm","dm_t_set_default_db_assign");</script>)</li>
+</ul>
+
+
+<p>Rational XDE supports forward engineering to the ANSI SQL 92 standard and to
+  the database management systems (DBMS) listed in the Rational XDE online Help
+  topic
+  <script language=javascript>ReferenceHelpTopic("Databases Supported in Rational XDE","dm","dm_r_db_support");</script>
+.</p>
+<p>For more information, refer to
+  <script language=javascript>ReferenceHelpTopic("Setting Data Modeling Options","dm","dm_o_mdl_data_pref");</script>.  </p>
+
+
+<h3><a name="Forward Engineer Database">Forward Engineer  Data Model to a Database</a>&nbsp;
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+
+<p>Rational XDE can be used to forward engineer a Data Model to a new database
+  schema or a new DDL file. You can forward engineer individual tables or an entire
+  Data Model. See the online Help topic
+  <script language=javascript>ReferenceHelpTopic("Database and DDL Generation","dm","dm_c_fe_overview");</script>
+  for an overview of the Rational XDE forward-engineering capabilities. You initiate
+  the forward-engineering process using the data modeling <b>Forward Engineering Wizard</b> provided by
+  Rational XDE. (See
+  <script language=javascript>ReferenceHelpTopic("Generating Databases or DDLs","dm","dm_t_fe_db_ddl");</script>
+  .) &nbsp;</p>
+<p>Whether you decide to only generate a DDL or to execute the DDL to create a
+  database, Rational XDE creates a DDL file for you in the directory that you
+  specify in the wizard. The elements that Rational XDE includes in the forward-engineering
+  process depend upon the options that you selected in the <b>Forward Engineering Wizard</b>. All elements or DDL scripts are generated according to the specified
+  DBMS. Refer to the following Rational XDE online Help topics for specifics on
+  the different types of supported DBMS:</p>
+
+<ul>
+
+  <li> <script language=javascript>ReferenceHelpTopic("DB2 Database and DDL Generation","dm","dm_c_fe_db2_db");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("Oracle Database and DDL Generation","dm","dm_c_fe_oracle_db");</script></li>
+  <li><script language=javascript>ReferenceHelpTopic("SQL Server Database and DDL Generation","dm","dm_c_fe_sqlsrv_db");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("Sybase Database and DDL Generation","dm","dm_c_fe_sybase_db");</script></li>
+
+</ul>
+
+
+<p>If you forward engineer an ANSI SQL 92 Data Model, Rational XDE generates a
+  DBMS-independent DDL. You can use the database tool of your choice to execute
+  this DDL.</p>
+
+
+<p>In order to perform the forward engineering of the database, Rational XDE must
+  establish a connection to the appropriate DBMS. See
+  <script language="javascript">ReferenceHelpTopic("Connecting to Database Management Systems","dm","dm_o_connect_dbms");
+</script>
+  &nbsp;for more information on establishing database connections. Refer to the
+  following Rational XDE online Help topics for information on establishing connections
+  for a specific DBMS type:</p>
+
+<ul>
+  <li> <script language=javascript>ReferenceHelpTopic("Oracle Database Connections","dm","dm_c_oracle_db_connect");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("SQL Server Database Connections","dm","dm_c_sqlsrv_db_connect");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("Sybase Database Connections","dm","dm_c_sybase_db_connect");</script></li>
+  <li> <script language=javascript>ReferenceHelpTopic("DB2 Database Connections","dm","dm_c_db2_db_connect");</script></li>
+
+</ul>
+
+
+<h3><a name="MoreInfo">Manage Changes to the Model and Database</a> <a href="#Top">
+<img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>After the database or DDL has been created, the changes to the Data Model and
+  generated database must be controlled and managed.&nbsp;Rational XDE provides
+  a Compare and Synchronize feature to assist the database designer in managing
+  change. See
+  <script language=javascript>ReferenceHelpTopic("Comparing and Synchronizing in Data Modeling","dm","dm_o_gen_dm_cmpsync");</script>
+  and <a href="tm_db_manage.htm">Tool Mentor: Managing Databases in Rational XDE</a>.
+</p>
+
+
+
+
+<br>
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+</body>
+
+</html>

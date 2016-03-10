@@ -1,0 +1,339 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Distribution Patterns</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Distribution 
+  Patterns</rpw><a name="XE_architecture__distribution_patterns"></a><a name="XE_distribution_patterns__introduction_to"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Nodes, Processors and Devices">Nodes, Processors and Devices</a></li>
+  <li><a href="#Distribution Patterns">Distribution Patterns</a></li>
+  <li><a href="#Client/Server Architectures">'Client/Server Architectures'</a>
+    <ul>
+      <li><a href="#The 3-Tier Architecture">The '3-tier Architecture'</a></li>
+      <li><a href="#The 'Fat Client Architecture'">The 'Fat-Client Architecture'</a></li>
+      <li><a href="#Web Application">The 'Fat-Server Architecture'</a></li>
+      <li><a href="#Distributed Client/Server">The 'Distributed Client/Server
+        Architecture'</a></li>
+    </ul>
+  </li>
+  <li><a href="#The Peer-to-Peer Architecture">The Peer-to-peer 'Architecture'</a></li>
+</ul>
+
+
+<h3><a name="Nodes, Processors and Devices">Nodes, Processors and Devices</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Processors and Devices are common stereotypes of Node. The distinction between 
+  the two may seem difficult to assess, as many devices now contain their own 
+  CPUs. However, the distinction between processors and devices lies in the type 
+  of software that executes on them. Processors execute programs/software that 
+  were explicitly written for the system being developed. Processors are general-purpose 
+  computing devices which have computing capacity, memory, and execution capability.</p>
+<p>Devices execute software written that controls the functionality of the device 
+  itself. Devices are typically attached to a processor that controls the device. 
+  They typically execute embedded software and are incapable of running general-purpose 
+  programs. Their functionality is typically controlled by device-driver software.</p>
+
+
+<h3><a name="Distribution Patterns">Distribution Patterns</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>There are a number of typical patterns of distribution in systems, depending 
+  on the functionality of the system and the type of application. In many cases, 
+  the distribution pattern is informally used to describe the 'architecture' of 
+  the system, though the full architecture encompasses this but also many more 
+  things. For example, many times a system will be described as having a 'client-server 
+  architecture', although this is only the distribution aspect of the architecture. 
+  This serves to highlight the importance of the distribution aspects of the system 
+  and the extent to which they influence other architectural decisions.</p>
+<p>The distribution patterns described below imply certain system characteristics, 
+  performance characteristics, and process architectures. Each solves certain 
+  problems but also poses unique challenges.</p>
+
+
+<h3><a name="Client/Server Architectures">Client/Server Architectures</a><a name="XE_architecture__client/server"></a><a name="XE_distribution_patterns__client/server_architectures"></a>
+ <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In so-called &quot;client/server architectures&quot;, there are specialized 
+  network processor nodes called <b>clients</b>, and nodes called <b>servers</b>. 
+  Clients are consumers of services provided by a server. A client often services 
+  a single user and often handles end-user presentation services (GUI's), while 
+  the server usually provides services to several clients simultaneously; the 
+  services provided are typically database, security or print services. The &quot;application 
+  logic&quot;, or the business logic, in these systems is typically distributed 
+  among both the client and the server. Distribution of the business logic is 
+  called <b>application partitioning</b>.</p>
+<p>In the following figure, Client A shows an example of a 2-tier architecture,
+with most application logic located in the server. Client B shows a typical
+3-tier architecture, with Business Services implemented in a Business Object
+Server. Client C shows a typical web-based application.</p>
+<p align="center"><img src="images/dpatt01.gif" width="546" height="287"></p>
+<p class="picturetext">Variations of Client-Server Architectures</p>
+<p>In traditional client/server systems, most of the business logic is
+implemented on clients; but some functionality is better suited to be located on
+the server, for example functionality that often access data stored on the
+server. By doing this, one can decrease the network traffic, which in most cases
+is quite expensive (it is an order of magnitude or two slower than inter-process
+communication).</p>
+<p>Some characteristics:
+<ul>
+  <li>A system can consist of several different types of clients, examples of
+    which include:
+    <ul>
+      <li>User workstations</li>
+      <li>Network computers</li>
+    </ul>
+  </li>
+  <li>Clients and servers communicate by using various technologies, such as
+    CORBA/IDL, or RPC (remote-procedure call) technologies.</li>
+  <li>A system can consist of several different types of servers, examples of
+    which include:
+    <ul>
+      <li><b>Database servers</b>, handling database machines such as
+        Sybase, Ingres, Oracle, Informix;</li>
+      <li><b>Print servers</b>, handling the driver logic (queuing
+        etc.) for a specific printer;</li>
+      <li><b>Communication servers</b> (TCP/IP, ISDN, X.25),</li>
+      <li><b>Window Manager servers</b> (X)</li>
+      <li><b>File servers</b> (NFS under UNIX).</li>
+    </ul>
+  </li>
+</ul>
+
+<h4><a name="The 3-Tier Architecture">The '3-Tier Architecture'</a><a name="XE_architecture__3-tier"></a><a name="XE_distribution_patterns__3-tier_architecture"></a>
+ <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The '3-tier Architecture' is a special case of the 'Client/Server Architecture' 
+  in which functionality in the system is divided into 3 logical partitions: application 
+  services, business services, and data services. The 'logical partitions' may 
+  in fact map to 3 or more physical nodes.</p>
+
+<p align="center"><img src="images/3-tier.gif" width="175" height="268"></p>
+<p class="picturetext">Example of a 3-tier Architecture</p>
+
+<p>The logical partitioning into these three 'tiers' reflects an observation about 
+  how functionality in typical office applications tends to be implemented, and 
+  how it changes. Application services, primarily dealing with GUI presentation 
+  issues, tends to execute on a dedicated desktop workstation with a graphical, 
+  windowing operating environment. Changes in functionality tends to be dictated 
+  often by ease of use or aesthetic considerations, essentially <b>human factors</b> 
+  issues.</p>
+<p>Data services tend to be implemented using database server technology, which 
+  tends to execute on one or more high-performance, high-bandwidth nodes that 
+  serve hundreds or thousands of users, connected over a network. Data services 
+  tend to change when the representation and relationships between stored information 
+  changes.</p>
+<p>Business services reflect encoded knowledge of business processes. They manipulate 
+  and synthesize information obtained from the data services, and provide it to 
+  the application services. Business services are typically used by many users 
+  in common, so they tend to be located on specialized servers as well, though 
+  the may reside on the same nodes as the data services.</p>
+<p>Partitioning functionality along these lines provides a relatively reliable
+pattern for scalability: by adding servers and re-balancing processing across
+data and business servers, a greater degree of scalability is achieved.</p>
+
+<h4><a name="The 'Fat Client Architecture'">The 'Fat Client Architecture'</a><a name="XE_architecture__fat-client"></a><a name="XE_distribution_patterns__fat-client_architecture"></a> 
+  <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The client is &quot;Fat&quot; since nearly everything runs on it (except in 
+  a variation, called the '2-tier architecture', in which the data services are 
+  located on a separate node). Application Services, Business Services and Data 
+  Services all reside on client machine; the database server will be usually on 
+  another machine.</p>
+
+<p align="center"><img src="images/2-tier.gif" width="166" height="174"></p>
+<p class="picturetext">Traditional 2-tier or &quot;Fat Client&quot; Architecture</p>
+
+<p>'Fat Clients' are relatively simple to design and build, but more difficult 
+  to distribute (they tend to be large and monolithic) and maintain. Because the 
+  client machines tend to cache data locally for performance, local cache coherency 
+  and consistency tend to be issues and areas warranting particular attention. 
+  Changes to shared objects located in multiple local caches are difficult and 
+  expensive to coordinate, involving as they do network broadcast of changes.</p>
+
+<h4><a name="Web Application">The 'Fat Server Architecture'</a><a name="XE_architecture__fat-server"></a><a name="XE_distribution_patterns__fat-server_architecture"></a>
+ <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>At the other end of the spectrum from the 'Fat Client' is the 'Fat Server' 
+  or 'Anorexic Client'. A typical example is the web-browser application running 
+  a set of HTML pages, there is very little application in the client at all. 
+  Nearly all work takes place on one or more web servers and data servers.</p>
+
+<p align="center"><img src="images/dpatt04.gif" width="166" height="174"></p>
+<p class="picturetext">Web Application</p>
+
+<p>Web applications are easy to distribute, easy to change. They are relatively 
+  inexpensive to develop and support (since much of the application infrastructure 
+  is provided by the browser and the web server). They may however not provide 
+  the desired degree of control over the application, and they tend to saturate 
+  the network quickly if not well-designed (and sometimes despite being well-designed).</p>
+
+<h4><a name="Distributed Client/Server">Distributed Client/Server Architecture</a><a name="XE_architecture__distributed_client/server"></a><a name="XE_distribution_patterns__distributed_client/server_architecture"></a>
+  <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In this architecture, the application, business and data services reside on 
+  different nodes, potentially with specialization of servers in the business 
+  services and data services tiers. A full realization of a 3-tier architecture.</p>
+
+
+<h3><a name="The Peer-to-Peer Architecture">The Peer-to-Peer Architecture</a><a name="XE_architecture__peer-to-peer"></a><a name="XE_distribution_patterns__peer-to-peer_architecture"></a>
+ <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In the peer-to-peer architecture, any process or node in the system may be 
+  both client <b>and </b>server. Distribution of functionality is achieved 
+  by grouping inter-related services together to minimize network traffic while 
+  maximizing throughput and system utilization. Such systems tend to be complex, 
+  and there is a greater need to be aware of issues such as dead-lock, starvation 
+  between processes, and fault handling.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

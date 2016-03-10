@@ -1,0 +1,224 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Use-Case Realization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Use-Case Realization</rpw><a name="Top"></a><a name="XE_use-case_realization__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Class Diagrams">Class Diagrams owned by a Use-Case Realization</a></li>
+  <li><a href="#Sequence Diagrams">Collaboration and Sequence Diagrams owned by
+    a Use-Case Realization</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A use-case realization represents the design perspective of a use case. This 
+  artifact can take various forms. It may include, for example, a textual description 
+  (a document), class diagrams of participating classes and subsystems, and interaction 
+  diagrams (collaboration and sequence diagrams) that illustrate the flow of interactions 
+  between class and subsystem instances.</p>
+<p>In a model, a use-case realization is represented as a UML collaboration that 
+  groups the diagrams and other information (such as textual descriptions) that 
+  form part of the use-case realization.</p>
+<p>The reason for separating the use-case realization from its use case is that
+doing so allows the use cases to be managed separately from their realizations.
+This is particularly important for larger projects, or families of systems where
+the same use cases may be designed differently in different products within the
+product family. Consider the case of a family of telephone switches which have
+many use cases in common, but which design and implement them differently
+according to product positioning, performance and price.</p>
+<p>For larger projects, separating the use case and its realization allows
+changes to the design of the use case without affecting the baselined use case
+itself.</p>
+<p>For each use case in the use-case model, there is a use-case realization in
+the design model with a realization relationship to the use case. In the UML
+this is shown as a dashed arrow, with an arrowhead like a generalization
+relationship, indicating that a realization is a kind of inheritance, as well as
+a dependency (i.e. it could have been shown as a dependency stereotyped with
+&laquo;realize&raquo;).</p>
+<p class="picturecenter" align="center"><img border="0" src="images/ucrea1.gif" width="277" height="109"></p>
+<p class="picturetext">A use-case realization in the design model can be traced
+to a use case in the use-case model.</p>
+<h3><a name="Class Diagrams">Class Diagrams Owned by a Use-Case Realization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each use-case realization there may be one or more class diagrams
+depicting its participating classes. The figure below shows a class diagram for
+the realization of the <b>Receive Deposit Item</b> use case. A class
+and its objects often participate in several use-case realizations. It is
+important during design to coordinate all the requirements on a class and its
+objects that different use-case realizations may have.</p>
+<p class="picturecenter" align="center"><img src="images/md_ucre3.gif" alt="a collaboration diagram depicting a use-case realization" width="328" height="213"></p>
+<p class="picturetext">The use case Receive Deposit Item and its class diagram.</p>
+<h3>Collaboration and <a name="Sequence Diagrams">Sequence Diagrams Owned by a
+Use-Case Realization</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each use-case realization there is one or more interaction diagrams
+depicting its participating objects and their interactions. There are two types
+of interaction diagrams: Sequence diagrams and collaboration diagrams. They
+express similar information, but show it in different ways. Sequence diagrams
+show the explicit sequence of messages and are better when it is important to
+visualize the time ordering of messages, whereas collaboration diagrams show
+the communication links between objects and are better for understanding all of
+the effects on a given object and for algorithm design. See <a href="md_seqdm.htm">Guidelines:
+Sequence Diagram</a> and <a href="md_coldm.htm">Guidelines: Collaboration
+Diagram</a> below for more information.</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

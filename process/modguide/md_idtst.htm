@@ -1,0 +1,521 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Important Decisions in Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Guidelines:&nbsp;<rpw name="PresentationName">Important 
+  Decisions in Test</rpw><a name="XE_test_discipline__important_decisions"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#DecideHowToPerformTheWorkflow">Decide How to Perform the 
+    Workflow</a></li>
+  <li><a href="#DecideHowToUseArtifacts">Decide How to Use Artifacts</a></li>
+  <li><a href="#DecideHowToReviewArtifacts">Decide How to Review Artifacts</a></li>
+  <li><a href="#DecideOnTestApprovalCriteria">Decide on Test Approval
+    Criteria</a></li>
+</ul>
+
+
+<h3><a name="DecideHowToPerformTheWorkflow">Decide How to Perform the Workflow</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following decisions should be made regarding the Test discipline's workflow:</p>
+<ul>
+  <li>Decide how to perform the workflow by looking at the <a href="../workflow/test/ov_tst_wfd.htm">Test: 
+    Workflow</a>. Study the diagram with its <a href="../glossary.htm#guard_condition" target="_blank">guard 
+    conditions</a> and the guidelines below.</li>
+  <li>Decide what parts of the Test workflow details to perform. One key issue 
+    for the Test workflow is to decide what quality dimensions are interesting 
+    for the project in general, and most importantly, for each iteration (see 
+    <a href="../workflow/test/co_tytst.htm">Concepts: Types of Tests</a>). Decide 
+    what appropriate combinations of types of tests you should focus on for the 
+    current iteration.</li>
+</ul>
+<p>Document the decisions in the Development Case, under the headings <i>Disciplines, 
+  Test, Workflow</i>.</p> 
+  
+  
+<h3><a name="DecideHowToUseArtifacts">Decide How to Use Artifacts</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Decide what artifacts to use and how to effectively make use of them. The table 
+  below describes those artifacts we recommend you should make use of and those 
+  you might consider using in particular contexts. For more detailed information 
+  on how to tailor each artifact, and a discussion of the advantages and disadvantages 
+  of that specific artifact, read the section titled &quot;Tailoring&quot; for 
+  each artifact.</p>
+<p>For each artifact, decide how the artifact should be used: Must have, Should 
+  have, Could have or Won't have. For more details, see <a href="md_uclaar.htm">Guidelines: 
+  Classifying Artifacts</a>.</p>
+
+<div align="center">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr> 
+    <td width="20%"><b>Artifact</b></td>
+    <td width="40%"><b>Purpose</b></td>
+    <td width="40%"><b>Tailoring (Optional, Recommended)</b></td>
+  </tr>
+  <tr> 
+    <td width="20%"><a href="../artifact/ar_tstev.htm">Test Evaluation Summary</a></td>
+    <td width="40%">
+        <p>Summarizes the Test Results for use primarily by the management team 
+          and other stakeholders external to the test team.</p>
+    </td>
+    <td width="40%">
+        <p>Recommended for most projects.</p>
+        <p>Where the project culture is relatively information, it may be appropriate 
+          simply to record test results and not create formal evaluation summaries. 
+          In other cases, Test Evaluation Summaries can be included as a section 
+          within other Assessment artifacts, such as the <a href="../artifact/ar_itass.htm">Iteration 
+          Assessment</a> or <a href="../artifact/ar_rvrec.htm">Review Record</a>.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width="20%"><a href="../artifact/ar_tstrs.htm">Test Results</a></td>
+    <td width="40%">
+        <p>This artifact is the analyzed result determined from the raw data in 
+          one or more Test Logs.</p>
+    </td>
+    <td width="40%">
+        <p>Recommended. Most test teams retain some form of reasonably detailed 
+          record of the results of testing. Manual testing results are usually 
+          recorded directly here, and combined with the distilled Test Logs from 
+          automated tests.</p>
+        <p>In some cases, test teams will go directly from the Test Logs to producing 
+          the Test Evaluation Summary.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width="20%"><a href="../artifact/ar_tstpl.htm">[Master] Test Plan</a></td>
+    <td width="40%">
+        <p>Defines high-level testing goals, objectives, approach, resources, 
+          schedule and deliverables that govern a phase or the entire the lifecycle.</p>
+    </td>
+    <td width="40%"> 
+        <p>Optional. Useful for most projects.</p>
+        <p>A Master Test Plan defines the high-level strategy for the test effort 
+          over large parts of the software development lifecycle. Optionally, 
+          you can include the Test Plan as a section within the <a href="../artifact/ar_sdp.htm">Software 
+          Development Plan</a>.</p>
+        <p>Consider whether to maintain a &quot;Master&quot; Test Plan in addition 
+          to the &quot;Iteration&quot; Test Plans. The Master Test Plan covers 
+          mainly logistic and process enactment information that typically relates 
+          to the entire project lifecycle, therefore it is unlikely to change 
+          between iterations.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width="20%"><a href="../artifact/ar_tstpl.htm">[Iteration] Test Plan</a></td>
+    <td width="40%"> 
+        <p>Defines finer grained testing goals, objectives, motivations, approach, 
+          resources, schedule and deliverables that govern an iteration.</p>
+    </td>
+    <td width="40%"> 
+        <p>Recommended for most projects.</p>
+        <p>A separate Test Plan per iteration is recommended to define the specific, 
+          fine-grained test strategy. Optionally, you can include the Test Plan 
+          as a section within the <a href="../artifact/ar_itpln.htm">Iteration 
+          Plan</a>.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"><a href="../artifact/ar_tstidslst.htm">Test Ideas List</a></td>
+      <td width="40%">
+        <p>This is an enumerated list of ideas, often partially formed, to be 
+          considered as useful tests to conduct.</p>
+      </td>
+      <td width="40%">
+        <p>Recommended for most projects.</p>
+        <p>In some cases these lists will be informally defined and discarded 
+          once Test Scripts or Test Cases have been defined from them.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"><a href="../artifact/ar_tstsc.htm">Test Script</a>, <a href="../artifact/ar_tstdta.htm">Test 
+        Data</a></td>
+      <td width="40%">
+        <p>The Test Scripts and Test Data are the realization or implementation 
+          of the test, where the Test Script embodies the procedural aspects, 
+          and the Test Data the defining characteristics.</p>
+      </td>
+      <td width="40%">
+        <p>Recommended for most projects.</p>
+        <p>Where projects differ is how formally these artifacts are treated. 
+          In some cases, these are informal and transitory, and the test team 
+          is judged based on other criteria. In other cases&#151;especially with 
+          automated tests&#151;the Test Scripts and associated Test Data (or some 
+          subset thereof) are regarded as major deliverables of the test effort.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"><a href="../artifact/ar_tstste.htm">Test Suite</a></td>
+      <td width="40%">
+        <p>Used to group individual related tests (Test Scripts) together in meaningful 
+          subsets. </p>
+      </td>
+      <td width="40%">
+        <p>Recommended for most projects.</p>
+        <p>Also required to define any Test Script execution sequences that are 
+          required for tests to work correctly.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"><a href="../artifact/ar_tstcs.htm">Test Case</a></td>
+      <td width="40%"> 
+        <p>Defines a specific set of test inputs, execution conditions, and expected 
+          results.</p>
+        <p>Documenting test cases allows them to be reviewed for completeness 
+          and correctness, and considered before implementation effort is planned 
+          &amp; expended.</p>
+        <p>This is most useful where the input, execution conditions and expected 
+          results are particularly complex.</p>
+      </td>
+      <td width="40%"> 
+        <p>We recommend that on most projects, were the conditions required to 
+          conduct a specific test are complex or extensive, you should define 
+          Test Cases. You will also need to document Test Cases where they are 
+          a contractually required deliverable.</p>
+        <p>In most other cases we recommend maintaining the Test-Ideas List and 
+          the Implemented Test Scripts instead of detailed textual Test Cases.</p>
+        <p>Some projects will simply outline Test Cases at a high level and defer 
+          details to the Test Scripts. Another style commonly used is to document 
+          the Test Case information as comments within the Test Scripts.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"><a href="../artifact/ar_wlmod.htm">Workload Analysis Model</a></td>
+      <td width="40%">
+        <p>A specialized type of Test Case. Used to define a representative workload 
+          to allow quality risks associated with the system operating under load 
+          to be assessed.</p>
+      </td>
+      <td width="40%"> 
+        <p>Recommended for most systems, especially those where system performance 
+          under load must be evaluated, or where there are other significant quality 
+          risks associated with system operation under load.</p>
+        <p>Not usually required for systems that will be deployed on a standalone 
+          target system.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"> 
+        <p><a href="../artifact/ar_tstcl.htm">Test Classes</a> in the Design Model</p>
+        <p><a href="../artifact/ar_tstcp.htm">Test Components</a> in the Implementation 
+          Model</p>
+      </td>
+      <td width="40%"> 
+        <p>The Design Model &amp; Implementation Model include Test Classes &amp; 
+          Components if the project has to develop significant additional specialized 
+          behavior to accommodate and support testing.</p>
+      </td>
+      <td width="40%"> 
+        <p>Where Required.</p>
+        <p><a href="../workflow/implemen/co_stubs.htm">Stubs</a> are a common 
+          category of Test Classes and Test Component.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"> <a href="../artifact/ar_tstlog.htm">Test Log</a></td>
+      <td width="40%">
+        <p>The raw data output during test execution, typically produced by automated 
+          tests.</p>
+      </td>
+      <td width="40%">
+        <p>Optional.</p>
+        <p>Many projects that perform automated testing will have some form of 
+          Test Log. Where projects differ is whether the Test Logs are retained 
+          or discarded after Test Results have been determined.</p>
+        <p>You might retain Test Logs if you need to satisfy certain audit requirements, 
+          if you want to perform analysis on how the raw test output data changes 
+          over time, or if you are uncertain at the outset of all the analysis 
+          you may be required to give.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"><a href="../artifact/ar_tstatmarc.htm">Test Automation Architecture</a></td>
+      <td width="40%">
+        <p>Provides an architectural overview of the test automation system, using 
+          a number of different architectural views to depict different aspects 
+          of the system.</p>
+      </td>
+      <td width="40%">
+        <p>Optional.</p>
+        <p>Recommended on projects where the test architecture is relatively complex, 
+          when a large number of staff will be collaborating on building automated 
+          tests, or when the test automation system is expected to be maintained 
+          over a long period of time.</p>
+        <p>In some cases this might simply be a white-board diagram that is recorded 
+          centrally for interested parties to consult.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width="20%"><a href="../artifact/ar_tstintspc.htm">Test Interface 
+          Specification</a></td>
+      <td width="40%"> 
+        <p>Defines a required set of behaviors by a classifier (specifically, 
+          a Class, Subsystem or Component) for the purposes of testing (testability). 
+          Common types include test access, stubbed behavior, diagnostic logging 
+          and test oracles.</p>
+      </td>
+      <td width="40%">
+        <p>Optional.</p>
+        <p>On many projects, there is either sufficient accessibility for test 
+          in the visible operations on classes, user interfaces etc.</p>
+        <p>Some common reasons to create Test Interface Specifications include 
+          UI extensions to allow GUI test tools to interact with the tool and 
+          diagnostic message logging routines, especially for batch processes.</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+</div>
+
+<p>Tailor each artifact by performing the steps described in the <a href="../activity/ac_devca.htm">Activity: 
+  Develop Development Case</a>, under the heading &quot;Tailor Artifacts per Discipline&quot;.</p>
+
+
+
+<h3><a name="DecideHowToReviewArtifacts">Decide How to Review Artifacts</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>This section gives some guidelines to help you decide how you should review 
+  the test artifacts. For more details, see <a href="md_review.htm">Guidelines: 
+  Review Levels</a>.</p>
+
+
+<h4>Test Cases<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Test Cases are created by the test team and are usually treated as <b>Informal</b>, 
+  meaning they are approved by someone within the test team. </p>
+<p>Where useful, Test Cases might be approved by other team members and should 
+  then be treated as <b>Formal-Internal</b>.</p>
+<p>If a customer wants to validate a product before it's released, some subset 
+  of the Test Cases could be selected as the basis for that validation. These 
+  Test Cases should be treated as <b>Formal-External</b>.</p>
+
+
+<h4>Test Scripts<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Test Scripts are usually treated as <b>Informal</b>; that is, they are approved 
+  by someone within the test team.</p>
+<p>If the Test Scripts are to be used by many testers, and shared or reused for 
+  many different tests, they should be treated as <b>Formal-Internal</b>.</p>
+
+
+<h4>Test artifacts in design and implementation<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Test Classes are found in the Design Model, and Test Components in the Implementation 
+  Model. There are also two other related although not test specific artifacts: 
+  Packages in the Design Model, and Subsystems in the Implementation Model.</p>
+<p>These artifacts are like design and implementation artifacts, however, they're 
+  created for the purpose of testing. The natural place to keep them is with the 
+  design and implementation artifacts. Remember to name or otherwise label them 
+  in such a way that they are clearly separated from the design and implementation 
+  of the core system.</p>
+
+
+<h4>Defects<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Defects are usually treated as <b>Informal</b> and are usually handled in a 
+  defect-tracking system. On a small project, you can manage the defects as a 
+  simple list, for example, using your favorite spreadsheet. This is only manageable 
+  for small systems&#151;when the number of people involved and the amount of defects 
+  grow, you'll need to start using a more flexible defect-tracking system.</p>
+<p>Another decision to make is whether you need to separate the handling of defects&#151;also 
+  known as symptoms or failures&#151;from faults; the actual errors. For small projects, 
+  you may manage to track only the defects and implicitly handle the faults. However, 
+  as the system grows, you usually need to separate the management of defects 
+  from faults. For example, several defects may be caused by the same fault. Therefore, 
+  if a fault is fixed, it's necessary to find the reported defects and inform 
+  those users who submitted the defects, which is only possible if defects and 
+  faults can be identified separately.</p>
+
+
+<h4>Iteration and Master Test Plans<a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>In any project where the testing is nontrivial, you need a Test Plan for each 
+  Iteration. Optionally you might retain a Master Test Plan. In many cases, it's 
+  treated as <b>Informal</b>; that is, it's not reviewed and approved. Where testing 
+  has important visibility to external stakeholders, it could be treated as <b>Formal-Internal 
+  </b>or even <b>Formal-External</b>.</p>
+
+
+<h3><a name="DecideOnTestApprovalCriteria">Decide on Iteration Approval Criteria</a> 
+  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You must decide who is responsible for determining if an iteration has met 
+  its criteria. Strive to have clearly defined upfront as you enter each iteration 
+  how the test effort is expected to demonstrate this, and how it will be measured. 
+  This individual or group then decides if the iteration has met its criteria, 
+  if the system fulfills the desired quality criteria, and if the Test Results 
+  are sufficient and satisfactory to support these conclusions.</p>
+<p>The following are examples of ways to handle iteration approval: 
+<ul>
+  <li>The project management team approves Iteration and the system quality, based 
+    on recommendations from the system testers.</li>
+  <li>The customer approves the system quality, based on recommendations from 
+    the system testers.</li>
+  <li>The customer approves the system quality, based on the results of a demonstration 
+    that exercises a certain subset of the total tests. This set must be formally 
+    defined and agreed before hand, preferably early in the iteration. These test 
+    are treated as <b>Formal-External</b>.</li>
+  <li>The customer approves the system quality by conducting their own independent 
+    tests. Again, the nature of these tests should clearly defined and agreed 
+    before hand, preferably early in the iteration. These test are treated as 
+    <b>Formal-External</b>.</li>
+</ul>
+<p>This is an important decision&#151;you cannot reach a goal if you don't know what 
+  it is.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

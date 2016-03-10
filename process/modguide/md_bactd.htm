@@ -1,0 +1,288 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Activity Diagram in the Business Use-Case Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Activity Diagram in the Business Use-Case Model</rpw><a name="Top"></a><a name="XE_business_use-case_model__activity_diagrams¸_guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Basic Activity Diagrams">Basic activity diagrams</a></li>
+  <li><a href="#Conditional Threads">Conditional threads</a></li>
+  <li><a href="#Nested Activity Diagrams">Nested activity diagrams</a></li>
+  <li><a href="#Using Swimlanes">Using swimlanes</a></li>
+  <li><a href="#Examples of Use">Example of use</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The workflow of a business use case describes what the business must do to
+provide the value the served business actor requires. The business use case
+consists of a sequence of activities that, together, produce something for the
+business actor. The workflow often consists of a basic flow and one or more
+alternative flows. The structure of the workflow is described graphically with
+the help of an activity diagram.</p>
+<p>An activity diagram of a workflow explores the ordering of tasks or
+activities that accomplish business goals. An activity may be a manual or an
+automated task that completes a unit of work.&nbsp;</p>
+<p>Activity diagram is a special case of a statechart diagram in which all or
+most of the states are activity states and in which all or most of the
+transitions are triggered upon completion of actions in the source states.</p>
+<h3><a name="Basic Activity Diagrams">Basic Activity Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An activity diagram may have the following elements:
+<ul>
+  <li><a name="XE_activity_states_(in_activity_diagrams)__in_business_use-case_model"><b>Activity
+    states</b></a> represent the performance of an activity or step within
+    the workflow.</li>
+  <li><a name="XE_transition_(in_activity_diagrams)__in_business_use-case_model"></a><b>Transitions</b>
+    show what activity state follows another. <font size="3">This type of
+    transition can be referred to as a completion transition. It differs from a
+    transition in that it does not require an explicit trigger </font>event;
+    instead it’s triggered by the completion of the activity that the activity
+    state represents.</li>
+  <li><a name="XE_decision_(in_activity_diagrams)__business_use-case_model"></a><b>Decisions</b>
+    for which a set of <a name="XE_guard_condition_(in_activity_diagrams)__business_use-case_model"></a><b>guard
+    conditions</b> are defined. Guard conditions control which transition,
+    of a set of alternative transitions, follows once the activity is complete.
+    You may also use the decision icon to show where the threads merge again.
+    Decisions and guard conditions allow you to show <a name="XE_alternative_threads_(in_activity_diagrams)__business_use-case_model"></a><b>alternative
+    threads</b> in the workflow of a business use case.</li>
+  <li><a name="XE_synchronization_bars_(in_activity_diagrams)__business_use-case_model"></a><b>Synchronization
+    bars</b> are used to show parallel subflows. Synchronization bars allow
+    you to show <a name="XE_concurrent_threads_(in_activity_diagrams)__business_use-case_model"></a><b>concurrent
+    threads</b> in the workflow of a business use case.</li>
+</ul>
+<p align="center"><img src="images/md_bact.gif" width="447" height="480"></p>
+<p class="picturetext">An activity diagram for the business use case Individual
+Check-In in the business use-case model of Airport Check-In</p>
+<h3>&nbsp;<a name="XE_activity_diagrams__conditional_threads"></a><a name="Conditional Threads">Conditional Threads</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Guard conditions are used to show that one of a set of concurrent threads is
+conditional. For instance, in the Individual Check-In example from the previous
+section, the passenger checking in might be a frequent-flyer member. In that
+case, you need to award the passenger frequent flyer miles.</p>
+<p align="center"><img src="images/md_bact4.gif" width="368" height="277"></p>
+<p class="picturetext">An activity diagram for the business use case Individual
+Check-In in the business use-case model of Airport Check-Ins</p>
+<h3><a name="XE_activity_diagrams__nested_diagrams"></a><a name="Nested Activity Diagrams">Nested Activity Diagrams</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An activity state may reference another activity diagram, that shows the
+internal structure of the activity state. Stated another way, you can have
+nested activity graphs. You can either show the subgraph inside of the activity
+state or let the activity state refer to another diagram.</p>
+<p align="center"><img src="images/md_bact5.gif" width="254" height="249"></p>
+<p class="picturetext">A nested activity graph shown within an activity state</p>
+<p>To show the subgraph inside of the activity state is convenient if you want
+to see all details of the workflow in one diagram. However, if there is any
+level of complexity in the presented workflow, this can make the diagram
+difficult to read.</p>
+<p align="center"><img src="images/md_bact6.gif" width="261" height="190"></p>
+<p class="picturetext">Alternatively, put the subgraph in a separate diagram and
+let the activity state refer to it</p>
+<font size="3">
+<p>To simplify the workflow graph, you may instead choose to put the subgraph in
+a separate diagram and let the activity state that the subgraph details refer to
+that diagram.</p></font>
+<h3><a name="XE_activity_diagrams__swimlanes"></a><a name="Using Swimlanes">Using Swimlanes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An activity diagram may be partitioned into <b>swimlanes</b> using
+solid vertical lines. Each swimlane represents a responsibility for part of the
+overall workflow, carried by a part of the organization. Eventually, a swimlane
+may be implemented by an business system or by a set of classes in the
+business analysis model.</p>
+<p>The relative ordering of swimlanes has no semantic significance. Each
+activity state is assigned to one swimlane and transitions may cross lanes.</p>
+<p align="center"><img src="images/md_bact2.gif" width="220" height="397"></p>
+<p class="picturetext">An activity diagram illustrates the workflow of a
+business use-case that represents a generic sales process. In this example, the
+swimlanes represent departments in the organization.</p>
+<h3><a name="Examples of Use">Example of Use</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>What comes first, the activity diagram or the textual description of the
+workflow? This depends somewhat on how you are used to working, and whether you
+think graphically or not. Some prefer to visually outline the structure in a
+diagram first, and then develop the details in the text. Others would rather
+start with a bulleted list of the activity states, agree on those, and then
+define the structure using a diagram.</p>
+<p>Another valid question is whether you really need both the textual document
+and the diagram. The activity diagram technique does allow you to write brief
+descriptions of each activity state, which should make the textual specification
+of the workflow obsolete. Here you need to be sensitive to your audience and
+what format they expect for the specification.</p>
+<p>We present a sample activity diagram for the workflow of the business use
+case Proposal Process as defined in <a href="md_buc.htm">Guidelines: Business
+Use Case</a>, to show what an activity diagram adds to the understanding of a
+workflow. This example is taken from an organization that sells telecom network
+solutions, individually configured for each customer.</p>
+<p align="center"><img src="images/md_bact3.gif" width="490" height="535"></p>
+<p class="picturetext">An activity diagram for the business use case Proposal
+Process</p>
+<blockquote>
+  <p>The activity state named “Initial opportunity work” consists of three
+  sub-steps that can be done in parallel. This is illustrated in a subgraph to
+  this activity state.</p>
+</blockquote>
+<p align="center"><img src="images/md_bact7.gif" width="387" height="273"></p>
+<p class="picturetext">Sub-diagram to the activity state “Initial opportunity
+work”. Creating a sales plan is optional, which is indicated by a guard
+condition on the incoming transition.</p>
+<p>An activity state can represent a fairly large procedure (with substructure),
+as well as something relatively small. If you’re using activity diagrams to
+define the structure of a workflow, do not attempt to explore several levels of
+activity graphs down to their most atomic level. Doing so will most probably
+make the diagram, or set of diagrams if you are using separate subgraphs, very
+difficult to interpret. Aim to have one diagram that outlines the whole workflow
+where a few of the activity states may have subgraphs.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

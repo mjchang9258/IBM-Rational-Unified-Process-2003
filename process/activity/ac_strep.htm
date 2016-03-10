@@ -1,0 +1,553 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Establish Configuration Management (CM) Policies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Establish Configuration 
+  Management (CM) Policies</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>
+        CM policies are used to monitor and
+        safeguard project assets, and to enforce software development practices.
+        Project policies should improve communication amongst the team members
+        and minimize problems encountered when integrating their work.&nbsp;
+      </li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#DefineConfigurationIdentificationPractices">Define
+        Configuration Identification Practices</a></li>
+      <li><a href="#DefineBaseliningPractices">Define Baselining Practices</a></li>
+      <li><a href="#DefineArchivingPractices">Define Archiving Practices</a></li>
+      <li><a href="#DefineConfigurationStatusReportingRequirements">Define
+        Configuration Status Reporting Requirements</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_cmpln.htm">Configuration Management Plan</a></li>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+      <ul>
+<li><a href="../artifact/ar_cmpln.htm">Configuration Management Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>
+    CM practices described in this activity need to be established by the
+    beginning of the Elaboration Phase following project approval, and then
+    re-visited through the project lifecycle at the beginning of the
+    Construction and Transition Phases.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_cmmgr.htm">Configuration Manager</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/clearcase/tm_escme.htm">Creating Baselines Using Rational ClearCase</a></li>
+<li><a href="../../toolment/clearcase/tm_stplc.htm">Setting Policies Using Rational ClearCase</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_cm.htm">Configuration & Change Management</a>
+<ul>
+<li><a href="../workflow/conf_mgt/wfd_plprccm.htm">Plan Project Configuration & Change Control</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="DefineConfigurationIdentificationPractices">Define Configuration
+Identification Practices</a>  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To identify and store artifacts in a secure repository&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:</b> <a href="../../toolment/clearcase/tm_escme.htm">Creating Baselines Using Rational ClearCase</a>&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Configuration identification is a core piece of configuration management and
+is defined by the IEEE as &quot;an element of configuration management,
+consisting of selecting the configuration items for a system and recording their
+functional and physical characteristics in technical documentation&quot;. In
+terms of software configuration management, configuration identification means
+being able to find and identify the correct version of any project artifact
+quickly and easily. The negative impact of having an ineffective configuration
+identification system is measured in terms of lost time and quality.</p>
+<p>Labels identify specific versions of artifacts. The set of artifacts that
+constitute a version of a subsystem are, collectively and individually,
+identifiable by a particular version and label. Labels are therefore useful in
+re-use or referencing original sets of versioned artifacts.</p>
+<p>The following is a suggested product artifact labeling convention that can be
+used for labeling paths and artifacts in the<a href="../workflow/conf_mgt/co_pdirs.htm">
+Product Directory Structure</a>.</p>
+<p align="center">&lt;SYSTEM&gt;[&lt;A&gt;]_[&lt;SUBSYSTEM&gt;]_[&lt;A&gt;]_[R|A|B]&lt;X&gt;[.&lt;Y&gt;.&lt;Z&gt;][.BL&lt;#&gt;]</p>
+<p>&lt;SYSTEM&gt; Identifies the system</p>
+<blockquote>
+  <p>&lt;A&gt; Stands for the three letter acronym (TLA!) for the various kinds
+  of artifacts used in the creation of the system. For example,</p>
+
+<table align="center" border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="13%">PLN&nbsp;</td>
+    <td width="87%">Project Plans&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">REQ&nbsp;</td>
+    <td width="87%">Requirements Files&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">USC&nbsp;</td>
+    <td width="87%">Use Cases&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">MOD&nbsp;</td>
+    <td width="87%">Model Files&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">SRC&nbsp;</td>
+    <td width="87%">Source Code Files&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">INT&nbsp;</td>
+    <td width="87%">Public Interfaces&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">TST&nbsp;</td>
+    <td width="87%">Test Scripts and Results&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">DOC&nbsp;</td>
+    <td width="87%">Documentation (User, Release Notes)&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="13%">BIN&nbsp;</td>
+    <td width="87%">Executables&nbsp;</td>
+  </tr>
+</table>
+</blockquote>
+<p>&lt;SUBSYSTEM&gt; Identifies each subsystem</p>
+<blockquote>
+  <p>&lt;A&gt; Stands for the three letter acronym for the various kinds of
+  artifacts used in the creation of the subsystem. In accordance with the table
+  above.</p>
+
+<table border="1" align="center" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td width="19%">R|A|B&nbsp;</td>
+      <td width="81%">Stand for release, alpha, or beta&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="19%">&lt;X&gt;&nbsp;</td>
+      <td width="81%">Integer, stands for a major release (e.g. 1)&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="19%">&lt;Y&gt;&nbsp;</td>
+      <td width="81%">Integer (optional), stands for a minor release&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="19%">&lt;Z&gt;&nbsp;</td>
+      <td width="81%">Integer (optional), stands for an alternative release
+      (patches, ports, etc.)&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="19%">BL&nbsp;</td>
+      <td width="81%">Stands for base level (an internal release)&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="19%">#&nbsp;</td>
+      <td width="81%">Integer, for internal releases&nbsp;</td>
+    </tr>
+  </table>
+</blockquote>
+<p>Here are some examples:</p>
+<blockquote>
+<table border="1" align="center" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="19%">T2K_R1.0&nbsp;</td>
+    <td width="81%">Release 1 of the Thorn 2000 system&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="19%">T2K_GUI_R2.0.BL5&nbsp;</td>
+    <td width="81%">Internal release of the GUI system intended for
+    delivery in release 2&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="19%">T2K_B1.1&nbsp;</td>
+    <td width="81%">Beta release 1.1 of the Thorn 2000 system&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="19%">T2K_R2.0.BL16&nbsp;</td>
+    <td width="81%">Internal system baseline #16 of thorn 2000
+    intended for creating release 2&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="19%">T2K_R1.0.5&nbsp;</td>
+    <td width="81%">Maintenance release of Thorn 2000&nbsp;</td>
+  </tr>
+</table>
+</blockquote>
+<blockquote>
+  <p>&nbsp;</p>
+</blockquote>
+<h3><a name="DefineBaseliningPractices">Define Baselining Practices</a>  <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A baseline provides a stable point, and a snapshot of the project artifacts. <a href="../workflow/conf_mgt/co_basel.htm">Concepts:
+Baselining</a> describe when in the project lifecycle baselines need to be
+created. This step provides further guidance on the practice.</p>
+<p>Baselines identify fixed sets of versions of files and directories and are
+created at given project milestones. Baselines can be created for a subsystem,
+or for the entire system. Baselines should be identified in accordance with the
+scheme outlined in the preceding process step (Define the Artifact Labeling
+Convention).</p>
+<p>One distinction that needs to be made at the time of creating a baseline are
+whether you will be creating:
+<ul>
+  <li>A &#145;Subsystem Baseline&#146; with ALL the versions of files and directories
+    that have been modified in the subsystem or subsystems.</li>
+</ul>
+<blockquote>
+  <p>or</p>
+</blockquote>
+<ul>
+  <li>A &#145;System Baseline&#146; with a SINGLE version of all files and directories
+    in all subsystems.</li>
+</ul>
+<p>As a general guideline, it would facilitate release management to create
+System Baselines at the major and minor project milestones, and Subsystem
+Baselines as required or at a higher frequency. As a &#145;rule of thumb&#146; it is a
+good idea to create a baseline if up 30% of the elements in a subsystem have
+been changed.</p>
+<h3><a name="DefineArchivingPractices">Define Archiving Practices</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The purpose of this step is to ensure that project software and related
+assets (master documents) are backed-up, catalogued and transferred to
+designated storage sites. Archives show their value in times of re-use or
+disaster. As such, archives need to be done regularly and at major and minor
+milestones.</p>
+<p>Labeling guidelines described earlier under the process step &#145;Define the
+Artifact Labeling Convention&#146; can be used when creating archiving labels.
+However, additional information may be required on where the actual media is to
+be stored. For example:</p>
+
+<table border="1" align="center" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="40%">SERIAL NUMBER&nbsp;</td>
+    <td width="60%">123456789&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">VOLUME&nbsp;</td>
+    <td width="60%">1 of 3&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">VAULT&nbsp;</td>
+    <td width="60%">B5&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%">DATE OF STORAGE&nbsp;</td>
+    <td width="60%">99-June-21&nbsp;</td>
+  </tr>
+</table>
+<p>All product related information should be maintained on a database to
+facilitate release and re-use.</p>
+<h3><a name="DefineConfigurationStatusReportingRequirements">Define
+Configuration Status Reporting Requirements</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">Change activity is a powerful indicator of project status and trends.
+        The purpose of this process step is for the Project Manager to define
+        what product related change data is to be reported, by whom and at what
+        frequency.&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Substeps:</b>
+    <ul>
+      <li><a href="#SelectChangeRequestBasedReports">Select Change Request
+        Based Reports</a></li>
+      <li><a href="#DefineReportingFrequency">Define Reporting Frequency</a></li>
+    </ul>
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:</b>
+    <ul>
+      <li><a href="../../toolment/clearquest/tm_mthis.htm">Viewing the History
+        of a Defect using Rational ClearQuest</a></li>
+      <li><a href="../../toolment/reqpro/tm_rhist.htm">Viewing Requirements
+        History Using Rational RequisitePro</a></li>
+    </ul>
+    &nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<p><a href="../workflow/conf_mgt/co_strep.htm">Concepts: Configuration Status
+Reporting</a> describe the various sources for creating Configuration Status
+Reports.</p>
+
+<h4><a name="SelectChangeRequestBasedReports">Select Change Request Based
+Reports</a>  <a href="#DefineConfigurationStatusReportingRequirements"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Here, you should select reports that can be derived from the Change Requests
+submitted to the project. There are a number of useful Change Request based
+reports.</p>
+<p>Under the &#145;aging&#146; category, reporting could be requested in terms of the
+number of Change Requests over time periods of a week or month based on the
+following criteria:
+<ul>
+  <li>Submitted</li>
+  <li>Assigned</li>
+  <li>Resolved</li>
+  <li>Priority</li>
+</ul>
+<p>Listing problems by state can help determine how close to completion the
+project might be. For example, if the bulk of the problems have been resolved
+then completion is closer than if the bulk of the problems are in the submitted
+state.</p>
+<p>Under the &#145;distribution&#146; category, reporting could be requested to answer
+the following types of questions:
+<ul>
+  <li>Who is finding, what kind of defects, at what point in the project?</li>
+  <li>Who are the problems being assigned to?</li>
+  <li>How many problems are open under a given engineer?</li>
+  <li>How severe are the defects that are being found?</li>
+  <li>Where in the process are the problems being caused (root cause)?</li>
+  <li>When are the problems getting fixed?</li>
+  <li>How many defects are there?</li>
+  <li>How severe are these defects?</li>
+</ul>
+<p>These metrics can help in the analysis of work load, who is working on the
+most critical problems, and how quickly the problems are being closed.</p>
+<p>Under the &#145;trend&#146; category, reports could be requested to answer the
+following types of questions:
+<ul>
+  <li>How many defects are open this day, week or month?</li>
+  <li>How many defects have been closed this day, week or month?</li>
+</ul>
+<p>This data is useful assessing repair rates and could provide indications of
+engineering efficiency.</p>
+<h4><a name="DefineReportingFrequency">Define Reporting Frequency</a>  <a href="#DefineConfigurationStatusReportingRequirements"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Ensure that reports are received at the right frequency to be provide
+meaningful input for decision making. Reports could be requested on the
+following basis:
+<ul>
+  <li>Daily – it is unlikely that reports would be required at this frequency</li>
+  <li>Weekly – Trend, Distribution and Count Reports, Build Reports</li>
+  <li>Monthly – Trend, Distribution and Count Reports, Build Reports</li>
+  <li>By Iteration – Trend, Distribution and Count Reports, Build Reports,
+    Version Descriptions</li>
+  <li>By Phase – Trend, Distribution and Count Reports, Audits, Build Reports,
+    Version Descriptions</li>
+  <li>At Project-End – Trend, Distribution and Count Reports, Audits, Build
+    Reports, Version Descriptions</li>
+</ul>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

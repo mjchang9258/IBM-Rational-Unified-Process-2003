@@ -1,0 +1,547 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Change Request Management</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Change Request 
+  Management</rpw><a name="XE_change_request_(CR)__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Definitions">Definitions</a></li>
+  <li><a href="#SampleCRManagingActivities">Sample Activities for Managing 
+    Change Requests</a></li>
+  <li><a href="#SampleCRStatesTransitions">Sample States and Transitions 
+    for a Change Request</a></li>
+</ul>
+<h3><a name="XE_change_request_(CR)__definition"></a><a name="Definitions">Definitions</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>
+<b><a href="../../artifact/ar_crqst.htm">Change Request</a> (<a name="CR">CR</a>)
+– </b>A formally submitted artifact that is used to track all <a href="../../artifact/ar_stnds.htm">stakeholder
+requests</a> (including new features, enhancement requests, defects, changed
+requirements, etc.) along with related status information throughout the project
+lifecycle. All change history will be maintained with the Change Request,
+including all state changes along with dates and reasons for the change. This
+information will be available for any repeat reviews and for final closing.</p>
+<p>
+<b>Change (or Configuration) Control Board (<a name="CCB">CCB</a>) </b>&#150; The
+board that oversees the change process consisting of representatives from all
+interested parties, including customers, developers, and users. In a small
+project, a single team member, such as the project manager or software architect, may
+play this role. In the Rational Unified Process, this is shown by the <a href="../../workers/wk_ccmgr.htm">Change
+Control Manager role</a>.</p>
+<p>
+<b><a name="CCB Review Meeting">CCB Review Meeting</a></b> &#150; The function of
+this meeting is to review <i>Submitted</i> Change Requests. An initial review of
+the contents of the Change Request is done in the meeting to determine if it is
+a valid request. If so, then a determination is made if the change is in or out
+of scope for the current release(s), based on priority, schedule, resources,
+level-of-effort, risk, severity and any other relevant criteria as determined by
+the group. This meeting is typically held once per week. If the Change Request
+volume increases substantially, or as the end of a release cycle approaches, the
+meeting may be held as frequently as daily. Typical members of the CCB Review
+Meeting are the Test Manager, Development Manager and a member of the Marketing
+Department. Additional attendees may be deemed necessary by the members on an
+&quot;as needed&quot; basis.</p>
+<p>
+<b>Change Request Submit Form</b> – This form is displayed when a Change
+Request is being <i>Submitted</i> for the first time. Only the fields necessary
+for the submitter to complete are displayed on the form.</p>
+<p>
+<b>Change Request Combined Form</b> – This form is displayed when you are
+reviewing a Change Request that has already been submitted. It contains all the
+fields necessary to describe the Change Request.</p>
+<p>The following outline of the Change Request process describes the states and statuses of Change Requests
+through their overall process, and who needs to be notified during the lifecycle
+of the Change Request.
+The general process associated with Change Requests is described in <a href="../../activity/ac_epcmp.htm">Activity:
+Establish Change Control Process</a>.</p>
+
+<h3><a name="XE_change_request_(CR)__states_of"></a><a name="SampleCRManagingActivities">Sample
+Activities for Managing Change Requests</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following example shows sample activities that a project might adopt for
+managing a Change Request (CR) throughout its lifecycle (click on items in the
+diagram to view descriptions):</p>
+<p align="center">
+  <map name="FPMap0"> 
+    <area href="#Closed" shape="rect" coords="249, 385, 365, 473">
+    <area href="#Test Failed" shape="rect" coords="400, 291, 440, 322">
+    <area href="#Verify Changes in Release Build" shape="rect" coords="275,344,378,380">
+    <area href="#Closed" shape="rect" coords="199,331,247,348">
+    <area href="#Confirm Duplicate or Reject" shape="rect" coords="191,293,301,330">
+    <area href="#Submitted" shape="rect" coords="178, 274, 241, 288">
+    <area href="#More Info" shape="rect" coords="128, 312, 184, 327">
+    <area href="#Update CR" shape="rect" coords="3,295,96,329">
+    <area href="#Submitted" shape="rect" coords="24, 273, 85, 291">
+    <area href="#Reject" shape="rect" coords="327, 236, 395, 252">
+    <area href="#Duplicate" shape="rect" coords="330, 225, 396, 237">
+    <area href="#Verified" shape="rect" coords="596, 237, 644, 255">
+    <area href="#Verify Changes in Test Build" shape="rect" coords="569,188,666,220">
+    <area href="#Test Failed" shape="rect" coords="540,218,581,245">
+    <area href="#Make Changes" shape="rect" coords="431,187,519,219">
+    <area href="#Resolved" shape="rect" coords="480, 170, 539, 185">
+    <area href="#Reject" shape="rect" coords="283, 190, 338, 202">
+    <area href="#Duplicate" shape="rect" coords="283, 179, 342, 189">
+    <area href="#Verify Changes in Test Build" shape="rect" coords="584, 0, 643, 18">
+    <area href="#Assigned" shape="rect" coords="405, 113, 459, 130">
+    <area href="#Assign &amp; Schedule Work" shape="rect" coords="407, 0, 527, 18">
+    <area href="#Submit CR" shape="rect" coords="13, 0, 93, 15">
+    <area href="#Assign &amp; Schedule Work" shape="rect" coords="271,27,374,65">
+    <area href="#Opened" shape="rect" coords="299, 85, 347, 100">
+    <area href="#Review CR" shape="rect" coords="168,123,378,176">
+    <area href="#Postponed" shape="rect" coords="196, 97, 256, 115">
+    <area href="#Submitted" shape="rect" coords="102, 132, 161, 148">
+    <area href="#CR" shape="rect" coords="35, 71, 101, 97">
+    <area href="#CCB" shape="rect" coords="244, 0, 288, 18">
+    <area href="#Submit CR" shape="rect" coords="0, 132, 96, 168">
+  </map>
+  <img src="../../activity/images/crm_actd.gif" border="0" usemap="#FPMap0" width="698" height="492"></p>
+<p>Sample Change Request Management (CRM) Process Activity Descriptions:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="16%" height="14"><b>Activity</b></td>
+    <td width="60%" height="14"><b>Description</b></td>
+    <td width="24%" height="14"><b>Responsibility</b></td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Submit CR"><b>Submit CR</b></a></td>
+    <td width="60%" height="14">Any stakeholder on the project can
+    submit a Change Request (CR). The Change Request is logged into the Change
+    Request Tracking System (e.g., Rational ClearQuest) and is placed into the CCB Review
+    Queue, by setting the Change Request State to <i><b>Submitted</b>.</i></td>
+    <td width="24%" height="14">Submitter</td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Review CR"><b>Review CR</b></a></td>
+    <td width="60%" height="14">The function of this activity is to
+    review <b><i>Submitted</i></b> Change Requests. An initial review
+    of the contents of the Change Request is done in the CCB Review meeting to
+    determine if it is a valid request. If so, then a determination is made if
+    the change is in or out of scope for the current release(s), based on
+    priority, schedule, resources, level-of-effort, risk, severity and any other
+    relevant criteria as determined by the group.</td>
+    <td width="24%" height="14">CCB</td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Confirm Duplicate or Reject"><b>Confirm
+    Duplicate or Reject</b></a></td>
+    <td width="60%" height="14">If a Change Request is suspected of
+    being a <b><i>Duplicate</i></b> or <b><i>Rejected</i></b>
+    as an invalid request (e.g., operator error, not reproducible, the way it
+    works, etc.), a delegate of the CCB is assigned to confirm the duplicate or
+    rejected Change Request and to gather more information from the submitter,
+    if necessary.</td>
+    <td width="24%" height="14">CCB Delegate</td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Update CR"><b>Update CR</b></a></td>
+    <td width="60%" height="14">If more information is needed (<i><b>More
+    Info</b>)</i> to evaluate a Change Request, or if a Change Request is
+    rejected at any point in the process (e.g., confirmed as a <b><i>Duplicate</i></b>,
+    <b><i>Reject</i><i>ed</i></b>, etc.), the submitter is notified
+    and may update the Change Request with new information. The updated Change
+    Request is then re-submitted to the CCB Review Queue for consideration of
+    the new data.</td>
+    <td width="24%" height="14">Submitter</td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Assign &amp; Schedule Work"><b>Assign
+    &amp; Schedule Work</b></a></td>
+    <td width="60%" height="14">Once a Change Request is <b><i>Opened</i></b>,
+    the Project Manager will then assign the work to the appropriate team member
+      –
+    depending on the type of request (e.g., enhancement request, defect,
+    documentation change, test defect, etc.) – and make any needed updates to
+    the project schedule.</td>
+    <td width="24%" height="14">Project Manager</td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Make Changes"><b>Make
+    Changes</b></a></td>
+    <td width="60%" height="14">The assigned team member performs the set
+    of activities defined within the appropriate section of the process (e.g.,
+    requirements, analysis &amp; design, implementation, produce user-support
+    materials, design test, etc.) to make the changes requested. These
+    activities will include all normal review and unit test activities as
+    described within the normal development process. The Change Request will
+    then be marked as <i><b>Resolved</b>.</i></td>
+    <td width="24%" height="14">Assigned Team Member</td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Verify Changes in Test Build"><b>Verify
+    Changes in Test Build</b></a></td>
+    <td width="60%" height="14">After the changes are <b><i>Resolved</i></b>
+    by the assigned team member (analyst, developer, tester, tech writer, etc.), the
+    changes are placed into a test queue to be assigned to a tester and <b><i>Verified</i></b>
+    in a test build of the product.</td>
+    <td width="24%" height="14">Tester</td>
+  </tr>
+  <tr>
+    <td width="16%" height="14"><a name="Verify Changes in Release Build"><b>Verify
+    Changes in Release Build</b></a></td>
+    <td width="60%" height="14">Once the resolved changes have been
+    <b><i>Verified</i></b> in a test build of the product, the Change
+    Request is placed into a release queue to be verified against a release
+    build of the product, produce release notes, etc. and <b><i>Close</i></b>
+    the Change Request.</td>
+    <td width="24%" height="14">CCB Delegate (System Integrator)</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h3><a name="SampleCRStatesTransitions">Sample States and
+Transitions for a Change Request</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following example diagram shows sample states and who should be notified
+throughout the lifecycle of a Change Request (CR) [Click on items in the diagram
+to view descriptions]:</p>
+<p align="center">
+  <map name="FPMap1"> 
+    <area href="#CCB Review Meeting" shape="rect" coords="116, 230, 156, 267">
+    <area href="#More Info" shape="rect" coords="188, 323, 252, 350">
+    <area href="#More Info" shape="rect" coords="52, 352, 113, 379">
+    <area href="#Update CR" shape="rect" coords="65, 283, 239, 317">
+    <area href="#Update CR" shape="rect" coords="6, 354, 44, 386">
+    <area href="#Confirm Duplicate or Reject" shape="rect" coords="169, 394, 241, 431">
+    <area href="#Verify Changes in Release Build" shape="rect" coords="344, 419, 421, 451">
+    <area href="#Closed" shape="rect" coords="256,332,339,459">
+    <area href="#More Info" shape="rect" coords="3,409,84,443">
+    <area href="#Verified" shape="rect" coords="383,381,460,416">
+    <area href="#Duplicate" shape="rect" coords="248,293,325,328">
+    <area href="#Reject" shape="rect" coords="93, 318, 169, 353">
+    <area href="#CCB Review Meeting" shape="rect" coords="169, 118, 340, 230">
+    <area href="#Submit CR" shape="rect" coords="0, 156, 75, 189">
+    <area href="#Submitted" shape="rect" coords="88,174,165,209">
+    <area href="#Test Failed" shape="rect" coords="353,168,482,370">
+    <area href="#Verify Changes in Test Build" shape="rect" coords="500, 157, 548, 184">
+    <area href="#Resolved" shape="rect" coords="450,119,528,154">
+    <area href="#Make Changes" shape="rect" coords="411, 45, 465, 72">
+    <area href="#Opened" shape="rect" coords="195,83,316,117">
+    <area href="#Assign &amp; Schedule Work" shape="rect" coords="314,61,394,88">
+    <area href="#Assigned" shape="rect" coords="333,16,412,52">
+    <area href="#Postponed" shape="rect" coords="38, 0, 198, 86">
+    <area href="#CR" shape="rect" coords="0, 123, 61, 147">
+  </map>
+  <img src="../../activity/images/crm_stat.gif" border="0" usemap="#FPMap1" width="549" height="461"></p>
+<p align="left">Sample Change Request Management (CRM) State Descriptions:</p>
+<div align="center">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="16%"><b>State</b></td>
+    <td width="60%"><b>Definition</b></td>
+    <td width="24%"><b>Access Control</b></td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Submitted"><b>Submitted</b></a></i></td>
+    <td width="60%">This state occurs as the result of
+    1) a new Change Request submission, 2) update of an existing Change Request
+    or 3) consideration of a <b><i>Postponed</i></b> Change Request
+    for a new release cycle. Change Request is placed in the CCB Review queue.
+    No owner assignment takes place as a result of this action.</td>
+    <td width="24%">All Users</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Postponed"><b>Postponed</b></a></i></td>
+    <td width="60%">Change Request is determined to be
+    valid, but &quot;out of scope&quot; for the current release(s). Change
+    Requests in the <b><i>Postponed</i></b> state will be held and
+    reconsidered for future releases. A target release may be assigned to
+    indicate the timeframe in which the Change Request may be <b><i>Submitted</i></b>
+    to re-enter the CCB Review queue.</td>
+    <td width="24%">Admin
+    <p>Project Manager</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Duplicate"><b>Duplicate</b></a></i></td>
+    <td width="60%">A Change Request in this state is
+    believed to be a duplicate of another Change Request that has already been
+    submitted. Change Requests can be put into this state by the CCB Review
+    Admin or by the team member assigned to resolve it. When the Change Request is
+    placed into the <b><i>Duplicate</i></b> state, the Change Request
+    number it duplicates will be recorded (on the Attachments tab in
+    ClearQuest). A submitter should initially query the Change Request database
+    for duplicates of a Change Request before it is submitted. This will prevent
+    several steps of the review process and therefore save a lot of time.
+    Submitters of duplicate Change Requests should be added to the notification
+    list of the original Change Request for future notifications regarding
+    resolution.</td>
+    <td width="24%">Admin
+    <p>Project Manager</p>
+    <p>QE Manager</p>
+    <p>Development</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><b><a name="Reject">Reject</a>ed</b></i></td>
+    <td width="60%">A Change Request in this state is
+    determined by in the CCB Review Meeting or by the assigned team member to be an
+    invalid request or more information is needed from the submitter. If already
+    assigned (<b><i>Open</i></b>), the Change Request is removed from
+    the resolution queue and will be reviewed again. A designated authority of
+    the CCB is assigned to confirm. No action is required from the submitter
+    unless deemed necessary, in which case the Change Request state will be
+    changed to <b><i>More Info</i></b>. The Change Request will be
+    reviewed again in the CCB Review Meeting considering any new information. If
+    confirmed invalid, the Change Request will be <i>Closed</i> by the CCB and
+    the submitter notified.</td>
+    <td width="24%">Admin
+    <p>Project Manager</p>
+    <p>Development Manager</p>
+    <p>Test Manager</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="More Info"><b>More
+    Info</b></a></i></td>
+    <td width="60%">Insufficient data exists to confirm
+    the validity of a <b><i>Reject</i></b> or <b><i>Duplicate</i></b>
+    Change Request. The owner automatically gets changed to the submitter who is
+    notified to provide more data.</td>
+    <td width="24%">Admin</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Opened"><b>Opened</b></a></i></td>
+    <td width="60%">A Change Request in this state has
+    been determined to be &quot;in scope&quot; for the current release and is
+    awaiting resolution. It has been slated for resolution before an upcoming
+    target milestone. It is defined as being in the &quot;assignment
+    queue&quot;. The meeting members are the sole authority for opening a Change
+    Request into the resolution queue. If a Change Request of priority two or
+    higher is found, it should be brought to the immediate attention of the QE
+    or Development Manager. At that point they may decide to convene an
+    emergency CCB Review Meeting or simply open the Change Request into the
+    resolution queue instantly.</td>
+    <td width="24%">Admin
+    <p>Project Manager</p>
+    <p>Development Manager</p>
+    <p>QE Department</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Assigned"><b>Assigned</b></a></i></td>
+    <td width="60%">An <b><i>Opened</i></b>
+    Change Request is then the responsibility of the Project Manager to Assign
+    Work based on the type of Change Request and update the schedule, if
+    appropriate.</td>
+    <td width="24%">Project Manager</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Resolved"><b>Resolved</b></a></i></td>
+    <td width="60%">Signifies that the resolution of
+    this Change Request is complete and is now ready for verification. If the
+    submitter was a member of the QE Department, the owner automatically gets
+    changed to the submitting QE member; otherwise, it changes to the QE Manager
+    for manual re-assignment.</td>
+    <td width="24%">Admin
+    <p>Project Manager</p>
+    <p>Development Manager</p>
+    <p>QE Manager</p>
+    <p>Development Department</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Test Failed"><b>Test
+    Failed</b></a></i></td>
+    <td width="60%">A Change Request that fails testing
+    in either a test build or a release build will be placed in this state. The
+    owner automatically gets changed to the team member who resolved the Change
+    Request.</td>
+    <td width="24%">Admin
+    <p>QE Department</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Verified"><b>Verified</b></a></i></td>
+    <td width="60%">A Change Request in this state has
+    been <b><i>Verified</i></b> in a test build and is ready to be
+    included in a release.</td>
+    <td width="24%">Admin
+    <p>QE Department</td>
+  </tr>
+  <tr>
+    <td width="16%"><i><a name="Closed"><b>Closed</b></a></i></td>
+    <td width="60%">Change Request no longer requires
+    attention. This is the final state a Change Request can be assigned. Only
+    the CCB Review Admin has the authority to close a Change Request. When a
+    Change Request is <b>C<i>losed</i></b>, the submitter will receive
+    an email notification with the final disposition of the Change Request. A
+    Change Request may be <b><i>Closed</i></b>: 1) after its <i>Verified
+    </i>resolution is validated in a release build, 2) when its <i>Reject</i>
+    state is confirmed, or 3) when it is confirmed as a <i>Duplicate</i> of an
+    existing Change Request. In the latter case, the submitter will be informed
+    of the duplicate Change Request and will be added to that Change Request for
+    future notifications (see the definitions of states &quot;<i><b>Reject</b></i>&quot;
+    and &quot;<i><b>Duplicate</b></i>&quot; for more details). If
+    the submitter wishes to contest a closing, the Change Request must be
+    updated and re-<b><i>Submitted</i></b> for CCB review.</td>
+    <td width="24%">Admin</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>The state &#145;tags&#146; provide the basis for reporting Change Request (aging,
+distribution or trend) statistics.</p>
+<blockquote>
+        <p align="center"><img src="images/co_revno.gif" width="433" height="321"></p>
+</blockquote>
+<p class="picturetext">Change Request States in the context of the CM Cube.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

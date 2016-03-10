@@ -1,0 +1,626 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Execute Test Suite</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Execute 
+  Test Suite</rpw><a name="XE_test__execution_of"></a><a name="XE_system_test__test_suite_execution"></a></h2>
+
+<div align="center">
+  <table width="85%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+    <tbody valign="top"> 
+    <tr>
+    <td colspan="2"><b>Purpose</b> 
+     <ul>
+          <li>To execute the appropriate collections of tests required to evaluate 
+            product quality</li>
+          <li>To capture test results that facilitate ongoing assessment of the 
+            product</li>
+     </ul>
+  	</td>
+  </tr>
+    <tr> 
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#SetupTestEnv1">Setup test environment to known state</a></li>
+          <li><a href="#ExecutionOptions">Set execution tool options</a></li>
+          <li><a href="#ScheduleTestSuite1">Schedule Test Suite execution</a></li>
+          <li><a href="#ExecuteTestSuite1">Execute Test Suite</a></li>
+          <li><a href="#EvaluateExecution1">Evaluate execution of Test Suite</a></li>
+          <li><a href="#RecoverHaltedTests">Recover from halted tests</a></li>
+          <li><a href="#VerifyTestLogs1">Inspect the Test Logs for completeness 
+            and accuracy</a></li>
+          <li><a href="#RestoreTestEnv3">Restore test environment to known state</a></li>
+
+ 
+          <li><a href="#Traceability">Maintain traceability relationships</a></li>
+
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+      </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_build.htm">Build</a></li>
+<li><a href="../artifact/ar_supp.htm">Development Infrastructure</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_tstcp.htm">Testability Element</a></li>
+<li><a href="../artifact/ar_tstdta.htm">Test Data</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+<li><a href="../artifact/ar_tstsc.htm">Test Script</a></li>
+<li><a href="../artifact/ar_tstste.htm">Test Suite</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+      <ul>
+<li><a href="../artifact/ar_tstlog.htm">Test Log</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b>This activity is typically conducted 
+        multiple times per iteration.</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstr.htm">Tester</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/testfact/tm_tfvsc.htm">Evaluating Test Coverage Using Rational TestFactory</a></li>
+<li><a href="../../toolment/testfact/tm_tfvts.htm">Evaluating the Results of Executing a Test Suite Using Rational TestFactory</a></li>
+<li><a href="../../toolment/testfact/tm_tfts.htm">Executing a Test Suite Using Rational TestFactory</a></li>
+<li><a href="../../toolment/testmgr/tm_extstsuite.htm">Executing a Test Suite Using Rational TestManager</a></li>
+<li><a href="../../toolment/robot/tm_extst.htm">Executing Test Suites Using Rational Robot</a></li>
+<li><a href="../../toolment/purify_plus/tm_prfpls_exctstste.htm">Executing Test Suites Using the Rational PurifyPlus Tools (Windows and UNIX)</a></li>
+<li><a href="../../toolment/test_realtime/tm_rtrtexe.htm">Executing Developer Tests Using Rational Test RealTime</a></li>
+<li><a href="../../toolment/robot/tm_tsten.htm">Setting Up the Test Environment in Rational Robot </a></li>
+<li><a href="../../toolment/testfact/tm_tfcvg.htm">Using Rational TestFactory to Measure and Evaluate Code-based Test Coverage on Rational Robot Test Scripts</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+      <td colspan="2"><b>More Information:&nbsp;</b> 
+        &nbsp;</td>
+    </tr>
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table width="85%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_vldbldstb.htm">Validate Build Stability</a></li>
+<li><a href="../workflow/test/wfs_tstandevl.htm">Test and Evaluate</a></li>
+</ul>
+</li>
+<li><a href="../workflow/ovu_dep.htm">Deployment</a>
+<ul>
+<li><a href="../workflow/deployme/wfs_dep3.htm">Manage Acceptance Test</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="SetupTestEnv1">Setup test environment to known state</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To accurately establish the test environment in preparation 
+        for Test Suite execution.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+<p>Setup the test environment to ensure that all the required components (hardware, 
+  software, tools, data, etc.) have been established, and are available and ready 
+  in the test environment in the correct state to enable the tests to be conducted. 
+  Typically this will involve some form of basic environment reset (e.g. Registry 
+  and other configuration files), restoration of underlying databases to the require 
+  state, and the setup of any peripheral devices (e.g. such as loading paper into 
+  printers). While some tasks can be performed automatically, some aspects typically 
+  require human attention.</p>
+
+<p>The use of environment support tools such as those that enable hard-disk image 
+  capture and restoration are extremely valuable in managing this effort effectively.</p>
+
+
+<h3><a name="ExecutionOptions">Set execution tool options</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To appropriately configure the tools used in Test Suite execution.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Set the execution options of the supporting tools. Depending on the sophistication 
+  of the tool, this may be many options to consider. Failing to set these options 
+  appropriately may reduce the usefulness and value of the resulting Test Logs 
+  and other outputs. Where possible, you should try to store these tool options 
+  and settings so that they can be reloaded easily based on one or more predetermined 
+  profiles.In the case of automated test execution tools, there may be many different 
+  settings to be considered, such as the speed at which execution should be performed.</p>
+<p>In the case of manual testing, it is often simply a matter of logging into 
+  issue or changes request tracking systems, or partitioning a new unique entry 
+  in a support system for logging results. You should give some thought to concerns 
+  such as the name, location and state of the Test Log to be written to.</p>
+<h3><a name="ScheduleTestSuite1">Schedule Test Suite execution</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To determine the appropriate time for test execution to begin.</td>
+    </tr>
+  </tbody>
+</table>
+<br></div>
+<p>In many cases where test execution can be attended, the Test Suite can be executed 
+  relatively on demand. In these cases, scheduling will likely need to take into 
+  account considerations such as the work of other testers, other team members 
+  as well as different test teams that share the test environment. In these cases, 
+  test execution will typically need to work around infrequent environment resets.</p>
+<p>However, in cases where unattended execution of automated tests is desired, 
+  or where the execution of many tests running concurrently on different machines 
+  must be coordinated, some form of automated scheduling mechanism may be required. 
+  Either use the features of your automated test execution tool or develop your 
+  own utility functions to enable the required scheduling.</p>
+
+
+<h3><a name="ExecuteTestSuite1">Execute Test Suite</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To conduct the tests enclosed in the Test Suite and to monitor 
+        their completion.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Executing the Test Suite will vary dependent upon whether testing is conducted 
+  automatically or manually. In either case, the test suites developed during 
+  the test implementation activities are used to either execute the tests automatically, 
+  or guide the manual execution of the tests.</p>
+<h3><a name="EvaluateExecution1">Evaluate execution of Test Suite</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+  <div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To determine whether the Test Suite executed to completion 
+        or halted abnormally, and make an assessment whether corrective action 
+        is required.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+
+<p>The execution of testing ends or terminates in one of two conditions:</p>
+<ul>
+  <li>Normal: all the Tests execute as intended to completion.&nbsp;</li>
+  <li>Abnormal or premature: the Tests did not execute completely as intended. 
+    When testing ends abnormally, the Test Logs from which subsequent Test Results 
+    are derived may be unreliable. The cause of the abnormal termination needs 
+    to be identified, and if necessary, the fault corrected and the tests re-executed.</li>
+</ul>
+
+
+<h3><a name="RecoverHaltedTests">Recover from halted tests</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To determine the appropriate corrective action to recover 
+        from a halted Test Suite execution, and if required correct the problem, 
+        recover, and re-execute the Test Suite.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>To recover from halted tests, do the following:</p>
+            <ul>
+              <li><a href="#VerifyTestLogs2">Inspect the Test Logs and other output</a></li>
+              <li><a href="#CorrectErrors">Correct errors</a></li>
+              <li><a href="#ExecuteTestSuite2">Schedule and execute Test Suite again</a></li>
+              <li><a href="#EvaluateExecution2">Reevaluate execution of Test Suite</a></li>
+            </ul>
+
+
+
+<h4><a name="VerifyTestLogs2">Inspect the Test Logs and other output</a>
+<a href="#RecoverHaltedTests"><img src="../../images/top.gif" alt="To Recover Halted Tests" border="0" width="26" height="20"></a></h4> 
+
+<p>Inspect the Test Logs and other output for completeness and accuracy. Identify 
+  where errors have occurred and inspect them.</p>
+
+<p>When test automation is being employed, there are two categories of halted 
+  tests that it is important to be aware of:</p>
+<ul>
+  <li>Fatal errors - the system fails (network failures, hardware crashes, etc.)</li>
+  <li>Test failures - this is when some part of a Test within a 
+    Test Suite cannot be executed as intended.</li>
+</ul>
+<p>When either category of abnormal behavior occurs during test execution, they 
+  may exhibit the following symptoms:</p>
+<ul>
+  <li>a large number of (ongoing occurrence) of unexpected actions, unexpected 
+    windows occuring while the Test Suite is executing</li>
+  <li>the test environment appears unresponsive, is slow or is in an undesirable 
+    state (such as hung or crashed).</li>
+</ul>
+
+<p>Work through the symptoms until you can determine the root cause of the problem.</p>
+
+
+<h4><a name="CorrectErrors">Correct errors</a>
+<a href="#RecoverHaltedTests"><img src="../../images/top.gif" alt="To Recover Halted Tests" border="0" width="26" height="20"></a></h4> 
+
+<p>Errors may be found in the input data consumed by the test, the test itself 
+  or other aspects of the test such as the test environment or runtime tool settings. 
+  It's common for a fix to an error in one aspect of the test to require the correct 
+  state to be present in all often aspects of the test.</p>
+<p>Once you have finished investigating problems, you may have discovered one 
+  or more faults that needs correction. To make permanent corrections to the environment, 
+  test data or the test itself, it is a good practice to restore each aspect of 
+  the test again to a known state before applying any permanent corrections. This 
+  ensures that no additional unwanted or invalid changes find their way into the 
+  known-state environment. </p>
+<p>After making the necessary changes, save the Test and backup or save the accompanying 
+  input data and test environment as required.</p>
+
+
+<h4><a name="ExecuteTestSuite2">Schedule and execute Test Suite again</a>
+<a href="#RecoverHaltedTests"><img src="../../images/top.gif" alt="To Recover Halted Tests" border="0" width="26" height="20"></a></h4> 
+
+<p>Reschedule and re-execute the Test Suite. Depending on what recovery process 
+  is available (if any), you may be able to restart the test suite from an interim 
+  point rather than starting from the beginning. Note that to enable recovery 
+  of test execution from a point part-way through the test run, typically necessitates 
+  the implementation and ongoing maintenance of some form of partial recovery 
+  procedure.</p>
+
+
+<h4><a name="EvaluateExecution2">Reevaluate execution of Test Suite</a>
+<a href="#RecoverHaltedTests"><img src="../../images/top.gif" alt="To Recover Halted Tests" border="0" width="26" height="20"></a></h4> 
+
+<p>Confirm the Test Suite now runs to completion. If there are still problems, 
+  work through these subsections that make up Recover from halted tests again 
+  until all of the problems are resolved.</p>
+<h3><a name="VerifyTestLogs1">Inspect the Test Logs for completeness and accuracy</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To determine if the Test Suite execution generated worthwhile 
+        test information and if not, to identify appropriate corrective action.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>When test execution initially completes, the Test Logs should be reviewed to 
+  ensure that the logs are reliable and reported failures, warnings, or unexpected 
+  results were not caused by external influences (to the target-of-test), such 
+  as improper environment setup or invalid input data for the test.</p>
+<p>For GUI-driven automated Tests, common Test failures include:</p>
+<ul>
+  <li><b>Test verification failures</b> - this occurs when the actual result and 
+    the expected result do not match. Verify that the verification method(s) used 
+    focus only on the essential items and / or properties and modify if necessary.</li>
+  <li><b>Unexpected GUI windows</b> - this occurs for several reasons. The most 
+    common is when a GUI window other than the expected one is active or the number 
+    of displayed GUI windows is greater than expected. Ensure that the test environment 
+    has been setup and initialized as intended for proper test execution.</li>
+  <li><b>Missing GUI windows</b> - this failure is noted when a GUI window is 
+    expected to be available (but not necessarily active) and is not. Ensure that 
+    the test environment has been setup and initialized as intended for proper 
+    test execution. Verify that the actual missing windows are / were removed 
+    from the target-of-test.</li>
+</ul>
+
+<p>If the reported failures are due to errors identified in the test artifacts, 
+  or due to problems with the test environment, the appropriate corrective action 
+  should be taken and the testing re-executed.
+<br>(See: <a href="ac_tst_anltstflr.htm">Activity: 
+  Analyze Test Failure</a>).
+
+</p>
+<p>If the Test Log enables you to determine that the failures are due to genuine 
+  failures in the Target Test Items, then the execution portion of the activity 
+  is complete.</p>
+
+
+<h3><a name="RestoreTestEnv3">Restore test environment to known state</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To ensure the environment is properly reset after Test Suite 
+        execution.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>(See the first step) Next you should restore the environment back to it's original 
+  state. Typically this will involve some form of basic environment reset (e.g. 
+  Registry and other configuration files), restoration of underlying databases 
+  to known state, and so forth in addition to tasks such as loading paper into 
+  printers. While some tasks can be performed automatically, some aspects typically 
+  require human attention.</p>
+
+
+ 
+<h3><a name="Traceability">Maintain traceability relationships</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left"> 
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td  width="95%">To enable impact analysis and assessment reporting to be 
+        performed on the traced items.&nbsp;</td>
+    </tr>
+    </tbody> 
+  </table>
+  <br>
+</div>
+<p>Using the Traceability requirements outlined in the Test Plan, update the traceability 
+  relationships as required. A good starting point is to consider traceability 
+  in terms of measuring the extent of testing or test coverage. As a general rules, 
+  we recommend basing the measurement of the extent of testing against the motivators 
+  you discovered during the test planning activities.</p>
+<p>Test Suites might also be traced to the defined Test Cases they realize. They 
+  may also be traced to elements of the requirements, software specification, 
+  design or implementation.</p>
+<p>Whatever relationships you have decided are important to trace, you will need 
+  to update the status of the relationships that were established during implementation 
+  of the Test Suite.</p>
+
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a>
+<a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table width="92%" cellspacing="0" cellpadding="4" border="1" style="border: 1px solid rgb(128,128,128)" bordercolor="808080">
+  <tbody valign="baseline">
+    <tr>
+      <th width="5%">Purpose:&nbsp;</th>
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

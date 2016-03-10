@@ -1,0 +1,915 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Activity:&nbsp;Database Design</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Database Design</rpw><a name="Top"></a></h2>
+
+
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>To ensure that persistent data is stored consistently and efficiently.</li>
+      <li>To define behavior that must be implemented in the database.</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li> <a href="#Develop Logical Data Model">Develop Logical Data Model 
+            (optional)</a></li>
+          <li><a href="#Develop Physical Data Model">Develop Physical Database 
+            Design</a> 
+            <ul>
+              <li><a href="#Define Domains">Define Domains</a></li>
+              <li> <a href="#Transform Persistent Design Elements to the Physical Data Model"> 
+                Create Initial Physical Database Design Elements</a><font color="#FF0000"></font></li>
+              <li><a href="#Define Reference Tables and Default Values">Define 
+                Reference Tables</a></li>
+              <li><a href="#Create Primary Key and Unique Key Constraints"> Create 
+                Primary Key and Unique Constraints</a></li>
+              <li><a href="#Define Data and Referential Integrity Enforcement Rules">Define 
+                Data and Referential Integrity Enforcement Rules</a></li>
+              <li><a href="#Optimize the Data Model for Performance">De-normalize 
+                Database Design to Optimize for Performance</a></li>
+              <li><a href="#Optimize Data Access">Optimize Data Access</a></li>
+              <li><a href="#Define Storage Characteristics">Define Storage Characteristics</a></li>
+              <li><a href="#Distribute Class behavior to the Database">Design 
+                Stored Procedures to Distribute Class Behavior to the Database</a></li>
+            </ul>
+          </li>
+          <li><a href="#Review the Results">Review the Results</a></li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_aclss.htm">Analysis Class</a></li>
+<li><a href="../artifact/ar_datmd.htm">Data Model</a></li>
+<li><a href="../artifact/ar_class.htm">Design Class</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_ucrea.htm">Use-Case Realization</a></li>
+</ul>
+
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_datmd.htm">Data Model</a></li>
+</ul>
+
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_dbdsr.htm">Database Designer</a>
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+		<ul>
+<li><a href="../../toolment/rose/tm_dtmod.htm">Designing and Modeling Databases Using Rational Rose Data Modeler</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_dbdes.htm">Designing Databases Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_dbdes.htm">Designing Databases Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_db_forw.htm">Forward Engineering Databases Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_db_forw.htm">Forward Engineering Databases Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_db_manage.htm">Managing Databases Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_db_manage.htm">Managing Databases Using Rational XDE Developer - Java Platform Edition</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_db_rev.htm">Reverse Engineering Databases Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_db_rev.htm">Reverse Engineering Databases Using Rational XDE Developer - Java Platform Edition</a></li>
+</ul>
+
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_and.htm">Analysis & Design</a>
+<ul>
+<li><a href="../workflow/ana_desi/wfs_and7.htm">Design the Database</a></li>
+</ul>
+</li>
+</ul>
+
+	</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<!-- Linked to Workflow End --> 
+<p>The steps presented in this activity assume that the persistent data design 
+  of the application will be implemented using a relational database management 
+  system (RDBMS). It is assumed that you have familiarity with database concepts, 
+  including normalization and de-normalization, as well as with database terminology 
+  as covered in references such as [<a href="../referenc.htm#DAT99">DAT99</a>].&nbsp; 
+</p>
+<p>The steps in this activity also refer to the Unified Modeling Language (UML) 
+  profile for database modeling, which is discussed in&nbsp;[<font color="#FF0000"><a href="../referenc.htm#NBG01">NBG01</a></font>]. 
+  In addition, [<font color="#FF0000"><a href="../referenc.htm#NBG01">NBG01</a></font>] 
+  contains a general description of the process for modeling and designing relational 
+  databases using UML.&nbsp; For background information on the relationship between 
+  relational data models and object models, consult <a href="../workflow/ana_desi/co_rdbom.htm">Concepts: 
+  Relational Databases and Object Orientation</a>.</p>
+<h3>
+<a name="Develop Logical Data Model">Develop Logical Data Model (Optional)</a> <a href="#Top">
+<font color="#FF0000">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h3>
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	
+      <td width="95%">Define a model of the logical design of the database.</td>
+  </tr>
+</table>
+</div>
+
+<p> The purpose of the Logical Data Model is to provide an idealized view of the 
+  key logical data entities and their relationships that is independent of any 
+  specific software or database implementation. It is generally in third normal 
+  form (see <a href="../workflow/ana_desi/co_normalization.htm">Concepts: Normalization</a>), 
+  which is a data-modeling form that minimizes redundancy and ensures no transitive 
+  dependencies. Such a model is concerned with what the database will look like 
+  when capturing data, rather than with the applications that use the data and 
+  their performance. Note that a Logical Data Model is considered to be part of 
+  the <a href="../artifact/ar_datmd.htm">Artifact: Data Model</a> and is not a 
+  separate RUP artifact. However, it is often important to define individual Logical 
+  Data Models for:</p>
+<ul>
+  <li>projects in which the database and application designs are being developed 
+    by separate teams.</li>
+  <li>projects in which there are multiple applications that will share a common 
+    database. </li>
+</ul>
+<p>
+If you are creating a Logical Data Model, you can start from scratch using 
+the model elements discussed in <a href="../modguide/md_datmd.htm">Guidelines: Data Model</a>, or you can begin by 
+starting with entities for each persistent class in the 
+<a href="../artifact/ar_amdl.htm">Analysis Model</a> or
+<a href="../artifact/ar_desmd.htm">Design Model</a>.</p>
+
+<p> You might decide not to create a separate Logical Data Model, especially if 
+  you are designing a database that serves a single application. In this case, 
+  the <a href="../workers/wk_dbdsr.htm">database designer</a> develops the Physical 
+  Data Model based on the set of persistent classes and their associations in 
+  the Design Model.</p>
+
+<p> In either approach, it is important for the <a href="../workers/wk_dbdsr.htm">database 
+  designer</a> and the <a href="../workers/wk_dsgnr.htm">designer</a> to collaborate 
+  throughout the analysis and design process to identify which classes in the 
+  <a href="../artifact/ar_desmd.htm">Artifact: Design Model</a> need to store 
+  information in a database. As described in the step titled, &quot;Identify persistent 
+  classes of the <a href="ac_cldes.htm">Activity: Class Design</a>,&quot; the 
+  database designer works with the designer to identify which <a href="../artifact/ar_class.htm">design 
+  classes</a> in the Design Model are considered to be persistent and are potential 
+  candidates for becoming tables in the database. </p>
+
+<h3><a name="Develop Physical Data Model">Develop Physical Database Design</a><a href="#Top"><font color="#FF0000"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></font></a></h3>
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">Define the detailed physical design of the database.</td>
+  </tr>
+</table>
+</div>
+
+
+
+<p>The physical database design includes model elements (such as tables, views, 
+  and stored procedures) that represent the detailed physical structure of the 
+  database and model elements (such as schemas and tablespaces) that represent 
+  the underlying data storage design of the database.&nbsp; Collectively, these 
+  model elements comprise the Physical Data Model of the database.&nbsp; This 
+  Physical Data Model is contained in the <a href="../artifact/ar_datmd.htm">Artifact: 
+  Data Model</a> and is not a separate model artifact. </p>
+
+
+
+<p>The detailed steps for developing the physical database design are as follows:</p>
+<ul>
+  <li><a href="#Define Domains">Define domains</a>. </li>
+  <li> <a href="#Transform Persistent Design Elements to the Physical Data Model"> 
+    Create initial physical database design elements</a>. </li>
+  <li><a href="#Define Reference Tables and Default Values">Define reference tables</a>. 
+  </li>
+  <li><a href="#Create Primary Key and Unique Key Constraints">Create primary 
+    key and unique constraints</a>. </li>
+  <li><a href="#Define Data and Referential Integrity Enforcement Rules">Define 
+    data and referential integrity enforcement rules</a>. </li>
+  <li><a href="#Optimize the Data Model for Performance">De-normalize database 
+    design to optimize for performance</a>. </li>
+  <li><a href="#Optimize Data Access">Optimize data access</a>. </li>
+  <li><a href="#Define Storage Characteristics">Define storage characteristics</a>. 
+  </li>
+  <li><a href="#Distribute Class behavior to the Database">Design stored procedures 
+    to distribute class behavior to the database</a>. </li>
+</ul>
+
+<h4><a name="Define Domains">Define Domains</a> <a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top"> 
+  <tr> 
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To define reusable user-defined types.&nbsp;</td>
+  </tr>
+</table>
+<div align="left"> </div>
+
+
+
+<p>Domains might be used by the database designer to enforce type standards throughout 
+  the database design. Domains are user-defined data types that can be applied 
+  to a column in a table.&nbsp; Domains have the properties of a column without 
+  the name.&nbsp; </p>
+
+
+<h4>
+<a name="Transform Persistent Design Elements to the Physical Data Model">
+Create Initial Physical Database Design Elements</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">Create the initial database tables and relationships.</td>
+  </tr>
+</table>
+</div>
+
+<p>The database designer models the Physical Data Model elements using tables 
+  and columns in tables, as described in <a href="../modguide/md_datmd.htm">Guidelines: 
+  Data Model</a>.&nbsp; </p>
+
+<p>If a Logical Data Model has been created, then its logical entities can be 
+used as the basis for an initial set of tables.</p>
+
+<p>Alternatively, the database designer might jump-start the Physical Data Model 
+  by using the persistent classes in the Design Model as a starting point for 
+  tables in the Physical Data Model.&nbsp; The database designer models the persistent 
+  classes and their attributes as&nbsp;tables and columns respectively.&nbsp; 
+  The database designer also needs to define the relationships between the tables 
+  based on the associations between the persistent classes in the Design Model.&nbsp; 
+  A description of how the Design Model elements and relationships map to Data 
+  Model elements and relationships is provided in <a href="../modguide/md_rdbforw.htm">Guidelines: 
+  Forward Engineering Relational Databases</a>. </p>
+
+<p>If you are starting the model from persistent classes rather than from a normalized 
+  Logical Data Model, then you will generally need to apply some normalization 
+  in order to eliminate data redundancies and non-key field dependencies. See 
+  <a href="../workflow/ana_desi/co_normalization.htm">Concepts: Normalization</a> 
+  for more information on database normalization.</p>
+
+<h4><a name="Define Reference Tables and Default Values">Define Reference Tables</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To define standard reference tables used across the project.</td>
+  </tr>
+</table>
+</div>
+
+<p>Often there are standard look-up tables, validation tables, or reference tables 
+  used throughout the project. Since the data in these tables tends be frequently 
+  accessed but seldom-changing, that data is worth special consideration. In the 
+  Design Model, these tables might contain standard product codes, state or province 
+  codes, postal or zip codes, tax tables, area code validation tables, or other 
+  frequently accessed information. In financial systems, these tables might contain 
+  lists of policy codes, insurance policy rating categories, or conversion rates. 
+  Look in the Design Model for classes that are primarily read-only, providing 
+  validation information for a large number of clients.</p>
+<p>If the reference table is small, do not bother to index it, since indexing 
+  might actually add additional overhead for small tables. A small, frequently 
+  accessed table also tends to remain in memory, because caching algorithms often 
+  keep frequently accessed tables in the data cache.</p>
+<p>If possible, make sure that the database cache is large enough to keep all 
+  reference tables in memory, along with normal &quot;working set space&quot; 
+  for queries and transactions. Often the secret to increasing database performance 
+  is reducing disk I/O.</p>
+<p>Once the reference table structures are defined, determine a strategy for populating 
+  the reference tables. Since these tables are accessed near the beginning of 
+  the project, determining the reference values and loading the tables often need 
+  to occur relatively early during application runtime. While the database designer 
+  is not responsible for obtaining the data, he or she is responsible for determining 
+  how and when the reference tables will be refreshed.</p>
+
+<h4>
+<a name="Create Primary Key and Unique Key Constraints">Create Primary Key and 
+Unique  Constraints</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	
+      <td width="95%">To define the one or more columns that uniquely identify 
+        a row in the table.<br>
+      To define constraints on columns that guarantee the uniqueness of the data or collection of data.
+    </td>
+  </tr>
+</table>
+</div>
+
+
+
+<p>A primary key is one or more columns that uniquely identify rows in a table. 
+  A table has a single primary key. There is often a &quot;natural&quot; key that 
+  can be used to uniquely identify a row of data (for example, the postal code 
+  in a reference table). The primary key should not contain data that might change 
+  with the business environment. If the &quot;natural&quot; key is a value that 
+  can change (for example a person's name), then it is recommended that the database 
+  designer create a single non-meaningful, non-user-entered column when creating 
+  a primary key.&nbsp;This creates a data structure that has greater adaptability 
+  to changes in the business structure, rules, or environment.</p>
+
+
+
+<p>The use of a non-meaningful, non-user-entered column as the primary key is 
+  an essential concept in designing a data warehouse. Transactional systems often 
+  choose a &quot;natural&quot; primary key that might be subject to minimal change 
+  over a non-meaningful, non-user-entered column.</p>
+
+
+
+<p>A unique constraint designates that the data in the column or collection of 
+columns is unique per row. If the unique constraint is on a column, the data in a 
+specific row in the specified column must be unique from the data in a different 
+row in the same column.&nbsp;</p>
+
+
+
+<p>When a unique constraint is defined for a group of columns, the uniqueness 
+  is based on the collective whole of the data in the columns that make up that 
+  unique constraint. The data in a specific row in a specific column does not 
+  have to be unique from the data in a different row in the same column. The database 
+  designer uses the unique constraint to ensure uniqueness of business data.</p>
+
+<h4><a name="Define Data and Referential Integrity Enforcement Rules">Define
+Data and Referential Integrity Enforcement Rules</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To ensure the integrity of the database.</td>
+  </tr>
+</table>
+
+<p>Data integrity rules, also known as constraints, ensure that data values lie 
+  within defined ranges. Where these ranges can be identified, the database can 
+  enforce them. (This is not to say that data validation should not be done in 
+  the application, but only that the database can serve as a &quot;validator of 
+  last resort&quot; in the event that the application does not work correctly.) 
+  Where data validation rules exist, the database constraints must be designed 
+  to enforce them.</p>
+
+
+
+<p>A foreign key is one or more columns in a table that map to the primary key 
+  in another table. One table might have many foreign keys, and each foreign key 
+  is a map to a different table. This mapping, or relationship, between the tables 
+  is often referred to as a parent-child relationship.&nbsp;The child table contains 
+  the foreign key, which maps to the primary key in the parent table.&nbsp; </p>
+<p>The definition of foreign key constraints is also often used by the query optimizer 
+  to accelerate query performance.&nbsp; In many cases, the foreign key enforcement 
+  rules use reference tables.</p>
+
+
+
+<h4><a name="Optimize the Data Model for Performance">De-Normalize Database Design 
+  to Optimize for Performance</a> <a href="#Top"> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To optimize the database data structures for performance.</td>
+  </tr>
+</table>
+</div>
+
+<p>In the case of a relational Data Model, the initial mapping generally yields 
+  a simple class-to-table mapping. If objects from different classes need to be 
+  retrieved at the same time, the RDBMS uses an operation called a &quot;table 
+  join&quot; to retrieve the rows related to the objects of interest. For frequently 
+  accessed data, join operations can be computationally expensive. To eliminate 
+  the cost of the join, a standard relational technique called &quot;de-normalization&quot; 
+  is often employed.</p>
+<p>De-normalization combines columns from two or more different tables into the 
+  same table, effectively pre-joining the information. De-normalization reflects 
+  a tradeoff between more-expensive update operations in favor of less-expensive 
+  retrieval operations. This technique also reduces the performance of the system 
+  in queries that are interested only in the attributes of one of the objects 
+  that are effectively joined in the de-normalized table, since all attributes 
+  are normally retrieved on every query. For cases in which the application normally 
+  wants all attributes, there can be a significant performance improvement.</p>
+<p>De-normalizing more than two tables is rare and increases the cost of inserts 
+  and updates as well as the cost of non-join queries. Limiting de-normalization 
+  to two tables is a good policy unless strong and convincing evidence can be 
+  produced regarding the benefits.</p>
+<p>De-normalization can be inferred from the <a href="../artifact/ar_class.htm">design 
+  classes</a> in cases in which classes are nested. Nested classes can be mapped 
+  to a de-normalized table.</p>
+<p>Some object databases allow a concept similar to de-normalization, in which 
+  related objects are clustered together on disk and retrieved in single operations. 
+  The concept in use is similar: Reduce object retrieval time by reducing the 
+  work the system must do in order to retrieve related objects from the database.</p>
+<p>In some cases, optimizing the Data Model can unmask problems in the <a href="../artifact/ar_desmd.htm">Design 
+  Model</a>, including performance bottlenecks, poor modeling, or incomplete designs. 
+  In this event, discuss the problems with the <a href="../workers/wk_dsgnr.htm">designer</a> 
+  of the class, triggering change requests where appropriate.</p>
+<h4><a name="Optimize Data Access">Optimize Data Access</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To provide for efficient data access using indexing.<br>
+      To provide for efficient data access using database views.
+    </td>
+  </tr>
+</table>
+</div>
+
+<p>Once the table structure has been designed, you must determine the types of 
+  queries that will be performed against the data. Indexing is used by the database 
+  to speed access. Indexing is most effective when the data values in the column 
+  being indexed are relatively distinct. 
+<p>Consider the following indexing principles: 
+<ul>
+  <li>The primary key column of the table must always be indexed. Primary key 
+    columns are used frequently as search keys and for join operations.</li>
+  <li>Tables smaller than 100 rows in size with only a few columns benefit
+    little from indexing. Small tables generally fit easily in the database
+    cache.</li>
+  <li>Indexes should also be defined for frequently executed queries or for queries 
+    that must retrieve data quickly (generally, any searches done while a person 
+    might be waiting). An index should be defined for each set of attributes that 
+    are used together as search criteria. For example, if the system needs the 
+    ability to find all Orders on which a particular product is ordered, an index 
+    on the Line Item table on the product number column would be necessary.</li>
+  <li>Indexes should generally be defined only on columns used as identifiers, 
+    not on numeric values, such as account balances or textual information such 
+    as order comments. Identifier column values tend to be assigned when the object 
+    is created and then remain unchanged for the life of the object.</li>
+  <li>Indexes on simple numbers (integer and number data types) are much simpler 
+    and faster than indexes on strings. Given the large data volumes processed 
+    on a query or a large join, small savings add up quickly.&nbsp; Indexes on 
+    numeric columns tend to take significantly less space than indexes on characters.</li>
+</ul>
+<p>On the down side, the use of indexes is not free; the more indexes on a table, 
+  the longer inserts and updates take to process. When contemplating the use of 
+  indexes, bear in mind the following precautions: 
+<ul>
+  <li>Do not index just to speed up an infrequently executed query, unless that 
+    query occurs at a critical point, making maximum speed essential.</li>
+  <li>In some systems, update and insertion performance is more important than 
+    query performance. A common example is in factory data acquisition applications 
+    in which quality data is captured in real time. In these systems, only occasional 
+    online queries are executed, and most of the data is analyzed periodically 
+    by batch reporting applications that perform statistical analysis on it. For 
+    data-acquisition systems, remove all indexes to achieve maximum throughput. 
+    If indexes are needed, they can be rebuilt just before the batch reporting 
+    and analysis applications run, then dropped when the reporting and analysis 
+    is complete.</li>
+  <li>Always remember that indexes have hidden costs. For example, they take time 
+    to update (a tax paid on every insert, update, or delete) and occupy disk 
+    space. Be sure you get value from using them.</li>
+</ul>
+<p>Many databases offer a choice of index types. The most common include:
+<ul>
+  <li><b>B-tree indexes—</b>The most frequently used kind are based on balanced 
+    b-tree index data structures. They are useful when the index key values are 
+    randomly distributed and tend to have wide variability. They tend to perform 
+    poorly, however, when data being indexed is already in sequential order.</li>
+  <li><b>Hashed indexes—</b>Less frequently, index key values are hashed. Hashing 
+    offers better performance when the range of index key values is known, relatively 
+    unchanging, and unique. This technique relies upon the use of the key value 
+    to calculate the address of the data of interest. Because of the need for 
+    predictability, hash indexes tend to be useful only for medium-sized lookup 
+    tables that change very infrequently.</li>
+</ul>
+<p>Your choice of indexing strategy and timing of index creation can have a large 
+  impact on performance. Bulk data loads should be performed without indexes (this 
+  can be achieved by dropping<b> </b>the index, loading the data, and then re-creating 
+  the index). The reason for this is that the index structure is re-balanced as 
+  each row is added. Since subsequent rows will change the optimal index structure, 
+  the work done re-balancing the index as each row is inserted is largely wasted. 
+  It is faster and more efficient to load data without indexes, then re-create 
+  the index when the data load is done. Some databases provide bulk data-loaders 
+  to do this automatically.</p>
+<p>Another strategy for optimizing database access performance is the use of views. 
+  Database views are virtual tables that have no independent storage of their 
+  own. To the calling program (or user), however, a view behaves like a table. 
+  A view supports retrieval of data, and it can be used to update data as well—depending 
+  on the database structure and database vendor. The view contains data from one 
+  or more tables that can be accessed through a single select statement. The performance 
+  gain occurs during the selection of data, especially in frequently queried tables. 
+  The data is retrieved from a single location—the view—instead of by searching 
+  the multiple or large tables that exist in the database.</p>
+
+<p>Views also play a significant role in database security. A view containing 
+parts of a table can restrict access to sensitive data contained in the base 
+table.</p>
+
+<h4><a name="Define Storage Characteristics">Define Storage Characteristics</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To design the space allocation and disk page organization of the database.</td>
+  </tr>
+</table>
+</div>
+
+<p>A database designer uses tablespaces to represent the amount of storage space 
+  that is allocated to tables, indexes, stored procedures, and so forth. One or 
+  more tablespaces are mapped to a database. The database designer must analyze 
+  the tables in the Data Model to determine how to distribute them, along with 
+  other support database elements, across the storage space in the database. 
+<p> In determining the tablespace structures for the database, bear in mind that 
+  databases do not perform I/O on rows, records, or even whole tables. Instead 
+  they perform I/O on disk blocks. The reason for this is simple: Block I/O operations 
+  are usually optimized in the software and hardware on the system. As a result, 
+  the physical organization of the tables and indexes in the database can have 
+  a dramatic impact on the performance of the system. 
+<p>When planning the space allocation and disk page organization of the database, 
+  consider the following factors: 
+<ul>
+  <li>the density of information in the disk pages</li>
+  <li>the location of disk pages on disk and across disk drives</li>
+  <li>the amount of disk space to allocate to the table</li>
+</ul>
+<p>These factors are discussed in the sections that follow.</p>
+<blockquote> 
+  <h5><b>Disk Page Density</b></h5>
+  <p>The density of disk pages depends on the extent to which data is expected 
+    to change over time. Basically, a less-dense page is more capable of accepting 
+    changes in values or the addition of data over time, while a fuller data page 
+    provides better read performance, since more data is retrieved per block read.</p>
+  <p>To simplify disk management, the database designer can group tables by the 
+    extent to which they tend to change. The following three groups constitute 
+    a good beginning for this type of organization: </p>
+  <ul>
+    <li>highly dynamic tables</li>
+    <li>somewhat dynamic tables</li>
+    <li>mostly static tables</li>
+  </ul>
+  <p>The highly dynamic tables should be mapped onto disk pages that have a great 
+    deal of empty space in them (perhaps 30%); the somewhat dynamic tables should 
+    be mapped onto disk pages that have less empty space (perhaps 15%); and the 
+    mostly static should be mapped onto disk pages that have very little empty 
+    space (perhaps 5%). The indexes for the tables must be similarly mapped.</p>
+  <h5><b>Disk Page Location</b></h5>
+  <p>After the groups of tables are mapped, the database designer must determine 
+    where to put the disk pages. The goal here is to try to balance the workload 
+    across a number of different drives and heads to reduce or eliminate bottlenecks. 
+    Consider the following guidelines: 
+  <ul>
+    <li>Never put data on the same disk as the operating system, its temporary 
+      files, or the swap devices. These drives are busy enough without the addition 
+      of further workload to them.</li>
+    <li>Put data that is accessed simultaneously on different drives in order 
+      to balance the workload. Some systems support parallel I/O channels. If 
+      this is the case, put the data on different channels.</li>
+    <li>Put the indexes on a different drive from the data that it indexes in 
+      order to spread out the workload.</li>
+    <li>Refer to the database vendor's documentation for guidelines.</li>
+    <li>The type of storage used (for example, RAID-5, RAID-10, SAN, NAS, and 
+      channel attached) affects database performance. Make use of the performance 
+      guidelines provided by the storage provider.</li>
+  </ul>
+  <p>Database I/O is generally the limiting factor in database performance. I/O 
+    balancing is an iterative, experimental process. By prototyping database access 
+    performance during the elaboration phase, coupled with appropriate instrumentation 
+    to monitor physical and logical I/O, you can uncover performance problems 
+    early while there is still time to adjust the database design.</p>
+  <h5><b>Disk Space Allocation</b></h5>
+  <p>Using the characteristics of the persistence design mechanism, estimate the 
+    number of objects that must be stored. The amount of disk space required to 
+    store the objects varies from RDBMS to RDBMS.&nbsp;When calculating disk space, 
+    make sure to account for growth due to additions of data.&nbsp; To estimate 
+    the disk space for a database, first estimate the disk space required for 
+    each table, and then calculate the space requirements for all tables.&nbsp; 
+    Consult the database administrator manual for the specific RDBMS product to 
+    determine the precise size estimation formula.&nbsp; Here are some general 
+    steps for estimating the space requirements for a table: </p>
+  <ul>
+    <li>Calculate average row size.&nbsp; This calculation should include any 
+      control information at the record level, as well as any control information 
+      required for variable-length columns.</li>
+    <li>Calculate the number of rows that will fit into a page or block of I/O.&nbsp;Because 
+      most databases store only complete records on a page or I/O block, this 
+      should be the integer number of rows that will fit into a page or block 
+      of I/O.</li>
+    <li>Calculate the number of pages or I/O blocks required to store the estimated 
+      number of records in the database.&nbsp; The estimated number of records 
+      must include any load factors.</li>
+    <li>Multiply the number of pages or I/O blocks required by the size of the 
+      page or I/O block.</li>
+    <li>Add any overhead for additional indexes.</li>
+    <li>Add any fixed overhead for the table.</li>
+  </ul>
+  <p>Once the table space requirements have been defined:</p>
+  <ul>
+    <li> Compute the sum of the space required by the tables.</li>
+    <li>Add in any required fixed amount of space for database management.</li>
+    <li>Add in disk space required for the transaction log and audit trail.&nbsp; 
+    </li>
+  </ul>
+  <p>In a frequently updated environment, the retention requirements for the audit 
+    trail require significant amounts of storage. The documentation for major 
+    commercial database management systems usually provides detailed sizing instructions. 
+    Be sure to refer to these instructions when calculating your estimates of 
+    the database disk space requirements.</p>
+</blockquote>
+<h4><a name="Distribute Class behavior to the Database">Design Stored Procedures 
+to Distribute Class 
+Behavior to the Database</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To determine if the stored procedures or triggers should be 
+    used to implement data access class operations.</td>
+  </tr>
+</table>
+</div>
+
+<p>Most databases support a stored procedure capability. A stored procedure is 
+  executable code that runs within the process space of the database management 
+  system. It provides the ability to perform database-related actions on the server 
+  without having to transfer data across a network. The judicious use of stored 
+  procedures can the improve performance of the system.</p>
+<p>Stored procedures are usually one of these two types: actual procedures or 
+  triggers. Procedures are executed explicitly by an application, generally have 
+  parameters, and provide an explicit return value. Triggers, on the other hand, 
+  are invoked implicitly when some database event occurs (for example, insert 
+  a row, update a row, or delete a row), have no parameters other than the row 
+  being modified (since they are invoked implicitly), and do not provide an explicit 
+  return value.</p>
+<p>In database systems that lack constraints, triggers are often used to enforce
+referential and data integrity. Otherwise, they tend to be used when an event
+needs to trigger (or cause) another event. Triggers are also frequently used for 
+security purposes by auditing the trigger event. </p>
+<p>The design classes in the Design Model must be examined to see if they have 
+  operations that should be implemented using the stored procedure or trigger 
+  facility. Candidates include: 
+<ul>
+  <li>any operations that primarily deal with persistent data (creating, updating, 
+    retrieving, or deleting it).</li>
+  <li>any operations in which a query is involved in a computation (such as calculating 
+    the average quantity and value of a product in inventory).</li>
+  <li>operations that must access the database in order to validate data.</li>
+</ul>
+<p>Remember that improving database performance usually means reducing I/O. Therefore, 
+  if performing a computation on the DBMS server will reduce the amount of data 
+  passed over the network, the computation should probably be performed on the 
+  server.</p>
+<p>Work with the designer of the design class to discuss how the database can 
+  be used to improve performance. The designer will update the operation method 
+  to indicate whether one or more stored procedures can be used to implement the 
+  operation.</p>
+
+<h3><a name="Review the Results">Review the Results</a> <a href="#Top">
+<img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	
+      <td width="95%">To ensure the quality and integrity of the <a href="../artifact/ar_datmd.htm">Data 
+        Model</a>.</td>
+  </tr>
+</table>
+</div>
+
+<p>Continuously throughout this activity, you must consider the <a href="chklists/ck_dtmdl.htm">Checkpoints: 
+  Data Model</a> to assess the completeness and quality of the effort.&nbsp; Furthermore, 
+  the database designer must regularly review the implemented structure of the 
+  database to ensure that the Data Model is consistent with any changes that have 
+  been made directly in the database.&nbsp; If the project is using data-modeling 
+  tools that support synchronization of the Data Model with the physical structure 
+  of database, the database designer must periodically check the state of the 
+  Data Model with the database and makes adjustments as needed.&nbsp; </p>
+
+
+<p>Identified defects that will not be corrected at this time must be documented 
+  in <a href="../artifact/ar_crqst.htm">Change Requests</a> and eventually assigned 
+  to someone to own and drive to resolution.</p>
+<br>
+<br>
+
+
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.appliedis.com"><img border="0" src="../../images/appliedis.gif" ></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.appliedis.com">Applied Information Sciences</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

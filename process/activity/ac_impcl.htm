@@ -1,0 +1,425 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Implement Design Elements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Implement Design Elements</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr> 
+      <td colspan="2">
+        <p><b>Purpose</b> </p>
+	<ul>
+            
+          <li>Produce an implementation for part of the design (such as a Design 
+            Class, Design Subsystem, or Use-case Realization), or to fix one or 
+            more defects. The result is source code, or source code updates, in 
+            the form of Implementation Elements.</li>
+        </ul>
+        </td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Steps</b> 
+          <ul>
+            <li><a href="#Prepare for Implementation">Prepare for Implementation</a></li>
+            <li><a href="#Implement Operations">Implement Operations</a></li>
+            <li><a href="#Implement States">Implement States</a></li>
+            <li><a href="#Use Delegation to Reuse Implementation">Use Delegation 
+              to Reuse Implementation</a></li>
+            <li><a href="#Implement Associations">Implement Associations</a></li>
+            <li><a href="#Implement Attributes">Implement Attributes</a></li>
+            <li><a href="#Provide Feedback to Design">Provide Feedback to Design</a></li>
+            <li><a href="#Evaluate the Code">Evaluate the Code</a></li>
+          </ul>
+          <p>There is no strict order between the steps. Start implementing the 
+            operations, and implement associations and attributes as they are 
+            needed to be able to compile and run the operations.&nbsp;
+    </td>
+  </tr>
+  <tr> 
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_datmd.htm">Data Model</a></li>
+<li><a href="../artifact/ar_desmd.htm">Design Model</a></li>
+<li><a href="../artifact/ar_comp.htm">Implementation Element</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_sadoc.htm">Software Architecture Document</a></li>
+<li><a href="../artifact/ar_sspec.htm">Supplementary Specifications</a></li>
+<li><a href="../artifact/ar_tstcp.htm">Testability Element</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_comp.htm">Implementation Element</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Frequency:&nbsp;</b>&nbsp; Repeated throughout each iteration (with the possible exception of Inception 
+      iterations when no prototyping is required)&nbsp;
+	</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_implm.htm">Implementer</a>&nbsp;
+	</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	  <ul>
+<li><a href="../../toolment/rose/tm_rosefe.htm">Generating Elements from a Model Using Rational Rose</a></li>
+<li><a href="../../toolment/xde_vsnet/tm_implde.htm">Implementing Design Elements Using Rational XDE Developer - .NET Edition</a></li>
+<li><a href="../../toolment/xde_eclipse/tm_implde.htm">Implementing Design Elements Using Rational XDE Developer - Java Platform Edition</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+    
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_impl.htm">Implementation</a>
+<ul>
+<li><a href="../workflow/implemen/wfs_implc.htm">Implement Components</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Prepare for Implementation">Prepare for Implementation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<h5>Understand the Task/Problem</h5>
+<p>Before starting with an implementation activity, the implementer must be clear 
+  on the scope, as specified in work assignments and iteration plans. An implementation 
+  task can be focused on achieving some specific functionality (such as implementing 
+  a use-case realization or fixing a defect) that involves implementing several 
+  design elements that contribute to that functionality. Alternatively, an implementation 
+  task can be focussed on a particular design element, such as a Design Subsystem 
+  or a Design Class, implementing it to the extent required for the current iteration.</p>
+<h5>Configure Development Environment</h5>
+<p>This activity results in creating or updating one or more files (Implementation 
+  Elements). As part of preparing for implementation, the implementer must ensure 
+  that his or her development environment is correctly configured so that the 
+  right element versions are available, both the elements to be updated, and any 
+  other elements required for compilation and unit testing. The implementer must 
+  be aware of, and follow the project's configuration and change management procedures, 
+  which describe how changes are controlled and versioned, and how they are delivered 
+  for integration.</p>
+<h5>Analyse Existing Implementation</h5>
+<p>Before you implement a class from scratch, consider whether there is existing 
+  code that can be reused or adapted. Understanding where the implementation fits 
+  in to the architecture and design of the rest of the system can help the implementer 
+  identify such reuse opportunities, as well as ensuring that the implementation 
+  fits with the rest of the system.</p>
+<h5>Implement Incrementally</h5>
+<p>It is recommended that you implement incrementally; compile, link and run some 
+  regression tests a couple of times a day. It is important be aware that not 
+  all public operations, attributes and associations are defined during design.</p>
+<p>When dealing with defects, ensure that you have fixed the problem, not the 
+  symptom; the focus should be on fixing the underlying problem in the code. Make 
+  one change at a time; because fixing faults is in itself an error-prone activity, 
+  it is important to implement the fixes incrementally, to make it easy to locate 
+  where any new faults are occurring from.</p>
+<p>The implementer must be aware of, and follow any project-specific implementation 
+  guidelines, including programming guidelines for the specific programming languages. 
+</p>
+<h3><a name="Implement Operations">Implement Operations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>To implement operations, do the following:
+<ul>
+  <li>Choose an algorithm</li>
+  <li>Choose data structures appropriate to the algorithms</li>
+  <li>Define new classes and operations as necessary</li>
+  <li>Code the operation</li>
+</ul>
+<h5>Choose an Algorithm</h5>
+<p>Many operations are simple enough to be implemented straight away from the
+operation and its specification.</p>
+<p>Nontrivial algorithms are primarily needed for two reasons: to implement
+complex operations for which a specification is given, and to optimize
+operations for which a simple but inefficient algorithm serves as definition.</p>
+<h5>Choose Data Structures Appropriate To the Algorithms</h5>
+<p>Choosing algorithms involves choosing the data structure they work on. Many
+implementation data structures are container classes, such as, arrays, lists,
+queues, stacks, sets, bags, and variations of these. Most object-oriented
+languages, and programming environments provide class libraries with these kinds
+of reusable components.</p>
+<h5>Define New Classes and Operations as Necessary</h5>
+<p>New classes may be found to hold intermediate results for example, and new
+low-level operations may be added on the class to decompose a complex operation.
+These operations are often private to the class, that is, not visible outside
+the class itself.</p>
+<h5>Code the Operation</h5>
+<p>Write the code for the operation, starting with its interface statement. Follow 
+  applicable programming guidelines.</p>
+<h3><a name="Implement States">Implement States</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>The state of an object may be implemented by reference to the values of its
+attributes, with nothing special for representation. The state transitions for
+such an object will be implicit in the changing values of the attributes, and
+the varying behaviors are programmed through conditional statements.&nbsp; This
+solution is not satisfactory for complex behavior because it usually leads to
+complex structures which are difficult to change as more states are added or the
+behavior changes.</p>
+<p>If the design element's (or its constituents') behavior is state-dependent, 
+  there will typically be one or more statechart diagrams which describe the behavior 
+  of the model elements which constitute the design element. These statechart 
+  diagrams serve as an important input during implementation.</p>
+<p>The state machines shown in statechart diagrams make an object's state
+explicit and the transitions and required behavior are clearly delineated. A
+state machine may be implemented in several ways:</p>
+<ul>
+  <li>for simple state machines, by defining an attribute which enumerates the
+    possible states, and using it to select the behavior for incoming messages
+    in, for example, a switch statement in Java or C++. This solution does not
+    scale very well for complex state machines and may lead to poor run-time
+    performance. See [<a href="../referenc.htm#DOUG98">DOUG98</a>], Chapter 4,
+    4.4.3 for an example of this method</li>
+  <li>for more complex state machines, the State pattern may be used. See [<a href="../referenc.htm#GAM94">GAM94</a>]
+    for a description of the State pattern. [<a href="../referenc.htm#DOUG98">DOUG98</a>],
+    Chapter 6, 6.2.3, <i>State Pattern</i>, also describes this approach</li>
+  <li>a table-driven approach works well for very complex state machines where
+    ease of change is a criterion. With this approach, for each state, there are
+    entries in a table which map inputs to succeeding states and associated
+    transition actions. See [<a href="../referenc.htm#DOUG98">DOUG98</a>],
+    Chapter 6, 6.2.3, <i>State Table Pattern,</i> for an example of this method.</li>
+</ul>
+<p>State machines with concurrent substates may be implemented by delegating
+state management to active objects - one for each concurrent substate - because
+concurrent substates represent independent computations (which may,
+nevertheless, interact). Each substate may be managed using one of the
+techniques described above.</p>
+<h3><a name="Use Delegation to Reuse Implementation">Use Delegation to Reuse
+Implementation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>If a class or parts of a class can be implemented reusing an existing class,
+use delegation rather than inheritance.</p>
+<p>Delegation means that the class is implemented with the help of other
+classes. The class references an object of the other class by using a variable.
+When an operation is called, the operation calls an operation in the referenced
+object (of the reused class), for actual execution. Thus, you can say that it
+delegates responsibility to the other class.</p>
+<h3><a name="Implement Associations">Implement Associations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>A one-way association is implemented as a pointer - an attribute which
+contains an object reference. If the multiplicity is <b>one</b>, then
+it is implemented as a simple pointer. If the multiplicity is <b>many</b>,
+then it is a set of pointers. If the many end is ordered, then a list can be
+used instead of a set.</p>
+<p>A two-way association is implemented as attributes in both directions, using
+techniques for one-way associations.</p>
+<p>A qualified association is implemented as a lookup table (for example, a
+Smalltalk Dictionary class) in the qualifying object. The selector values in the
+lookup table are the qualifiers, and the target values are the objects of the
+other class.</p>
+<p>If the qualifier values must be accessed in order, then the qualifiers can be
+arranged into a sorted array or a tree. In this case, access time will be
+proportional to log N where N is the number of qualifier values.</p>
+<p>If the qualifiers are drawn from a compact finite set, then the qualifier
+values can be mapped into an integer range and the association can be
+efficiently implemented as an array. This approach is more attractive if the
+association is mostly full rather than being sparsely populated and is ideal for
+fully populated finite sets.</p>
+<p>Most object-oriented languages and programming environments provide class
+libraries with reusable components to implement different kinds of associations.</p>
+<h3><a name="Implement Attributes">Implement Attributes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>Implement attributes in one of three ways: use built-in primitive types, use 
+  an existing class, or define a new class. Defining a new class is often more 
+  flexible, but introduces unnecessary indirection. For example, an employee's 
+  Social Security number can either be implemented as an attribute of type String 
+  or as a new class.</p>
+<p class="picturecenter" align="center"><img src="images/ac_impc1.gif" width="430" height="37"></p>
+<p class="picturetext">Alternative implementations of an attribute.</p>
+<p>It may also be the case that groups of attributes are combined into new
+classes, as the following example shows. Both implementations are correct.</p>
+<p class="picturecenter" align="center"><img src="images/ac_impc2.gif" width="381" height="78"></p>
+<p class="picturetext">The attributes in Line are implemented as associations to
+a Point class.</p>
+<h3><a name="Provide Feedback to Design">Provide Feedback to Design</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+<p>If a design error is discovered in any of the steps, rework feedback has to 
+  be provided to the design.</p>
+<p>How this is done depends on the project's configuration and change management 
+  process. Generally, if the required change is small, and the same individual 
+  is designing and implementing the class, then there is no need for a formal 
+  change request. The individual can do the change in the design.</p>
+<p>If the required change affects several classes, for example a change in a public 
+  operation, then it may be necessary to submit a formal change request.</p>
+<h3><a name="Evaluate the Code">Evaluate the Code</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="24" height="18"></a></h3>
+
+
+<p>This is where you verify that the code is fit for purpose.&nbsp; The following 
+  are checks you should do prior to unit testing:
+<ul>
+  <li>Always compile the code. Set the compiler's warning level to the most detailed 
+    level.</li>
+  <li>Mentally check the operations. Read through the code, trying to follow all 
+    the paths, and identify all exception conditions. Do this as soon as anything 
+    new is implemented.</li>
+  <li>Use tools to check the code for errors. For example, a static code rule 
+    checker.</li>
+</ul>
+<br><br>
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

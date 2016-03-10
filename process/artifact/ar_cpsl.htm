@@ -1,0 +1,519 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Artifact:&nbsp;Capsule</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+  
+
+<h2 class="reactivebanner">Artifact:&nbsp;<rpw name="PresentationName">Capsule</rpw><a name="XE_capsule__as_artifact"></a><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td width="20%" valign="middle" align="center">
+	    <img src="images/ar_cpsl.jpg" width="58" height="42">&nbsp;
+	  </td>
+      <td width="80%">A capsule is a specific design pattern which represents 
+        an encapsulated thread of control in the system.</td>
+    </tr>
+	
+    <tr><th width="20%" align="left">
+	 Other Relationships:&nbsp;</th><td width="80%">
+Part Of <a href="ar_desmd.htm">Design Model</a>
+
+<br>
+</td></tr>
+    <tr>
+      <th width="20%" align="left">Role:&nbsp;</th>
+      <td width="80%"><a href="../workers/wk_ccdsr.htm">Capsule Designer</a>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Optionality/Occurrence:&nbsp;</th>
+      <td width="80%">Used only for the design of real-time or reactive systems, 
+        usually in conjunction with Rational Rose RealTime.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Templates and Reports:&nbsp;</th>
+      <td width="80%">
+	    <!-- <ul> -->
+          <br>
+          &nbsp;
+	    <!-- <ul> -->
+      </td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">Examples:&nbsp;</th>
+      <td width="80%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">UML Representation:&nbsp;</th>
+      <td width="80%">Class, stereotyped as &laquo;capsule&raquo;.</td>
+    </tr>
+    <tr>
+      <th width="20%" align="left">More Information:&nbsp;</th>
+      <td width="80%"><ul>
+<li><a href="../modguide/md_cpsl.htm">Guideline: Capsule</a></li>
+<li><a href="../activity/chklists/ck_cpsl.htm">Checklist: Capsule</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">
+        <ul>
+          <li><a href="#Purpose">Purpose</a></li>
+          <li><a href="#Properties">Properties</a></li>
+          <li><a href="#Timing">Timing</a></li>
+          <li><a href="#Responsibility">Responsibility</a></li>
+          <li><a href="#Tailoring">Tailoring</a></li>
+        </ul>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Input_Output Activity Begin -->
+<table border="1" width="100%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="50%"><b>Input to Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_cpdes.htm">Capsule Design</a></li>
+<li><a href="../activity/ac_concr.htm">Describe the Run-time Architecture</a></li>
+<li><a href="../activity/ac_ucdes.htm">Use-Case Design</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Output from Activities:&nbsp;</b> 
+      <ul>
+<li><a href="../activity/ac_cpdes.htm">Capsule Design</a></li>
+<li><a href="../activity/ac_iddes.htm">Identify Design Elements</a></li>
+<li><a href="../activity/ac_subds.htm">Subsystem Design</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+ </tbody>
+</table>
+<!-- Input_Output Activity End -->
+<br>
+</div>
+
+
+<h3 class="reactive"><a href="#Ports" name="XE_capsule__purpose_of"></a><a name="Purpose">Purpose</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive"><b>Capsules</b> represent a specific pattern of class structure and
+composition which has proven useful in modeling and designing systems which have
+a high degree of concurrency. Using a capsule as a short-hand notation for a
+specific, proven design pattern makes design easier and less error-prone.</p>
+<p class="reactive">A capsule is represented as a Class, stereotyped <b>&laquo;capsule&raquo;</b>. 
+  A capsule is a composite element, as depicted in the figure below.</p>
+<p align="center" class="reactive"><img src="images/ar_cpsl3.gif" width="492" height="279"></p>
+<p align="center" class="reactivepicturetext">Capsule Composition</p>
+<p class="reactive">As noted above, a capsule may have ports, and may &quot;contain&quot; passive
+classes and/or sub-capsules. It may also have a state machine which completely
+describes the behavior of the capsule. A specific taxonomy of capsules and
+various ways in which they can be used are discussed in <a href="../modguide/md_cpsl.htm">Guidelines:
+Capsule</a>.</p>
+<h3 class="reactive"><a name="Properties">Properties</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive"><b>A capsule encapsulates a thread of control.</b> A capsule is an
+abstraction of an independent thread of control in the system; it is the primary
+unit of concurrency in the system. Additional isolation of threads of control
+may be done through the use of operating system process and threads, by mapping
+capsules to specific operating system processes and threads. Messages to the
+capsule arrive via a port, and are processed sequentially; if the capsule
+instance is busy, messages are queued. Capsules enforce run-to-completion
+semantics, so that when an event is received, it is completely processed
+regardless of the number or priority of other events arriving.</p>
+<p class="reactive"><b>A capsule interacts with its surroundings through ports.</b> A
+port is a <b>signal-based</b> boundary object; it mediates the interaction of
+the capsule with the outside world. A port implements a specific interface and
+may be dependent on a specific interface. A capsule cannot have operations or
+public parts other than ports, which are its exclusive means of interaction with
+the external world.</p>
+<p class="reactive"><b>Each port plays a particular role in a collaboration</b>. The
+collaboration describes how the capsule interacts with other objects. To capture
+the complex semantics of these interactions, ports are associated with a <b>protocol</b><i>
+</i>that defines the valid flow of information (signals) between connected ports
+of capsules. The protocol captures the contractual obligations that exist
+between capsules. By forcing capsules to communicate solely through ports, it is
+possible to fully de-couple the internal implementations of the capsule from the
+environment surrounding the capsule. This makes capsules highly reusable.</p>
+<p class="reactive"><b>A simple capsule's functionality is realized directly the capsule's
+state machine.</b> More complex capsules combine the state machine with an<b>
+internal</b> network of collaborating <b>sub-capsules</b> joined by connectors.
+These sub-capsules are capsules in their own right, and can themselves be
+decomposed into sub-capsules. This type of decomposition can be carried to
+whatever depth is necessary, allowing modeling of arbitrarily complex structures
+with just this basic set of structural modeling constructs. The state machine
+(which is optional for composite capsules), the sub-capsules, and their
+connections network represent parts of the <i>implementation</i> of the capsule
+and are hidden from external observers.</p>
+<p class="reactive"><b>A capsule may be a composite element. </b>Capsules may be
+composed of other capsules and passive classes. Capsules and passive classes are
+joined together by connectors or links in a collaboration; this collaboration
+defines the 'structure' of the capsule, and so is termed a 'specification
+collaboration'. A capsule may have a state machine that can send and receive
+signals via the end ports of the capsule and that has control over certain
+elements of the internal structure. Hence, this state machine may be regarded as
+implementing reflective behavior, that is, behavior that controls the operation
+of the capsule itself.</p>
+<h4 class="reactive"><a name="Ports">Ports</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p class="reactive">Ports are objects whose purpose is to act as boundary objects for a capsule
+instance. They are &quot;owned&quot; by the capsule instance in the sense that
+they are created along with their capsule and destroyed when the capsule is
+destroyed. Each port has its identity and state that are distinct from the
+identity and state of their owning capsule instance (to the same extent that any
+part is distinct from its container).</p>
+<p class="reactive">Although ports are boundary objects that act as interfaces, 
+  they do not map directly to UML interfaces. A UML interface is purely a behavioral 
+  thing &#151; it has no implementation structure. A port, on the other hand, 
+  includes both structure and behavior. It is a composite part of the structure 
+  of the capsule, not simply a constraint on its behavior. It realizes the architectural 
+  pattern that we might call &quot;manifest interface&quot;.</p>
+<p class="reactive">In UML, we model a port as a class with the &laquo;<i>port</i>&raquo; 
+  stereotype. As noted earlier, the type of a port is defined by the protocol 
+  role played by that port. Since protocol roles are abstract classes, the actual 
+  class corresponding to this instance is one that <b>implements</b> the protocol 
+  role associated with the port. In UML the relationship between the port and 
+  the protocol role is referred to as a <b>realizes relationship</b>. The notation 
+  for this is a dashed line with a solid triangular arrowhead on the specification 
+  end. It is a form of generalization whereby the source element &#151; the port 
+  &#151; inherits only the behavior specification of the target &#151; the protocol 
+  role &#151; but not its structure.</p>
+<p class="reactive">A capsule is in a composition relationship with its ports. If the
+multiplicity of the target end of this relationship is greater than one, it
+means that multiple instances of the port exist at run time, each participating
+in a separate instance of the protocol. If the multiplicity is a range of
+values, it means that the number of ports can vary at run time and that ports
+can be dynamically created and destroyed (possibly subject to constraints).</p>
+<p align="center" class="reactive"><img src="images/ar_cpsl4.gif" width="492" height="161"></p>
+<p align="CENTER" class="reactivepicturetext">Ports, protocols, and protocol roles</p>
+<p class="reactive">The above figure shows an example of a single port named b belonging to
+capsule class CapsuleClassA. This port realizes the master role of the protocol
+defined by protocol class ProtocolA. Note that the actual port class, PortClassX,
+being an implementation class that may vary from implementation to
+implementation, is normally not of interest to the modeler until the
+implementation stage. Instead, the information that <i>is</i> of interest is the
+protocol role that this port implements. For this reason and also for reasons of
+notational convenience, the notation shown in Figure 1 is not normally used and
+is replaced by the more compact form described in the following section.</p>
+<h5 class="reactive">Notation</h5>
+<p class="reactive">In class diagrams, the ports of a capsule are listed in a special labeled
+list compartment as illustrated. The <b>ports</b><i> </i>list compartment
+normally appears<b> after</b> the attribute and operator list compartments. This
+notation takes advantage of the UML feature that allows the addition of specific
+named compartments.</p>
+<p align="CENTER" class="reactive"><img src="images/ar_cpsl5.gif" width="174" height="126"></p>
+<p align="CENTER" class="reactivepicturetext">Port notation - class diagram
+representation</p>
+<p class="reactive">All external ports (relay ports and public end ports) have public visibility
+while internal ports have protected visibility (e.g., port b2). The protocol
+role (type) of a port is normally identified by a pathname since protocol role
+names are unique only within the scope of a given protocol. For example, port b
+plays the master role defined in the protocol class called ProtocolA. For the
+very frequent case of binary protocols, a simpler notational convention is used:
+a suffix tilde symbol (&quot;~&quot;) is used to identify the conjugated
+protocol role (e.g., port b2) while the base role name is implicit with no
+special annotation (e.g., port b1). Ports with a multiplicity other than 1 have
+the multiplicity factor included between square brackets. For example, port
+b1[3] has a multiplicity factor of exactly 3 whereas a port designated by
+b5[0..2] has a variable number of instances not exceeding 2.</p>
+<h3 class="reactive"><a name="Connectors">Connectors</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">A connector represents a communication channel that provides the transmission
+facilities for supporting a particular signal-based protocol. A key feature of
+connectors is that they can only interconnect ports that play complementary
+roles in the protocol associated with the connector. In principle, the protocol
+roles do not necessarily have to belong to the same protocol, but in that case
+they have to be compatible with the protocol of the connector.</p>
+<p class="reactive">Connectors are abstract views of signal-based communication channels that
+interconnect two or more ports. The ports bound by a connection must play
+mutually complementary but compatible roles in a protocol. In collaboration
+diagrams, they are represented by association roles that interconnect the
+appropriate ports. If we abstract away the ports from this picture, connectors
+really capture the key communication relationships between capsules. These
+relationships have architectural significance since they identify which capsules
+can affect each other through direct communication. Ports are included to allow
+the encapsulation of capsules under the principles of information hiding and
+separation of concerns.</p>
+<p class="reactive">The similarity between connectors and protocols might suggest that the two
+concepts are equivalent. However, this is not the case, since protocols are
+abstract specifications of desired behavior while connectors are physical
+objects whose function is merely to convey signals from one port to the other.
+Typically, the connectors themselves are passive conduits. (In practice,
+physical connectors may sometimes deviate from the specified behavior. For
+example, as a result of an internal fault, a connector may lose, reorder, or
+duplicate messages. This type of failure is common in distributed communication
+channels.)</p>
+<p class="reactive">A connector is modeled by an association that exists between two or more
+ports of the corresponding capsule classes. (For advanced applications in which
+the connector has physical properties, an association <i>class</i> may be used
+since the connector is actually an object with a state and an identity. As with
+ports, the actual class that is used to realize a connector is an implementation
+issue.) The relationship to the supported protocol is implicit through the
+connected ports. Consequently, no UML extensions are required for representing
+connectors.</p>
+<h4 class="reactive"><a name="The Specification Collaboration">The Specification Collaboration</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p class="reactive">A capsule's <b>complete</b> internal structure is represented 
+  by a specification collaboration. This collaboration includes a specification 
+  of all of its ports, sub-capsules, and connectors. Like ports, the sub-capsules 
+  and connectors are strongly owned by the capsule and <b>cannot</b> exist independently 
+  of the capsule. They are created when the capsule is created and destroyed when 
+  their capsule is destroyed.</p>
+<p class="reactive">Some sub-capsules in the structure may not be created at the same time as
+their containing capsule. Instead, they may be created subsequently, when and if
+necessary, by the state machine of the capsule. The state machine can also
+destroy such capsules at any time. This follows the UML rules on composition.</p>
+<p class="reactive">The structure of a capsule may contain so-called <b>plug-in</b> roles. These
+are, in effect, placeholders for sub-capsules that are filled in <b>dynamically</b>.
+This is necessary because it is not always known in advance which specific
+objects will play those roles at run time. Once this information is available,
+the appropriate capsule instance (which is owned by some other composite
+capsule) can be &quot;plugged&quot; into such a slot and the connectors joining
+its ports to other sub-capsules in the collaboration are automatically
+established. When the dynamic relationship is no longer required, the capsule is
+&quot;removed&quot; from the plug-in slot, and the connectors to it are taken
+down.</p>
+<p class="reactive">Dynamically created sub-capsules and plug-ins allow the modeling of
+dynamically changing structures while ensuring that all valid communication and
+containment relationships between capsules are specified explicitly. This is key
+in ensuring architectural integrity in a complex real-time system.</p>
+<p class="reactive">Ports may also be depicted in specification collaboration diagrams. In these
+diagrams, objects are represented by the appropriate classifier roles, that is,
+sub-capsules by <b>capsule roles and ports by port roles</b>. To reduce visual
+clutter, port roles are generally shown in iconified form, represented by small
+black or white squares. Public ports are represented by port role icons that
+straddle the boundary of the corresponding capsule roles as shown in the
+previous figure. This shorthand notation allows them to be connected both from
+inside and outside the capsule without unnecessary crossing of lines and also
+identifies them clearly as boundary objects.</p>
+<p align="CENTER" class="reactive"><img src="images/ar_cpsl6.gif" width="385" height="62"></p>
+<p align="CENTER" class="reactivepicturetext">Port notation - specification
+collaboration diagram</p>
+<p class="reactive">Note that the labels are adornments to the port roles and should not be
+confused with association end names of the connector. Also, because ports are
+uniquely identified by their names, it is possible, as a graphical convenience,
+to arrange the public port roles around the perimeter of a sub-capsule box in
+any order. This can be used to minimize crossovers between connector lines.</p>
+<p class="reactive">For the case of binary protocols, an additional stereotype icon can be used:
+the port playing the conjugate role is indicated by a white-filled (versus
+black-filled) square. In that case, the protocol name and the tilde suffix are
+sufficient to identify the protocol role as the conjugate role; the protocol
+role name is redundant and should be omitted. Similarly, the use of the protocol
+name alone on a black square indicates the base role of the protocol. For
+example, if the &quot;master&quot; role in protocol ProtQ&nbsp; is declared as
+the base, then the diagrams in the figure below and the figure above are
+equivalent. This convention makes it easy to see when complementary protocol
+roles are connected.</p>
+<p align="CENTER" class="reactive"><img src="images/ar_cpsl7.gif" width="385" height="61"></p>
+<p align="CENTER" class="reactivepicturetext">Notational conventions for binary
+protocols</p>
+<p class="reactive">Ports with a multiplicity factor that is greater than one can also be
+indicated graphically using the standard UML multiobject notation as shown in
+the next figure. This is not mandatory (the multiplicity string is sufficient)
+but it emphasizes the possibility of multiple instances of the port.</p>
+<p align="CENTER" class="reactive"><img src="images/ar_cpsl8.gif" width="220" height="96"></p>
+<p align="CENTER" class="reactivepicturetext">Ports with multiplicity factor greater
+than 1</p>
+<h4 class="reactive"><a name="The State Machine">The State Machine</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p class="reactive">The optional state machine associated with a capsule is just 
+  another part of a capsule's implementation. However, it has certain special 
+  properties that distinguish it from the other constituents of a capsule: 
+<ul class="reactive">
+  <li>It cannot be decomposed further into sub-capsules. It specifies behavior
+    directly. State machines, however, can be decomposed into hierarchies of
+    simpler state machines using standard UML capabilities.</li>
+  <li>There can be at most one such state machine per capsule (although
+    sub-capsules can have their own state machines). Capsules that do not have
+    state machines are simple containers for sub-capsules.</li>
+  <li>It handles signals arriving on any end port of a capsule and can send
+    signals through those ports.</li>
+  <li>It is the only entity that can access the internal protected parts in its
+    capsule. This means that it acts as the <b>controller</b> of all the other
+    sub-capsules. As such, it can create and destroy those sub-capsules that are
+    identified as dynamic, and it can plug in and remove external sub-capsules
+    as appropriate.</li>
+</ul>
+<p class="reactive">Dynamically created sub-capsules are indicated simply by a variable
+multiplicity factor. Like plug-in slots, these may also be specified by a pure
+interface type. This means that, at instantiation time, any implementation class
+that supports that interface can be instantiated. This provides for genericity
+in structural specifications.</p>
+<p class="reactive">Despite its additional restrictions, the state machine associated with a
+capsule is modeled by the standard link between a UML Classifier and a State
+Machine. The implementation/decomposition of a capsule is modeled by a standard
+UML collaboration element that can be associated with a classifier.</p>
+<h3 class="reactive"><a name="Timing">Timing</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Architecturally significant capsules are identified and described during the
+Elaboration Phase; remaining Capsules (usually decompositions of top-level
+capsules) are identified and refined in the Construction Phase.</p>
+<h3 class="reactive"><a name="Responsibility">Responsibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">The software architect is responsible for the integrity of the capsule,
+ensuring that:
+<ul class="reactive">
+  <li>The capsule fulfills the requirements made on it from the use-case
+    realizations in which it participates.</li>
+  <li>The capsule represents an independent thread of control in the system.</li>
+  <li>The capsule is internally consistent.</li>
+</ul>
+<h3 class="reactive"><a name="Tailoring">Tailoring</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p class="reactive">Capsules are a specific pattern for representing and resolving thread of
+control issues. They are the recommended way to handle concurrency in a
+real-time or reactive system.</p>
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

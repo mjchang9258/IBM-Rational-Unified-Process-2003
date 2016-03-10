@@ -1,0 +1,435 @@
+<!-- RPW META DATA START --
+ 
+ 
+<rpw name="PresentationName">Business Architecture Document</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Business Architecture Document</title>
+<style><!--
+.MsoNormal
+	{line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+.MsoToc1
+	{line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+.MsoToc2
+	{line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+.MsoTitle
+	{text-align:center;
+	font-size:18.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+.Tabletext
+	{line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+.InfoBlue
+	{line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:blue;
+	font-style:italic;}
+-->
+</style>
+</head>
+<body lang=EN-US link=blue vlink=purple bgcolor="#ffffff">
+<div class=Section1> 
+  <p class=MsoTitle align=right style='text-align:right'>&lt;Project Name&gt;</p>
+  <p class=MsoTitle align=right style='text-align:right'>Business Architecture 
+    Document</p>
+  <p class=MsoTitle align=right style='text-align:right'><span style='font-size:
+14.0pt;'>Version &lt;1.0&gt;</span></p>
+  <p class=InfoBlue>[Note: The following template is provided for use with the 
+    Rational Unified Process. Text enclosed in square brackets and displayed 
+    in blue italics (style=InfoBlue) is included to provide guidance to the author 
+    and should be deleted before publishing the document. A paragraph entered 
+    following this style will automatically be set to normal (style=Body Text).]</p>
+</div>
+<i><span style='font-size:10.0pt;font-family:
+"Times New Roman";color:blue;'><br clear=all style='page-break-before:always;'>
+</span></i> 
+<div class=Section2> 
+  <p class=MsoTitle>Revision History</p>
+  <table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;'>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Date</b></p>
+      </td>
+      <td width=77 valign=top style='width:.8in;border:solid windowtext .75pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Version</b></p>
+      </td>
+      <td width=250 valign=top style='width:2.6in;border:solid windowtext .75pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Description</b></p>
+      </td>
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext align=center style='text-align:center'><b>Author</b></p>
+      </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;dd/mmm/yy&gt;</p>
+      </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;x.x&gt;</p>
+      </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;details&gt;</p>
+      </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'> 
+        <p class=Tabletext>&lt;name&gt;</p>
+      </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+    </tr>
+    <tr> 
+      <td width=154 valign=top style='width:1.6in;border:solid windowtext .75pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=77 valign=top style='width:.8in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=250 valign=top style='width:2.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+      <td width=154 valign=top style='width:1.6in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>&nbsp; </td>
+    </tr>
+  </table>
+  <b><span style='font-size:18.0pt;font-family:Arial;'><br clear=all style='page-break-before:always'>
+  </span></b> 
+  <p class=MsoTitle>Table of Contents</p>
+</div>
+
+<dl> 
+  <dt>
+    <div class=Section2><a href="#1.                  Introduction">1.<span style='font-size:12.0pt'>       
+      </span>Introduction</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </dt> 
+  <dd>
+    <div class=Section2><a href="#1.1               Purpose">1.1<span
+style='font-size:12.0pt'>     </span>Purpose</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.2               Scope">1.2<span
+style='font-size:12.0pt'>     </span>Scope</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.3               Definitions, Acronyms and Abbreviations">1.3<span
+style='font-size:12.0pt'>     </span>Definitions, Acronyms and Abbreviations</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.4               References">1.4<span
+style='font-size:12.0pt'>     </span>References</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div class=Section2><a href="#1.5               Overview">1.5<span
+style='font-size:12.0pt'>     </span>Overview</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </dd>
+
+  <dt>
+  	<div class=Section2 style="width: 886; height: 33"><a href="#2.                  Architectural Representation">2.<span style='font-size:12.0pt'>       
+    </span>Architectural Representation</a></div>
+  </dt>
+  <dt><p><a href="#3.                  Architectural Drivers">3.<span style='font-size:12.0pt'>       
+    </span>Architectural Drivers</a>&nbsp;
+  </dt>
+  <dt><p><a href="#4.                  Market View">4.<span style='font-size:12.0pt'>      
+  </span>Market View</a>
+  </dt>
+  <dt><p><a href="#5.                  Business Process View">5.<span style='font-size:12.0pt'>       
+    </span>Business Process View</a>
+  <dd>
+    <div class=Section2><a href="#5.1               Business Context">5.1<span
+style='font-size:12.0pt'>     </span>Business Context</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </dd>
+  <dd>
+    <div class=Section2><a href="#5.2               Architecturally Significant Business Use Cases">5.2<span
+style='font-size:12.0pt'>     </span>Architecturally Significant Business Use Cases</a></div>
+  </dd>
+  <div class=Section2>
+  <dt><p><a href="#6.                  Organization View">6.<span style='font-size:12.0pt'>      
+  	</span>Organization View</a>
+  </div>
+  
+  <dd>
+    <div class=Section2><a href="#6.1               Organization Structure">6.1<span
+style='font-size:12.0pt'>     </span>Organization Structure</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+      <a href="#6.2               Business Use Case Realizations">6.2     Business Use Case Realizations</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+      <a href="#6.3               General Patterns of Behavior">6.3     General Patterns of Behavior</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </dd>
+</dl>
+<div class=Section2 style="width: 886; height: 2186"> 
+  <p><a href="#7.                  Human Resource View">7.<span style='font-size:12.0pt'>      
+  </span>Human Resource View</a></p>
+  <blockquote>
+    <a href="#7.1               Remuneration and Incentives">7.1<span
+style='font-size:12.0pt'>     </span>Remuneration and Incentives</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+    <a href="#7.2               Cultural Aspects">7.2<span
+style='font-size:12.0pt'>     </span>Cultural Aspects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+    <a href="#7.3               Competencies">7.3<span
+style='font-size:12.0pt'>     </span>Competencies</a>
+  </blockquote>
+  <p><a href="#8.                  Domain View">8.<span style='font-size:12.0pt'>      
+  </span>Domain View</a></p>
+  <p><a href="#9.                  Geographic View">9.<span style='font-size:12.0pt'>      
+  </span>Geographic View</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  <p><a href="#10.                  Communication View">10.<span style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Communication View</a> 
+  </p>
+  <p><a href="#11.             Architectural Trade-offs">11.<span style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Architectural Trade-offs</a> 
+  </p>
+  <p class=MsoTitle>
+    Business Architecture Document</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="1.                  Introduction">1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Introduction</a></font></h4>
+  <p class=InfoBlue>[The introduction of the <b><span
+style='font-style:normal;'><i>Business Architecture Document</i></span></b>  
+    provides an overview of the entire <b><span style='font-style:normal;'><i>Business 
+    Architecture Document</i></span></b>. It needs to include the purpose, scope, 
+    definitions, acronyms, abbreviations, references and overview of the <b><span style='font-style:normal;'><i>Business 
+    Architecture Document</i></span></b>.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.1               Purpose">1.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Purpose</a></font></h5>
+  <p class=MsoNormal style='
+line-height:normal;'>This document provides a comprehensive architectural overview 
+    of the business, using a number of different architectural views to depict 
+    different aspects of the business. It is intended to capture and convey the 
+    significant architectural decisions which have been made on the business.</p>
+  <p class=InfoBlue style='
+line-height:normal;'><i><span style="color: blue">[</span><span style='color:blue'>This 
+    section defines the purpose of the <b>Business Architecture Document</b>, 
+    in the overall project documentation, and briefly describes the structure 
+    of the document. The specific audiences for the document should be identified, 
+    with an indication of how they are expected to use the document.]</span></i></p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.2               Scope">1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Scope</a></font></h5>
+  <p class=InfoBlue>[A brief description of what the <b> Business Architecture Document</b> 
+    applies to; what is affected or influenced by this document.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.3               Definitions, Acronyms and Abbreviations">1.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Definitions, Acronyms, and Abbreviations</a></font></h5>
+  <p class=InfoBlue>[<span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">This subsection provides the definitions of all
+  terms, acronyms, and abbreviations required to properly interpret the <b>Business
+  Architecture Document</b>. This information may be provided by reference
+  to the project's Business Glossary. Include the operationl definitions of <b>business
+  architecture</b>, and<span style="mso-spacerun: yes">&nbsp; </span><b>application
+  architecture </b>and <b>technical architecture</b> if applicable.</span>]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.4               References">1.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>References</a></font></h5>
+  <p class=InfoBlue>[This subsection provides a complete list of all documents 
+    referenced elsewhere in the <span
+style='font-style:normal;'><i><b>Business Architecture Document</b></i></span>.
+  Identify each document by title, report number if applicable, 
+    date, and publishing organization. Specify the sources from which the references 
+    can be obtained. This information may be provided by reference to an appendix 
+    or to another document.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="1.5               Overview">1.5<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Overview</a></font></h5>
+  <p class=InfoBlue>[This subsection describes what the rest of the <b><span style='font-style:normal;'><i>Business 
+    Architecture Document</i></span></b> contains and explains how the <b><span style='font-style:normal;'><i>Business 
+    Architecture Document</i></span></b> is organized.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="2.                  Architectural Representation">2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Architectural Representation</a></font></h4>
+  <p class=InfoBlue>[This section describes what business architecture is for 
+    the current business, and how it is represented. Describe the views that
+  will be used to represent the architecture and indicate which stakeholders
+  each view is applicable to. Also describe what types of model 
+    elements each view contains.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="3.                  Architectural Drivers">3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Architectural Drivers</a></font></h4>
+  <p class=InfoBlue>[<span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">This section describes the forces within the
+  business and its environment that shape the business architecture. These are
+  very important for bounding architectural decisions and understanding the
+  consequences of those decisions. Architectural drivers can be classified into <b>architectural
+  goals</b>, which define a desire, and <b>architectural constraints</b>, which
+  imply mandatory compliance to a particular condition.</span>]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="4.                  Market View">4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Market View</a></font></h4>
+  <p class=InfoBlue>[<span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">This view defines the markets the business
+  operates in, the current or expected trends and changes in these markets (such
+  as growth or competition), targeted customer profiles and the products and/or
+  services the business offers to its customers (value proposition).</span>]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="5.                  Business Process View">5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Business Process View</a></font></h4>
+  <p class=InfoBlue><span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">[This section lists business use cases or
+  business scenarios from the business use-case model if they represent some <b>significant</b>,
+  central capability of the final business, or if they have a large
+  architectural coverage—they exercise many architectural elements or if they
+  stress or illustrate a specific, delicate point of the business architecture.</span> This view is mandatory.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="5.1               Business Context">5.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Business Context</a></font></h5>
+  <p class=InfoBlue>[This section shows the business in the context of its
+  environment, including partners and suppliers. Use a <b>business context diagram</b> - showing the business
+  actors and the layers in the business architecture they interact with.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="5.2               Architecturally Significant Business Use Cases">5.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Architecturally Significant Business Use Cases</a></font></h5>
+  <p class=InfoBlue>[This section shows the architecturally significant business
+  use cases. Include a diagram showing these business use cases in relation to
+  the business actors and provide the description and flow of events of each of
+  the business use cases. Architecturally significant business use cases are
+  those business use cases that provide broad functional coverage and/or
+  exercise a critical part of the business. Core business use cases typically
+  provide broad coverage.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="6.                  Organization View">6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Organization View</a></font></h4>
+  <p class=InfoBlue>[This view describes the structure of the
+  organization and the manner in which business processes are performed. The <b> architecturally significant</b> parts 
+    of the organization are described. This view is mandatory.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="6.1               Organization Structure">6.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Organization Structure</a></font></h5>
+  <p class=InfoBlue>[This section provide an overview of the high-level
+  structure of the organization into business systems and the roles and
+  responsibilities of and within these units.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="6.2               Business Use Case Realizations">6.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Business Use-Case Realizations</a></font></h5>
+  <p class=InfoBlue>[This section illustrates how the organization performs the
+  architecturally significant business use cases 
+    by showing how business systems and business workers and entities interact. These business
+  use case realizations provide a mapping between the business use cases and the
+  organization structure.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="6.3               General Patterns of Behavior">6.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>General Patterns of Behavior</a></font></h5>
+  <p class=InfoBlue>[This section describes general patterns of interaction
+  within the business. These can be used to describe generic or reusable
+  processes (or sub-processes) that are performed in many different parts of the
+  organization or under different circumstances. These patterns can be used to
+  show, for example, how a request for a generic resource is submitted and
+  processed.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="7.                  Human Resource View">7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Human Resource View</a></font></h4>
+  <p class=InfoBlue>[This view describes the <b>architecturally significant</b> human
+  resource aspects of the business. Remuneration and
+  incentives, corporate culture and competencies are described. This view is
+  optional.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="7.1               Remuneration and Incentives">7.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Remuneration and Incentives</a></font></h5>
+  <p class=InfoBlue>[This section identifies the major remuneration bracket
+  (salary scales) and describes the incentive mechanisms for rewarding above
+  average performance. This aspect of the human resource view is useful for
+  re-aligning the remuneration and incentives policy in order to stimulate
+  organizational change.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="7.2               Cultural Aspects">7.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Cultural Aspects</a></font></h5>
+  <p class=InfoBlue>[This section describes the major cultural characteristics
+  of the organization and the mechanisms for encouraging and enforcing these
+  cultural characteristics.&nbsp; For example, in organization where teamwork
+  and initiative are considered important aspects of the culture, an annual
+  inter-team volleyball competition and a monthly prize for the best initiative
+  would be mechanisms that enforce these cultural aspects.]</p>
+  <h5><font face="Arial, Helvetica, sans-serif"><a name="7.3               Competencies">7.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Competencies</a></font></h5>
+  <p class=InfoBlue>[<span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">This section describes the competency profiles
+  within the organization, in terms of skills, experience, attitude and
+  motivation. These profiles can be used to ensure that the skills required by
+  the organization are developed and available in the long term. Education and
+  training mechanisms for ensuring that the required competencies are acquired
+  by and developed within the organization can also be described. Examples
+  include recruitment strategies and special interest groups, respectively.</span>]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="8.                  Domain View">8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span>Domain View</a></font></h4>
+  <p class=InfoBlue>[This section describes the major concepts and information
+  structures to be found within the business and its environment. This view is
+  mandatory. These concepts and information structures (business entities) and
+  their relationships should be shown in class diagrams.&nbsp; Ensure that each
+  business entity has a description. For example, an insurance firm may&nbsp;
+  have business entities such as Customer, PolicyOwner, Beneficiary, Account,
+  Contract, Policy, Claim and InsuredObject.]]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="9.                  Geographic View">9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Geographic View</a></font></h4>
+  <p class=InfoBlue>[This view describes the <span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">geographic </span>distribution of the
+  organization structure and functions. This view is optional. Provide a diagram
+  showing the physical locations at which the business has some sort of
+  presence. These locations can be addresses within the same city, different
+  cities or different countries. Ships can also be counted as physical
+  locations.]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="10.                  Communication View">10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Communication View</a></font></h4>
+  <p class=InfoBlue>[This view provides a topological overview of communication
+  within the business. Use class diagram to indicate communicating parties,
+  which could be communicating business processes, organization units, business
+  workers, business actors, physical locations (localities). Associations
+  between these parties indicate the existence of a communication link. The
+  properties of each link can be described. Consider the subject, medium
+  (verbal, email, video-conferencing), frequency, effectiveness, cost, direction
+  (unidirectional or bi-directional), value and risk (impact of being
+  tapped/misused).]</p>
+  <h4><font face="Arial, Helvetica, sans-serif"><a name="11.             Architectural Trade-offs">11.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Architectural Trade-offs</a></font></h4>
+  <p class=InfoBlue>[This section describes the how the business architecture
+  realizes the architectural goals and constraints described above. For each
+  architectural diver and constraint listed above, discuss how the business
+  architecture supports that driver or constraint. Pay special attention to
+  conflicts, because the architecture is an optimal solution to many conflicting
+  forces.]</p>
+</div>
+
+<p>
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+ 
+
+</body>
+</html>

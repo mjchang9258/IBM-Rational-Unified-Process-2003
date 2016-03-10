@@ -1,0 +1,400 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Association</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Association</rpw><a name="Top"></a><a name="XE_association_classes__guidelines_for"></a><a name="XE_association__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Associations">Associations</a></li>
+  <li><a href="#Names">Association Names</a></li>
+  <li><a href="#Roles">Roles</a></li>
+  <li><a href="#Multiplicity">Multiplicity</a></li>
+  <li><a href="#Navigability">Navigability</a></li>
+  <li><a href="#Self-Associations">Self-Associations</a></li>
+  <li><a href="#Multiple Associations">Multiple Associations</a></li>
+  <li><a href="#Ordered Roles">Ordering Roles</a></li>
+  <li><a href="#Links">Links</a></li>
+  <li><a href="#Association Classes">Association Classes</a></li>
+  <li><a href="#Qualified Associations">Qualified Associations</a></li>
+  <li><a href="#N-ary Associations">N-ary Associations</a></li>
+</ul>
+<h3><a name="XE_class__associations¸_recommendations_for_use_of"></a><a name="Associations">Associations</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_boundary_class__associations,_general_guidelines"></a>Associations
+represent structural relationships between objects of different classes; they
+represent connections between instances of two or more classes that exist for some duration.
+Contrast this with transient links that, for example, exist only for the
+duration of an operation. These latter situations can instead be modeled using
+collaborations, in which the links exist only in particular limited contexts.</p>
+<p><a name="XE_association__recommendations_for_using"></a>You can use
+associations to show that objects know about another objects. Sometimes, objects
+must hold references to each other to be able to interact, for example send
+messages to each other; thus, in some cases associations may follow from
+interaction patterns in sequence diagrams or collaboration diagrams.</p>
+<h3><a name="XE_association__naming"></a><a name="Names">Association Names </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Most associations are binary (exist between exactly two classes), and are
+drawn as solid paths connecting pairs of class symbols. An association may have
+either a name or the association <a href="#Roles">roles</a> may have names. Role
+names are preferable, as they convey more information. In cases where only one
+of the roles can be named, roles are still preferable to association names so
+long as the association is expected to be uni-directional, starting from the
+object to which the role name is associated.</p>
+<p>Associations are most often named during analysis, before sufficient
+information exists to properly name the roles. Where used, association names
+should reflect the purpose of the relationship and be a verb phrase. The name of
+the association is placed on, or adjacent to the association path.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In an ATM, the <b>Cash Drawer</b> provides the
+money that the <b>Cash Dispenser </b>dispenses. In order for the <b>Cash
+Dispenser </b>to be able to dispense funds, it must keep a reference to the
+<b>Cash Drawer</b> object; similarly, if the <b>Cash Drawer </b>runs
+out of funds, the <b>Cash Dispenser</b> object must be notified, so
+the <b>Cash Drawer</b> must keep a reference to the <b>Cash
+Dispenser.</b> An association models this reference.</p>
+<p class="picturecenter" align="center"><img src="images/assoc0.gif" alt="an example association name" width="415" height="93"></p>
+<p class="picturetext">An association between the <b>Cash Dispenser</b>
+and the <b>Cash Drawer</b>, named <b>supplies Value</b>.</p>
+<p>Association names, if poorly chosen, can be confusing and misleading. The
+following example illustrates good and bad naming. In the first diagram,
+association names are used, and while they are syntactically correct (using verb
+phrases), they do not convey much information about the relationship. In the
+second diagram, role names are used, and these convey much more about the nature
+of the participation in the association.</p>
+<p align="center"><img border="0" src="images/md_asso3.gif" width="401" height="471"></p>
+<p class="picturetext">Examples of good and bad usage of association and role
+names</p>
+<h3><a name="XE_roles_on_associations__guidelines_for"></a><a name="Roles">Roles</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Each end of an association is a <b>role</b> specifying the face
+that a class plays in the association<b>. </b>Each role must have a
+name, and the role names opposite a class must be unique. The role name should
+be a noun indicating the associated object's role in relation to the associating
+object. A suitable role name for a <b>Teacher</b> in an association
+with a <b>Course Section</b> would, for instance, be <b>lecturer</b>;
+avoid names like &quot;<b>has</b>&quot; and &quot;<b>contains</b>&quot;,
+as they add no information about what the relationships are between the classes.</p>
+<p>Note that the use of association names and role names is mutually exclusive:
+one would not use both an association name <b>and</b> a role name.
+Role names are preferable to association names except in cases where
+insufficient information exists to name the role appropriately (as is often the
+case in analysis; in design role names should always be used). Lack of a good
+role name suggests an incomplete or ill-formed model.</p>
+<p>The role name is placed next to the end of the association line.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the relationships between classes in an order entry
+system. A Customer can have two different kinds of Addresses: an address to
+which bills are sent, and a number of addresses to which orders may be sent. As
+a result, we have <b>two</b> associations between Customer and
+Address, as shown below. The associations are labeled with the <b>role</b>
+the associated address plays for the Customer.</p>
+<p class="picturecenter" align="center"><img src="images/assoc1.gif" alt="examples of associations" width="349" height="342"></p>
+<p class="picturetext">Associations between <b>Customer</b>, <b>Address</b>,
+and <b>Order, </b>showing both role names and multiplicities</p>
+<h3><a name="XE_multiplicity_for_associations__guidelines_for"></a><a name="XE_association__multiplicity"></a><a name="Multiplicity">Multiplicity</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>For each role you can specify the <b>multiplicity </b>of its class,
+how many objects of the class can be associated with one object of the other
+class. Multiplicity is indicated by a text expression on the role. The
+expression is a comma-separated list of integer ranges. A range is indicated by
+an integer (the lower value), two dots, and an integer (the upper value); a
+single integer is a valid range, and the symbol '*' indicates &quot;many&quot;,
+that is, an unlimited number of objects. The symbol '*' by itself is equivalent
+to '0..*', that is, any number including none; this is the default value. An
+optional scalar role has the multiplicity 0..1.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the previous example, multiplicities were shown for the
+associations between Order and Customer, and between Customer and Address.
+Interpreting the diagram, it says that an Order must have an associated Customer
+(the multiplicity is 1..1 at the Customer end), but a Customer may not have any
+Orders (the multiplicity is 0..* at the Order end). Furthermore, a Customer has
+one billing address, but has one or more shipping address. To reduce notational
+clutter, if multiplicities are omitted, they may be assumed to be 1..1.</p>
+<h3><a name="XE_roles_on_associations__navigability_property"></a><a name="XE_navigability_on_associations__guidelines_for"></a><a name="XE_association__navigability"></a><a name="Navigability">Navigability</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The <b>navigability </b>property on a role indicates that it is
+possible to navigate from a associating class to the target class using the
+association. This may be implemented in a number of ways: by direct object
+references, by associative arrays, hash-tables, or any other implementation
+technique that allows one object to reference another. Navigability is indicated
+by an open arrow, which is placed on the target end of the association line next
+to the target class (the one being navigated to). The default value of the
+navigability property is <b>true</b>.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the order entry example, the association between the <b>Order</b>
+and the <b>Customer</b> is navigable in <b>both</b>
+directions: an <b>Order</b> must know which <b>Customer </b>placed
+the <b>Order</b>, and the <b>Customer</b> must know which <b>Orders</b>
+it has placed. When no arrowheads are shown, the association is assumed to be
+navigable in both directions.</p>
+<p class="example">In the case of the associations between <b>Customer </b>and
+<b>Address, </b>the <b>Customer</b> must know its <b>Addresses</b>,
+but the <b>Addresses </b>have no knowledge of which <b>Customers</b>
+(or other classes, since many things have addresses) are associated with the
+address. As a result, the navigability property of the <b>Customer</b>
+end of the association is turned off, resulting in the following diagram:</p>
+<p class="picturecenter" align="center"><img src="images/assoc2.gif" alt="examples of navigability on associations" width="337" height="298"></p>
+<p class="picturetext">Updated Order Entry System classes, showing navigability
+of associations.</p>
+<h3><a name="XE_association__self-associations"></a><a name="Self-Associations">Self-Associations</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Sometimes, a class has an association to itself. This does not necessarily
+mean that an instance of that class has an association to itself; more often, it
+means that one instance if the class has associations to other instances of the
+same class. In the case of self-associations, role names are essential to
+distinguish the purpose for the association.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the following self-association involving the class <b>Employee</b>:</p>
+<p align="center" class="picturetext"><img src="images/assoc4.gif" alt="example of a self-association" width="170" height="123"></p>
+<p class="example">In this case, an employee may have an association to other
+employees; if they do, they are a manager, and the other employees are members
+of their staff. The association is navigable in both directions since employees
+would know their manager, and a manager knows her staff.</p>
+<h3><a name="Multiple Associations">Multiple Associations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Drawing two associations between classes means objects are related twice; a
+given object can be linked to different objects through each association. Each
+association is independent, and is distinguished by the role name. As shown
+above, a Customer can have associations to different instances of the same
+class, each with different role names.</p>
+<h3><a name="XE_roles_on_associations__order_property"></a><a name="Ordered Roles">Ordering
+Roles</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When the multiplicity of an association is greater than one, the associated
+instances may be <b>ordered</b>. The <b>ordered </b>property
+on a role indicates that the instances participating in the association are
+ordered; by default they are an unordered set. The model does not specify <b>how
+</b>the ordering is maintained; the operations that update an ordered
+association must specify where the updated elements are inserted.</p>
+<h3><a name="XE_links__guidelines_for"></a><a name="Links">Links</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The individual instances of an association are called <b>links; </b>a
+link is thus a relationship among instances. Messages may be sent on links, and
+links may denote references and aggregations between objects. See <a href="md_coldm.htm">Guidelines:
+Collaboration Diagram</a> for more information.</p>
+<h3><a name="XE_control_class__associations¸_recommendations_for_use_of"></a><a name="XE_association__association_classes"></a><a name="Association Classes">Association
+Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An <b>association class </b>is an association that also has class
+properties (such as attributes, operations, and associations). It is shown by
+drawing a dashed line from the association path to a class symbol that holds the
+attributes, operations, and associations for the association. The attributes,
+operations, and associations apply to the original association itself. Each link
+in the association has the indicated properties. The most common use of
+association classes is the reconciliation of many-to-many relationships (see
+example below). In principle, the name of the association and class should be
+the same, but separate names are permitted if necessary. A degenerate
+association class just contains attributes for the association; in this case you
+can omit the association class name to de-emphasize its separateness.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Expanding the Employee example from before, consider the case
+where an Employee (a staff-person) works for another Employee (a manager). The
+manager performs a periodic assessment of the staff member, reflecting their
+performance over a specific time period.</p>
+<p class="example">The appraisal cannot be an attribute of either the manager or
+the staff member alone, but we can associate the information with the
+association itself, as shown below:</p>
+<p class="picturecenter" align="center"><img src="images/assoc5.gif" alt="example of an association class" width="192" height="214"></p>
+<p class="picturetext">The association class <b>Appraisal</b> captures
+information relating to the association itself</p>
+<h3><a name="XE_association__qualified_associations"></a><a name="Qualified Associations">Qualified
+Associations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Qualifiers are used to further restrict and define the set of instances that
+are associated to another instance; an object and a qualifier value identify a
+unique set of objects across the association, forming a <b>composite key</b>.
+Qualification usually reduces the multiplicity of the opposite role; the net
+multiplicity shows the number of instances of the related class associated with
+the first class and a given qualifier value. Qualifiers are drawn as small boxes
+on the end of the association attached to the qualifying class. They are part of
+the association, not the class. A qualifier box may contain multiple qualifier
+values; the qualification is based on the entire list of values. A <b>qualified
+association </b>is a variant form of association attribute.</p>
+<p class="exampleheading">Example</p>
+<p class="example">Consider the following refinement of the association between <b>Line
+Item</b> and <b>Product</b>: a <b>Line Item</b> has an
+association to the <b>Product</b> which is ordered. Each Line Item
+refers to one and only one Product, while a Product may be ordered on many Line
+Items. By qualifying the association with the qualifier <b>ProductCode</b>
+we additionally indicate that each product has a unique product code, and that <b>Line
+Items</b> are associated with <b>Products</b> using this product
+code.</p>
+<p class="picturecenter" align="center"><img src="images/assoc6.gif" alt="a qualified association" width="138" height="207"></p>
+<p class="picturetext">The association between <b>Line Item</b> and <b>Product
+</b>has the qualifier <b>ProductCode</b>.</p>
+<h3><a name="XE_N-ary_associations__guidelines_for"></a><a name="XE_entity_class__associations¸_recommendations_for_use_of"></a><a name="XE_association__N-ary_associations"></a><a name="N-ary Associations">N-ary
+Associations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An n-ary association is an association among three or more classes, where a
+single class can appear more than once. N-ary associations are drawn as large
+diamonds with one association path to each participating class. This is the
+traditional entity-relationship model symbol for an association. The binary form
+is drawn without the diamond for greater compactness, since they are the bulk of
+associations in a real model. N-ary associations are fairly rare and can also be
+modeled by promoting them to classes. N-ary associations can also have an
+association class; this is shown by drawing a dashed line from the diamond to
+the class symbol. Roles may have role names but multiplicity is more complicated
+and best specified by listing candidate keys. If given, the multiplicity
+represents the number of instances corresponding to a given tuple of the other
+N-1 objects. Most uses of n-ary associations can be eliminated using qualified
+associations or association classes. They can also be replaced by ordinary
+classes, although this loses the constraint that only one link can occur for a
+given tuple of participating objects.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

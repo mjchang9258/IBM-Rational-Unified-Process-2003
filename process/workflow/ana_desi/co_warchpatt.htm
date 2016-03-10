@@ -1,0 +1,664 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Web Architecture Patterns</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Web Architecture 
+  Patterns</rpw><a name="Top"></a><a name="XE_web_architecture_patterns__introduction_to"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Thin Web Client">Thin Web Client</a>
+    <ul>
+      <li><a href="#Applicability">Applicability</a></li>
+      <li><a href="#Known Uses">Known Uses</a></li>
+      <li><a href="#Structure">Structure</a></li>
+      <li><a href="#Dynamics">Dynamics</a></li>
+      <li><a href="#Consequences">Consequences</a></li>
+    </ul>
+  </li>
+  <li><a href="#Thick Web Client">Thick Web Client</a>
+    <ul>
+      <li><a href="#Applicability1">Applicability</a></li>
+      <li><a href="#Known Uses1">Known Uses</a></li>
+      <li><a href="#Structure1">Structure</a></li>
+      <li><a href="#Dynamics1">Dynamics</a></li>
+      <li><a href="#Consequences1">Consequences</a></li>
+    </ul>
+  </li>
+  <li><a href="#Web Delivery">Web Delivery</a>
+    <ul>
+      <li><a href="#Applicability2">Applicability</a></li>
+      <li><a href="#Known Uses2">Known Uses</a></li>
+      <li><a href="#Structure2">Structure</a></li>
+      <li><a href="#Dynamics2">Dynamics</a></li>
+      <li><a href="#Consequences2">Consequences</a></li>
+    </ul>
+  </li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The three most common patterns are:</p>
+<p>
+<b>Thin Web Client</b> – Used mostly for Internet based applications, where
+there is little control of the client’s configuration. The client only
+requires a standard web browser (forms capable). All of the business logic is
+executed on the server.</p>
+<p>
+<b>Thick Web Client</b> – An architecturally significant amount of business
+logic is executed on the client machine. Typically the client utilizes Dynamic
+HTML, Java Applets, or ActiveX controls to execute business logic. Communication
+with the server is still done via HTTP.</p>
+<p>
+<b>Web Delivery</b> – In addition to use of the HTTP protocol for client and
+server communication, other protocols such as IIOP and DCOM may be employed to
+support a distributed object system. The web browser acts principally as a
+delivery and container device for a distributed object system.</p>
+<p>This list cannot be considered complete, especially in an industry where
+technological revolutions seem to happen annually. It does represent, at a high
+level the most common architectural patterns of web applications. As with any
+pattern it is conceivable to apply several to a single architecture.</p>
+<h3><a name="Thin Web Client">Thin Web Client</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Thin Web Client architectural pattern is useful for Internet-based
+applications, for which only the most minimal client configuration can be
+guaranteed. All business logic is executed on the server during the fulfillment
+of page requests for the client browser.</p>
+<h4><a name="Applicability">Applicability</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>This pattern is most appropriate for Internet-based Web applications or for
+those environments in which the client has minimal computing power or no control
+over its configuration.</p>
+<h4><a name="Known Uses">Known Uses</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Most e-commerce Internet applications use this pattern, as it doesn't make
+good business sense to eliminate any sector of customers just because they do
+not have sufficient client capabilities. A typical e-commerce application tries
+to reach the largest customer pool possible; after all, a Commodore Amiga user's
+money is just as good as a Windows NT user's.</p>
+<h4><a name="Structure">Structure</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The major components of the Thin Web Client architecture pattern exist on the
+server. In many ways, this architecture represents the minimal Web application
+architecture. The major components are as follows:</p>
+<blockquote>
+  <blockquote>
+    <b>Client browser</b><i> </i>–<i> </i>Any standard forms-capable HTML
+    browser. The browser acts as a generalized user interface device. When used
+    in a Thin Web Client architecture, the only other service it provides is the
+    ability to accept and to return cookies. The application user uses the
+    browser to request Web pages: either HTML or server. The returned page
+    contains a fully formatted user interface - text and input controls-which is
+    rendered by the browser on the client display. All user interactions with
+    the system are through the browser.
+    <p><b>Web server</b><i> </i>–<i> </i>The principal access point for all
+    client browsers. Client browsers in the Thin Web Client architecture access
+    the system only through the Web server, which accepts requests for Web pages
+    - either static HTML or server pages. Depending on the request, the Web
+    server may initiate some server-side processing. If the page request is for
+    a server scripted page. CGI, ISAPI, or NSAPI module, the Web server will
+    delegate the processing to the appropriate script interpreter or executable
+    module. In any case, the result is an HTML-formatted page, suitable for
+    rendering by an HTML browser.
+    <p><b>HTTP connection </b>–<b>&nbsp;</b> The most common protocol in use
+    between client browsers and Web servers. This architectural element
+    represents a connectionless type of communication between client and server.
+    Each time the client or the server sends information to the other, a new and
+    separate connection is established between the two. A variation of the HTTP
+    connection is a secure HTTP connection via Secure Sockets Layer (SSL). This
+    type of connection encrypts the information being transmitted between client
+    and server, using public/private encryption key technology.
+    <p><b>HTML page </b>–<b> </b>A Web page with user interface and content
+    information that does not go through any server-side processing. Typically
+    these pages contain explanatory text, such as directions or help
+    information, or HTML input forms. When a Web server receives a request for
+    an HTML page, the server simply retrieves the file and sends it without
+    filtering back to the requesting client.
+    <p><b>Server page </b>–<b> </b>Web pages that go through some form of
+    server-side processing. Typically, these pages are implemented on the server
+    as scripted pages (Active Server Pages, Java Server Pages, Cold Fusion
+    pages) that get processed by a filter on the application server or by
+    executable modules (ISAPI or NSAPI). These pages potentially have access to
+    all server-side resources, including business logic components, databases,
+    legacy systems, and merchant account systems.
+    <p><b>Application server </b>–<b> </b>The primary engine for executing
+    server-side business logic. The application server is responsible for
+    executing the code in the server pages, can be located on the same machine
+    as the Web server, and can even execute in the same process space as the Web
+    server. The application server is logically a separate architectural
+    element, since it is concerned only with the execution of business logic and
+    can use a completely different technology from the Web server.
+  </blockquote>
+</blockquote>
+<p>The figure below shows a diagram of the logical view for the Thin Web Client
+architecture.</p>
+<p align="center"><img border="0" src="images/minthin.gif" width="528" height="378"></p>
+<p class="picturetext">Minimal Thin Web Client Architecture</p>
+<p>The minimal Thin Web Client architecture is missing some common optional
+components that are typically found in web applications; most notably the
+database. Most web applications use a database to make the business data
+persistent. In some situations the database may also be used to store the pages
+themselves (this use of a database however, represents a different architectural
+pattern). Since web applications can use any number of technologies to make
+business data persistent, the architectural component is labeled with the more
+generic term: Persistence. The Persistence component also includes the possible
+use of a Transaction Processing Monitor (TPM).</p>
+<p>The simplest way to connect a database to the system is to allow the scripts
+in the server pages direct access to the Persistence component. Even this direct
+access utilizes standard data access libraries like RDO, ADO, ODBC, JDBC, DBLib,
+etc. to do the dirty work. In this situation the server pages are knowledgeable
+of the database schema. For relational database systems they construct and
+execute the necessary SQL statements to gain access to data in the database. In
+smaller and less complicated web applications this can be sufficient. For larger
+and more robust systems however the use of a full business object layer is
+preferred.</p>
+<p>A business object component encapsulates the business logic. This component
+is usually compiled and executes on the application server. One of the
+advantages of having a business object architectural component is that other web
+or client server systems can use the same components to invoke the same business
+logic. For example an internet based store front may use server pages and the
+Thin Web Client architectural pattern for all consumer activity however, the
+billing division may require more sophisticated access to the data and business
+logic and prefer to use a client server system over a web based one. The billing
+division’s system can utilize the same business components on the same
+application server as the web front, yet use their own and more sophisticated
+client software.</p>
+<p>Since relational databases are the most common type of database in mainstream
+businesses, an additional architectural component is usually present between the
+application server and the database. It provides a mapping service between
+objects and relational databases. This mapping layer itself can be implemented
+in a number of ways. Detailed discussions of this component are beyond the scope
+of this book.</p>
+<p>Other options that are commonly added to this architectural pattern are
+integration with legacy systems and for e-commerce applications; a merchant
+account system. Both are accessed via the business objects (or the application
+server for those systems without a formal business object component). Legacy
+systems could represent an accounting system or manufacturing scheduling system.
+The merchant account system enables an internet web application to accept and
+process credit card payments. There are many merchant account systems available
+for small businesses wanting to get into the on-line market. For larger
+businesses this component would most likely be a interface to an already
+existing system capable of processing credit card requests.</p>
+<p>With these optional components in place the logical view of the Thin Web
+Client architectural pattern becomes more complete. The logical view is shown in
+the figure below.</p>
+<p align="center"><img border="0" src="images/lvthin.gif" width="649" height="458"></p>
+<p class="picturetext">Thin Web Client Logical View</p>
+<p>Much of a web application’s server components can be found on non-web based
+applications as well. The design and architecture of a web application’s back
+end is not unlike the design of any mainframe or client/server system. Web
+applications employ the use of databases and transaction processing monitors
+(TPM) for the same reasons that other systems do. Enterprise Java Beans (EJB)
+and Microsoft’s Transaction Server (MTS) are new tools and technologies that
+even though they were introduced with web applications in mind, they are equally
+suited for use in other application architectures.</p>
+<p>The architecture and design of a web application’s server side components
+is treated exactly like that of any client server system. Since this
+architectural pattern focuses on the web, and the components specific to web
+applications a detailed review of possible back end server architectures is
+beyond the scope of this pattern.</p>
+<h4><a name="Dynamics">Dynamics</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The underlying principal of the dynamics of this architectural pattern is
+that business logic only gets executed in response to a web page request by the
+client. Clients use the system by requesting web pages from the web server with
+the HTTP protocol. If the requested page is an HTML file on the web server’s
+file system, it simply fetches it and sends it back to the requesting client.</p>
+<p>If the page is a scripted page, that is a page with interpretable code that
+needs to be processed before it can be returned to the client, then the web
+server delegates this action to the application server. The application server
+interprets the scripts in the page, and if directed to, interacts with server
+side resources like databases, email services, legacy systems, etc. The scripted
+code has access, through the application and web server, to special information
+accompanying the page request. This information includes form field values
+entered by the user, and parameters appended to the page request. The ultimate
+result is a properly formatted HTML page suitable for sending back to the
+client.</p>
+<p>The page may also be an executable module like an ISAPI or NSAPI DLL. A DLL
+or dynamic link library is a compiled library that can be loaded and executed at
+run time by the application server. The module has access to the same details
+about the page request (form field values and parameters) that scripted pages
+have.</p>
+<p>The key point of the dynamic behavior of this pattern is that business logic
+is only invoked during the processing of a page request. Once the page request
+has been fulfilled, the result is sent back to the requesting client, and the
+connection between the client and server is terminated. It is possible for a
+business process to linger on after the request is fulfilled, but this is not
+the norm.</p>
+<font face="Times">
+<h4><a name="Consequences">Consequences</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+</font>
+<p>This type of architecture is best suited to applications whose server
+response can be completed within the acceptable response time expected by the
+user (and within the timeout value allowed by the client browser). This is
+usually on the order of no more than a few seconds. This may not be the most
+appropriate architecture pattern if the application needs to allow the user to
+start and monitor a business process that lasts a long time. The use of push
+technologies however can be employed to allow the client to monitor long running
+processes. For the most part push technologies just employ periodic polling of
+the server.</p>
+<p>Another major consequence of this architectural pattern is the limited
+ability for sophisticated user interfaces. Since the browser acts as the entire
+user interface delivery mechanism, all user interface widgets and controls must
+be available via the browser. In the most common browsers, and in the HTML
+specifications these are limited to a few text entry fields and buttons. On the
+other hand, it could be argued that such a severely limited user interface is a
+plus. Sparse user interface offerings prevent the development team from spending
+effort on &quot;cool&quot; and &quot;neat&quot; interfaces, when more simpler
+ones would suffice.</p>
+<font face="Times">
+<h3><a name="Thick Web Client">Thick Web Client</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+</font>
+<p>The Thick Web Client architectural pattern extends the Thin Web Client
+pattern with the use of client side scripting and custom objects like ActiveX
+controls and Java Applets. The Thick Web Client pattern gets its name from the
+fact that the client can actually execute some of the business logic of the
+system and hence becomes more than just a generalized user interface container.</p>
+<h4><a name="Applicability1">Applicability</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The Thick Web Client architectural pattern is most appropriate for web
+applications where a certain client configuration and browser version can be
+assumed, a sophisticated user interface is desired, and/or a certain amount of
+the business logic can be executed on the client. Much of the distinction
+between the Thin Web Client and Thick Web Client patterns is in the role the
+browser plays in the execution of the system’s business logic.</p>
+<p>The two strong motivations for Thick Web Client usage are; enhanced user
+interface capability, and client execution of business logic. A sophisticated
+user interface could be used to view and modify three dimensional models, or
+animate a financial graph. In some instances the ActiveX control can be used to
+communicate with client side monitoring equipment. For example health care
+equipment that can measure blood pressure, sugar count, and other vital signs
+could be used by an agency that needs to monitor geographically remote patients
+on a daily basis, and be able to cut down on personal visits to twice a week.</p>
+<p>In some situations business logic can be executed on the client alone. In
+these situations all the data required to carry out the process should be
+available on the client. The logic may be as simple as validating entered data.
+Dates can be checked for accuracy, or compared with other dates (for example the
+birth date should be before the date first admitted to the hospital). Depending
+upon the business rules of the system some fields may or may not be enabled
+depending upon the currently entered values.</p>
+<h4><a name="Known Uses1">Known Uses</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The most obvious uses of client side scripts, applets, controls and plug-ins
+is on the internet in the form of enhanced user interfaces. Java Scripts are
+often used to change the color or image of a button or menu item in HTML pages.
+Java Applets and ActiveX controls are often used to create sophisticated
+hierarchical tree view controls.</p>
+<p>The Shockwave ActiveX control and plug-in is one of the most common user
+interface components in use on the internet today. It enables interactive
+animations, and is primarily used to spice up internet sites with attractive
+graphics, but is also being used to display simulations, and monitor sporting
+events.</p>
+<p>Microsoft’s agent control is used by several internet sites to accept voice
+commands and execute actions in the browser that assist the user navigating the
+web site.</p>
+<p>Off of the Internet, a healthcare software company has developed a web based
+intranet application to manage patient records and billing. The web based user
+interface make heavy use of client side scripting to perform data validations
+and assist the user in navigation of the site. In addition to scripts, the
+application uses several ActiveX controls to manage XML content, which is used
+as the primary encoding scheme for information.</p>
+<h4><a name="Structure1">Structure</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>All communication between client and server, like in the Thin Web Client
+pattern, is done with HTTP. Since HTTP is a &quot;connectionless&quot; type of
+protocol, most of the time there is no open connection between client and
+server. Only during page requests does the client send information. This means that client side scripting, ActiveX controls and Java
+Applets are limited to interacting with objects only on the client.</p>
+<p>The Thick Web Client pattern utilizes certain browser capabilities like
+ActiveX controls or Java Applets to execute business logic on the client.
+ActiveX controls are compiled, binary executables that can be downloaded to the
+client via HTTP, and invoked by the browser. Since they are ActiveX controls are
+essentially COM objects, they have full reign over client side resources. They
+can interact with both the browser as well as the client system itself. For this
+reason ActiveX controls, especially those on the Internet, are typically
+&quot;authenticated&quot; by a third trusted party</p>
+<p>The most recent versions of common HTML browsers also allow client side
+scripting. HTML pages can be embedded with scripts written in Java Script or VB
+Script. This scripting capability enables the browser itself to execute (or
+rather interpret) code that may be part of the business logic of the system. The
+term &quot;maybe&quot; is used since it is very common for client scripts to
+contribute only to extraneous aspects of the user interface, and not actually be
+part of the business logic. In either case, there are potentially
+architecturally significant elements (i.e. scripts) embedded inside HTML pages
+that need to be expressed as such.</p>
+<p>Since the Thick Web Client pattern is really just an extension to the Thin
+Web Client pattern, most of the architecturally significant elements are the
+same. The additional elements that the Thick Web Client pattern introduces are;</p>
+<blockquote>
+  <blockquote>
+    <p> <b>Client Script </b>– JavaScript or Microsoft&#174; VirtualBasic&#174; script embedded 
+      in HTML formatted pages. The browser interprets the script. The W3C (an 
+      internet standards body) has defined the HTML and Document Object Model 
+      interface that the browser offers to client scripts.</p>
+    <p>
+    <b>XML Document </b>– A document formatted with the eXtensible Markup
+    Language (XML). XML Documents represent content (data) without user
+    interface formatting.</p>
+    <p>
+    <b>ActiveX Control </b>– A COM object that can be referenced in a client
+    script and &quot;downloaded&quot; to the client if necessary. Like any COM
+    object, it has full access to client resources. The principle security
+    mechanism for protecting client machines is through authentication and
+    signing. Internet browsers can be configured to not accept, or warn the user
+    when ActiveX controls are about to be downloaded to the client. The
+    authentication and signing mechanisms merely establish the identity of the
+    author of the control through a trusted third party.</p>
+    <p>
+    <b>Java Applet </b>– A self contained and compiled component that runs in
+    the context of a browser. For security reasons it has limited access to
+    client side resources. Java Applets are used both as sophisticated user
+    interface elements, and for non-user interface purposes such as parsing XML
+    documents, or to encapsulate complicated business logic.</p>
+    <p>
+    <b>Java Bean </b>– A Java component that implements a certain set of
+    interfaces that enable it to be easily incorporated into larger more complex
+    systems. The term bean reflects the small nature and single purpose the
+    component should have. A full cup of coffee usually takes more than one
+    bean. ActiveX is the analog to the Java Bean in Microsoft centered
+    architectures.</p>
+  </blockquote>
+</blockquote>
+<p>The figure below shows a diagram of the Logical View for the Thick Web Client
+Architecture.</p>
+<p align="center"><img border="0" src="images/lvthk1.gif" width="544" height="500"></p>
+<p align="CENTER" class="picturetext">Logical View of the Thick Web Client
+Architecture Pattern</p>
+<h4><a name="Dynamics1">Dynamics</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The principal dynamics of the Thick Web Client pattern include those of the
+Thin Web Client pattern plus the ability to execute business logic on the
+client. As with the Thin Web Client pattern, all communication between the
+client and server is done during page requests. The business logic however, can
+be partially executed on the client with scripts, controls or applets.</p>
+<p>When a page is sent to a client browser it may contain scripts, controls and
+applets. They may be used simply to enhance the user interface, or contribute to
+the business logic. The simplest business logic uses are field validations.
+Client scripts can be used to check for valid input, not only in a single field,
+but across all fields in any given web page. For example an e-commerce
+application that allows users to configure their own computer systems may use
+scripts to prevent incompatible options from being specified.</p>
+<p>In order for Java Applets and ActiveX controls to be used, they must be
+specified in the content of the HTML page. These controls and applets can work
+independently of any scripts in the page or be driven by scripts in the page.
+Scripts in an HTML page can respond to special events sent by the browser. These
+events can indicate that the browser has just completed loading the web page, or
+that the user’s mouse just moved over a specific region of the page.</p>
+<p>They have access to the browser’s Document Object Model (DOM) interface.
+This interface is a W3C standard for giving scripts, controls and applets access
+to the browser and HTML content in pages. Microsoft’s and Netscape’s
+implementation of this model is Dynamic HTML (DHTML). DHTML is more than just an
+implementation of the DOM interface, it particular DHTML includes events, which
+at the time of this writing are not part of the DOM Level 1 specification.</p>
+<p>At the core of the Document Object Model is a set of interfaces that
+specifically handle XML documents. XML is a flexible language that enables
+designers to create their own special purpose tags. The DOM interface enables
+client scripts to access XML documents</p>
+<p>The use of XML as a standard mechanism of exchanging information between
+client and server is enabled by the use of special components on the client.
+ActiveX controls or Java Applets can be placed on the client to independently
+request and send XML documents. For example a Java Applet embedded in an HTML
+page could make an HTTP request from the web server for an XML document. The web
+server find and process the requested information and send back not an HTML
+document, but an XML formatted one. The Applet still running in the HTML page on
+the client would accept the XML document, parse it and interact with current
+HTML document in the browser to display its content for the user. The entire
+sequence happens in the context of a single HTML page in the client browser.</p>
+<h4><a name="Consequences1">Consequences</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>By far the biggest consequence of this pattern is portability across browser 
+  implementations. Not all HTML browsers support Java Script or VirtualBasic Script. 
+  Additionally only Microsoft Windows based clients can use ActiveX controls. 
+  Even when a specific brand of client browser is exclusively used there are subtle 
+  differences in implementations of the Document Object Model.</p>
+<p>When client scripting, controls or applets are used the testing team needs 
+  to perform the full set of test scenarios for each client configuration to be 
+  supported. Since critical business logic is being performed on the client it 
+  is important that it behaves consistently and correctly for all browsers involved. 
+  Never assume that all browsers behave the same. Not only is it possible for 
+  different browsers to behave differently with the same source code, but even 
+  the <i>same</i> browser running on different operating systems might show anomalous 
+  behavior. </p>
+<h3><a name="Web Delivery">Web Delivery</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Web Delivery architectural pattern is named so because the Web is
+primarily used as a delivery mechanism for an otherwise traditional distributed
+object client/server system. From one viewpoint this type of application is
+really a distributed object client/server application that just happens to
+include a web server and client browser as significant architectural elements.
+Whether such a system is a web application with distributed objects or a
+distributed object system with web elements the ultimate system is the same. The
+fact that these two viewpoints are of the same system, and distributed object
+systems have always been seen as systems requiring careful modeling, it further
+emphasizes the theme in this book that web applications, need to be modeled and
+designed like any other software system.</p>
+<h4><a name="Applicability2">Applicability</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The Web Delivery architectural pattern is most appropriate when there is
+significant control over client and network configurations. This pattern is not
+particularly suited for internet based applications, where there is no or little
+control over client configurations, or when network communications are not
+reliable.</p>
+<p>The greatest strengths of this architecture is its ability to leverage
+existing business objects in the context of a web application. With direct and
+persistent communications possible between client and server the limitations of
+the previous two web application patterns can be overcome. The client can be
+leveraged to perform significant business logic to an even greater degree.</p>
+<p>It is unlikely that this architectural pattern is used in isolation. More
+realistically this pattern would be combined with one or both of the previous
+patterns. The typical system would utilize one or both of the first
+architectural patterns for those parts of the system not requiring a
+sophisticated user interface, or where client configurations are not strong
+enough to support a large client application.</p>
+<h4><a name="Known Uses2">Known Uses</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The CNN Interactive web site is one of the busiest news sites on the Net.
+Most of its public access is done with conventional browsers and straight HTML
+3.2, however behind the web site is a sophisticated CORBA based network of
+browsers, servers, and distributed objects. A case study of this system was
+published Distributed Computing.</p>
+<p>A healthcare software company has created a web application to manage
+patients, health records, and billing. The billing aspects of the system are
+only used by a significantly small proportion of overall user community. Much of
+the legacy billing systems were written in FoxPro. The new web based system
+leveraged the old FoxPro legacy code and through the use of some conversion
+utilities built ActiveX documents for the user interface and business logic. The
+resulting system is a Thick Web Client based web application for patient and
+health records, integrated with a Web Delivery based web application for billing
+operations.</p>
+<h4><a name="Structure2">Structure</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The most significant difference between the Web Delivery and the other web
+application architecture patterns is the method of communication between the
+client and server. In the other patterns the primary mechanism was HTTP, a
+connectionless protocol that severely limits the designer when it comes to
+interactive activity between the user and the server. The architecturally
+significant elements in the Web Delivery pattern include all those specified in
+Thin Web Client pattern plus these additional ones;</p>
+<blockquote>
+  <blockquote>
+    <p>
+    <b>DCOM </b>– Distributed COM is Microsoft’s distributed object
+    protocol. It enables objects on one machine to interact with and invoke
+    methods on objects on another machine.</p>
+    <p>
+    <b>IIOP </b>– Internet Inter-Orb Protocol is OMG’s CORBA protocol for
+    interacting with distributed objects across the internet (or any TCP/IP
+    based network).</p>
+    <p>
+    <b>RMI (JRMP) </b>– Remote Method Invocation is the Java way of
+    interacting with objects on other machines. JRMP (Java Remote Method
+    Protocol) is the native protocol for RMI, but not necessarily the only
+    protocol that can be used. RMI can be implemented with CORBA’s IIOP.</p>
+  </blockquote>
+</blockquote>
+<p>The figure below shows a diagram of the Logical View for the Web Delivery
+Architecture pattern.</p>
+<p align="center"><img border="0" src="images/lvwd1.gif" width="491" height="500"></p>
+<p class="picturetext">Logical View of the Web Delivery Architecture Pattern</p>
+<h4><a name="Dynamics2">Dynamics</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>The principal dynamics of the Web Delivery architectural pattern are the use
+of the browser to deliver a distributed object system. The browser is used to
+contain a user interface and some business objects that communicate,
+independently of the browser to objects in the server tier. Communications
+between client and server objects occur with IIOP, RMI and DCOM protocols.</p>
+<p>The main advantage of using a web browser in this otherwise distributed
+object client server system is that the browser has some built in capabilities
+to automatically download the needed components from the server. A brand new
+computer to the network needs only a compatible web browser to begin using the
+application. Special software does not need to be manually installed on the
+client, since the browser will manage this for the user. Components are
+delivered and installed on the client on a as-needed basis. Both Java Applets
+and ActiveX controls can be automatically sent to and cached on the client. When
+these components are activated (as a result of loading the appropriate web page)
+they can engage in asynchronous communication with server objects.</p>
+<h4><a name="Consequences2">Consequences</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>By far the biggest consequence of this pattern is portability across browser
+implementations. The use of this pattern requires a solid network. Connections
+between client and server objects last much longer than HTTP connections, and so
+sporadic loss of server, which is not a problem with the other two architectures
+poses a serious problem to be handled in this pattern.</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

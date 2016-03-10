@@ -1,0 +1,403 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Stubs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Concepts:&nbsp;<rpw name="PresentationName">Stubs</rpw><a name="XE_stubs__concept_of"></a><a name="XE_test__stubs__concept_of"></a><a name="XE_test__developer_testing__stubs__concept_of"></a></h2>
+
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#SoftwareDesignwithStubs">Stubs and software design practices</a></li>
+  <li><a href="#FurtherInformation">Further information</a></li>
+</ul>
+
+
+<h3><a name="Introduction">Introduction</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>A component is tested by sending inputs to its interface, waiting for the component 
+  to process them, then checking the results. In the course of its processing, 
+  a component very likely uses other components by sending inputs to them and 
+  using their results:</p>
+
+<p align="center"><img src="images/co_stubs-img1.gif" width="356" height="283"></p>
+<p class="picturetext">Fig1: Testing a Component you've implemented</p>
+
+<p>Those other components may cause problems for your testing:</p>
+
+<ol>
+    
+  <li>They may not be implemented yet.</li>
+    <li>They may have defects that prevent your tests from
+        working or make you spend a lot of time discovering that
+        a test failure was not caused by your component.</li>
+    <li>They may make it hard to run tests when you need to. If a
+        component is a commercial database, your company might
+        not have enough floating licenses for everyone. Or one of
+        the components may be hardware that's available only at
+        scheduled times in a separate lab.</li>
+    <li>They may make testing so slow that tests aren't run often
+        enough. For example, initializing the database might take
+        five minutes per test.</li>
+    <li>It may be difficult to provoke the components to produce
+        certain results. For example, you may want each of your
+        methods that writes to disk to handle &quot;disk full&quot;
+        errors. How do you make sure the disk fills at just the
+        moment that method is called?</li>
+</ol>
+
+<p>To avoid these problems, you may choose to use
+  <b>stub</b> components (also called <b>mock objects</b>). 
+  Stub components behave like the real components, at least for the values that 
+  your component sends them while responding to its tests. They may go beyond 
+  that: they may be general-purpose <b>emulators</b> that seek to faithfully 
+  mimic most or all the component's behaviors. For example, it's often a good 
+  strategy to build software emulators for hardware. They behave just like the 
+  hardware, only slower. They're useful because they support better debugging, 
+  more copies of them are available, and they can be used before the hardware 
+  is finished.</p>
+
+<p align="center"><img src="images/co_stubs-img2.gif" width="356" height="283"></p>
+<p class="picturetext">Fig2: Testing a Component you've implemented by stubbing 
+  out a component it depends on</p>
+
+<p>Stubs have two disadvantages.
+<ol>
+<li>
+They can be expensive to build. 
+  (That's especially the case for emulators.) Being software themselves, they 
+  also need to be maintained.</li>
+<li>
+They may mask errors. For example, suppose your component 
+  uses trigonometric functions, but no library is available yet. Your three test 
+  cases ask for the sine of three angles: 10 degrees, 45 degrees, and 90 degrees. 
+  You use your calculator to find the correct values, then construct a stub for 
+  sine that returns, respectively, 0.173648178, 0.707106781, and 1.0. All is fine 
+  until you integrate your component with the real trigonometric library, whose 
+  sine function takes arguments in <i>radians</i> and so returns -0.544021111, 
+  0.850903525, and 0.893996664. That's a defect in your code that's discovered 
+  later, and with more effort, than you'd like.</li>
+</ol>
+
+
+<h3><a name="SoftwareDesignwithStubs">Stubs and software design practices</a>
+<a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>Unless the stubs were constructed because the real component wasn't available 
+  yet, you should expect to retain them past deployment. The tests they support 
+  will likely be important during product maintenance. Stubs, therefore, need 
+  to be written to higher standards than throwaway code. While they don't need 
+  to meet the standards of product code - for example, most do not need a test suite of their 
+  own - later developers will have to maintain them as components 
+  of the product change. If that maintenance is too hard, the stubs will be discarded, 
+  and the investment in them will be lost. </p>
+
+<p>Especially when they're to be retained, stubs alter component
+design. For example, suppose your component will use a database
+to store key/value pairs persistently. Consider two design
+scenarios:</p>
+
+<p><b>Scenario 1: The database is used for testing as well
+as for normal use</b>. The existence of the database needn't
+be hidden from the component. You might initialize it with the
+name of the database:</p>
+
+<p><!--webbot bot="HTMLMarkup" startspan --><pre>
+    public Component(<b><font color="#FF0000">String databaseURL</font></b>) {
+        try {
+            databaseConnection =
+                DriverManager.getConnection(databaseURL);
+            ...
+        } catch (SQLException e) {...}
+    }
+</pre><!--webbot
+bot="HTMLMarkup" endspan -->
+<p>And, while you wouldn't want each location that read or wrote
+a value to construct a SQL statement, you'd certainly have some
+methods that contain SQL. For example, component code that needs
+a value might call this component method:</p>
+
+<p><!--webbot bot="HTMLMarkup" startspan --><pre>
+    public String get(String key) {
+        try {
+            Statement stmt =
+              databaseConnection.createStatement();
+            ResultSet rs = stmt.executeQuery(
+              <b><font color="#FF0000">"SELECT value FROM Table1 WHERE key=" + key</font></b>);
+            ...
+        } catch (SQLException e) {...}
+    }
+</pre><!--webbot
+bot="HTMLMarkup" endspan -->
+
+<p><b>Scenario 2: For testing, the database is replaced by a
+stub.</b> The component code should look the same whether
+it's running against the real database or the stub. So it needs
+to be coded to use methods of an abstract interface:</p>
+
+<p><!--webbot bot="HTMLMarkup" startspan --><pre>
+    <b><font color="#FF0000">interface KeyValuePairs</font></b> {
+        String <b><font color="#FF0000">get</font></b>(String key);
+        void <b><font color="#FF0000">put</font></b>(String key, String value);
+    }
+</pre><!--webbot
+bot="HTMLMarkup" endspan -->
+
+<p>Tests would implement <font face="Courier New">KeyValuePairs</font>
+with something simple like a hash table:</p>
+
+<p><!--webbot bot="HTMLMarkup" startspan --><pre>
+    <b><font color="#FF0000">class FakeDatabase implements KeyValuePairs</font></b>  {
+        Hashtable table = new Hashtable();
+
+        public String <b><font color="#FF0000">get</font></b>(String key) {
+            return (String) table.get(key);
+        }
+
+        public void <b><font color="#FF0000">put</font></b>(String key, String value) {
+            table.put(key, value);
+        }
+    }
+</pre><!--webbot
+bot="HTMLMarkup" endspan -->
+
+<p>When not being tested, the component would use an adapter
+object that converted calls to the <font face="Courier New">KeyValuePairs</font>
+interface into SQL statements:</p>
+
+<p><!--webbot bot="HTMLMarkup" startspan --><pre>
+    <b><font color="#FF0000">class DatabaseAdapter implements KeyValuePairs</font></b> {
+        private Connection databaseConnection;
+        
+        public DatabaseAdapter(String databaseURL) {
+            try {
+                databaseConnection =
+                    DriverManager.getConnection(databaseURL);
+                ...
+            } catch (SQLException e) {...}
+        }
+
+        public String <b><font color="#FF0000">get</font></b>(String key) {
+            try {
+                Statement stmt = 
+                  databaseConnection.createStatement();
+                ResultSet rs = stmt.executeQuery(
+                  "SELECT value FROM Table1 WHERE key=" + key);
+                ...
+            } catch (SQLException e) {...}
+        }
+
+        public void <b><font color="#FF0000">put</font></b>(String key, String value) {
+            ...
+        }
+    }
+
+</pre><!--webbot
+bot="HTMLMarkup" endspan -->
+
+<p>Your component might have a single constructor for both tests and
+other clients. That constructor would take an
+object that implements <font face="Courier New">KeyValuePairs</font>.
+Or it might provide that interface only for tests, requiring that
+ordinary clients of the component pass in the name of a database:</p>
+
+<p><!--webbot bot="HTMLMarkup" startspan --><pre>
+    class Component {
+        <b><font color="#FF0000">public</font></b> Component(String databaseURL) {
+            this.valueStash = new DatabaseAdapter(databaseURL);
+        }
+
+        // For testing.
+        <b><font color="#FF0000">protected</font></b> Component(KeyValuePairs valueStash) {
+            this.valueStash = valueStash;
+        }
+    }
+</pre><!--webbot
+bot="HTMLMarkup" endspan -->
+
+<p>So, from the point of view of client programmers, the two
+design scenarios yield the same API, but one is more readily
+testable. (Note that some tests might use the real database and
+some might use the stub database.)</p>
+
+
+<h3><a name="FurtherInformation">Further information</a> <a href="#Top"><img src="../../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>For further information related to Stubs, see the following:</p>
+<ul>
+  <li><a href="http://www.sidewize.com/company/mockobjects.pdf" target="_blank"><i>Endo-Testing: 
+    Unit testing with Mock Objects</i></a>, &quot;eXtreme Programming and Flexible 
+    Processes in Software Engineering - XP2000&quot;. &copy; 2000 Tim Mackinnon, 
+    Steve Freeman, Philip Craig.</li>
+  <li><a href="../../../toolment/rqa/rqa.htm">Tool Mentors: Rational QualityArchitect</a></li>
+
+  <li><a href="../../../toolment/test_realtime/test_rt.htm">Tool 
+    Mentors: Rational Test RealTime</a></li>
+
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

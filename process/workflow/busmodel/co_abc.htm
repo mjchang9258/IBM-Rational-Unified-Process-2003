@@ -1,0 +1,307 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Concepts:&nbsp;Activity-Based Costing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Concepts:&nbsp;<rpw name="PresentationName">Activity-Based 
+  Costing</rpw><a name="Top"></a><a name="XE_activity-based_costing"></a><a name="XE_abc"></a></h2>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Calculating the Performance of a Business Process">Calculating
+    the performance of a business process</a></li>
+  <li>
+    <p align="left"><a href="#Identifying Areas of Improvement">Identifying
+    areas of improvement&nbsp;</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><b>Activity-based costing (ABC)</b> is a methodology that measures the cost
+and performance of activities, resources, and cost objects. Resources are
+assigned to activities, then activities are assigned to cost objects based on
+their use. Activity-based costing recognizes the causal relationships of cost
+drivers to activities <a href="../../referenc.htm#PLR99">[PLR99]</a>.</p>
+<p>Activity-based costing is about:&nbsp;</p>
+<ul>
+  <li>
+    <p>Measuring business process performance, activity by activity.&nbsp;</li>
+  <li>
+    <p>Estimating the cost of business process outputs based on the cost of the
+    resources used in producing the product.</li>
+  <li>
+    <p>Identifying opportunities to improve process efficiency and
+    effectiveness. Activity costs are used as the quantitative measurement. If
+    activities have unusually high costs or it they don't add value, they become
+    targets for re-engineering.&nbsp;</li>
+</ul>
+<p><a name="XE_activity-based_management"></a><b>Activity-based management (ABM)</b>
+is a broad discipline that focuses on achieving customer value and company
+profit by managing activities. ABM draws on activity-based costing as a major
+source of information.</p>
+<h3><a name="Calculating the Performance of a Business Process">Calculating the
+Performance of a Business Process</a> <a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To calculate the performance of a business process, you need to know what the
+workflow is and what type of resources are involved in performing the workflow.
+You need to have the following elements describing the workflow in place before
+you can start measuring:&nbsp;</p>
+<ul>
+  <li>A description of the business use case representing the business process<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">&#151;</span>see <a href="../../modguide/md_buc.htm">Guidelines:
+    Business Use Case</a>, and the sections on workflow.</li>
+  <li>One or more activity diagrams describing the workflow<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">&#151;</span>see <a href="../../modguide/md_bactd.htm">Guidelines:
+    Activity Diagram in the Business Use-Case Model</a>.&nbsp;</li>
+  <li>The realization of that business use case<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">&#151;</span>see <a href="../../modguide/md_bucr.htm">Guidelines:
+    Business Use-Case Realization</a>.&nbsp;</li>
+</ul>
+<h5>Basic Cost Drivers</h5>
+<p>For each activity state in an activity diagram, the basic cost drivers
+are:&nbsp;</p>
+<ul>
+  <li><b>Resources:</b> determine what business workers and business entities
+    are participating, and how many instances of each. The allocation of a
+    resource to a workflow implies a certain cost.&nbsp;</li>
+  <li><b>Cost rate:</b> each business worker or business entity instance may
+    have a cost per time in use.&nbsp;</li>
+  <li><b>Duration:</b> an activity occurs for a certain time, therefore a
+    resource can either be allocated for the duration of the activity, or for a
+    fixed amount of time.&nbsp;</li>
+  <li><b>Overhead:</b> any fixed costs that the invocation of a workflow or an
+    activity would incur.&nbsp;</li>
+</ul>
+<p>Additionally, for a transition you may need to determine the <b>Guard
+Probability</b>, which is the probability for a transition to be traversed. This
+needs to be determined for alternative threads such as outgoing transitions from
+a decision, and for conditional threads such as a conditional transition
+outgoing from a synchronization bar.&nbsp;</p>
+<h5>Calculating the Cost of Performing a Workflow</h5>
+<p>A workflow is described with a collection of activity states. For each of
+those activity states, you must define what the cost drivers are, in order to
+calculate the total cost for performing the activity.&nbsp;</p>
+<p class="exampleheading">Example:</p>
+<p align="center"><img border="0" src="images/abc4.gif" width="252" height="121"></p>
+<p class="picturetext">The total cost of performing this activity is 'number of
+resources' * 'resource cost'&nbsp; * ' duration' + 'overhead cost'. Knowing that
+the cost rate for using a customer representative is 200 per hour, the total
+cost for this activity is then 1*200*0.5 + 100=200.&nbsp;</p>
+<p>The total cost of performing the workflow is the sum of the cost for each
+activity, although there is often an overhead associated with initiating the
+workflow. For the whole workflow, it may be interesting to calculate the total
+duration or frequency.&nbsp;</p>
+<p class="exampleheading">Example:</p>
+<p align="center"><img border="0" src="images/abc5.gif" width="347" height="299"></p>
+<p class="picturetext">The workflow depicted in this activity graph has an
+overhead cost that needs to be added to the cost of performing each
+activity.&nbsp;</p>
+<h5>Concurrent Threads</h5>
+<p>If concurrent threads exist in an activity diagram, the duration of the
+longest thread is the relevant duration for all threads. Concurrent threads are
+shown using synchronization bars.</p>
+<p class="exampleheading">Example:</p>
+<p align="center"><img border="0" src="images/abc1.gif" width="486" height="388"></p>
+<p class="picturetext">The total duration for these two concurrent threads is 8
+minutes, which is the duration of the longest thread in this case.&nbsp;</p>
+<h5>Alternative Threads</h5>
+<p>If alternative threads exist in an activity diagram, the cost for the
+alternative threads are calculated as the sum of the cost for each alternative,
+weighted with the occurrence probability for each alternative.&nbsp;Alternative
+threads are shown using decision icons.&nbsp;</p>
+<p class="exampleheading">Example:</p>
+<p align="center"><img border="0" src="images/abc2.gif" width="368" height="362"></p>
+<p class="picturetext">The total calculated cost for a thread with alternatives
+is the weighted cost of the alternative threads.&nbsp;</p>
+<h5>Conditional Threads</h5>
+<p>If a conditional thread exists, the cost for that thread is added to the cost
+for its parallel threads, weighted with the probability of it occurring.&nbsp;A
+conditional thread is indicated with a guard condition on a transition.</p>
+<p class="exampleheading">Example:</p>
+<p align="center"><img border="0" src="images/abc3.gif" width="481" height="295"></p>
+<p class="picturetext">If there is a conditional thread, its cost is first
+weighted with the probability of it occurring, and then added to the cost of its
+parallel threads.&nbsp;</p>
+<h5>Nested Activity Graphs</h5>
+<p>If an activity has a sub-graph, the cost of that activity is the cost of the
+activities in the sub-graph.</p>
+<h3><a name="Identifying Areas of Improvement">Identifying Areas of Improvement</a>
+<a href="#Top"><img src="../../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Activity-based costing is often used to compare alternatives, such as
+proposed change versus current practice, or to compare different proposed
+changes. There are three kinds of parameters to work with to explore differences
+between alternative flows:&nbsp;</p>
+<ul>
+  <li>Changing values of cost attributes without changing the structure or
+    realization of the workflow; for example, assuming shorter time durations.</li>
+  <li>Changing structure of the workflow; for example, changing from sequential
+    to concurrent execution of activities.&nbsp;</li>
+  <li>Changing what resources are used in the realization of the workflow; for
+    example, merging resources to eliminate hand-offs.&nbsp;&nbsp;</li>
+</ul>
+<p>To compare these alternatives, you may create &quot;sibling&quot; activity
+diagrams to show the variations of the business use case. When changing what
+resources are used in the realization of the workflow, you must also establish
+&quot;sibling&quot; realizations of the workflows to correctly explore resource
+costs.&nbsp;</p>
+<p>&nbsp;</p>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

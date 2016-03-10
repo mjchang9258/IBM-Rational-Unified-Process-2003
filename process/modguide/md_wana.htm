@@ -1,0 +1,252 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Building Web Applications with the UML</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Building Web 
+  Applications with the UML</rpw><a name="Top"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#References">References</a></li>
+  <li><a href="#Elaborate on Use-Case Analysis">Elaborate on Use-Case Analysis</a></li>
+  <li><u><a href="#Using Interaction Diagrams">Using Interaction Diagrams</a></u></li>
+  <li><a href="#Creating Initial Design Classes">Creating Initial Design Classes</a></li>
+</ul>
+<h3><a name="References">References</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The following books and documents are references for these guidelines:
+<ul>
+  <li><i>Building Web Applications with UML,</i> by Jim Conallen [<a href="../referenc.htm#CONA99">CONA99</a>]</li>
+  <li>The white paper, <a href="../../papers/webapps.htm">Modeling Web
+    Application Architectures with UML</a></li>
+</ul>
+<h3><a name="Elaborate on Use-Case Analysis">Elaborate on Use-Case Analysis</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The thing that is different compared to what you find in <a href="../activity/ac_ucana.htm">Activity:
+Use-Case Analysis</a>  is that the boundary classes are more focused and singular
+in purpose. Objects of these classes have a short life, and any client state (in
+web pages) needs to be managed explicitly by specific mechanisms. For example,
+Microsoft Active Server Pages use &quot;cookies&quot; as an index into a map of
+the state of all the currently active clients.</p>
+<p>Also, when you read the specification of a use case, the following
+applies:&nbsp;</p>
+<ul>
+  <li>Any mention of a web page translates to a boundary class.&nbsp;</li>
+  <li>Any mention of a hyperlink translates to an association from a boundary
+    class to another boundary class or controller class.&nbsp;</li>
+  <li>Verbs or descriptions of processes tend to map to controller
+    classes.&nbsp;</li>
+  <li>Nouns map to entity classes.&nbsp;</li>
+</ul>
+<p>The boundary class, through which communication is initiated, talks to a
+controller class. The controller class typically will not respond back through
+the same instance of this boundary class.</p>
+<h3><a name="Using Interaction Diagrams">Using Interaction Diagrams</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>As use-case analysis is going on, the scenarios can be described with
+sequence diagrams. This helps validate the existence of analysis objects against
+a scenario of a use case. If analysis objects are discovered not to participate
+in any of your scenarios, they are suspect and need to be reevaluated. The risk
+here is that if you go too deep in detail, the diagrams become large and
+unmanageable. To avoid this, concentrate on short discrete scenarios, and only
+include boundary and principal controller and entity objects.</p>
+<p>Remember that in web applications boundary objects have a short lifespan. A
+boundary class may however be instantiated several times during the execution of
+a scenario, meaning that there are several boundary objects instantiated from the same class
+in the diagram.</p>
+<p>The actor in an analysis level sequence diagram interacts with a boundary
+object. A navigate message is sent from the actor to the boundary object.</p>
+<h3><a name="Creating Initial Design Classes">Creating Initial Design Classes</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h4>Initial Boundary Class Designs</h4>
+<p>A boundary class can be mapped to a client page class.</p>
+<p>If the boundary class involves inputting information, you would typically
+associate it with a form (or web form) through aggregation. A form can be
+modeled as a nested class of the client page, since its entire lifecycle is
+governed by the client page. Forms always have a submit relationship to a server
+page, which processes the form's values, ultimately leading to a new returned
+client page.</p>
+<p>If the user interface requires some dynamic behavior on the client, the
+easiest way this can be accomplished is through the use of dynamic HTML on the
+client. In the design model, this usually appears as operations on the client
+page. Operations on the client page map directly to java script functions.
+Attributes of a java page map directly to page scoped variables of the page.
+Dynamic HTML event handlers are captured as tagged values.</p>
+<p>If the user interface has very sophisticated behavior, you would consider
+associating an applet with the boundary class, using an aggregation.</p>
+<p>If your architecture is based on a distributed object system (such as RMI,
+IIOP, or DCOM), then the client page may reference interfaces to components that
+communicate directly with the server using RMI, IIOP, or DCOM, circumventing
+HTTP. These types of relationships are usually stereotyped &laquo;rmi&raquo;, &laquo;iiop&raquo;, or
+&laquo;dcom&raquo; to indicate to the designer any areas where network traffic will
+happen, thus being candidate bottlenecks.</p>
+<h4>Initial Entity Class Designs</h4>
+<p>In designing a web application, the only thing different about entity classes
+is, if the object resides within the scope of the client page, the entity object
+will map to a java script object.</p>
+<h4>Initial Controller Class Designs</h4>
+<p>Control classes map to server pages. Controllers express and coordinate the
+business logic, and coordinate other logics. They typically reside on the
+server. Many controller objects are responsible for building client pages
+(essentially, they stream HTML as their principal output). Controller objects
+can interact with server-side resources, such as databases, middle tier
+components, transaction monitors, and so forth.&nbsp;</p>
+<p>Controller classes typically map to server-side scripted web pages (active
+server pages, java server pages).</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,398 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CREG Use Case - Register for Courses - Elaboration Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Example: Register for Course Use Case Specification</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Microsoft Border" content="b, default">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<font face="Arial" size="5"><b>
+<p align="RIGHT">Course Registration System</p>
+<p align="RIGHT">Use-Case Specification</p>
+<p>&nbsp;</p>
+<i>
+<p align="RIGHT">Register for Courses Use Case</p></i></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="4"><b>
+<p align="RIGHT">Version 2.0</p></b></font>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Date</b></font></td>
+    <td width="12%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Version</b></font></td>
+    <td width="39%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Description</b></font></td>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Author</b></font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">21/Dec/98</font></td>
+    <td width="12%" valign="TOP"><font size="2">Draft</font></td>
+    <td width="39%" valign="TOP"><font size="2">Draft Version</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">13/Feb/99</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 1.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Minor corrections based on
+    review</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">15/Feb/99</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 2.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Modify section on use case
+    extends. Final cleanup. Review alternate flows. Resolve outstanding issues.</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Table of Contents</p>
+</b></font>
+<ol>
+  <li><a href="#_Toc449508570"><font size="2">Brief Description</font></a></li>
+  <li><a href="#_Toc449508571"><font size="2">Flow of Events</font></a>
+    <dl compact>
+      <dd><font size="2">2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508572"><font size="2">Basic Flow – Create a
+        Schedule</font></a></dd>
+      <dd><font size="2">2.2&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508573"><font size="2">Alternative Flows</font></a>
+      </dd>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508574"><font size="2">Modify a Schedule</font></a></dt>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.2&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508575"><font size="2">Delete a Schedule</font></a></dt>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.3&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508576"><font size="2">Save a Schedule</font></a></dt>
+      <dt><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.4&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508577"><font size="2">Add Course Offering</font></a></dt>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.5&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508578"><font size="2">Unfulfilled Prerequisites
+            or Course Full</font></a></dt>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.6&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508579"><font size="2">No Schedule Found</font></a></dt>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.7&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508580"><font size="2">Course Catalog System
+            Unavailable</font></a></dt>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.8&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508581"><font size="2">Course Registration Closed</font></a></dt>
+    </dl>
+  </li>
+  <li><a href="#_Toc449508582"><font size="2">Special Requirements</font></a></li>
+  <li><a href="#_Toc449508583"><font size="2">Preconditions</font></a>
+    <dl compact>
+      <dd><font size="2">4.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449508584"><font size="2">Login</font></a></dd>
+    </dl>
+  </li>
+  <li><a href="#_Toc449508585"><font size="2">Postconditions</font></a></li>
+  <li><a href="#_Toc449508586"><font size="2">Extension Points</font></a></li>
+</ol>
+<b><font face="Arial" size="5">
+<p align="CENTER">Register for Courses Use Case<a name="_Toc423410237"></a></p>
+</font>
+<p><font face="Arial" size="3">&nbsp;&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp; <a name="_Toc449508570">Brief Description</a></font></b>
+<ol>
+  <p><font size="2">This use case allows a Student to register for course
+  offerings in the current semester. The Student can also modify or delete
+  course selections if changes are made within the add/drop period at the
+  beginning of the semester. The Course Catalog System provides a list of all
+  the course offerings for the current semester.</font></p><font size="2">
+  <p>The main actor of this use case is the Student. The Course Catalog System
+  is an actor within the use case.</p>
+  </font>
+</ol>
+<p><b><font face="Arial">&nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp; <a name="_Toc449508571">Flow of Events</a></font></b>
+<ol>
+  <font size="2">
+  <p>The use case begins when the Student selects the &quot;maintain
+  schedule&quot; activity from the Main Form.</p>
+  </font>
+</ol>
+<blockquote>
+  <p><b>2.1</b>&nbsp;<font size="2"> <a name="_Toc423410240"></a><a name="_Toc425054506"></a><font face="Arial" size="2"><b><a name="_Toc449508572">Basic
+  Flow</a> – Create a Schedule</b></font></font></p>
+  
+</blockquote>
+<ol>
+  <ol>
+    <font size="2">
+    <li>The Student selects &quot;create schedule.&quot;</li>
+    <li>The system displays a blank schedule form.</li>
+    <li>The system retrieves a list of available course offerings from the
+      Course Catalog System.</li>
+    <li>The Student selects 4 primary course offerings and 2 alternate course
+      offerings from the list of available offerings. Once the selections are
+      complete the Student selects &quot;submit.&quot;</li>
+    <li>The &quot;Add Course Offering&quot; sub-flow is performed at this step
+      for each selected course offering.</li>
+    <li>The system saves the schedule.</li>
+    </font></ol>
+  </ol>
+
+  <blockquote>
+    <p><b>2.2<font size="2">&nbsp;</font></b><font size="2"> <a name="_Toc423410241"></a><a name="_Toc425054507"></a><b><font face="Arial" size="2"><a name="_Toc449508573">Alternative
+    Flows</a></font></b></font></p>
+    
+  </blockquote>
+    
+<blockquote>
+  <blockquote>
+    <p><font face="Arial" size="2">2.2.1<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449508574">Modify a
+    Schedule</a></i></font></p>
+    
+    
+  </blockquote>
+</blockquote>
+<ol>
+  <blockquote>
+    <ol>
+      <font size="2">
+      <li>The Student selects &quot;modify schedule.&quot;</li>
+      <li>The system retrieves and displays the Student’s current schedule
+        (e.g., the schedule for the current semester).</li>
+      <li>The system retrieves a list of all the course offerings available for
+        the current semester from the Course Catalog System. The system displays
+        the list to the Student.</li>
+      <li>The Student can then modify the course selections by deleting and
+        adding new courses. The Student selects the courses to add from the list
+        of available courses. The Student also selects any course offerings to
+        delete from the existing schedule. Once the edits are complete the
+        Student selects &quot;submit&quot;.</li>
+      <li>The &quot;Add Course Offering&quot; sub-flow is performed at this step
+        for each selected course offering.</li>
+      <li>The system saves the schedule.</li>
+      </font></ol>
+    
+  </blockquote>
+</ol>
+<blockquote>
+  <blockquote>
+    <p><font face="Arial" size="2">2.2.2<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449508575">Delete a
+    Schedule</a></i></font></p>
+    
+    
+  </blockquote>
+</blockquote>
+<blockquote>
+  <blockquote>
+    <ol>
+      <li><font size="2">The Student selects the &quot;delete schedule&quot;
+        activity.</font></li>
+      <li><font size="2">The system retrieves and displays the Student current
+        schedule.</font></li>
+      <li><font size="2">The Student selects &quot;delete.&quot;</font></li>
+      <li><font size="2">The system prompts the Student to verify the deletion.</font></li>
+      <li><font size="2">The Student verifies the deletion.</font></li>
+      <li><font size="2">The system deletes the schedule.</font></li>
+    </ol>
+  </blockquote>
+</blockquote>
+<blockquote>
+  <blockquote>
+    <p><font face="Arial" size="2">2.2.3&nbsp;<i>&nbsp;&nbsp; <a name="_Toc449508576">Save a Schedule</a></i></font></p>
+    
+    
+  </blockquote>
+</blockquote>
+<ol>
+  <ol>
+    <ol>
+      <font size="2">
+      <p>At any point, the Student may choose to save a schedule without
+      submitting it by selecting &quot;save&quot;. The current schedule is
+      saved, but the student is not added to any of the selected course
+      offerings. The course offerings are marked as &quot;selected&quot; in the
+      schedule.</p>
+      </font>
+    </ol>
+  </ol>
+</ol>
+<blockquote>
+  <blockquote>
+    <p>2.2.4&nbsp;&nbsp;&nbsp; <a name="_Toc449508577"><i>Add Course Offering</i></a></p>
+  </blockquote>
+</blockquote>
+<ol>
+  <ol>
+    <ol>
+      <font size="2">
+      <p>The system verifies that the Student has the necessary prerequisites
+      and that the course offering is open. The system then adds the Student to
+      the selected course offering. The course offering is marked as
+      &quot;enrolled in&quot; in the schedule.</p>
+      </font>
+    </ol>
+  </ol>
+</ol>
+<blockquote>
+  <blockquote>
+    <p>2.2.5&nbsp;&nbsp;&nbsp; <a name="_Toc449508578"><i>Unfulfilled Prerequisites or Course Full</i></a></p>
+  </blockquote>
+</blockquote>
+<ol>
+  <ol>
+    <ol>
+      <font size="2">
+      <p>If in the &quot;Add Course&quot; sub-flow the system determines that
+      the Student has not satisfied the necessary prerequisites or that the
+      selected course offering is full, an error message is displayed. The
+      Student can either select a different course offering or cancel the
+      operation, at which point the use case is restarted.</p>
+      </font>
+    </ol>
+  </ol>
+</ol>
+<blockquote>
+  <blockquote>
+    <p>2.2.6&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc449508579"><i>No Schedule Found</i></a></p>
+  </blockquote>
+</blockquote>
+<ol>
+  <ol>
+    <ol>
+      <font size="2">
+      <p>If in the &quot;Modify a Schedule&quot; or &quot;Delete a
+      Schedule&quot; sub-flows the system is unable to retrieve the Student’s
+      schedule, an error message is displayed. The Student acknowledges the
+      error and the use case is restarted.</p>
+      </font>
+    </ol>
+  </ol>
+</ol>
+<blockquote>
+  <blockquote>
+    <p>2.2.7&nbsp;&nbsp;&nbsp; <a name="_Toc449508580"><i>Course Catalog System Unavailable</i></a></p>
+  </blockquote>
+</blockquote>
+<ol>
+  <ol>
+    <ol>
+      <font size="2">
+      <p>If, the system is unable to communicate with the Course Catalog System
+      after a specified number of tries, the system will display an error
+      message to the Student. The Student acknowledges the error message and the
+      use case terminates.</p>
+      </font>
+    </ol>
+  </ol>
+</ol>
+<blockquote>
+  <blockquote>
+    <p>2.2.8&nbsp;&nbsp;&nbsp; <a name="_Toc449508581"><i>Course Registration Closed</i></a></p>
+  </blockquote>
+</blockquote>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <font size="2">
+      <p>If, when the student selects &quot;maintain schedule&quot;,
+      registration for the current semester has been closed, a message is
+      displayed to the Student and the use case terminates. Students cannot
+      register for courses after registration for the current semester has been
+      closed.</p>
+      </font>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p><b><font face="Arial">&nbsp;&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp; <a name="_Toc449508582">Special Requirements</a></font></b><ol>
+<font size="2">
+  <p>There are no special requirements associated with this use case.</p>
+</font>
+</ol>
+<p><b><font face="Arial">&nbsp;&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp; <a name="_Toc449508583">Preconditions</a></font></b>
+  <b><font face="Arial">
+  <a name="_Toc423410254"></a><a name="_Toc425054513"></a></font>
+  <p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  4.1&nbsp;&nbsp;&nbsp; <a name="_Toc449508584">Login</a>
+</font></b><ol><b><font face="Arial" size="2">
+  </font></b><font size="2">
+  <p>Before this use case begins the Student has logged onto the system.</p>
+  </font>
+</ol>
+<p><b><font face="Arial">&nbsp;&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp; <a name="_Toc449508585">Postconditions</a></font></b>
+<ol>
+  <font size="2">
+  <p>There are no postconditions associated with this use case.</p>
+  </font>
+</ol>
+<p><b><font face="Arial">&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp; <a name="_Toc449508586">Extension Points</a></font></b></p>
+
+<blockquote>
+  <font size="2">
+  <p>There are no extension points associated with this use case.</p></font>
+</blockquote>
+<br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+    <td width="56%" height="19"><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2003 Rational Software Corporation&nbsp;</small></small></a></font>
+    </td>
+    <td width="39%" height="19">
+<p align="right"><font face="Arial"><small><small>
+Course Registration Project Web Example<br>
+Version 2001.02</small></small></font>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

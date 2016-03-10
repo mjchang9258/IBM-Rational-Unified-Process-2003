@@ -1,0 +1,292 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Adding Elements to Source Control Using Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Adding Elements to Source Control Using Rational ClearCase</rpw>
+ <a name="XE_clearcase__adding_elements_to_source_control"></a> 
+</h2>
+
+
+<h3>Purpose</h3>
+<P>This tool mentor describes how to add elements to source control using Rational 
+  ClearCase.</P>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_prmci.htm">Deliver Changes</a></li>
+</ul>
+<br>
+    
+</p>
+
+<h3>Overview</h3>
+<P>At the core of ClearCase are its extensive capabilities to control and manage 
+  versions of elements such as source files for software and documentation, directories, 
+  reports, and so on. Before you can check out one or more elements, you must 
+  first bring the initial version of these elements to source control. </P>
+
+<h3>Tool Steps 
+<a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h3>
+<P>The following steps are performed to add one or more elements to source control 
+  using Rational ClearCase: </P>
+
+<ul>
+  <li><a href="#StepNumber1">Start the ClearCase Explorer</a></li>
+  <li><a href="#StepNumber2">Navigate to the elements to be put to source control</a></li>
+  <li><a href="#StepNumber3">Select the elements</a></li>
+  <li><a href="#StepNumber4">Add the elements to source control</a></li>
+  <li><a href="#StepNumber5">Complete the source control operation</a><br><br>
+    <a href="#MoreInformation">More Information</a></li>
+</ul>
+
+
+<h4><a name="StepNumber1">Start the ClearCase Explorer</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h4>
+
+<ol>
+<li>From the <b>Start</b> menu, click <b>Programs</b> > <b>Rational ClearCase</b> > <b>ClearCase Explorer</b></li>
+<li>Select the view that points to the VOB in which you want to add the element(s) to source control.</li>
+<br>If the view does not exist, you must first create it. If the view exists, but you do not see the VOB, you must first mount the VOB that will contain the element(s).
+</ol>
+
+
+<h4><a name="StepNumber2">Navigate to the element(s) to be put to source control</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h4>
+
+<p>We recommend that you select the elements that are the farthest from the root directory tree. For any given element, ClearCase also adds any parent directories (up to the VOB root directory) that are not yet under source control.  </p>
+
+<p><b>Note</b>: Before you add an element to a VOB, its parent directory must 
+  be checked out to your view. If it is you haven't done so already, ClearCase 
+  checks it out before creating the element and checks it in after creating the 
+  element.</p>
+
+<h4><a name="StepNumber3">Select the element(s)</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h4>
+<ol>
+<li>You can select one or more elements to be put under source control using the standard selection methods. </li>
+</ol>
+
+<h4><a name="StepNumber4">Add the elements to source control</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a> 
+</h4>
+<ol>
+  <li>Right-click the selected files and and select <b>Add to Source Control</b> 
+    from the shortcut menu.</li>
+  <li>To add elements to a UCM project, in the Add to Source Control dialog box, 
+    select or create a ClearCase activity.</li>
+  <li>In the Comment box, describe the elements you are adding to source control.</li>
+  <li>To continue working on the new elements after you add them to source control, 
+    select the <b>Checkout after adding to source control</b> option. To leave 
+    them checked in, clear the option.</li>
+  <li>If you are working in a replicated VOB (MultiSite) and you are not using 
+    a UCM view, you can make your current replica master any branches created 
+    during the <b>Add to Source Control</b> operation by selecting the <b>Make 
+    current replica the master of all newly created branches</b> option. After 
+    the element is created, you will be able to create new versions of the element 
+    on any of the new branches.</li>
+  <br>
+  If you do not select this option, mastership of the element's main branch is 
+  assigned to the replica that masters the main branch type. If the master replica 
+  is not your current replica, you will not be able to create any new versions 
+  on the branch. Also, if your Config Spec contains auto-make-branch rules, creation 
+  of the branches fails if the branch types are not mastered by your current replica. 
+</ol>
+
+
+<h4><a name="StepNumber5">Complete the source control operation</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h4>
+<p>Complete the operation as follows:</p>
+<ol>
+  <li>To add only one element to source control, click <b>OK</b>.</li>
+  <li>To add multiple elements to source control and apply the same comment and 
+    Checkout to all elements, click <b>Apply to All</b>.</li>
+  <li>To cancel the operation, click <b>Cancel</b>. The elements will not be put 
+    to source control and remain view-private files.</li>
+</ol>
+
+
+<h4><a name="MoreInformation">More Information</a> 
+  <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a>
+</h4>
+<p>See the following manuals for more information about adding elements to source 
+  control using Rational ClearCase:</p>
+<ul>
+  <li><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"> 
+  <i>Managing Software Projects</i></li>
+	<ul>
+	<li>Chapter: Setting Up the Project<br><br></li>
+	</ul>
+  <li><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15">
+  <i>Developing Software</i></li>
+	<ul>
+	<li>Chapter: The UCM Workflow</li>
+	<li>Chapter: Finding and Setting Activities</li>
+	<li>Chapter: Working on Activities</li>
+	<li>Chapter: Other Development Tasks</li>
+	</ul>
+</ul>
+
+<br>
+<br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

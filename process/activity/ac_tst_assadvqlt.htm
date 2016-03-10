@@ -1,0 +1,569 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Assess and Advocate Quality</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Assess 
+  and Advocate Quality</rpw><a name="XE_system_test__advocating_quality"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b> 
+     <ul>
+          <li>To identify and advocate the resolution of defects that have a serious 
+            detrimental impact on software quality.</li>
+          <li>To monitor the progress of and support the appropriate completion 
+            of changes that improve software quality to the required level.</li>
+          <li>To advocate the timely resolution of defects that prevent or impair 
+            the testing effort.</li>
+     </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b> 
+      <ul>
+          <li><a href="#ExamineEvaluationSummaries">Examine the most current Test 
+            Evaluation Summaries</a></li>
+          <li><a href="#ExamineTestResults">Examine selected Test Results for 
+            additional context</a></li>
+          <li><a href="#UnderstandDefectTop10">Examine key Change Requests</a></li>
+          <li><a href="#IdentifyQualityRiskGaps">Identify quality gaps and assess 
+            their impact and risk</a></li>
+          <li><a href="#IdentifyKeyQualityActions">Identify the essential actions 
+            to address quality gaps</a></li>
+          <li><a href="#EngageQualityChampions">Identify and engage with champions on major issues</a></li>
+          <li><a href="#NegotiateWorkPriority">Negotiate work priority</a></li>
+          <li><a href="#MonitorWorkProgress">Monitor work progress</a></li>
+          <li><a href="#ConfirmKeyIssueResolution">Confirm appropriate resolution 
+            of key issues</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+      </ul>
+    </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_prjms.htm">Project Measurements</a></li>
+<li><a href="../artifact/ar_qapl.htm">Quality Assurance Plan</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_tstev.htm">Test Evaluation Summary</a></li>
+<li><a href="../artifact/ar_tstrs.htm">Test Results</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstev.htm">Test Evaluation Summary</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstmng.htm">Test Manager</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/clearquest/tm_repdd.htm">Reporting Defect Trends and Status Using Rational ClearQuest</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/test/co_qtydm.htm">Concept: Quality Dimensions</a></li>
+</ul>
+</td>
+    </tr>
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_vldbldstb.htm">Validate Build Stability</a></li>
+<li><a href="../workflow/test/wfs_achmsnacp.htm">Achieve Acceptable Mission</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="ExamineEvaluationSummaries">Examine the most current Test Evaluation 
+  Summaries</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To understand the current summary assessment of product 
+        quality issues the test team have identified.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Begin by examining the Test Evaluation Summaries that the test team has prepared. 
+  Compare the evaluation information to the Test Plan for the iteration to understand 
+  the summary in the context of the planned work. Raise any ambiguities and concerns 
+  with the test team members who prepared the summary and resolve them.</p>
+<p>For this step and subsequent steps that deal with gathering information and 
+  assessing the software quality, try to obtain a balanced view incorporating 
+  both objective and subjective measures. Remember that objective numbers only 
+  give part of the picture and need to be supported and explained by the current 
+  project &quot;climate&quot;. Conversely, don't rely purely on hearsay and subjective 
+  speculation about the software quality: look for supporting objective evidence. 
+  We recommend you supplement your objective data by discussion with either team 
+  leads or where possible individual team members to gather subjective assessments 
+  and gauge how much confidence you can place in the objective data.</p>
+
+
+<h3><a name="ExamineTestResults">Examine selected Test Results for additional 
+  context</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To gain amore in-depth understanding of the Test Results 
+        that support the current summary assessment of product quality.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Based on the Test Evaluation Summaries, examine selected Test Results for additional 
+  context. Research the results enough to feel confident you understand the important 
+  issues that have been identified in the Test Evaluation Summaries.</p>
+<p>Also review the data yourself and look for important trends evident in the 
+  Test Results data that may have been missed. In general it's more important 
+  to identify what the relative trends in the data are indicating rather than 
+  looking at absolute numbers. Be on the lookout for indications such as failures 
+  in one areas that relate to failures in others.</p>
+
+
+<h3><a name="UnderstandDefectTop10">Examine key Change Requests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To be gain the background to be able to effectively discuss 
+        the most important outstanding issues and their possible solutions.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>We recommend you limit this exercise to the most pressing Issues and associated 
+  Change Requests. You'll be able to devote more energy to a smaller number of 
+  issues, and they are often more likely to have the most impact on product quality. 
+  If you have a longer list of key issues, we recommend you devote appropriate 
+  effort to them based on their relative priority: don't waste your resources 
+  by championing the least significant issue. However, note that a significant 
+  number of outstanding lower-priority Change Requests can make as significant 
+  a statement about the products quality as a handful of high-priority changes. 
+  Try to group lower-priority Change Requests into logical aspects of quality 
+  based on the quality risk the represent. This will help you articulate and advocate 
+  their combined effect on quality more clearly.</p>
+<p>Identify important trends evident in the general Change Request data. In general 
+  it's more important to identify what the relative trends in the data are indicating 
+  rather than looking at absolute numbers. Look for positive signs such as a steady, 
+  continuous rate of defect resolution, or a gradual ongoing increase and subsequent 
+  decrease in resolution rate over time. Be on the lookout for sharp peaks and 
+  troughs in resolution rate that indicate the development team may be encountering 
+  process, environmental, political or other problems that are reducing their 
+  productivity.</p>
+<p>Note: you may also want to take the opportunity improve the clarity of the 
+  associated Change Requests, eliminating ambiguity and emotive language and reasoning. 
+  If you make these changes yourself, discuss your improvements with the individuals 
+  who originally created these artifacts so that they can understand why the improvements 
+  are important.</p>
+
+
+<h3><a name="IdentifyQualityRiskGaps">Identify quality gaps and assess the associated 
+            impact and risk</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To formulate your understanding of the key Issues in terms 
+        of the risk they represent to product quality and the associated risk 
+        that poses to the success of the software development project.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Identify each gap in quality and assess the associated impact and risk of each 
+  Issue that creates the gap. Consider mitigation and contingency strategies, 
+  formulate your initial ideas for these and discuss them with other team members.</p>
+<p>Consider that &quot;perfect&quot; quality is arguably a somewhat mythical concept. 
+  Be careful to use a realistic and attainable &quot;quality bar&quot; when assessing 
+  quality and identifying quality gaps. See <a href="../workflow/test/co_rqlty.htm">Concept: 
+  Product Quality</a></p>
+
+
+<h3><a name="IdentifyKeyQualityActions">Identify the essential actions to address 
+  quality gaps</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To produce a realistic minimal list of required actions 
+        to negotiate satisfactory resolution of the key Issues.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>For each key gap in quality, consider potential mitigation and contingency 
+  strategies. Formulate your initial ideas for these and discuss them informally 
+  with other team members to gain greater insight and validate your thoughts. 
+  In the case of solutions, it's good to have options: they help you weigh up 
+  the tradeoffs and take the best solution for the given context.</p>
+<p>Work toward a set of useful candidate solutions and suggestions that will aid 
+  the project team in suitably addressing each quality gap. It's important for 
+  you to do this so that the test effort is recognized as contributing helpfully 
+  to problem resolution: not simply reporting problems. This is an important aspect 
+  of advocating the value of the test team and gaining respect and cooperation 
+  from other team members.</p>
+
+
+<h3><a name="EngageQualityChampions">Identify and engage with champions on major 
+  issues</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To informally gather support for resolving the key issues, 
+        and gain an understanding of what proposals are more likely to be accepted.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>It's no fun to back a lost cause. It's usually a more effective approach to 
+  identify solutions to problems that the project team are more likely to get 
+  behind, accept and commit to achieving. Keep a close relationship with key decision 
+  makers, and consider starting by making these key issues visibly informally 
+  through one-on-one discussion. Often that's a great way to win support, and 
+  find achievable solutions.</p>
+<p>Sometimes you don't have any choice but to back a solution that is unpopular 
+  with the development team. Where this looks likely, it's even more important 
+  to know who you can expect support form and find ways to sell the solution that 
+  present it's value as clearly as possible or explain clearly the worse situation 
+  that will arise by not resolving the problem.</p>
+
+
+<h3><a name="NegotiateWorkPriority">Negotiate work priority</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To advocate for an appropriate solution to be actioned 
+        in an acceptable time-frame that does not adversely effect required quality.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>This is the crux of quality advocacy: being able to negotiate a suitable solution 
+  that both appeases the development team and does not significantly reduce the 
+  quality of the product. Remember that in most cases the test team primarily 
+  an advisor about quality, so you must be careful not to demand a given resolution 
+  being taken.</p>
+<p>However, it's important that the test team does a good job as an advocate for 
+  quality and that includes sometimes being the bearer of news the project team 
+  would really not like to hear. This is where good test teams provide the development 
+  effort with as much insight into the problem, it's potential solutions and as 
+  understanding as the tradeoff's for each choice as possible. You should act 
+  to some extent as an agent for the eventual customers of the product and help 
+  negotiate solutions that will be in their best interest.</p>
+
+
+<h3><a name="MonitorWorkProgress">Monitor work progress</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To remain supportive, involved and aware of the progress 
+        on the resolution of the issue.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Sometimes Defects and other Change Requests get lost in a sea of ongoing basic 
+  product development and feature expansion. This is partly because it's more 
+  attractive for developers to work on &quot;new stuff&quot; than it is to fix 
+  old and buggy code, and partly because business-value can be more obviously 
+  placed on adding something new than fixing something broken. As quality advocates, 
+  the test team needs to help the project see important defect fixes through to 
+  completion.</p>
+<p>Successful software teams find a good balance between incremental quality improvement 
+  through defect resolution and incremental feature expansion. The test team can 
+  assist the project team by finding ways to encourage and support incremental 
+  quality improvement rather than taking less helpful and more adversarial &quot;quality 
+  police&quot; role.</p>
+
+
+<h3><a name="ConfirmKeyIssueResolution">Confirm appropriate resolution of key 
+  Issues</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To confirm that the resolutions for key issues effectively 
+        resolve the issue without significant negative side effects.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Whatever solution the development team decide on to resolve a quality issue, 
+  the resolution should ultimately improve quality. Be sure that you take time 
+  to assess the improvement in quality brought by a given resolution and that 
+  it both addresses the original issue and does not adversely impact quality in 
+  other ways.</p>
+<p>For solutions that carry some level of risk themselves, it may be useful to 
+  conduct some testing of an early release candidate before too much time and 
+  effort is devoted to following the resolution to it's conclusion.</p>
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="middle">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is beneficial to verify that the work 
+  was of sufficient value, and that you did not simply consume vast quantities 
+  of paper. You should evaluate whether your work is of appropriate quality, and 
+  that it is complete enough to be useful to those team members who will make 
+  subsequent use of it as input to their work. Where possible, use the checklists 
+  provided in RUP to verify that quality and completeness are &quot;good enough&quot;.</p>
+<p>Have the people performing the downstream activities that rely on your work 
+  as input take part in reviewing your interim work. Do this while you still have 
+  time available to take action to address their concerns. You should also evaluate 
+  your work against the key input artifacts to make sure you have represented 
+  them accurately and sufficiently. It may be useful to have the author of the 
+  input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  often counterproductive&#151;to fully-form an artifact that will only be partially 
+  used or will not be used at all in immediately subsequent work. This is because 
+  there is a high probability that the situation surrounding the artifact will 
+  change&#151;and the assumptions made when the artifact was created proven incorrect&#151;before 
+  the artifact is used, resulting in wasted effort and costly rework. Also avoid 
+  the trap of spending too many cycles on presentation to the detriment of content 
+  value. In project environments where presentation has importance and economic 
+  value as a project deliverable, you might want to consider using an administrative 
+  resource to perform presentation tasks.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

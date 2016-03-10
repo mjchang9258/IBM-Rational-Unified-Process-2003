@@ -1,0 +1,779 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Implement Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Activity:&nbsp;<rpw name="PresentationName">Implement 
+  Test</rpw><a name="XE_system_test__implementation_of"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+      <td colspan="2"><b>Purpose</b> 
+        <ul>
+          <li>To implement one or more test artifacts that enable the validation 
+            of the software product through physical execution.</li>
+          <li>To develop tests that can be executed in conjunction with other 
+            tests as part of a larger test infrastructure.</li>
+        </ul>
+    </td>
+  </tr>
+    <tr> 
+      <td colspan="2"><b>Steps</b>
+        <ul>
+          <li><a href="#SelectImplementTechnique">Select appropriate implementation 
+            technique</a></li>
+          <li><a href="#Setup">Set up test environment preconditions</a></li>
+          <li><a href="#ImplementTest">Implement the test</a></li>
+          <li><a href="#EstablishExternalData">Establish external data sets</a></li>
+          <li><a href="#VerifyTestImplementation">Verify the test implementation</a></li>
+          <li><a href="#Restore">Restore test environment to known state</a></li>
+          <li><a href="#Traceability">Maintain traceability relationships</a></li>
+          <li><a href="#EvaluateResults">Evaluate and verify your results</a></li>
+        </ul>
+      </td>
+  </tr>
+    <!-- Input_Output Artifact Begin -->
+    <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_build.htm">Build</a></li>
+<li><a href="../artifact/ar_supp.htm">Development Infrastructure</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_tstcl.htm">Testability Class</a></li>
+<li><a href="../artifact/ar_tstatmarc.htm">Test Automation Architecture</a></li>
+<li><a href="../artifact/ar_tstcs.htm">Test Case</a></li>
+<li><a href="../artifact/ar_tstdta.htm">Test Data</a></li>
+<li><a href="../artifact/ar_tstenv.htm">Test Environment Configuration</a></li>
+<li><a href="../artifact/ar_tstidslst.htm">Test-Ideas List</a></li>
+<li><a href="../artifact/ar_tstsc.htm">Test Script</a></li>
+<li><a href="../artifact/ar_tststr.htm">Test Strategy</a></li>
+<li><a href="../artifact/ar_tools.htm">Tools</a></li>
+<li><a href="../artifact/ar_wlmod.htm">Workload Analysis Model</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_tstsc.htm">Test Script</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Input_Output Artifact End -->
+    <!-- Activity Frequency -->
+    <tr> 
+      <td colspan="2"><b>Frequency:&nbsp;</b> This 
+        activity is typically conducted multiple times per iteration. .&nbsp;</td>
+    </tr>
+    <!-- Activity Responsible Role -->
+    <tr>
+      <td colspan="2"><b>Role:&nbsp;</b> 
+	    <a href="../workers/wk_tstr.htm">Tester</a>&nbsp;</td>
+    </tr>
+    <!-- Activity Tool Mentors -->
+    <tr> 
+      <td colspan="2"><b>Tool Mentors:&nbsp;</b> 
+        <ul>
+<li><a href="../../toolment/robot/tm_tstscr.htm">Creating an Automated Performance Test Script Using Rational Robot </a></li>
+<li><a href="../../toolment/test_realtime/tm_rtrtimp.htm">Implementing Developer Tests using Rational Test RealTime</a></li>
+<li><a href="../../toolment/testfact/tm_tfgen.htm">Implementing Generated Test Scripts Using Rational TestFactory</a></li>
+<li><a href="../../toolment/robot/tm_imtst.htm">Implementing Test Scripts Using Rational Robot</a></li>
+<li><a href="../../toolment/testfact/tm_tfenv.htm">Setting Up the Test Environment in Rational TestFactory</a></li>
+<li><a href="../../toolment/testfact/tm_tfcap.htm">Structuring the Test Implementation with Rational TestFactory</a></li>
+</ul>
+&nbsp;</td>
+    </tr>
+    <!-- Activity More Information -->
+    <tr>
+      <td colspan="2"><b>More Information:&nbsp;</b> 
+        &nbsp;</td>
+    </tr>
+  </tbody> 
+</table>
+<P></P>
+<!-- Linked to Workflow Begin -->
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="top">
+    <tr>
+      <td colspan="2"><b>Workflow Details:&nbsp;</b> 
+        <ul>
+<li><a href="../workflow/ovu_test.htm">Test</a>
+<ul>
+<li><a href="../workflow/test/wfs_vldbldstb.htm">Validate Build Stability</a></li>
+<li><a href="../workflow/test/wfs_vrftstapr.htm">Verify Test Approach</a></li>
+<li><a href="../workflow/test/wfs_imptstast.htm">Improve Test Assets</a></li>
+<li><a href="../workflow/test/wfs_tstandevl.htm">Test and Evaluate</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+
+<h3><a name="SelectImplementTechnique">Select appropriate implementation technique</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To determine the appropriate technique to implement the test.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Select the most appropriate technique to implement the test. For each test 
+  that you want to conduct, consider implementing at least one Test Script. In 
+  some instances, the implementation for a given test will span multiple Test 
+  Scripts. In others, a single Test Script will provide the implementation for 
+  multiple tests. </p>
+<p>Typical methods for implementing tests include writing a textual description 
+  in the form of a script to be followed (for manual testing) and the programming, 
+  captured-recording or generation of a script-based programming language (for 
+  automated testing). Each method is discussed in the following sections.</p>
+<p>As with most approaches, we recommend you'll get more useful results if you 
+  use a mixture of the following techniques. While you don't need to use them 
+  all, you shouldn't confine yourself to using a single technique either.</p>
+
+<p><b>Sub-topics:</b></p>
+<ul>
+  <li><a href="#ManualTestScripts">Manual Test Scripts</a></li>
+  <li><a href="#ProgramTestScripts">Programmed Test Scripts</a></li>
+  <li><a href="#RecordTestScripts">Recorded or captured Test Scripts</a></li>
+  <li><a href="#GenerateTests">Generated Tests</a></li>
+</ul>
+
+<h4><a name="ManualTestScripts">Manual Test Scripts</a> <a href="#SelectImplementTechnique"><img src="../../images/top.gif" alt="To Select Implement Technique" border="0" width="26" height="20"></a></h4>
+<p>Many tests are best conducted manually, and you should avoid the trap of attempting 
+  to inappropriately automate tests. Usability tests are an area where manual 
+  testing is in many cases a better solution than an automated one. Also tests 
+  that require validation of the accuracy and quality of the physical outputs 
+  from a software system generally require manual validation. As a general heuristic, 
+  it's a good idea to begin the first tests of a particular Target Test Item with 
+  a manual implementation; this approach allows the tester to learn about the 
+  target item, adapt to unexpected behavior from it, and apply human judgment 
+  to determine the next appropriate action to be taken.</p>
+<p>Sometimes manually conducted tests will be subsequently automated and reused 
+  as part of a regression testing strategy. Note however that it isn't necessary 
+  or desirable&#151;or even possible&#151;to automate every test that you could 
+  otherwise conduct manually. Automation brings certain advantages in speed and 
+  accuracy of test execution, visibility and collation of detailed test outcomes 
+  and in efficiency of creating and maintaining complex tests, but like all useful 
+  tools, it isn't the solution to all your needs.</p>
+<p>Automation comes with certain disadvantages: these basically amount to an absence 
+  of human judgment and reasoning during test execution. The automation solutions 
+  currently available simply don't have the cognitive abilities that a human does&#151;and 
+  it's arguably unlikely that they ever will. During implementation of a manual 
+  test, human reasoning can be applied to the observed responses of the system 
+  to stimulus. Current automated test techniques and their supporting tools typically 
+  have limited ability to notice the implications of certain system behaviors, 
+  and have minimal ability to infer possible problems through deductive reasoning.</p>
+
+<h4><a name="ProgramTestScripts">Programmed Test Scripts</a> <a href="#SelectImplementTechnique"><img src="../../images/top.gif" alt="To Select Implement Technique" border="0" width="26" height="20"></a></h4>
+<p>Arguably the method of choice practiced by most testers who use test automation. 
+  In it's purest form, this practice is performed in the same manner and using 
+  the same general principles as software programming. As such, most methods and 
+  tools used for software programming are generally applicable and useful to test 
+  automation programming.</p>
+<p>Using either a standard software development environment (such as Microsoft 
+  Visual Studio or IBM Visual Age) or a specialized test automation development 
+  environment (such as the IDE provided with Rational Robot), the tester is free 
+  to harness the features and power of the development environment to best effect.</p>
+<p>The negative aspects of programming automated tests are related to the negative 
+  aspects of programming itself as a general technique. For programming to be 
+  effective, some consideration should be given to appropriate design: without 
+  this the implementation will likely fail. If the developed software will likely 
+  be modified by different people over time&#151;the usual situation&#151;then 
+  some consideration must be given to adopting a common style and form to be used 
+  in program development, and ensuring it's correct use. Arguably the two most 
+  important concerns relate to the misuse of this technique.</p>
+<p>First, there is a risk that a tester will become engrossed in the features 
+  of the programming environment, and spend too much time crafting elegant and 
+  sophisticated solutions to problems that could be achieved by simpler means. 
+  The result is that the tester wastes precious time on what are essentially programming 
+  tasks to the detriment of time that could be spent actually testing and evaluating 
+  the Target Test Items. It requires both discipline and experience to avoid this 
+  pitfall.</p>
+<p>Secondly, there is the risk that the program code used to implement the test 
+  will itself have bugs introduced through human error or omission. Some of these 
+  bugs will be easy to debug and correct in the natural course of implementing 
+  the automated test: others won't. Just as errors can be elusive to detect in 
+  the Target Test Item, it can be equally difficult to detect errors in test automation 
+  software. Furthermore, errors may be introduced where algorithms used in the 
+  automated test implementation are based on the same faulty algorithms used by 
+  the software implementation itself. This results in errors going undetected, 
+  hidden by the false security of automated tests that apparently execute successfully. 
+  Mitigate this risk by using different algorithms in the automated tests wherever 
+  possible.</p>
+
+<h4><a name="RecordTestScripts">Recorded or captured Test Scripts</a> <a href="#SelectImplementTechnique"><img src="../../images/top.gif" alt="To Select Implement Technique" border="0" width="26" height="20"></a></h4>
+<p>There are a number of test automation tools that provide the ability to record 
+  or capture human interaction with a software application and produce a basic 
+  Test Script. There are a number of different tool solutions for this. Most tools 
+  produce a Test Script implemented in some form of a high-level, normally editable, 
+  programming language. The most common designs work in one of the following ways:</p>
+<ul>
+  <li>by capturing the interaction with the client <i><a href="../glossary.htm#ui" target="_blank">UI</a></i> 
+    of an application based on intercepting the inputs sent from the client hardware 
+    peripheral input devices: mouse, keyboard and so forth to the client operating 
+    system. In some solutions, this is done by intercepting high-level messages 
+    exchanged between the operating system and the device driver that describe 
+    the interactions in a somewhat meaningful way; in other solutions this is 
+    done by capturing low-level messages, often based at the level of time-based 
+    movements in mouse coordinates or key-up and key-down events.</li>
+  <li>by intercepting the messages sent and received across the network between 
+    the client application and one or more server applications. The successful 
+    interpretation of those messages relies typically on the use of standard, 
+    recognized messaging protocols, such as <i><a href="../glossary.htm#http" target="_blank">HTTP</a></i>, <i><a href="../glossary.htm#sql" target="_blank">SQL</a></i> and so forth. Some 
+    tools also allow the capture of &quot;base&quot; communications protocols 
+    such as <i><a href="../glossary.htm#tcp/ip" target="_blank">TCP/IP</a></i>, however it can be more complex to work with Test Scripts of 
+    this nature.</li>
+</ul>
+<p>While these techniques are generally useful to include as part of your approach 
+  to automated testing, some practitioners feel these techniques have limitations. 
+  One of the main concerns is that some tools simply capture application interaction 
+  and do nothing else. Without the additional inclusion of observation points 
+  that capture and compare system state during subsequent script execution, the 
+  basic Test Script cannot be considered to be a fully-formed test. Where this 
+  is the case, the initial recording will need to be subsequently augmented with 
+  additional custom program code to implement observation points within the Test 
+  Script.</p>
+<p>Various authors have published books and essays on this and other concerns 
+  related to using test procedure record or capture as a test automation technique. 
+  To gain a more in-depth understanding of these issues, we recommend reviewing 
+  the work available on the Internet by the following authors: 
+  <a href="http://www.satisfice.com/" target="_blank">James Bach</a>, 
+  <a href="http://www.kaner.com/articles.html" target="_blank">Cem Kaner</a>, 
+  <a href="http://www.testing.com/writings.html" target="_blank">Brian Marick</a> 
+  and <a href="http://www.io.com/~wazmo/papers/" target="_blank">Bret Pettichord</a>, 
+  and the relevant content in the book <i>Lessons Learned in Software Testing</i> 
+  <a href="../referenc.htm#KAN01">[KAN01]</a></p>
+
+<h4><a name="GenerateTests">Generated Tests</a> <a href="#SelectImplementTechnique"><img src="../../images/top.gif" alt="To Select Implement Technique" border="0" width="26" height="20"></a></h4>
+<p>Some of the more sophisticated test automation software enables the actual 
+  generation of various aspects of the test&#151;either the procedural aspects 
+  or the Test Data aspects of the Test Script&#151;based on generation algorithms. 
+  This type of automation can play a useful part in your test effort, but shouldn't 
+  be considered a sufficient approach by itself. The Rational TestFactory tool 
+  and the Rational TestManager datapool generation feature are example implementations 
+  of this type of technology.</p>
+
+<h3><a name="Setup">Set up test environment preconditions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To ready the environment to the correct starting state.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Setup the test environment to ensure that all the needed components (hardware, 
+  software, tools, data, etc.) have been implemented and are in the test environment, 
+  ready in the correct state to enable the tests to be conducted. Typically this 
+  will involve some form of basic environment reset (e.g. resetting the <i><a href="../glossary.htm#windows_registry" target="_blank"> 
+  Windows registry</a></i> and other configuration files), restoration of underlying 
+  databases to known state, and so forth in addition to tasks such as loading 
+  paper into printers. While some tasks can be performed automatically, some aspects 
+  typically require human attention.</p>
+
+<p><b>Sub-topics:</b></p>
+<ul>
+  <li><a href="#ManualCheck">(Optional) Manual walk-through of the test</a></li>
+  <li><a href="#ConfirmTestOracles">Identify and confirm appropriateness of Test 
+    Oracles</a></li>
+  <li><a href="#ResetEnvTools">Reset test environment and tools</a></li>
+</ul>
+
+<h4><a name="ManualCheck">(Optional) Manual walk-through of the test</a>
+   <a href="#Setup"><img src="../../images/top.gif" alt="To Setup" border="0" width="26" height="20"></a></h4> 
+
+<p>Especially applicable to automated Test Scripts, it can be beneficial to initially 
+  walk-through the test manually to confirm expected prerequisites are present. 
+  During the walk-through, you should verify the integrity of the environment, 
+  the software and the test design. The walk-through is most relevant where you 
+  are using an interactive recording technique, and least relevant where you are 
+  programming the Test Script. The objective is to verify that all the elements 
+  required to implement the test successfully are present.</p>
+<p>Where the software is known to be sufficiently stable or mature, you way elect 
+  to skip this step where you deem the risk of problems occurring in the areas 
+  the manual walk-through addresses are relatively low.</p>
+
+
+<h4><a name="ConfirmTestOracles">Identify and confirm appropriateness of Test 
+  Oracles</a> <a href="#Setup"><img src="../../images/top.gif" alt="To Setup" border="0" width="26" height="20"></a></h4> 
+
+<p>Confirm that the <i><a href="../glossary.htm#test_oracle" target="_blank">Test 
+  Oracles</a></i> you plan to use are appropriate. Where they have not already 
+  been identified, now is the time for you to do so.</p>
+<p>You should try to confirm through alternative means that the chosen Test Oracle(s) 
+  will provide accurate and reliable results. For example, if you plan to validate 
+  test results using a field displayed via the application's UI that indicates 
+  a database update has occurred, consider independently querying the back-end 
+  database to verify the state of the corresponding records in the database. Alternatively, 
+  you might ignore the results presented in an update confirmation dialog, and 
+  instead confirm the update by querying for the record through an alternative 
+  front-end function or operation.</p>
+
+
+<h4><a name="ResetEnvTools">Reset test environment and tools</a>
+   <a href="#Setup"><img src="../../images/top.gif" alt="To Setup" border="0" width="26" height="20"></a></h4> 
+
+<p>Next you should restore the environment&#151;including the supporting tools&#151;back 
+  to it's original state. As mentioned in previous steps, this will typically 
+  involve some form of basic operating environment reset, restoration of underlying 
+  databases to a known state, and so forth in addition to tasks such as loading 
+  paper into printers. While some reset tasks can be performed automatically, 
+  some aspects typically require human attention.</p>
+<p>Set the implementation options of the test-support tools, which will vary depending 
+  on the sophistication of the tool. Where possible, you should consider storing 
+  the option settings for each tool so that they can be reloaded easily based 
+  on one or more predetermined profiles. In the case of manual testing, it will 
+  include tasks such as partitioning a new entry in a support system for logging 
+  the test results, or signing into an issue and change request logging system.</p>
+<p>In the case of automated test implementation tools, there may be many different 
+  settings to be considered. Failing to set these options appropriately may reduce 
+  the usefulness and value of the resulting test assets.</p>
+
+
+<h3><a name="ImplementTest">Implement the test</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To implement one or more reusable test implementation assets.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the Test-Ideas List, or one or more selected Test Case artifacts, begin 
+  to implement the test. Start by giving the test a uniquely identifiable name 
+  (if it does not already have one) and prepare the IDE, capture tool, spreadsheet 
+  or document to begin recording the specific steps of the test. Work through 
+  the following subsections as many times as are required to implement the test.</p>
+<p>Note that for some specific tests or types of tests, there may be little value 
+  in documenting the explicit steps required to conduct the test. In certain styles 
+  of <i><a href="../glossary.htm#exploratory_testing" target="_blank">exploratory 
+  testing</a></i> repetition of the test is not an expected deliverable. For very 
+  simple tests, a brief description of the purpose of the tests will be sufficient 
+  in many cases to allow it to be reproduced.</p>
+
+<p><b>Sub-topics:</b></p>
+<ul>
+  <li><a href="#NavigationActions">Implement navigation actions</a></li>
+  <li><a href="#ObservationPoint">Implement observation points</a></li>
+  <li><a href="#ControlPoint">Implement control points</a></li>
+  <li><a href="#ResolveImplementErrors">Resolve implementation errors</a></li>
+</ul>
+
+
+<h4><a name="NavigationActions">Implement navigation actions</a> <a href="#ImplementTest"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+
+<p>Program, record or generate the required navigation actions. Start by selecting 
+  your appropriate navigation method of choice. For most classes of system these 
+  days, a &quot;Mouse&quot; or other pointing device is the preferred and primary 
+  medium for navigation. For example, the pointing and scribing device used with 
+  a Personal Digital Assistants (PDA) is conceptually equivalent to a Mouse.</p>
+<p>The secondary navigation means is generally that of keyboard interaction. In 
+  most cases, navigation will be made up of a combination of mouse-driven and 
+  keyboard-driven actions.</p>
+<p>In some cases, you will need to consider voice-activated, light, visual and 
+  other forms of recognition. These can be more troublesome to automate tests 
+  against, and may require the addition of special test-interface extensions to 
+  the application to allow audio and visual elements to be loaded and processed 
+  from file rather than captured dynamically.</p>
+<p>In some situations, you may want to&#151;or need to&#151;perform the same test 
+  using multiple navigation methods. There are different approaches you can take 
+  to achieve this, for example: automate all the tests using one method and manually 
+  perform all or some subset of the tests using others; separate the navigation 
+  aspects of the tests from the Test Data that characterize the specific test, 
+  providing and building a logical navigation interface that allows either method 
+  to be selected to drive the test; simply mix and match navigation methods.</p>
+
+
+<h4><a name="ObservationPoint">Implement observation points</a> <a href="#ImplementTest"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+
+<p>At each point in the Test Script where an observation should be taken, use 
+  the appropriate Test Oracle to capture the desired information. In many cases, 
+  the information gained from the observation point will need to be recorded and 
+  retained to be referenced during subsequent control points.</p>
+<p>Where this is an automated test, decide how the observed information should 
+  be reported from the Test Script. In most cases it usually appropriate simply 
+  to record the observation in a central Test Log relative to it's delta-time 
+  from the start of the Test Script; in other cases specific observations might 
+  be output separately to a spreadsheet or data file for more sophisticated uses.</p>
+
+
+<h4><a name="ControlPoint">Implement control points</a> <a href="#ImplementTest"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+
+<p>At each point in the Test Script where a control decision should be taken, 
+  obtain and assess the appropriate information to determine the correct branch 
+  for the flow of control to follow. The data retrieved form prior observation 
+  points are usually input to control points.</p>
+<p>Where a control point occurs, and a decision made about the next action in 
+  the flow-of-control, we recommend you record the input values to the control 
+  point, and the resulting flow that is selected in the Test Log.</p>
+
+
+<h4><a name="ResolveImplementErrors">Resolve errors in the test implementation</a> 
+  <a href="#ImplementTest"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4> 
+
+<p>During test implementation, you'll likely introduce errors in the test implementation 
+  itself. Those errors may even be the result of things you've omitted from the 
+  test implementation or may be related to things you've failed to consider in 
+  the test environment. These errors will need to be resolved before the test 
+  can be considered completely implemented. Identify each error you encounter 
+  and work through addressing them.</p>
+<p>In the case of test automation that uses a programming language, this might 
+  include compilation errors due to undeclared variables and functions, or invalid 
+  use of those functions. Work your way through the error messages displayed by 
+  the compiler or any other sources of error messages until the Test Script is 
+  free of syntactical and other basic implementation errors.</p>
+<p>Note that during subsequent execution of the test, other errors in the test 
+  implementation might be found. Initially these may appear to be failures in 
+  the target test item - you need to be diligent when analyzing test failures 
+  that you confirm the failures are actually in the target test item, and not 
+  in some aspect of the test implementation.</p>
+
+
+<h3><a name="EstablishExternalData">Establish external data sets</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To create and maintain data, stored externally to the test 
+        script, that are used by the test during execution.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>In many cases it's more appropriate to maintain your Test Data external to 
+  the Test Script. This provides flexibility, simplicity and security in Test 
+  Script and Test Data maintenance. External data sets provide value to test in 
+  the following ways:</p>
+<ul>
+  <li>Test Data is external to the Test Script eliminating hard-coded references 
+    in the Test Script</li>
+  <li>External Test Data can be modified easily, usually with minimal Test Script 
+    impact</li>
+  <li>Additional Test Cases can easily be supported by the Test Data with little 
+    or no Test Script modifications</li>
+  <li>External Test Data can be shared with many Test Scripts</li>
+  <li>Test Scripts can be developed to use external Test Data to control the conditional 
+    branching logic within the Test Script.</li>
+</ul>
+
+<h3><a name="VerifyTestImplementation">Verify the test implementation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To verify the correct workings of the Test Script by executing 
+        the Test Script.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Especially in the case of test automation, you will probably need to spend 
+  some time stabilizing the workings of the test when it is being executed. When 
+  you have completed the basic implementation of the Test Script, it should be 
+  tested to ensure it implements the individual tests appropriately and that they 
+  execute properly.</p>
+
+<h4><a name="Recover">Recover test environment to known state</a>
+   <a href="#VerifyTestImplementation"><img src="../../images/top.gif" alt="To Verify Test Implementation" border="0" width="26" height="20"></a></h4> 
+<p>Again, you should restore the environment back to it's original state, cleaning 
+  up after your test implementation work. As mentioned in previous steps, this 
+  will typically involve some form of basic operating environment reset, restoration 
+  of underlying databases to known state, and so forth in addition to tasks such 
+  as loading paper into printers. While some tasks can be performed automatically, 
+  some aspects typically require human attention.</p>
+
+<h4><a name="SetupandPlayback">Setup tools and initiate test execution</a>
+   <a href="#VerifyTestImplementation"><img src="../../images/top.gif" alt="To Verify Test Implementation" border="0" width="26" height="20"></a></h4> 
+<p>Especially in the case of test automation, the settings within the supporting 
+  tools should be changed The objective is to verify the correct workings of the 
+  Test Script by executing the Test Script.</p>
+<p>It's a good idea to perform this step using the same Build version of the software 
+  used to implement the Test Scripts. This eliminates the possibility of problems 
+  due to introduced errors in subsequent builds.</p>
+
+<h4><a name="ResolveExecutionErrors">Resolve execution errors</a>
+   <a href="#VerifyTestImplementation"><img src="../../images/top.gif" alt="To Verify Test Implementation" border="0" width="26" height="20"></a></h4> 
+<p>It's pretty common that some of the things done and approaches used during 
+  implementation will need a degree of adjustment to enable the test to run unattended, 
+  especially in regard to executing the test under multiple Test Environment Configurations.</p>
+<p>In the case of test automation, be prepared to spend some time checking and 
+  the tests &quot;function within tolerances&quot; and adjusting them until they 
+  work reliably before you declare the test as implemented. While you might delay 
+  this step until later in the lifecycle (e.g. during Test Suite development), 
+  we recommend that you don't: otherwise you could end up with a significant backlog 
+  of failures that need to be addressed.</p>
+
+
+<h3><a name="Restore">Restore test environment to known state</a>
+   <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To leave the environment either the way you found it, or 
+        in the required state to implement the next test.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>While this step might seem trivial, but it's an important good habit to form 
+  to work effectively with the other testers on the team&#151;especially where 
+  the implementation environment is shared. It's also important to establish a 
+  routine that makes thinking of the system state second nature.</p>
+<p>While in a primarily manual testing effort, it's often simple to identify and 
+  fix environment restore problems, remember that test automation has much less 
+  ability to tolerate unanticipated problems with environment state.</p>
+
+
+<h3><a name="Traceability">Maintain traceability relationships</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+      <td width="95%">To enable impact analysis and assessment reporting to be 
+        performed on the traced items.&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>Using the Traceability requirements outlined in the Test Plan, update the traceability 
+  relationships as required.</p>
+
+
+
+
+
+
+<h3><a name="EvaluateResults">Evaluate and verify your results</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a></h3> 
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+  <tbody valign="center">
+    <tr>
+      <td width="5%"><b>Purpose:</b>&nbsp;</td>
+        
+      <td width="95%">To verify that the activity has been completed appropriately 
+        and that the resulting artifacts are acceptable.&nbsp;</td>
+     </tr>
+   </tbody>
+</table>
+<br>
+</div>
+
+<p>Now that you have completed the work, it is a good practice to verify that 
+  the work was of sufficient value. You should evaluate whether your work is of 
+  appropriate quality, and that it is complete enough to be useful to those team 
+  members who will make subsequent use of it as input to their work. Where possible, 
+  use the checklists provided in RUP to verify that quality and completeness are 
+  &quot;good enough&quot;.</p>
+<p>Have the people who will use your work as input in performing their downstream 
+  activities take part in reviewing your interim work. Do this while you still 
+  have time available to take action to address their concerns. You should also 
+  evaluate your work against the key input artifacts to make sure you have represented 
+  or considered them sufficiently and accurately. It may be useful to have the 
+  author of the input artifact review your work on this basis.</p>
+<p>Try to remember that that RUP is an iterative process and that in many cases 
+  artifacts evolve over time. As such, it is not usually necessary&#151;and is 
+  in many cases counterproductive&#151;to fully-form an artifact that will only 
+  be partially used or will not be used at all in immediately subsequent downstream 
+  work. This is because there is a high probability that the situation surrounding 
+  the artifact will change&#151;and the assumptions made when the artifact was 
+  created proven incorrect&#151;before the artifact is used, resulting in rework 
+  and therefore wasted effort.</p>
+<p>Also avoid the trap of spending too many cycles on presentation to the detriment 
+  of the value of the content itself. In project environments where presentation 
+  has importance and economic value as a project deliverable, you might want to 
+  consider using an administrative or junior resource to perform work on an artifact 
+  to improve it's presentation.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

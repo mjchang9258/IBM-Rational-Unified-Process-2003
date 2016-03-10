@@ -1,0 +1,545 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+	
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Analyzing Runtime Performance Using the Rational PurifyPlus Tools (Windows and UNIX)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+	
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Analyzing Runtime Performance Using the Rational PurifyPlus Tools (Windows and UNIX)</rpw></h2>
+
+<h4>Purpose</h4>
+<p>This tool mentor describes the use of the Rational PurifyPlus tools (Rational 
+  Purify, Rational PureCoverage, and Rational Quantify) to achieve code that is 
+  free of memory errors and leaks, uses memory efficiently, and provides optimum 
+  performance .&nbsp;This tool mentor is applicable for use both with Microsoft 
+  Windows systems and with UNIX systems.</p>
+<p>The PurifyPlus tools include Rational Purify, Rational PureCoverage, and Rational 
+  Quantify.</p>
+					
+<p><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"> 
+  To learn more about PurifyPlus tools, read the <i> Getting Started </i> manual 
+  for PurifyPlus (Windows version or UNIX version).</p>
+					
+<p><IMG SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16"> 
+  For step-by-step information about using PurifyPlus tools, see the online Help 
+  for the tool.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <br>
+   
+</p>
+					
+<h2>Overview</h2>
+					
+<p>Analysis of runtime performance includes the following:</p>
+<ul>
+						
+  <li> <b> Detecting memory errors and leaks (C/C++ programs on Windows and UNIX). 
+    </b>
+<ul>
+      <li> Use Purify to pinpoint these problems, both in your own code and in 
+        the components your software uses, even when you don't have the source.</li>
+      <li> Use PureCoverage to ensure all code has been covered. (You can also 
+        use PureCoverage independently of Purify to collect coverage data for 
+        C/C++, Java, and .NET managed code.)</li>
+    </ul>
+						</li>
+						
+  <li> <b> Profiling memory usage (Java and .NET managed code on Windows). </b> 
+    Use Purify to show where you are using memory inefficiently. </li>
+						
+  <li> <b> Profiling performance (Windows and UNIX). </b> Use Quantify to show 
+    where your program is spending the most time so that you can eliminate major 
+    performance bottlenecks. </li>
+					</ul>
+<p>Runtime analysis with PurifyPlus tools results in error-free code that runs 
+  at maximum efficiency.</p>
+<p></p>
+					
+					
+<h4>Tool Steps</h4>
+					
+<p>To perform runtime analysis using the PurifyPlus tools:</p>
+<ol>
+						<ol>
+							<li>
+							<a href="#Step1">Run your program under Purify to collect error, leak, and coverage data (C/C++ programs on Windows and UNIX)</a>
+							</li>
+							<li>
+							<a href="#Step2">Run your program under Purify to detect inefficient memory usage (Java and .NET managed code on Windows)</a>
+							</li>
+							<li>
+							<a href="#Step3">Run your program under Quantify to find performance bottlenecks (Windows and UNIX)</a>
+							</li>
+						</ol>
+					</ol>
+					<h3>
+						1.
+						<a name="Step1"></a>
+						<b>
+							Run your program under Purify to collect
+							error, leak, and coverage data (C/C++ programs on Windows and UNIX)&nbsp;
+						</b>
+						<a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20"></a>
+					</h3>
+					<p>
+					Purify detects hard-to-find runtime errors, including memory leaks in your own
+					code
+					and in the components your software uses. It reports memory errors such as
+					array bounds errors, access through
+					dangling pointers, uninitialized memory reads, memory allocation errors, and
+					memory leaks, so that you can resolve them before they do any damage.
+					If you have Rational PureCoverage on your system, you can also
+					see the parts of your code that you have, and have not, tested.&nbsp;
+					</p>
+					<p>
+					Begin by running your program under Purify:
+					</p>
+					<ul>
+						<li>
+						On a Windows system:
+						
+						<ul>
+							<li>
+							If you are working in Microsoft Visual Studio 6, first select the Visual Studio
+							menu item
+							<b>
+								Purify&nbsp;&gt; Engage
+								Purify Integration
+							</b>
+							. If you have PureCoverage on your system, select
+							<b>
+								Purify&nbsp;&gt;
+								Collect Coverage Data
+							</b>
+							as well, instructing Purify
+							to monitor code coverage. Then run your
+							program in Visual Studio as usual.
+							</li>
+							<li>
+							If you are using Purify as a standalone program, not integrated with
+							Visual Studio, select 
+							<b>
+								File &gt; Run
+							</b>
+							. In the
+							Run Program dialog, select
+							<b>
+								Collect error, leak, and coverage data
+							</b>
+							(or
+							<b>
+								Collect error and leak data
+							</b>
+							if you do not have PureCoverage on your system) and
+							run your program.
+							</li>
+						</ul>
+						<li>
+						On a UNIX system, add the word
+						<font face="Courier New" size="2">
+							purify
+						</font>
+						to the
+						beginning of your compile/link line. If you have PureCoverage on your system, 
+						add 
+						<font face="Courier New" size="2">
+							purecov
+						</font>
+						 as well.
+						For example:
+						<br>
+						<font size="-1" face="Courier New,Courier">
+							% purify purecov cc -g hello_world.c
+						</font>
+						<br>
+						Then run the program as usual.
+						</li>
+					</ul>
+					As you exercise the  program, Purify lists runtime
+					errors in the Purify Viewer. When you exit the program, Purify reports memory
+					leaks.
+					<p></p>
+					<p>
+					Scan the message headers to identify critical errors. Expand messages
+					to see more detailed diagnostic information, including the
+					code
+					that generated the error. From the Viewer, you can open the source code in your
+					editor, at the line where the
+					error occurred, and make your correction directly.
+					
+					</p>
+					<p>
+					After you correct errors and rebuild the program, verify your corrections by
+					rerunning the updated program and comparing the new results to the previous run.
+					Repeat the cycle of instrumenting and running, analyzing, and correcting until
+					your program runs clean.
+					</p>
+					
+					<p>
+					If you collected coverage data for the program runs, you can also see the
+					parts of your code that you have not checked for errors. Use this information to
+					adjust the scope of your runtime analysis
+					so that you find all of the errors in your program, wherever they occur.
+					</p>
+					<p>
+					<b>
+						<IMG SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16">
+					</b>
+					For more information, look up the following topics in the Purify online
+					Help index:
+					</p>
+					<ul>
+									
+						<li>
+						<i>
+							running programs
+						</i>
+						</li>
+						<li>
+						<i>
+							Purify messages
+						</i>
+						</li>
+						<li>
+						<i>
+							source code
+						</i>
+						</li>
+						<li>
+						<i>
+							coverage data
+						</i>
+						</li>
+					</ul>
+					
+					<h3>
+						2.
+						<a name="Step2"></a>
+						<b>
+							Run your program under Purify
+							to detect inefficient memory usage (Java and .NET managed code on Windows)&nbsp;
+						</b>
+						<a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20"></a>
+					</h3>
+					<p>
+					Purify helps you identify Java and .NET managed code memory problems. Using
+					Purify, you can
+					determine:
+					<ul>
+						<li>
+						how much memory your program is using
+						</li>
+						
+						<li>
+						how much new memory your program consumes for a specific set of actions&nbsp;
+						<li>
+						what methods and objects in your program are consuming so much memory&nbsp;
+						<li>
+						which objects may be preventing unneeded objects from being garbage
+						collected&nbsp;
+						</li>
+						
+						<li>
+						where it would be advisable to force a garbage collection to improve performance
+						</li>
+					</ul>
+					
+					Begin by running your program under Purify.
+					<ul>
+						<li>
+						If you are working in Microsoft Visual Studio .NET, IBM WSWB, or IBM WSS AD, first select the 
+											menu item
+						<b>
+							PurifyPlus&nbsp;&gt; Purify&nbsp;&gt; Engage
+							Purify Integration
+						</b>. Then run your program as usual.
+											</li>
+						
+						<li>
+						If you are using Purify as a standalone program, not integrated with
+						Visual Studio .NET or WSWB/WSS AD, select 
+						<b>
+							File &gt; Run
+						</b>
+						 in the Purify user interface. In the
+						Run Program dialog, select
+						<b>
+							Collect memory profiling data
+						</b>
+						and
+						run your program.
+						</li>
+					</ul>
+					After your
+					program has finished its initialization procedures, use the Purify snapshot
+					command to
+					<b>
+						benchmark
+					</b>
+					memory usage at that moment. The snapshot
+					is your basis for investigating how your program uses memory as it runs.
+					&nbsp;&nbsp;
+					<p>
+					Once you have the snapshot, you can capture a record of the
+					memory your program uses as it runs. Execute the parts of the program that
+					you suspect are leaking memory. Purify displays a memory allocation graph that
+					shows real-time variations
+					in current memory use. When you observe an increase in
+					allocated memory, take another snapshot.
+					<p>
+					Compare the two snapshots to identify
+					methods that may be leaking memory.
+					Exit
+					your program and compare (or "diff")
+					the two snapshots. Purify displays a call graph showing the methods that
+					are responsible for the largest amounts of memory allocated while your
+					program was running, between the time you took the first and second snapshots.
+					You can focus on
+					specific methods within the call graph to investigate them more closely.
+					<p>
+					If the amount of memory allocated to a method is unexpectedly large,
+					examine your source code and revise it, if necessary,
+					to free memory when there is no longer a need for it.
+					<p>
+					Once you've identified methods that appear to have memory problems, analyze
+					these methods at the object level. Look for objects that should be, but have not
+					been, freed and garbage-collected, perhaps because other objects retain an
+					unneeded reference to them.&nbsp;
+					<p>
+					<img height="16" src="../../images/HelpBook.gif" width="16">
+					For more information, look up the following in the Purify online Help 
+					index:&nbsp;
+					<ul>
+						<li>
+						<i>
+							running programs
+						</i>
+						</li>
+						<li>
+						<i>
+							comparing runs
+						</i>
+						<li>
+						<i>
+							data browser
+						</i>
+					</ul>
+					
+<h3> 3. <a name="Step3"><b> Run your program under Quantify to find performance 
+  bottlenecks (Windows and UNIX).</b></a> <a href="#Top"><img src="../../images/top.gif" border="0" width="26" height="20"></a> 
+</h3>
+					
+<p>Quantify provides a complete, accurate, and easy-to-interpret set of performance 
+  data for your program and its components, so that you can identify and eliminate 
+  performance bottlenecks in your code.</p>
+<p>Begin by running the program under Quantify to collect performance data:</p> 
+<ul>
+  <li>On a Windows system: 
+    <ul>
+      <li>If you are working in Microsoft Visual Studio 6, first select the Visual 
+        Studio menu item <b> Quantify&nbsp;&gt; Engage Quantify Integration </b> 
+        . Then run your program in Visual Studio as usual. </li>
+      <li>If you are working in Microsoft Visual Studio .NET, IBM WSWB, or IBM 
+        WSS AD, select the menu item <b> PurifyPlus&nbsp;&gt; Quantify&nbsp;&gt; 
+        Engage Quantify Integration </b> . Then run your program in as usual. 
+      </li>
+      <li>If you are using Quantify as a standalone program, not integrated with 
+        Visual Studio or WSWB/WSS AD, select <b>File&nbsp;&gt;&nbsp;Run</b> to run 
+        your program in the Quantify user interface.</li>
+    </ul>
+  <li> On a UNIX system, add the word <i>quantify</i> to the beginning of your 
+    compile/link line. For example:<br>
+  <pre>   % quantify cc -g hello_world.c</pre>
+   Then run the program as usual.</li>
+</ul>
+					
+					
+<p>As you exercise your code, Quantify records data about your program's performance 
+  and displays the activity of its threads and fibers. When you exit your program, 
+  Quantify has an accurate profile of its performance that you can use to find 
+  and diagnose bottlenecks.</p>
+<p>The Quantify data display includes:</p>
+<ul>
+  <li>a Call Graph window that graphically depicts the calling structure and 
+    performance of the functions in the program </li>
+  <li>a sortable Function List window that lists all functions with performance 
+    data </li>
+  <li>a Function Detail window that displays data for a specific function, its 
+    callers, and its descendants </li>
+  <li> an Annotated Source window that shows line-by-line performance data on 
+    a copy of the source code </li>
+</ul>
+					
+<p>With the data you collect, you will be able to identify performance bottlenecks 
+  such as needless computations and recomputations, premature computations, or 
+  excessive and expensive library calls.</p>
+<p>After you modify your code to eliminate or minimize the bottlenecks, rerun 
+  the updated program under Quantify. Then compare the new results to the previous 
+  run by creating a &quot;diff&quot; dataset, which gives clear indications of performance 
+  improvements and regressions.</p>
+<p>For more information, look up the following topics in the Quantify online Help 
+  index:</p> 
+<ul>
+  <li><i>running programs</i></li>
+  <li><i>comparing runs</i></li>
+  <li><i>call graph window</i></li>
+  <li><i>annotated source window</i></li>
+</ul>
+<br>
+<br>					
+					
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+	
+</html>

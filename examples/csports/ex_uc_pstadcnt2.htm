@@ -1,0 +1,126 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CSPS Use Case Specification: Post Advertising Content V2.0</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="stylesheet" href="../../rop.css" type="text/css">
+<title>CSPS Use Case : Post Advertising Content 2.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<b><font face="Arial" size="5">
+<p align="RIGHT"><a name="Top">Collegiate Sports Paging System</a></p>
+<p align="RIGHT">Use Case Specification: Post Advertising Content</p>
+</font><p align="RIGHT">
+<font face="Arial" size="4">Version 2.0</font></p><font face="Arial" size="5">
+<p align="CENTER">Revision History</p></font></b>
+
+<table border="1" cellspacing="1" cellpadding="7" width="633" height="101">
+  <tr>
+    <td width="24%" valign="TOP" height="9"><b>
+    <p align="CENTER">Date</b></td>
+    <td width="12%" valign="TOP" height="9">
+    <p align="CENTER"><b>Version</b></td>
+    <td width="39%" valign="TOP" height="9">
+    <p align="CENTER"><b>Description</b></td>
+    <td width="24%" valign="TOP" height="9">
+    <p align="CENTER"><b>Author</b></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP" height="19">October 9, 1999</td>
+    <td width="12%" valign="TOP" height="19">1.0</td>
+    <td width="39%" valign="TOP" height="19">Initial version</td>
+    <td width="24%" valign="TOP" height="19">Context Integration</td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP" height="19">December 1, 1999</td>
+    <td width="12%" valign="TOP" height="19">2.0</td>
+    <td width="39%" valign="TOP" height="19">Updated after Elaboration phase</td>
+    <td width="24%" valign="TOP" height="19">Context Integration</td>
+  </tr>
+</table>
+<h5>Table of Contents</h5>
+<ul>
+  <li><a href="#Provide Advertising Content">Provide Advertising Content</a></li>
+  <li><a href="#Flow of Events">Flow of Events</a></li>
+  <li><a href="#Special Requirements">Special Requirements</a></li>
+  <li><a href="#Preconditions">Preconditions</a></li>
+  <li><a href="#Postconditions">Postconditions</a></li>
+  <li><a href="#Extension Points">Extension Points</a></li>
+</ul>
+<h3><a name="Provide Advertising Content"></a>Post Advertising Content <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Brief Description</h4>
+<p>This use case occurs when an advertiser wants to post advertising content
+(banner ads) on the web site and specify which subscriber profiles should be
+used for display.</p>
+<h3><a name="Flow of Events"></a>Flow of Events <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<h4>Basic Flow</h4>
+<ol>
+  <li>Advertiser selects &quot;Post Content&quot;</li>
+  <li>System validates account billing information to ensure new <a href="ex_gloss2.htm#Content">content</a>
+    will be accepted.&nbsp; This consists of verifying that the advertiser
+    account is in good standing (no outstanding balance over 30 days).</li>
+  <li>System prompts for name of content.</li>
+  <li>Advertiser uploads content in GIF format.</li>
+  <li>System stores GIF in a staging area and records location and name of file.</li>
+  <li>System acknowledges successful saving of content.</li>
+  <li>System displays potential categories for ad display. Categories are
+    maintained as a reference list within the system.</li>
+  <li>Advertiser selects categories for which this ad should be shown.</li>
+  <li>System displays potential frequencies and prices for the ad.&nbsp;
+    Frequencies are maintained as a reference list, prices are based on
+    advertiser's contract with WebNewsOnLine.&nbsp; Pricing codes are maintained
+    as part of the <a href="ex_gloss2.htm#Advertiser Profile">advertiser profile</a>.</li>
+  <li>Advertiser selects desired frequency for this ad</li>
+  <li>System creates preliminary billing record for this ad based on number of
+    categories selected, frequency, and advertiser's profile.</li>
+  <li>System places content in editor’s &quot;to-do&quot; workflow queue for
+    approval.&nbsp;&nbsp; If more than one editor is defined, a round-robin
+    approach is used to attempt to balance load.&nbsp;&nbsp; Editors may be
+    marked as unavailable (if, for instance, they are on vacation or sick or out
+    of the office), in which case they will not be included in the round-robin
+    process.</li>
+</ol>
+<h4>Alternative Flow</h4>
+<ol>
+  <li>Invalid Account Information</li>
+  <ol>
+    <li>Advertiser selects &quot;Post Content&quot;</li>
+    <li>System validates account billing information to ensure new content will
+      be accepted</li>
+    <li>Account information is invalid, advertiser is prompted to contact
+      WebNewsOnLine.&nbsp;&nbsp; System presents central phone number for
+      advertising department (stored in system).</li>
+  </ol>
+</ol>
+<h3><a name="Special Requirements"></a>Special Requirements <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.</p>
+<h3><a name="Preconditions"></a>Preconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>User is connected and validated as an advertiser.</p>
+<p>Advertiser account exists.</p>
+<h3><a name="Postconditions"></a>Postconditions <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>When this use case is complete, advertising content can be displayed.</p>
+<h3><a name="Extension Points"></a>Extension Points <a href="#Top"><img src="../../images/top.gif" alt="Top of page" border="0" width="26" height="20"></a></h3>
+<p>None.<br>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+ 1987 - 2003 Rational Software Corporation</small></small></a></font>
+<!--msnavigation--></td><td valign="top" width="24"></td><td valign="top" width="1%">
+
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

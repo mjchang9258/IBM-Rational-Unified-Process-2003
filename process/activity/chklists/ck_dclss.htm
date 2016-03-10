@@ -1,0 +1,325 @@
+<!-- RPW META DATA START --
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../../rop.css" type="text/css">
+<title>Checkpoints:&nbsp;Design Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Checkpoints:&nbsp;<rpw name="PresentationName">Design Class</rpw><a name="XE_checkpoints__for_design_classes"></a></h2>
+<p><b><a name="Top">Topics</a></b>
+<ul>
+  <li class="ck"><a href="#General">General</a></li>
+  <li class="ck"><a href="#Generalization">Generalization/Specialization</a></li>
+  <li class="ck"><a href="#Naming">Naming Conventions</a></li>
+  <li class="ck"><a href="#Operations">Operations</a></li>
+  <li class="ck"><a href="#Attributes">Attributes</a></li>
+  <li class="ck"><a href="#Relationships">Relationships</a></li>
+  <li class="ck"><a href="#State Machines">State machines</a></li>
+</ul>
+<h3><a name="General">General </a><a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The name of the class clearly reflects the role it plays.</li>
+    <li class="ck">The description of the class clearly conveys the purpose of
+      the class.</li>
+    <li class="ck">The class represents a single well-defined abstraction.</li>
+    <li class="ck">The class's attributes and operations are all essential to
+      fulfilling the responsibilities of the class.</li>
+    <li class="ck">Each class represents a small, consistent and unique set of
+      responsibilities.</li>
+    <li class="ck">The responsibilities of the class are well-defined, clearly
+      stated, and clearly related to the purpose of the class.</li>
+    <li class="ck">Each class is relatively self-contained, and is loosely
+      coupled to other classes.</li>
+    <li class="ck">The responsibilities of the class are at a consistent level
+      of abstraction (i.e. high-level (application-level) and low-level
+      (implementation-level) responsibilities are not mixed).</li>
+    <li class="ck">Classes in the same inheritance hierarchy possess unique
+      class attributes, operations and relationships (i.e. they inherit all
+      common attributes, operations and relationships).</li>
+    <li class="ck">The complete life-cycle of an instance of the class is
+      accounted for. Each object is created, used, and removed by one or more
+      use-case realizations.</li>
+    <li class="ck">The class satisfies the behavioral requirements established
+      by the use-case realizations.</li>
+    <li class="ck">All requirements on the class in the requirement
+      specification are addressed.</li>
+    <li class="ck">The demands on the class (as reflected in the class
+      description and by the objects in sequence diagrams) are consistent with
+      the class's state machine.</li>
+    <li class="ck">All responsibilities of the class are related, such that it
+      is not possible for the class to exist in a system where some of its
+      responsibilities are used, but not others.</li>
+    <li class="ck">No two classes have essentially the same purpose.</li>
+  </ul>
+</ul>
+<h3><a name="Generalization">Generalization/Specialization </a><a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The generalization hierarchy is balanced, such that there are
+      no classes for which the hierarchy is unusually flat or deep.</li>
+    <li class="ck">Obvious commonality has been reflected in the inheritance
+      hierarchy.</li>
+    <li class="ck">There are no superclasses which appear to be merges of the
+      attributes of the subclasses.</li>
+    <li class="ck">There are no intermediate abstract classes in the inheritance
+      hierarchy with orthogonal properties, examples of which include duplicated
+      subclasses on both sides of an inheritance tree.</li>
+    <li class="ck">Inheritance is used to capture common design abstractions,
+      not primarily for implementation considerations, i.e. to reuse bits of
+      code or class structure.</li>
+  </ul>
+</ul>
+<h3><a name="Naming">Naming</a> Conventions <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">Class names indicate purpose.</li>
+    <li class="ck">Class names follow the naming conventions specified in project 
+      design guidelines.</li>
+  </ul>
+</ul>
+<h3><a name="Operations">Operations</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The name of each operation is descriptive and understandable.</li>
+    <li class="ck">The state machine and the operations are consistent.</li>
+    <li class="ck">The state machine and operations completely describe the behavior 
+      of the class.</li>
+    <li class="ck">The parameters of each operation are correct in terms of both 
+      number, name and type.</li>
+    <li class="ck">Implementation specifications for each operation, where defined, 
+      are correct.</li>
+    <li class="ck">Operation signatures conform to the standards of the target 
+      programming language.</li>
+    <li class="ck">Each operation is used by at least one use-case realization.</li>
+  </ul>
+</ul>
+<h3><a name="Attributes">Attributes </a><a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">All relationships of the class are required to support some
+      some operation of the class.</li>
+    <li class="ck">Each attribute represents a single conceptual thing.</li>
+    <li class="ck">The name of each attribute is descriptive, and correctly
+      conveys the information it stores.</li>
+  </ul>
+</ul>
+<h3><a name="Relationships">Relationships </a><a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The role names of aggregations and associations describe the
+      relationship between the associating and associated classes.</li>
+    <li class="ck">The multiplicities of the relationships are correct.</li>
+  </ul>
+</ul>
+<h3><a name="State Machines">State Machines</a> <a href="#Top"><img src="../../../images/top.gif" alt="Top" border="0" width="26" height="20"></a></h3>
+<ul>
+  <ul>
+    <li class="ck">The state machine is as simple as possible while still
+      expressing the required behavior.</li>
+    <li class="ck">The state machine does not contain any superfluous states or
+      transitions.</li>
+    <li class="ck">The state machine has a clear context.</li>
+    <li class="ck">All referenced objects are visible to the enclosing object.</li>
+    <li class="ck">The state machine is efficient, and carries out its behavior
+      with an optimal balance of time and resources as defined by the actions it
+      dispatches.</li>
+    <li class="ck">The state machine is understandable.</li>
+    <ul>
+      <li class="ck">The state and transition names are understandable in the
+        context of the domain of the system.</li>
+      <li class="ck">The state names indicate what is being waited for or what
+        is happening, rather than what has happened.</li>
+      <li class="ck">The state and transition names are unique within the state
+        machine (although not a strict requirements, it aids in debugging to
+        enforce unique names).</li>
+      <li class="ck">Logical groupings of states are contained in composite
+        states.</li>
+      <li class="ck">Composite states have been used effectively to reduce
+        complexity?</li>
+      <li class="ck">Transition labels reflect the underlying cause of the
+        transition.</li>
+      <li class="ck">There are no code fragments on state transitions which are
+        more than 25 lines of detail code; instead, functions have been used
+        effectively to reduce transition code complexity.</li>
+      <li class="ck">State machine nesting has been examined to ensure that
+        nesting depth is not too deep to be understandable; one or two levels of
+        substates are usually sufficient for most complex behaviors.</li>
+    </ul>
+    <li class="ck">Active classes have been used instead of
+      concurrent substates; active classes are nearly always a better alternative and
+      more understandable than concurrent substates.</li>
+
+    <li class="reactiveck">In real-time systems, capsules have been
+      used to represent logical threads of control.</li>
+
+    <li class="ck">Error or maintenance states have been accounted for.</li>
+    <li class="ck">Substates have been used in lieu of extended state variables;
+      there is no evidence of transition guard conditions testing several
+      variables to determine which to state the transition should occur.</li>
+    <li class="ck">The state machine does not resemble a flow chart.</li>
+    <li class="ck">The state machine does not appear to have been overly
+      de-composed, consisting of nested state machines with a single sub-state.
+      In cases where the nested sub-state is a placeholder for future design
+      work or subclassing, this may be temporarily acceptable providing that the
+      choice has been a conscious one.</li>
+  </ul>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

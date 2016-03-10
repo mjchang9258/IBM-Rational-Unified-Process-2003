@@ -1,0 +1,511 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Develop Development Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Develop Development 
+  Case</rpw><a name="Top"></a></h2>
+
+<div align="left">
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+   <tr>
+      <td colspan="2" ><b>Purpose</b> 
+        <ul>
+          <li>To develop a development case that describes the software-development 
+            process for a project (or projects).</li>
+          <li>To relate the development case to the organization-specific process 
+            product.</li>
+        </ul>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><b>Steps</b> 
+        <ul>
+          <li><a href="#PerformDisciplines">Decide How to Perform Each Discipline</a></li>
+          <li><a href="#TailorArtifacts">Tailor Artifacts per Discipline</a></li>
+          <li><a href="#ModifyDisciplines">Modify Disciplines and Activities</a></li>
+          <li><a href="#ChooseLifecycleModel">Choose Lifecycle Model</a></li>
+          <li><a href="#IdentifyStakeholders">Identify Stakeholders</a></li>
+          <li><a href="#MapWorkersToJobPositions">Map Roles to Job Positions</a></li>
+          <li><a href="#DescribeIterationWorkflows">Describe Sample Iterations</a></li>
+          <li><a href="#DocumentDevelopmentCase">Document the Development 
+            Case</a></li>
+          <li><a href="#MaintainDevelopmentCase">Maintain the Development 
+            Case</a></li>
+        </ul>
+      </td>
+   </tr>
+   <tr>
+      <td width="50%"><b>Input Artifacts:&nbsp;</b> 
+        <ul>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_dvlprc.htm">Development Process</a></li>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+<li><a href="../artifact/ar_torg.htm">Target-Organization Assessment</a></li>
+</ul>
+&nbsp;</td>
+      <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+        <ul>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+</ul>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once every iteration in the software project.&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	    <a href="../workers/wk_prcen.htm">Process Engineer</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+        <ul>
+          <ul>
+<li><a href="../../toolment/builder/tm_edit_process_views.htm">Edit Process Views Using RUP Builder</a></li>
+</ul>
+
+</ul>
+      </td>
+   </tr>
+     <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../modguide/md_uclaar.htm">Guideline: Classifying Artifacts</a></li>
+<li><a href="../modguide/md_idad.htm">Guideline: Important Decisions in Analysis & Design</a></li>
+<li><a href="../modguide/md_idbm.htm">Guideline: Important Decisions in Business Modeling</a></li>
+<li><a href="../modguide/md_idccm.htm">Guideline: Important Decisions in Configuration & Change Management</a></li>
+<li><a href="../modguide/md_idep.htm">Guideline: Important Decisions in Deployment</a></li>
+<li><a href="../modguide/md_idenv.htm">Guideline: Important Decisions in Environment</a></li>
+<li><a href="../modguide/md_idimp.htm">Guideline: Important Decisions in Implementation</a></li>
+<li><a href="../modguide/md_idpmgt.htm">Guideline: Important Decisions in Project Management</a></li>
+<li><a href="../modguide/md_idreq.htm">Guideline: Important Decisions in Requirements</a></li>
+<li><a href="../modguide/md_idtst.htm">Guideline: Important Decisions in Test</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+      <ul>
+<li><a href="../workflow/ovu_env.htm">Environment</a>
+<ul>
+<li><a href="../workflow/environm/wfs_env2.htm">Prepare Environment for an Iteration</a></li>
+<li><a href="../workflow/environm/wfs_env1.htm">Prepare Environment for Project</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<p>A development case is developed to be used in a software-development project 
+  and is consider part of the project-specific process. It is a refinement of 
+  the development process configured for the project, see <a href="../artifact/ar_dvlprc.htm">Artifact: 
+  Development Process</a> for further information.</p>
+<p>The project's phase plan and organization has a major impact on the process, 
+  and vice versa. Therefore, the development of the development case must be coordinated 
+  with development of the project plan. See the <a href="../artifact/ar_sdp.htm">Artifact: 
+  Software Development Plan</a>, section &quot;Project Plan&quot;, for more details. 
+  For example, if the project decides to use a different set of phases than in 
+  the Rational Unified Process (RUP), this is something that needs to be captured 
+  in the development case.</p>
+<p>The project's choice of configuration items also has a major impact on the 
+  process, and vice versa. Therefore, the development of the development case 
+  must be coordinated with development of the configuration management plan. The 
+  configuration items are defined in the configuration management plan. See 
+  <a href="../artifact/ar_cmpln.htm">Artifact: Configuration Management Plan</a> 
+  and <a href="../workflow/conf_mgt/co_pdirs.htm">Concepts: Product Directory 
+  Structure</a>.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h3><a name="PerformDisciplines">Decide How to Perform</a> Each Discipline <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Part of tailoring the RUP framework for use on a specific project is to decide 
+  on which disciplines to introduce. As described in <a href="ac_tlrprjprc.htm">Activity: 
+  Tailor the Process for the Project</a>, you should avoid using all of RUP in 
+  one single project. And if your project is fairly new to the practices described 
+  in the RUP, you should concentrate on limiting the number of unknown factors 
+  to a handful, to ease the transition of the teams onto a new process platform. 
+</p>
+<p>Once you have decided which disciplines you need to introduce, decide the following 
+  for each:&nbsp;</p>
+<ul>
+  <li>How to perform the workflow.&nbsp;</li>
+  <li>Which parts of the workflow should be used.&nbsp;</li>
+  <li>When, during the project's lifecycle, to introduce the workflows and their 
+    parts.&nbsp;</li>
+</ul>
+<p>To help you decide, there are is a section &quot;Decide How to Perform the 
+  Workflow&quot;, in each of the following guidelines:</p>
+<ul>
+
+  <li><a href="../modguide/md_idbm.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Business Modeling</a></li>
+
+
+  <li><a href="../modguide/md_idreq.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Requirements</a></li>
+
+
+  <li><a href="../modguide/md_idad.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Analysis &amp; Design</a></li>
+
+
+  <li><a href="../modguide/md_idimp.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Implementation</a></li>
+
+
+  <li><a href="../modguide/md_idtst.htm#DecideHowToPerformTheWorkflow">Guidelines: 
+    Important Decisions in Test</a></li>
+
+
+  <li><a href="../modguide/md_idep.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Deployment</a></li>
+
+
+  <li><a href="../modguide/md_idpmgt.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Project Management</a></li>
+
+
+  <li><a href="../modguide/md_idccm.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Configuration &amp; Change Management</a></li>
+
+
+  <li><a href="../modguide/md_idenv.htm#Decide How to Perform the Workflow">Guidelines: 
+    Important Decisions in Environment</a></li>
+
+</ul>
+<p>When you consider introducing a particular discipline, or part of one, take 
+  the following into account:</p>
+<ul>
+  <li><b>Applicability</b>. Is it applicable for the project? Does it really add 
+    value to introduce it?</li>
+  <li><b>Problems and root causes addressed</b>. Does it address any of the perceived 
+    problems and their root causes?</li>
+  <li><b>Tool support</b>. What tool support is needed?</li>
+  <li><b>Timing</b>. When during the project's lifecycle should it be introduced? 
+    See <a href="../workflow/environm/co_iproj.htm">Concepts: Implementing a Process 
+    in a Project</a>, for more information.</li>
+  <li><b>Cost of implementing</b>. What is the cost of implementing it in the 
+    project? This includes: 
+    <ul>
+      <li>Cost to train project members.&nbsp;</li>
+      <li>Cost to install the supporting tools.</li>
+      <li>Cost to develop guidelines and templates.</li>
+    </ul>
+  </li>
+</ul>
+
+
+<h3><a name="TailorArtifacts">Tailor Artifacts per Discipline </a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Select the right set of artifacts for the project to produce. Just because 
+  an artifact is part of the configured process, doesn't mean that the project 
+  has to produce it. The configuration is often defined over a selection of process 
+  components, not at the level of individual artifacts. Typically, your development 
+  case should define a subset of the artifacts you'll find in the process Website.
+<p>If you cannot clearly articulate why the artifact should be produced, for example 
+  if no external stakeholder has requested it, then consider to exlude it. It 
+  is a good practice to use the development case to document any deviations from 
+  the underlying process, so exclusion of any artifact should be justified and 
+  documented.
+<p>Tailor the artifacts for each of the disciplines. See <a href="../modguide/md_tailr.htm">Guidelines: 
+  Process Tailoring Practices</a>. 
+<p>Don't do all of the disciplines at once–focus on the next one to be applied 
+  in the project. Perform the following steps: 
+<ol>
+  <li>Decide how the artifact (modeling element or document) should be used (see 
+    <a href="../modguide/md_uclaar.htm">Guidelines: Classifying Artifacts</a> 
+    for more information): 
+    <ul>
+      <li><b>Must have</b>.</li>
+      <li><b>Should have</b></li>
+      <li><b>Could have</b></li>
+      <li><b>Won't have</b></li>
+    </ul>
+  </li>
+  <li>Decide the review level for each artifact and capture it in the &quot;Review 
+    Details&quot;. For details see <a href="../modguide/md_review.htm">Guidelines: 
+    Review Levels</a>. Decide how to review each artifact; that is, which review 
+    procedures to use.&nbsp;</li>
+  <li>Decide how you should capture the final results of a discipline. Do you 
+    need to store the results on paper? If so, you have to decide on one or several 
+    reports that extract the results from the tools, and capture the results on 
+    paper.&nbsp;</li>
+  <li>Decide which tools to use to develop and maintain the artifact.</li>
+  <li>Decide which properties to use and how to use them. See the Properties table 
+    for each artifact and the section titled &quot;Tailoring&quot; of each artifact.</li>
+  <li>When relevant, decide which stereotypes to use. For each artifact, see the 
+    section titled &quot;Tailoring.&quot;</li>
+  <li>Decide on an outline for the document artifacts. For the respective artifact, 
+    see the section titled &quot;Brief Outline.&quot;</li>
+</ol>
+<p>In addition to these steps you should also: 
+<ul>
+  <li>Decide which reports to use. Decide if you need any work reports to extract 
+    information from models, then document the information on paper for reviews. 
+    These work reports are usually treated as casual since they are temporary 
+    and will be discarded as soon as the review is complete. You may need to tailor 
+    the outline.</li>
+</ul>
+<p>There are more things to decide for each discipline. See the guidelines for 
+  each discipline for more details: 
+<h3><a name="ModifyDisciplines">Modify Disciplines and Activities</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Study the modified set of artifacts and the activities that use, create and 
+  update these artifacts. Decide whether you should modify or simplify these activities. 
+  Note that for each activity input and output artifacts are indicated. Be sure 
+  to delete any unnecessary step or activity. Consider the following: 
+<ul>
+  <li>Introduce new steps and possibly new activities to reflects the artifacts, 
+    reports, and documents that you have had to add.</li>
+  <li>Examine how the tools used can facilitate, automate, or even suppress some 
+    of the steps.</li>
+  <li>Introduce into the activities any specific guidelines and rules inherited 
+    from the organization's experience. They may be added as guidance points, 
+    checkpoints, review items, or left as separate documents that can be referenced.</li>
+  <li>Once the activities are known, revisit the workflows that show how activities 
+    interplay, removing or adding activities as necessary.</li>
+  <li>Whole disciplines can be omitted or created.</li>
+  <li>You may have to introduce some additional roles to take care of special 
+    activities requiring specific skills.</li>
+</ul>
+<p>Describe the changes in the Development Case.</p>
+
+
+<h3><a name="ChooseLifecycleModel">Choose Lifecycle Model</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Choose the kind of lifecycle model the project should employ. Refine the RUP 
+  model and adjust milestones and the milestone evaluation criteria if necessary. 
+  You may even decide to omit one or several of the phases, or add or remove milestones. 
+  See <a href="../itrwkfls/iwf_iwfs.htm">Phases</a> and <a href="../workflow/manageme/co_phase.htm">Concepts: 
+  Iteration</a> for more information and ideas. Document the project's lifecycle 
+  model in the section &quot;Overview of the Development Case&quot;.</p>
+
+
+<h3><a name="DescribeIterationWorkflows">Describe Sample Iterations</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Describe at least one sample iteration (more likely you will describe several) 
+  for each phase. These iteration descriptions describe how the project will work 
+  in different iterations and phases of the project. The RUP suggests two different 
+  ways of defining sample iterations. One approach is to define cross-discipline 
+  example iteration workflows, see <a href="../../manuals/intro/kc_it_workflow.htm">Key 
+  Concept: Iteration Workflow</a> for a definition, or see the different phase 
+  descriptions under the <a href="../itrwkfls/iwf_iwfs.htm">RUP Lifecycle</a> 
+  page for detailed examples. The other approach is to define a set of sample 
+  iteration plans. </p>
+<p>The purpose of describing sample iterations in the development case is to communicate 
+  to the project teams, which activities your project will perform, and in which 
+  order. As such it can serve as a more detailed iteration plan. The description 
+  of the sample iterations should be brief. Do not include details that belong 
+  in the activities, artifacts and guidelines. You can choose to describe the 
+  sample iterations in terms of activities or workflow details. Workflow detail 
+  based descriptions can be easier to use for planning and control at the management 
+  level, but activity based descriptions are preferred when using them at the 
+  practitioner level.</p>
+<p>In most cases you should describe at least one sample iteration per phase. 
+  Describe the sample iterations as they are needed; there is no reason to describe 
+  how to work during the Transition phase at the beginning of a project. Start 
+  by defining how the project will work in the Inception phase.</p>
+<h3><a name="IdentifyStakeholders">Identify Stakeholders</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The role <a href="../workers/wk_sthld.htm">Stakeholder</a> represents all possible 
+  stakeholders to a project. You need to identify and describe the different types 
+  of stakeholders, their needs and responsibilities. Examples of different stakeholders 
+  are customer representative, user representative, investor, production manager, 
+  and buyer.</p>
+<p>Describe the different stakeholders and their needs in the development case, 
+  in the section &quot;Roles&quot;.</p>
+
+
+<h3><a name="MapWorkersToJobPositions">Map Roles to Job Positions</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>In some development organizations there are job positions defined. If these 
+  job positions are commonly used and have a wide acceptance within the organization, 
+  it may be worth doing a mapping between the roles in the RUP, and the job positions 
+  in the organization. Mapping job positions to roles can make it easier to make 
+  people in the organization understand how to employ the RUP. The mapping can 
+  also help people understand that roles are not job positions, which is a common 
+  misconception. Document this mapping in the development case, section &quot;Roles&quot;.</p>
+
+
+<h3><a name="DocumentDevelopmentCase">Document the Development Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Describe the development case. We recommend that you describe the development 
+  case on one or several web pages, with hyperlinks to the RUP online, and to 
+  other guidelines. This is explained in the section &quot;Representing a Development 
+  Case Online&quot; in <a href="../modguide/md_dvcas.htm">Guideline: Development 
+  Case</a>. Use the <a href="../../examples/ex_dvlcs.htm">Example: Development 
+  Case</a> as a starting point.</p>
+
+
+<h3><a name="MaintainDevelopmentCase">Maintain the Development Case</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Many of the decisions should be made before the project starts. After each 
+  iteration in the software-development project you should evaluate the process, 
+  and reconsider the decisions you have made. If a new version of the underlying 
+  configuration is released, you need to update the development case. </p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

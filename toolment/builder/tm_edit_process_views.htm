@@ -1,0 +1,309 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Edit Process Views Using RUP Builder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Edit Process Views Using RUP Builder</rpw><a name="XE_Index_Entry_Category__???_New_Tool_Mentor"></a> 
+</h2>
+
+
+<h3>Purpose</h3>
+<p>Process views are trees that provide a specific perspective onto a selected
+RUP process.&nbsp; Process views that come with RUP are role-based, but they
+could be set up by project phase or iteration, or by artifacts, or job
+titles.&nbsp; Your organization may have created template process configurations
+with very different views than those shipped with RUP.&nbsp; This tool mentor
+provides guidance on how to edit the views in your process configuration.</p>
+
+<p>Process views are a useful mechanism for a project manager to provide an
+uncluttered view of the process to a specific individual or sub-group within the
+project, reducing the confusion they may have about their specific role. You can
+even create views for specific people, if you find that this is useful for your
+project.</p>
+
+<p>You'll note that it takes a few seconds to open the process views
+panel.&nbsp; That's because all of the process views are being updated based on
+the process selections that are you have made.&nbsp; The more process views you
+create, the longer this process will take.</p>
+
+<p>This tool mentor assumes you have launched RUP Builder, described your
+configuration, made a series of process selections and saved your custom
+configuration appropriately for your project.&nbsp; Do note that you have a
+choice at publication of not publishing any of the process views you have, so
+you don't have to delete them for them not to be visible in the final site.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_tlrprjprc.htm">Tailor the Process for the Project</a></li>
+<li><a href="../../process/activity/ac_devca.htm">Develop Development Case</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h4>Overview</h4>
+<p>The following steps are performed in this tool mentor:</p>
+
+<ul>
+  <li><a href="#StepNumber1">Synchronize Process Views</a></li>
+  <li><a href="#StepNumber2">Edit an Existing View</a></li>
+  <li><a href="#StepNumber3">Create a New View</a></li>
+  <li><a href="#StepNumber4">Delete a View</a></li>
+  <li><a href="#StepNumber5">Save Your Process Configuration</a></li>
+  <li><a href="#MoreInfo">More Information</a></li>
+</ul>
+
+
+<h3><a name="StepNumber1">Synchronize Process Views</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>
+</h3>
+
+<p>Process views are trees that provide an uncluttered, customized subset of the
+total process.&nbsp; When process selections are made, the process views are
+synchronized with those additions and deletions. Newly selected elements, if
+they already have a location in the process view, are made visible again.&nbsp;
+If newly selected elements have never appeared in the process view before, they
+appear at the bottom of the view for you to move around at will.</p>
+
+
+<p>This means that if you have created a customized view with specific locations
+for elements, they will remain in those locations but be hidden from view if
+they are deselected, reappearing in the same place when selected again.&nbsp;
+This means that you do not have to constantly rebuild process views every time
+you make process selections.</p>
+
+
+<p>Synchronizing process views is done automatically every time you move to the
+'Edit Views' panel of RUP Builder.&nbsp; This synchronization process is what
+causes the short delay before the process views appear.&nbsp; Process views are
+also automatically synchronized at process publication, allowing you to make new
+selections and publish quickly without editing your process views.&nbsp; Results
+may not be pretty in this case.</p>
+
+
+<h3><a name="StepNumber2">Edit an Existing View</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>RUP comes with several pre-existing views.&nbsp; Your organization may have
+created more in its organizational template configurations.&nbsp; It is likely
+that the views that have been created will be useful to you.&nbsp; It is
+recommended that you use the existing views as a starting point, probably with
+little change until you have project experience that indicates the need for new
+views or significant changes to existing ones.</p>
+
+<p>To edit a view, click on the tab for the view, for example 'Getting
+Started'.&nbsp; You can look at the properties for every node in the view, which
+shows you what that node is linked to and what icons are associated with that
+view.&nbsp; You can change those things, or the display name if you have a need
+to.&nbsp; It's not recommended that you do so for RUP elements as it is most
+valuable to maintain a common language across projects.</p>
+
+<p>You can move nodes up and down in the tree with the right-click context menu
+choices.&nbsp; Alternately, you can select one or more elements and drag
+them.&nbsp; It is currently not possible to drag a node to a specific location
+in the list.&nbsp; Dragged nodes will either drop into the node they are dropped
+on.&nbsp; They can be dragged out and back to the level they were at.</p>
+
+<p>You can insert new nodes containing pointers to any file available locally or
+over the internet by using the right-click context menu and the option 'Insert
+new'.&nbsp; Alternately, you can choose the 'Add Node' button from the tool
+bar.&nbsp; For these you can create any display name you wish, as well as the
+icons of your choice.&nbsp; If you do not select any icons, a question mark (?)
+in a box will appear as the default icon.</p>
+
+<h3><a name="StepNumber3">Create a New View</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>To create a new view, select an existing view, then select the 'Save As'
+button from the tool bar.&nbsp; A dialog box will appear asking you to provide a
+name for the view.&nbsp; A new view duplicating the first will be created as a
+starting point for further editing.</p>
+
+<p>This can be used, for example, to create a specific view for a team
+member.&nbsp; If Joanna is your primary requirements analyst, and doesn't do any
+other types of analysis, it might be useful to create a view named 'Joanna' and
+remove analysis elements that don't apply to her job.</p>
+
+<p>Remember, the more views you have created, the slower view synchronization
+will be.</p>
+
+<h3><a name="StepNumber4">Delete a View</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>To delete a view, select the tab for the view, then select the 'Delete'
+button from the tool bar. You will be prompted to continue.&nbsp; The view will
+be deleted permanently if you continue.&nbsp; Do note that you have a choice at
+publication of not publishing any of the process views you have, so you don't
+have to delete them for them not to be visible in the final site.</p>
+
+
+<h3><a name="StepNumber5">Save Your Process Configuration</a> <a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a> 
+</h3>
+
+<p>After making a series of changes, its a good idea to save your selections to
+a custom configuration for your project if you have not already done so.&nbsp;
+That way, the next time you update your process configuration, you can start
+from the same place you left off, and iterate your process and its views most
+effectively.</p>
+
+
+<h4><a name="MoreInfo">For More Information</a><a href="#Top"><img src="../../images/top.gif"alt="To top of page" border="0" width="26" height="20"></a>&nbsp;
+</h4>
+  
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</p>
+
+</body>
+
+</html>

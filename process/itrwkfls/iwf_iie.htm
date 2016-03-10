@@ -1,0 +1,409 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Phase:&nbsp;Elaboration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner"><a name="Top"></a>Phase:&nbsp;<rpw name="PresentationName">Elaboration</rpw><a name="XE_Phase_description_of"></a></h2>
+  
+
+<div align="center">
+  <table width="100%" cellpadding="4" border="0" bordercolor="#808080">
+    <tr> 
+      <td colspan="2" valign="top" bgcolor="#FFFFFF" height="30"> 
+        <p>The goal of the elaboration phase is to baseline the architecture of 
+          the system to provide a stable basis for the bulk of the design and 
+          implementation effort in the construction phase. The architecture evolves 
+          out of a consideration of the most significant requirements (those that 
+          have a great impact on the architecture of the system) and an assessment 
+          of risk. The stability of the architecture is evaluated through one 
+          or more architectural prototypes.</p>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2" valign="top" height="6">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" bgcolor="#CCCCCC" height="123"> 
+        <h5><br>
+          Topics</h5>
+        <ul>
+          <li><a href="#Objectives">Objectives</a></li>
+          <li><a href="#EssentialActivities">Essential activities</a></li>
+          <li><a href="#Milestone">Milestone</a></li>
+          <li><a href="#Tailoring">Tailoring Decisions</a></li>
+        </ul>
+      </td>
+      <td width="90%" height="123"> 
+        <p align="center"><a name="PhaseOverview"><map name="RPWMap0">
+
+ 
+    <area shape="rect" coords="694,116,743,177" href="../workers/wk_any.htm">
+    
+
+    <area shape="rect" coords="513,120,573,178" href="../workers/wks_developers.htm">
+    
+
+    <area shape="rect" coords="82,93,188,158" href="../workflow/environm/wfs_env2.htm">
+    
+
+    <area shape="rect" coords="324,233,395,285" href="../workflow/requirem/wfs_refs.htm">
+    
+
+    <area shape="rect" coords="2,204,106,261" href="../artifact/ar_dvlprc.htm">
+    
+ 
+    <area shape="rect" coords="2,383,70,412" href="../artifact/ar_supp.htm">
+    
+ 
+    <area shape="rect" coords="15,347,54,384" href="../artifact/ar_supp.htm">
+    
+
+    <area shape="rect" coords="295,114,371,178" href="../workers/wk_sysan.htm">
+    
+
+    <area shape="rect" coords="391,113,480,176" href="../workers/wk_archt.htm">
+    
+ 
+    <area shape="rect" coords="603,116,649,176" href="../workers/wks_testers.htm">
+    
+
+    <area shape="rect" coords="145,424,227,476" href="../workflow/manageme/wfs_manit.htm">
+    
+
+    <area shape="rect" coords="549,409,648,425" href="../workflow/test/wfs_tstandevl.htm">
+    
+
+    <area shape="rect" coords="573,373,627,410" href="../workflow/test/wfs_tstandevl.htm">
+    
+
+    <area shape="rect" coords="608,289,704,300" href="../workflow/test/wfs_vrftstapr.htm">
+    
+
+    <area shape="rect" coords="628,248,685,288" href="../workflow/test/wfs_vrftstapr.htm">
+	
+ 
+    <area shape="rect" coords="384,285,493,298" href="../workflow/ana_desi/wfs_and1.htm">
+	
+ 
+    <area shape="rect" coords="412,234,469,286" href="../workflow/ana_desi/wfs_and1.htm">
+    
+ 
+    <area shape="rect" coords="399,452,493,466" href="../workflow/ana_desi/wfs_and2.htm">
+    
+ 
+    <area shape="rect" coords="420,410,473,450" href="../workflow/ana_desi/wfs_and2.htm">
+    
+
+    <area shape="rect" coords="190,314,257,378" href="../workflow/manageme/wfs_moncon.htm">
+    
+
+    <area shape="rect" coords="190,517,260,569" href="../workflow/manageme/wfs_plan.htm">
+    
+
+    <area shape="rect" coords="659,364,779,378" href="../workflow/conf_mgt/wfd_mgchrq.htm">
+    
+
+    <area shape="rect" coords="695,325,747,363" href="../workflow/conf_mgt/wfd_mgchrq.htm">
+    
+ 
+    <area shape="rect" coords="208,217,316,270" href="../artifact/ar_sftrqm.htm">
+    
+
+    <area shape="rect" coords="361,523,421,578" href="../artifact/ar_sadoc.htm">
+    
+
+    <area shape="rect" coords="105,675,133,707" href="../artifact/ar_itass.htm">
+    
+
+    <area shape="rect" coords="13,529,108,581" href="../artifact/ar_itass.htm">
+    
+
+    <area shape="rect" coords="488,716,517,752" href="../artifact/ar_itpln.htm">
+    
+
+    <area shape="rect" coords="466,754,534,767" href="../artifact/ar_itpln.htm">
+    
+
+    <area shape="rect" coords="306,551,333,586" href="../artifact/ar_itpln.htm">
+    
+
+    <area shape="rect" coords="286,587,351,603" href="../artifact/ar_itpln.htm">
+    
+
+    <area shape="rect" coords="63,427,90,478" href="../artifact/ar_rskls.htm">
+    
+ 
+    <area shape="rect" coords="485,360,517,409" href="../artifact/ar_build.htm">
+    
+
+    <area shape="rect" coords="463,471,588,484" href="../artifact/ar_tstev.htm">
+    
+
+    <area shape="rect" coords="510,433,537,470" href="../artifact/ar_tstev.htm">
+    
+
+    <area shape="rect" coords="251,388,360,413" href="../workflow/requirem/wfs_mnch.htm">
+<area shape="rect" coords="280,348,338,389" href="../workflow/requirem/wfs_mnch.htm">
+    
+ 
+    <area shape="rect" coords="497,254,560,299" href="itwfl_impl_pattern.htm">
+    
+
+    <area shape="rect" coords="226,440,304,490" href="../artifact/ar_crqst.htm">
+    
+
+    <area shape="rect" coords="726,407,808,454" href="../artifact/ar_crqst.htm">
+    
+
+    <area shape="rect" coords="200,116,239,167" href="../workers/wk_projm.htm">
+    
+
+    <area shape="rect" coords="102,6,187,68" href="../workers/wk_prcen.htm">
+    <area shape="rect" coords="181,168,263,179" href="../workers/wk_projm.htm">
+    
+
+    <area shape="rect" coords="361,335,432,388" href="../artifact/ar_desmd.htm">
+	
+
+    <area shape="rect" coords="474,298,580,309" href="itwfl_impl_pattern.htm">
+	
+<area shape="rect" coords="101,278,166,316" href="../workflow/environm/wfs_env4.htm"> 
+<area shape="rect" coords="80,317,184,330" href="../workflow/environm/wfs_env4.htm"> 
+</map><img border="0" src="images/iw_classic_e.gif" width="810" height="658" usemap="#RPWMap0">
+</a></p>
+        <p align="center" class="picturetext">Workflow details typically performed 
+          in an iteration in Elaboration for 
+          medium sized projects.</p>
+      </td>
+    </tr>
+  </table>
+<br></div>
+	  
+<h4><a name="Objectives">Objectives</a> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></h4>
+<p> The primary objectives of the Elaboration phase include: </p>
+<ul>
+  <li>To ensure that the architecture, requirements and plans are stable enough, 
+    and the risks sufficiently mitigated to be able to predictably determine the 
+    cost and schedule for the completion of the development. For most projects, 
+    passing this milestone also corresponds to the transition from a light-and-fast, 
+    low-risk operation to a high cost, high risk operation with substantial organizational 
+    inertia.</li>
+  <li>To address all architecturally significant risks of the project</li>
+  <li>To establish a baselined architecture derived from addressing the architecturally 
+    significant <a href="../glossary.htm#scenario">scenarios</a>, which typically 
+    expose the top technical risks of the project.</li>
+  <li>To produce an evolutionary <a href="../workflow/manageme/co_proto.htm">prototype</a> 
+    of production-quality components, as well as possibly one or more exploratory, 
+    throw-away prototypes to mitigate specific risks such as: 
+    <ul>
+      <li>design/requirements trade-offs</li>
+      <li>component reuse</li>
+      <li>product feasibility or demonstrations to investors, customers, and end-users.</li>
+    </ul>
+  </li>
+  <li>To demonstrate that the baselined architecture will support the requirements 
+    of the system at a reasonable cost and in a reasonable time.</li>
+  <li>To establish a supporting environment.</li>
+</ul>
+In order to achieve this primary objectives, it is equally important to set up 
+the supporting environment for the project. This includes creating a development 
+case, preparing templates, guidelines, and setting up tools. 
+<h4><a name="EssentialActivities">Essential Activities</a> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></h4>
+<p>The essential activities of the Elaboration phase include:</p>
+<h4></h4>
+<ul>
+  <li><b>Defining, validating and baselining the architecture</b> as rapidly as 
+    practical.</li>
+  <li><b>Refining the Vision</b>, based on new information obtained during the 
+    phase, establishing a solid understanding of the most critical use cases that 
+    drive the architectural and planning decisions.</li>
+  <li><b>Creating and baselining detailed iteration plans for the construction 
+    phase</b>.</li>
+  <li><b>Refining the development case and putting in place the development environment</b>, 
+    including the process, tools and automation support required to support the 
+    construction team.</li>
+  <li><b>Refining the architecture and selecting components</b>. Potential components 
+    are evaluated and the make/buy/reuse decisions sufficiently understood to 
+    determine the construction phase cost and schedule with confidence. The selected 
+    architectural components are integrated and assessed against the primary scenarios. 
+    Lessons learned from these activities may well result in a redesign of the 
+    architecture, taking into consideration alternative designs or reconsideration 
+    of the requirements.</li>
+</ul>
+<h4><a name="Milestone"></a>Milestone <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></h4>
+<p>The Lifecycle Architecture milestone establishes a managed baseline for the 
+  architecture of the system and enables the project team to scale during the 
+  Construction phase. See <a href="ms_lca.htm">Milestone: Lifecycle Architecture</a> 
+  for details.</p>
+<h4><a name="Tailoring">Tailoring Decisions</a> <img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"> </h4>
+<p>The <a href="#PhaseOverview">example iteration workflow</a> shown at the top 
+  of this page represents a typical Elaboration iteration in 
+  medium sized projects. The <a href="sip_iie.htm">Sample Iteration Plan: Elaboration 
+  Phase</a> represents a different perspective of the breakdown of activities 
+  to undertake in an Elaboration iteration. This iteration 
+  plan is more complete in terms of workflow details and activities, and as such, 
+  more suitable for larger projects. Small projects might decide to do only a 
+  subset of these workflow details, deviations should be challenged and documented 
+  as part of the project-specific process. When planning an Elaboration iteration, 
+  keep in mind that the project's focus may shift from beginning of a phase to 
+  the end, and the iteration workflows may differ slightly from one iteration 
+  to the other.</p>
+
+
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

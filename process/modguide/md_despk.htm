@@ -1,0 +1,463 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Design Package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Design Package</rpw><a name="Top"></a><a name="XE_design_package__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#Package Content Visibility">Package Content Visibility</a></li>
+  <li><a href="#Package-Partitioning Criteria">Package-Partitioning Criteria</a>
+    <ul>
+      <li><a href="#Packaging Boundary Classes">Packaging Boundary Classes</a></li>
+      <li><a href="#Packaging Functionally Related Classes">Packaging
+        Functionally Related Classes</a></li>
+    </ul>
+  </li>
+  <li><a href="#Evaluating Package Cohesion">Evaluating Package Cohesion</a></li>
+  <li><a href="#Describing Packages Dependendencies">Describing Package
+    Dependencies</a></li>
+  <li><a href="#Evaluating Package Coupling">Evaluating Package Coupling</a></li>
+</ul>
+<h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p><a name="XE_design_subsystem__packages_vs._subsystems"></a><a name="XE_design_package__subsystems_vs._packages"></a>The 
+  Design Model can be structured into smaller units to make it easier to understand. 
+  By grouping Design Model elements into packages and subsystems, then showing 
+  how those groupings relate to one another, it is easier to understand the overall 
+  structure of the model. Note that a <b><a href="../glossary.htm#design_subsystem">design 
+  subsystem</a></b> is a special kind of package which has behavioral semantics 
+  (i.e. it realizes one or more interfaces); for more information, see <a href="../artifact/ar_dsub.htm">Artifact: 
+  Design Subsystem</a> and <a href="md_dsub.htm">Guidelines: Design Subsystem</a>. 
+  Design packages, on the other hand, are just for grouping.</p>
+<h3><a name="XE_visibility__of_content_in_package"></a><a name="XE_design_package__describing_how_packages_depend_on_each_other"></a><a name="Package Content Visibility">Package
+Content Visibility</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>A class contained in a package can be public or private. A <a name="XE_public_class__in_package"></a><b>public
+class </b>can be associated by any other class. A <a name="XE_private_class__in_package"></a><b>private
+class </b>can be associated only by classes contained in the package.</p>
+<p>A package interface consists of a package's public classes. The package
+interface (public classes) isolates and implements the dependencies on other
+packages. In this way, parallel development is simplified because you can
+establish interfaces early on, and the developers need to know only about
+changes in the interfaces of other packages.</p>
+<h3><a name="XE_design_package__package_partitioning_criteria"></a><a name="Package-Partitioning Criteria">Package-Partitioning
+Criteria</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>You can partition the Design Model for a number of reasons:
+<ul>
+  <li>You can use packages and subsystems as order, configuration, or delivery
+    units when a system is finished.</li>
+  <li>Allocation of resources and the competence of different development teams
+    may require that the project be divided among different groups at different
+    sites. Subsystems, with well-defined interfaces, provide a way to divide
+    work between teams in a controlled, coordinated way, allowing design and
+    implementation to proceed in parallel.</li>
+  <li>Subsystems can be used to structure the design model in a way that
+    reflects the user types. Many change requirements originate from users;
+    subsystems ensure that changes from a particular user type will affect only
+    the parts of the system that correspond to that user type.</li>
+  <li>In some applications, certain information should be accessible to only a
+    few people. Subsystems let you preserve secrecy in areas where it is needed.</li>
+  <li>If you are building a support system, you can, using subsystems and
+    packages to give it a structure similar to the structure of the system to be
+    supported. In this way, you can synchronize the maintenance of the two
+    systems.</li>
+  <li><a name="XE_existing_product__representing_with_packages"></a>Subsystems
+    are used to represent the existing products and services that the system
+    uses (for example, COTS products, and libraries), as explained in the next
+    several sections.</li>
+</ul>
+<h4><a name="XE_boundary_class__packaging"></a><a name="Packaging Boundary Classes">Packaging
+Boundary Classes </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>When the boundary classes are distributed to packages there are two different
+strategies that can be applied; which one to choose depends on whether or not
+the system interfaces are likely to change greatly in the future.
+<ul>
+  <li>If it is likely that the system interface will be replaced, or undergo
+    considerable changes, the interface should be separated from the rest of the
+    design model. When the user interface is changed, only these packages are
+    affected. An example of such a major change is the switch from a
+    line-oriented interface to a window-oriented interface.</li>
+</ul>
+<p class="picturecenter" align="center"><img src="images/md_desp2.gif" width="234" height="148"></p>
+<p class="picturetext">If the primary aim is to simplify major interface
+changes, the boundary classes should be placed in one (or several) separate
+packages.
+<ul>
+  <li>If no major interface changes are planned, changes to the system services
+    should be the guiding principle, rather than changes to the interface. The
+    boundary classes should then be placed together with the entity and control
+    classes with which they are functionally related. This way, it will be easy
+    to see what boundary classes are affected if a certain entity or control
+    class is changed.</li>
+</ul>
+<p class="picturecenter" align="center"><img src="images/md_desp3.gif" width="257" height="71"></p>
+<p class="picturetext">To simplify changes to the services of the system, the
+boundary classes are packaged with the classes to which they are functionally
+related.</p>
+<p>Mandatory boundary classes that are not functionally related to any entity-
+or control classes, should be placed in separate packages, together with
+boundary classes that belong to the same interface.</p>
+<p>If a boundary class is related to an optional service, group it with the
+classes that collaborate to provide the service, in a separate subsystem. The
+subsystem will map onto an optional component which will be provided when the
+optional functionality is ordered.</p>
+<h4><a name="XE_design_package__functionally_related_classes?_finding_packages_for"></a><a name="Packaging Functionally Related Classes">Packaging
+Functionally Related Classes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>A package should be identified for each group of classes that are
+functionally related. There are several practical criteria that can be applied
+when judging if two classes are functionally related. These are, in order of
+diminishing importance:
+<ul>
+  <li>If changes in one class' behavior and/or structure necessitate changes in
+    another class, the two classes are functionally related.</li>
+</ul>
+<blockquote>
+  <p class="exampleheading">Example</p>
+  <p class="example">If a new attribute is added to the entity class <b>Order</b>,
+  this will most likely necessitate updating the control class <b>Order
+  Administrator</b>. Therefore, they belong to the same package, <b>Order
+  Handling</b>.</p>
+</blockquote>
+<ul>
+  <li>It is possible to find out if one class is functionally related to another
+    by beginning with a class - for example, an entity class - and examining the
+    impact of it being removed from the system. Any classes that become
+    superfluous as a result of a class removal are somehow connected to the
+    removed class. By superfluous, we mean that the class is only used by the
+    removed class, or is itself dependent upon the removed class.</li>
+</ul>
+<blockquote>
+  <p class="exampleheading">Example</p>
+  <p class="example">There is a package <b>Order Handling</b>
+  containing the two control classes <b>Order Administrator </b>and <b>Order
+  Registrar,</b> in the <b>Depot Handling System.</b> Both of
+  these control classes model services regarding order handling in the depot.
+  All order attributes and relationships are stored by the entity class <b>Order</b>,
+  which only exists for order handling. If the entity class is removed, there
+  will be no need for the <b>Order Administrator </b>or the <b>Order
+  Registrar</b>, because they are only useful if the <b>Order</b>
+  is there. Therefore, the entity class <b>Order</b> should be
+  included in the same package as the two control classes.</p>
+</blockquote>
+<p class="picturecenter" align="center"><img src="images/md_desp4.gif" width="393" height="163"></p>
+<blockquote>
+  <p class="picturetext" align="center">
+  <b>Order Administrator </b>and <b>Order
+  Registrar</b> belong to the same package as <b>Order</b>,
+  because they become superfluous if <b>Order</b> is removed from the
+  system.</p>
+</blockquote>
+<ul>
+  <li>Two objects can be functionally related if they interact with a large
+    number of messages, or have an otherwise complicated intercommunication.</li>
+</ul>
+<blockquote>
+  <p class="example"><b>Example</b></p>
+  <p class="example">The control class <b>Task Performer </b>sends and
+  receives many messages to and from the <b>Transporter Interface.</b>
+  This is another indication that they should be included in the same package, <b>Task
+  Handling.</b></p>
+</blockquote>
+<ul>
+  <li>A boundary class can be functionally related to a particular entity class
+    if the function of the boundary class is to present the entity class.</li>
+</ul>
+<blockquote>
+  <p class="example"><b>Example</b></p>
+  <p class="example">The boundary class, <b>Pallet
+  Form</b>, in the <b>Depot Handling System</b>, presents
+  an instance of the entity class <b>Pallet</b> to the user. Each <b>Pallet
+  </b>is represented by an identification number on the screen. If the
+  information about a <b>Pallet</b> is changed, for example, if the <b>Pallet</b>
+  is also given a name, the boundary class might have to be changed as well. <b>Pallet
+  Form</b> should therefore be included in the same package as <b>Pallet</b>.</p>
+</blockquote>
+<ul>
+  <li>Two classes can be functionally related if they interact with, or are
+    affected by changes in, the same actor. If two classes do not involve the
+    same actor, they should not lie in the same package. The last rule can, of
+    course, be ignored for more important reasons.</li>
+</ul>
+<blockquote>
+  <p class="example"><b>Example</b></p>
+  <p class="example">There is a package <b>Task Handling </b>in the <b>Depot
+  Handling System</b>, which includes, among other things, the control
+  class <b>Task Performer</b>. This is the only package involved with
+  the actor <b>Transporter</b>, the physical transporter that can
+  transport a pallet in the depot. The actor interacts with the control class <b>Task
+  Performer </b>via the boundary class <b>Transporter Interface.</b>
+  This boundary class should therefore be included in the package <b>Task
+  Handling</b>.</p>
+  <p class="example" align="center"><img src="images/md_desp5.gif" alt width="470" height="163"></p>
+  <p class="picturetext"><b>Transporter Interface</b> and <b>Task
+  Performer</b> belong to the same package since both of them are affected
+  by changes in the <b>Transporter</b> actor.</p>
+</blockquote>
+<ul>
+  <li>Two classes can be functionally related if they have relationships between
+    each other (associations, aggregations, and so on). Of course, this
+    criterion cannot be followed mindlessly, but can be used when no other
+    criterion is applicable.</li>
+  <li>A class can be functionally related to the class that creates instances of
+    it.</li>
+</ul>
+<p>These two criteria determine when two classes should <b>not</b> be
+placed in the same package:
+<ul>
+  <li>Two classes that are related to different actors should not be placed in
+    the same package.</li>
+  <li>An optional and a mandatory class should not be placed in the same
+    package.</li>
+</ul>
+<h3><a name="Evaluating Package Cohesion">Evaluating Package Cohesion </a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>First, all elements in a package must have the same optionality: there can be
+no optional model elements in a mandatory package.</p>
+<p class="exampleheading">Example</p>
+<p class="example">The mandatory entity class <b>Article Type</b> has,
+among other things, an attribute called <b>Restock Threshold</b>. The
+restock function, however, is optional in the system. Therefore, <b>Article</b>
+should be split up into two entity classes, where the optional class relates the
+mandatory one.</p>
+<p>A package that is considered mandatory might not depend on any package that
+is considered optional.</p>
+<p>As a rule, a single package can not be used by two different actors. The
+reason for this is that a change in one actor's behavior should not affect other
+actors as well. There are exceptions to this rule, such as for packages that
+constitute optional services. Packages of this type should not be divided, no
+matter how many actors use it. Therefore, split any package, or class, that is
+used by several actors unless the package is optional.</p>
+<p>All classes in the same package must be functionally related. If you have
+followed the criteria in the section &quot;Find packages from Functionally
+Related Classes,&quot; the classes in one package will be functionally related
+among themselves. However, a particular class might in itself contain &quot;too
+much&quot; behavior, or relationships that do not belong to the class. Part of
+the class should then be removed to become a completely new class, or to some
+other class, which probably will belong to another package.</p>
+<p class="exampleheading">Example</p>
+<p class="example">The behavior of a control class, <b>A</b>, in one
+package should not depend too much on a class, <b>B</b>, in another
+package. To isolate the <b>B</b>-specific behavior, the control class <b>A</b>
+must be split into two control classes, <b>A' </b>and <b>A&quot;</b>.
+The <b>B</b>-specific behavior is placed in the new control class, <b>A&quot;</b>,
+which is placed in the same package as <b>B</b>. The new class <b>A&quot;</b>
+also gets a relationship, such as generalization, to the original object <b>A'</b>.</p>
+<p class="example" align="center"><img src="images/md_desp6.gif" width="316" height="206"></p>
+<p class="picturetext">To isolate the <b>B</b>-specific behavior, the
+control class <b>A</b>, which lacks homogeneity, is split into two
+control classes, <b>A'</b> and <b>A''</b>.</p>
+<h3><a name="Describing Packages Dependendencies">Describing Package </a>Dependencies
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>If a class in one package has an association to a class in a different
+package, then these packages depend on each other. Package dependencies are
+modeled using a dependency relationship between the packages. Dependency
+relationships help us to assess the consequence of changes: a package upon which
+many packages depend is more difficult to change than one upon which no packages
+depend.</p>
+<p>Because several dependencies like this will be discovered during the
+specification of the packages, these relationships are bound to change during
+the work. The description of a dependency relationship might include information
+about what class relationships have caused the dependency. Since this introduces
+information that is difficult to maintain, it should be done only if the
+information is pertinent and of value.</p>
+<p class="exampleheading">Example</p>
+<p class="example">In the <b>Depot Handling System</b> there is a
+dependency relationship from the package <b>Order Handling </b>to the
+package <b>Item Handling.</b> This association arises because the
+entity class <b>Order </b>in <b>Order Handling</b> has an
+association to the entity class <b>Item Type </b>in the other package.</p>
+<p class="example" align="center"><img src="images/md_desp7.gif" width="264" height="256"></p>
+<p class="picturetext">The package <b>Order Handling</b> is dependent
+on <b>Item Handling</b>, because there is an association between two
+classes in the packages.</p>
+<h3><a name="Evaluating Package Coupling">Evaluating Package Coupling</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Package coupling is good and bad: good, because coupling represent re-use,
+and bad, because coupling represents dependencies that make the system harder to
+change and evolve. Some general principles can be followed:
+<ul>
+  <li>Packages should not be cross-coupled (i.e. co-dependent); e.g. two
+    packages should not be dependent on one another.</li>
+</ul>
+<blockquote>
+  <p align="center"><img src="images/md_dpkg1.gif" width="300" height="109"></p>
+  <p class="picturetext">In these cases, the packages need to be reorganized to
+  remove the cross-dependencies.</p>
+</blockquote>
+<ul>
+  <li>Packages in lower layers should not be dependent upon packages in upper
+    layers. Packages should only be dependent upon packages in the same layer
+    and in the next lower layer.</li>
+</ul>
+<blockquote>
+  <p align="center"><img src="images/md_dpkg2.gif" width="200" height="239"></p>
+  <p class="picturetext">In these cases, the functionality needs to be
+  repartitioned. One solution is to state the dependencies in terms of
+  interfaces, and organize the interfaces in the lower layer.</p>
+</blockquote>
+<ul>
+  <li>In general, dependencies should not skip layers, unless the dependent
+    behavior is common across all layers, and the alternative is to simply
+    pass-through operation invocations across layers.</li>
+  <li>Packages should not depend on subsystems, only on other packages or on
+    interfaces.</li>
+</ul>
+<br><br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Guidelines:&nbsp;Business Entity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Guidelines:&nbsp;<rpw name="PresentationName">Business Entity</rpw><a name="Top"></a><a name="XE_business_entity__guidelines_for"></a></h2>
+
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Attributes">Attributes</a></li>
+  <li><a href="#Using Attributes or Entities">Using Attributes or Entities</a></li>
+  <li><a href="#Operations">Operations</a></li>
+  <li><a href="#Characteristics of Good Business Entities">Characteristics of 
+    a Good Business Entity</a></li>
+  <li><a href="#Business Events">Business Events</a></li>
+</ul>
+<h3><a name="Explanation">Explanation</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business entities represent &quot;things&quot; handled or used by the business 
+  workers as they execute a business use case. A business entity often represents 
+  something of value to several business use cases or use-case instances, so the 
+  business entity object is rather long-lived. In general, it is good if the business 
+  entity holds no information about how and by whom it is used.</p>
+<p>Typically, a business entity represents a document or an essential part of a
+product. Sometimes it represents something less tangible, like important
+knowledge about a market or a customer. Examples of business entities at the
+restaurant are Menu and Beverage; at the airport, Ticket and Boarding Pass are
+important business entities.</p>
+<p>You need to model as Business Entities only those phenomena to which other 
+  classes in the business domain model must refer. Other &quot;things&quot; may 
+  be modeled as attributes of the relevant classes or just described textually 
+  in these classes.</p>
+<h3><a name="Attributes">Attributes</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>An <b>attribute</b> of a class represents a piece of information about an object 
+  of that class that is kept with the object. An attribute has an attribute type. 
+  Each attribute and attribute type, respectively, has a name.</p>
+<p>An object normally holds different pieces of information that describe some 
+  of its characteristics. Such pieces of information can either be described implicitly 
+  in the textual description of the object’s class or modeled explicitly as an 
+  attribute of the class.</p>
+<p>An attribute is of a certain type. An attribute has a name, preferably a noun 
+  that describes the attribute’s role in relation to the class. An attribute type 
+  can be more or less primitive, starting from a simple number or string. Different 
+  classes can have attributes with identical structures. Those attributes should 
+  share a description; that is, they should share attribute type.</p>
+<p><b>Note:</b> You should model attributes only to make a class more understandable!</p>
+<h3><font face="Arial">
+<b><a name="Using Attributes or Entities">Using Attributes or Entities</a> </b></font><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Now and then it is hard to know if you should describe a concept as an attribute 
+  of a class or as a separate business entity class. The general rule is as follows: 
+  Model a phenomenon as an attribute if no more than one object needs to have 
+  direct access to it or if the only natural way to access it is through the object. 
+  Otherwise, model the concept separately, in a class of its own.</p>
+<p align="CENTER"><img src="images/bent1.gif" width="111" height="71"></p>
+<p class="picturetext">In the airport check-in use case, tickets are important.
+Each ticket has a passenger name and a flight. Here, the attributes Name and
+Flight are identified. The latter is more complex, consisting of airline,
+destination, time of departure, and time of arrival.</p>
+<p align="CENTER"><img src="images/bent2.gif" width="325" height="60"></p>
+<p class="picturetext">All passengers traveling on the same flight share that 
+  flight. The airline is the same for several flights. A better alternative is 
+  therefore to model flight and airline as classes.</p>
+<p>Once you have decided if a concept is so important to the use case that it 
+  must be modeled, what governs whether it should be modeled as a separate class 
+  or merely as a class attribute is not its importance in real life. Instead, 
+  what dictates how it is modeled is the business need for accessing it. This 
+  means that some concepts are modeled differently for different businesses.</p>
+<p>Consider an example: To the employees working in a traffic-planning use case 
+  at an airport, flights are central. The time of departure, the airline, and 
+  the destination must be defined for each flight. In this case, you might use 
+  a class, Flight, and give it the attributes time of departure, airline, and 
+  destination.</p>
+<p align="CENTER"><img src="images/bent3.gif" width="108" height="74"></p>
+<p class="picturetext">Flights are essential to employees working in a traffic-planning 
+  business use case at an airport. </p>
+<p class="picturetext">On the other hand, the situation is different for the employees 
+  of a travel agency. Although they still need time of departure, airline, and 
+  destination, they have additional needs. What is most important to a travel 
+  agency is finding a flight with a specific destination, in which case it is 
+  appropriate to create a separate class for Destination. The classes Flight and 
+  Destination must, of course, be aware of each other. A bi-directional association 
+  allows this.</p>
+<p align="CENTER"><img src="images/bent4.gif" width="190" height="62"></p>
+<p class="picturetext">Flight departures and destinations are equally essential
+to employees working in a travel-agency use case.</p>
+<p>Theoretically, everything can be modeled as a class. However, using
+attributes when appropriate reduces the number of classes that must be
+maintained and makes the object model easier to understand.</p>
+<h3><a name="Operations">Operations</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>To perform a business worker's responsibilities, the person acting as the business 
+  worker uses one or several tools to manipulate the business entities. You can 
+  define these tools either generally or explicitly, with the help of operations 
+  and messages representing the tools used and the accesses made. An operation 
+  defines the tool with which a business entity is manipulated. The access is 
+  initiated by a message. A tool that can be used to manipulate a business entity 
+  object is represented as an <b>operation</b> of the business entity class, with 
+  a <b>name</b> and, optionally, <b>parameters</b>. The access of a business entity 
+  unit is shown as a <b>message</b> being sent to the business entity object.</p>
+<p>For example, an operation &quot;associate baggage&quot; on the business entity 
+  &quot;ticket&quot; would involve attaching baggage labels to the ticket. The 
+  parameters would include the baggage labels.</p>
+<p>Each operation is defined by a name, which should tell its purpose, and, optionally, 
+  a number of parameters. The parameters specify what an object of the class should 
+  expect to receive from an object that is requesting support or making an access, 
+  as well as what the object will provide when the operation has been performed. 
+  As an example, you can give parameters that reflect when a business worker should 
+  take a step in the worker operation, or when that business worker should access 
+  a certain business entity by initiating one of the business entity’s operations. 
+  Parameters can also represent more or less tangible things that are handed over.</p>
+<p>Operations can be defined informally or in more detail, depending on the importance 
+  or required level of detail in a use case. A &quot;more detailed&quot; description 
+  might describe a behavior sequence that tells which attributes and relationships 
+  are dealt with during its performance, how objects of other classes are contacted, 
+  and how it is terminated.</p>
+<h3><a name="Characteristics of Good Business Entities">Characteristics of a
+Good Business Entity</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<ul>
+  <li>Its name and description are clear and understandable.</li>
+  <li>Business entity relationships do not depend on each other.</li>
+  <li>Each relationship is used in the workflow of at least one business use
+    case.</li>
+  <li>All &quot;things&quot; in the business, such as products, documents,
+    contracts, and so on, are modeled as business entities.</li>
+  <li>It participates in at least one business use case.</li>
+  <li>It has an owner; that is, a business worker or business actor responsible 
+    for the business entity.</li>
+</ul>
+<h3><a name="Business Events">Business Events</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Business events can be used to notify interested parties (including other
+business entities) of a change in state
+of the business entity. The creation and destruction of a business entity may be
+significant. If you have defined a state machine, examine the states of the
+business entity. Each transition is a potential business event. Also inspect
+the attributes and operations of the business entity. Significant operations
+that are used infrequently may have a business event associated with them.
+Changes to important attributes may trigger an event. Business process patterns
+and business entity patterns may also provide insight into useful business
+events. For example, if a business entity must be approved before being used
+further, a <i>&lt;something&gt; Approved</i> business event may be useful to notify other parties
+that the business event is ready for use. For more information on finding
+business events, see <a href="md_bevnt.htm">Guidelines: Business Event</a>.</p>
+
+<p>
+ 
+<hr>
+<table border="0" width="100%">
+	<tr>
+		<td valign="middle" align="left"><a  target="_blank" href="http://www.empulsys.com/rupbm"><img border="0" src="../../images/empulsys.gif" width="100" height="24"></a>
+		</td>
+		<td width="86%" valign="middle" align="left"><font face="Arial"><small><small>This content developed or partially developed by <a target="_blank" href="http://www.empulsys.com/rupbm">Empulsys BV</a>.</small></small></font>
+		</td>
+	</tr>
+</table>
+
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

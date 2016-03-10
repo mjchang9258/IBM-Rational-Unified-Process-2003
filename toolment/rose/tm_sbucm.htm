@@ -1,0 +1,301 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+<html>
+<head>
+<title>Tool Mentor:&nbsp;Structuring the Business Use-Case Model Using Rational Rose</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+<H2 CLASS="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Structuring the Business Use-Case Model Using Rational Rose</rpw><A NAME="Top" msnavigation></A>
+</H2>
+      <H3>
+       Purpose</H3>
+      <P>
+       This tool mentor describes how to use Rational Rose&reg; to document 
+       relationships between business actors and between business use cases.</P>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_sbucm.htm">Structure the Business Use-Case Model</a></li>
+</ul>
+<br>
+   
+</p>
+
+      <H3>
+       Overview</H3>
+      <P>
+       To document relationships between actors and between use cases:</P>
+      <OL>
+       <LI CLASS="mvd-P">
+       <P>
+        <A HREF="tm_sbucm.htm#Document Actor-Generalizations">Document actor-generalizations</a>
+        <LI CLASS="mvd-P"><A HREF="tm_sbucm.htm#Document Include-Relationships Between Use Cases">Document
+         include-relationships between business use cases</a>
+        <LI CLASS="mvd-P"><a HREF="#Document Extend-Relationships Between Use Cases">Document
+         extend-relationships between business use cases</a>
+        <LI CLASS="mvd-P"><a HREF="#Document Use-Case Generalizations">Document
+         use-case-generalizations</a>
+       <li><a href="#Structure the Business Goals">Structure the business goals</a></li>
+       </OL>
+      <P>
+       For more details, see:</P>
+      <UL>
+       <LI CLASS="mvd-P">
+       <P>
+        <SPAN STYLE="font-style : italic;"><IMG SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16">Use
+         Case Diagrams (Overview)</SPAN> topic in the Rational Rose online help
+        <LI CLASS="mvd-P"><IMG SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"><SPAN STYLE="font-style : italic;">Chapter
+         4, Introduction to Diagram</SPAN>s and <SPAN STYLE="font-style : italic;">Chapter
+         7, Use-Case Diagrams and Specifications</SPAN> in the Using Rose manual
+       </UL>
+      <H3>
+       1. <A NAME="Document Actor-Generalizations"></a>Document 
+       Actor-Generalizations <A HREF="tm_sbucm.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       You can insert a generalization relationship between one business 
+       actor and another business actor in a use-case diagram by using the 
+       Generalization drawing tool from the use-case diagram toolbox. Once 
+       you've created the relationship, you can describe it by adding text 
+       to the documentation field of the Generalize Specification dialog.</P>
+      <H3>
+       &nbsp;2. <A NAME="Document Include-Relationships Between Use Cases"></a>Document
+        Include-Relationships Between Use Cases <A HREF="tm_sbucm.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create an includes relationship between two use cases in a use 
+       case diagram, you first create an association between the two use 
+       cases, then assign an <SPAN STYLE="font-style : italic;">includes</SPAN> 
+       stereotype to the association. You use the <SPAN STYLE="font-style : italic;">includes</SPAN> 
+       stereotype when one use case employs the functionality of another use 
+       case. The use case being used typically contains functionality that a 
+       number of other use cases may need or want.</P>
+      <P>
+       Once you have created the association between use cases, you can:</P>
+      <UL>
+       <LI>Describe the relationship by adding text to the Documentation field 
+        of the Association Specification (General tab).</li>
+       <LI>
+        Change the navigability of a role in the include-relationship. By 
+        default, associations are uni-directional. By using the Navigable 
+        field on the Association Specification (Role A or Role B), you can 
+        create a bi-directional association.</li>
+       </UL>
+      <H3>
+       &nbsp;3. <A NAME="Document Extend-Relationships Between Use Cases"></a>Document
+        Extend-Relationships Between Use Cases <A HREF="tm_sbucm.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create an extends relationship between two use cases in a use case 
+       diagram, you first draw an association between the two use cases, 
+       then assign an <SPAN STYLE="font-style : italic;">extends</SPAN> 
+       stereotype to the association. You use the extends stereotype to 
+       express optional or conditional behavior for a use case.</P>
+      <P>
+       Once you have created the association between use cases, you can:</P>
+      <ul>
+        <li>Describe the relationship by adding text to the Documentation field 
+        of the Association Specification (General tab).</li>
+        <li>Specify multiplicity (expected instances) of a role.</li>
+        <li>Change the navigability of a role in the extends-relationship. 
+        By default, associations are uni-directional. By using the Navigable 
+        field on the Association Specification (Role A or Role B), you can 
+        create a bi-directional association.</li>
+      </ul>
+      <H3>
+       &nbsp;4. <A NAME="Document Use-Case Generalizations"></a>Document 
+       Use-Case Generalizations <A HREF="tm_sbucm.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       You can create a generalization relationship from one business use 
+       case to another use case when one use case provides common 
+       functionality (for example, when you have an abstract use case that 
+       provides common functionality to concrete use cases).</P>
+      <P>
+       Once you have created a generalization relationship between use 
+       cases, you can describe the relationship by adding text to the 
+       Documentation field of the Generalization Specification.</P>
+<H3>
+       &nbsp;5. <a NAME="Structure the Business Goals"></a>Structure the
+Business Goals <A HREF="tm_sbucm.htm#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+<p>If you have very many business goals, it may be necessary to group logically
+related goals into separate packages within the &quot;Business Goals&quot;
+package.</p>
+<p>To create a new package, do the following:
+<ul>
+  <li>Right-click to select the &quot;Business Goals&quot; package in the
+    browser.</li>
+  <li>Select <b>Package</b> from the <b>New</b> option on the shortcut menu. A
+    &quot;NewPackage&quot; browser icon is added to the browser.</li>
+  <li>With the new package icon selected, type the name of the new package.</li>
+</ul>
+<p>Very often, business goals are grouped according to the highest-level
+business goals. Use the name of the high-level business goal as the name of the
+package. Be sure that any other business goals and diagrams belonging to the
+high-level business goal are moved into the newly created package.
+<p>To move a sub-goal or diagram, do the following:
+<ul>
+  <li>Ensure the newly created package is visible in the browser.</li>
+  <li>Find the business goal or diagram that must be moved.</li>
+  <li>Left-click to select the business goal or diagram in the browser. Keep the
+    left button pressed.</li>
+  <li>Drag the selected business goal or diagram to the newly created package so
+    that the newly created package is selected.</li>
+  <li>Release the left button to &quot;drop&quot; the business goal or diagram
+    onto the newly created package.</li>
+</ul>
+<p>You cannot drag more than one element at one time to another package.</p>
+      <P>&nbsp;
+       </P>
+      <P>
+       
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

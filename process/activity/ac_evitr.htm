@@ -1,0 +1,425 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Assess Iteration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Assess Iteration</rpw><a name="Top"></a><a name="XE_iteration__assessing"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+    <ul>
+      <li>Determine success or failure of the iteration</li>
+      <li>Capture lessons learned to modify the project or improve the process</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Collect metrics">Collect Metrics</a></li>
+      <li><a href="#Assess the results of the iteration">Assess the Results of
+        the Iteration</a></li>
+      <li><a href="#Consider External Change">Consider External Change</a></li>
+      <li><a href="#Examine the Evaluation Criteria">Examine the Evaluation
+        Criteria</a></li>
+      <li><a href="#Create Change Requests">Create Change Requests</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_bcase.htm">Business Case</a></li>
+<li><a href="../artifact/ar_devcs.htm">Development Case</a></li>
+<li><a href="../artifact/ar_deorv.htm">Development-Organization Assessment</a></li>
+<li><a href="../artifact/ar_issues.htm">Issues List</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_metr.htm">Measurement Plan</a></li>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+<li><a href="../artifact/ar_stass.htm">Status Assessment</a></li>
+<li><a href="../artifact/ar_tstev.htm">Test Evaluation Summary</a></li>
+<li><a href="../artifact/ar_tstpl.htm">Test Plan</a></li>
+<li><a href="../artifact/ar_vsion.htm">Vision</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_itass.htm">Iteration Assessment</a></li>
+</ul>
+&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Once per iteration&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_projm.htm">Project Manager</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/manageme/co_metr.htm">Concept: Metrics</a></li>
+<li><a href="../workguid/wg_rview.htm">Guideline: Reviews</a></li>
+</ul>
+</td>
+    </tr>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_mgm.htm">Project Management</a>
+<ul>
+<li><a href="../workflow/manageme/wfs_manit.htm">Manage Iteration</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+<br></div>
+
+<p>One of the primary advantages of the iterative approach over the <b>waterfall
+approach </b>is that the iterations provide natural milestones for
+evaluating progress and bounding risk. Within the iteration, progress and risk
+must continue to be assessed (if informally) to ensure that difficulties do not
+derail the project.</p>
+<p align="center"><img src="images/evitr001.gif" alt width="315" height="325"></p>
+<p>&nbsp;</p>
+<h3><a name="XE_metrics__collecting"></a><a name="Collect metrics">Collect
+metrics</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">Collect quality and progress information on the project for status, and improvements&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>This step involves the following work, based on the project's measurement
+plan:
+<ul>
+  <li>Collect the primitive metrics</li>
+  <li>Calculate, verify and validate the metrics</li>
+  <li>Include the metrics in the status assessment report</li>
+</ul>
+<p>During an iteration assessment, metrics are examined, and any actions are
+decided, which may involve replanning, re-tooling, training, reorganizing, etc…
+including revisiting the measurement plan. Similarly at the end of a cycle, a
+&quot;post mortem review&quot; can make sure that some of the metrics collected
+can be exploited to improve the process, or for estimation purposes.</p>
+ 
+<p>For more information on metrics, see <a href="../modguide/md_metri.htm">Guidelines:
+Metrics</a>.</p>
+<p>For iterations that span weeks or even months, metrics collection and
+reporting will be a continuing activity, with periodic <a href="../artifact/ar_stass.htm">Artifact:
+Status Assessment</a>s capturing the intermediate results.</p>
+<h3><a name="Assess the results of the iteration"><b>Assess the Results Of
+the Iteration</b></a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To compare the actual and expected results of the iteration.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Near the end of each iteration, the core project team should meet to assess
+the iteration, focusing on the following:
+<ul>
+  <li>Was the iteration successful in meeting its goals?
+    <ul>
+      <li>Were risks reduced or eliminated?</li>
+      <li>Did the release meet its functionality and quality goals? Performance
+        and Capacity goals?</li>
+    </ul>
+  </li>
+  <li>Are changes to the project and future iteration plans required?</li>
+ 
+  <li>Have any of the findings captured in the <a href="../artifact/ar_deorv.htm">Artifact:
+    Development-Organization Assessment</a> been invalidated by changes during
+    the iteration (as a consequence requiring changes to other artifacts, such
+    as the development case)?</li>
+
+  <li>Were there any difficulties with the development process  (as defined in
+    the <a href="../artifact/ar_devcs.htm">Artifact: Development Case</a>)
+    during the iteration?</li>
+  <li>What portion of the current release will be baselined? Reworked?</li>
+  <li>Have new risks been identified?</li>
+  <li>Have external changes occurred (changes in the marketplace, in the user
+    community, or in requirements)?</li>
+</ul>
+<p>Assess the results of the iteration relative to the evaluation criteria that
+were established for the iteration plan: functionality, performance, capacity,
+quality measures. Use metrics resulting from the testing activities and the step
+<a href="#Collect metrics">Collect Metrics</a> as the basis for the assessment,
+when available, to quantify the assessment; qualitative measures are adequate
+for inception and perhaps early iteration, while later elaboration, construction
+and transition must rely upon specific test measurements to assess quality,
+performance, capacity, etc. Address other unresolved issues that were captured
+in the status assessments performed during the iteration, and any others in the
+Project Manager's Issues List.</p>
+<p>If all risks have been reduced to acceptable levels, all functionality has
+been implemented, and all quality objectives have been met, the product is
+complete. Good planning and execution are essential to making this occur at the
+end of the Transition phase.</p>
+<h3><a name="Consider External Change">Consider External Change</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To ensure the project stays connected with the &quot;outside world&quot;&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>It is easy for the project team to become so inwardly focused that they are
+not aware of changes in the world outside the project team. The business may
+change, adding, changing or removing key requirements. Or a competitor may enter
+the market with a similar product, causing a change in market timing
+requirements, features, or target product cost.</p>
+<p>Given the current state of the external environment, is the project plan
+(including milestones) still valid? Have the risks changed, forcing a
+reconsideration of the iteration plans? Is the right product being built and is
+the vision still valid? Is the
+product team on track to deliver that product? Are process changes necessary
+because of changing external circumstances?</p>
+<p>Use the results of these discussions to generate change requests for the
+vision, risk
+list, the project plan, the iteration plans, or the development case.</p>
+<h3><a name="Examine the Evaluation Criteria">Examine the Evaluation Criteria</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">To ensure that the evaluation criteria are realistic.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Sometimes an iteration will fall short of expectations because the objectives
+were set too high. Setting high goals is important, but there is sometimes a
+fine line between aggressive and unrealistic. Project teams are motivated by
+goals that cause them to stretch their abilities, but tend to become demoralized
+if objectives are consistently beyond their reach. Defining goals so that the
+project team is challenged without being overwhelmed sometimes takes a few
+iterations in itself, as the team learns to work together and learns its limits.</p>
+<p>Examine the evaluation criteria to determine whether they were realistic.
+Sometimes the benefit of the iteration is in revealing that a particular
+requirement is not as important as originally thought has tremendous value in
+itself. Projects are often crushed by complex but low-value requirements imposed
+by over-eager users enthralled by the latest technology; an iteration or two can
+re-set their expectations and get them to focus on the functionality which
+provides real value.</p>
+<p>Sometimes the iteration will reveal that a particular feature is very
+expensive to implement or creates an unmaintainable architecture. The business
+case for this feature should be revisited to see if the feature should remain
+in-scope, or perhaps revised to make the requirement reachable in a
+cost-effective way.</p>
+<h3><a name="Create Change Requests">Create Change Requests</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+    <td width="95%">To update the project planning artifacts.&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<p>Based on the results of the assessment, create change proposals for the
+vision, risk
+list, project plan, iteration plans, development case and requirements.</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

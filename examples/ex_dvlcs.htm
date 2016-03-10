@@ -1,0 +1,2175 @@
+<!-- RPW META DATA START --
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<title>Example: Project ABC—Development Case</title>
+<link rel="StyleSheet" href="../rop.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h1 align="center" class="banner"><a name="Top"></a><rpw name="PresentationName">Project ABC&#151;Development Case</rpw></h1>
+
+<p>This is an example of what a development case may look like. There is no point
+in restating information already in the process. What you have to describe are
+the deviations from the
+process. You may put together a Development Case
+that contains a small description of the process. However, the problem with that kind of
+document is that they tend to grow forever, until they're the size of
+the process handbook!&nbsp;<br>
+<br>
+This example is intended to give you an idea about how a development case would look
+for a small project, let's say a commercial information system.<br>
+<br>
+For more information about the Development Case, its contents, and outline, see <a href="../process/artifact/ar_devcs.htm">Artifact:
+Development Case</a>.</p>
+<h5>Topics</h5>
+      <ul>
+        <li><a href="#Introduction">Introduction</a> 
+          <ul>
+            <li><a href="#Revision History">Revision History</a></li>
+            <li><a href="#Purpose">Purpose</a></li>
+            <li><a href="#Definitions">Definitions, Acronyms and Abbreviations</a></li>
+            <li><a href="#References">References</a></li>
+          </ul>
+        </li>
+        <li><a href="#Overview of the Development Case">Overview of the Development 
+          Case</a> 
+          <ul>
+            <li><a href="#Lifecycle">Lifecycle Model</a></li>
+            <li><a href="#Overvew: Disciplines">Disciplines</a></li>
+            <li><a href="#Overview: Configuration">Discipline Configuration</a></li>
+            <li><a href="#Artifact Classification">Artifact Classification</a></li>
+            <li><a href="#Review Procedures">Review Procedures</a></li>
+            <li><a href="#Sample Iteration Plans">Sample Iteration Plans</a></li>
+          </ul>
+        </li>
+        <li><a href="#Disciplines">Disciplines</a> 
+          <ul>
+            <li><a href="#Business Modeling">Business Modeling</a></li>
+            <li><a href="#Requirements">Requirements</a></li>
+            <li><a href="#Analysis &amp; Design">Analysis &amp; Design</a></li>
+            <li><a href="#Implementation">Implementation</a></li>
+            <li><a href="#Test">Test</a></li>
+            <li><a href="#Deployment">Deployment</a></li>
+            <li><a href="#Configuration &amp; Change Management">Configuration 
+              &amp; Change Management</a></li>
+            <li><a href="#Project Management">Project Management</a></li>
+            <li><a href="#Environment">Environment</a></li>
+          </ul>
+        </li>
+        <li><a href="#Workers">Roles</a></li>
+      </ul>
+      <h3><a name="Introduction">Introduction</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+      <h4><a name="Revision History">Revision History</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <div align="center">
+        <center>
+          <table border="1" cellspacing="0" cellpadding="2" width="90%">
+            <tr> 
+              <td valign="TOP" align="center" class="table_heading" width="25%"> 
+                <p align="CENTER">Date
+              </td>
+              <td valign="TOP" align="center" class="table_heading" width="25%"> 
+                <p align="CENTER">Version
+              </td>
+              <td valign="TOP" align="center" class="table_heading" width="25%"> 
+                <p align="CENTER">Description
+              </td>
+              <td valign="TOP" align="center" class="table_heading" width="25%"> 
+                <p align="CENTER">Author
+              </td>
+            </tr>
+            <tr> 
+              <td valign="TOP" align="center" width="25%" class="tablecell"> 
+                <p>01/01/2000
+              </td>
+              <td valign="TOP" align="center" width="25%" class="tablecell"> 1.0</td>
+              <td valign="TOP" align="center" width="25%" class="tablecell"> -</td>
+              <td valign="TOP" align="center" width="25%" class="tablecell"> Tom 
+                Smith</td>
+            </tr>
+          </table>
+        </center>
+      </div>
+      <p>&nbsp;</p>
+      <h4><a name="Purpose">Purpose</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <p>The purpose of the document is to describe the development process for 
+        the project ABC.</p>
+      <h4><a name="Definitions">Definitions</a>, Acronyms, and Abbreviations <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <p>Not applicable.</p>
+      <h4><a name="References">References</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <p>Not applicable.</p>
+      <h3><a name="Overview of the Development Case">Overview of the Development 
+        Case</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+      <h4><a name="Lifecycle">Lifecycle</a> Model <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <p>See the section titled &quot;Project Plan&quot; in the project's Software 
+        Development Plan.</p>
+      <h4><a name="Overvew: Disciplines">Disciplines</a><a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <p>The development-case example presented here takes you through all nine 
+        disciplines: Business Modeling, Requirements, Analysis &amp; Design, Implementation, 
+        Test, Deployment, Configuration &amp; Change Management, Project Management, 
+        and Environment.</p>
+      <h4><a name="Overview: Configuration">Discipline</a> Configuration&nbsp; 
+        <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      <p>The purpose of this section is to explain how the discipline configuration 
+        works. This includes the purpose of the different tables and sections 
+        that describe each workflow in the section titled &quot;Workflows&quot;.</p>
+      <h5>Section: &quot;Workflows&quot;</h5>
+      <p>This section details any changes made to the structure of the workflow 
+        itself. Typical changes include the addition of activities to describe 
+        company-specific ways of working or the removal of activities from the 
+        workflow.</p>
+      <h5>Section: &quot;Artifacts&quot;</h5>
+      <p>The section describes, in a table, how the artifact will be used. Additional 
+        'local' artifacts can be added to the table as needed.&nbsp;</p>
+<div align="center">
+           <table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+            <tr> 
+              <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+              <td width="40%" colspan="4" valign="top" class="table_heading"><b>How 
+                to use</b></td>
+              <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review 
+                Details</b></td>
+              <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Tools 
+                used</b></td>
+              <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+                Examples</b></td>
+            </tr>
+            <tr> 
+              <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+              <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+              <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+              <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+            </tr>
+            <tr> 
+              <td width="30%" valign="top" class="tablecell">&nbsp;</td>
+              <td width="10%" valign="top" class="tablecell">&nbsp;</td>
+              <td width="10%" valign="top" class="tablecell">&nbsp;</td>
+              <td width="10%" valign="top" class="tablecell">&nbsp;</td>
+              <td width="10%" valign="top" class="tablecell">&nbsp;</td>
+              <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+              <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+              <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+            </tr>
+          </table>
+        
+</div>
+<div align="center">
+<table border="1" cellpadding="2" cellspacing="0" width="90%">
+    <tr> 
+      <td valign="top" class="tablecell" colspan="3"> 
+         <h4>Explanation of the table</h4>
+      </td>
+    </tr>
+    <tr> 
+      <td valign="top" class="tablecell"><b>Column Name</b></td>
+      <td valign="top" class="tablecell"><b>Purpose</b></td>
+      <td valign="top" class="tablecell"><b>Contents/Comments</b></td>
+    </tr>
+    <tr> 
+      <td valign="top" class="tablecell">Artifacts</td>
+      <td valign="top" class="tablecell">To name of the artifact&nbsp;</td>
+      <td valign="top" class="tablecell">A reference to the artifact in the Rational 
+        Unified Process (RUP) or to a local artifact definition that's held as 
+        part of the development case.&nbsp;</td>
+    </tr>
+    <tr> 
+      <td valign="top" class="tablecell">How to use</td>
+      <td valign="top" class="tablecell">To qualify how the artifact is used across 
+        the life cycle</td>
+      <td valign="top" class="tablecell">For each phase, decide on:&nbsp; 
+        <ul>
+          <li>Must haves</li>
+          <li>Should haves</li>
+          <li>Could haves</li>
+          <li>Won't haves</li>
+        </ul>
+        <p>These are defined in the <a href="../process/modguide/md_uclaar.htm">Guidelines: 
+          Classifying Artifacts</a>.&nbsp;&nbsp;</p>
+      </td>
+    </tr>
+    <tr> 
+      <td valign="top" class="tablecell">Review Details</td>
+      <td valign="top" class="tablecell">To define the review level and review 
+        procedures&nbsp; applied to the artifact.&nbsp;</td>
+      <td valign="top" class="tablecell">Decide on the review level:&nbsp; 
+        <ul>
+          <li>Formal-External</li>
+          <li>Formal-Internal</li>
+          <li>Informal</li>
+          <li>None</li>
+        </ul>
+        <p>For details, see <a href="../process/modguide/md_review.htm">Guidelines: 
+          Review Levels</a>.</p>
+        <p>Also add a reference to the definition and detail of the relevant review 
+          procedures.&nbsp;The reference could point to either the RUP or to the 
+          section titled &quot;Review Procedure&quot; in the development case. 
+          More specific review procedures are defined in the discipline's &quot;Additional 
+          Review Procedures&quot; sub-section. 
+      </td>
+    </tr>
+    <tr> 
+      <td valign="top" class="tablecell">Tools used</td>
+      <td valign="top" class="tablecell">To define the tool or tools used to produce 
+        the artifact.</td>
+      <td valign="top" class="tablecell">References to the details of the tools 
+        used to develop and maintain the artifact.</td>
+    </tr>
+    <tr> 
+      <td valign="top" class="tablecell">Templates/Examples</td>
+      <td valign="top" class="tablecell">To provide the templates to be used and 
+        examples of artifacts that use the templates.</td>
+      <td valign="top" class="tablecell">References to templates and examples. 
+        This could refer to either the templates and examples in the RUP or local 
+        templates and examples. This column may also contain references to actual 
+        artifacts that provide additional help to project members.</td>
+    </tr>
+  </table>
+<br>
+</div>
+      
+<h5>Section: &quot;Notes on Artifacts&quot;</h5>
+<p>This section has three main purposes:&nbsp;</p>
+<ul>
+  <li>It contains a list all artifacts you <i>Won't</i> use and the motives behind 
+    your decision not to use them.&nbsp;</li>
+  <li>It contains a reference to the project's Configuration Management (CM) Plan, 
+    which describes the configuration management strategy used when working on 
+    these artifacts. The CM Plan allows developers to answer questions such as:&nbsp; 
+    <ul>
+      <li>When do I release my artifact?&nbsp;</li>
+      <li>Where do I put my newly created or modified artifact?</li>
+      <li>Where do I find existing artifacts for the project?</li>
+    </ul>
+  </li>
+        
+  <li>If the development case is an organization-level development case, this 
+    is where you add notes on what each project needs to consider when they decide 
+    what to do with the artifact. Use the predefined table below as a starting 
+    point.</li>
+</ul>
+      
+<div align="center">
+  <table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+            <tr> 
+              <td width="20%" class="table_heading"><b>Artifacts</b></td>
+              <td width="15%" class="table_heading"><b>How to Use</b></td>
+              <td class="table_heading"><b>Reason</b></td>
+            </tr>
+            <tr> 
+              <td width="20%" class="tablecell">&nbsp;</td>
+              <td width="15%" class="tablecell"> 
+                <pre>&nbsp;</pre>
+              </td>
+              <td class="tablecell"> 
+                <pre>&nbsp;</pre>
+              </td>
+            </tr>
+          </table>
+        <br>
+      </div>
+      <h5>Section: &quot;Reports&quot;</h5>
+      <p>This section lists the reports to be used and additional 'local' reports 
+        can be added to the table as needed.</p>
+      
+<div align="center"> 
+  <table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+            <tr> 
+              <td width="30%" class="table_heading"><b>Reports</b></td>
+              <td width="15%" class="table_heading"><b>How to use</b></td>
+              <td width="15%" class="table_heading"><b>Templates/Examples</b></td>
+              <td width="15%" class="table_heading"><b>Tools Used</b></td>
+            </tr>
+            <tr> 
+              <td width="30%" class="tablecell">&nbsp;</td>
+              <td width="15%" class="tablecell">&nbsp;</td>
+              <td width="15%" class="tablecell"> 
+                <pre> </pre>
+              </td>
+              <td width="15%" class="tablecell"> 
+                <pre> </pre>
+              </td>
+            </tr>
+          </table>
+        <br>
+      </div>
+      
+<h5>Section: &quot;Notes on the Reports&quot;</h5>
+<p>This section has two main purposes. First, it lists all reports that the project 
+  has decided it <i>Won't</i> use, and the motives behind its decision not to 
+  use them. Secondly, if the development case is a an organization-level use case, 
+  this is where to add notes on what each project needs to consider when they 
+  decide what to do with the report.</p>
+<h5>Section: &quot;Additional Review Procedures&quot;</h5>
+<p>This section captures any additional review procedures required for the artifacts 
+  used in the discipline. These supplement the general review procedures described 
+  in the &quot;Overview&quot; section of the Development Case.</p>
+<h5>Section: &quot;Other Issues&quot;</h5>
+<p>This section captures any outstanding issues with the discipline's configuration. 
+  This section can be used as an Issues List while building the development case.</p>
+
+      
+<h4><a name="Artifact Classification">Artifact Classification</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      
+<p>An artifact is a deliverable of the process. It is often developed within one 
+  discipline, although there are exceptions. The artifacts are organized in the 
+  discipline where it's created. To describe how an artifact will be used, consider 
+  the following classification scheme and see <a href="../process/modguide/md_uclaar.htm">Guidelines: 
+  Classifying Artifacts</a> for details:&nbsp;&nbsp; 
+<ul>
+  <li>Must</li>
+  <li>Should</li>
+  <li>Could</li>
+  <li>Won't</li>
+</ul>
+
+    
+<h4><a name="Review Procedures">Review Procedures</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      
+<p>The project uses the following review levels:&nbsp;</p>
+  <ul>
+    <li>Formal-External</li>
+    <li>Formal-Internal</li>
+    <li>Informal</li>
+    <li>None</li>
+  </ul>
+<p>For details, see <a href="../process/modguide/md_review.htm">Guidelines: Review 
+  Levels</a>.</p>
+
+
+<h4><a name="Sample Iteration Plans">Sample Iteration Plans&nbsp;</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+      
+<h5>Inception Phase</h5>
+<ul>
+  <li><a href="../process/itrwkfls/sip_iii.htm">Sample Iteration Plan: Inception 
+    Phase</a></li>
+</ul>
+      
+<h5>Elaboration Phase</h5>   
+<p>To be defined later in the project.</p>
+
+<h5>Construction Phase</h5>
+<p>To be defined later in the project.</p>
+      
+<h5>Transition Phase</h5>
+<p>To be defined later in the project.</p>
+
+
+<h3><a name="Disciplines">Disciplines</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<h4><a name="Business Modeling">Business Modeling</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>Follow the Domain Modeling workflow detail only. See <a href="../process/workflow/ovu_busm.htm">Business
+Modeling: Overview</a>.</p>
+<h5>Artifacts</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading" height="37"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading" height="16"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading" height="37"><b>Review
+    Details</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading" height="37"><b>Tools
+    used</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading" height="37"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading" height="15"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading" height="15"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading" height="15"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading" height="15"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td width="30%" valign="top" class="tablecell"><a href="../process/artifact/ar_bent.htm">Business
+    Entity</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Rational Rose</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" valign="top" class="tablecell"><a href="../process/artifact/ar_bgloss.htm">Business
+    Glossary</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a> </p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Rational Rose</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" valign="top" class="tablecell"><a href="../process/artifact/ar_bom.htm">Business
+    Analysis Model</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Rational Rose</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+<tr>
+  <td width="30%" valign="top" class="tablecell">
+  <p align="left"><a href="../process/artifact/ar_torg.htm">Target-Organization
+  Assessment</a></p>
+  </td>
+  <td width="10%" valign="top" class="tablecell">
+  <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a> </p>
+  </td>
+  <td width="10%" valign="top" class="tablecell">
+  <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+  </td>
+  <td width="10%" valign="top" class="tablecell">
+  <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+  </td>
+  <td width="10%" valign="top" class="tablecell">
+  <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+  </td>
+  <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+  <td width="15%" valign="top" class="tablecell">
+  <p><font size="2">Rational Rose</font></p>
+  </td>
+  <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h5>Notes on the Artifacts</h5>
+<p>See the project's Configuration Management Plan for information on how the
+artifacts are&nbsp;<br>
+ configuration-managed.</p>
+<p>The project decided to only perform domain modeling, which means that the following 
+  artifacts will not be developed: Business Actor, Business Architecture Document, 
+  Business Rules, Business Use Case, Business Use-Case Model, Business Vision, 
+  Business Worker, Business System, and Supplementary Business Specification.</p>
+<h5>Reports</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="92%" cellspacing="0">
+  <tr>
+    <td width="27%" class="table_heading"><b>Reports</b></td>
+    <td width="15%" class="table_heading"><b>How to use</b></td>
+    <td width="14%" class="table_heading"><b>Templates/Examples</b></td>
+    <td width="19%" class="table_heading"><b>Tools Used</b></td>
+  </tr>
+  <tr>
+    <td width="27%" class="tablecell"><a href="../process/reports/re_bent.htm">Business
+    Entity</a></td>
+    <td width="15%" class="tablecell" valign="top"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="14%" class="tablecell" valign="top">
+    <p><font size="2">&nbsp;</font></p>
+    </td>
+    <td width="19%" class="tablecell" valign="top">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="27%" class="tablecell"><a href="../process/reports/re_bom.htm">Business
+    Analysis Model Survey</a></td>
+    <td width="15%" class="tablecell" valign="top"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="14%" class="tablecell" valign="top">
+    <p> <font size="2">&nbsp;</font> </p>
+    </td>
+    <td width="19%" class="tablecell" valign="top">
+    <p><font size="2">Rational SoDA<br>
+    Microsoft Word</font></p>
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<h4><a name="Requirements">Requirements</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>No changes. For details see the <a href="../process/workflow/ovu_req.htm">Requirements
+Overview</a>.</p>
+<h5>Artifacts</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td width="30%" valign="top" class="tablecell"><a href="../process/artifact/ar_actor.htm">Actor</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a>	</p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p> <font size="2">&nbsp;</font> </p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_gloss.htm">Glossary</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">&nbsp;</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_rattr.htm">Requirements
+    Attributes</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">&nbsp;</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_ratgl.htm">Requirements
+    Management Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_stnds.htm">Stakeholder
+    Requests</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_srs.htm">Software
+    Requirements Specification</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_sspec.htm">Supplementary
+    Specification</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_uc.htm">Use
+    Case</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_ucmod.htm">Use-Case
+    Model</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_ucpkg.htm">Use-Case
+    Package</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_storyboard.htm">Use-Case
+    Storyboard</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_uiprt.htm">User-Interface
+    Prototype</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_vsion.htm">Vision</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h5>Notes on the Artifacts</h5>
+<p>See the project's Configuration Management Plan for information about how the
+artifacts are&nbsp;<br>
+ configuration-managed.</p>
+<h5>Reports</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" class="table_heading"><b>Reports</b></td>
+    <td width="15%" class="table_heading"><b>How to Use</b></td>
+    <td width="15%" class="table_heading"><b>Templates/Examples</b></td>
+    <td width="15%" class="table_heading"><b>Tools Used</b></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/reports/re_actor.htm">Actor</a></td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell"><font size="2">&nbsp;</font></td>
+    <td width="15%" class="tablecell"><font size="2">&nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/reports/re_ucrep.htm">Use-Case</a></td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell">
+    <p><font size="2">&nbsp;</font></p>
+    </td>
+    <td width="15%" class="tablecell"><font size="2">&nbsp;&nbsp;&nbsp; &nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/reports/re_ucmsv.htm">Use-Case
+    Model Survey</a></td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell">
+    <p> <font size="2">&nbsp;</font> </p>
+    </td>
+    <td width="15%" class="tablecell">
+    <p><font size="2">&nbsp;</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell">Use-Case Storyboard</td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell"><font size="2">&nbsp;</font></td>
+    <td width="15%" class="tablecell"><font size="2">&nbsp;</font></td>
+  </tr>
+</table>
+<br></div>
+
+
+<h3><a name="Analysis &amp; Design">Analysis &amp; Design</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<h5>Workflow</h5>
+<p>A real-time application is not being developed, therefore the Capsule Designer
+role and the activity Capsule Design are excluded. For details on the
+workflow, see the <a href="../process/workflow/ovu_and.htm">Analysis &amp;
+Design Overview</a>.&nbsp;</p>
+<h5>Artifacts</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td height="17" width="30%" class="tablecell"><a href="../process/artifact/ar_datmd.htm">Data
+    Model</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_dplmdl.htm">Deployment
+      Model</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_class.htm">Design
+    Class</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_desmd.htm">Design
+    Model</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_despk.htm">Design
+    Package</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_dsub.htm">Design
+    Subsystem</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_if.htm">Interface</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_refarch.htm">Reference
+    Architecture</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_sadoc.htm">Software
+    Architecture Document (SAD)</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-<br>
+    External</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      SoDA<br>
+      Microsoft Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/artifact/ar_ucrea.htm">Use-Case
+    Realization</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h5>Notes on the Artifacts</h5>
+<p>The project is not developing a real-time product, which means that the
+following artifacts will not developed: Capsule, Event, Protocol, and Signal.</p>
+<p>The project decided not to keep an analysis model, which means that the
+following artifacts will not be developed: Analysis Class and Analysis Model.&nbsp;</p>
+<h5>Reports</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" class="table_heading"><b>Reports</b></td>
+    <td width="15%" class="table_heading"><b>How to Use</b></td>
+    <td width="15%" class="table_heading"><b>Templates/Examples</b></td>
+    <td width="15%" class="table_heading"><b>Tools Used</b></td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/reports/re_clrep.htm">Class</a></td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell">&nbsp;</td>
+    <td width="15%" class="tablecell"><font size="2">Rational SoDA<br>
+      Microsoft Word</font></td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/reports/re_desms.htm">Design-Model
+    Survey</a></td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell">&nbsp;</td>
+    <td width="15%" class="tablecell"><font size="2">Rational SoDA<br>
+      Microsoft
+    Word</font></td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/reports/re_dspkg.htm">Design
+    Package/Subsystem</a></td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell">&nbsp;</td>
+    <td width="15%" class="tablecell"><font size="2">Rational SoDA<br>
+      Microsoft
+    Word</font></td>
+  </tr>
+  <tr>
+    <td height="19" width="30%" class="tablecell"><a href="../process/reports/re_ucrrp.htm">Use-Case
+    Realization</a></td>
+    <td width="15%" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" class="tablecell">&nbsp;</td>
+    <td width="15%" class="tablecell"><font size="2">Rational SoDA<br>
+      Microsoft
+    Word</font></td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<h4><a name="Implementation">Implementation</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>No changes in the workflow. For details see the <a href="../process/workflow/ovu_impl.htm">Implementation
+Overview.</a></p>
+<h5>Artifacts</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_build.htm">Build</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft&#174;
+      Visual Basic&#174;</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_comp.htm">Implementation Element</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a>
+    <p><font size="2">Code reviews</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft
+      Visual Basic</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_impmd.htm">Implementation
+    Model</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Visual Basic</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_impss.htm">Implementation
+    Subsystem</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Visual Basic</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_intbp.htm">Integration
+    Build Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h5>Additional Review Procedures</h5>
+<p>Informal code reviews are performed.&nbsp;</p>
+<h4><a name="Test">Test</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>No formal performance test is done, otherwise the workflow is followed
+unchanged. For details on the process, see the <a href="../process/workflow/ovu_test.htm">Test:
+Overview</a>.</p>
+<h5>Artifacts</h5>
+<div align="center">
+
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstpl.htm">Test
+    Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstidslst.htm">Test-Ideas 
+        List</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstcs.htm">Test
+    Case</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstdta.htm">Test 
+        Data</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Rational Rose</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="30%" class="tablecell"><a href="../process/artifact/ar_wlmod.htm">Workload Model</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Rational Rose</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstcl.htm">Test
+    Class</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Rational Rose</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstcp.htm">Test
+    Components</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft
+      Visual Basic</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstrs.htm">Test
+    Results</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstev.htm">Test
+    Evaluation Summary</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstste.htm">Test 
+        Suite</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstsc.htm">Test
+    Script</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational TestStudio</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstenv.htm">Test 
+        Environment Configuration</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstatmarc.htm">Test 
+        Automation Architecture</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="30%" class="tablecell"><a href="../process/artifact/ar_tstintspc.htm">Test 
+        Interface Specification</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><font size="2">Rational
+      Rose</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br></div>
+
+<h5>Notes on the Artifacts</h5>
+
+<p>No Workload Analysis Document is developed.</p>
+<h5>Additional Review Procedures</h5>
+<ul>
+  <li>Test cases&#151informally approved by the system testers.</li>
+  <li>The system testers decide if the test criteria for an iteration is
+    fulfilled.</li>
+  <li>The customer approves the final iteration.</li>
+</ul>
+
+
+<h4><a name="Deployment">Deployment</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>A previously existing deployment workflow was adapted to use the
+artifacts suggested in the RUP. An exception is the Course
+Material artifact, which is excluded because no formal training is produced for
+our product.</p>
+<h5>Artifacts</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_blomt.htm">Bill
+    of Materials</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_dppls.htm">Deployment
+    Plan</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_prdct.htm">Deployment
+    Unit</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_eusm.htm">Support
+    Material</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_insta.htm">Installation
+    Artifacts</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_pduct.htm">Product</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-<br>
+    External</font></a></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_pdart.htm">Product
+    Artwork</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_rlsnt.htm">Release
+    Notes</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<h5>Notes on the Artifacts</h5>
+<p>No Training Materials are developed because the product does not require formal
+training.&nbsp;</p>
+<h5>Reports</h5>
+<div align="center">
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" class="table_heading"><b>Reports</b></td>
+    <td width="15%" class="table_heading"><b>How to Use</b></td>
+    <td width="15%" class="table_heading"><b>Templates/Examples</b></td>
+    <td width="15%" class="table_heading"><b>Tools Used</b></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell">&nbsp;</td>
+    <td width="15%" class="tablecell">&nbsp;</td>
+    <td width="15%" class="tablecell">
+    <pre> </pre>
+    </td>
+    <td width="15%" class="tablecell">
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<h4><a name="Configuration &amp; Change Management">Configuration &amp; Change
+Management</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>No changes in the workflow. For details on the process, see the <a href="../process/workflow/ovu_cm.htm">Configuration
+&amp; Change Management: Overview</a>.</p>
+<h5>Artifacts</h5>
+<div align="center">
+
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="16%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="14%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_crqst.htm">Change
+    Request</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="16%" valign="top" class="tablecell">
+    <p><font size="2">Rational ClearQuest</font></p>
+    </td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_caudit.htm">Configuration
+    Audit Findings</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="16%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_cmpln.htm">Configuration
+    Management Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="16%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_repos.htm">Project
+      Repository</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_None_(review_level)"><font size="2">None</font></a></td>
+    <td width="16%" valign="top" class="tablecell"><font size="2">Rational
+      ClearCase</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_wkspc.htm">Workspace</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_None_(review_level)"><font size="2">None</font></a></td>
+    <td width="16%" valign="top" class="tablecell"><font size="2">Rational
+      ClearCase</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+
+<h4><a name="Project Management">Project Management</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>No changes to the workflow. For details, see <a href="../process/workflow/ovu_mgm.htm">Project
+Management: Overview</a>.</p>
+<h5>Artifacts</h5>
+<div align="center"><center>
+
+<table border="1" colspec="L20 L17" width="90%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="25%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="14%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_bcase.htm">Business
+    Case</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-External_(review_level)"><font size="2">Formal-<br>
+    External</font></a></td>
+    <td width="25%" valign="top" class="tablecell">
+    <font size="2">Microsoft&#174; Word&#174;</font>
+    </td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_itass.htm">Iteration
+    Assessment</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell">
+    <p><font size="2">Microsoft Word</font></p>
+    </td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_itpln.htm">Iteration
+    Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_metr.htm">Measurement
+    Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_prrsp.htm">Problem
+    Resolution Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_acpl.htm">Product
+    Acceptance Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_prjms.htm">Project
+    Measurements</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_qapl.htm">Quality
+    Assurance Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_rvrec.htm">Review
+    Record</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_rskls.htm">Risk
+    List</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_riskpl.htm">Risk
+    Management Plan</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_sdp.htm">Software
+    Development Plan (SDP)</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Formal-Internal_(review_level)"><font size="2">Formal-<br>
+    Internal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word<br>
+      Microsoft Project</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_stass.htm">Status
+    Assessment</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="15%" valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="14%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+</center></div>
+
+<h5>Notes on the Artifacts</h5>
+<p>The artifact Work Order won't be used.&nbsp;</p>
+
+
+<h4><a name="Environment">Environment</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<h5>Workflow</h5>
+<p>No changes in the workflow. For details on the process, see the <a href="../process/workflow/ovu_env.htm">Environment:
+Overview</a>.</p>
+<h5>Artifacts</h5>
+<div align="center">
+
+<table border="1" colspec="L20 L17" width="85%" cellspacing="0">
+  <tr>
+    <td width="30%" rowspan="2" valign="top" class="table_heading"><b>Artifacts</b></td>
+    <td width="40%" colspan="4" valign="top" class="table_heading"><b>How
+    to use</b></td>
+    <td rowspan="2" valign="top" class="table_heading"><b>Review
+    Details</b></td>
+    <td width="25%" rowspan="2" valign="top" class="table_heading"><b>Tools
+    used</b></td>
+    <td width="15%" rowspan="2" valign="top" class="table_heading"><b>Templates/<br>
+    Examples</b></td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" class="table_heading"><b>Incep</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Elab</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Const</b></td>
+    <td width="10%" valign="top" class="table_heading"><b>Trans</b></td>
+  </tr>
+  
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_projspecgls.htm">Business
+    Modeling Guidelines</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td width="15%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></p>
+    </td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell">
+    <font size="2">Microsoft Word</font>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_projspecgls.htm">Design
+    Guidelines</a></td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td width="10%" valign="top" class="tablecell">
+    <p><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></p>
+    </td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell">
+    <font size="2">Microsoft Word</font>
+    </td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_devcs.htm">Development
+    Case</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft&#174; FrontPage&#174;</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_supp.htm">Development
+    Infrastructure</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_deorv.htm">Development-Organization
+    Assessment</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_mansg.htm">Manual
+    Styleguide</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell">Project-Specific Templates</td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_projspecgls.htm">Programming
+    Guidelines</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_projspecgls.htm">Test
+    Guidelines</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_tools.htm">Tools</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word<br>
+      to document</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_projspecgls.htm">Tool
+    Guidelines</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__could_have"><font size="2">Could</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_projspecgls.htm">Use-Case
+    Modeling Guidelines</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="tablecell"><a href="../process/artifact/ar_projspecgls.htm">User-Interface
+    Guidelines</a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__won't_have"><font size="2">Won't</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td width="10%" valign="top" class="tablecell"><a href="../process/modguide/md_uclaar.htm#XE_artifact__classification_of__must_have"><font size="2">Must</font></a></td>
+    <td valign="top" class="tablecell"><a href="../process/modguide/md_review.htm#XE_Informal_(review_level)"><font size="2">Informal</font></a></td>
+    <td width="25%" valign="top" class="tablecell"><font size="2">Microsoft
+      Word</font></td>
+    <td width="15%" valign="top" class="tablecell">&nbsp;</td>
+  </tr>
+</table>
+<br>
+</div>
+
+<h3><a name="Workers">Roles</a> <a href="#Top"><img src="../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Not applicable.</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

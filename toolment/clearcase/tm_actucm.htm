@@ -1,0 +1,303 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Using UCM Change Sets with Rational ClearCase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Using UCM Change Sets with Rational ClearCase</rpw><a name="Top"></a>
+</h2>
+<h3>Purpose</h3>
+<p>This tool mentor describes using change sets with Unified Change Management
+(UCM) activities to create and record changes.&nbsp;</p>
+  
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_ckino.htm">Make Changes</a></li>
+</ul>
+<br>
+    
+</p>
+  
+<h3>Overview</h3>
+<p>The following diagram illustrates the UCM workflow. Shaded areas are
+discussed in this tool mentor.</p>
+<h4>UCM Workflow</h4>
+<p><img border="0" src="images/wflow_work.gif" width="274" height="125"></p>
+
+<p><i><b>Terminology note: </b></i>A ClearCase UCM activity maps closely to a
+RUP <a href="../../process/artifact/ar_wkord.htm">Work Order</a>.&nbsp; It is
+not to be confused with the RUP concept of an <a href="../../process/glossary.htm">Activity</a>.</p>
+
+<p>A UCM activity tracks versions that are created when you work on a development task. An
+activity includes a text headline that describes the task, an ID that is the
+activity's unique identifier, and a change set that identifies all versions you
+create when working on the activity.&nbsp; When you're ready to modify source
+files, you must set your development view to an activity.</p>
+<p>You must set an activity for your development view before you can modify
+files.&nbsp;</p>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;Refer
+to the topic titled <i>About Activities </i>in ClearCase online Help
+for more information.</p>
+<p>This tool mentor is applicable when running Microsoft Windows.&nbsp;</p>
+<h4>Tool Steps</h4>
+<p>To work with UCM activities:
+<ol>
+  <li><a href="#1">Create, or find, and set an activity</a></li>
+  <li><a href="#3">Check out and modify versions</a></li>
+  <li><a href="#4">Check in your work</a></li>
+</ol>
+<h3>1.&nbsp;<a name="1">Create, or find, and set an activity</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When you check out files or directories in a UCM project, you are asked to
+specify an activity to track your work.</p>
+<h4>Create a new activity and set it in your current view</h4>
+<ol>
+  <li>In a Check Out, Check In, or Add to Source Control dialog box, click <b>New</b>.
+  <li>In the New Activity dialog box, enter the name of an activity.
+  <li>Click <b>OK</b>.
+  <li>To add this activity to your stream and set it in your view, click <b>OK</b>.</li>
+</ol>
+<h4>Find and set an activity</h4>
+<p>Activities are maintained between work sessions. Follow these steps to find
+an existing activity and set it in your development view.&nbsp;</p>
+<p>From ClearCase Explorer:</p>
+<ol>
+  <li>In ClearCase Explorer, click the <b>Views</b> tab.&nbsp;
+  <li>Click the page for your project and then select your development
+    view.&nbsp;
+  <li>In the Folder pane, click <b>MyActivities</b>.
+  <li>In the Details pane, select the check box next to the activity you want to
+    set.</li>
+</ol>
+<p>From ClearCase dialog boxes:</p>
+<ol>
+  <li>From the Check Out, Check In, or Add to Source Control dialog box, do one
+    of the following:
+</ol>
+<blockquote>
+  <ul>
+    <li>Choose an activity from the Activity list.</li>
+    <li>Click <b> Browse</b> and choose other selection criteria.</li>
+  </ul>
+</blockquote>
+<ol start="2">
+  <li>Click <b>OK</b>. ClearCase sets your view to the activity currently
+    selected in the Activity list.</li>
+</ol>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;Refer
+to the topic titled <i>To find and set activities </i>in ClearCase
+online Help for more information.</p>
+<p><img border="0" hspace="0" src="../../images/Book.gif" width="16" height="15">&nbsp;Refer
+to the section titled &quot;Setting Activities&quot; in the ClearCase manual <i>Developing Software.</i></p>
+<h3>2.&nbsp;<a name="3">Check out and modify versions</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>Before modifying source files, go to your Development view and check them
+out. Checking out makes file or directory versions writeable in your view.
+&nbsp;</p>
+<ol>
+  <li>In ClearCase Explorer, select files or directories, then right-click the
+    selection and click <b>Check Out</b>.&nbsp;
+  <li>ClearCase opens the Check Out dialog box with the currently set activity
+    selected in the Activity list. You can accept the selection, choose another
+    activity, or create a new activity.
+  <li>In the <b>Comment</b> box, describe your planned changes. Comments appear
+    in the version's Properties Browser and in the element's History Browser.
+  <li>Do one of the following:</li>
+</ol>
+<blockquote>
+  <ul>
+    <li>To check out one file only, click <b>OK</b>.
+    <li>To use the current settings in this dialog box for all selected items,
+      click <b>Apply to All</b>.
+    <li>To interrupt the check out process, and to leave this and any remaining
+      items checked in, click <b>Cancel</b>.</li>
+  </ul>
+</blockquote>
+<p><b><img src="../../images/helpbook.gif" width="16" height="16"></b>&nbsp;Refer to the topic titled <i>To
+check out files and directories</i> in ClearCase online Help for a
+description of this procedure.</p>
+<p><img src="../../images/Book.gif" vspace="0" hspace="0" border="0" width="16" height="15">&nbsp;Refer
+to the section &quot;Checking Out Files&quot; in the ClearCase manual&nbsp; <i>Developing Software.</i></p>
+<h3>3. <a name="4">Check in your work</a>&nbsp;<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>When you want to keep a record of a file's current state, check it in.
+Checking in files or directories adds new versions to the VOB. Version
+information is recorded by the currently set activity.&nbsp;&nbsp;</p>
+<p>Your view remains set to the current activity after a check-in.&nbsp;</p>
+<ol>
+  <li>In ClearCase Explorer, select checked out files or directories.&nbsp;
+  <li>Right-click the selection and click <b>Check In</b>.
+  <li>In the <b>Comment</b> box, you may overwrite or append to the comment you
+    entered when you checked out the file or folder.
+  <li>Do one of the following:</li>
+</ol>
+<blockquote>
+  <ul>
+    <li>To check in one file only, click <b>OK</b>.
+    <li>To use the current settings in this dialog box for all selected items,
+      click <b>Apply to All</b>.
+    <li>To interrupt the check in process, and to leave this and any remaining
+      items checked out, click <b>Cancel</b>.</li>
+  </ul>
+</blockquote>
+<p>&nbsp;<b><img src="../../images/helpbook.gif" width="16" height="16"></b> Refer to the topic titled <i>To
+check in files and directories</i> in ClearCase online Help for a
+description of this procedure.</p>
+<p><img src="../../images/Book.gif" vspace="0" hspace="0" border="0" width="16" height="15"> 
+Refer to
+the section &quot;Checking In Files&quot; in the ClearCase manual&nbsp; <i>Developing Software.</i></p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

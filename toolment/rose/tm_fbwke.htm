@@ -1,0 +1,533 @@
+<!-- RPW META DATA START --
+ 
+ 
+
+-- RPW META DATA END -->
+<html>
+<head>
+<title>Tool Mentor:&nbsp;Finding Business Workers and Entities Using Rational Rose</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+<h2 class="banner">Tool Mentor:&nbsp;<rpw name="PresentationName">Finding Business Workers and Entities Using Rational Rose</rpw></h2>
+
+<h3>Purpose</h3>
+      
+<P> This tool mentor describes how to use Rational Rose to record the results 
+  of finding business workers and entities.</P>
+  
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_fbwke.htm">Find Business Workers and Entities</a></li>
+</ul>
+<br>
+   
+</p>
+      
+<H3><A NAME="Top"></a>Overview</H3>
+<p>The following steps are a summary of how you model the results of finding business workers and entities:</p>
+  <OL>
+       <li>
+       <P>
+        <A HREF="#Create Business Object Model">Create the Business Analysis
+        Model</a>
+        <li><A HREF="#Create Business Workers and Business Entities (Classes in the Business Object Model)">Create
+          classes in the Business Analysis Model</a>
+        <li><A HREF="#Create the Use-Case Realization Package in the Business Object Model">Create
+         the business use-case realizations package</a>
+        <li><A HREF="#Create a Business Use-Case Realization">Create
+         a business use-case realization</a>
+        <li><A HREF="#Create Traceability Between a Business Use-Case and its Realization">Create
+         traceability between a business use-case and its realization</a>
+        <li><a href="#Identify the business use-case realization owner">Identify the business use case realization owner</a>
+        <li><A HREF="#Create a Collaboration Diagram for the Business Use-Case Realization">Create
+         a collaboration diagram for the business use-case realization</a>
+        <li><A HREF="#Place Actors and Objects in a Collaboration Diagram">Place
+         actors and objects in a collaboration diagram</a>
+        <li><A HREF="#Create Links between Objects in a Collaboration Diagram">Create
+         links between objects in a collaboration diagram</a>
+        <li><A HREF="#Create a Sequence Diagram for the Business Use-Case Realization">Create
+         a sequence diagram for the business use case realization</a>
+        <li><A HREF="#Place Actors and Objects in a Sequence Diagram">Place
+         actors and objects in a sequence diagram</a>
+        <li><a HREF="#Describe Messages between Objects in a Sequence Diagram">Describe
+         messages between objects in a sequence diagram</a>
+        <li><A HREF="#Describe What an Object Does When it Receives a Message in a Sequence Diagram">Describe
+         what an object does when it receives a message in a sequence diagram</a>
+        <li><A HREF="#Creating Class Diagrams to Document Classes in the Business Object Model">Create
+         class diagrams to document classes in the Business Analysis Model</a><p></P>
+       </OL>
+      <H3>
+       1. <A NAME="Create Business Object Model"></a>Create the Business
+       Analysis Model <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       A separate Business Analysis Model can be represented in Rational 
+       Rose using a package within the Logical View Named &quot;Business
+       Analysis Model&quot;. To create a package called Business Analysis Model in 
+       the Logical View:</P>
+      <UL>
+       <li>
+       <P>
+        Select the Logical View in the browser.
+        <li>Select <SPAN STYLE="font-weight : bold;">Package</SPAN> 
+        from the <SPAN STYLE="font-weight : bold;">New</SPAN> option on the
+          shortcut menu. A NewPackage browser icon is added to the browser.
+        <li>With the new package icon selected, type the name 
+        Business Analysis Model.<p></P>
+       </UL>
+      <H3>
+       2. <A NAME="Create Business Workers and Business Entities (Classes in the Business Object Model)"></a>Create
+       classes in the Business Analysis Model <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create a class (a business worker, business event or a business entity) in the 
+       business analysis model:</P>
+      <UL>
+       <li>
+       <P>
+        Select the <b> Business Analysis Model</b> package in the browser and make the
+        shortcut menu visible.
+        <li>Select <SPAN STYLE="font-weight : bold;">Class</SPAN> 
+        from the <SPAN STYLE="font-weight : bold;">New</SPAN> option on the
+          shortcut menu. A NewClass class icon is added to the browser. While 
+        the new class is still selected, type the name of the class.
+        <li>Open the Class Specification for the new class.
+        <li>In the documentation field, enter its brief description.
+        <li>In the Stereotype field, enter &laquo;business worker&raquo;, &laquo;business
+          event&raquo; or &laquo;business entity&raquo;.<p></P>
+       </UL>
+      <H3>
+       3. <A NAME="Create the Use-Case Realization Package in the Business Object Model"></a>Create
+        the business use-case realizations package in the Business Analysis
+       Model <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       All business use-case realizations are organized initially into a 
+       package within the <a HREF="../../process/artifact/ar_bom.htm">Artifact:
+        Business Analysis Model</a>, which is in turn represented as a package 
+       in the Logical View in Rational Rose.</P>
+      <P>
+       When you create a package within the Business Analysis Model to contain 
+       the business use-case realizations, you should:</P>
+      <UL>
+       <li>
+       <P>
+        Name the new package Business Use-Case Realizations.
+        <li>Select <b>Class Diagram</b> from the <b>New</b> 
+        option on the shortcut menu. A NewDiagram browser icon is added to 
+        the browser.
+        <li>With the new diagram icon selected, type the name Traceabilities.<p></P>
+       </UL>
+      <H3>
+       4. <A NAME="Create a Business Use-Case Realization"></a>Create a business
+       use-case realization <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create a business use-case realization:</P>
+      <UL>
+       <li>
+       <P>
+        Select the <b> Use Case View</b> package in the browser and make the
+        shortcut menu visible.
+        <li>Select <B>Use Case</B> from the <B>New</B> option 
+        on the shortcut menu. A NewUseCase class icon is added to the browser.
+        <li>Select the NewUseCase icon. Drag-and-drop the 
+        NewUseCase into the Business Use-Case Realization package within the 
+        Business Analysis Model package.
+        <li>Double-click the NewUseCase icon to display the Use 
+        Case Specification dialog for NewUseCase and replace the name 
+        NewUseCase with the name of the business use case.
+        <li>In the Stereotype field, enter &laquo;business use-case realization&raquo;.
+        <li>Click OK.
+        <li>If a dialog appears indicating the business use 
+        case now exists in two name spaces, click OK.<p></P>
+       </UL>
+      <H3>
+       5. <A NAME="Create Traceability Between a Business Use-Case and its Realization"></a>Create
+       traceability between a business use-case and its&nbsp;<br>
+       realization <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create traceability between a business use case and its business 
+       use-case realization:</P>
+      <UL>
+       <li>
+       <P>
+        Expand the Logical View in the browser.
+        <li>Expand the Business Analysis Model package in the browser
+        <li>Expand the Business Use-Case Realization package in 
+        the browser
+        <li>Double-click on the Traceabilities in the Business 
+        Use-Case Realization package diagram to open it.
+        <li>From the Use Case View left-click to select the 
+        business use case. Holding the left-button down, drag-and-drop the 
+        business use case onto the canvas of the Traceabilities diagram.
+        <li>From the Business Use-Case Realizations package, 
+        left-click the select the business use-case realization you wish to 
+        associate with the business use case selected. Holding the 
+        left-button down, drag and drop the business use-case realization 
+        onto the canvas of the Traceabilities diagram, locating it in close 
+        proximity to the business use case.
+        <li>From the diagram tool bar, select the association tool.
+        <li>Left-click on the business use-case realization. 
+        Holding the left-button down, move the mouse pointer to the business 
+        use case and release the left-button. An association will be created.
+        <li>Double-click on the association to display the 
+        association specification.
+        <li>In the stereotype field, enter realizes.
+        <li>Click OK.<p></P>
+       </UL>
+      <H3>
+       6. <a NAME="Identify the business use-case realization owner"></a>Identify
+       the business use-case realization owner <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+<p>To insert an owner dependency from a business use case realization to a
+business worker in a class diagram, do the following:
+<ul>
+  <li>Select the <b>Dependency </b>arrow from the toolbox in the class diagram
+    editor.</li>
+  <li>Position the cursor on the business use case realization in the class
+    diagram. Left-click and move the cursor to the business worker symbol and
+    release.</li>
+  <li>Double-click on the created dependency and select the &laquo;owner&raquo; stereotype
+    in the Dependency Specification dialog box.</li>
+  <li>Click <b>OK</b>.</li>
+  <li>Right-click on the created dependency, and make sure that the Show
+    Stereotype selection is checked in the shortcut menu.</li>
+  <li>The stereotype label can be repositioned by dragging and dropping it in
+    the diagram.</li>
+</ul>
+      <P>&nbsp;
+       </P>
+      <H3>
+       7. <A NAME="Create a Collaboration Diagram for the Business Use-Case Realization"></a>Create
+        a collaboration diagram for the business use-case realization <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       Business use-case realizations are captured in Rational Rose 
+       using collaboration diagrams. For more complex realizations, you can 
+       use sequence diagrams (see <a href="#Create a Sequence Diagram for the Business Use-Case Realization"> Create a Sequence Diagram for the Business 
+       Use-Case Realization</a>).</P>
+      <P>
+       To create a collaboration diagram for the business use-case realization:</P>
+      <UL>
+       <li>
+       <P>
+        Right-click to select the business use-case realization in the 
+        browser and make the shortcut menu visible.
+        <li>Select <B>Collaboration Diagram</B> from the <B>New</B> 
+        option on the shortcut menu. A NewDiagram collaboration diagram icon 
+        is added to the browser.
+        <li>With the new collaboration diagram selected, type 
+        the name of the diagram. Name the diagram &lt;business use-case 
+        name&gt; - &lt;workflow type&gt;. This naming convention simplifies 
+        future tracing of objects to the business use-case realization that 
+        they participate in.
+        <li>Double-click on the new collaboration diagram to 
+        bring it up in the diagram window.<p></P>
+       </UL>
+      <H3>
+       8. <A NAME="Place Actors and Objects in a Collaboration Diagram"></a>Place
+       actors and objects in a collaboration diagram <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create objects in collaboration diagrams, do the following:</P>
+      <UL>
+       <li>
+       <P>
+        Double-click on the collaboration diagram in the browser to open it 
+        up in the diagram window.
+        <li>Click to select a business actor in the browser.
+        <li>Drag-and-drop the business actor onto the 
+        collaboration diagram.
+        <li>Click to select a business worker, business 
+        entity or business event in the browser.
+        <li>Drag-and-drop the class onto the collaboration diagram. An object of that class is 
+        created in the collaboration diagram.
+        <li>Repeat the preceding steps for each object and 
+        actor in the business use-case realization.<p></P>
+       </UL>
+      <H3>
+       9. <A NAME="Create Links between Objects in a Collaboration Diagram"></a>Create
+       links between objects in a collaboration diagram <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       Links provide a way for two objects/actors to exchange messages. To 
+       create a link between two objects in a collaboration diagram, do the following:</P>
+      <UL>
+       <li>
+       <P>
+        Double-click on the collaboration diagram in the browser to open the diagram.
+        <li>Click to select the link symbol from the toolbar.
+        <li>Click on the business actor or object on one end of 
+        the link and drag the message line to the business actor or object at 
+        the other end of the link.
+        <li>Repeat the preceding steps for each link required 
+        between objects or business actors in the business use-case realization.<p></P>
+       </UL>
+      <H3>
+       10. <A NAME="Create a Sequence Diagram for the Business Use-Case Realization"></a>Create
+        a sequence diagram for the business use-case&nbsp;<br>
+       realization <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create a sequence diagram for a business use-case realization:</P>
+      <UL>
+       <li>
+       <P>
+        Right-click to select the business use-case realization in the 
+        browser and make the shortcut menu visible.
+        <li>Select <B>Sequence Diagram</B> from the <B>New</B> 
+        option on the shortcut menu. A NewDiagram sequence diagram icon is 
+        added to the browser.
+        <li>With the new sequence diagram selected, type the 
+        name of the sequence diagram. It is recommended that you name the 
+        diagram &lt;business use-case name&gt; - &lt;flow type&gt;. This 
+        naming convention simplifies future tracing of objects to the 
+        business use-case realization that they participate in.
+        <li>Double-click on the new sequence diagram to bring 
+        it up in the diagram window.
+        <li>In the documentation window, enter a brief 
+        description of the business use-case realization that the sequence 
+        diagram depicts.<p></P>
+       </UL>
+      <H3>
+       11. <A NAME="Place Actors and Objects in a Sequence Diagram"></a>Place
+       actors and objects in a sequence diagram <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To place actors objects in sequence diagrams:</P>
+      <UL>
+       <li>
+       <P>
+        Double-click on the sequence diagram in the browser to open it up in 
+        the diagram window.
+        <li>Click to select the business actor in the browser.
+        <li>Drag-and-drop the business actor onto the sequence diagram.
+        <li>Click to select a business worker or a business 
+        entity in the browser.
+        <li>Drag-and-drop the business worker or business 
+        entity onto the sequence diagram. An object of that class is created 
+        in the collaboration diagram.
+        <li>Repeat the preceding steps for each object and 
+        actor in the business use-case realization.<p></P>
+       </UL>
+      <H3>
+       12. <a NAME="Describe Messages between Objects in a Sequence Diagram"></a>Describe
+       messages between objects in a sequence diagram <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create a message in a sequence diagram:</P>
+      <UL>
+       <li>
+       <P>
+        Click to select the <b> Object Message</b> symbol from the toolbar.
+        <li>Click on the actor or object sending the message 
+        and drag the message line to the actor or object receiving the message.
+        <li>Enter the name of the message while the message 
+        line is still selected.
+        <li>Repeat the preceding steps for each message in the 
+        business use-case realization.<p></P>
+       </UL>
+      <P>
+       To document a message:</P>
+      <UL>
+       <li>
+       <P>
+        Open the <B>Message Specification</B> dialog box for the message, 
+        either by double-clicking on the message, or by right-clicking and 
+        selecting the <B>Specification</B> option in the shortcut menu.
+        <li>Enter the documentation in the <B>Documentation</B> field.
+        <li>If the message represents the sending of a business event, open the <b>Detail</b>
+          tab. Select <b>Asynchronous</b>.
+        <li>Select <B>OK </B>to close the specification.<p></P>
+       </UL>
+      <P>
+       To rearrange the time order of messages in a sequence diagram, select 
+       the message arrow and drag-and-drop messages up and down the time 
+       axis to rearrange the order.</P>
+      <H3>
+       13. <A NAME="Describe What an Object Does When it Receives a Message in a Sequence Diagram"></a>Describe
+       what an object does when it receives a message in a sequence diagram <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To attach a script to a message:</P>
+      <UL>
+       <li>
+       <P>
+        Select the <B>Text Box</B> symbol in the sequence diagram toolbar.
+        <li>Click on the position where you want to insert the 
+        script in the diagram.
+        <li>Enter the script in the text box.
+        <li>Select both the script and the message arrow by 
+        selecting the two symbols while holding down the shift-key.
+        <li>Select the <b> Attach Script</b> option from the Edit menu. 
+        This attaches the script to the message. Note that the script 
+        disappears if the message is removed.
+       </UL>
+      <P>
+       Scripts can be formatted by selecting their text box and dragging the 
+       corner markers.</P>
+      <H3>
+       14. <A NAME="Creating Class Diagrams to Document Classes in the Business Object Model"></a>Create
+       class diagrams to document classes in the Business Analysis Model <A HREF="#Top"><IMG SRC="../../images/top.gif" VSPACE="0" HSPACE="0" ALT="To top of page" BORDER="0" width="26" height="20"></a></H3>
+      <P>
+       To create a class diagram and insert a class in the diagram, do the following:</P>
+      <UL>
+       <li>
+       <P>
+        Right-click to select the <b> Business Analysis Model </b> package in the 
+        browser and make the shortcut menu visible.
+        <li>Select <B>Class</B> <B>Diagram</B> from the <B>New</B> 
+        option on the shortcut menu. A NewDiagram class diagram is added to 
+        the browser.
+        <li>While the class diagram is still selected, type the 
+        name of the class diagram; name the diagram after the class that it 
+        is meant to describe.
+        <li>Click to select the class in the browser.
+        <li>Drag-and-drop the class onto the class diagram.
+       <li>Repeat the preceding steps for each class in the Business Analysis
+        Model package.</li>
+       </UL>
+      <P>&nbsp;
+        
+</p>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

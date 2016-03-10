@@ -1,0 +1,333 @@
+<!-- RPW META DATA START --
+
+
+
+
+ 
+ 
+
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Monitor Project Status</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Monitor Project Status</rpw><a name="Top"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+    <tr>
+      <td colspan="2" ><b>Purpose</b>
+      <ul>
+        <li>Capture current status of the project</li>
+        <li>Evaluate status against plans</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" ><b>Steps</b>
+      <ul>
+        <li><a href="#Capture Work Status">Capture work status</a></li>
+        <li><a href="#Derive progress indicators">Derive progress indicators</a></li>
+        <li><a href="#Derive quality indicators">Derive quality indicators</a></li>
+        <li><a href="#Evaluate indicators vs. plans">Evaluate indicators vs.
+          plans</a></li>
+      </ul>
+      </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	    <ul>
+<li><a href="../artifact/ar_issues.htm">Issues List</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_metr.htm">Measurement Plan</a></li>
+<li><a href="../artifact/ar_prjms.htm">Project Measurements</a></li>
+<li><a href="../artifact/ar_rvrec.htm">Review Record</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+<li><a href="../artifact/ar_riskpl.htm">Risk Management Plan</a></li>
+<li><a href="../artifact/ar_sdp.htm">Software Development Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_issues.htm">Issues List</a></li>
+<li><a href="../artifact/ar_prjms.htm">Project Measurements</a></li>
+<li><a href="../artifact/ar_rskls.htm">Risk List</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>Ongoing&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" ><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_projm.htm">Project Manager</a>&nbsp;
+	</td>
+  </tr>
+  <!-- Activity Tool Mentors -->
+  <tr> 
+    <td colspan="2"><b>Tool Mentors:&nbsp;</b>
+	   &nbsp;
+	</td>
+  </tr>
+    <tr>
+    <td colspan="2"> <b>More Information:&nbsp;</b><ul>
+<li><a href="../workflow/manageme/co_metr.htm">Concept: Metrics</a></li>
+</ul>
+</td>
+    </tr>
+ </tbody>
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_mgm.htm">Project Management</a>
+<ul>
+<li><a href="../workflow/manageme/wfs_moncon.htm">Monitor & Control Project</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Capture Work Status">Capture Work Status</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+
+<div align="left">
+<table border="1" width="92%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td width="5%"><b>Purpose</b></td>
+	<td width="95%">Collect quality and progress information on the project for assessing current status&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+
+<p>In this step, the project manager captures primitive metrics on the progress
+of project work and product quality. The methods to be used to capture these
+metrics are described in the project's Measurement Plan.</p>
+<p>Typically, project team members submit regular progress reports to the
+project manager providing the following information:
+<ul>
+  <li>Effort booked against work packages</li>
+  <li>Estimated effort to complete each work package for which they are
+    responsible</li>
+  <li>Tasks completed</li>
+  <li>Deliverables published</li>
+  <li>Issues arising that require management attention (from <a href="../artifact/ar_rvrec.htm">Review
+    Records</a>, for example). The Project Manager may record some or all of
+    these in the <a href="../artifact/ar_issues.htm">Issues List</a> for further
+    attention and tracking.</li>
+</ul>
+ 
+<p>For more information on metrics, see <a href="../modguide/md_metri.htm">Guidelines:
+Metrics</a>.</p>
+<h3><a name="Derive progress indicators">Derive progress indicators</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>In order to properly assess the project's progress in relation to the plans,
+the project manager &quot;rolls-up&quot; the primitive metrics reported by the
+project team to provide a full picture of the project's progress. The project's
+Measurement Plan describes how these derived metrics (the &quot;progress
+indicators&quot;) are calculated.</p>
+<h3><a name="Derive quality indicators">Derive quality indicators</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>In addition to monitoring the work progress, the project manager also
+monitors the quality of the project artifacts. Quality metrics (again as defined
+by the project's Measurement Plan), are consolidated to provide an overall
+picture of the project's status compared to its stated quality objectives.</p>
+<h3><a name="Evaluate indicators vs. plans">Evaluate indicators vs. plans</a> <a href="#Top"><img alt="To top of page" border="0" src="../../images/top.gif" width="26" height="20"></a></h3>
+<p>Having derived the project's progress and quality indicators, the project
+manager compares these against the expected state of the project as defined by
+the Software Development Plan and Iteration Plans. At this point the project
+manager will evaluate the following:
+<ul>
+  <li>Have all planned tasks been completed?</li>
+  <li>Have all artifacts been published as planned?</li>
+  <li>Is the estimated effort to complete tasks that are &quot;in progress&quot;
+    within plan?</li>
+  <li>Are quality metrics (e.g. open defect counts) within planned tolerances?</li>
+</ul>
+<p>The project manager will also review the risk indicators identified for each
+risk on the Risk List to decide whether any risk mitigation strategies should be
+activated at this time.</p>
+<p>The project manager, in reviewing progress against the Iteration Plan, should
+always have in mind that an iteration is <a href="../glossary.htm#timeboxing">timeboxed</a>,
+and start to consider and report what functionality can be omitted from an
+iteration, if it appears the original plan cannot be achieved, rather than
+reporting a schedule slip for the iteration.</p>
+<p>Any issues that have been reported are captured on the project's Issues List
+(which will be reported in the <a href="../artifact/ar_stass.htm">Status
+Assessment</a>). Issues that fall within the project manager's authority should
+be resolved directly, as part of <a href="ac_hexpr.htm">Activity: Handle
+Exceptions and Problems</a>; it may sometimes be necessary to raise the profile
+of an issue, for example, by raising a Change Request to track it, or by
+updating the <a href="../artifact/ar_rskls.htm">Risk List</a>, if the issue is
+important, or of wider interest.</p>
+<p>Issues arising that require escalation to the Project Review Authority are
+included in the Status Assessment and forwarded to the PRA for resolution. Often
+this is done during the PRA Project Review activity.</p><br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

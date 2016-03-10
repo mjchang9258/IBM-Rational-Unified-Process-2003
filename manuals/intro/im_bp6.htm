@@ -1,0 +1,219 @@
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Best Practice: Manage Change</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+      <h2 class="banner"><a name="Top"></a>Best Practice: Manage Change</h2>
+<p align="center"><img src="images/ccm.gif" width="353" height="201"></p>
+      <p class="picturetext">Managing change is more than just checking-in and 
+        checking-out files. It includes management of workspaces, parallel development, 
+        integration, and builds.</p>
+<p>A key challenge when you're developing software-intensive systems is that
+you must cope with multiple developers, organized into different teams, possibly
+at different sites, working together on multiple iterations, releases, products,
+and platforms. In the absence of disciplined control, the development process
+rapidly degenerates into chaos. In the Rational Unified Process, the <a href="../../process/workflow/ovu_cm.htm">Configuration
+&amp; Change Management</a>  discipline describes how you meet
+this challenge.</p>
+<h5>Topics</h5>
+<ul>
+  <li><a href="#Coordinating the Activities and Artifacts">Coordinating the
+    Activities and Artifacts</a></li>
+  <li><a href="#Coordinating Iterations and Releases">Coordinating Iterations
+    and Releases</a></li>
+  <li><a href="#Controlling Changes to Software">Controlling Changes to Software</a></li>
+</ul>
+<h2><a name="Coordinating the Activities and Artifacts">Coordinating the
+Activities and Artifacts</a>&nbsp; <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Coordinating the activities and artifacts of developers and teams
+involves establishing repeatable procedures for managing changes to software and
+other development artifacts. This coordination allows a better allocation of
+resources based on the project's priorities and risks, and it actively manages
+the work on those changes across iterations. Coupled with developing your
+software iteratively, this practice lets you continuously monitor changes so
+that you can actively discover, and then react to problems.&nbsp;</p>
+<p> See the <a href="../../process/workflow/conf_mgt/wfd_mgchrq.htm">Workflow
+Detail: Manage Change Requests</a> for further information on this topic.</p>
+<h2><a name="Coordinating Iterations and Releases">Coordinating Iterations and
+Releases</a>&nbsp; <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Coordinating iterations and releases involves establishing and releasing a
+tested baseline at the completion of each iteration. Maintaining traceability
+among the elements of each release and among elements across multiple, parallel
+releases is essential for assessing and actively managing the impact of change.&nbsp;</p>
+<p>
+See the <a href="../../process/workflow/conf_mgt/wfd_mgbsln.htm">Workflow Detail:
+Manage Baselines &amp; Releases</a> for more details.</p>
+<h2><a name="Controlling Changes to Software">Controlling Changes to Software</a>&nbsp;
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h2>
+<p>Controlling changes to software offers a number of solutions to the root
+causes of software development problems:
+<ul>
+  <li>The workflow of requirements change is defined and repeatable.</li>
+  <li>Change requests facilitate clear communications.</li>
+  <li>Isolated workspaces reduce interference among team members working in
+    parallel.</li>
+  <li>Change rate statistics provide good metrics for objectively assessing
+    project status.</li>
+  <li>Workspaces contain all artifacts, which facilitates consistency.</li>
+  <li>Change propagation is assessable and controlled.</li>
+  <li>Changes can be maintained in a robust, customizable system.</li>
+</ul>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+

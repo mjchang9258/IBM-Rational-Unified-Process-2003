@@ -1,0 +1,244 @@
+
+<!-- RPW META DATA START --
+ 
+<rpw name="PresentationName">CREG Use Case - Close Registration - Elaboration Phase</rpw>
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Example: Close Registration Use Case Specification</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Microsoft Border" content="b, default">
+</head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<font face="Arial" size="5"><b>
+<p align="RIGHT">Course Registration System</p>
+<p align="RIGHT">Use-Case Specification</p>
+<p>&nbsp;</p>
+<i>
+<p align="RIGHT">Close Registration Use Case</p></i></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="4"><b>
+<p align="RIGHT">Version 2.0</p></b></font>
+<p>&nbsp;</p>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Revision History</p></b></font>
+
+<table border="1" cellspacing="1" cellpadding="7" width="100%">
+  <tr>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Date</b></font></td>
+    <td width="12%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Version</b></font></td>
+    <td width="39%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Description</b></font></td>
+    <td width="24%" valign="TOP"><font size="2"><b>
+    <p align="CENTER">Author</b></font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">21/Dec/98</font></td>
+    <td width="12%" valign="TOP"><font size="2">Draft</font></td>
+    <td width="39%" valign="TOP"><font size="2">Draft</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">13/Feb/99</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 1.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Minor corrections based on
+    review</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP"><font size="2">15/Feb/99</font></td>
+    <td width="12%" valign="TOP"><font size="2">Version 2.0</font></td>
+    <td width="39%" valign="TOP"><font size="2">Modify section on use case
+    extends. Final cleanup. Revise alternative flows. Resolve outstanding
+    issues.</font></td>
+    <td width="24%" valign="TOP"><font size="2">S. Gamble</font></td>
+  </tr>
+  <tr>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="12%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="39%" valign="TOP">
+    <pre> </pre>
+    </td>
+    <td width="24%" valign="TOP">
+    <pre> </pre>
+    </td>
+  </tr>
+</table>
+<font face="Arial" size="5"><b>
+<p align="CENTER">Table of Contents</p></b></font>
+<ol>
+  <li><a href="#_Toc449509123"><font size="2">Brief Description</font></a></li>
+  <li><a href="#_Toc449509124"><font size="2">Flow of Events</font></a>
+    <dl compact>
+      <dd><font size="2">2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509125"><font size="2">Basic Flow – Successful
+        Close Registration</font></a></dd>
+      <dd><font size="2">2.2&nbsp;&nbsp;&nbsp; </font><a href="#Alternate Flows"><font size="2">Alternate Flows</font></a></dd>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509127"><font size="2">Less Than Three Students
+            in the Course Offering</font></a></dt>
+      <dd>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.2&nbsp;&nbsp;&nbsp; <a href="#Cancel Course Offering">Cancel Course
+        Offering</a></font></dd>
+      <dd>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.3&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509128"><font size="2">No Professor for the
+            Course Offering</font></a></dd>
+      <dt>&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2.2.4&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509129"><font size="2">Billing System Unavailable</font></a></dt>
+    </dl>
+  </li>
+  <li><a href="#special"><font size="2">Special Requirements</font></a></li>
+  <li><a href="#_Toc449509131"><font size="2">Preconditions</font></a>
+    <dl compact>
+      <dd><font size="2">4.1&nbsp;&nbsp;&nbsp; </font><a href="#_Toc449509132"><font size="2">Login</font></a></dd>
+    </dl>
+  </li>
+  <li><a href="#_Toc449509133"><font size="2">Postconditions</font></a></li>
+  <li><a href="#_Toc449509134"><font size="2">Extension Points</font></a></li>
+</ol>
+<b><font face="Arial" size="5">
+<p align="CENTER">Close Registration Use Case<a name="_Toc423410237"></a></p>
+</font>
+</b><ol><b>
+  <li><a name="_Toc449509123"><font face="Arial">Brief Description</font></a></li>
+</b><font size="2">
+<p>This use case allows a Registrar to close the registration process. Course
+offerings that do not have enough students are cancelled. Course offerings must
+have a minimum of three students in them. The billing system is notified for
+each student in each course offering that is not cancelled, so the student can
+be billed for the course offering.</p>
+<p>The main actor of this use case is the Registrar. The Billing System is an
+actor involved within this use case.</p>
+</font></ol><font size="2">
+<b><a name="_Toc423410239"></a><a name="_Toc425054505"></a></b></font><b><font face="Arial">&nbsp;&nbsp;&nbsp;
+2.&nbsp;&nbsp;&nbsp; <a name="_Toc449509124">Flow
+of Events</a>
+</font></b>
+<ol>
+  <font size="2">
+<p>The use case begins when the Registrar selects the &quot;close
+registration&quot; activity from the Main Form.
+</font></ol><font size="2">
+  <b><a name="_Toc423410240"></a><a name="_Toc425054506"></a></b></font><b><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1&nbsp;&nbsp;&nbsp; <a name="_Toc449509125">Basic
+  Flow</a> – Successful Close Registration</font></b><blockquote>
+  <blockquote>
+    <font size="2">
+  <p>The system checks to see if a Registration is in progress. If it is, then a
+  message is displayed to the Registrar and the use case terminates. The Close
+  Registration processing cannot be performed if registration is in progress. .</p>
+  <p>For each open course offering, the system checks if three students have
+  registered and a professor has signed up to teach the course offering. If so,
+  the system closes the course offering and sends a transaction to the billing
+  system for each student enrolled in the course offering.</p></font>
+  </blockquote>
+  <font face="Arial" size="2"><b>2.2&nbsp;&nbsp;&nbsp; <a name="Alternate Flows">Alternate
+  Flows</a></b></font>
+  <p><b><font face="Arial" size="2"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>&nbsp;&nbsp;
+  2.2.1&nbsp;<i>&nbsp;&nbsp; <a name="_Toc449509127">Less Than
+      Three Students in the Course Offering</a></i></font></b><blockquote>
+  <blockquote>
+    <font size="2">
+      <p>If in the basic flow less than three students signed up for the course
+      offering, the system will cancel the course offering. The Cancel Course
+      Offering sub-flow is executed at this point.</p></font>
+  </blockquote>
+  <font face="Arial" size="2"><b>2.2.2<i>&nbsp;&nbsp;&nbsp; <a name="Cancel Course Offering">Cancel Course Offering</a></i></b></font><font size="2">
+      <blockquote>
+      <p>The system cancels the course offering. For each student enrolled in
+      the cancelled course offering, system will modify the student’s
+      schedule. The first available alternate course selection will be
+      substituted for the cancelled course offering. If no alternates are
+      available, then no substitution will be made. Control returns to the Main
+      flow to process the next course offering for the semester.</p>
+      <p>Once all schedules have been processed for the current semester, the
+      system will notify all students, by mail, of any changes to their schedule
+      (e.g., cancellation or substitution).</p>
+      </blockquote>
+      </font><b><font face="Arial" size="2">2.2.3<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449509128">No Professor
+      for the Course Offering</a></i></font></b><font size="2">
+      <blockquote>
+      <p>If in the basic flow there is no professor signed up to teach the
+      course offering, the system will cancel the course offering. The Cancel
+      Course Offering sub-flow is executed at this point.</p>
+      </blockquote>
+      </font><b><font face="Arial" size="2">2.2.4<i>&nbsp;&nbsp;&nbsp; <a name="_Toc449509129">Billing System
+      Unavailable</a></i></font></b><font size="2">
+      <blockquote>
+      <p>If the system is unable to communicate with the Billing System, the
+      system will attempt to re-send the request after a specified period. The
+      system will continue to attempt to re-send until the Billing System
+      becomes available</p>
+      </blockquote>
+      </font>
+  </blockquote>
+</blockquote>
+  <b>
+  <p><font face="Arial">&nbsp;&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp; <a name="special">Special Requirements</a></font></p></b><blockquote><b>
+<font face="Arial">
+  </font></b>
+    <font size="2">
+    <p>There are no special requirements associated with this use case.</p>
+</font></blockquote><p>
+  <font size="2"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></font><b><font face="Arial"> 4.</font></b>&nbsp;&nbsp;&nbsp;
+  <b><font face="Arial"><a name="_Toc449509131">Preconditions</a></font></b>
+</p>
+<blockquote>
+  <b><font face="Arial" size="2">4.1&nbsp;&nbsp;&nbsp; <a name="_Toc449509132">Login</a></font></b><font size="2">
+      <p>The Registrar must be logged onto the system in order for this use case
+      to begin.</p>
+      </font>
+</blockquote>
+  <p><b><font face="Arial" size="3">&nbsp;</font><font face="Arial"><font size="3">&nbsp;&nbsp;
+  </font>5.</font><font size="3">&nbsp;&nbsp;&nbsp; </font><font face="Arial" size="3"><a name="_Toc449509133">Postconditions</a></font></b></p>
+  
+<blockquote>
+    <font size="2">
+    <p>There are no postconditions associated with this use case.</p>
+  </font>
+</blockquote>
+  <p><b><font face="Arial">&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc449509134">Extension Points</a></font></b></p>
+  
+<blockquote>
+    <font size="2">
+    <p>There are no extension points associated with this use case.</p></font>
+  <ol>
+    <ol>
+      <p>&nbsp;</p>
+    </ol>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </ol>
+  <p>&nbsp;</p>
+</blockquote>
+<br>
+<br>
+<p>&nbsp;<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" width="100%" height="23">
+  <tr>
+    <td width="5%" height="19"></td>
+    <td width="56%" height="19"><font face="Arial"><a href="../../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2003 Rational Software Corporation&nbsp;</small></small></a></font>
+    </td>
+    <td width="39%" height="19">
+<p align="right"><font face="Arial"><small><small>
+Course Registration Project Web Example<br>
+Version 2001.02</small></small></font>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr><!--msnavigation--></table></body>
+
+</html>

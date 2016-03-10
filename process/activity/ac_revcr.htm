@@ -1,0 +1,330 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Activity:&nbsp;Review Change Request</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+<h2 class="banner">Activity:&nbsp;<rpw name="PresentationName">Review Change Request</rpw><a name="Top"></a><a name="XE_change_request_management__reviewing_change_requests"></a></h2>
+<div align="left">
+
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+    <td colspan="2"><b>Purpose</b>
+      <ul>
+        <li>The purpose of this activity is to determine if 
+          the Change Request (CR) should be accepted or flagged for rejection. 
+          For accepted CRs, this activity assesses priority, effort, schedule, 
+          and so on to determine if the change is in scope for the current 
+          release.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Steps</b>
+    <ul>
+      <li><a href="#Schedule CCB Review Meeting">Schedule CCB Review Meeting</a></li>
+      <li><a href="#Retrieve Change Requests for Review">Retrieve Change
+        Requests for Review</a></li>
+      <li><a href="#Review Submitted Change Requests">Review Submitted Change
+        Requests</a></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Input Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+<li><a href="../artifact/ar_itpln.htm">Iteration Plan</a></li>
+<li><a href="../artifact/ar_prrsp.htm">Problem Resolution Plan</a></li>
+<li><a href="../artifact/ar_acpl.htm">Product Acceptance Plan</a></li>
+<li><a href="../artifact/ar_projspecgls.htm">Project Specific Guidelines</a></li>
+<li><a href="../artifact/ar_qapl.htm">Quality Assurance Plan</a></li>
+</ul>
+&nbsp;
+	</td>
+    <td width="50%"><b>Resulting Artifacts:&nbsp;</b>
+	  <ul>
+<li><a href="../artifact/ar_crqst.htm">Change Request</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Frequency:&nbsp;</b>
+      Once a configuration item has been baselined and entered into the configuration management system, all requests to 
+	  changes to it should go through the official change request management process.&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Role:&nbsp;</b>
+	  <a href="../workers/wk_ccmgr.htm">Change Control Manager</a>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"><a name="Top"></a><b>Tool Mentors:&nbsp;</b>
+      <ul>
+<li><a href="../../toolment/anastudio/tm_feat_cqrp.htm">Managing Stakeholder Requests Using Rational ClearQuest and Rational RequisitePro</a></li>
+<li><a href="../../toolment/clearquest/tm_query.htm">Reporting Review and Work Status Using Rational ClearQuest</a></li>
+<li><a href="../../toolment/clearquest/tm_mthis.htm">Viewing the History of a Defect Using Rational ClearQuest</a></li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+  
+</table>
+<!-- Linked to Workflow Begin -->
+<p></p>
+<table border="1" width="85%" cellspacing="0" cellpadding="4" style="border: 1px solid rgb(128,128,128)" bordercolorlight="#808080" bordercolordark="#808080">
+ <tbody valign="top">
+  <tr>
+	<td colspan="2"><b>Workflow Details:&nbsp;</b>
+	  <ul>
+<li><a href="../workflow/ovu_cm.htm">Configuration & Change Management</a>
+<ul>
+<li><a href="../workflow/conf_mgt/wfd_mgchrq.htm">Manage Change Requests</a></li>
+</ul>
+</li>
+</ul>
+&nbsp;
+	</td>
+  </tr>
+</table>
+<!-- Linked to Workflow End -->
+</div>
+
+<h3><a name="Schedule CCB Review Meeting">Schedule CCB Review Meeting</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Change (or Configuration) Control Board (CCB)<b> </b>is the board that
+oversees the change process consisting of representatives from all interested
+parties, including customers, developers, and users. In a small project, a
+single person, such as the project manager or software architect, may play this
+role. In the Rational Unified Process, this is shown by the <a href="../workers/wk_ccmgr.htm">Change
+Control Manager</a> role.</p>
+<p>The function of this meeting is to review <b><i>Submitted</i></b>
+Change Requests. An initial review of the contents of the CR is done in the
+meeting to determine if it is a valid request. If so, then a determination is
+made if the change is in or out of scope for the current release(s), based on
+priority, schedule, resources, level-of-effort, risk, severity and any other
+relevant criteria as determined by the group. This meeting is typically held
+once per week. If the CR volume increases substantially, or as the end of a
+release cycle approaches, the meeting may be held as frequently as daily.
+Typical members of the CCB Review Meeting are the Test Manager, Development
+Manager and a member of the Marketing Department. Additional attendees may be
+deemed necessary by the members on an &quot;as needed&quot; basis.</p>
+<h3><a name="Retrieve Change Requests for Review">Retrieve Change Requests for
+Review</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The Change Request Form is a formally submitted artifact that
+is used to track all requests (including new features, enhancement requests,
+defects, changed requirements, etc.) along with related status information
+throughout the project lifecycle. All change history will be maintained with the
+CR, including all state changes along with dates and reasons for the change.
+This information will be available for any repeat reviews and for final closing.
+An example Change Request Form is provided in <a href="../artifact/ar_crqst.htm">Artifact:
+Change Requests</a>.</p>
+<h3><a name="Review Submitted Change Requests">Review Submitted Change Requests</a>
+<a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+<p>The function of this activity is to review <b><i>Submitted</i></b>
+Change Requests. This state occurs as the result of 1) a new CR submission, 2)
+update of an existing CR or 3) consideration of a <b><i>Postponed</i></b>
+CR for a new release cycle. CR is placed in the CCB Review queue. No owner
+assignment takes place as a result of this action.</p>
+<p>An initial review of the contents of the CR is done in the CCB Review meeting
+to determine if it is a valid request. If so, then a determination is made if
+the change is in or out of scope for the current release(s), based on priority,
+schedule, resources, level-of-effort, risk, severity and any other relevant
+criteria as determined by the group.</p>
+<p>If the CR is determined to be valid, but &quot;out of scope&quot; for the
+current release(s) it will be put in the <b><i>Postponed</i></b> state
+and will be held and reconsidered for future releases. A target release may be
+assigned to indicate the timeframe in which the CR may be <b><i>Submitted</i></b>
+to re-enter the CCB Review queue.</p>
+<p>If a CR is believed to be a duplicate of another CR that has already been
+submitted, its should be assigned to the CCB Review Admin or the team member assigned
+to resolve it. When the CR is placed into the <b><i>Duplicate</i></b>
+state, the CR number it duplicates will be recorded (on the Attachments tab in
+ClearQuest). A submitter should initially query the CR database for duplicates
+of a CR before it is submitted. This will prevent several steps of the review
+process and therefore save a lot of time. Submitters of duplicate CRs should be
+added to the notification list of the original CR for future notifications
+regarding resolution.</p>
+<p>Sometimes a CR is determined in the CCB Review Meeting or by the assigned
+team member to be an invalid request or more information is needed from the
+submitter. If already assigned (<b><i>Opened</i></b>), the CR is
+removed from the resolution queue and will be reviewed again. A designated
+authority of the CCB is assigned to confirm. No action is required from the
+submitter unless deemed necessary, in which case the CR state will be changed to
+<b><i>More Info</i></b>. The CR will be reviewed again in the CCB
+Review Meeting considering any new information. If confirmed invalid, the CR
+will be <b><i>Closed</i></b> by the CCB and the submitter notified.</p>
+<p>When a CR has been determined to be &quot;in scope&quot; for the current
+release it is assigned to an <b><i>Opened</i></b> state and is
+awaiting resolution. It has been slated for resolution before an upcoming target
+milestone. It is defined as being in the &quot;assignment queue&quot;. The
+meeting members are the sole authority for opening a CR into the resolution
+queue. If a CR of priority two or higher is found, it should be brought to the
+immediate attention of the QE or Project Manager. At that point they may decide
+to convene an emergency CCB Review Meeting or simply open the CR into the
+resolution queue instantly.</p>
+<p>An <b><i>Opened</i></b> CR is then the responsibility of the
+Project Manager to Assign Work based on the type of CR and update the schedule,
+if appropriate.</p>
+<p>Typical states that a Change Request may pass through are shown in <a href="../workflow/conf_mgt/co_revno.htm">Concepts:
+Change Request Management</a>)</p>
+<br><br>
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>

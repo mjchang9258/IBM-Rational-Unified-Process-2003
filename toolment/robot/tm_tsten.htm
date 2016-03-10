@@ -1,0 +1,314 @@
+<!-- RPW META DATA START --
+
+ 
+ 
+-- RPW META DATA END -->
+<html>
+
+<head>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+<title>Tool Mentor:&nbsp;Setting Up the Test Environment in Rational Robot </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body>
+
+ 
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top">
+
+<script language="JavaScript">
+<!--
+
+//Tell the TreePath to update itself
+var thePath = "";
+var type = typeof parent.ory_button;
+if (type != "undefined") {
+	 type = typeof parent.ory_button.getTreePath();
+	 if (type != "undefined") {
+	 	 thePath = parent.ory_button.getTreePath();
+	 }
+}
+document.write(thePath);
+-->
+</script>
+
+ 
+
+
+
+
+<h2 class="banner"><a name="Top"></a>Tool Mentor:&nbsp;<rpw name="PresentationName">Setting Up the Test Environment in Rational Robot </rpw>
+</h2>
+
+<h3>Purpose</h3>
+
+<p>This tool mentor describes how to use Rational Robot to set up the test environment.</p>
+
+<p>This section provides links to additional information related to this tool mentor.<br>
+  <ul>
+<li><a href="../../process/activity/ac_setup.htm">Set Up Tools</a></li>
+<li><a href="../../process/activity/ac_tst_exctstste.htm">Execute Test Suite</a></li>
+<li><a href="../../process/activity/ac_tst_dfntstenvcnf.htm">Define Test Environment Configurations</a></li>
+<li><a href="../../process/activity/ac_sudev.htm">Support Development</a></li>
+</ul>
+<br>
+   
+</p>
+
+<h3>Overview</h3>
+
+<p>This tool mentor is applicable when running Microsoft Windows 98/2000/NT 4.0.</p>
+
+<p>To use Rational Robot to set up your environment for testing, do the following: 
+
+<ol>
+  <ol>
+    <li><a href="#heading of tool step one">Set up the test environment for recording, editing,
+      or test script playback</a></li>
+    <li><a href="#heading of tool step two">Set GUI record script options</a></li>
+    <li><a href="#step three">Set GUI script playback options</a></li>
+  </ol>
+</ol>
+
+<h3>1. <a name="heading of tool step one">Set up the test environment for recording,
+editing, or test script playback</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>The state of the Microsoft Windows environment as well as your application-under-test
+can affect script playback. If there are differences between the recorded environment and
+the playback environment, playback problems can occur.</p>
+
+<p>Before recording or editing your test script, make sure your application-under-test and
+all the other software (in the test environment) are in the appropriate initial state.
+Additionally, prior to executing your tests (playing back your test scripts), ensure that
+your application-under-test and all other software are in the same initial state as when
+the test scripts were recorded/edited. Whatever applications and windows were open,
+active, or displayed when you started recording the script should be open, active, or
+displayed when you start playback. In addition, be sure that any relevant network
+settings, active databases, and system memory are in the same state as when the script was
+recorded.</p>
+
+<p>When playing back your test scripts, make sure you set the appropriate playback
+options, including how Rational Robot should handle unexpected active windows and recover
+from script command errors (see next section).</p>
+
+<h3>2. <a name="heading of tool step two">Set GUI script record options</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>Graphical User Interface (GUI) script record options provide instructions to Rational
+Robot on how to handle certain objects, mouse drags, window settings, object contents, and
+the Robot window during the recording of a script.</p>
+
+<p>To set GUI script record options: 
+
+<ol>
+  <li>Display the GUI Record Options dialog box by doing one of the following:</li>
+</ol>
+
+<blockquote>
+  <ul>
+    <li>Before you start recording, click <b>Tools &gt; GUI Record Options</b>.</li>
+    <li>Start recording by clicking the <b>Record GUI Script</b> button on the
+      toolbar. In the Record dialog box, click <b>Options</b>.</li>
+  </ul>
+</blockquote>
+
+<ol start="2">
+  <li>Set the options on each tab. For detailed information on each tab, <img SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"> see the chapter <b>Setting
+    GUI Record Options</b> in the <i>Using Rational Robot</i> manual or <img SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16"> see the Robot online
+    Help.</li>
+</ol>
+
+<blockquote>
+  <p><b>General </b>&#151; Specify how Robot identifies / recognizes list and menu
+  contents and unsupported mouse drags. Additionally, from this tab you can also specify:
+  the prefix for script autonaming, whether Robot saves and restores the sizes and positions
+  of active windows, whether to record think time, or record a delay after the Enter key is
+  pressed.</p>
+  <p><b>Robot Window </b>&#151; Specify how the Robot window will appear during the
+  recording of a test script. This tab also enables the user to specify the hot keys used to
+  hide/redisplay the Robot window and toggle between Object-Oriented Recording and low-level
+  recording modes.</p>
+  <p><b>Object Recognition Order </b>&#151; Used to change the priority of object
+  recognition methods for individual object types either before or during recording.</p>
+</blockquote>
+
+<p>For information on how to record a script, see <a href="tm_imtst.htm">Tool Mentor:
+Creating Test Scripts Using Rational Robot</a>.</p>
+
+<h3>3. <a name="step three">Set GUI script playback options</a> <a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h3>
+
+<p>GUI Script playback options provide instructions to Rational Robot on how to play back
+GUI scripts. You can set these options either before you begin playback or early in the
+playback process.</p>
+
+<p>To set GUI playback options: 
+
+<ol>
+  <li>Display the GUI Playback Options dialog box by doing one of the following:</li>
+</ol>
+
+<blockquote>
+  <ul>
+    <li>Before you start playback, click <b>Tools &gt; GUI Playback Options</b>.</li>
+    <li>Start playback by clicking the <b>Playback Script</b> button on the toolbar. In the
+      Playback dialog box, click <b>Options</b>.</li>
+  </ul>
+</blockquote>
+
+<ol start="2">
+  <li>Set the options on each tab.&nbsp;<br>
+    <br>
+    For detailed information on each tab, <img SRC="../../images/Book.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="15"> see the chapter <b>Setting GUI Playback Options</b> in the <i>Using
+    Rational Robot</i> manual or <img SRC="../../images/HelpBook.gif" VSPACE="0" HSPACE="0" BORDER="0" width="16" height="16"> see the Robot online Help.</li>
+  <p><b>Playback </b>&#151; Specify the delay between commands and keystrokes, whether to
+  use the recorded think time and typing delays, whether to skip verification points,
+  whether to display an acknowledge results box, and what happens to the Robot window during
+  playback. For information, click the <b>Help</b> button in the dialog box.</p>
+  <p><b>Log </b>&#151; Specify what results are saved in the log, whether the log
+  automatically appears after playback, whether you want to be prompted before the log is
+  overwritten, and whether to use default log information or information you supply.</p>
+  <p><b>Caption Matching </b>&#151; Specify how Robot matches window captions captured
+  during recording with captions found during playback. For information, click the <b>Help</b>
+  button in the dialog box.</p>
+  <p><b>Wait State </b>&#151; Specify the default retry and timeout values during playback.</p>
+  <p><b>Unexpected Active Windows </b>&#151; Specify how Robot responds to the appearance of
+  unexpected active windows.</p>
+  <p><b>Error Recovery </b>&#151; Specify how Robot recovers from script command and
+  verification point failures during script playback.</p>
+  <p><b>Trap </b>&#151; Specify what information the Trap utility captures about general
+  protection faults that occur during playback and the recovery method.</p>
+  <li>Click <b>OK</b>.</li>
+</ol>
+
+<p>For information on how to play back a script, see <a href="tm_extst.htm">Tool
+Mentor:
+Executing Tests with Rational Robot.</a><br>
+</p>
+<br>
+<br>
+
+
+ 
+
+<p>
+ <font face="Arial"><a href="../../copyrite/copyrite.htm">
+ <font size="-2">Copyright&nbsp;&copy;&nbsp;1987 - 2003 Rational Software Corporation</font>
+ </a></font>
+</p>
+
+
+</td><td valign="top" width="24"></td><td valign="top" width="1%">
+<p>
+<a href="../../index.htm"></a>
+</p>
+
+<script language="JavaScript">
+<!--
+
+function loadTop()
+{
+  if(parent.frames.length!=0 && parent.frames[1].name=="ory_toc")
+  {
+     alert("The Rational Unified Process is already displayed using frames");
+  }
+  else
+  {
+    var expires = new Date();
+    expires.setTime (expires.getTime() + (1000 * 20));
+    document.cookie = "rup_ory_doc=" + escape (document.URL) +
+    "; expires=" + expires.toUTCString() +  "; path=/";
+
+    var new_ory_doc_loc = null;
+
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href;
+         break;
+       }
+    }
+
+    if(new_ory_doc_loc!=null)
+    {
+	if( self.name == "ory_doc" )
+	{
+		window.close();
+		window.open( new_ory_doc_loc );		
+	}
+	else
+	{
+	       	top.location = new_ory_doc_loc;
+	}
+    }
+   }
+}
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  function getImageUrl(image)
+  {
+    var new_ory_doc_loc=null;
+    for(i=document.links.length-1;i>=0;i--)
+    {
+       if(document.links[i].href.indexOf("index.htm")!=-1)
+       {
+         new_ory_doc_loc = document.links[i].href.substring(0,document.links[i].href.lastIndexOf("/"));
+         new_ory_doc_loc = new_ory_doc_loc + "" + image;
+         return new_ory_doc_loc;
+       }
+    }
+    return null;
+  }
+// -->
+</script>
+<script
+language="JavaScript">
+<!--
+MSFPhover =
+(((navigator.appName == "Netscape") &&
+  (parseInt(navigator.appVersion) >= 3 )) ||
+  ((navigator.appName == "Microsoft Internet Explorer") &&
+  (parseInt(navigator.appVersion) >= 4 )));
+
+  function MSFPpreload(img)
+  {
+     var a=new Image();
+     a.src=img;
+     return a;
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+    if(MSFPhover)
+    {
+        RupGray=MSFPpreload(getImageUrl('/images/rup1.gif'));
+        RupBlue=MSFPpreload(getImageUrl('/images/rup1_a.gif'));
+    }
+// -->
+
+//new code to display the load button or not
+var ory_toc_exist = typeof parent.ory_toc;
+if (ory_toc_exist == "undefined") {
+	document.write("<a href=\"JavaScript:loadTop();\" onmouseover=\"if(MSFPhover) document['Home'].src=RupBlue.src; self.status='Display Rational Unified Process using frames'; return true\" onmouseout=\"if(MSFPhover) document['Home'].src=RupGray.src; self.status= ' ';return true\"> <br> <img src=\"../../images/rup1.gif");
+	document.write("\"  border=\"0\" alt=\Display Rational Unified Process using frames\" name=\"Home\" width=\"26\" height=\"167\"></a>");
+}
+else {
+	document.write("&nbsp;");
+}
+
+</script>
+</td></tr></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="right"><font face="Arial"><small><small>Rational Unified
+Process&nbsp;&nbsp; 
+<img border="0" width="63" height="7" src="../../images/rupversion.gif">
+</small></small></font>
+</td></tr></table>
+ 
+
+</body>
+
+</html>
+
